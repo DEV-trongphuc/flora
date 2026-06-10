@@ -3335,8 +3335,8 @@
             width: 56px;
             height: 56px;
             border-radius: 50%;
-            background: #ffffff;
-            box-shadow: 0 4px 20px rgba(0, 104, 255, 0.3);
+            background: #0068ff; /* Zalo Blue */
+            box-shadow: 0 4px 20px rgba(0, 104, 255, 0.4);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -3363,6 +3363,7 @@
                 transform: scale(0.9);
                 opacity: 0.8;
             }
+
             100% {
                 transform: scale(1.25);
                 opacity: 0;
@@ -3380,9 +3381,20 @@
             box-shadow: 0 6px 25px rgba(0, 104, 255, 0.45);
         }
 
+        .zalo-icon-wrapper {
+            width: 40px;
+            height: 40px;
+            background: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
         .zalo-float-btn img {
-            width: 32px;
-            height: 32px;
+            width: 26px;
+            height: 26px;
             object-fit: contain;
         }
 
@@ -3393,9 +3405,15 @@
                 bottom: 80px;
                 right: 20px;
             }
+
+            .zalo-icon-wrapper {
+                width: 34px;
+                height: 34px;
+            }
+
             .zalo-float-btn img {
-                width: 26px;
-                height: 26px;
+                width: 22px;
+                height: 22px;
             }
         }
 
@@ -3908,8 +3926,7 @@
                 <li><a href="#chung-chi">CME 140 Tiết</a></li>
                 <li><a href="#giang-vien">Giảng viên</a></li>
                 <li>
-                    <a href="#dong-hanh"
-                        style="gap: 6px; position: relative;">
+                    <a href="#dong-hanh" style="gap: 6px; position: relative;">
                         <span>100% Học phí</span>
                         <span
                             style="font-size: 0.62rem; font-weight: 800; background: linear-gradient(135deg, #ffd28f 0%, #c59e6c 100%); color: #5c2f0f; padding: 2px 6px; border-radius: 4px; line-height: 1; text-transform: uppercase; letter-spacing: 0.02em; display: inline-block; box-shadow: 0 2px 5px rgba(197, 168, 128, 0.25);">100%</span>
@@ -4127,7 +4144,8 @@
 
                     <p class="hero-desc reveal-up delay-400">
                         Hành trình từ bác sĩ tổng quát trở thành bác sĩ cấy ghép Implant thực chiến, tự tin đặt ca trụ
-                        đầu tiên an toàn nhờ lộ trình đào tạo bài bản và sự đồng hành hỗ trợ chuyên môn từ đội ngũ chuyên
+                        đầu tiên an toàn nhờ lộ trình đào tạo bài bản và sự đồng hành hỗ trợ chuyên môn từ đội ngũ
+                        chuyên
                         gia đầu ngành.
                     </p>
 
@@ -5499,8 +5517,11 @@
     </a>
 
     <!-- Zalo Floating Button -->
-    <a href="https://zalo.me/0911088870" target="_blank" rel="noopener noreferrer" class="zalo-float-btn" id="zaloFloatBtn" aria-label="Chat Zalo">
-        <img src="https://stc-zpl.zdn.vn/favicon.ico" alt="Zalo Chat" />
+    <a href="https://zalo.me/0911088870" target="_blank" rel="noopener noreferrer" class="zalo-float-btn"
+        id="zaloFloatBtn" aria-label="Chat Zalo">
+        <div class="zalo-icon-wrapper">
+            <img src="https://stc-zpl.zdn.vn/favicon.ico" alt="Zalo Chat" />
+        </div>
     </a>
 
     <!-- Registration Popup Modal -->
@@ -5614,7 +5635,7 @@
                 style="font-size: 1.4rem; color: var(--clr-primary); margin-bottom: 8px; font-family: var(--font-serif); font-style: italic;">
                 Hẹn giờ tư vấn riêng</h3>
             <p style="font-size: 0.8rem; color: var(--clr-text-muted); line-height: 1.5; margin-bottom: 20px;">Bác sĩ
-                vui lòng chọn ngày và khung giờ rảnh dưới đây để chúng tôi liên hệ hỗ trợ chu đáo nhất.</p>
+                vui lòng chọn ngày và khung giờ dưới đây để chúng tôi liên hệ hỗ trợ chu đáo nhất.</p>
 
             <form id="popupConsultationForm">
                 <div class="form-grid-row"
@@ -5676,7 +5697,7 @@
                     <div class="form-input-group"
                         style="display: flex; flex-direction: column; gap: 6px; position: relative;">
                         <label for="consultTimeSlotSelect"
-                            style="font-size: 0.78rem; font-weight: 700; color: var(--clr-navy);">KHUNG GIỜ RẢNH
+                            style="font-size: 0.78rem; font-weight: 700; color: var(--clr-navy);">KHUNG GIỜ TƯ VẤN
                             *</label>
                         <div class="custom-time-select" id="consultTimeSelect">
                             <div class="custom-select-trigger" id="consultTimeTrigger">
@@ -5743,7 +5764,8 @@
 
     <!-- Promotional Popup Modal (Exit Intent) -->
     <div id="implantPopup" class="implant-popup">
-        <div class="popup-content" data-lenis-prevent style="border: 2px solid var(--clr-accent); max-height: 90vh; overflow-y: auto;">
+        <div class="popup-content" data-lenis-prevent
+            style="border: 2px solid var(--clr-accent); max-height: 90vh; overflow-y: auto;">
             <div class="bottom-sheet-handle"></div>
             <button class="popup-close" id="closePopupBtn" aria-label="Đóng">&times;</button>
 
