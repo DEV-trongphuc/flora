@@ -2661,16 +2661,68 @@
         }
 
         /* ─── REVEAL ANIMATIONS ─── */
-        .reveal-up {
+        .reveal-fade,
+        .reveal-up,
+        .reveal-down,
+        .reveal-left,
+        .reveal-right,
+        .reveal-scale,
+        .reveal-stamp {
             opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform, opacity;
         }
 
-        .reveal-up.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .reveal-fade {
+            transform: none;
         }
+        .reveal-up {
+            transform: translateY(30px);
+        }
+        .reveal-down {
+            transform: translateY(-30px);
+        }
+        .reveal-left {
+            transform: translateX(-35px);
+        }
+        .reveal-right {
+            transform: translateX(35px);
+        }
+        .reveal-scale {
+            transform: scale(0.95);
+        }
+        .reveal-stamp {
+            transform: scale(1.35) rotate(15deg);
+            transition: opacity 1.2s cubic-bezier(0.34, 1.56, 0.64, 1), transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        /* Active states */
+        .reveal-fade.visible,
+        .reveal-up.visible,
+        .reveal-down.visible,
+        .reveal-left.visible,
+        .reveal-right.visible,
+        .reveal-scale.visible,
+        .reveal-stamp.visible {
+            opacity: 1;
+            transform: translate(0) scale(1) rotate(0);
+        }
+
+        /* Animation delay utilities */
+        .delay-100 { transition-delay: 0.1s !important; }
+        .delay-150 { transition-delay: 0.15s !important; }
+        .delay-200 { transition-delay: 0.2s !important; }
+        .delay-250 { transition-delay: 0.25s !important; }
+        .delay-300 { transition-delay: 0.3s !important; }
+        .delay-350 { transition-delay: 0.35s !important; }
+        .delay-400 { transition-delay: 0.4s !important; }
+        .delay-450 { transition-delay: 0.45s !important; }
+        .delay-500 { transition-delay: 0.5s !important; }
+        .delay-600 { transition-delay: 0.6s !important; }
+        .delay-700 { transition-delay: 0.7s !important; }
+        .delay-800 { transition-delay: 0.8s !important; }
+        .delay-900 { transition-delay: 0.9s !important; }
+        .delay-1000 { transition-delay: 1.0s !important; }
 
         /* ─── POPUP MODAL STYLES ─── */
         .implant-popup {
@@ -3181,7 +3233,14 @@
             .pain-card,
             .value-card,
             .audience-card,
-            .faculty-card {
+            .faculty-card,
+            .reveal-fade,
+            .reveal-up,
+            .reveal-down,
+            .reveal-left,
+            .reveal-right,
+            .reveal-scale,
+            .reveal-stamp {
                 opacity: 1 !important;
                 transform: none !important;
                 transition: none !important;
@@ -3454,9 +3513,9 @@
 
             <div class="container hero-grid" style="position: relative; z-index: 1;">
                 <!-- Text Column -->
-                <div class="hero-content reveal-up">
+                <div class="hero-content">
                     <!-- Floating Seal Stamp (overlapping on desktop) -->
-                    <div class="hero-seal-stamp-container"
+                    <div class="hero-seal-stamp-container reveal-stamp delay-600"
                         style="position: absolute; right: -25px; top: 5px; z-index: 10;">
                         <svg class="hero-seal-stamp" viewBox="0 0 200 200" width="168" height="168">
                             <defs>
@@ -3488,9 +3547,9 @@
                         </svg>
                     </div>
 
-                    <div class="hero-top-badge">LỚP ĐÀO TẠO Y KHOA LIÊN TỤC</div>
+                    <div class="hero-top-badge reveal-down delay-100">LỚP ĐÀO TẠO Y KHOA LIÊN TỤC</div>
 
-                    <h1 class="hero-main-title">
+                    <h1 class="hero-main-title reveal-up delay-200">
                         <span class="metallic-gold-text display-block"
                             style="font-size: clamp(3.2rem, 7.5vw, 5.6rem); line-height: 1.05; letter-spacing: -0.01em; font-weight: 900; padding-top: 0.15em; padding-bottom: 0.02em; margin: 0;">CẤY
                             GHÉP</span>
@@ -3500,7 +3559,7 @@
                     </h1>
 
                     <!-- Mobile-only visual box (placed directly under title) -->
-                    <div class="hero-visual-box mobile-only-visual reveal-up"
+                    <div class="hero-visual-box mobile-only-visual reveal-up delay-300"
                         style="margin-top: 20px; margin-bottom: 30px;">
                         <div class="hero-image-frame">
                             <img src="assets/hero.png" alt="Bác sĩ phẫu thuật cấy ghép implant" />
@@ -3529,11 +3588,11 @@
                         </div>
                     </div>
 
-                    <div class="hero-capsule-tagline">
+                    <div class="hero-capsule-tagline reveal-up delay-300">
                         Nhận chứng chỉ CME - Đạt chuẩn Y tế Toàn Quốc
                     </div>
 
-                    <p class="hero-desc">
+                    <p class="hero-desc reveal-up delay-400">
                         Hành trình từ bác sĩ tổng quát trở thành bác sĩ cấy ghép Implant thực chiến, tự tin đặt ca trụ
                         đầu tiên an toàn nhờ lộ trình đào tạo bài bản và sự đồng hành chuyên môn 1-1 từ đội ngũ chuyên
                         gia đầu ngành.
@@ -3577,7 +3636,7 @@
                     </div>
 
                     <!-- CTA Buttons -->
-                    <div class="hero-cta-buttons">
+                    <div class="hero-cta-buttons reveal-up delay-500">
                         <a href="#dang-ky" class="btn btn-primary">
                             <span>Đăng ký tư vấn chi tiết</span>
                             <i class="fa-solid fa-chevron-right"></i>
@@ -3590,13 +3649,13 @@
                 </div>
 
                 <!-- Visual Column -->
-                <div class="hero-visual-box reveal-up desktop-only-visual">
+                <div class="hero-visual-box reveal-right delay-200 desktop-only-visual">
                     <div class="hero-image-frame">
                         <img src="assets/hero.png" alt="Bác sĩ phẫu thuật cấy ghép implant" />
                     </div>
 
                     <!-- Floating metrics badges -->
-                    <div class="floating-badge floating-badge-1">
+                    <div class="floating-badge floating-badge-1 reveal-scale delay-450">
                         <div class="floating-badge-icon"><i class="fa-solid fa-check-double"></i></div>
                         <div>
                             <div class="floating-badge-val">100%</div>
@@ -3604,7 +3663,7 @@
                         </div>
                     </div>
 
-                    <div class="floating-badge floating-badge-2">
+                    <div class="floating-badge floating-badge-2 reveal-scale delay-600">
                         <div class="floating-badge-icon"><i class="fa-solid fa-user-doctor"></i></div>
                         <div>
                             <div class="floating-badge-val">1 Kèm 1</div>
@@ -4934,8 +4993,8 @@
             });
         });
 
-        // Intersection Observer for smooth reveal-up animations
-        const revealElements = document.querySelectorAll('.reveal-up');
+        // Intersection Observer for smooth reveal animations
+        const revealElements = document.querySelectorAll('.reveal-up, .reveal-fade, .reveal-scale, .reveal-left, .reveal-right, .reveal-down, .reveal-stamp');
         const observerOptions = {
             threshold: 0.05,
             rootMargin: '0px 0px -50px 0px'
