@@ -93,6 +93,22 @@
     <!-- Premium Standalone Stylesheet (100% clashing-free) -->
     <style>
         /* ─── RESET & BASICS ─── */
+        html.lenis {
+            height: auto;
+        }
+
+        .lenis-smooth {
+            scroll-behavior: auto !important;
+        }
+
+        .lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+
+        .lenis-stopped {
+            overflow: hidden;
+        }
+
         html {
             scroll-behavior: smooth;
         }
@@ -3844,7 +3860,7 @@
 
     <!-- Mobile Drawer & Overlay -->
     <div class="drawer-overlay" id="drawerOverlay"></div>
-    <nav class="drawer-nav" id="drawerNav">
+    <nav class="drawer-nav" id="drawerNav" data-lenis-prevent>
         <!-- Drawer Logo Header -->
         <div class="drawer-logo-container"
             style="text-align: center; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid rgba(114, 47, 1, 0.08); display: flex; justify-content: center; align-items: center;">
@@ -5408,7 +5424,7 @@
 
     <!-- Registration Popup Modal -->
     <div id="registrationPopup" class="implant-popup">
-        <div class="popup-content"
+        <div class="popup-content" data-lenis-prevent
             style="border: 2px solid var(--clr-accent); text-align: left; max-width: 550px; padding: 30px 24px;">
             <div class="bottom-sheet-handle"></div>
             <button class="popup-close" id="closeRegistrationPopupBtn" aria-label="Đóng">&times;</button>
@@ -5506,7 +5522,7 @@
 
     <!-- Consultation Booking Popup Modal -->
     <div id="consultationPopup" class="implant-popup">
-        <div class="popup-content"
+        <div class="popup-content" data-lenis-prevent
             style="border: 2px solid var(--clr-accent); text-align: left; max-width: 550px; padding: 30px 24px; max-height: 90vh; overflow-y: auto;">
             <div class="bottom-sheet-handle"></div>
             <button class="popup-close" id="closeConsultationPopupBtn" aria-label="Đóng">&times;</button>
@@ -5646,7 +5662,7 @@
 
     <!-- Promotional Popup Modal (Exit Intent) -->
     <div id="implantPopup" class="implant-popup">
-        <div class="popup-content" style="border: 2px solid var(--clr-accent); max-height: 90vh; overflow-y: auto;">
+        <div class="popup-content" data-lenis-prevent style="border: 2px solid var(--clr-accent); max-height: 90vh; overflow-y: auto;">
             <div class="bottom-sheet-handle"></div>
             <button class="popup-close" id="closePopupBtn" aria-label="Đóng">&times;</button>
 
@@ -5689,7 +5705,7 @@
 
     <!-- Success Modal Popup -->
     <div id="successPopup" class="implant-popup">
-        <div class="popup-content" style="max-height: 90vh; overflow-y: auto;">
+        <div class="popup-content" data-lenis-prevent style="max-height: 90vh; overflow-y: auto;">
             <div class="bottom-sheet-handle"></div>
             <button class="popup-close" id="closeSuccessPopupBtn" aria-label="Đóng">&times;</button>
             <div class="success-checkmark">
@@ -5710,7 +5726,7 @@
 
     <!-- Certificate Preview Popup Modal -->
     <div id="certImageModal" class="implant-popup cert-popup">
-        <div class="popup-content">
+        <div class="popup-content" data-lenis-prevent>
             <button class="popup-close" id="closeCertModalBtn" aria-label="Đóng">&times;</button>
             <div class="cert-modal-img-wrapper">
                 <img src="https://img.magnific.com/psd-mien-phi/mau-chung-chi-thanh-tich-trang-nha-voi-cac-hinh-dang-vang_1393-344.jpg?semt=ais_hybrid&w=740&q=80"
@@ -5719,8 +5735,36 @@
         </div>
     </div>
 
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+
     <!-- Javascript Actions -->
     <script>
+        // Initialize Lenis Smooth Scroll (Body scroll only, stops when modals/drawers are open)
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // easeOutExpo
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            mouseMultiplier: 1,
+            smoothTouch: false, // Keep mobile touch native-fast
+            touchMultiplier: 2,
+            infinite: false,
+        });
+
+        function raf(time) {
+            const isScrollLocked = document.querySelector('.implant-popup.active') || document.querySelector('.drawer-nav.open');
+            if (isScrollLocked) {
+                lenis.stop();
+            } else {
+                lenis.start();
+            }
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
         // Initialize stagger grid transition delays before observer setup
         document.querySelectorAll('.stagger-grid').forEach(grid => {
             const items = grid.querySelectorAll('.stagger-item');
@@ -6184,10 +6228,14 @@
 
         backToTopBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            if (typeof lenis !== 'undefined') {
+                lenis.scrollTo(0);
+            } else {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
         });
 
         // Smooth scroll behavior for anchor links (excluding registration and consultation popup links)
@@ -6204,10 +6252,14 @@
                     const elementPosition = elementRect - bodyRect;
                     const offsetPosition = elementPosition - offset;
 
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
+                    if (typeof lenis !== 'undefined') {
+                        lenis.scrollTo(offsetPosition);
+                    } else {
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
                 }
             });
         });
