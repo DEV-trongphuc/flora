@@ -3305,7 +3305,7 @@
 
         @media (max-width: 768px) {
             .back-to-top-btn {
-                bottom: 80px !important;
+                bottom: 140px !important;
                 left: auto !important;
                 right: 20px !important;
                 transform: translateY(100px) !important;
@@ -3324,6 +3324,78 @@
 
             .back-to-top-btn span {
                 display: none !important;
+            }
+        }
+
+        /* Zalo Floating Button Style */
+        .zalo-float-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #ffffff;
+            box-shadow: 0 4px 20px rgba(0, 104, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
+            opacity: 0;
+            transform: scale(0.8) translateY(20px);
+            pointer-events: none;
+        }
+
+        .zalo-float-btn::before {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            border-radius: 50%;
+            border: 2px solid #0068ff;
+            opacity: 0;
+            animation: zalo-pulsing 2s infinite;
+            pointer-events: none;
+        }
+
+        @keyframes zalo-pulsing {
+            0% {
+                transform: scale(0.9);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1.25);
+                opacity: 0;
+            }
+        }
+
+        .zalo-float-btn.show {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            pointer-events: auto;
+        }
+
+        .zalo-float-btn:hover {
+            transform: scale(1.1) translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0, 104, 255, 0.45);
+        }
+
+        .zalo-float-btn img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+        }
+
+        @media (max-width: 768px) {
+            .zalo-float-btn {
+                width: 48px;
+                height: 48px;
+                bottom: 80px;
+                right: 20px;
+            }
+            .zalo-float-btn img {
+                width: 26px;
+                height: 26px;
             }
         }
 
@@ -5426,6 +5498,11 @@
         <span>Lên đầu trang</span>
     </a>
 
+    <!-- Zalo Floating Button -->
+    <a href="https://zalo.me/0911088870" target="_blank" rel="noopener noreferrer" class="zalo-float-btn" id="zaloFloatBtn" aria-label="Chat Zalo">
+        <img src="https://stc-zpl.zdn.vn/favicon.ico" alt="Zalo Chat" />
+    </a>
+
     <!-- Registration Popup Modal -->
     <div id="registrationPopup" class="implant-popup">
         <div class="popup-content" data-lenis-prevent
@@ -6297,6 +6374,14 @@
                 });
             }
         });
+
+        // Fade in Zalo floating button on load
+        const zaloFloatBtn = document.getElementById('zaloFloatBtn');
+        if (zaloFloatBtn) {
+            setTimeout(() => {
+                zaloFloatBtn.classList.add('show');
+            }, 1500);
+        }
 
         // Smooth scroll behavior for anchor links (excluding registration and consultation popup links)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
