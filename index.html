@@ -1909,6 +1909,19 @@
             font-size: 0.72rem;
             color: var(--clr-accent);
         }
+        .curri-thesis-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 900px) {
+            .curri-thesis-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
 
         /* ─── CME CERTIFICATE SECTION ─── */
         .cert-section {
@@ -4650,19 +4663,28 @@
                         </ul>
                     </div>
                 </div>
-                <div class="curri-thesis reveal-up"
-                    style="display: flex; gap: 20px; align-items: flex-start; margin-top: 40px; background: #ffffff; border: 1px solid var(--clr-border); border-radius: var(--radius-lg); padding: 30px; box-shadow: var(--shadow-sm);">
-                    <div style="font-size: 1.8rem; color: var(--clr-primary); line-height: 1;"><i
-                            class="fa-solid fa-graduation-cap"></i></div>
-                    <div>
-                        <strong
-                            style="font-size: 1.05rem; color: var(--clr-navy); display: block; margin-bottom: 6px;">Học
-                            online linh hoạt kết hợp 2 buổi thực hành tập trung</strong>
-                        <p style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.6;">
-                            Học viên học lý thuyết thông qua các buổi học online tối cuối tuần trên phần mềm Zoom/LMS để
-                            không làm gián đoạn lịch làm việc tại phòng khám. 2 buổi thực hành hands-on trực tiếp tại
-                            trung tâm kỹ năng để rèn luyện kỹ năng phẫu thuật cắm trụ tốt nhất.
-                        </p>
+                <div class="curri-thesis-grid reveal-up">
+                    <!-- Left Banner: Format -->
+                    <div style="display: flex; gap: 20px; align-items: flex-start; background: #ffffff; border: 1px solid var(--clr-border); border-radius: var(--radius-lg); padding: 30px; box-shadow: var(--shadow-sm);">
+                        <div style="font-size: 1.8rem; color: var(--clr-primary); line-height: 1;"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <div>
+                            <strong style="font-size: 1.05rem; color: var(--clr-navy); display: block; margin-bottom: 6px;">Học online linh hoạt kết hợp 2 buổi thực hành tập trung</strong>
+                            <p style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.6; margin: 0;">
+                                Học viên học lý thuyết thông qua các buổi học online tối cuối tuần trên phần mềm Zoom/LMS để không làm gián đoạn lịch làm việc tại phòng khám. 2 buổi thực hành hands-on trực tiếp tại trung tâm kỹ năng để rèn luyện kỹ năng phẫu thuật cắm trụ tốt nhất.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Right Banner: Cohort/Opening -->
+                    <div style="display: flex; gap: 20px; align-items: flex-start; background: #ffffff; border: 1px solid var(--clr-border); border-radius: var(--radius-lg); padding: 30px; box-shadow: var(--shadow-sm); position: relative; overflow: hidden;">
+                        <!-- Light highlight badge for urgency -->
+                        <div style="position: absolute; top: 0; right: 0; background: linear-gradient(135deg, #ffd28f 0%, #c59e6c 100%); color: #5c2f0f; font-size: 0.65rem; font-weight: 800; padding: 4px 12px; border-radius: 0 0 0 8px; text-transform: uppercase; letter-spacing: 0.05em;">Khóa mới nhất</div>
+                        <div style="font-size: 1.8rem; color: var(--clr-accent); line-height: 1;"><i class="fa-solid fa-calendar-days"></i></div>
+                        <div>
+                            <strong style="font-size: 1.05rem; color: var(--clr-navy); display: block; margin-bottom: 6px;">Dự kiến khai giảng: Cuối tháng 7</strong>
+                            <p style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.6; margin: 0;">
+                                Số lượng học viên giới hạn để đảm bảo chất lượng giảng dạy lâm sàng & kèm cặp trực tiếp trong phòng phẫu thuật. Bác sĩ hãy đăng ký sớm để giữ chỗ cho khóa học sắp tới.
+                            </p>
+                        </div>
                     </div>
                 </div>
                 <div class="reveal-up" style="text-align: center; margin-top: 40px;">
