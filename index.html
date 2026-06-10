@@ -476,7 +476,11 @@
             z-index: 1000;
             border-bottom: 1px solid transparent;
             box-shadow: none;
-            transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+        }
+
+        .header-bar.header-hidden {
+            transform: translateY(-100%);
         }
 
         .header-bar.scrolled {
@@ -6236,24 +6240,43 @@
         // Back to top button & Header scroll class logic
         const backToTopBtn = document.getElementById('backToTopBtn');
         const headerBar = document.querySelector('.header-bar');
+        let lastScrollY = window.scrollY;
         let isScrollingLocked = false;
 
         function handleScrollEffects() {
             if (!isScrollingLocked) {
                 window.requestAnimationFrame(() => {
+                    const currentScrollY = window.scrollY;
+
                     // Back to top button toggle
-                    if (window.scrollY > 500) {
+                    if (currentScrollY > 500) {
                         backToTopBtn.classList.add('visible');
                     } else {
                         backToTopBtn.classList.remove('visible');
                     }
 
                     // Header background toggle
-                    if (window.scrollY > 20) {
+                    if (currentScrollY > 20) {
                         headerBar.classList.add('scrolled');
                     } else {
                         headerBar.classList.remove('scrolled');
                     }
+
+                    // Smart Header Hide/Show on scroll direction change
+                    if (currentScrollY > 150) {
+                        if (currentScrollY > lastScrollY) {
+                            // Scrolling down -> hide header
+                            headerBar.classList.add('header-hidden');
+                        } else {
+                            // Scrolling up -> show header
+                            headerBar.classList.remove('header-hidden');
+                        }
+                    } else {
+                        // Near top -> always show header
+                        headerBar.classList.remove('header-hidden');
+                    }
+                    lastScrollY = currentScrollY;
+
                     isScrollingLocked = false;
                 });
                 isScrollingLocked = true;
