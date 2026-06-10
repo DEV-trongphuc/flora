@@ -1433,14 +1433,16 @@
 
         .value-card {
             position: relative;
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(197, 168, 128, 0.25);
             border-radius: var(--radius-lg);
             padding: 40px 32px;
             box-shadow: 0 10px 30px rgba(114, 47, 1, 0.02), inset 0 1px 1px rgba(255, 255, 255, 0.8);
-            transition: var(--transition);
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                        border-color 0.4s ease, 
+                        box-shadow 0.4s ease;
             overflow: hidden;
             z-index: 1;
             width: calc(33.333% - 20px);
@@ -1461,6 +1463,30 @@
             }
         }
 
+        /* Diagonal shine sweep effect */
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.4),
+                transparent
+            );
+            transform: skewX(-25deg);
+            transition: 0.75s ease;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .value-card:hover::before {
+            left: 150%;
+        }
+
         .value-card::after {
             content: '';
             position: absolute;
@@ -1476,60 +1502,71 @@
         }
 
         .value-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--clr-accent);
-            box-shadow: 0 20px 40px rgba(114, 47, 1, 0.08), inset 0 0 20px rgba(197, 168, 128, 0.08);
+            transform: translateY(-10px);
+            border-color: rgba(197, 168, 128, 0.8);
+            box-shadow: 
+                0 20px 40px rgba(114, 47, 1, 0.08), 
+                0 0 25px rgba(197, 168, 128, 0.15),
+                inset 0 0 20px rgba(197, 168, 128, 0.05);
         }
 
         .value-num {
             position: absolute;
-            top: 20px;
-            right: 24px;
-            font-size: 3.5rem;
+            top: 15px;
+            right: 20px;
+            font-size: 4.5rem;
             font-weight: 900;
-            font-family: var(--font-serif);
-            background: linear-gradient(135deg, rgba(197, 168, 128, 0.25) 0%, rgba(114, 47, 1, 0.03) 100%);
+            font-family: var(--font-sans);
+            background: linear-gradient(135deg, rgba(197, 168, 128, 0.18) 0%, rgba(114, 47, 1, 0.02) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             color: transparent !important;
             user-select: none;
-            line-height: 1;
-            font-style: italic;
+            line-height: 0.8;
+            transition: transform 0.4s ease, background 0.4s ease;
+        }
+
+        .value-card:hover .value-num {
+            transform: scale(1.1) translateY(-5px);
+            background: linear-gradient(135deg, rgba(197, 168, 128, 0.35) 0%, rgba(114, 47, 1, 0.05) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .value-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #ffffff 0%, #fbf9f5 100%);
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #ffffff 0%, #faf6f0 100%);
             border: 1.5px solid rgba(197, 168, 128, 0.35);
             color: var(--clr-primary);
-            border-radius: 16px;
+            border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.45rem;
+            font-size: 1.55rem;
             margin-bottom: 28px;
             box-shadow: 0 6px 15px rgba(114, 47, 1, 0.04);
-            transition: var(--transition);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .value-card:hover .value-icon {
             background: var(--grad-primary);
             border-color: var(--clr-primary);
             color: #ffffff;
-            transform: scale(1.1) rotate(6deg);
-            box-shadow: 0 10px 20px rgba(114, 47, 1, 0.25);
+            transform: scale(1.15) rotate(8deg);
+            box-shadow: 0 12px 24px rgba(114, 47, 1, 0.25);
         }
 
         .value-card h3 {
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             margin-bottom: 16px;
             color: var(--clr-navy);
             font-weight: 800;
             position: relative;
             display: inline-block;
-            padding-bottom: 10px;
+            padding-bottom: 12px;
         }
 
         .value-card h3::after {
@@ -1537,22 +1574,22 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 30px;
-            height: 2px;
+            width: 32px;
+            height: 3px;
             background: var(--clr-accent);
             transition: var(--transition);
             border-radius: 100px;
         }
 
         .value-card:hover h3::after {
-            width: 60px;
+            width: 64px;
             background: var(--clr-primary);
         }
 
         .value-card p {
-            font-size: 0.88rem;
+            font-size: 0.9rem;
             color: var(--clr-text-muted);
-            line-height: 1.6;
+            line-height: 1.65;
             margin-top: 4px;
         }
 
@@ -4268,6 +4305,7 @@
 <!-- Custom SVG Decor: Gold Curved Wave -->
 
 <div class="glow-orb glow-orb-gold" style="width: 350px; height: 350px; top: 20%; right: -100px;"></div>
+<div class="glow-orb glow-orb-primary" style="width: 450px; height: 450px; bottom: -150px; left: -150px; opacity: 0.35;"></div>
 </div>
 <div class="container" style="position: relative; z-index: 1;">
 <div class="section-header reveal-up">
