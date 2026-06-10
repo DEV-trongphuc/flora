@@ -566,6 +566,8 @@
             color: var(--clr-navy);
             padding: 8px 0;
             position: relative;
+            display: inline-flex;
+            align-items: center;
         }
 
         .nav-links a::after {
@@ -3175,6 +3177,20 @@
             box-shadow: 0 12px 30px rgba(114, 47, 1, 0.3);
         }
 
+        .implant-popup .popup-roadmap-link {
+            display: inline-block;
+            margin-top: 14px;
+            font-size: 0.82rem;
+            color: var(--clr-primary);
+            text-decoration: underline;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+
+        .implant-popup .popup-roadmap-link:hover {
+            color: var(--clr-accent);
+        }
+
         .implant-popup .success-checkmark {
             width: 70px;
             height: 70px;
@@ -3801,7 +3817,7 @@
                 <li><a href="#giang-vien">Giảng viên</a></li>
                 <li>
                     <a href="#dong-hanh"
-                        style="display: inline-flex; align-items: center; gap: 6px; position: relative;">
+                        style="gap: 6px; position: relative;">
                         <span>100% Học phí</span>
                         <span
                             style="font-size: 0.62rem; font-weight: 800; background: linear-gradient(135deg, #ffd28f 0%, #c59e6c 100%); color: #5c2f0f; padding: 2px 6px; border-radius: 4px; line-height: 1; text-transform: uppercase; letter-spacing: 0.02em; display: inline-block; box-shadow: 0 2px 5px rgba(197, 168, 128, 0.25);">100%</span>
@@ -3930,7 +3946,7 @@
                         style="position: absolute; right: -25px; top: 5px; z-index: 10;">
                         <svg class="hero-seal-stamp" viewBox="0 0 200 200" width="168" height="168">
                             <defs>
-                                <path id="topTextPath" d="M 23,100 A 77,77 0 0,1 177,100" fill="none" />
+                                <path id="topTextPath" d="M 27,100 A 73,73 0 0,1 173,100" fill="none" />
                                 <path id="bottomTextPath" d="M 18,100 A 82,82 0 0,0 182,100" fill="none" />
                             </defs>
 
@@ -5667,6 +5683,7 @@
                 tham dự miễn phí khóa học trị giá 25.000.000 VNĐ.
             </p>
             <a href="#dang-ky" class="offer-btn" id="popupCtaBtn">Nhận Tư Vấn Ngay</a>
+            <a href="#lo-trinh" class="popup-roadmap-link" id="popupRoadmapBtn">Xem lộ trình học</a>
         </div>
     </div>
 
@@ -5831,6 +5848,21 @@
         document.getElementById('closePopupBtn').addEventListener('click', () => {
             promoPopup.classList.remove('active');
         });
+
+        // Close promo popup on backdrop click
+        promoPopup.addEventListener('click', (e) => {
+            if (e.target === promoPopup) {
+                promoPopup.classList.remove('active');
+            }
+        });
+
+        // Close promo popup on roadmap link click
+        const popupRoadmapBtn = document.getElementById('popupRoadmapBtn');
+        if (popupRoadmapBtn) {
+            popupRoadmapBtn.addEventListener('click', () => {
+                promoPopup.classList.remove('active');
+            });
+        }
 
         // Open registration popup for all a[href="#dang-ky"] links
         document.querySelectorAll('a[href="#dang-ky"]').forEach(link => {
