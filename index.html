@@ -5547,15 +5547,14 @@
             successPopup.classList.remove('active');
         });
 
-        // Promotional Pop-up logic (Show immediately on load)
+        // Promotional Pop-up logic (Show on scroll down)
+        let hasShownPromo = false;
         function showPromoPopup() {
-            promoPopup.classList.add('active');
+            if (!hasShownPromo) {
+                hasShownPromo = true;
+                promoPopup.classList.add('active');
+            }
         }
-
-        // Show 15 seconds after page loads (tránh làm phiền người dùng ngay lập tức)
-        setTimeout(() => {
-            showPromoPopup();
-        }, 15000);
 
         // Close promo popup handlers
         document.getElementById('closePopupBtn').addEventListener('click', () => {
@@ -5875,6 +5874,11 @@
             if (!isScrollingLocked) {
                 window.requestAnimationFrame(() => {
                     const currentScrollY = window.scrollY;
+
+                    // Show promo popup when scrolled down past 600px
+                    if (!hasShownPromo && currentScrollY > 600) {
+                        showPromoPopup();
+                    }
 
                     // Back to top button toggle
                     if (currentScrollY > 500) {
