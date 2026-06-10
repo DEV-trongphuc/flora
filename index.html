@@ -5552,10 +5552,10 @@
             promoPopup.classList.add('active');
         }
 
-        // Show 1 second after page loads
+        // Show 15 seconds after page loads (tránh làm phiền người dùng ngay lập tức)
         setTimeout(() => {
             showPromoPopup();
-        }, 1000);
+        }, 15000);
 
         // Close promo popup handlers
         document.getElementById('closePopupBtn').addEventListener('click', () => {
