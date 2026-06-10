@@ -2763,11 +2763,25 @@
 
         /* ─── FOOTER ─── */
         .site-footer {
-            background-color: var(--clr-navy);
+            background:
+                radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px) 0 0 / 24px 24px,
+                radial-gradient(circle at 50% 50%, #2c1b0c 0%, #0c0703 100%);
             color: rgba(255, 255, 255, 0.55);
             padding: 70px 0 40px;
             font-size: 0.82rem;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .site-footer > .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .site-footer .footer-bottom-copy {
+            position: relative;
+            z-index: 2;
         }
 
         .footer-cols-grid {
@@ -5009,6 +5023,12 @@
 
     <!-- Footer -->
     <footer class="site-footer">
+        <!-- Background decorations -->
+        <div class="section-bg-decor" aria-hidden="true">
+            <div class="glow-orb glow-orb-primary" style="width: 350px; height: 350px; top: -50px; left: -100px;"></div>
+            <div class="glow-orb glow-orb-gold" style="width: 300px; height: 300px; bottom: -50px; right: -50px;"></div>
+        </div>
+
         <div class="container footer-cols-grid">
             <div class="footer-logo-block">
                 <div class="logo-box">
