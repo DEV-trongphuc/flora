@@ -5444,7 +5444,6 @@
         });
 
         // Intersection Observer for smooth reveal animations
-        const revealElements = document.querySelectorAll('.reveal-up, .reveal-fade, .reveal-scale, .reveal-left, .reveal-right, .reveal-down, .reveal-stamp');
         const observerOptions = {
             threshold: 0.05,
             rootMargin: '0px 0px -50px 0px'
@@ -5459,9 +5458,21 @@
             });
         }, observerOptions);
 
-        revealElements.forEach(element => {
-            revealObserver.observe(element);
-        });
+        function startRevealObserver() {
+            const revealElements = document.querySelectorAll('.reveal-up, .reveal-fade, .reveal-scale, .reveal-left, .reveal-right, .reveal-down, .reveal-stamp');
+            revealElements.forEach(element => {
+                revealObserver.observe(element);
+            });
+        }
+
+        // Delay starting observation until DOM layout is settled to prevent pre-mature triggering
+        if (document.readyState === 'complete') {
+            setTimeout(startRevealObserver, 150);
+        } else {
+            window.addEventListener('load', () => {
+                setTimeout(startRevealObserver, 150);
+            });
+        }
 
         // FAQ Accordion functionality
         document.querySelectorAll('.faq-trigger-btn').forEach(btn => {
@@ -5547,14 +5558,15 @@
             successPopup.classList.remove('active');
         });
 
-        // Promotional Pop-up logic (Show on scroll down)
-        let hasShownPromo = false;
+        // Promotional Pop-up logic (Show immediately on load)
         function showPromoPopup() {
-            if (!hasShownPromo) {
-                hasShownPromo = true;
-                promoPopup.classList.add('active');
-            }
+            promoPopup.classList.add('active');
         }
+
+        // Show 15 seconds after page loads (tránh làm phiền người dùng ngay lập tức)
+        setTimeout(() => {
+            showPromoPopup();
+        }, 15000);
 
         // Close promo popup handlers
         document.getElementById('closePopupBtn').addEventListener('click', () => {
@@ -5874,11 +5886,6 @@
             if (!isScrollingLocked) {
                 window.requestAnimationFrame(() => {
                     const currentScrollY = window.scrollY;
-
-                    // Show promo popup when scrolled down past 600px
-                    if (!hasShownPromo && currentScrollY > 600) {
-                        showPromoPopup();
-                    }
 
                     // Back to top button toggle
                     if (currentScrollY > 500) {
