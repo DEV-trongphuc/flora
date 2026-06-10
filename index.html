@@ -1879,6 +1879,7 @@
             display: flex;
             justify-content: center;
             position: relative;
+            overflow: visible !important;
         }
 
         .cert-frame-wrapper::before {
@@ -1925,7 +1926,7 @@
             font-size: 0.8rem;
             font-weight: 800;
             white-space: nowrap;
-            z-index: 2;
+            z-index: 12 !important;
         }
 
         /* ─── SPOTLIGHT GLOW EFFECT & OVERLAYS ─── */
@@ -2023,8 +2024,9 @@
         }
         
         .implant-popup.cert-popup .popup-content {
-            max-width: 820px;
-            padding: 24px;
+            max-width: 1280px;
+            width: 96%;
+            padding: 16px;
             background: #ffffff;
             border: 4px solid var(--clr-accent);
             border-radius: var(--radius-lg);
@@ -2046,20 +2048,20 @@
         .implant-popup.cert-popup img {
             width: 100%;
             height: auto;
-            max-height: 72vh;
+            max-height: 88vh;
             object-fit: contain;
             display: block;
         }
 
         .implant-popup.cert-popup .popup-close {
-            top: -22px;
-            right: -22px;
+            top: -20px;
+            right: -20px;
             background: var(--clr-primary);
             color: #ffffff;
             border: 2px solid #ffffff;
-            width: 38px;
-            height: 38px;
-            font-size: 1.6rem;
+            width: 44px;
+            height: 44px;
+            font-size: 1.8rem;
             box-shadow: var(--shadow-md);
             z-index: 10;
         }
@@ -2074,13 +2076,16 @@
                 align-items: center !important;
             }
             .implant-popup.cert-popup .popup-content {
-                width: 92% !important;
-                max-width: 92% !important;
-                border-radius: var(--radius-lg) !important;
+                width: 96% !important;
+                max-width: 96% !important;
+                border-radius: var(--radius-md) !important;
                 transform: scale(0.9) !important;
-                padding: 16px !important;
+                padding: 8px !important;
                 margin: auto;
-                max-height: 85vh;
+                max-height: 90vh;
+            }
+            .implant-popup.cert-popup img {
+                max-height: 84vh !important;
             }
             .implant-popup.cert-popup.active .popup-content {
                 transform: scale(1) !important;
@@ -3848,6 +3853,8 @@
                     style="top: 60%; left: 2%; animation-duration: 20s; opacity: 0.035;"></i>
                 <i class="fa-solid fa-graduation-cap bg-decor-icon"
                     style="top: 80%; left: 40%; animation-duration: 30s; opacity: 0.025;"></i>
+                <i class="fa-solid fa-dna bg-decor-icon"
+                    style="top: 45%; right: 12%; animation-duration: 22s; opacity: 0.03;"></i>
                 
                 <!-- Custom SVG Decor: Circle Ornament -->
                 <svg class="bg-decor-svg" width="180" height="180" viewBox="0 0 100 100" fill="none" stroke="rgba(197, 168, 128, 0.035)" stroke-width="1.2" style="top: 25%; left: 10%; animation-duration: 24s;">
@@ -3857,6 +3864,10 @@
                 
                 <!-- Custom SVG Decor: Medical Cross -->
                 <svg class="bg-decor-svg" width="45" height="45" viewBox="0 0 24 24" fill="none" stroke="rgba(114, 47, 1, 0.03)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="top: 15%; left: 45%; animation-duration: 18s;">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                <svg class="bg-decor-svg" width="55" height="55" viewBox="0 0 24 24" fill="none" stroke="rgba(197, 168, 128, 0.03)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="top: 70%; right: 25%; animation-duration: 26s;">
                     <line x1="12" y1="5" x2="12" y2="19"></line>
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                 </svg>
@@ -4097,6 +4108,10 @@
                     style="top: 70%; right: 4%; animation-duration: 28s; opacity: 0.03;"></i>
                 <i class="fa-solid fa-shield-halved bg-decor-icon decor-white"
                     style="top: 40%; right: 15%; animation-duration: 22s; opacity: 0.02;"></i>
+                <i class="fa-solid fa-stethoscope bg-decor-icon decor-white"
+                    style="top: 55%; left: 8%; animation-duration: 26s; opacity: 0.025;"></i>
+                <i class="fa-solid fa-user-doctor bg-decor-icon decor-white"
+                    style="top: 25%; right: 8%; animation-duration: 20s; opacity: 0.02;"></i>
                 
                 <!-- Custom SVG Decor: White Medical Cross -->
                 <svg class="bg-decor-svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="rgba(255, 255, 255, 0.02)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="top: 30%; left: 80%; animation-duration: 24s;">
@@ -4235,6 +4250,8 @@
                 <i class="fa-solid fa-tooth bg-decor-icon" style="top: 10%; right: 4%; animation-duration: 26s;"></i>
                 <i class="fa-solid fa-shield-halved bg-decor-icon"
                     style="top: 60%; left: 3%; animation-duration: 20s;"></i>
+                <i class="fa-solid fa-graduation-cap bg-decor-icon" style="top: 75%; left: 8%; animation-duration: 28s; opacity: 0.025;"></i>
+                <i class="fa-solid fa-award bg-decor-icon" style="top: 35%; right: 10%; animation-duration: 24s; opacity: 0.03;"></i>
                 
                 <!-- Custom SVG Decor: Tooth Outline -->
                 <svg class="bg-decor-svg" width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="rgba(114, 47, 1, 0.03)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" style="top: 40%; left: 15%; animation-duration: 23s;">
@@ -4320,6 +4337,8 @@
             <div class="section-bg-decor" aria-hidden="true">
                 <i class="fa-solid fa-tooth bg-decor-icon decor-white" style="top: 15%; left: 3%; animation-duration: 25s; opacity: 0.04;"></i>
                 <i class="fa-solid fa-graduation-cap bg-decor-icon decor-white" style="top: 75%; right: 4%; animation-duration: 28s; opacity: 0.03;"></i>
+                <i class="fa-solid fa-user-doctor bg-decor-icon decor-white" style="top: 45%; left: 12%; animation-duration: 23s; opacity: 0.025;"></i>
+                <i class="fa-solid fa-stethoscope bg-decor-icon decor-white" style="top: 60%; right: 12%; animation-duration: 27s; opacity: 0.02;"></i>
                 
                 <!-- Custom SVG Decor: White Medical Cross -->
                 <svg class="bg-decor-svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="rgba(255, 255, 255, 0.02)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="top: 30%; right: 15%; animation-duration: 24s;">
@@ -4406,6 +4425,10 @@
                     style="top: 15%; left: 4%; animation-duration: 25s; opacity: 0.03;"></i>
                 <i class="fa-solid fa-tooth bg-decor-icon"
                     style="top: 75%; right: 3%; animation-duration: 22s; opacity: 0.03;"></i>
+                <i class="fa-solid fa-calendar-days bg-decor-icon"
+                    style="top: 50%; left: 12%; animation-duration: 24s; opacity: 0.025;"></i>
+                <i class="fa-solid fa-clipboard-question bg-decor-icon"
+                    style="top: 30%; right: 8%; animation-duration: 26s; opacity: 0.03;"></i>
                 
                 <!-- Custom SVG Decor: Concentric Rings -->
                 <svg class="bg-decor-svg" width="100" height="100" viewBox="0 0 100 100" fill="none" stroke="rgba(197, 168, 128, 0.04)" stroke-width="1.0" style="top: 45%; right: 15%; animation-duration: 25s;">
@@ -4507,6 +4530,8 @@
             <div class="section-bg-decor" aria-hidden="true">
                 <i class="fa-solid fa-graduation-cap bg-decor-icon" style="top: 10%; right: 5%; animation-duration: 25s; opacity: 0.025;"></i>
                 <i class="fa-solid fa-shield-halved bg-decor-icon" style="top: 60%; left: 3%; animation-duration: 20s; opacity: 0.025;"></i>
+                <i class="fa-solid fa-award bg-decor-icon" style="top: 70%; right: 12%; animation-duration: 25s; opacity: 0.03;"></i>
+                <i class="fa-solid fa-file-contract bg-decor-icon" style="top: 40%; left: 15%; animation-duration: 22s; opacity: 0.025;"></i>
                 
                 <!-- Custom SVG Decor: Circle Ornament -->
                 <svg class="bg-decor-svg" width="130" height="130" viewBox="0 0 100 100" fill="none" stroke="rgba(197, 168, 128, 0.03)" stroke-width="1.2" style="top: 20%; left: 8%; animation-duration: 28s;">
@@ -4564,8 +4589,8 @@
                             <i class="fa-solid fa-magnifying-glass-plus"></i>
                             <span>Xem chứng chỉ</span>
                         </div>
-                        <div class="cert-badge-bottom">Chứng chỉ CME 140 Tiết</div>
                     </div>
+                    <div class="cert-badge-bottom">Chứng chỉ CME 140 Tiết</div>
                 </div>
             </div>
 
@@ -4595,6 +4620,10 @@
                     style="top: 15%; right: 4%; animation-duration: 25s; opacity: 0.035;"></i>
                 <i class="fa-solid fa-shield-halved bg-decor-icon"
                     style="top: 70%; left: 3%; animation-duration: 20s; opacity: 0.03;"></i>
+                <i class="fa-solid fa-handshake bg-decor-icon"
+                    style="top: 40%; left: 8%; animation-duration: 27s; opacity: 0.03;"></i>
+                <i class="fa-solid fa-tooth bg-decor-icon"
+                    style="top: 75%; right: 12%; animation-duration: 23s; opacity: 0.025;"></i>
                 
                 <!-- Custom SVG Decor: Target Circle -->
                 <svg class="bg-decor-svg" width="120" height="120" viewBox="0 0 100 100" fill="none" stroke="rgba(197, 168, 128, 0.03)" stroke-width="1.2" style="top: 50%; left: 10%; animation-duration: 24s;">
@@ -4709,6 +4738,10 @@
                     style="top: 10%; left: 3%; animation-duration: 25s; opacity: 0.02;"></i>
                 <i class="fa-solid fa-file-signature bg-decor-icon"
                     style="top: 60%; right: 3%; animation-duration: 20s; opacity: 0.02;"></i>
+                <i class="fa-solid fa-ribbon bg-decor-icon"
+                    style="top: 45%; left: 8%; animation-duration: 25s; opacity: 0.02;"></i>
+                <i class="fa-solid fa-star bg-decor-icon"
+                    style="top: 30%; right: 8%; animation-duration: 21s; opacity: 0.02;"></i>
                 
                 <!-- Custom SVG Decor: Dashed Circle Rings -->
                 <svg class="bg-decor-svg" width="90" height="90" viewBox="0 0 100 100" fill="none" stroke="rgba(197, 168, 128, 0.03)" stroke-width="1.2" style="top: 40%; right: 15%; animation-duration: 26s;">
@@ -4958,7 +4991,22 @@
         <!-- ══════════════════════════════════════════
          SECTION 8 & 9: REGISTRATION & FAQ (Đăng ký & Hỏi đáp)
         ══════════════════════════════════════════ -->
-        <section class="section-padding form-section light-section-bg" id="dang-ky">
+        <section class="section-padding form-section light-section-bg" id="dang-ky" style="position: relative; overflow: hidden;">
+            <!-- Background decorations -->
+            <div class="section-bg-decor" aria-hidden="true">
+                <i class="fa-solid fa-envelope bg-decor-icon" style="top: 15%; left: 3%; animation-duration: 25s; opacity: 0.03;"></i>
+                <i class="fa-solid fa-paste bg-decor-icon" style="top: 70%; right: 4%; animation-duration: 28s; opacity: 0.03;"></i>
+                <i class="fa-solid fa-clipboard bg-decor-icon" style="top: 40%; right: 12%; animation-duration: 24s; opacity: 0.03;"></i>
+                <i class="fa-solid fa-user-check bg-decor-icon" style="top: 60%; left: 10%; animation-duration: 28s; opacity: 0.025;"></i>
+                
+                <!-- Custom SVG Decor: Circle Grid -->
+                <svg class="bg-decor-svg" width="100" height="100" viewBox="0 0 100 100" fill="none" stroke="rgba(197, 168, 128, 0.03)" stroke-width="1.2" style="top: 45%; left: 15%; animation-duration: 26s;">
+                    <circle cx="50" cy="50" r="45" stroke-dasharray="4 4"/>
+                    <circle cx="50" cy="50" r="25"/>
+                </svg>
+                
+                <div class="glow-orb glow-orb-gold" style="width: 320px; height: 320px; top: 20%; left: -100px;"></div>
+            </div>
             <div class="container">
                 <div class="form-faq-grid">
                     <!-- Left Column: Title, checklist and FAQ Accordion -->
