@@ -623,27 +623,55 @@
         }
 
         /* Staggered entrance animation for drawer links and logo */
-        .drawer-nav a, .drawer-nav .drawer-logo-container {
+        .drawer-nav a,
+        .drawer-nav .drawer-logo-container {
             opacity: 0;
             transform: translateX(-20px);
             transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
         }
 
-        .drawer-nav.open a, .drawer-nav.open .drawer-logo-container {
+        .drawer-nav.open a,
+        .drawer-nav.open .drawer-logo-container {
             opacity: 1;
             transform: translateX(0);
         }
 
         /* Delay configs for each child element */
-        .drawer-nav.open .drawer-logo-container { transition-delay: 0.04s; }
-        .drawer-nav.open a:nth-of-type(1) { transition-delay: 0.08s; }
-        .drawer-nav.open a:nth-of-type(2) { transition-delay: 0.12s; }
-        .drawer-nav.open a:nth-of-type(3) { transition-delay: 0.16s; }
-        .drawer-nav.open a:nth-of-type(4) { transition-delay: 0.20s; }
-        .drawer-nav.open a:nth-of-type(5) { transition-delay: 0.24s; }
-        .drawer-nav.open a:nth-of-type(6) { transition-delay: 0.28s; }
-        .drawer-nav.open a:nth-of-type(7) { transition-delay: 0.32s; }
-        .drawer-nav.open a:nth-of-type(8) { transition-delay: 0.36s; }
+        .drawer-nav.open .drawer-logo-container {
+            transition-delay: 0.04s;
+        }
+
+        .drawer-nav.open a:nth-of-type(1) {
+            transition-delay: 0.08s;
+        }
+
+        .drawer-nav.open a:nth-of-type(2) {
+            transition-delay: 0.12s;
+        }
+
+        .drawer-nav.open a:nth-of-type(3) {
+            transition-delay: 0.16s;
+        }
+
+        .drawer-nav.open a:nth-of-type(4) {
+            transition-delay: 0.20s;
+        }
+
+        .drawer-nav.open a:nth-of-type(5) {
+            transition-delay: 0.24s;
+        }
+
+        .drawer-nav.open a:nth-of-type(6) {
+            transition-delay: 0.28s;
+        }
+
+        .drawer-nav.open a:nth-of-type(7) {
+            transition-delay: 0.32s;
+        }
+
+        .drawer-nav.open a:nth-of-type(8) {
+            transition-delay: 0.36s;
+        }
 
         .drawer-overlay {
             position: fixed;
@@ -2715,21 +2743,27 @@
         .reveal-fade {
             transform: none;
         }
+
         .reveal-up {
             transform: translateY(30px);
         }
+
         .reveal-down {
             transform: translateY(-30px);
         }
+
         .reveal-left {
             transform: translateX(-35px);
         }
+
         .reveal-right {
             transform: translateX(35px);
         }
+
         .reveal-scale {
             transform: scale(0.95);
         }
+
         .reveal-stamp {
             transform: scale(1.35) rotate(15deg);
             transition: opacity 1.2s cubic-bezier(0.34, 1.56, 0.64, 1), transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -2748,20 +2782,61 @@
         }
 
         /* Animation delay utilities */
-        .delay-100 { transition-delay: 0.1s !important; }
-        .delay-150 { transition-delay: 0.15s !important; }
-        .delay-200 { transition-delay: 0.2s !important; }
-        .delay-250 { transition-delay: 0.25s !important; }
-        .delay-300 { transition-delay: 0.3s !important; }
-        .delay-350 { transition-delay: 0.35s !important; }
-        .delay-400 { transition-delay: 0.4s !important; }
-        .delay-450 { transition-delay: 0.45s !important; }
-        .delay-500 { transition-delay: 0.5s !important; }
-        .delay-600 { transition-delay: 0.6s !important; }
-        .delay-700 { transition-delay: 0.7s !important; }
-        .delay-800 { transition-delay: 0.8s !important; }
-        .delay-900 { transition-delay: 0.9s !important; }
-        .delay-1000 { transition-delay: 1.0s !important; }
+        .delay-100 {
+            transition-delay: 0.1s !important;
+        }
+
+        .delay-150 {
+            transition-delay: 0.15s !important;
+        }
+
+        .delay-200 {
+            transition-delay: 0.2s !important;
+        }
+
+        .delay-250 {
+            transition-delay: 0.25s !important;
+        }
+
+        .delay-300 {
+            transition-delay: 0.3s !important;
+        }
+
+        .delay-350 {
+            transition-delay: 0.35s !important;
+        }
+
+        .delay-400 {
+            transition-delay: 0.4s !important;
+        }
+
+        .delay-450 {
+            transition-delay: 0.45s !important;
+        }
+
+        .delay-500 {
+            transition-delay: 0.5s !important;
+        }
+
+        .delay-600 {
+            transition-delay: 0.6s !important;
+        }
+
+        .delay-700 {
+            transition-delay: 0.7s !important;
+        }
+
+        .delay-800 {
+            transition-delay: 0.8s !important;
+        }
+
+        .delay-900 {
+            transition-delay: 0.9s !important;
+        }
+
+        .delay-1000 {
+            transition-delay: 1.0s !important;
+        }
 
         /* ─── POPUP MODAL STYLES ─── */
         .implant-popup {
@@ -3259,10 +3334,12 @@
                 flex-direction: column !important;
                 align-items: center !important;
             }
+
             .cert-text-box .premium-badge {
                 margin-left: auto !important;
                 margin-right: auto !important;
             }
+
             .cert-text-box .cert-list {
                 text-align: left !important;
                 align-self: stretch !important;
@@ -3291,30 +3368,35 @@
                 gap: 8px !important;
                 border-radius: 10px !important;
             }
+
             .floating-badge-1 {
                 left: -10px !important;
                 top: 20px !important;
             }
+
             .floating-badge-2 {
                 left: -10px !important;
                 bottom: 20px !important;
             }
+
             .floating-badge-icon {
                 font-size: 1rem !important;
             }
+
             .floating-badge-val {
                 font-size: 0.88rem !important;
             }
+
             .floating-badge-lbl {
                 font-size: 0.62rem !important;
             }
 
             /* Prevent iOS auto-zoom on form focus */
-            .form-input-control, 
-            .custom-native-select, 
+            .form-input-control,
+            .custom-native-select,
             .custom-select-trigger,
-            .form-input-group input, 
-            .form-input-group select, 
+            .form-input-group input,
+            .form-input-group select,
             .form-input-group textarea {
                 font-size: 16px !important;
             }
@@ -3576,34 +3658,42 @@
                                 <path id="topTextPath" d="M 23,100 A 77,77 0 0,1 177,100" fill="none" />
                                 <path id="bottomTextPath" d="M 18,100 A 82,82 0 0,0 182,100" fill="none" />
                             </defs>
-                            
+
                             <!-- Outermost double borders -->
                             <circle cx="100" cy="100" r="95" fill="none" stroke="#a87c43" stroke-width="1.2" />
                             <circle cx="100" cy="100" r="91" fill="none" stroke="#a87c43" stroke-width="0.8" />
-                            
+
                             <!-- Innermost double borders -->
                             <circle cx="100" cy="100" r="64" fill="none" stroke="#a87c43" stroke-width="2.5" />
                             <circle cx="100" cy="100" r="60" fill="none" stroke="#a87c43" stroke-width="1.0" />
-                            
+
                             <!-- Arc texts -->
-                            <text fill="#722f01" font-size="9" font-weight="900" font-family="var(--font-sans)" letter-spacing="0.6px">
+                            <text fill="#722f01" font-size="9" font-weight="900" font-family="var(--font-sans)"
+                                letter-spacing="0.6px">
                                 <textPath href="#topTextPath" startOffset="50%" text-anchor="middle">
                                     CHỨNG NHẬN ĐÀO TẠO LIÊN TỤC
                                 </textPath>
                             </text>
-                            <text fill="#722f01" font-size="10.5" font-weight="900" font-family="var(--font-sans)" letter-spacing="1.2px">
+                            <text fill="#722f01" font-size="10.5" font-weight="900" font-family="var(--font-sans)"
+                                letter-spacing="1.2px">
                                 <textPath href="#bottomTextPath" startOffset="50%" text-anchor="middle">
                                     CME 140 TIẾT
                                 </textPath>
                             </text>
-                            
+
                             <!-- Left and Right Stars -->
-                            <text x="22.5" y="104" fill="#722f01" font-size="14" font-weight="900" font-family="var(--font-sans)" text-anchor="middle">★</text>
-                            <text x="177.5" y="104" fill="#722f01" font-size="14" font-weight="900" font-family="var(--font-sans)" text-anchor="middle">★</text>
-                            
+                            <text x="22.5" y="104" fill="#722f01" font-size="14" font-weight="900"
+                                font-family="var(--font-sans)" text-anchor="middle">★</text>
+                            <text x="177.5" y="104" fill="#722f01" font-size="14" font-weight="900"
+                                font-family="var(--font-sans)" text-anchor="middle">★</text>
+
                             <!-- Center primary bold texts -->
-                            <text x="100" y="97" fill="#722f01" font-size="19" font-weight="900" font-family="var(--font-sans)" text-anchor="middle" letter-spacing="0.4px">CẤY GHÉP</text>
-                            <text x="100" y="116" fill="#722f01" font-size="10" font-weight="800" font-family="var(--font-sans)" text-anchor="middle" letter-spacing="0.2px">NHA KHOA CƠ BẢN</text>
+                            <text x="100" y="97" fill="#722f01" font-size="19" font-weight="900"
+                                font-family="var(--font-sans)" text-anchor="middle" letter-spacing="0.4px">CẤY
+                                GHÉP</text>
+                            <text x="100" y="116" fill="#722f01" font-size="10" font-weight="800"
+                                font-family="var(--font-sans)" text-anchor="middle" letter-spacing="0.2px">NHA KHOA CƠ
+                                BẢN</text>
                         </svg>
                     </div>
 
@@ -3765,7 +3855,8 @@
                     </div>
                     <h2>Tại Sao Nhiều Bác Sĩ <br class="br-desktop"> Vẫn Ngần Ngại <span
                             class="metallic-gold-light-text">Cấy Ghép Implant?</span></h2>
-                    <p>Làm chủ kỹ thuật cấy ghép an toàn và hoàn thiện hồ sơ pháp lý để tự tin giữ chân bệnh nhân, nâng tầm vị thế phòng khám.</p>
+                    <p>Làm chủ kỹ thuật cấy ghép an toàn và hoàn thiện hồ sơ pháp lý để tự tin giữ chân bệnh nhân, nâng
+                        tầm vị thế phòng khám.</p>
                 </div>
 
                 <!-- Stats row (moved up) -->
@@ -3956,7 +4047,8 @@
                     <!-- Card 1 -->
                     <div class="audience-card stagger-item">
                         <div class="audience-img-wrapper">
-                            <img class="audience-img" src="assets/bs_rhm.png" alt="Bác sĩ Răng Hàm Mặt" loading="lazy" decoding="async" />
+                            <img class="audience-img" src="assets/bs_rhm.png" alt="Bác sĩ Răng Hàm Mặt" loading="lazy"
+                                decoding="async" />
                         </div>
                         <div class="audience-body" style="position: relative;">
                             <div class="audience-icon-badge">
@@ -3970,7 +4062,8 @@
                     <!-- Card 2 -->
                     <div class="audience-card stagger-item">
                         <div class="audience-img-wrapper">
-                            <img class="audience-img" src="assets/bs_lamsan.png" alt="Bác sĩ Lâm Sàng" loading="lazy" decoding="async" />
+                            <img class="audience-img" src="assets/bs_lamsan.png" alt="Bác sĩ Lâm Sàng" loading="lazy"
+                                decoding="async" />
                         </div>
                         <div class="audience-body" style="position: relative;">
                             <div class="audience-icon-badge">
@@ -3984,7 +4077,8 @@
                     <!-- Card 3 -->
                     <div class="audience-card stagger-item">
                         <div class="audience-img-wrapper">
-                            <img class="audience-img" src="assets/giang_vien_1_1781091437129.png" alt="Chủ Phòng Khám" loading="lazy" decoding="async" />
+                            <img class="audience-img" src="assets/giang_vien_1_1781091437129.png" alt="Chủ Phòng Khám"
+                                loading="lazy" decoding="async" />
                         </div>
                         <div class="audience-body" style="position: relative;">
                             <div class="audience-icon-badge">
@@ -4139,7 +4233,8 @@
                 <!-- Graphic cert image -->
                 <div class="cert-frame-wrapper reveal-up">
                     <div class="cert-mockup-frame">
-                        <img src="assets/implant_cme_cert.png" alt="Chứng chỉ CME 140 tiết cấy ghép implant nha khoa" loading="lazy" decoding="async" />
+                        <img src="assets/implant_cme_cert.png" alt="Chứng chỉ CME 140 tiết cấy ghép implant nha khoa"
+                            loading="lazy" decoding="async" />
                         <div class="cert-badge-bottom">Chứng chỉ CME 140 Tiết</div>
                     </div>
                 </div>
@@ -4314,7 +4409,7 @@
                             <!-- Corner Badge -->
                             <div
                                 style="position: absolute; top: 0; right: 0; background: var(--clr-accent); color: #ffffff; font-size: 0.68rem; font-weight: 900; padding: 6px 16px; border-bottom-left-radius: 12px; text-transform: uppercase; letter-spacing: 0.05em; z-index: 2;">
-                                Khuyên dùng</div>
+                                TÀI TRỢ</div>
 
                             <div class="medallion-tag">
                                 <span
@@ -4356,7 +4451,8 @@
                         <div class="signing-img-container"
                             style="border-radius: var(--radius-md); overflow: hidden; border: 1.5px solid var(--clr-border); box-shadow: var(--shadow-inner); position: relative; background: #fafafa;">
                             <img src="assets/signing.png" alt="Lễ ký kết đối tác chính hãng ImplantSwiss & BRANDSON"
-                                style="width: 100%; height: 260px; object-fit: cover;" loading="lazy" decoding="async" />
+                                style="width: 100%; height: 260px; object-fit: cover;" loading="lazy"
+                                decoding="async" />
                             <div
                                 style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%); padding: 15px 12px; color: #ffffff;">
                                 <p
@@ -4370,7 +4466,8 @@
                             style="display: flex; align-items: center; justify-content: center; gap: 24px; padding-top: 15px; border-top: 1px dashed var(--clr-border); margin-top: 15px;">
                             <div style="height: 32px; display: flex; align-items: center;">
                                 <img src="assets/brandson_logo.png" alt="Logo BRANDSON"
-                                    style="height: 100%; max-width: 110px; object-fit: contain;" loading="lazy" decoding="async" />
+                                    style="height: 100%; max-width: 110px; object-fit: contain;" loading="lazy"
+                                    decoding="async" />
                             </div>
                             <div style="font-size: 1.1rem; color: var(--clr-accent); font-weight: 300;">✕</div>
                             <div
@@ -4399,7 +4496,8 @@
                                     style="position: absolute; width: 180px; height: 180px; background: radial-gradient(circle, rgba(197, 168, 128, 0.15) 0%, transparent 70%); filter: blur(10px); z-index: 1;">
                                 </div>
                                 <img src="assets/implantswiss_screw.png" alt="Trụ ImplantSwiss Thụy Sĩ"
-                                    style="max-height: 240px; object-fit: contain; z-index: 2; position: relative;" loading="lazy" decoding="async" />
+                                    style="max-height: 240px; object-fit: contain; z-index: 2; position: relative;"
+                                    loading="lazy" decoding="async" />
                             </div>
                             <h4
                                 style="font-size: 1.15rem; color: var(--clr-navy); font-weight: 900; margin-top: 15px; margin-bottom: 4px;">
@@ -4705,29 +4803,46 @@
                         <span>BRANDSON</span>
                     </div>
                 </div>
-                <p style="margin-top: 15px; font-size: 0.78rem; line-height: 1.6; color: rgba(255,255,255,0.45); margin-bottom: 12px;">
+                <p
+                    style="margin-top: 15px; font-size: 0.78rem; line-height: 1.6; color: rgba(255,255,255,0.45); margin-bottom: 12px;">
                     Chương trình đào tạo liên tục cấy ghép nha khoa cơ bản và chính sách đồng hành từ BRANDSON &
                     ImplantSwiss Thụy Sĩ.
                 </p>
-                <div style="font-size: 0.78rem; color: rgba(255,255,255,0.45); display: flex; flex-direction: column; gap: 12px; line-height: 1.6; margin-bottom: 15px;">
-                    <div><strong>Trang web:</strong> <a href="https://brandson.vn" target="_blank" rel="noopener" style="color: var(--clr-accent);">https://brandson.vn</a></div>
-                    <div><strong>Hộp thư:</strong> <a href="mailto:tracyle@brandson.vn" style="color: var(--clr-accent);">tracyle@brandson.vn</a></div>
+                <div
+                    style="font-size: 0.78rem; color: rgba(255,255,255,0.45); display: flex; flex-direction: column; gap: 12px; line-height: 1.6; margin-bottom: 15px;">
+                    <div><strong>Trang web:</strong> <a href="https://brandson.vn" target="_blank" rel="noopener"
+                            style="color: var(--clr-accent);">https://brandson.vn</a></div>
+                    <div><strong>Hộp thư:</strong> <a href="mailto:tracyle@brandson.vn"
+                            style="color: var(--clr-accent);">tracyle@brandson.vn</a></div>
                     <div><strong>Thời gian làm việc:</strong> 8:00 - 19:00 | (T2 - CN)</div>
                 </div>
                 <div class="social-icons follow-icons" style="font-size:99%">
-                    <a href="https://www.facebook.com/brandsonvietnam" target="_blank" data-label="Facebook" rel="noopener noreferrer nofollow" class="icon plain facebook tooltip tooltipstered"><i class="fa-brands fa-facebook-f icon-facebook"></i></a>
-                    <a href="#" target="_blank" rel="noopener noreferrer nofollow" data-label="Instagram" class="icon plain instagram tooltip tooltipstered"><i class="fa-brands fa-instagram icon-instagram"></i></a>
-                    <a href="#" target="_blank" data-label="Twitter" rel="noopener noreferrer nofollow" class="icon plain twitter tooltip tooltipstered"><i class="fa-brands fa-twitter icon-twitter"></i></a>
-                    <a href="mailto:tracyle@brandson.vn" data-label="E-mail" rel="nofollow" class="icon plain email tooltip tooltipstered"><i class="fa-solid fa-envelope icon-envelop"></i></a>
-                    <a href="tel:0902535068" target="_blank" data-label="Phone" rel="noopener noreferrer nofollow" class="icon plain phone tooltip tooltipstered"><i class="fa-solid fa-phone icon-phone"></i></a>
-                    <a href="#" target="_blank" rel="noopener noreferrer nofollow" data-label="Pinterest" class="icon plain pinterest tooltip tooltipstered"><i class="fa-brands fa-pinterest icon-pinterest"></i></a>
+                    <a href="https://www.facebook.com/brandsonvietnam" target="_blank" data-label="Facebook"
+                        rel="noopener noreferrer nofollow" class="icon plain facebook tooltip tooltipstered"><i
+                            class="fa-brands fa-facebook-f icon-facebook"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer nofollow" data-label="Instagram"
+                        class="icon plain instagram tooltip tooltipstered"><i
+                            class="fa-brands fa-instagram icon-instagram"></i></a>
+                    <a href="#" target="_blank" data-label="Twitter" rel="noopener noreferrer nofollow"
+                        class="icon plain twitter tooltip tooltipstered"><i
+                            class="fa-brands fa-twitter icon-twitter"></i></a>
+                    <a href="mailto:tracyle@brandson.vn" data-label="E-mail" rel="nofollow"
+                        class="icon plain email tooltip tooltipstered"><i
+                            class="fa-solid fa-envelope icon-envelop"></i></a>
+                    <a href="tel:0902535068" target="_blank" data-label="Phone" rel="noopener noreferrer nofollow"
+                        class="icon plain phone tooltip tooltipstered"><i class="fa-solid fa-phone icon-phone"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer nofollow" data-label="Pinterest"
+                        class="icon plain pinterest tooltip tooltipstered"><i
+                            class="fa-brands fa-pinterest icon-pinterest"></i></a>
                 </div>
             </div>
 
             <div>
                 <h3 class="footer-col-title">Văn Phòng BRANDSON</h3>
-                <div style="font-size: 0.78rem; color: rgba(255,255,255,0.45); display: flex; flex-direction: column; gap: 12px; line-height: 1.6;">
-                    <div><strong>Văn phòng chính:</strong> R.802, Vietnam Business Center, 57-59 Hồ Tùng Mậu, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh.</div>
+                <div
+                    style="font-size: 0.78rem; color: rgba(255,255,255,0.45); display: flex; flex-direction: column; gap: 12px; line-height: 1.6;">
+                    <div><strong>Văn phòng chính:</strong> R.802, Vietnam Business Center, 57-59 Hồ Tùng Mậu, Phường Bến
+                        Nghé, Quận 1, TP. Hồ Chí Minh.</div>
                     <div><strong>Hotline học vụ:</strong> 091 108 88 70 / 0909 417 188</div>
                     <div><strong>Cơ sở thực hành:</strong> Trung tâm Kỹ năng Nha khoa DSC.</div>
                 </div>
@@ -4954,7 +5069,8 @@
                         <div class="custom-time-select" id="consultTimeSelect">
                             <div class="custom-select-trigger" id="consultTimeTrigger">
                                 <span>-- Chọn giờ --</span>
-                                <i class="fa-solid fa-chevron-down" style="color: var(--clr-primary); font-size: 0.85rem; transition: transform 0.3s ease;"></i>
+                                <i class="fa-solid fa-chevron-down"
+                                    style="color: var(--clr-primary); font-size: 0.85rem; transition: transform 0.3s ease;"></i>
                             </div>
                             <div class="custom-select-options-list" id="consultTimeOptions">
                                 <div class="custom-select-option" data-value="07:00 - 07:30">07:00 - 07:30</div>
@@ -5443,7 +5559,7 @@
                 e.stopPropagation();
                 const val = option.getAttribute('data-value');
                 hiddenTimeInput.value = val;
-                
+
                 // Update trigger text
                 timeTrigger.querySelector('span').textContent = val;
                 timeTrigger.querySelector('span').style.fontWeight = '700';
@@ -5615,29 +5731,29 @@
         // 3D Tilt Hover Effect for cards on desktop PC viewports
         if (window.innerWidth > 768) {
             const tiltCards = document.querySelectorAll('.pain-card, .value-card, .audience-card, .faculty-card, .curriculum-card, .tuition-card-premium, .tuition-plan-card');
-            
+
             tiltCards.forEach(card => {
                 // Ensure card has smooth transition styles
                 card.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.5s ease, border-color 0.3s ease';
                 card.style.transformStyle = 'preserve-3d';
-                
+
                 card.addEventListener('mousemove', (e) => {
                     const rect = card.getBoundingClientRect();
                     const x = e.clientX - rect.left;
                     const y = e.clientY - rect.top;
-                    
+
                     const xc = rect.width / 2;
                     const yc = rect.height / 2;
-                    
-                    const rotateY = ((x - xc) / xc) * 8; // max 8 degrees
-                    const rotateX = -((y - yc) / yc) * 8; // max 8 degrees
-                    
+
+                    const rotateY = ((x - xc) / xc) * 4; // max 4 degrees (subtle tilt)
+                    const rotateX = -((y - yc) / yc) * 4; // max 4 degrees (subtle tilt)
+
                     card.style.transition = 'transform 0.1s ease, box-shadow 0.1s ease';
-                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-                    
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.015, 1.015, 1.015)`;
+
                     // Shift shadow dynamically for 3D realism
-                    const shadowX = -rotateY * 0.4;
-                    const shadowY = rotateX * 0.4;
+                    const shadowX = -rotateY * 0.3;
+                    const shadowY = rotateX * 0.3;
                     if (card.classList.contains('pain-card') || card.classList.contains('audience-card')) {
                         // Dark cards shadow
                         card.style.boxShadow = `${shadowX}px ${shadowY + 12}px 30px rgba(0, 0, 0, 0.35)`;
@@ -5646,7 +5762,7 @@
                         card.style.boxShadow = `${shadowX}px ${shadowY + 15}px 35px rgba(114, 47, 1, 0.08)`;
                     }
                 });
-                
+
                 card.addEventListener('mouseleave', () => {
                     card.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.5s ease';
                     card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
