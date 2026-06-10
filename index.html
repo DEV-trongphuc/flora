@@ -5738,28 +5738,15 @@
             successPopup.classList.remove('active');
         });
 
-        // Promotional Pop-up logic (delay show + exit intent)
-        let popupShown = localStorage.getItem('implant_popup_shown') === 'true';
-
+        // Promotional Pop-up logic (Show immediately on load)
         function showPromoPopup() {
-            if (!popupShown) {
-                promoPopup.classList.add('active');
-                popupShown = true;
-                localStorage.setItem('implant_popup_shown', 'true');
-            }
+            promoPopup.classList.add('active');
         }
 
-        // 1. Show after 10 seconds of scroll or wait
+        // Show 1 second after page loads
         setTimeout(() => {
             showPromoPopup();
-        }, 10000);
-
-        // 2. Show on exit intent (mouse moving outside upper browser bounds)
-        document.addEventListener('mouseleave', (e) => {
-            if (e.clientY < 50) {
-                showPromoPopup();
-            }
-        });
+        }, 1000);
 
         // Close promo popup handlers
         document.getElementById('closePopupBtn').addEventListener('click', () => {
