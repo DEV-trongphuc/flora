@@ -311,9 +311,15 @@
             padding: 100px 0;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .section-padding {
-                padding: 60px 0;
+                padding: 75px 0;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .section-padding {
+                padding: 50px 0;
             }
         }
 
@@ -383,6 +389,19 @@
         .section-header h2 {
             font-size: clamp(2rem, 3.5vw, 2.6rem);
             margin-bottom: 16px;
+        }
+
+        @media (max-width: 992px) {
+            .section-header h2 {
+                font-size: clamp(1.8rem, 4vw, 2.3rem) !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .section-header h2 {
+                font-size: clamp(1.4rem, 5.5vw, 1.8rem) !important;
+                line-height: 1.35 !important;
+            }
         }
 
         .section-header p {
@@ -1196,7 +1215,7 @@
             }
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 640px) {
             .pain-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
@@ -1812,7 +1831,7 @@
             margin-top: 20px;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 640px) {
             .curriculum-grid {
                 grid-template-columns: 1fr;
             }
@@ -1913,6 +1932,19 @@
         .cert-text-box h2 {
             font-size: clamp(2rem, 3.5vw, 2.5rem);
             margin-bottom: 20px;
+        }
+
+        @media (max-width: 992px) {
+            .cert-text-box h2 {
+                font-size: clamp(1.5rem, 4.5vw, 2.2rem) !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .cert-text-box h2 {
+                font-size: clamp(1.25rem, 5.5vw, 1.55rem) !important;
+                line-height: 1.35 !important;
+            }
         }
 
         .cert-list {
@@ -3287,7 +3319,7 @@
         }
 
         /* Bottom Sheets for mobile popup */
-        @media (max-width: 768px) {
+        @media (max-width: 640px) {
             .implant-popup {
                 align-items: flex-end;
             }
@@ -3467,7 +3499,7 @@
         }
 
         /* Mobile Slide-dot Carousel grids */
-        @media (max-width: 768px) {
+        @media (max-width: 640px) {
 
             .pain-grid,
             .value-grid,
@@ -3933,7 +3965,7 @@
             display: none !important;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 640px) {
             .slider-dots-container {
                 display: flex !important;
                 justify-content: center;
@@ -3974,7 +4006,7 @@
                 <li><a href="#giang-vien">Giảng viên</a></li>
                 <li>
                     <a href="#dong-hanh" style="gap: 6px; position: relative;">
-                        <span>100% Học phí</span>
+                        <span>Tài trợ học phí</span>
                         <span
                             style="font-size: 0.62rem; font-weight: 800; background: linear-gradient(135deg, #ffd28f 0%, #c59e6c 100%); color: #5c2f0f; padding: 2px 6px; border-radius: 4px; line-height: 1; text-transform: uppercase; letter-spacing: 0.02em; display: inline-block; box-shadow: 0 2px 5px rgba(197, 168, 128, 0.25);">100%</span>
                     </a>
@@ -4669,8 +4701,7 @@
                 <!-- Text -->
                 <div class="cert-text-box reveal-up">
                     <div class="premium-badge">Giá trị pháp lý</div>
-                    <h2>Chứng Chỉ CME 140 Tiết <br class="br-desktop" /> <span class="metallic-gold-text">Đạt Chuẩn Sở Y
-                            Tế Toàn Quốc</span></h2>
+                    <h2>Chứng Chỉ CME 140 Tiết <br /> <span class="metallic-gold-text">Đạt Chuẩn Sở Y Tế Toàn Quốc</span></h2>
                     <p>
                         Chứng chỉ CME Đào tạo y khoa liên tục là văn bằng pháp lý quan trọng được Bộ Y tế và Sở Y tế
                         chấp thuận, giúp Bác sĩ RHM hoàn thiện hồ sơ hành nghề cấy ghép Implant hợp pháp.
@@ -5496,8 +5527,11 @@
                     <span>Gửi thông tin đăng ký</span>
                     <i class="fa-solid fa-arrow-right"></i>
                 </button>
-                <p style="text-align: center; font-size: 0.75rem; color: var(--clr-text-muted); margin-top: 14px; line-height: 1.45; font-family: var(--font-sans); width: 100%;">
-                    Bác sĩ đang bận việc gấp? Bác sĩ có thể <a href="#dat-lich" style="color: var(--clr-primary); font-weight: 700; text-decoration: underline;">đặt lịch hẹn gọi lại tư vấn riêng tại đây</a>.
+                <p
+                    style="text-align: center; font-size: 0.75rem; color: var(--clr-text-muted); margin-top: 14px; line-height: 1.45; font-family: var(--font-sans); width: 100%;">
+                    Bác sĩ đang bận việc gấp? Bác sĩ có thể <a href="#dat-lich"
+                        style="color: var(--clr-primary); font-weight: 700; text-decoration: underline;">đặt lịch hẹn
+                        gọi lại tư vấn riêng tại đây</a>.
                 </p>
             </form>
         </div>
@@ -6315,7 +6349,7 @@
         });
 
         // Dynamic Mobile Sliders with dots
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 640) {
             const sliders = [
                 { grid: '.pain-grid', card: '.pain-card' },
                 { grid: '.value-grid', card: '.value-card' },
