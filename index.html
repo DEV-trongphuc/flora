@@ -26,7 +26,7 @@
     <meta
         content="Đào tạo Cấy ghép Nha khoa Cơ bản cấp CME 140 tiết toàn quốc. Chuẩn hóa quy trình phẫu thuật và phục hình Implant Thụy Sĩ."
         property="og:description" />
-    <meta content="assets/hero.png" property="og:image" />
+    <meta content="https://brandson.vn/assets/hero.jpg" property="og:image" />
     <meta content="https://brandson.vn/cay-ghep-implant.html" property="og:url" />
     <meta content="BRANDSON Dental Academy" property="og:site_name" />
     <meta content="vi_VN" property="og:locale" />
@@ -36,7 +36,7 @@
     <meta
         content="Đào tạo Cấy ghép Nha khoa Cơ bản cấp CME 140 tiết toàn quốc. Chuẩn hóa quy trình phẫu thuật và phục hình Implant Thụy Sĩ."
         name="twitter:description" />
-    <meta content="assets/hero.png" name="twitter:image" />
+    <meta content="https://brandson.vn/assets/hero.jpg" name="twitter:image" />
     <!-- Structured Data JSON-LD Schema (Course Info) -->
     <script type="application/ld+json">
     {
@@ -78,7 +78,7 @@
     }
     </script>
     <!-- Preload critical LCP assets -->
-    <link as="image" href="assets/hero.png" rel="preload" />
+    <link as="image" href="assets/hero.jpg" rel="preload" />
     <!-- Fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&amp;family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&amp;display=swap"
@@ -399,7 +399,7 @@
 
         @media (max-width: 640px) {
             .section-header h2 {
-                font-size: clamp(1.4rem, 5.5vw, 1.8rem) !important;
+                font-size: clamp(1.2rem, 5.5vw, 1.5rem) !important;
                 line-height: 1.35 !important;
             }
         }
@@ -541,7 +541,7 @@
         /* Teal */
 
         .logo-img-brandson {
-            height: 35px;
+            height: 42px;
             width: auto;
             object-fit: contain;
             display: block;
@@ -576,7 +576,7 @@
             }
 
             .logo-img-brandson {
-                height: 24px;
+                height: 28px;
             }
 
             .logo-img-swiss {
@@ -1277,6 +1277,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .hero-screw-overlay:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(114, 47, 1, 0.2);
         }
 
         .hero-screw-overlay img {
@@ -2388,7 +2395,7 @@
 
         .faculty-avatar-box {
             height: 260px;
-            background: linear-gradient(135deg, #fbfaf8 0%, #f3ebe0 100%);
+            background: url('assets/bg.png') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -2406,12 +2413,12 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.88) 0%, rgba(243, 235, 224, 0.3) 100%);
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.6) 0%, rgba(243, 235, 224, 0.1) 100%);
         }
 
         .faculty-avatar-circle {
-            width: 110px;
-            height: 110px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             background: #ffffff;
             border: 3px solid var(--clr-accent);
@@ -2422,6 +2429,14 @@
             position: relative;
             z-index: 2;
             transition: var(--transition);
+            overflow: hidden;
+        }
+
+        .faculty-avatar-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
         }
 
         .faculty-card:hover .faculty-avatar-circle {
@@ -2442,8 +2457,8 @@
 
         .faculty-avatar-glow {
             position: absolute;
-            width: 150px;
-            height: 150px;
+            width: 180px;
+            height: 180px;
             background: radial-gradient(circle, rgba(197, 168, 128, 0.35) 0%, transparent 70%);
             filter: blur(10px);
             z-index: 1;
@@ -2555,6 +2570,7 @@
             position: relative;
             overflow: hidden;
             transition: var(--transition);
+            cursor: pointer;
         }
 
         .tuition-card-premium:hover {
@@ -2598,8 +2614,9 @@
         }
 
         .tuition-card-premium:hover .medallion-tag {
+            background: linear-gradient(135deg, #6ee7b7 0%, #10b981 50%, #065f46 100%) !important;
             transform: scale(1.06) rotate(5deg);
-            box-shadow: 0 0 35px rgba(255, 210, 143, 0.5);
+            box-shadow: 0 0 35px rgba(16, 185, 129, 0.6);
         }
 
         .saving-badge {
@@ -3889,7 +3906,16 @@
             }
 
             /* Tuition Card Flex Column on mobile */
-            .tuition-card-premium {
+            .tuition-plans-box {
+                width: 100% !important;
+                min-width: 0 !important;
+            }
+
+            .tuition-card-premium,
+            .tuition-plan-card {
+                width: 100% !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
                 flex-direction: column !important;
                 align-items: center !important;
                 text-align: center !important;
@@ -3930,6 +3956,40 @@
             .cert-text-box .cert-list {
                 text-align: left !important;
                 align-self: stretch !important;
+            }
+
+            .cert-text-box>p {
+                font-size: 0.88rem !important;
+                line-height: 1.55 !important;
+            }
+
+            .cert-list-text p {
+                font-size: 0.88rem !important;
+            }
+
+            .cert-list-text span {
+                font-size: 0.78rem !important;
+                line-height: 1.45 !important;
+            }
+
+            /* Compact FAQ accordion layout on mobile */
+            .faq-accordion-item {
+                padding: 14px 16px !important;
+            }
+
+            .faq-trigger-btn {
+                font-size: 0.9rem !important;
+            }
+
+            .faq-chevron-icon {
+                width: 24px !important;
+                height: 24px !important;
+                font-size: 0.75rem !important;
+            }
+
+            .faq-answer-panel p {
+                font-size: 0.8rem !important;
+                line-height: 1.55 !important;
             }
 
             /* Disable slide-dot card entrance fade-in animations on mobile */
@@ -4112,22 +4172,11 @@
     <header class="header-bar">
         <div class="container header-inner">
             <!-- Logos group -->
-            <div class="logo-box">
-                <div class="logo-item logo-dsc">
-                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                        stroke-width="2.5" viewbox="0 0 24 24">
-                        <path
-                            d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z">
-                        </path>
-                        <path d="M12 9h.01"></path>
-                    </svg>
-                    <span>DSC</span>
-                </div>
-                <div class="logo-sep"></div>
+            <div class="logo-box" style="display: flex; align-items: center; gap: 15px;">
                 <img alt="BRANDSON" class="logo-img-brandson" src="assets/brandson_logo.png" />
-                <div class="logo-sep"></div>
-                <img alt="implantswiss" class="logo-img-swiss"
-                    src="https://brandson.vn/wp-content/uploads/2025/02/implantswiss-logo-gray.png" />
+                <div style="font-size: 1.2rem; color: rgba(114, 47, 1, 0.4); font-weight: 300; margin-top: -2px;">✕
+                </div>
+                <img alt="implantswiss" class="logo-img-swiss" src="assets/implantswiss-logo-gray.png" />
             </div>
             <!-- Desktop Links -->
             <ul class="nav-links">
@@ -4296,7 +4345,7 @@
                     <div class="hero-visual-box mobile-only-visual reveal-up delay-300"
                         style="margin-top: 20px; margin-bottom: 30px;">
                         <div class="hero-image-frame">
-                            <img alt="Bác sĩ phẫu thuật cấy ghép implant" src="assets/hero.png" />
+                            <img alt="Bác sĩ phẫu thuật cấy ghép implant" src="assets/hero.jpg" />
                         </div>
                         <!-- Floating metrics badges -->
                         <div class="floating-badge floating-badge-1">
@@ -4314,9 +4363,9 @@
                             </div>
                         </div>
                         <!-- Overlapping 3D screw mockup -->
-                        <div class="hero-screw-overlay">
+                        <a class="hero-screw-overlay" href="#san-pham-thuy-si">
                             <img alt="Trụ Implant Thụy Sĩ" src="assets/implantswiss_screw.png" />
-                        </div>
+                        </a>
                     </div>
                     <div class="hero-capsule-tagline reveal-up delay-300">
                         Nhận chứng chỉ CME - Đạt chuẩn Y tế Toàn Quốc
@@ -4375,7 +4424,7 @@
                 <!-- Visual Column -->
                 <div class="hero-visual-box reveal-right delay-200 desktop-only-visual">
                     <div class="hero-image-frame">
-                        <img alt="Bác sĩ phẫu thuật cấy ghép implant" src="assets/hero.png" />
+                        <img alt="Bác sĩ phẫu thuật cấy ghép implant" src="assets/hero.jpg" />
                     </div>
                     <!-- Floating metrics badges -->
                     <div class="floating-badge floating-badge-1 reveal-scale delay-450">
@@ -4393,9 +4442,9 @@
                         </div>
                     </div>
                     <!-- Overlapping 3D screw mockup -->
-                    <div class="hero-screw-overlay">
+                    <a class="hero-screw-overlay" href="#san-pham-thuy-si">
                         <img alt="Trụ Implant Thụy Sĩ" src="assets/implantswiss_screw.png" />
-                    </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -4551,7 +4600,7 @@
             </div>
             <div class="container" style="position: relative; z-index: 1;">
                 <div class="section-header reveal-up">
-                    <div class="premium-badge">Giá trị chương trình</div>
+                    <div class="premium-badge">Giá trị sau chương trình</div>
                     <h2>Kiến Thức Chuẩn Khoa Học <br class="br-desktop" /> <span class="metallic-gold-text">Vững Thực
                             Hành
                             Lâm Sàng</span></h2>
@@ -4748,7 +4797,7 @@
                     <div class="curriculum-card stagger-item" style="padding-top: 0; overflow: hidden;">
                         <div class="curriculum-image-wrapper"
                             style="aspect-ratio: 16 / 9; width: calc(100% + 64px); height: auto; margin: 0 -32px 24px; overflow: hidden; position: relative; border-bottom: 1px solid var(--clr-border);">
-                            <img alt="Đào tạo lý thuyết Implant" decoding="async" loading="lazy" src="assets/p1.png"
+                            <img alt="Đào tạo lý thuyết Implant" decoding="async" loading="lazy" src="assets/p1.jpg"
                                 style="width: 100%; height: 100%; object-fit: cover;" />
                         </div>
                         <span class="curriculum-badge"
@@ -4766,7 +4815,7 @@
                     <div class="curriculum-card stagger-item" style="padding-top: 0; overflow: hidden;">
                         <div class="curriculum-image-wrapper"
                             style="aspect-ratio: 16 / 9; width: calc(100% + 64px); height: auto; margin: 0 -32px 24px; overflow: hidden; position: relative; border-bottom: 1px solid var(--clr-border);">
-                            <img alt="Thực hành lâm sàng Implant" decoding="async" loading="lazy" src="assets/p2.png"
+                            <img alt="Thực hành lâm sàng Implant" decoding="async" loading="lazy" src="assets/p2.jpg"
                                 style="width: 100%; height: 100%; object-fit: cover;" />
                         </div>
                         <span class="curriculum-badge"
@@ -4820,7 +4869,7 @@
                 </div>
                 <div class="reveal-up" style="text-align: center; margin-top: 40px;">
                     <a class="btn btn-primary" href="#dang-ky" style="box-shadow: 0 8px 25px rgba(114, 47, 1, 0.2);">
-                        <span>Đăng ký giữ chỗ học thực hành Hands-on</span>
+                        <span>Đăng ký giữ chỗ thực hành</span>
                         <i class="fa-solid fa-chevron-right"></i>
                     </a>
                 </div>
@@ -4952,7 +5001,7 @@
                             <div class="faculty-avatar-mock">
                                 <div class="faculty-avatar-glow"></div>
                                 <div class="faculty-avatar-circle">
-                                    <i class="fa-solid fa-user-doctor"></i>
+                                    <img src="assets/cao_huu_tien.png" alt="TS.BS.CKII. Cao Hữu Tiến">
                                 </div>
                                 <div class="faculty-badge">CHỦ TỊCH SAIGON ITI</div>
                             </div>
@@ -4974,7 +5023,7 @@
                             <div class="faculty-avatar-mock">
                                 <div class="faculty-avatar-glow"></div>
                                 <div class="faculty-avatar-circle">
-                                    <i class="fa-solid fa-user-doctor"></i>
+                                    <img src="assets/nguyen_quang_viet.png" alt="BS.CKII. Nguyễn Quang Việt">
                                 </div>
                                 <div class="faculty-badge">TRƯỞNG KHOA RHM</div>
                             </div>
@@ -4995,7 +5044,7 @@
                             <div class="faculty-avatar-mock">
                                 <div class="faculty-avatar-glow"></div>
                                 <div class="faculty-avatar-circle">
-                                    <i class="fa-solid fa-user-doctor"></i>
+                                    <img src="assets/tran_minh_triet.png" alt="BS.CKII. Trần Minh Triết">
                                 </div>
                                 <div class="faculty-badge">PHÓ TRƯỞNG KHOA BV TW</div>
                             </div>
@@ -5079,10 +5128,16 @@
                             </div>
                         </div>
                         <!-- Or separator -->
-                        <div class="tuition-divider" style="display: flex; align-items: center; justify-content: center; gap: 15px; margin: 8px 0; position: relative;">
-                            <div style="flex: 1; height: 1.5px; background: linear-gradient(90deg, transparent, rgba(114, 47, 1, 0.15));"></div>
-                            <span style="font-family: var(--font-sans); font-size: 0.72rem; font-weight: 800; color: var(--clr-primary); text-transform: uppercase; letter-spacing: 0.12em; background: #faf8f5; padding: 4px 14px; border-radius: 100px; border: 1.5px solid rgba(197, 168, 128, 0.3); box-shadow: 0 2px 6px rgba(114, 47, 1, 0.04);">HOẶC</span>
-                            <div style="flex: 1; height: 1.5px; background: linear-gradient(90deg, rgba(114, 47, 1, 0.15), transparent);"></div>
+                        <div class="tuition-divider"
+                            style="display: flex; align-items: center; justify-content: center; gap: 15px; margin: 8px 0; position: relative;">
+                            <div
+                                style="flex: 1; height: 1.5px; background: linear-gradient(90deg, transparent, rgba(114, 47, 1, 0.15));">
+                            </div>
+                            <span
+                                style="font-family: var(--font-sans); font-size: 0.72rem; font-weight: 800; color: var(--clr-primary); text-transform: uppercase; letter-spacing: 0.12em; background: #faf8f5; padding: 4px 14px; border-radius: 100px; border: 1.5px solid rgba(197, 168, 128, 0.3); box-shadow: 0 2px 6px rgba(114, 47, 1, 0.04);">HOẶC</span>
+                            <div
+                                style="flex: 1; height: 1.5px; background: linear-gradient(90deg, rgba(114, 47, 1, 0.15), transparent);">
+                            </div>
                         </div>
                         <!-- Option 2: Free Tuition (Sponsor) -->
                         <div class="tuition-card-premium">
@@ -5130,7 +5185,7 @@
                             style="border-radius: var(--radius-md); overflow: hidden; border: 1.5px solid var(--clr-border); box-shadow: var(--shadow-inner); position: relative; background: #fafafa;">
                             <img alt="Lễ ký kết đối tác chính hãng ImplantSwiss &amp; BRANDSON" decoding="async"
                                 loading="lazy" src="assets/signing.png"
-                                style="width: 100%; height: 260px; object-fit: cover;" />
+                                style="width: 100%; height: auto; display: block;" />
                             <div
                                 style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%); padding: 15px 12px; color: #ffffff;">
                                 <p
@@ -5140,21 +5195,22 @@
                             </div>
                         </div>
                         <div class="partner-logos-row"
-                            style="display: flex; align-items: center; justify-content: center; gap: 24px; padding-top: 15px; border-top: 1px dashed var(--clr-border); margin-top: 15px;">
-                            <div style="height: 32px; display: flex; align-items: center;">
+                            style="display: flex; align-items: center; justify-content: center; gap: 32px; padding-top: 15px; border-top: 1px dashed var(--clr-border); margin-top: 15px;">
+                            <div style="height: 60px; display: flex; align-items: center;">
                                 <img alt="Logo BRANDSON" decoding="async" loading="lazy" src="assets/brandson_logo.png"
-                                    style="height: 100%; max-width: 110px; object-fit: contain;" />
+                                    style="height: 100%; max-width: 180px; object-fit: contain;" />
                             </div>
-                            <div style="font-size: 1.1rem; color: var(--clr-accent); font-weight: 300;">✕</div>
-                            <div
-                                style="font-size: 1.15rem; font-weight: 800; color: #dd2a1b; letter-spacing: -0.02em; display: flex; align-items: center; gap: 4px;">
-                                <span style="color: #333333;">implant</span>swiss
+                            <div style="font-size: 1.5rem; color: var(--clr-accent); font-weight: 300;">✕</div>
+                            <div style="height: 48px; display: flex; align-items: center;">
+                                <img alt="Logo ImplantSwiss" decoding="async" loading="lazy"
+                                    src="assets/implantswiss-logo-gray.png"
+                                    style="height: 100%; max-width: 180px; object-fit: contain;" />
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- Part 2: Product Showcase: Trụ ImplantSwiss Thụy Sĩ -->
-                <div class="product-showcase-box reveal-up"
+                <div class="product-showcase-box reveal-up" id="san-pham-thuy-si"
                     style="background: #ffffff; border: 1px solid var(--clr-border); border-radius: var(--radius-xl); padding: 50px 40px; box-shadow: var(--shadow-md); position: relative;">
                     <div
                         style="position: absolute; top: -18px; left: 40px; background: linear-gradient(135deg, #8c5525 0%, #5c2f0f 100%); color: #ffffff; font-size: 0.75rem; font-weight: 800; padding: 8px 20px; border-radius: 50px; text-transform: uppercase; border: 1.5px solid rgba(197, 168, 128, 0.4); box-shadow: var(--shadow-sm); letter-spacing: 0.05em; z-index: 5;">
@@ -5258,7 +5314,7 @@
                 <div class="tuition-bottom-action reveal-up" style="text-align: center; margin-top: 40px;">
                     <a class="btn btn-primary" href="#dang-ky"
                         style="padding: 16px 40px; font-size: 1rem; box-shadow: 0 10px 25px rgba(114, 47, 1, 0.25);">
-                        <span>Đăng ký nhận học bổng tài trợ 25 trụ</span>
+                        <span>Nhận ưu đãi tài trợ ngay</span>
                         <i class="fa-solid fa-chevron-right"></i>
                     </a>
                 </div>
@@ -5294,35 +5350,42 @@
                     <!-- Left Column: Title, checklist and FAQ Accordion -->
                     <div class="faq-column reveal-up">
                         <h2
-                            style="font-size: clamp(1.8rem, 3.2vw, 2.5rem); color: var(--clr-navy); font-weight: 900; margin-bottom: 20px; line-height: 1.25;">
+                            style="font-size: clamp(1.3rem, 3.2vw, 2.5rem); color: var(--clr-navy); font-weight: 900; margin-bottom: 20px; line-height: 1.25;">
                             Làm chủ kỹ thuật cấy ghép Implant <br />
                             <span class="metallic-gold-text">Tự tin đặt ca trụ đầu tiên</span> <br />
                             an toàn chuẩn y khoa
                         </h2>
-                        <ul
-                            style="margin-top: 30px; margin-bottom: 40px; display: flex; flex-direction: column; gap: 16px; list-style: none;">
-                            <li
-                                style="display: flex; align-items: flex-start; gap: 12px; font-size: 0.95rem; color: var(--clr-text);">
-                                <i class="fa-solid fa-check"
-                                    style="color: var(--clr-primary); font-size: 1.1rem; margin-top: 3px; font-weight: 900;"></i>
-                                <span>Chứng chỉ <strong>Đào tạo y khoa liên tục CME 140 tiết</strong> chuẩn Bộ Y
-                                    tế</span>
-                            </li>
-                            <li
-                                style="display: flex; align-items: flex-start; gap: 12px; font-size: 0.95rem; color: var(--clr-text);">
-                                <i class="fa-solid fa-check"
-                                    style="color: var(--clr-primary); font-size: 1.1rem; margin-top: 3px; font-weight: 900;"></i>
-                                <span>Lộ trình đào tạo <strong>học online kết hợp hands-on</strong> tối ưu cho bác sĩ
-                                    bận rộn</span>
-                            </li>
-                            <li
-                                style="display: flex; align-items: flex-start; gap: 12px; font-size: 0.95rem; color: var(--clr-text);">
-                                <i class="fa-solid fa-check"
-                                    style="color: var(--clr-primary); font-size: 1.1rem; margin-top: 3px; font-weight: 900;"></i>
-                                <span>Hội đồng chuyên gia đầu ngành <strong>đồng hành hỗ trợ chuyên môn</strong> an toàn
-                                    tuyệt đối</span>
-                            </li>
-                        </ul>
+                        <div
+                            style="display: flex; gap: 32px; align-items: center; margin-top: 25px; margin-bottom: 35px; flex-wrap: wrap;">
+                            <img src="assets/implantswiss_screw.png" alt="Trụ Implant Thụy Sĩ"
+                                style="height: 100px; width: auto; object-fit: contain; flex-shrink: 0;" />
+                            <ul
+                                style="flex: 1; min-width: 280px; display: flex; flex-direction: column; gap: 16px; list-style: none; margin: 0; padding: 0;">
+                                <li
+                                    style="display: flex; align-items: flex-start; gap: 12px; font-size: 0.95rem; color: var(--clr-text);">
+                                    <i class="fa-solid fa-check"
+                                        style="color: var(--clr-primary); font-size: 1.1rem; margin-top: 3px; font-weight: 900;"></i>
+                                    <span>Chứng chỉ <strong>Đào tạo y khoa liên tục CME 140 tiết</strong> chuẩn Bộ Y
+                                        tế</span>
+                                </li>
+                                <li
+                                    style="display: flex; align-items: flex-start; gap: 12px; font-size: 0.95rem; color: var(--clr-text);">
+                                    <i class="fa-solid fa-check"
+                                        style="color: var(--clr-primary); font-size: 1.1rem; margin-top: 3px; font-weight: 900;"></i>
+                                    <span>Lộ trình đào tạo <strong>học online kết hợp hands-on</strong> tối ưu cho bác
+                                        sĩ
+                                        bận rộn</span>
+                                </li>
+                                <li
+                                    style="display: flex; align-items: flex-start; gap: 12px; font-size: 0.95rem; color: var(--clr-text);">
+                                    <i class="fa-solid fa-check"
+                                        style="color: var(--clr-primary); font-size: 1.1rem; margin-top: 3px; font-weight: 900;"></i>
+                                    <span>Hội đồng chuyên gia đầu ngành <strong>đồng hành hỗ trợ chuyên môn</strong> an
+                                        toàn
+                                        tuyệt đối</span>
+                                </li>
+                            </ul>
+                        </div>
                         <div class="faq-box-wrapper">
                             <!-- FAQ 1 -->
                             <div class="faq-accordion-item active">
@@ -5484,16 +5547,6 @@
         <div class="container footer-cols-grid">
             <div class="footer-logo-block">
                 <div class="logo-box">
-                    <div class="logo-item logo-dsc">
-                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="2.5" viewbox="0 0 24 24">
-                            <path
-                                d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z">
-                            </path>
-                        </svg>
-                        <span>DSC</span>
-                    </div>
-                    <div class="logo-sep"></div>
                     <div class="logo-item logo-brandson">
                         <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                             stroke-width="2.5" viewbox="0 0 24 24">
@@ -5560,8 +5613,7 @@
             </div>
         </div>
         <div class="footer-bottom-copy">
-            <p>© 2026 DSC Dental Skills Center x BRANDSON Việt Nam. All rights reserved. Professional Dental
-                Training.</p>
+            <p>© 2026 BRANDSON Việt Nam. All rights reserved. Professional Dental Training.</p>
         </div>
     </footer>
     <!-- Mobile Quick Action Bar (Floating Pill) -->
@@ -5840,14 +5892,14 @@
             <!-- Partner logos at the top (enlarged) -->
             <div class="partner-logos-row"
                 style="display: flex; align-items: center; justify-content: center; gap: 30px; margin-bottom: 25px; margin-top: 10px; padding-bottom: 18px; border-bottom: 1px dashed rgba(114, 47, 1, 0.15); width: 100%;">
-                <div style="height: 38px; display: flex; align-items: center;">
+                <div style="height: 46px; display: flex; align-items: center;">
                     <img alt="Logo BRANDSON" src="assets/brandson_logo.png"
-                        style="height: 100%; max-width: 140px; object-fit: contain;" />
+                        style="height: 100%; max-width: 160px; object-fit: contain;" />
                 </div>
                 <div style="font-size: 1.2rem; color: var(--clr-accent); font-weight: 300;">✕</div>
-                <div
-                    style="font-size: 1.35rem; font-weight: 800; color: #dd2a1b; letter-spacing: -0.02em; display: flex; align-items: center; gap: 4px; font-family: var(--font-sans);">
-                    <span style="color: #333333;">implant</span>swiss
+                <div style="height: 36px; display: flex; align-items: center;">
+                    <img alt="Logo ImplantSwiss" src="assets/implantswiss-logo-gray.png"
+                        style="height: 100%; max-width: 140px; object-fit: contain;" />
                 </div>
             </div>
             <!-- Circular 100% Tuition Sponsor Medallion Badge -->
@@ -5865,8 +5917,9 @@
             <h4 style="font-size: 1rem; font-weight: 800; margin-bottom: 15px; color: var(--clr-navy);">Tài Trợ 100% Học
                 Phí Khóa Học Implant Cơ Bản</h4>
             <p style="font-size: 0.82rem; color: var(--clr-text-muted); line-height: 1.6; margin-bottom: 24px;">
-                Đăng ký sử dụng tối thiểu 25 trụ ImplantSwiss Thụy Sĩ từ ngày 01/06 - 31/07/2026 để được nhận ngay suất
-                tham dự miễn phí khóa học trị giá 25.000.000 VNĐ.
+                Đăng ký sử dụng tối thiểu 25 trụ ImplantSwiss Thụy Sĩ từ ngày <strong>01/06 - 31/07/2026</strong> để
+                được nhận ngay suất
+                tham dự miễn phí khóa học trị giá <strong>25.000.000 VNĐ</strong>.
             </p>
             <a class="offer-btn" href="#dang-ky" id="popupCtaBtn">Nhận Tư Vấn Ngay</a>
             <a class="popup-roadmap-link" href="#lo-trinh" id="popupRoadmapBtn">Xem lộ trình học</a>
@@ -6172,6 +6225,22 @@
                 initConsultCalendar();
             });
         });
+
+        // Open consultation popup when clicking .tuition-card-premium
+        const premiumTuitionCard = document.querySelector('.tuition-card-premium');
+        if (premiumTuitionCard) {
+            premiumTuitionCard.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                // Close other popups if open
+                promoPopup.classList.remove('active');
+                registrationPopup.classList.remove('active');
+                // Open consultation popup
+                consultationPopup.classList.add('active');
+                // Initialize Calendar
+                initConsultCalendar();
+            });
+        }
 
         // Popup registration form handler
         popupRegistrationForm.addEventListener('submit', function (e) {
@@ -6587,11 +6656,11 @@
                     const xc = rect.width / 2;
                     const yc = rect.height / 2;
 
-                    const rotateY = ((x - xc) / xc) * 4; // max 4 degrees (subtle tilt)
-                    const rotateX = -((y - yc) / yc) * 4; // max 4 degrees (subtle tilt)
+                    const rotateY = ((x - xc) / xc) * 1.5; // max 1.5 degrees (very subtle tilt)
+                    const rotateX = -((y - yc) / yc) * 1.5; // max 1.5 degrees (very subtle tilt)
 
                     card.style.transition = 'transform 0.1s ease, box-shadow 0.1s ease';
-                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.015, 1.015, 1.015)`;
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.008, 1.008, 1.008)`;
 
                     // Set coordinates for spotlight glow effect
                     card.style.setProperty('--mouse-x', `${x}px`);
