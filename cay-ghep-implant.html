@@ -3419,6 +3419,21 @@
             border-color: transparent;
             box-shadow: 0 4px 10px rgba(114, 47, 1, 0.2);
         }
+
+        /* Dynamic Slider Dot Indicators hiding for Desktop PC viewports */
+        .slider-dots-container {
+            display: none !important;
+        }
+
+        @media (max-width: 768px) {
+            .slider-dots-container {
+                display: flex !important;
+                justify-content: center;
+                gap: 8px;
+                margin-top: 15px;
+                margin-bottom: 20px;
+            }
+        }
     </style>
 </head>
 
@@ -5551,7 +5566,6 @@
                 // Create dots wrapper container
                 const dotsContainer = document.createElement('div');
                 dotsContainer.className = 'slider-dots-container';
-                dotsContainer.style.cssText = 'display: flex; justify-content: center; gap: 8px; margin-top: 15px; margin-bottom: 20px;';
 
                 // Create a dot for each card
                 cards.forEach((card, idx) => {
