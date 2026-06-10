@@ -628,6 +628,100 @@
             font-size: 0.85rem;
         }
 
+        /* ─── LAPTOP VIEWPORT OPTIMIZATIONS (1025px - 1366px) ─── */
+        @media (max-width: 1366px) and (min-width: 1025px) {
+            /* Scale down header spacing & sizes to prevent wrapping on 13-14" laptops */
+            .logo-box {
+                gap: 10px !important;
+            }
+            .logo-sep {
+                height: 16px !important;
+            }
+            .logo-img-brandson {
+                height: 28px !important;
+            }
+            .logo-img-swiss {
+                height: 18px !important;
+            }
+            .nav-links {
+                gap: 12px !important;
+            }
+            .nav-links a {
+                font-size: 0.8rem !important;
+            }
+            .header-action {
+                gap: 6px !important;
+            }
+            .header-action .btn {
+                padding: 8px 14px !important;
+                font-size: 0.78rem !important;
+            }
+
+            /* Slightly reduce header horizontal padding to gain container space */
+            .header-inner.container {
+                padding: 0 16px !important;
+            }
+        }
+
+        /* Hero layout grid & elements optimization for laptop viewports (901px - 1366px) */
+        @media (max-width: 1366px) and (min-width: 901px) {
+            .hero-grid {
+                gap: 28px !important;
+            }
+            .hero-seal-stamp {
+                width: 130px !important;
+                height: 130px !important;
+            }
+            .hero-seal-stamp-container {
+                right: -15px !important;
+                top: 0px !important;
+            }
+            .floating-badge {
+                padding: 8px 12px !important;
+                gap: 8px !important;
+            }
+            .floating-badge-icon {
+                font-size: 1.2rem !important;
+            }
+            .floating-badge-val {
+                font-size: 0.95rem !important;
+            }
+            .floating-badge-lbl {
+                font-size: 0.65rem !important;
+            }
+            .hero-screw-overlay {
+                width: 130px !important;
+                height: 130px !important;
+                bottom: -20px !important;
+                right: -20px !important;
+            }
+            .hero-features-row {
+                gap: 12px !important;
+                padding: 10px 14px !important;
+            }
+            .hero-feature-icon {
+                width: 36px !important;
+                height: 36px !important;
+                font-size: 0.95rem !important;
+            }
+            .hero-feature-text strong {
+                font-size: 0.8rem !important;
+            }
+            .hero-feature-text span {
+                font-size: 0.72rem !important;
+            }
+            .hero-feature-text span.gold-bold-text {
+                font-size: 0.8rem !important;
+            }
+            .hero-cta-buttons {
+                gap: 10px !important;
+            }
+            .hero-cta-buttons .btn {
+                padding: 10px 20px !important;
+                font-size: 0.82rem !important;
+            }
+        }
+
         @media (max-width: 1024px) {
 
             .nav-links,
