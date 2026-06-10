@@ -3546,7 +3546,7 @@
 
         @media (max-width: 768px) {
             .back-to-top-btn {
-                bottom: 140px !important;
+                bottom: 132px !important;
                 left: auto !important;
                 right: 20px !important;
                 transform: translateY(100px) !important;
@@ -3909,6 +3909,7 @@
             .tuition-plans-box {
                 width: 100% !important;
                 min-width: 0 !important;
+                box-sizing: border-box !important;
             }
 
             .tuition-card-premium,
@@ -3921,6 +3922,62 @@
                 text-align: center !important;
                 padding: 24px 20px !important;
                 gap: 20px !important;
+                overflow: hidden !important;
+            }
+
+            .tuition-card-premium .plan-details,
+            .tuition-plan-card .plan-details {
+                width: 100% !important;
+                box-sizing: border-box !important;
+            }
+
+            .tuition-card-premium h4.tuition-card-title {
+                font-size: 1.08rem !important;
+                justify-content: center !important;
+                text-align: center !important;
+                line-height: 1.4 !important;
+                width: 100% !important;
+            }
+
+            .tuition-card-premium h4.tuition-card-title .title-text {
+                width: 100% !important;
+                display: block !important;
+                text-align: center !important;
+                margin-bottom: 4px !important;
+            }
+
+            .tuition-card-premium .tuition-bullet-list {
+                width: 100% !important;
+                box-sizing: border-box !important;
+                max-width: 100% !important;
+            }
+
+            .tuition-card-premium .tuition-bullet-list li {
+                font-size: 0.82rem !important;
+                line-height: 1.45 !important;
+            }
+
+            .tuition-signing-grid {
+                width: 100% !important;
+                max-width: 100% !important;
+                min-width: 0 !important;
+                box-sizing: border-box !important;
+            }
+
+            .signing-photo-wrapper {
+                width: 100% !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+
+            .partner-logos-row {
+                gap: 16px !important;
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+            }
+
+            .partner-logos-row img {
+                max-width: 110px !important;
             }
 
             /* Small Hero Implant overlay mockup size on mobile */
@@ -5153,9 +5210,9 @@
                                     style="font-size: 1.35rem; font-weight: 900; color: #ffffff; text-shadow: 0 1px 3px rgba(0,0,0,0.3); line-height: 1;">100%</span>
                             </div>
                             <div class="plan-details" style="z-index: 2; position: relative;">
-                                <h4
+                                <h4 class="tuition-card-title"
                                     style="font-size: 1.25rem; color: var(--clr-navy); font-weight: 900; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
-                                    MIỄN PHÍ HỌC PHÍ HÒA NHẬP
+                                    <span class="title-text">MIỄN PHÍ HỌC PHÍ HÒA NHẬP</span>
                                     <span class="saving-badge">TIẾT KIỆM 25TR</span>
                                 </h4>
                                 <p
@@ -5163,17 +5220,17 @@
                                     Tài trợ toàn bộ 100% học phí khi Bác sĩ đăng ký gói đồng hành mua tối thiểu
                                     <strong>25 trụ ImplantSwiss Thụy Sĩ</strong> từ nhà phân phối BRANDSON.
                                 </p>
-                                <ul
+                                <ul class="tuition-bullet-list"
                                     style="list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr; gap: 8px; font-size: 0.85rem; color: var(--clr-text);">
-                                    <li style="display: flex; align-items: center; gap: 8px;"><i
-                                            class="fa-solid fa-circle-check" style="color: var(--clr-primary);"></i>
-                                        Tặng toàn bộ chi phí học lý thuyết &amp; thực hành</li>
-                                    <li style="display: flex; align-items: center; gap: 8px;"><i
-                                            class="fa-solid fa-circle-check" style="color: var(--clr-primary);"></i> Sở
-                                        hữu ngay 25 trụ chính hãng để cấy cho bệnh nhân</li>
-                                    <li style="display: flex; align-items: center; gap: 8px;"><i
-                                            class="fa-solid fa-circle-check" style="color: var(--clr-primary);"></i>
-                                        Tặng bộ kit phẫu thuật thực hành &amp; Mentor hỗ trợ ca đầu</li>
+                                    <li style="display: flex; align-items: flex-start; gap: 8px; text-align: left;"><i
+                                            class="fa-solid fa-circle-check" style="color: var(--clr-primary); margin-top: 3px; flex-shrink: 0;"></i>
+                                        <span>Tặng toàn bộ chi phí học lý thuyết &amp; thực hành</span></li>
+                                    <li style="display: flex; align-items: flex-start; gap: 8px; text-align: left;"><i
+                                            class="fa-solid fa-circle-check" style="color: var(--clr-primary); margin-top: 3px; flex-shrink: 0;"></i>
+                                        <span>Sở hữu ngay 25 trụ chính hãng để cấy cho bệnh nhân</span></li>
+                                    <li style="display: flex; align-items: flex-start; gap: 8px; text-align: left;"><i
+                                            class="fa-solid fa-circle-check" style="color: var(--clr-primary); margin-top: 3px; flex-shrink: 0;"></i>
+                                        <span>Tặng bộ kit phẫu thuật thực hành &amp; Mentor hỗ trợ ca đầu</span></li>
                                 </ul>
                             </div>
                         </div>
