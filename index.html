@@ -205,6 +205,8 @@
             user-select: none;
             animation: float-slow 18s ease-in-out infinite;
             z-index: 0;
+            will-change: transform;
+            transform: translate3d(0, 0, 0);
         }
 
         .bg-decor-icon.decor-white {
@@ -217,6 +219,8 @@
             user-select: none;
             z-index: 0;
             animation: float-slow 20s ease-in-out infinite;
+            will-change: transform;
+            transform: translate3d(0, 0, 0);
         }
 
         @keyframes float-slow {
@@ -240,6 +244,8 @@
             pointer-events: none;
             z-index: 0;
             opacity: 0.6;
+            transform: translate3d(0, 0, 0);
+            will-change: transform;
         }
 
         .glow-orb-primary {
@@ -2635,12 +2641,10 @@
         @keyframes breathe-badge {
             0% {
                 transform: scale(0.96);
-                box-shadow: 0 2px 6px rgba(16, 185, 129, 0.3);
             }
 
             100% {
                 transform: scale(1.04);
-                box-shadow: 0 2px 12px rgba(16, 185, 129, 0.6);
             }
         }
 
@@ -6103,6 +6107,10 @@
         }, observerOptions);
 
         function startRevealObserver() {
+            if (window.innerWidth <= 768) {
+                // Skip registering IntersectionObserver animations on mobile to save substantial CPU overhead and scroll stutter
+                return;
+            }
             const revealElements = document.querySelectorAll('.reveal-up, .reveal-fade, .reveal-scale, .reveal-left, .reveal-right, .reveal-down, .reveal-stamp');
             revealElements.forEach(element => {
                 revealObserver.observe(element);
