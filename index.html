@@ -5736,34 +5736,71 @@
     </div>
 
     <!-- Lenis Smooth Scroll -->
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
 
     <!-- Javascript Actions -->
     <script>
         // Initialize Lenis Smooth Scroll (Body scroll only, stops when modals/drawers are open)
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // easeOutExpo
-            direction: 'vertical',
-            gestureDirection: 'vertical',
-            smooth: true,
-            mouseMultiplier: 1,
-            smoothTouch: false, // Keep mobile touch native-fast
-            touchMultiplier: 2,
-            infinite: false,
-        });
+        let lenis;
+        try {
+            if (typeof Lenis !== 'undefined') {
+                lenis = new Lenis({
+                    duration: 1.2,
+                    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // easeOutExpo
+                    direction: 'vertical',
+                    gestureDirection: 'vertical',
+                    smooth: true,
+                    mouseMultiplier: 1,
+                    smoothTouch: false, // Keep mobile touch native-fast
+                    touchMultiplier: 2,
+                    infinite: false,
+                });
 
-        function raf(time) {
-            const isScrollLocked = document.querySelector('.implant-popup.active') || document.querySelector('.drawer-nav.open');
-            if (isScrollLocked) {
-                lenis.stop();
-            } else {
-                lenis.start();
+                // RAF Loop for Lenis (Highly lightweight, no scroll locks inside RAF)
+                function raf(time) {
+                    lenis.raf(time);
+                    requestAnimationFrame(raf);
+                }
+                requestAnimationFrame(raf);
+
+                // MutationObserver to toggle Lenis scroll locks on demand (event-driven)
+                const scrollLockObserver = new MutationObserver(() => {
+                    const isScrollLocked = document.querySelector('.implant-popup.active') || document.querySelector('.drawer-nav.open');
+                    if (isScrollLocked) {
+                        lenis.stop();
+                        document.body.style.overflow = 'hidden';
+                    } else {
+                        lenis.start();
+                        document.body.style.overflow = '';
+                    }
+                });
+
+                // Targets to monitor for class changes
+                const lockTargets = [
+                    document.getElementById('registrationPopup'),
+                    document.getElementById('consultationPopup'),
+                    document.getElementById('implantPopup'),
+                    document.getElementById('successPopup'),
+                    document.getElementById('certImageModal'),
+                    document.getElementById('drawerNav')
+                ];
+
+                lockTargets.forEach(target => {
+                    if (target) {
+                        scrollLockObserver.observe(target, { attributes: true, attributeFilter: ['class'] });
+                    }
+                });
+
+                // Run once on load to establish correct initial state
+                const isScrollLocked = document.querySelector('.implant-popup.active') || document.querySelector('.drawer-nav.open');
+                if (isScrollLocked) {
+                    lenis.stop();
+                    document.body.style.overflow = 'hidden';
+                }
             }
-            lenis.raf(time);
-            requestAnimationFrame(raf);
+        } catch (e) {
+            console.error("Lenis Smooth Scroll error: ", e);
         }
-        requestAnimationFrame(raf);
 
         // Initialize stagger grid transition delays before observer setup
         document.querySelectorAll('.stagger-grid').forEach(grid => {
