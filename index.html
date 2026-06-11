@@ -6080,7 +6080,7 @@
 
         // Async helper to send lead data to Google Sheets
         async function submitLeadToSheets(data) {
-            if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbxWUpUjxdYe2uqh3shj3y4acTy7pgcl5jmFmhkBCNAHUu5rHT7tUuWnDvBkDv82Xz2ovw/exec') {
+            if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === '' || GOOGLE_SCRIPT_URL.includes('YOUR_GOOGLE_APPS_SCRIPT_URL_HERE')) {
                 console.warn('Google Apps Script URL is not configured. Submission skipped.');
                 return;
             }
