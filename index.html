@@ -43,7 +43,7 @@
     <meta
         content="Đào tạo Cấy ghép Nha khoa Cơ bản cấp CME 140 tiết toàn quốc. Chuẩn hóa quy trình phẫu thuật và phục hình Implant Thụy Sĩ."
         property="og:description" />
-    <meta content="https://brandson.vn/assets/hero.jpg" property="og:image" />
+    <meta content="https://brandson.vn/assets/implant_hero.jpg" property="og:image" />
     <meta content="https://brandson.vn/cay-ghep-implant.html" property="og:url" />
     <meta content="BRANDSON Dental Academy" property="og:site_name" />
     <meta content="vi_VN" property="og:locale" />
@@ -53,7 +53,7 @@
     <meta
         content="Đào tạo Cấy ghép Nha khoa Cơ bản cấp CME 140 tiết toàn quốc. Chuẩn hóa quy trình phẫu thuật và phục hình Implant Thụy Sĩ."
         name="twitter:description" />
-    <meta content="https://brandson.vn/assets/hero.jpg" name="twitter:image" />
+    <meta content="https://brandson.vn/assets/implant_hero.jpg" name="twitter:image" />
     <!-- Structured Data JSON-LD Schema (Course Info) -->
     <script type="application/ld+json">
     {
@@ -95,7 +95,7 @@
     }
     </script>
     <!-- Preload critical LCP assets -->
-    <link as="image" href="assets/hero.jpg" rel="preload" />
+    <link as="image" href="assets/implant_hero.jpg" rel="preload" />
     <!-- Fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&amp;family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&amp;display=swap"
@@ -1342,6 +1342,73 @@
             max-height: 85%;
             object-fit: contain;
             animation: float-gentle 4s ease-in-out infinite alternate-reverse;
+        }
+
+        .hero-botru-floating-1 {
+            position: absolute;
+            top: -45px;
+            right: 30px;
+            width: 85px;
+            height: auto;
+            z-index: 3;
+            pointer-events: none;
+            background: #ffffff;
+            border: 1px solid rgba(197, 168, 128, 0.25);
+            border-radius: 12px;
+            padding: 6px;
+            box-shadow: var(--shadow-md);
+            animation: float-botru-1 5s ease-in-out infinite alternate;
+        }
+
+        .hero-botru-floating-2 {
+            position: absolute;
+            bottom: 60px;
+            left: -55px;
+            width: 75px;
+            height: auto;
+            z-index: 3;
+            pointer-events: none;
+            background: #ffffff;
+            border: 1px solid rgba(197, 168, 128, 0.25);
+            border-radius: 12px;
+            padding: 5px;
+            box-shadow: var(--shadow-md);
+            animation: float-botru-2 6s ease-in-out infinite alternate-reverse;
+        }
+
+        @keyframes float-botru-1 {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(-12px) rotate(5deg);
+            }
+        }
+
+        @keyframes float-botru-2 {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(-10px) rotate(-6deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-botru-floating-1 {
+                width: 60px;
+                top: -30px;
+                right: 15px;
+                padding: 4px;
+                border-radius: 8px;
+            }
+            .hero-botru-floating-2 {
+                width: 52px;
+                bottom: 40px;
+                left: -22px;
+                padding: 3px;
+                border-radius: 8px;
+            }
         }
 
         @keyframes float-gentle {
@@ -2684,6 +2751,142 @@
 
         .tuition-plan-image-wrapper:hover img {
             transform: scale(1.015);
+        }
+
+        /* ─── BRANDSON COMMITMENTS ─── */
+        .brandson-commitments-box {
+            border: 1px solid rgba(197, 168, 128, 0.25);
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.65);
+            padding: 52px 28px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(114, 47, 1, 0.04);
+            margin-top: 10px;
+        }
+
+        .commit-title-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 36px;
+        }
+
+        .commit-title-line-left {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(114, 47, 1, 0.15));
+        }
+
+        .commit-title-line-right {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(114, 47, 1, 0.15), transparent);
+        }
+
+        .commit-title-text {
+            font-family: var(--font-sans);
+            font-size: 0.98rem;
+            font-weight: 800;
+            color: #722f01;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin: 0;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .commit-grid {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .commit-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+        }
+
+        .commit-icon-circle {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: var(--clr-accent);
+            border: 1.5px solid rgba(197, 168, 128, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: #ffffff;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease;
+        }
+
+        .commit-item:hover .commit-icon-circle {
+            transform: scale(1.1);
+        }
+
+        .commit-icon-circle i {
+            font-size: 0.95rem;
+        }
+
+        .commit-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.3;
+        }
+
+        .commit-text strong {
+            font-size: 0.74rem;
+            color: var(--clr-navy);
+            font-weight: 800;
+        }
+
+        .commit-text span {
+            font-size: 0.66rem;
+            color: var(--clr-text-muted);
+        }
+
+        .commit-divider {
+            width: 1px;
+            height: 42px;
+            background: rgba(114, 47, 1, 0.12);
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 992px) {
+            .brandson-commitments-box {
+                padding: 20px;
+            }
+            .commit-grid {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+                background: transparent;
+                border: none;
+                box-shadow: none;
+                padding: 0;
+            }
+            .commit-divider {
+                display: none;
+            }
+            .commit-item {
+                background: #ffffff;
+                border: 1.5px solid rgba(197, 168, 128, 0.2);
+                border-radius: 14px;
+                padding: 12px 18px;
+                box-shadow: var(--shadow-sm);
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .commit-title-text {
+                font-size: 0.86rem;
+                white-space: normal;
+            }
         }
 
         .medallion-tag {
@@ -4490,7 +4693,7 @@
                         style="margin-top: 20px; margin-bottom: 30px;">
                         <div class="hero-image-frame">
                             <img alt="Bác sĩ phẫu thuật cấy ghép implant" decoding="async" fetchpriority="high"
-                                src="assets/hero.jpg" />
+                                src="assets/implant_hero.jpg" />
                         </div>
                         <!-- Floating metrics badges -->
                         <div class="floating-badge floating-badge-1">
@@ -4509,8 +4712,11 @@
                         </div>
                         <!-- Overlapping 3D screw mockup -->
                         <a class="hero-screw-overlay" href="#san-pham-thuy-si">
-                            <img alt="Trụ Implant Thụy Sĩ" decoding="async" src="assets/implantswiss_screw.png" />
+                            <img alt="Bộ Trụ" decoding="async" src="assets/botru.png" />
                         </a>
+                        <!-- Floating small botru images -->
+                        <img src="assets/botru.png" alt="Bộ Trụ" class="hero-botru-floating-1" decoding="async" />
+                        <img src="assets/botru.png" alt="Bộ Trụ" class="hero-botru-floating-2" decoding="async" />
                     </div>
                     <div class="hero-capsule-tagline reveal-up delay-300">
                         Nhận chứng chỉ CME - Đạt chuẩn quy định Bộ Y tế
@@ -4570,7 +4776,7 @@
                 <div class="hero-visual-box reveal-right delay-200 desktop-only-visual">
                     <div class="hero-image-frame">
                         <img alt="Bác sĩ phẫu thuật cấy ghép implant" decoding="async" fetchpriority="high"
-                            src="assets/hero.jpg" />
+                            src="assets/implant_hero.jpg" />
                     </div>
                     <!-- Floating metrics badges -->
                     <div class="floating-badge floating-badge-1 reveal-scale delay-450">
@@ -4589,8 +4795,11 @@
                     </div>
                     <!-- Overlapping 3D screw mockup -->
                     <a class="hero-screw-overlay" href="#san-pham-thuy-si">
-                        <img alt="Trụ Implant Thụy Sĩ" decoding="async" src="assets/implantswiss_screw.png" />
+                        <img alt="Bộ Trụ" decoding="async" src="assets/botru.png" />
                     </a>
+                    <!-- Floating small botru images -->
+                    <img src="assets/botru.png" alt="Bộ Trụ" class="hero-botru-floating-1" decoding="async" />
+                    <img src="assets/botru.png" alt="Bộ Trụ" class="hero-botru-floating-2" decoding="async" />
                 </div>
             </div>
         </section>
@@ -4903,8 +5112,7 @@
                                 style="font-size: 1.05rem; color: var(--clr-navy); display: block; margin-bottom: 6px;">Dự
                                 kiến khai giảng: Cuối tháng 7</strong>
                             <p style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.6; margin: 0;">
-                                Số lượng học viên giới hạn để đảm bảo chất lượng giảng dạy lâm sàng & kèm cặp trực tiếp
-                                trong phòng phẫu thuật. Bác sĩ hãy đăng ký sớm để giữ chỗ cho khóa học sắp tới.
+                                Số lượng học viên giới hạn nhằm đảm bảo chất lượng đào tạo và hiệu quả thực hành. Bác sĩ hãy đăng ký sớm để giữ chỗ cho khóa học.
                             </p>
                         </div>
                     </div>
@@ -4942,8 +5150,7 @@
                 <!-- Text -->
                 <div class="cert-text-box reveal-up">
                     <div class="premium-badge">Giá trị pháp lý</div>
-                    <h2>Chứng Chỉ CME 140 Tiết <br /> <span class="metallic-gold-text">Đạt Chuẩn Sở Y Tế Toàn
-                            Quốc</span></h2>
+                    <h2>Chứng Chỉ CME 140 Tiết <br /> <span class="metallic-gold-text">Đạt Chuẩn Bộ Y Tế</span></h2>
                     <p>
                         Chứng chỉ CME Đào tạo y khoa liên tục là văn bằng pháp lý quan trọng được Bộ Y tế và Sở Y tế
                         chấp thuận, giúp Bác sĩ RHM hoàn thiện hồ sơ hành nghề cấy ghép Implant hợp pháp.
@@ -5050,8 +5257,7 @@
                             </div>
                         </div>
                         <div class="faculty-meta">
-                            <span class="faculty-role">Giảng viên chính</span>
-                            <h3 class="faculty-name">Chủ Tịch Saigon ITI</h3>
+                            <span class="faculty-role" style="margin-bottom: 15px; display: inline-block;">Giảng viên chính</span>
                             <ul class="faculty-bio-list">
                                 <li>Fellow Hội cấy ghép nha khoa quốc tế ITI</li>
                                 <li>Fellow Hội chuyên gia cấy ghép nha khoa thế giới ICOI</li>
@@ -5073,8 +5279,7 @@
                             </div>
                         </div>
                         <div class="faculty-meta">
-                            <span class="faculty-role">Giảng viên chính</span>
-                            <h3 class="faculty-name">Trưởng Khoa Răng Hàm Mặt</h3>
+                            <span class="faculty-role" style="margin-bottom: 15px; display: inline-block;">Giảng viên chính</span>
                             <ul class="faculty-bio-list">
                                 <li>Trưởng khoa Kỹ thuật cao - Bệnh viện Răng Hàm Mặt TP.HCM</li>
                                 <li>Tốt nghiệp Thạc sĩ tại Đại học Loma Linda, Hoa Kỳ</li>
@@ -5095,8 +5300,7 @@
                             </div>
                         </div>
                         <div class="faculty-meta">
-                            <span class="faculty-role">Giảng viên chính</span>
-                            <h3 class="faculty-name">Phó Trưởng Khoa BV TW</h3>
+                            <span class="faculty-role" style="margin-bottom: 15px; display: inline-block;">Giảng viên chính</span>
                             <ul class="faculty-bio-list">
                                 <li>Phó Trưởng khoa Răng Hàm Mặt - BV Đa Khoa TW Cần Thơ</li>
                                 <li>BCH Chi hội Phẫu thuật miệng hàm mặt và tạo hình Việt Nam</li>
@@ -5151,7 +5355,7 @@
                     style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; margin-bottom: 60px; align-items: stretch;">
                     <!-- Left: Tuition Plans -->
                     <div class="tuition-plans-box"
-                        style="display: flex; flex-direction: column; gap: 20px; justify-content: center;">
+                        style="display: flex; flex-direction: column; gap: 28px; justify-content: center;">
                         <!-- Option 1: Standard Tuition (Replaced with Image) -->
                         <a href="#dang-ky" class="tuition-plan-image-wrapper" style="display: block; text-decoration: none;">
                             <picture>
@@ -5159,48 +5363,53 @@
                                 <img src="assets/goi25.jpg" alt="Gói Học Phí 25 Triệu" decoding="async" loading="lazy" />
                             </picture>
                         </a>
-                        <!-- Option 2: Free Tuition (Sponsor) -->
-                        <div class="tuition-card-premium">
-                            <!-- Corner Badge -->
-                            <div
-                                style="position: absolute; top: 0; right: 0; background: var(--clr-accent); color: #ffffff; font-size: 0.68rem; font-weight: 900; padding: 6px 16px; border-bottom-left-radius: 12px; text-transform: uppercase; letter-spacing: 0.05em; z-index: 2;">
-                                TÀI TRỢ</div>
-                            <div class="medallion-tag">
-                                <span
-                                    style="font-size: 0.72rem; font-weight: 800; color: rgba(255,255,255,0.9); text-transform: uppercase; letter-spacing: 0.05em;">Tài
-                                    trợ</span>
-                                <span
-                                    style="font-size: 1.35rem; font-weight: 900; color: #ffffff; text-shadow: 0 1px 3px rgba(0,0,0,0.3); line-height: 1;">100%</span>
+                        <!-- Commitments Container: Cam kết đồng hành từ BRANDSON -->
+                        <div class="brandson-commitments-box">
+                            <!-- Header title with lines -->
+                            <div class="commit-title-row">
+                                <div class="commit-title-line-left"></div>
+                                <h3 class="commit-title-text">CAM KẾT ĐỒNG HÀNH TỪ BRANDSON</h3>
+                                <div class="commit-title-line-right"></div>
                             </div>
-                            <div class="plan-details" style="z-index: 2; position: relative;">
-                                <h4 class="tuition-card-title"
-                                    style="font-size: 1.25rem; color: var(--clr-navy); font-weight: 900; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
-                                    <span class="title-text">MIỄN PHÍ TOÀN BỘ</span>
-                                    <span class="saving-badge">TIẾT KIỆM 25TR</span>
-                                </h4>
-                                <p
-                                    style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.6; margin-bottom: 12px;">
-                                    Tài trợ toàn bộ 100% học phí khi Bác sĩ đăng ký gói đồng hành mua tối thiểu
-                                    <strong>25 trụ ImplantSwiss Thụy Sĩ</strong> từ nhà phân phối BRANDSON.
-                                </p>
-                                <ul class="tuition-bullet-list"
-                                    style="list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr; gap: 8px; font-size: 0.85rem; color: var(--clr-text);">
-                                    <li style="display: flex; align-items: flex-start; gap: 8px; text-align: left;"><i
-                                            class="fa-solid fa-circle-check"
-                                            style="color: var(--clr-primary); margin-top: 3px; flex-shrink: 0;"></i>
-                                        <span>Tặng toàn bộ chi phí học lý thuyết &amp; thực hành</span>
-                                    </li>
-                                    <li style="display: flex; align-items: flex-start; gap: 8px; text-align: left;"><i
-                                            class="fa-solid fa-circle-check"
-                                            style="color: var(--clr-primary); margin-top: 3px; flex-shrink: 0;"></i>
-                                        <span>Sở hữu ngay 25 trụ chính hãng để cấy cho bệnh nhân</span>
-                                    </li>
-                                    <li style="display: flex; align-items: flex-start; gap: 8px; text-align: left;"><i
-                                            class="fa-solid fa-circle-check"
-                                            style="color: var(--clr-primary); margin-top: 3px; flex-shrink: 0;"></i>
-                                        <span>Tặng bộ kit phẫu thuật thực hành &amp; Mentor hỗ trợ ca đầu</span>
-                                    </li>
-                                </ul>
+                            
+                            <!-- 3 columns container -->
+                            <div class="commit-grid">
+                                <!-- Item 1 -->
+                                <div class="commit-item">
+                                    <div class="commit-icon-circle">
+                                        <i class="fa-solid fa-truck-fast"></i>
+                                    </div>
+                                    <div class="commit-text">
+                                        <strong>Giao hàng linh hoạt</strong>
+                                        <span>Cả Thứ 7 & Chủ Nhật</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="commit-divider"></div>
+                                
+                                <!-- Item 2 -->
+                                <div class="commit-item">
+                                    <div class="commit-icon-circle">
+                                        <i class="fa-solid fa-user-doctor"></i>
+                                    </div>
+                                    <div class="commit-text">
+                                        <strong>Hỗ trợ setup</strong>
+                                        <span>Phòng phẫu thuật</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="commit-divider"></div>
+                                
+                                <!-- Item 3 -->
+                                <div class="commit-item">
+                                    <div class="commit-icon-circle">
+                                        <i class="fa-solid fa-rotate"></i>
+                                    </div>
+                                    <div class="commit-text">
+                                        <strong>Chính sách bảo hành</strong>
+                                        <span>1 đổi 1 theo quy định</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -5266,11 +5475,7 @@
                             });
                         </script>
                         <div class="partner-logos-row"
-                            style="display: flex; align-items: center; justify-content: center; gap: 24px; padding-top: 15px; border-top: 1px dashed var(--clr-border); margin-top: 15px;">
-                            <div style="height: 85px; display: flex; align-items: center;">
-                                <img alt="Logo Partner" decoding="async" loading="lazy" src="assets/source/logo.png"
-                                    style="height: 100%; max-width: 150px; object-fit: contain;" />
-                            </div>
+                            style="display: flex; align-items: center; justify-content: center; gap: 32px; padding-top: 15px; border-top: 1px dashed var(--clr-border); margin-top: 15px;">
                             <div style="height: 60px; display: flex; align-items: center;">
                                 <img alt="Logo BRANDSON" decoding="async" loading="lazy" src="assets/brandson_logo.png"
                                     style="height: 100%; max-width: 140px; object-fit: contain;" />
