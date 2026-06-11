@@ -5043,7 +5043,7 @@
                 <div class="cert-frame-wrapper reveal-up">
                     <div class="cert-mockup-frame" id="triggerCertModalFrame">
                         <img alt="Chứng chỉ CME 140 tiết cấy ghép implant nha khoa" decoding="async" loading="lazy"
-                            src="assets/implant_cme_cert.png" />
+                            src="assets/chungchi.jpg" />
                         <div class="cert-mockup-overlay">
                             <i class="fa-solid fa-magnifying-glass-plus"></i>
                             <span>Xem chứng chỉ</span>
@@ -6063,7 +6063,7 @@
             <button aria-label="Đóng" class="popup-close" id="closeCertModalBtn">×</button>
             <div class="cert-modal-img-wrapper">
                 <img alt="Mẫu chứng chỉ thành tích" decoding="async" loading="lazy"
-                    src="https://img.magnific.com/psd-mien-phi/mau-chung-chi-thanh-tich-trang-nha-voi-cac-hinh-dang-vang_1393-344.jpg?semt=ais_hybrid&amp;w=740&amp;q=80" />
+                    src="assets/chungchi.jpg" />
             </div>
         </div>
     </div>
@@ -6625,20 +6625,23 @@
                         headerBar.classList.remove('scrolled');
                     }
 
-                    // Smart Header Hide/Show on scroll direction change
+                    // Smart Header Hide/Show on scroll direction change with threshold to prevent flickering
                     if (currentScrollY > 150) {
-                        if (currentScrollY > lastScrollY) {
-                            // Scrolling down -> hide header
+                        const scrollDiff = currentScrollY - lastScrollY;
+                        if (scrollDiff > 12) {
+                            // Scroll down past threshold -> hide header
                             headerBar.classList.add('header-hidden');
-                        } else {
-                            // Scrolling up -> show header
+                            lastScrollY = currentScrollY;
+                        } else if (scrollDiff < -12) {
+                            // Scroll up past threshold -> show header
                             headerBar.classList.remove('header-hidden');
+                            lastScrollY = currentScrollY;
                         }
                     } else {
                         // Near top -> always show header
                         headerBar.classList.remove('header-hidden');
+                        lastScrollY = currentScrollY;
                     }
-                    lastScrollY = currentScrollY;
 
                     isScrollingLocked = false;
                 });
