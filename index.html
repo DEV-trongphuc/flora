@@ -105,7 +105,11 @@
         }
 
         html {
-            scroll-behavior: auto;
+            scroll-behavior: smooth;
+        }
+
+        html.lenis {
+            scroll-behavior: auto !important;
         }
 
         *,
@@ -3161,15 +3165,12 @@
             color: rgba(255, 255, 255, 0.4);
         }
 
-        /* ─── MOBILE QUICK FLOATING BAR ─── */
         .mobile-floating-dock {
             position: fixed;
             bottom: 16px;
             left: 16px;
             right: 16px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: #ffffff;
             border: 1px solid rgba(114, 47, 1, 0.1);
             border-radius: 40px;
             display: flex;
@@ -3896,6 +3897,49 @@
         }
 
         @media (max-width: 768px) {
+            /* Mobile Performance and Compositing Optimizations */
+            .glow-orb {
+                display: none !important;
+            }
+
+            .hero-thread-svg {
+                display: none !important;
+            }
+
+            .bg-decor-icon,
+            .bg-decor-svg {
+                animation: none !important;
+            }
+
+            .floating-badge {
+                animation: none !important;
+            }
+
+            .hero-screw-overlay img {
+                animation: none !important;
+            }
+
+            .faculty-avatar-glow {
+                animation: none !important;
+                display: none !important;
+            }
+
+            .saving-badge {
+                animation: none !important;
+            }
+
+            .header-bar.scrolled {
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+                background: rgba(255, 255, 255, 0.98) !important;
+            }
+
+            .value-card {
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+                background: rgba(255, 255, 255, 0.98) !important;
+            }
+
             .mobile-floating-dock {
                 padding: 6px 6px 6px 16px !important;
             }
@@ -4235,10 +4279,10 @@
         <div class="container header-inner">
             <!-- Logos group -->
             <div class="logo-box" style="display: flex; align-items: center; gap: 15px;">
-                <img alt="BRANDSON" class="logo-img-brandson" src="assets/brandson_logo.png" />
+                <img alt="BRANDSON" class="logo-img-brandson" decoding="async" src="assets/brandson_logo.png" />
                 <div style="font-size: 1.2rem; color: rgba(114, 47, 1, 0.4); font-weight: 300; margin-top: -2px;">✕
                 </div>
-                <img alt="implantswiss" class="logo-img-swiss" src="assets/implantswiss-logo-gray.png" />
+                <img alt="implantswiss" class="logo-img-swiss" decoding="async" src="assets/implantswiss-logo-gray.png" />
             </div>
             <!-- Desktop Links -->
             <ul class="nav-links">
@@ -4274,7 +4318,7 @@
         <!-- Drawer Logo Header -->
         <div class="drawer-logo-container"
             style="text-align: center; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid rgba(114, 47, 1, 0.08); display: flex; justify-content: center; align-items: center;">
-            <img alt="BRANDSON" src="assets/brandson_logo.png"
+            <img alt="BRANDSON" decoding="async" src="assets/brandson_logo.png"
                 style="max-height: 48px; max-width: 85%; object-fit: contain;" />
         </div>
         <a href="#lo-trinh">Lộ trình chuyên môn</a>
@@ -4407,7 +4451,7 @@
                     <div class="hero-visual-box mobile-only-visual reveal-up delay-300"
                         style="margin-top: 20px; margin-bottom: 30px;">
                         <div class="hero-image-frame">
-                            <img alt="Bác sĩ phẫu thuật cấy ghép implant" src="assets/hero.jpg" />
+                            <img alt="Bác sĩ phẫu thuật cấy ghép implant" decoding="async" fetchpriority="high" src="assets/hero.jpg" />
                         </div>
                         <!-- Floating metrics badges -->
                         <div class="floating-badge floating-badge-1">
@@ -4426,7 +4470,7 @@
                         </div>
                         <!-- Overlapping 3D screw mockup -->
                         <a class="hero-screw-overlay" href="#san-pham-thuy-si">
-                            <img alt="Trụ Implant Thụy Sĩ" src="assets/implantswiss_screw.png" />
+                            <img alt="Trụ Implant Thụy Sĩ" decoding="async" src="assets/implantswiss_screw.png" />
                         </a>
                     </div>
                     <div class="hero-capsule-tagline reveal-up delay-300">
@@ -4486,7 +4530,7 @@
                 <!-- Visual Column -->
                 <div class="hero-visual-box reveal-right delay-200 desktop-only-visual">
                     <div class="hero-image-frame">
-                        <img alt="Bác sĩ phẫu thuật cấy ghép implant" src="assets/hero.jpg" />
+                        <img alt="Bác sĩ phẫu thuật cấy ghép implant" decoding="async" fetchpriority="high" src="assets/hero.jpg" />
                     </div>
                     <!-- Floating metrics badges -->
                     <div class="floating-badge floating-badge-1 reveal-scale delay-450">
@@ -4505,7 +4549,7 @@
                     </div>
                     <!-- Overlapping 3D screw mockup -->
                     <a class="hero-screw-overlay" href="#san-pham-thuy-si">
-                        <img alt="Trụ Implant Thụy Sĩ" src="assets/implantswiss_screw.png" />
+                        <img alt="Trụ Implant Thụy Sĩ" decoding="async" src="assets/implantswiss_screw.png" />
                     </a>
                 </div>
             </div>
@@ -5063,7 +5107,7 @@
                             <div class="faculty-avatar-mock">
                                 <div class="faculty-avatar-glow"></div>
                                 <div class="faculty-avatar-circle">
-                                    <img src="assets/cao_huu_tien.png" alt="TS.BS.CKII. Cao Hữu Tiến">
+                                    <img src="assets/cao_huu_tien.png" alt="TS.BS.CKII. Cao Hữu Tiến" decoding="async" loading="lazy">
                                 </div>
                                 <div class="faculty-badge">CHỦ TỊCH SAIGON ITI</div>
                             </div>
@@ -5085,7 +5129,7 @@
                             <div class="faculty-avatar-mock">
                                 <div class="faculty-avatar-glow"></div>
                                 <div class="faculty-avatar-circle">
-                                    <img src="assets/nguyen_quang_viet.png" alt="BS.CKII. Nguyễn Quang Việt">
+                                    <img src="assets/nguyen_quang_viet.png" alt="BS.CKII. Nguyễn Quang Việt" decoding="async" loading="lazy">
                                 </div>
                                 <div class="faculty-badge">TRƯỞNG KHOA RHM</div>
                             </div>
@@ -5106,7 +5150,7 @@
                             <div class="faculty-avatar-mock">
                                 <div class="faculty-avatar-glow"></div>
                                 <div class="faculty-avatar-circle">
-                                    <img src="assets/tran_minh_triet.png" alt="BS.CKII. Trần Minh Triết">
+                                    <img src="assets/tran_minh_triet.png" alt="BS.CKII. Trần Minh Triết" decoding="async" loading="lazy">
                                 </div>
                                 <div class="faculty-badge">PHÓ TRƯỞNG KHOA BV TW</div>
                             </div>
@@ -5425,7 +5469,7 @@
                         </h2>
                         <div
                             style="display: flex; gap: 32px; align-items: center; margin-top: 25px; margin-bottom: 35px; flex-wrap: wrap;">
-                            <img src="assets/implantswiss_screw.png" alt="Trụ Implant Thụy Sĩ"
+                            <img src="assets/implantswiss_screw.png" alt="Trụ Implant Thụy Sĩ" decoding="async" loading="lazy"
                                 style="height: 100px; width: auto; object-fit: contain; flex-shrink: 0;" />
                             <ul
                                 style="flex: 1; min-width: 280px; display: flex; flex-direction: column; gap: 16px; list-style: none; margin: 0; padding: 0;">
@@ -5961,12 +6005,12 @@
             <div class="partner-logos-row"
                 style="display: flex; align-items: center; justify-content: center; gap: 30px; margin-bottom: 25px; margin-top: 10px; padding-bottom: 18px; border-bottom: 1px dashed rgba(114, 47, 1, 0.15); width: 100%;">
                 <div style="height: 46px; display: flex; align-items: center;">
-                    <img alt="Logo BRANDSON" src="assets/brandson_logo.png"
+                    <img alt="Logo BRANDSON" decoding="async" loading="lazy" src="assets/brandson_logo.png"
                         style="height: 100%; max-width: 160px; object-fit: contain;" />
                 </div>
                 <div style="font-size: 1.2rem; color: var(--clr-accent); font-weight: 300;">✕</div>
                 <div style="height: 36px; display: flex; align-items: center;">
-                    <img alt="Logo ImplantSwiss" src="assets/implantswiss-logo-gray.png"
+                    <img alt="Logo ImplantSwiss" decoding="async" loading="lazy" src="assets/implantswiss-logo-gray.png"
                         style="height: 100%; max-width: 140px; object-fit: contain;" />
                 </div>
             </div>
@@ -6018,7 +6062,7 @@
         <div class="popup-content" data-lenis-prevent="">
             <button aria-label="Đóng" class="popup-close" id="closeCertModalBtn">×</button>
             <div class="cert-modal-img-wrapper">
-                <img alt="Mẫu chứng chỉ thành tích"
+                <img alt="Mẫu chứng chỉ thành tích" decoding="async" loading="lazy"
                     src="https://img.magnific.com/psd-mien-phi/mau-chung-chi-thanh-tich-trang-nha-voi-cac-hinh-dang-vang_1393-344.jpg?semt=ais_hybrid&amp;w=740&amp;q=80" />
             </div>
         </div>
@@ -6030,7 +6074,8 @@
         // Initialize Lenis Smooth Scroll (Body scroll only, stops when modals/drawers are open)
         let lenis;
         try {
-            if (typeof Lenis !== 'undefined') {
+            // Initialize Lenis Smooth Scroll only on desktop screens (>1024px) for optimized mobile scrolling performance
+            if (typeof Lenis !== 'undefined' && window.innerWidth > 1024) {
                 lenis = new Lenis({
                     duration: 1.2,
                     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // easeOutExpo
@@ -6045,19 +6090,23 @@
 
                 // RAF Loop for Lenis (Highly lightweight, no scroll locks inside RAF)
                 function raf(time) {
-                    lenis.raf(time);
-                    requestAnimationFrame(raf);
+                    if (lenis) {
+                        lenis.raf(time);
+                        requestAnimationFrame(raf);
+                    }
                 }
                 requestAnimationFrame(raf);
+            }
 
-                // MutationObserver to toggle Lenis scroll locks on demand (event-driven)
+            // Lock/unlock scrolling when popups/drawers are open (active on all screen widths)
+            if (typeof MutationObserver !== 'undefined') {
                 const scrollLockObserver = new MutationObserver(() => {
                     const isScrollLocked = document.querySelector('.implant-popup.active') || document.querySelector('.drawer-nav.open');
                     if (isScrollLocked) {
-                        lenis.stop();
+                        if (lenis) lenis.stop();
                         document.body.style.overflow = 'hidden';
                     } else {
-                        lenis.start();
+                        if (lenis) lenis.start();
                         document.body.style.overflow = '';
                     }
                 });
@@ -6081,7 +6130,7 @@
                 // Run once on load to establish correct initial state
                 const isScrollLocked = document.querySelector('.implant-popup.active') || document.querySelector('.drawer-nav.open');
                 if (isScrollLocked) {
-                    lenis.stop();
+                    if (lenis) lenis.stop();
                     document.body.style.overflow = 'hidden';
                 }
             }
@@ -6692,22 +6741,33 @@
                 gridEl.parentNode.insertBefore(dotsContainer, gridEl.nextSibling);
 
                 // Update active dot on scroll
-                gridEl.addEventListener('scroll', () => {
-                    const cardWidth = cards[0].offsetWidth + 16;
-                    const activeIndex = Math.round(gridEl.scrollLeft / cardWidth);
-                    const dots = dotsContainer.querySelectorAll('.slider-dot');
-                    dots.forEach((dot, idx) => {
-                        if (idx === activeIndex) {
-                            dot.classList.add('active');
-                            dot.style.background = 'var(--clr-primary)';
-                            dot.style.transform = 'scale(1.2)';
-                        } else {
-                            dot.classList.remove('active');
-                            dot.style.background = 'rgba(114, 47, 1, 0.2)';
-                            dot.style.transform = 'scale(1)';
-                        }
-                    });
+                let isScrolling = false;
+                let cardWidth = cards[0].offsetWidth + 16;
+                window.addEventListener('resize', () => {
+                    cardWidth = cards[0].offsetWidth + 16;
                 });
+
+                gridEl.addEventListener('scroll', () => {
+                    if (!isScrolling) {
+                        isScrolling = true;
+                        window.requestAnimationFrame(() => {
+                            const activeIndex = Math.round(gridEl.scrollLeft / cardWidth);
+                            const dots = dotsContainer.querySelectorAll('.slider-dot');
+                            dots.forEach((dot, idx) => {
+                                if (idx === activeIndex) {
+                                    dot.classList.add('active');
+                                    dot.style.background = 'var(--clr-primary)';
+                                    dot.style.transform = 'scale(1.2)';
+                                } else {
+                                    dot.classList.remove('active');
+                                    dot.style.background = 'rgba(114, 47, 1, 0.2)';
+                                    dot.style.transform = 'scale(1)';
+                                }
+                            });
+                            isScrolling = false;
+                        });
+                    }
+                }, { passive: true });
             });
         }
 
