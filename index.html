@@ -2144,14 +2144,17 @@
             justify-content: center;
             position: relative;
             overflow: visible !important;
+            max-width: 460px;
+            width: 100%;
+            margin: 0 auto;
         }
 
         .cert-frame-wrapper::before {
             content: '';
             position: absolute;
             inset: -15px;
-            background: linear-gradient(135deg, rgba(197, 168, 128, 0.25), rgba(114, 47, 1, 0.15));
-            filter: blur(20px);
+            background: linear-gradient(135deg, rgba(197, 168, 128, 0.35), rgba(114, 47, 1, 0.2));
+            filter: blur(25px);
             z-index: 0;
             border-radius: var(--radius-lg);
         }
@@ -2176,6 +2179,7 @@
             width: 100%;
             height: auto;
             display: block;
+            border-radius: 4px;
         }
 
         .cert-badge-bottom {
@@ -5054,7 +5058,7 @@
             </div>
             <div class="container"
                 style="text-align: center; margin-top: 40px; display: flex; flex-wrap: wrap; justify-content: center; gap: 16px;">
-                <div class="reveal-up">
+                <div class="reveal-up mobile-only-visual">
                     <button class="btn btn-outline" id="btnViewCertBottom"
                         style="border-color: var(--clr-primary); color: var(--clr-primary); cursor: pointer;">
                         <i class="fa-solid fa-eye" style="margin-right: 8px;"></i>
