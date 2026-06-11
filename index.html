@@ -1956,12 +1956,17 @@
             margin: 0;
         }
 
-        /* ─── CURRICULUM SECTION (Timeline) ─── */
         .curriculum-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
             margin-top: 20px;
+        }
+
+        @media (max-width: 992px) {
+            .curriculum-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 640px) {
@@ -2501,9 +2506,9 @@
             transform: translateX(-50%);
             background: linear-gradient(135deg, #c59e6c 0%, #a38059 100%);
             color: #ffffff;
-            font-size: 0.68rem;
+            font-size: 0.76rem;
             font-weight: 800;
-            padding: 4px 14px;
+            padding: 5px 16px;
             border-radius: 100px;
             box-shadow: 0 4px 10px rgba(163, 128, 89, 0.25);
             text-transform: uppercase;
@@ -3901,6 +3906,7 @@
         }
 
         @media (max-width: 768px) {
+
             /* Mobile Performance and Compositing Optimizations */
             .glow-orb {
                 display: none !important;
@@ -4286,7 +4292,8 @@
                 <img alt="BRANDSON" class="logo-img-brandson" decoding="async" src="assets/brandson_logo.png" />
                 <div style="font-size: 1.2rem; color: rgba(114, 47, 1, 0.4); font-weight: 300; margin-top: -2px;">✕
                 </div>
-                <img alt="implantswiss" class="logo-img-swiss" decoding="async" src="assets/implantswiss-logo-gray.png" />
+                <img alt="implantswiss" class="logo-img-swiss" decoding="async"
+                    src="assets/implantswiss-logo-gray.png" />
             </div>
             <!-- Desktop Links -->
             <ul class="nav-links">
@@ -4454,7 +4461,8 @@
                     <div class="hero-visual-box mobile-only-visual reveal-up delay-300"
                         style="margin-top: 20px; margin-bottom: 30px;">
                         <div class="hero-image-frame">
-                            <img alt="Bác sĩ phẫu thuật cấy ghép implant" decoding="async" fetchpriority="high" src="assets/hero.jpg" />
+                            <img alt="Bác sĩ phẫu thuật cấy ghép implant" decoding="async" fetchpriority="high"
+                                src="assets/hero.jpg" />
                         </div>
                         <!-- Floating metrics badges -->
                         <div class="floating-badge floating-badge-1">
@@ -4477,7 +4485,7 @@
                         </a>
                     </div>
                     <div class="hero-capsule-tagline reveal-up delay-300">
-                        Nhận chứng chỉ CME - Đạt chuẩn Y tế Toàn Quốc
+                        Nhận chứng chỉ CME - Đạt chuẩn quy định Bộ Y tế
                     </div>
                     <p class="hero-desc reveal-up delay-400">
                         Hành trình từ bác sĩ tổng quát trở thành bác sĩ cấy ghép Implant thực chiến, tự tin đặt ca trụ
@@ -4512,7 +4520,7 @@
                                 <i class="fa-solid fa-calendar-days"></i>
                             </div>
                             <div class="hero-feature-text">
-                                <strong>Khai giảng gần nhất
+                                <strong>Khai giảng dự kiến
                                 </strong>
                                 <span class="gold-bold-text">CUỐI THÁNG 7</span>
                             </div>
@@ -4533,7 +4541,8 @@
                 <!-- Visual Column -->
                 <div class="hero-visual-box reveal-right delay-200 desktop-only-visual">
                     <div class="hero-image-frame">
-                        <img alt="Bác sĩ phẫu thuật cấy ghép implant" decoding="async" fetchpriority="high" src="assets/hero.jpg" />
+                        <img alt="Bác sĩ phẫu thuật cấy ghép implant" decoding="async" fetchpriority="high"
+                            src="assets/hero.jpg" />
                     </div>
                     <!-- Floating metrics badges -->
                     <div class="floating-badge floating-badge-1 reveal-scale delay-450">
@@ -4557,131 +4566,7 @@
                 </div>
             </div>
         </section>
-        <!-- ══════════════════════════════════════════
-         SECTION 2: PAIN POINTS (Nỗi đau & Thách thức)
-        ══════════════════════════════════════════ -->
-        <section class="section-padding pain-section" id="tro-ngai">
-            <!-- Background decorations -->
-            <div aria-hidden="true" class="section-bg-decor">
-                <i class="fa-solid fa-tooth bg-decor-icon decor-white"
-                    style="top: 15%; left: 3%; animation-duration: 25s; opacity: 0.02;"></i>
 
-
-
-
-                <!-- Custom SVG Decor: White Medical Cross -->
-                <svg class="bg-decor-svg" fill="none" height="50" stroke="#ffffff" stroke-linecap="round"
-                    stroke-linejoin="round" stroke-width="1.5"
-                    style="top: 30%; left: 80%; animation-duration: 24s; opacity: 0.02;" viewbox="0 0 24 24" width="50">
-                    <line x1="12" x2="12" y1="5" y2="19"></line>
-                    <line x1="5" x2="19" y1="12" y2="12"></line>
-                </svg>
-                <!-- Custom SVG Decor: Dot Grid -->
-
-                <div class="glow-orb glow-orb-primary" style="width: 400px; height: 400px; top: -100px; left: -150px;">
-                </div>
-                <div class="glow-orb glow-orb-gold" style="width: 350px; height: 350px; bottom: -100px; right: -100px;">
-                </div>
-            </div>
-            <div class="container" style="position: relative; z-index: 1;">
-                <div class="section-header dark-bg reveal-up">
-                    <div class="premium-badge"
-                        style="background: rgba(239, 68, 68, 0.15); border-color: rgba(239,68,68,0.25); color: #fca5a5;">
-                        Nỗi đau &amp; Thách thức
-                    </div>
-                    <h2>Nhiều Bác Sĩ Vẫn Ngần Ngại <br class="br-desktop" /> <span class="metallic-gold-light-text">Thực
-                            Hiện Cấy Ghép Implant?</span></h2>
-                    <p>Làm chủ kỹ thuật cấy ghép an toàn và hoàn thiện hồ sơ pháp lý để tự tin giữ chân bệnh nhân, nâng
-                        tầm vị thế phòng khám.</p>
-                </div>
-                <!-- Stats row (moved up) -->
-                <div class="pain-bottom-row reveal-up" style="margin-top: 40px; margin-bottom: 50px;">
-                    <div class="pain-stat-card">
-                        <div class="pain-stat-glow"></div>
-                        <div class="pain-stat-val">90<span>%</span></div>
-                        <div class="pain-stat-text">
-                            Bác sĩ Răng Hàm Mặt thừa nhận họ <strong>chưa tự tin thực hiện ca cấy ghép Implant đầu
-                                tiên</strong> nếu học xong lý thuyết mà không có chuyên gia đồng hành hỗ trợ, kèm cặp
-                            trực tiếp trong phòng mổ.
-                        </div>
-                    </div>
-                    <div class="pain-commit-list">
-                        <div class="pain-commit-card">
-                            <div class="pain-commit-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                            <p><strong>Thực hành an toàn:</strong> Quy trình thực hành được chia nhỏ từ dễ đến khó để
-                                kiểm
-                                soát tai biến tuyệt đối.</p>
-                        </div>
-                        <div class="pain-commit-card">
-                            <div class="pain-commit-icon"><i class="fa-solid fa-user-group"></i></div>
-                            <p><strong>Bảo trợ chuyên môn:</strong> Giảng viên hỗ trợ đọc phim CBCT và lập phác đồ kế
-                                hoạch điều trị cho ca lâm sàng đầu tiên của Bác sĩ.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="pain-grid stagger-grid" style="margin-top: 0;">
-                    <!-- Card 1 -->
-                    <div class="pain-card stagger-item">
-                        <div class="pain-card-header">
-                            <div class="pain-card-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
-                            <div>
-                                <h3>Sợ Biến Chứng Lâm Sàng</h3>
-                            </div>
-                        </div>
-                        <p class="pain-card-desc">
-                            Lo ngại các tổn thương giải phẫu nguy hiểm như chạm dây thần kinh răng dưới, thủng xoang
-                            hàm, hoặc đặt implant sai trục lực làm đào thải trụ.
-                        </p>
-                        <div class="pain-solution">
-                            <i class="fa-solid fa-circle-check"></i>
-                            <span>Đào tạo kỹ giải phẫu hàm mặt lâm sàng &amp; cách chọn hướng đặt trụ an toàn tuyệt
-                                đối.</span>
-                        </div>
-                    </div>
-                    <!-- Card 2 -->
-                    <div class="pain-card stagger-item">
-                        <div class="pain-card-header">
-                            <div class="pain-card-icon"><i class="fa-solid fa-book"></i></div>
-                            <div>
-                                <h3>Học Lý Thuyết Nhưng Chưa Thực Hành</h3>
-                            </div>
-                        </div>
-                        <p class="pain-card-desc">
-                            Tham gia nhiều lớp học nhưng chủ yếu chỉ đứng quan sát qua màn hình hoặc xem giảng viên làm,
-                            thiếu cơ hội tự cắm thực tế để có cảm giác lực cơ học.
-                        </p>
-                        <div class="pain-solution">
-                            <i class="fa-solid fa-circle-check"></i>
-                            <span>Thực hành hands-on đặt trụ trực tiếp trên xương mô hình và hàm heo.</span>
-                        </div>
-                    </div>
-                    <!-- Card 3 -->
-                    <div class="pain-card stagger-item">
-                        <div class="pain-card-header">
-                            <div class="pain-card-icon"><i class="fa-solid fa-file-invoice"></i></div>
-                            <div>
-                                <h3>Thiếu Chứng Chỉ CME Pháp Lý</h3>
-                            </div>
-                        </div>
-                        <p class="pain-card-desc">
-                            Gặp khó khăn khi bổ dung hồ sơ năng lực hành nghề cấy ghép tại phòng khám do thiếu chứng chỉ
-                            CME đào tạo liên tục chuẩn số tiết theo quy định Sở Y tế.
-                        </p>
-                        <div class="pain-solution">
-                            <i class="fa-solid fa-circle-check"></i>
-                            <span>Cấp chứng chỉ Đào tạo y khoa liên tục (CME) 140 tiết chính quy có giá trị toàn
-                                quốc.</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="reveal-up" style="text-align: center; margin-top: 40px;">
-                    <a class="btn btn-primary" href="#dang-ky" style="box-shadow: 0 8px 25px rgba(114, 47, 1, 0.2);">
-                        <span>Khắc phục trở ngại lâm sàng ngay</span>
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
         <!-- ══════════════════════════════════════════
          SECTION 3: SOLUTION & VALUES (Giá trị mang lại)
         ══════════════════════════════════════════ -->
@@ -4710,11 +4595,10 @@
             <div class="container" style="position: relative; z-index: 1;">
                 <div class="section-header reveal-up">
                     <div class="premium-badge">Giá trị sau chương trình</div>
-                    <h2>Kiến Thức Chuẩn Khoa Học <br class="br-desktop" /> <span class="metallic-gold-text">Vững Thực
-                            Hành
-                            Lâm Sàng</span></h2>
-                    <p>Khóa học mang đến giải pháp toàn diện giúp Bác sĩ Răng Hàm Mặt làm chủ kỹ thuật cấy ghép Implant
-                        an toàn.</p>
+                    <h2>CHUẨN HOÁ NĂNG LỰC IMPLANT <br class="br-desktop" /> <span class="metallic-gold-text">VỮNG THỰC
+                            HÀNH LÂM SÀNG</span></h2>
+                    <p>Khóa học mang đến giải pháp toàn diện giúp Bác sĩ Răng Hàm Mặt làm chủ kỹ thuật cấy ghép Implant.
+                    </p>
                 </div>
                 <div class="value-grid stagger-grid">
                     <!-- Value 1 -->
@@ -4732,12 +4616,12 @@
                     <div class="value-card stagger-item">
                         <div class="value-num">02</div>
                         <div class="value-icon"><i class="fa-solid fa-user-doctor"></i></div>
-                        <h3>Đồng Hành Chuyên Môn</h3>
+                        <h3>Bảo Trợ Chuyên Môn</h3>
                         <p>Đồng hành chuyên môn và kết nối với đội ngũ Chuyên gia giàu kinh nghiệm trong lĩnh vực
                             Implant.</p>
                         <ul class="value-deliverables">
                             <li><i class="fa-solid fa-circle-check"></i> Cố vấn lâm sàng cho các ca đầu tiên</li>
-                            <li><i class="fa-solid fa-circle-check"></i> Hỗ trợ chuyên môn từ chuyên gia</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Hỗ trợ chuyên môn từ chuyên gia đầu ngành</li>
                         </ul>
                     </div>
                     <!-- Value 3 -->
@@ -4848,15 +4732,15 @@
                     <!-- Card 3 -->
                     <div class="audience-card stagger-item">
                         <div class="audience-img-wrapper">
-                            <img alt="Chủ Phòng Khám" class="audience-img" decoding="async" loading="lazy"
+                            <img alt="Phòng khám Nha khoa" class="audience-img" decoding="async" loading="lazy"
                                 src="assets/giang_vien_1_1781091437129.png" />
                         </div>
                         <div class="audience-body" style="position: relative;">
                             <div class="audience-icon-badge">
                                 <i class="fa-solid fa-house-chimney-medical"></i>
                             </div>
-                            <h3>Chủ Phòng Khám</h3>
-                            <p>Phòng khám định hướng phát triển dịch vụ Implant nâng tầm cạnh tranh.</p>
+                            <h3>Phòng khám Nha khoa</h3>
+                            <p>Phòng khám định hướng phát triển dịch vụ Implant và năng lực đội ngũ.</p>
                         </div>
                     </div>
                 </div>
@@ -4915,9 +4799,8 @@
                         <div class="curriculum-phase">Phần I</div>
                         <h3>Lý Thuyết</h3>
                         <ul class="curriculum-list">
-                            <li>Nền tảng lý thuyết Implant từ cơ bản đến chuyên khoa.</li>
-                            <li>Chẩn đoán hình ảnh và phân tích phim CT Cone Beam.</li>
-                            <li>Thiết lập và xây dựng kế hoạch điều trị chi tiết.</li>
+                            <li>Nền tảng Implant.</li>
+                            <li>Chẩn đoán và lập kế hoạch điều trị.</li>
                         </ul>
                     </div>
                     <!-- Giai đoạn 2 -->
@@ -4933,9 +4816,24 @@
                         <div class="curriculum-phase">Phần II</div>
                         <h3>Thực Hành</h3>
                         <ul class="curriculum-list">
-                            <li>Thực hành kỹ thuật cấy ghép Implant chuyên sâu trên mô hình.</li>
-                            <li>Hands-on đặt trụ cắm Implant thực tế trên mô hình xương hàm.</li>
-                            <li>Thực hành vạt nướu và kỹ thuật khâu đóng vạt nướu phẫu thuật.</li>
+                            <li>Thực hành kỹ thuật trên mô hình.</li>
+                        </ul>
+                    </div>
+                    <!-- Giai đoạn 3 -->
+                    <div class="curriculum-card stagger-item" style="padding-top: 0; overflow: hidden;">
+                        <div class="curriculum-image-wrapper"
+                            style="aspect-ratio: 16 / 9; width: calc(100% + 64px); height: auto; margin: 0 -32px 24px; overflow: hidden; position: relative; border-bottom: 1px solid var(--clr-border);">
+                            <img alt="Đánh giá và Cấp chứng chỉ" decoding="async" loading="lazy"
+                                src="assets/chungchi.jpg"
+                                style="width: 100%; height: 100%; object-fit: cover;" />
+                        </div>
+                        <span class="curriculum-badge"
+                            style="top: 20px; right: 20px; background: #fffcf8; border: 1.5px solid #a87c43; z-index: 2;">Cuối
+                            Khóa</span>
+                        <div class="curriculum-phase">Hoàn Thành</div>
+                        <h3>Đánh Giá &amp; Nhận Chứng Chỉ</h3>
+                        <ul class="curriculum-list">
+                            <li>Nhận chứng chỉ CME 140 tiết theo quy định.</li>
                         </ul>
                     </div>
                 </div>
@@ -4978,7 +4876,7 @@
                 </div>
                 <div class="reveal-up" style="text-align: center; margin-top: 40px;">
                     <a class="btn btn-primary" href="#dang-ky" style="box-shadow: 0 8px 25px rgba(114, 47, 1, 0.2);">
-                        <span>Đăng ký giữ chỗ thực hành</span>
+                        <span>Đăng ký giữ chỗ</span>
                         <i class="fa-solid fa-chevron-right"></i>
                     </a>
                 </div>
@@ -5110,14 +5008,15 @@
                             <div class="faculty-avatar-mock">
                                 <div class="faculty-avatar-glow"></div>
                                 <div class="faculty-avatar-circle">
-                                    <img src="assets/cao_huu_tien.png" alt="TS.BS.CKII. Cao Hữu Tiến" decoding="async" loading="lazy">
+                                    <img src="assets/cao_huu_tien.png" alt="TS.BS.CKII. Cao Hữu Tiến" decoding="async"
+                                        loading="lazy">
                                 </div>
-                                <div class="faculty-badge">CHỦ TỊCH SAIGON ITI</div>
+                                <div class="faculty-badge">TS.BS.CKII. CAO HỮU TIẾN</div>
                             </div>
                         </div>
                         <div class="faculty-meta">
                             <span class="faculty-role">Giảng viên chính</span>
-                            <h3 class="faculty-name">TS.BS.CKII. Cao Hữu Tiến</h3>
+                            <h3 class="faculty-name">Chủ Tịch Saigon ITI</h3>
                             <ul class="faculty-bio-list">
                                 <li>Fellow Hội cấy ghép nha khoa quốc tế ITI</li>
                                 <li>Fellow Hội chuyên gia cấy ghép nha khoa thế giới ICOI</li>
@@ -5132,14 +5031,15 @@
                             <div class="faculty-avatar-mock">
                                 <div class="faculty-avatar-glow"></div>
                                 <div class="faculty-avatar-circle">
-                                    <img src="assets/nguyen_quang_viet.png" alt="BS.CKII. Nguyễn Quang Việt" decoding="async" loading="lazy">
+                                    <img src="assets/nguyen_quang_viet.png" alt="BS.CKII. Nguyễn Quang Việt"
+                                        decoding="async" loading="lazy">
                                 </div>
-                                <div class="faculty-badge">TRƯỞNG KHOA RHM</div>
+                                <div class="faculty-badge">BS.CKII. NGUYỄN QUANG VIỆT</div>
                             </div>
                         </div>
                         <div class="faculty-meta">
                             <span class="faculty-role">Giảng viên chính</span>
-                            <h3 class="faculty-name">BS.CKII. Nguyễn Quang Việt</h3>
+                            <h3 class="faculty-name">Trưởng Khoa Răng Hàm Mặt</h3>
                             <ul class="faculty-bio-list">
                                 <li>Trưởng khoa Kỹ thuật cao - Bệnh viện Răng Hàm Mặt TP.HCM</li>
                                 <li>Tốt nghiệp Thạc sĩ tại Đại học Loma Linda, Hoa Kỳ</li>
@@ -5153,14 +5053,15 @@
                             <div class="faculty-avatar-mock">
                                 <div class="faculty-avatar-glow"></div>
                                 <div class="faculty-avatar-circle">
-                                    <img src="assets/tran_minh_triet.png" alt="BS.CKII. Trần Minh Triết" decoding="async" loading="lazy">
+                                    <img src="assets/tran_minh_triet.png" alt="BS.CKII. Trần Minh Triết"
+                                        decoding="async" loading="lazy">
                                 </div>
-                                <div class="faculty-badge">PHÓ TRƯỞNG KHOA BV TW</div>
+                                <div class="faculty-badge">BS.CKII. TRẦN MINH TRIẾT</div>
                             </div>
                         </div>
                         <div class="faculty-meta">
                             <span class="faculty-role">Giảng viên chính</span>
-                            <h3 class="faculty-name">BS.CKII. Trần Minh Triết</h3>
+                            <h3 class="faculty-name">Phó Trưởng Khoa BV TW</h3>
                             <ul class="faculty-bio-list">
                                 <li>Phó Trưởng khoa Răng Hàm Mặt - BV Đa Khoa TW Cần Thơ</li>
                                 <li>BCH Chi hội Phẫu thuật miệng hàm mặt và tạo hình Việt Nam</li>
@@ -5472,7 +5373,8 @@
                         </h2>
                         <div
                             style="display: flex; gap: 32px; align-items: center; margin-top: 25px; margin-bottom: 35px; flex-wrap: wrap;">
-                            <img src="assets/implantswiss_screw.png" alt="Trụ Implant Thụy Sĩ" decoding="async" loading="lazy"
+                            <img src="assets/implantswiss_screw.png" alt="Trụ Implant Thụy Sĩ" decoding="async"
+                                loading="lazy"
                                 style="height: 100px; width: auto; object-fit: contain; flex-shrink: 0;" />
                             <ul
                                 style="flex: 1; min-width: 280px; display: flex; flex-direction: column; gap: 16px; list-style: none; margin: 0; padding: 0;">
@@ -5547,23 +5449,7 @@
                                     </p>
                                 </div>
                             </div>
-                            <!-- FAQ 4 -->
-                            <div class="faq-accordion-item">
-                                <button class="faq-trigger-btn">
-                                    <span>Tôi có được bảo lưu lịch thực hành nếu bận công tác phòng khám đột
-                                        xuất?</span>
-                                    <span class="faq-chevron-icon"><i class="fa-solid fa-chevron-down"></i></span>
-                                </button>
-                                <div class="faq-answer-panel">
-                                    <p>
-                                        Có. Thấu hiểu lịch trình bận rộn của các bác sĩ, ban tổ chức luôn tạo điều kiện
-                                        tối đa. Bác sĩ bận lịch điều trị đột xuất trong buổi thực hành lâm sàng sẽ được
-                                        đăng ký bảo lưu bảo đảm quyền lợi sang ca thực hành bù hoặc tham gia học thực
-                                        hành vào khóa đào tạo tiếp theo của DSC mà không phát sinh thêm bất cứ phụ phí
-                                        nào.
-                                    </p>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                     <!-- Right Column: Registration Form styled exactly like the mockup -->
@@ -5615,8 +5501,7 @@
                                 <div class="form-grid-row">
                                     <div class="form-grid-full form-input-group">
                                         <label for="clinic">Tên phòng khám / Đơn vị công tác</label>
-                                        <input class="form-input-control" id="clinic"
-                                            placeholder="Ví dụ: Nha khoa An Sinh" type="text" />
+                                        <input class="form-input-control" id="clinic" placeholder="" type="text" />
                                     </div>
                                 </div>
                                 <div class="form-grid-row">
@@ -5710,7 +5595,7 @@
                     style="font-size: 0.78rem; color: rgba(255,255,255,0.45); display: flex; flex-direction: column; gap: 12px; line-height: 1.6;">
                     <div><strong>Văn phòng chính:</strong> R.802, Vietnam Business Center, 57-59 Hồ Tùng Mậu, Phường Bến
                         Nghé, Quận 1, TP. Hồ Chí Minh.</div>
-                    <div><strong>Hotline học vụ:</strong> 091 108 88 70 / 0909 417 188</div>
+                    <div><strong>Hotline học vụ:</strong> 091 108 88 70</div>
                     <div><strong>Cơ sở thực hành:</strong> Trung tâm Kỹ năng Nha khoa DSC.</div>
                 </div>
             </div>
@@ -5830,7 +5715,7 @@
                         <label for="popupClinic"
                             style="font-size: 0.78rem; font-weight: 700; color: var(--clr-navy);">Tên phòng khám / Đơn
                             vị công tác</label>
-                        <input class="form-input-control" id="popupClinic" placeholder="Ví dụ: Nha khoa An Sinh"
+                        <input class="form-input-control" id="popupClinic" placeholder=""
                             style="width: 100%; padding: 10px 14px; border: 1.5px solid rgba(114, 47, 1, 0.15); border-radius: 8px; font-family: var(--font-sans); font-size: 0.85rem; outline: none; transition: var(--transition);"
                             type="text" />
                     </div>
@@ -6065,8 +5950,7 @@
         <div class="popup-content" data-lenis-prevent="">
             <button aria-label="Đóng" class="popup-close" id="closeCertModalBtn">×</button>
             <div class="cert-modal-img-wrapper">
-                <img alt="Mẫu chứng chỉ thành tích" decoding="async" loading="lazy"
-                    src="assets/chungchi.jpg" />
+                <img alt="Mẫu chứng chỉ thành tích" decoding="async" loading="lazy" src="assets/chungchi.jpg" />
             </div>
         </div>
     </div>
@@ -6276,7 +6160,7 @@
             const form = this;
             const btn = form.querySelector('[type="submit"]');
             const originalContent = btn.innerHTML;
-            
+
             btn.disabled = true;
             btn.innerHTML = '<span>Đang gửi...</span><i class="fa-solid fa-spinner fa-spin"></i>';
 
@@ -6429,7 +6313,7 @@
             const form = this;
             const btn = form.querySelector('[type="submit"]');
             const originalContent = btn.innerHTML;
-            
+
             btn.disabled = true;
             btn.innerHTML = '<span>Đang gửi...</span><i class="fa-solid fa-spinner fa-spin"></i>';
 
@@ -6582,7 +6466,7 @@
             const form = this;
             const btn = form.querySelector('[type="submit"]');
             const originalContent = btn.innerHTML;
-            
+
             btn.disabled = true;
             btn.innerHTML = '<span>Đang gửi...</span><i class="fa-solid fa-spinner fa-spin"></i>';
 
