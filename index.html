@@ -5,20 +5,22 @@
 <head>
     <!-- Meta Pixel Code -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1560663312285833');
-    fbq('track', 'PageView');
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1560663312285833');
+        fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1560663312285833&ev=PageView&noscript=1"
-    /></noscript>
+            src="https://www.facebook.com/tr?id=1560663312285833&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
@@ -1003,9 +1005,11 @@
         .hero-main-title {
             margin-bottom: 24px;
         }
+
         .hero-main-title img {
             margin-left: -36px;
         }
+
         @media (max-width: 992px) {
             .hero-main-title img {
                 margin-left: auto;
@@ -1291,8 +1295,8 @@
         }
 
         .floating-badge-2 {
-            bottom: 30px;
-            left: -20px;
+            bottom: 20px;
+            right: -55px;
             animation-delay: 1.5s;
         }
 
@@ -1344,40 +1348,6 @@
             animation: float-gentle 4s ease-in-out infinite alternate-reverse;
         }
 
-        .hero-bokit-floating {
-            position: absolute;
-            top: -55px;
-            right: 25px;
-            width: 125px;
-            height: auto;
-            z-index: 3;
-            pointer-events: none;
-            background: #ffffff;
-            border: 1px solid rgba(197, 168, 128, 0.25);
-            border-radius: 12px;
-            padding: 8px;
-            box-shadow: var(--shadow-md);
-            animation: float-bokit 5s ease-in-out infinite alternate;
-        }
-
-        @keyframes float-bokit {
-            0% {
-                transform: translateY(0) rotate(0deg);
-            }
-            100% {
-                transform: translateY(-12px) rotate(5deg);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero-bokit-floating {
-                width: 85px;
-                top: -35px;
-                right: 10px;
-                padding: 5px;
-                border-radius: 8px;
-            }
-        }
 
         @keyframes float-gentle {
             0% {
@@ -2830,6 +2800,7 @@
             .brandson-commitments-box {
                 padding: 20px;
             }
+
             .commit-grid {
                 flex-direction: column;
                 align-items: flex-start;
@@ -2839,9 +2810,11 @@
                 box-shadow: none;
                 padding: 0;
             }
+
             .commit-divider {
                 display: none;
             }
+
             .commit-item {
                 background: #ffffff;
                 border: 1.5px solid rgba(197, 168, 128, 0.2);
@@ -2851,6 +2824,7 @@
                 width: 100%;
                 box-sizing: border-box;
             }
+
             .commit-title-text {
                 font-size: 0.86rem;
                 white-space: normal;
@@ -4380,8 +4354,8 @@
             }
 
             .floating-badge-2 {
-                left: -10px !important;
-                bottom: 20px !important;
+                right: -30px !important;
+                bottom: 15px !important;
             }
 
             .floating-badge-icon {
@@ -4532,7 +4506,8 @@
             <div class="logo-box" style="display: flex; align-items: center; gap: 24px;">
                 <img alt="Partner Logo" class="logo-img-partner" decoding="async" src="assets/source/logo.png" />
                 <img alt="BRANDSON" class="logo-img-brandson" decoding="async" src="assets/brandson_logo.png" />
-                <img alt="implantswiss" class="logo-img-swiss" decoding="async" src="assets/implantswiss-logo-gray.png" />
+                <img alt="implantswiss" class="logo-img-swiss" decoding="async"
+                    src="assets/implantswiss-logo-gray.png" />
             </div>
             <!-- Desktop Links -->
             <ul class="nav-links">
@@ -4650,11 +4625,13 @@
                     <!-- Floating Seal Stamp (overlapping on desktop) -->
                     <div class="hero-seal-stamp-container reveal-stamp delay-600"
                         style="position: absolute; right: -25px; top: -15px; z-index: 5; pointer-events: none; transform: rotate(12deg);">
-                        <img src="assets/source/mộc.png" class="hero-seal-stamp" alt="Mẫu chứng chỉ CME" style="width: 168px; height: 168px; object-fit: contain;" />
+                        <img src="assets/source/mộc.png" class="hero-seal-stamp" alt="Mẫu chứng chỉ CME"
+                            style="width: 168px; height: 168px; object-fit: contain;" />
                     </div>
                     <div class="hero-top-badge reveal-down delay-100">LỚP ĐÀO TẠO Y KHOA LIÊN TỤC</div>
                     <h1 class="hero-main-title reveal-up delay-200" style="margin-bottom: 25px;">
-                        <img src="assets/source/text.png" alt="CẤY GHÉP NHA KHOA CƠ BẢN" style="max-width: min(460px, 100%); height: auto; display: block;" />
+                        <img src="assets/source/text.png" alt="CẤY GHÉP NHA KHOA CƠ BẢN"
+                            style="max-width: min(460px, 100%); height: auto; display: block;" />
                     </h1>
                     <!-- Mobile-only visual box (placed directly under title) -->
                     <div class="hero-visual-box mobile-only-visual reveal-up delay-300"
@@ -4668,7 +4645,7 @@
                             <div class="floating-badge-icon"><i class="fa-solid fa-check-double"></i></div>
                             <div>
                                 <div class="floating-badge-val">CME</div>
-                                <div class="floating-badge-lbl">Đạt chuẩn y tế toàn quốc</div>
+                                <div class="floating-badge-lbl">Đạt chuẩn bộ Y tế</div>
                             </div>
                         </div>
                         <div class="floating-badge floating-badge-2">
@@ -4678,12 +4655,7 @@
                                 <div class="floating-badge-lbl">Trực tiếp trên mô hình</div>
                             </div>
                         </div>
-                        <!-- Overlapping 3D screw mockup -->
-                        <a class="hero-screw-overlay" href="#san-pham-thuy-si">
-                            <img alt="Bộ Trụ" decoding="async" src="assets/botru.png" />
-                        </a>
-                        <!-- Floating small bokit image -->
-                        <img src="assets/bokit.png" alt="Bộ Kit" class="hero-bokit-floating" decoding="async" />
+
                     </div>
                     <div class="hero-capsule-tagline reveal-up delay-300">
                         Nhận chứng chỉ CME - Đạt chuẩn quy định Bộ Y tế
@@ -4750,7 +4722,7 @@
                         <div class="floating-badge-icon"><i class="fa-solid fa-check-double"></i></div>
                         <div>
                             <div class="floating-badge-val">CME</div>
-                            <div class="floating-badge-lbl">Đạt chuẩn y tế toàn quốc</div>
+                            <div class="floating-badge-lbl">Đạt chuẩn Bộ Y tế</div>
                         </div>
                     </div>
                     <div class="floating-badge floating-badge-2 reveal-scale delay-600">
@@ -4760,12 +4732,7 @@
                             <div class="floating-badge-lbl">Trực tiếp trên mô hình</div>
                         </div>
                     </div>
-                    <!-- Overlapping 3D screw mockup -->
-                    <a class="hero-screw-overlay" href="#san-pham-thuy-si">
-                        <img alt="Bộ Trụ" decoding="async" src="assets/botru.png" />
-                    </a>
-                    <!-- Floating small bokit image -->
-                    <img src="assets/bokit.png" alt="Bộ Kit" class="hero-bokit-floating" decoding="async" />
+
                 </div>
             </div>
         </section>
@@ -4831,7 +4798,8 @@
                         <div class="value-num">03</div>
                         <div class="value-icon"><i class="fa-solid fa-award"></i></div>
                         <h3>Chứng chỉ CME</h3>
-                        <p>Nhận chứng chỉ đào tạo liên tục (CME) theo quy định của Bộ Y tế sau khi hoàn thành khóa học.</p>
+                        <p>Nhận chứng chỉ đào tạo liên tục (CME) theo quy định của Bộ Y tế sau khi hoàn thành khóa học.
+                        </p>
                         <ul class="value-deliverables">
                             <li><i class="fa-solid fa-circle-check"></i> Chứng chỉ CME 140 tiết</li>
                             <li><i class="fa-solid fa-circle-check"></i> Có giá trị công nhận trên toàn quốc</li>
@@ -4842,7 +4810,8 @@
                         <div class="value-num">04</div>
                         <div class="value-icon"><i class="fa-solid fa-stethoscope"></i></div>
                         <h3>Thực hành Implant</h3>
-                        <p>Tăng năng lực xây dựng kế hoạch điều trị, đánh giá ca lâm sàng và triển khai kỹ thuật cấy ghép Implant cơ bản.</p>
+                        <p>Tăng năng lực xây dựng kế hoạch điều trị, đánh giá ca lâm sàng và triển khai kỹ thuật cấy
+                            ghép Implant cơ bản.</p>
                         <ul class="value-deliverables">
                             <li><i class="fa-solid fa-circle-check"></i> Kiến tập thực tế tại phòng khám chuyên sâu</li>
                             <li><i class="fa-solid fa-circle-check"></i> Tự tin triển khai kỹ thuật Implant cơ bản</li>
@@ -4853,7 +4822,8 @@
                         <div class="value-num">05</div>
                         <div class="value-icon"><i class="fa-solid fa-hospital"></i></div>
                         <h3>Mở rộng dịch vụ Implant</h3>
-                        <p>Hỗ trợ phát triển dịch vụ Implant một cách bài bản và nâng cao năng lực cạnh tranh của phòng khám.</p>
+                        <p>Hỗ trợ phát triển dịch vụ Implant một cách bài bản và nâng cao năng lực cạnh tranh của phòng
+                            khám.</p>
                         <ul class="value-deliverables">
                             <li><i class="fa-solid fa-circle-check"></i> Hoàn thiện năng lực triển khai Implant</li>
                             <li><i class="fa-solid fa-circle-check"></i> Tối ưu đào tạo và phát triển nhân sự</li>
@@ -5078,7 +5048,8 @@
                                 style="font-size: 1.05rem; color: var(--clr-navy); display: block; margin-bottom: 6px;">Dự
                                 kiến khai giảng: Cuối tháng 7</strong>
                             <p style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.6; margin: 0;">
-                                Số lượng học viên giới hạn nhằm đảm bảo chất lượng đào tạo và hiệu quả thực hành. Bác sĩ hãy đăng ký sớm để giữ chỗ cho khóa học.
+                                Số lượng học viên giới hạn nhằm đảm bảo chất lượng đào tạo và hiệu quả thực hành. Bác sĩ
+                                hãy đăng ký sớm để giữ chỗ cho khóa học.
                             </p>
                         </div>
                     </div>
@@ -5223,7 +5194,8 @@
                             </div>
                         </div>
                         <div class="faculty-meta">
-                            <span class="faculty-role" style="margin-bottom: 15px; display: inline-block;">Giảng viên chính</span>
+                            <span class="faculty-role" style="margin-bottom: 15px; display: inline-block;">Giảng viên
+                                chính</span>
                             <ul class="faculty-bio-list">
                                 <li>Fellow Hội cấy ghép nha khoa quốc tế ITI</li>
                                 <li>Fellow Hội chuyên gia cấy ghép nha khoa thế giới ICOI</li>
@@ -5245,7 +5217,8 @@
                             </div>
                         </div>
                         <div class="faculty-meta">
-                            <span class="faculty-role" style="margin-bottom: 15px; display: inline-block;">Giảng viên chính</span>
+                            <span class="faculty-role" style="margin-bottom: 15px; display: inline-block;">Giảng viên
+                                chính</span>
                             <ul class="faculty-bio-list">
                                 <li>Trưởng khoa Kỹ thuật cao - Bệnh viện Răng Hàm Mặt TP.HCM</li>
                                 <li>Tốt nghiệp Thạc sĩ tại Đại học Loma Linda, Hoa Kỳ</li>
@@ -5266,7 +5239,8 @@
                             </div>
                         </div>
                         <div class="faculty-meta">
-                            <span class="faculty-role" style="margin-bottom: 15px; display: inline-block;">Giảng viên chính</span>
+                            <span class="faculty-role" style="margin-bottom: 15px; display: inline-block;">Giảng viên
+                                chính</span>
                             <ul class="faculty-bio-list">
                                 <li>Phó Trưởng khoa Răng Hàm Mặt - BV Đa Khoa TW Cần Thơ</li>
                                 <li>BCH Chi hội Phẫu thuật miệng hàm mặt và tạo hình Việt Nam</li>
@@ -5323,10 +5297,12 @@
                     <div class="tuition-plans-box"
                         style="display: flex; flex-direction: column; gap: 28px; justify-content: center;">
                         <!-- Option 1: Standard Tuition (Replaced with Image) -->
-                        <a href="#dang-ky" class="tuition-plan-image-wrapper" style="display: block; text-decoration: none;">
+                        <a href="#dang-ky" class="tuition-plan-image-wrapper"
+                            style="display: block; text-decoration: none;">
                             <picture>
                                 <source srcset="assets/anh25.png" media="(max-width: 768px)">
-                                <img src="assets/goi25.jpg" alt="Gói Học Phí 25 Triệu" decoding="async" loading="lazy" />
+                                <img src="assets/goi25.jpg" alt="Gói Học Phí 25 Triệu" decoding="async"
+                                    loading="lazy" />
                             </picture>
                         </a>
                         <!-- Commitments Container: Cam kết đồng hành từ BRANDSON -->
@@ -5337,7 +5313,7 @@
                                 <h3 class="commit-title-text">CAM KẾT ĐỒNG HÀNH TỪ BRANDSON</h3>
                                 <div class="commit-title-line-right"></div>
                             </div>
-                            
+
                             <!-- 3 columns container -->
                             <div class="commit-grid">
                                 <!-- Item 1 -->
@@ -5350,9 +5326,9 @@
                                         <span>Cả Thứ 7 & Chủ Nhật</span>
                                     </div>
                                 </div>
-                                
+
                                 <div class="commit-divider"></div>
-                                
+
                                 <!-- Item 2 -->
                                 <div class="commit-item">
                                     <div class="commit-icon-circle">
@@ -5363,9 +5339,9 @@
                                         <span>Phòng phẫu thuật</span>
                                     </div>
                                 </div>
-                                
+
                                 <div class="commit-divider"></div>
-                                
+
                                 <!-- Item 3 -->
                                 <div class="commit-item">
                                     <div class="commit-icon-circle">
@@ -5384,26 +5360,42 @@
                         style="display: flex; flex-direction: column; justify-content: space-between; background: #ffffff; border: 1px solid var(--clr-border); border-radius: var(--radius-lg); padding: 20px; box-shadow: var(--shadow-sm);">
                         <div class="signing-img-container"
                             style="border-radius: var(--radius-md); overflow: hidden; border: 1.5px solid var(--clr-border); box-shadow: var(--shadow-inner); position: relative; background: #fafafa; aspect-ratio: 16/10;">
-                            <div class="signing-slides" style="display: flex; width: 300%; height: 100%; transition: transform 0.5s ease;">
-                                <div class="signing-slide" style="width: 33.333%; height: 100%; position: relative; flex-shrink: 0;">
-                                    <img alt="Lễ ký kết 1" decoding="async" loading="lazy" src="assets/source/Brandson_9.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+                            <div class="signing-slides"
+                                style="display: flex; width: 300%; height: 100%; transition: transform 0.5s ease;">
+                                <div class="signing-slide"
+                                    style="width: 33.333%; height: 100%; position: relative; flex-shrink: 0;">
+                                    <img alt="Lễ ký kết 1" decoding="async" loading="lazy"
+                                        src="assets/source/Brandson_9.jpg"
+                                        style="width: 100%; height: 100%; object-fit: cover; display: block;" />
                                 </div>
-                                <div class="signing-slide" style="width: 33.333%; height: 100%; position: relative; flex-shrink: 0;">
-                                    <img alt="Lễ ký kết 2" decoding="async" loading="lazy" src="assets/source/Brandson_12.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+                                <div class="signing-slide"
+                                    style="width: 33.333%; height: 100%; position: relative; flex-shrink: 0;">
+                                    <img alt="Lễ ký kết 2" decoding="async" loading="lazy"
+                                        src="assets/source/Brandson_12.jpg"
+                                        style="width: 100%; height: 100%; object-fit: cover; display: block;" />
                                 </div>
-                                <div class="signing-slide" style="width: 33.333%; height: 100%; position: relative; flex-shrink: 0;">
-                                    <img alt="Lễ ký kết 3" decoding="async" loading="lazy" src="assets/source/Brandson_13.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+                                <div class="signing-slide"
+                                    style="width: 33.333%; height: 100%; position: relative; flex-shrink: 0;">
+                                    <img alt="Lễ ký kết 3" decoding="async" loading="lazy"
+                                        src="assets/source/Brandson_13.jpg"
+                                        style="width: 100%; height: 100%; object-fit: cover; display: block;" />
                                 </div>
                             </div>
-                            <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%); padding: 25px 12px 15px; color: #ffffff; z-index: 2; pointer-events: none;">
-                                <p style="font-size: 0.78rem; font-weight: 700; margin: 0 0 5px 0; text-align: center; text-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+                            <div
+                                style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%); padding: 25px 12px 15px; color: #ffffff; z-index: 2; pointer-events: none;">
+                                <p
+                                    style="font-size: 0.78rem; font-weight: 700; margin: 0 0 5px 0; text-align: center; text-shadow: 0 1px 2px rgba(0,0,0,0.4);">
                                     Lễ Ký Kết Đối Tác Chiến Lược Chính Hãng
                                 </p>
                             </div>
-                            <div class="signing-dots" style="position: absolute; bottom: 8px; left: 0; right: 0; display: flex; justify-content: center; gap: 6px; z-index: 3;">
-                                <span class="signing-dot active" data-slide="0" style="width: 8px; height: 8px; border-radius: 50%; background: #ffffff; cursor: pointer; transition: all 0.3s ease; opacity: 1; border: 1px solid rgba(0,0,0,0.2);"></span>
-                                <span class="signing-dot" data-slide="1" style="width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; transition: all 0.3s ease; opacity: 1; border: 1px solid rgba(0,0,0,0.2);"></span>
-                                <span class="signing-dot" data-slide="2" style="width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; transition: all 0.3s ease; opacity: 1; border: 1px solid rgba(0,0,0,0.2);"></span>
+                            <div class="signing-dots"
+                                style="position: absolute; bottom: 8px; left: 0; right: 0; display: flex; justify-content: center; gap: 6px; z-index: 3;">
+                                <span class="signing-dot active" data-slide="0"
+                                    style="width: 8px; height: 8px; border-radius: 50%; background: #ffffff; cursor: pointer; transition: all 0.3s ease; opacity: 1; border: 1px solid rgba(0,0,0,0.2);"></span>
+                                <span class="signing-dot" data-slide="1"
+                                    style="width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; transition: all 0.3s ease; opacity: 1; border: 1px solid rgba(0,0,0,0.2);"></span>
+                                <span class="signing-dot" data-slide="2"
+                                    style="width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; transition: all 0.3s ease; opacity: 1; border: 1px solid rgba(0,0,0,0.2);"></span>
                             </div>
                         </div>
                         <script>
