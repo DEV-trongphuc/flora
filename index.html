@@ -6075,6 +6075,31 @@
     <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
     <!-- Javascript Actions -->
     <script>
+        // Google Apps Script Web App URL for Sheets Lead Sync
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxWUpUjxdYe2uqh3shj3y4acTy7pgcl5jmFmhkBCNAHUu5rHT7tUuWnDvBkDv82Xz2ovw/exec';
+
+        // Async helper to send lead data to Google Sheets
+        async function submitLeadToSheets(data) {
+            if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbxWUpUjxdYe2uqh3shj3y4acTy7pgcl5jmFmhkBCNAHUu5rHT7tUuWnDvBkDv82Xz2ovw/exec') {
+                console.warn('Google Apps Script URL is not configured. Submission skipped.');
+                return;
+            }
+            try {
+                // Use no-cors mode to bypass CORS redirects on Google Apps Script
+                await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+                console.log('Lead submitted to Google Sheets successfully.');
+            } catch (error) {
+                console.error('Error submitting lead to Google Sheets:', error);
+            }
+        }
+
         // Initialize Lenis Smooth Scroll (Body scroll only, stops when modals/drawers are open)
         let lenis;
         try {
@@ -6236,6 +6261,7 @@
 
             // Gather form data
             const data = {
+                formType: "Đăng ký tư vấn (Trang chính)",
                 fullname: document.getElementById('fullname').value,
                 phone: document.getElementById('phone').value,
                 email: document.getElementById('email').value,
@@ -6244,8 +6270,8 @@
                 interest: document.getElementById('interest').value
             };
 
-            // Simulating API call success
-            console.log('Registration submitted:', data);
+            // Submit to Google Sheets
+            submitLeadToSheets(data);
 
             // Show success popup modal
             document.getElementById('successPopup').classList.add('active');
@@ -6373,6 +6399,7 @@
 
             // Gather form data
             const data = {
+                formType: "Đăng ký tư vấn (Popup)",
                 fullname: document.getElementById('popupFullname').value,
                 phone: document.getElementById('popupPhone').value,
                 email: document.getElementById('popupEmail').value,
@@ -6382,8 +6409,8 @@
                 note: document.getElementById('popupNote').value
             };
 
-            // Simulating API call success
-            console.log('Popup Registration submitted:', data);
+            // Submit to Google Sheets
+            submitLeadToSheets(data);
 
             // Close registration popup
             registrationPopup.classList.remove('active');
@@ -6512,6 +6539,7 @@
             }
 
             const data = {
+                formType: "Đặt lịch hẹn tư vấn",
                 fullname: document.getElementById('consultFullname').value,
                 phone: document.getElementById('consultPhone').value,
                 email: document.getElementById('consultEmail').value,
@@ -6520,7 +6548,8 @@
                 note: document.getElementById('consultNote').value
             };
 
-            console.log('Consultation Booking submitted:', data);
+            // Submit to Google Sheets
+            submitLeadToSheets(data);
 
             // Close consultation popup
             consultationPopup.classList.remove('active');
