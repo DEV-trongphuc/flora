@@ -1344,39 +1344,23 @@
             animation: float-gentle 4s ease-in-out infinite alternate-reverse;
         }
 
-        .hero-botru-floating-1 {
+        .hero-bokit-floating {
             position: absolute;
-            top: -45px;
-            right: 30px;
-            width: 85px;
+            top: -55px;
+            right: 25px;
+            width: 125px;
             height: auto;
             z-index: 3;
             pointer-events: none;
             background: #ffffff;
             border: 1px solid rgba(197, 168, 128, 0.25);
             border-radius: 12px;
-            padding: 6px;
+            padding: 8px;
             box-shadow: var(--shadow-md);
-            animation: float-botru-1 5s ease-in-out infinite alternate;
+            animation: float-bokit 5s ease-in-out infinite alternate;
         }
 
-        .hero-botru-floating-2 {
-            position: absolute;
-            bottom: 60px;
-            left: -55px;
-            width: 75px;
-            height: auto;
-            z-index: 3;
-            pointer-events: none;
-            background: #ffffff;
-            border: 1px solid rgba(197, 168, 128, 0.25);
-            border-radius: 12px;
-            padding: 5px;
-            box-shadow: var(--shadow-md);
-            animation: float-botru-2 6s ease-in-out infinite alternate-reverse;
-        }
-
-        @keyframes float-botru-1 {
+        @keyframes float-bokit {
             0% {
                 transform: translateY(0) rotate(0deg);
             }
@@ -1385,28 +1369,12 @@
             }
         }
 
-        @keyframes float-botru-2 {
-            0% {
-                transform: translateY(0) rotate(0deg);
-            }
-            100% {
-                transform: translateY(-10px) rotate(-6deg);
-            }
-        }
-
         @media (max-width: 768px) {
-            .hero-botru-floating-1 {
-                width: 60px;
-                top: -30px;
-                right: 15px;
-                padding: 4px;
-                border-radius: 8px;
-            }
-            .hero-botru-floating-2 {
-                width: 52px;
-                bottom: 40px;
-                left: -22px;
-                padding: 3px;
+            .hero-bokit-floating {
+                width: 85px;
+                top: -35px;
+                right: 10px;
+                padding: 5px;
                 border-radius: 8px;
             }
         }
@@ -4714,9 +4682,8 @@
                         <a class="hero-screw-overlay" href="#san-pham-thuy-si">
                             <img alt="Bộ Trụ" decoding="async" src="assets/botru.png" />
                         </a>
-                        <!-- Floating small botru images -->
-                        <img src="assets/botru.png" alt="Bộ Trụ" class="hero-botru-floating-1" decoding="async" />
-                        <img src="assets/botru.png" alt="Bộ Trụ" class="hero-botru-floating-2" decoding="async" />
+                        <!-- Floating small bokit image -->
+                        <img src="assets/bokit.png" alt="Bộ Kit" class="hero-bokit-floating" decoding="async" />
                     </div>
                     <div class="hero-capsule-tagline reveal-up delay-300">
                         Nhận chứng chỉ CME - Đạt chuẩn quy định Bộ Y tế
@@ -4797,9 +4764,8 @@
                     <a class="hero-screw-overlay" href="#san-pham-thuy-si">
                         <img alt="Bộ Trụ" decoding="async" src="assets/botru.png" />
                     </a>
-                    <!-- Floating small botru images -->
-                    <img src="assets/botru.png" alt="Bộ Trụ" class="hero-botru-floating-1" decoding="async" />
-                    <img src="assets/botru.png" alt="Bộ Trụ" class="hero-botru-floating-2" decoding="async" />
+                    <!-- Floating small bokit image -->
+                    <img src="assets/bokit.png" alt="Bộ Kit" class="hero-bokit-floating" decoding="async" />
                 </div>
             </div>
         </section>
