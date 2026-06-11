@@ -6270,14 +6270,28 @@
                 interest: document.getElementById('interest').value
             };
 
-            // Submit to Google Sheets
+            // Submit to Google Sheets (runs in background)
             submitLeadToSheets(data);
 
-            // Show success popup modal
-            document.getElementById('successPopup').classList.add('active');
+            // Handle fake loading state for 2s
+            const form = this;
+            const btn = form.querySelector('[type="submit"]');
+            const originalContent = btn.innerHTML;
+            
+            btn.disabled = true;
+            btn.innerHTML = '<span>Đang gửi...</span><i class="fa-solid fa-spinner fa-spin"></i>';
 
-            // Reset form
-            this.reset();
+            setTimeout(() => {
+                // Show success popup modal
+                document.getElementById('successPopup').classList.add('active');
+
+                // Restore button state
+                btn.disabled = false;
+                btn.innerHTML = originalContent;
+
+                // Reset form
+                form.reset();
+            }, 2000);
         });
 
         // Popup elements and handlers
@@ -6409,17 +6423,31 @@
                 note: document.getElementById('popupNote').value
             };
 
-            // Submit to Google Sheets
+            // Submit to Google Sheets (runs in background)
             submitLeadToSheets(data);
 
-            // Close registration popup
-            registrationPopup.classList.remove('active');
+            // Handle fake loading state for 2s
+            const form = this;
+            const btn = form.querySelector('[type="submit"]');
+            const originalContent = btn.innerHTML;
+            
+            btn.disabled = true;
+            btn.innerHTML = '<span>Đang gửi...</span><i class="fa-solid fa-spinner fa-spin"></i>';
 
-            // Show success popup modal
-            successPopup.classList.add('active');
+            setTimeout(() => {
+                // Close registration popup
+                registrationPopup.classList.remove('active');
 
-            // Reset form
-            this.reset();
+                // Show success popup modal
+                successPopup.classList.add('active');
+
+                // Restore button state
+                btn.disabled = false;
+                btn.innerHTML = originalContent;
+
+                // Reset form
+                form.reset();
+            }, 2000);
         });
 
         // Consultation Calendar state
@@ -6548,22 +6576,36 @@
                 note: document.getElementById('consultNote').value
             };
 
-            // Submit to Google Sheets
+            // Submit to Google Sheets (runs in background)
             submitLeadToSheets(data);
 
-            // Close consultation popup
-            consultationPopup.classList.remove('active');
+            // Handle fake loading state for 2s
+            const form = this;
+            const btn = form.querySelector('[type="submit"]');
+            const originalContent = btn.innerHTML;
+            
+            btn.disabled = true;
+            btn.innerHTML = '<span>Đang gửi...</span><i class="fa-solid fa-spinner fa-spin"></i>';
 
-            // Show success popup modal
-            successPopup.classList.add('active');
+            setTimeout(() => {
+                // Close consultation popup
+                consultationPopup.classList.remove('active');
 
-            // Reset form and calendar state
-            this.reset();
-            consultState.selectedDate = null;
-            document.getElementById('consultDate').value = '';
+                // Show success popup modal
+                successPopup.classList.add('active');
 
-            // Reset custom select state
-            if (typeof resetCustomTimeSelect === 'function') resetCustomTimeSelect();
+                // Restore button state
+                btn.disabled = false;
+                btn.innerHTML = originalContent;
+
+                // Reset form and calendar state
+                form.reset();
+                consultState.selectedDate = null;
+                document.getElementById('consultDate').value = '';
+
+                // Reset custom select state
+                if (typeof resetCustomTimeSelect === 'function') resetCustomTimeSelect();
+            }, 2000);
         });
 
         // Custom Time Dropdown logic
