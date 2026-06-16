@@ -22,6 +22,31 @@
     <noscript><img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=1560663312285833&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16450360466"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-16450360466');
+    </script>
+    <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-16450360466/RejBCPPO7r8cEJqA6_pD',
+          'value': 1.0,
+          'currency': 'VND',
+          'event_callback': callback
+      });
+      return false;
+    }
+    </script>
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <meta charset="utf-8" />
@@ -107,28 +132,8 @@
     <!-- Premium Standalone Stylesheet (100% clashing-free) -->
     <style>
         /* ─── RESET & BASICS ─── */
-        html.lenis {
-            height: auto;
-        }
-
-        .lenis-smooth {
-            scroll-behavior: auto !important;
-        }
-
-        .lenis-smooth [data-lenis-prevent] {
-            overscroll-behavior: contain;
-        }
-
-        .lenis-stopped {
-            overflow: hidden;
-        }
-
         html {
             scroll-behavior: smooth;
-        }
-
-        html.lenis {
-            scroll-behavior: auto !important;
         }
 
         *,
@@ -3474,8 +3479,8 @@
         .reveal-scale,
         .reveal-stamp {
             opacity: 0;
-            transition: opacity 1.0s cubic-bezier(0.25, 1, 0.5, 1),
-                transform 1.0s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+                transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
             will-change: transform, opacity;
         }
 
@@ -3501,14 +3506,14 @@
 
         .reveal-scale {
             transform: scale(0.97);
-            transition: opacity 1.0s cubic-bezier(0.25, 1, 0.5, 1),
-                transform 1.0s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+                transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         .reveal-stamp {
             transform: scale(1.12);
-            transition: opacity 1.0s cubic-bezier(0.25, 1, 0.5, 1),
-                transform 1.0s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+                transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         /* Active states */
@@ -4647,7 +4652,7 @@
                         Nhận chứng chỉ CME - Đạt chuẩn quy định Bộ Y tế
                     </div>
                     <p class="hero-desc reveal-up delay-400">
-                        Hành trình từ bác sĩ tổng quát trở thành bác sĩ cấy ghép Implant thực chiến, tự tin đặt ca trụ
+                        Hành trình từ bác sĩ tổng quát trở thành bác sĩ cấy ghép Implant thực chiến, tự tin đặt trụ
                         đầu tiên an toàn nhờ lộ trình đào tạo bài bản và sự đồng hành hỗ trợ chuyên môn từ đội ngũ
                         chuyên
                         gia đầu ngành.
@@ -6111,9 +6116,9 @@
                 style="font-size: 1.6rem; color: var(--clr-primary); margin-bottom: 12px; font-family: var(--font-serif); font-style: italic;">
                 Đặc Quyền Đồng Hành</h3>
             <h4 style="font-size: 1rem; font-weight: 800; margin-bottom: 15px; color: var(--clr-navy);">Tài Trợ 100%
-                Khóa học cáy ghép nha khoa Cơ Bản</h4>
+                Khóa học cấy ghép nha khoa Cơ Bản</h4>
             <p style="font-size: 0.82rem; color: var(--clr-text-muted); line-height: 1.6; margin-bottom: 24px;">
-                Áp dụng khi mua <strong>25 trụ ImplantSwiss</strong> từ ngày <strong>01/06/2026-31/07/2026</strong>. 
+                Áp dụng khi mua <strong>25 trụ ImplantSwiss</strong> từ ngày <strong>01/06/2026-31/07/2026</strong>.
                 Đăng ký tham gia để nhận khóa học trị giá <strong>25.000.000 VNĐ</strong>.
             </p>
             <a class="offer-btn" href="#dang-ky" id="popupCtaBtn">Nhận Tư Vấn Ngay</a>
@@ -6149,8 +6154,7 @@
             </div>
         </div>
     </div>
-    <!-- Lenis Smooth Scroll -->
-    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+
     <!-- Javascript Actions -->
     <script>
         // Google Apps Script Web App URL for Sheets Lead Sync
@@ -6196,71 +6200,38 @@
             }
         }
 
-        // Initialize Lenis Smooth Scroll (Body scroll only, stops when modals/drawers are open)
-        let lenis;
-        try {
-            // Initialize Lenis Smooth Scroll only on desktop screens (>1024px) for optimized mobile scrolling performance
-            if (typeof Lenis !== 'undefined' && window.innerWidth > 1024) {
-                lenis = new Lenis({
-                    duration: 1.2,
-                    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // easeOutExpo
-                    direction: 'vertical',
-                    gestureDirection: 'vertical',
-                    smooth: true,
-                    mouseMultiplier: 1,
-                    smoothTouch: false, // Keep mobile touch native-fast
-                    touchMultiplier: 2,
-                    infinite: false,
-                });
-
-                // RAF Loop for Lenis (Highly lightweight, no scroll locks inside RAF)
-                function raf(time) {
-                    if (lenis) {
-                        lenis.raf(time);
-                        requestAnimationFrame(raf);
-                    }
-                }
-                requestAnimationFrame(raf);
-            }
-
-            // Lock/unlock scrolling when popups/drawers are open (active on all screen widths)
-            if (typeof MutationObserver !== 'undefined') {
-                const scrollLockObserver = new MutationObserver(() => {
-                    const isScrollLocked = document.querySelector('.implant-popup.active') || document.querySelector('.drawer-nav.open');
-                    if (isScrollLocked) {
-                        if (lenis) lenis.stop();
-                        document.body.style.overflow = 'hidden';
-                    } else {
-                        if (lenis) lenis.start();
-                        document.body.style.overflow = '';
-                    }
-                });
-
-                // Targets to monitor for class changes
-                const lockTargets = [
-                    document.getElementById('registrationPopup'),
-                    document.getElementById('consultationPopup'),
-                    document.getElementById('implantPopup'),
-                    document.getElementById('successPopup'),
-                    document.getElementById('certImageModal'),
-                    document.getElementById('drawerNav')
-                ];
-
-                lockTargets.forEach(target => {
-                    if (target) {
-                        scrollLockObserver.observe(target, { attributes: true, attributeFilter: ['class'] });
-                    }
-                });
-
-                // Run once on load to establish correct initial state
+        // Lock/unlock scrolling when popups/drawers are open (active on all screen widths)
+        if (typeof MutationObserver !== 'undefined') {
+            const scrollLockObserver = new MutationObserver(() => {
                 const isScrollLocked = document.querySelector('.implant-popup.active') || document.querySelector('.drawer-nav.open');
                 if (isScrollLocked) {
-                    if (lenis) lenis.stop();
                     document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = '';
                 }
+            });
+
+            // Targets to monitor for class changes
+            const lockTargets = [
+                document.getElementById('registrationPopup'),
+                document.getElementById('consultationPopup'),
+                document.getElementById('implantPopup'),
+                document.getElementById('successPopup'),
+                document.getElementById('certImageModal'),
+                document.getElementById('drawerNav')
+            ];
+
+            lockTargets.forEach(target => {
+                if (target) {
+                    scrollLockObserver.observe(target, { attributes: true, attributeFilter: ['class'] });
+                }
+            });
+
+            // Run once on load to establish correct initial state
+            const isScrollLocked = document.querySelector('.implant-popup.active') || document.querySelector('.drawer-nav.open');
+            if (isScrollLocked) {
+                document.body.style.overflow = 'hidden';
             }
-        } catch (e) {
-            console.error("Lenis Smooth Scroll error: ", e);
         }
 
         // Initialize stagger grid transition delays before observer setup
@@ -6298,13 +6269,11 @@
             });
         }
 
-        // Delay starting observation until DOM layout is settled to prevent pre-mature triggering
-        if (document.readyState === 'complete') {
-            setTimeout(startRevealObserver, 150);
+        // Start observation as soon as DOM layout is ready (DOMContentLoaded) to prevent delay
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', startRevealObserver);
         } else {
-            window.addEventListener('load', () => {
-                setTimeout(startRevealObserver, 150);
-            });
+            startRevealObserver();
         }
 
         // FAQ Accordion functionality
@@ -6383,6 +6352,11 @@
                     content_name: data.interest,
                     status: true
                 }, { eventID: eventId });
+            }
+
+            // Track Google Ads Conversion Event
+            if (typeof gtag_report_conversion === 'function') {
+                gtag_report_conversion();
             }
 
             // Handle fake loading state for 2s
@@ -6552,6 +6526,11 @@
                     content_name: data.interest,
                     status: true
                 }, { eventID: eventId });
+            }
+
+            // Track Google Ads Conversion Event
+            if (typeof gtag_report_conversion === 'function') {
+                gtag_report_conversion();
             }
 
             // Handle fake loading state for 2s
@@ -6724,6 +6703,11 @@
                 }, { eventID: eventId });
             }
 
+            // Track Google Ads Conversion Event
+            if (typeof gtag_report_conversion === 'function') {
+                gtag_report_conversion();
+            }
+
             // Handle fake loading state for 2s
             const form = this;
             const btn = form.querySelector('[type="submit"]');
@@ -6874,14 +6858,10 @@
 
         backToTopBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            if (typeof lenis !== 'undefined') {
-                lenis.scrollTo(0);
-            } else {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            }
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
 
         // Fade in Zalo floating button on load
@@ -6906,14 +6886,10 @@
                     const elementPosition = elementRect - bodyRect;
                     const offsetPosition = elementPosition - offset;
 
-                    if (typeof lenis !== 'undefined') {
-                        lenis.scrollTo(offsetPosition);
-                    } else {
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: 'smooth'
-                        });
-                    }
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
                 }
             });
         });

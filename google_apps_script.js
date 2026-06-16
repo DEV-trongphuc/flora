@@ -24,7 +24,7 @@ const SHEET_NAME = "LEAD_WEBSITE";
 // CẤU HÌNH META CONVERSIONS API (CAPI)
 const META_PIXEL_ID = "1560663312285833"; // Thay thế bằng Pixel ID thực tế của bạn
 const META_ACCESS_TOKEN = "EAATBtgVJGAMBRuy504D0Gd1rZBvT2dQrDxvFTiin1u1pcs6VYwCswANPMYWiPHQSkZBQ8N2cSvrZCEiZCoZAjjvQnCIjqYQrydu64C60wnjx2DSsVrq1ZAoOCC4b9ZBPhWVZCLnvLlY0fO0bqFYRr3IZAs6pxEvFoiVYQ7US54jJRaDlXot9cDvvF1Y95ZAT9z66Ut7QZDZD";
-const TEST_EVENT_CODE = "TEST15646"; // Điền mã Test Event Code từ Trình quản lý sự kiện nếu muốn thử nghiệm (Ví dụ: TEST12345). Để trống khi chạy thật.
+const TEST_EVENT_CODE = ""; // Điền mã Test Event Code từ Trình quản lý sự kiện nếu muốn thử nghiệm (Ví dụ: TEST12345). Để trống khi chạy thật.
 
 function doPost(e) {
   try {
