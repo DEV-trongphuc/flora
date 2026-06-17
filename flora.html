@@ -417,7 +417,7 @@
         }
 
         .logo-brandson {
-            height: 18px;
+            height: 25px;
             width: auto;
         }
 
@@ -1363,7 +1363,7 @@
             background-color: var(--clr-bg-light);
             padding: 40px;
             display: grid;
-            grid-template-columns: 0.9fr 1.1fr;
+            grid-template-columns: 1.25fr 0.75fr;
             gap: 40px;
             align-items: center;
             box-shadow: var(--shadow);
@@ -1881,6 +1881,110 @@
             transform: scale(1.05);
         }
 
+        /* ─── CÔNG NGHỆ & TIÊU CHUẨN TRỤ IMPLANT SWISS ─── */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 1024px) {
+            .tech-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .tech-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+        }
+
+        .tech-card {
+            background-color: var(--clr-white);
+            border: 1px solid var(--clr-border);
+            border-left: 4px solid var(--clr-primary);
+            border-radius: var(--radius-md);
+            padding: 30px 24px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: relative;
+            overflow: hidden;
+            text-align: left;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-premium-hover);
+            border-left-color: var(--clr-secondary);
+        }
+
+        .tech-card-visual {
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle, rgba(31, 189, 239, 0.08) 0%, transparent 70%);
+            border-radius: var(--radius-sm);
+            padding: 10px;
+            position: relative;
+        }
+
+        .tech-card-visual img {
+            max-height: 100%;
+            width: auto;
+            object-fit: contain;
+            transition: var(--transition);
+            filter: drop-shadow(0 10px 15px rgba(6, 115, 186, 0.15));
+        }
+
+        .tech-card:hover .tech-card-visual img {
+            transform: scale(1.08) rotate(3deg);
+            filter: drop-shadow(0 15px 25px rgba(6, 115, 186, 0.25));
+        }
+
+        .tech-card-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .tech-card-info h3 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--clr-navy);
+            line-height: 1.3;
+        }
+
+        .tech-card-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .tech-card-list li {
+            font-size: 0.88rem;
+            color: var(--clr-text);
+            line-height: 1.5;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .tech-card-list li i {
+            color: var(--clr-secondary);
+            font-size: 0.8rem;
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+
         /* ─── "ĐĂNG KÝ THAM DỰ" SECTION ─── */
         .registration-section {
             background-color: var(--clr-white);
@@ -2351,7 +2455,8 @@
                 padding: 6px 16px !important;
             }
             .partner-gallery {
-                grid-template-columns: 1fr !important;
+                display: flex !important;
+                flex-direction: column !important;
                 gap: 16px !important;
                 margin-top: 30px !important;
                 padding-top: 20px !important;
@@ -3066,6 +3171,7 @@
             .audience-grid.mobile-slider,
             .offer-sub-grid.mobile-slider,
             .gallery-grid.mobile-slider,
+            .tech-grid.mobile-slider,
             .blog-grid.mobile-slider {
                 display: flex !important;
                 flex-direction: row !important;
@@ -3084,6 +3190,7 @@
             .audience-grid.mobile-slider::-webkit-scrollbar,
             .offer-sub-grid.mobile-slider::-webkit-scrollbar,
             .gallery-grid.mobile-slider::-webkit-scrollbar,
+            .tech-grid.mobile-slider::-webkit-scrollbar,
             .blog-grid.mobile-slider::-webkit-scrollbar {
                 display: none !important; /* Safari and Chrome */
             }
@@ -3092,6 +3199,7 @@
             .audience-grid.mobile-slider .audience-card,
             .offer-sub-grid.mobile-slider .offer-sub-card,
             .gallery-grid.mobile-slider .gallery-item,
+            .tech-grid.mobile-slider .tech-card,
             .blog-grid.mobile-slider .blog-card {
                 flex: 0 0 88% !important;
                 width: 88% !important;
@@ -3510,7 +3618,7 @@
                     </div>
                     <div class="timeline-img-col">
                         <div class="timeline-img-box">
-                            <img src="ngayhoi_item/fb4.jpg" alt="Phục hình răng sứ hoàn tất" />
+                            <img src="ngayhoi_item/b4.JPG" alt="Phục hình răng sứ hoàn tất" />
                         </div>
                     </div>
                 </div>
@@ -3681,12 +3789,21 @@
                 <img src="assets/implantswiss-logo-gray.png" alt="ImplantSwiss Logo" class="partner-logo" />
             </div>
             
-            <div class="partner-gallery" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 900px; margin: 40px auto 0; padding-top: 30px; border-top: 1px solid rgba(0,0,0,0.08);">
-                <div style="border-radius: var(--radius-md); overflow: hidden; border: 4px solid var(--clr-white); box-shadow: var(--shadow-premium); transition: var(--transition);" class="partner-gallery-img">
-                    <img src="ngayhoi_item/DSC00091.jpg" alt="Hợp tác chính thức Flora & Brandson & ImplantSwiss" style="width: 100%; height: auto; display: block; object-fit: cover;" />
+            <div class="partner-gallery" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; max-width: 1100px; margin: 40px auto 0; padding-top: 30px; border-top: 1px solid rgba(0,0,0,0.08);">
+                <div style="flex: 0 1 calc(33.333% - 16px); min-width: 280px; border-radius: var(--radius-md); overflow: hidden; border: 4px solid var(--clr-white); box-shadow: var(--shadow-premium); transition: var(--transition);" class="partner-gallery-img">
+                    <img src="ngayhoi_item/DSC00091.jpg" alt="Lễ ký kết đối tác chiến lược 1" style="width: 100%; height: 220px; display: block; object-fit: cover;" />
                 </div>
-                <div style="border-radius: var(--radius-md); overflow: hidden; border: 4px solid var(--clr-white); box-shadow: var(--shadow-premium); transition: var(--transition);" class="partner-gallery-img">
-                    <img src="ngayhoi_item/DSC00090.jpg" alt="Lễ ký kết đối tác chiến lược" style="width: 100%; height: auto; display: block; object-fit: cover;" />
+                <div style="flex: 0 1 calc(33.333% - 16px); min-width: 280px; border-radius: var(--radius-md); overflow: hidden; border: 4px solid var(--clr-white); box-shadow: var(--shadow-premium); transition: var(--transition);" class="partner-gallery-img">
+                    <img src="ngayhoi_item/DSC00090.jpg" alt="Lễ ký kết đối tác chiến lược 2" style="width: 100%; height: 220px; display: block; object-fit: cover;" />
+                </div>
+                <div style="flex: 0 1 calc(33.333% - 16px); min-width: 280px; border-radius: var(--radius-md); overflow: hidden; border: 4px solid var(--clr-white); box-shadow: var(--shadow-premium); transition: var(--transition);" class="partner-gallery-img">
+                    <img src="assets/source/Brandson_9.jpg" alt="Lễ ký kết đối tác chiến lược 3" style="width: 100%; height: 220px; display: block; object-fit: cover;" />
+                </div>
+                <div style="flex: 0 1 calc(33.333% - 16px); min-width: 280px; border-radius: var(--radius-md); overflow: hidden; border: 4px solid var(--clr-white); box-shadow: var(--shadow-premium); transition: var(--transition);" class="partner-gallery-img">
+                    <img src="assets/source/Brandson_12.jpg" alt="Lễ ký kết đối tác chiến lược 4" style="width: 100%; height: 220px; display: block; object-fit: cover;" />
+                </div>
+                <div style="flex: 0 1 calc(33.333% - 16px); min-width: 280px; border-radius: var(--radius-md); overflow: hidden; border: 4px solid var(--clr-white); box-shadow: var(--shadow-premium); transition: var(--transition);" class="partner-gallery-img">
+                    <img src="assets/source/Brandson_13.jpg" alt="Lễ ký kết đối tác chiến lược 5" style="width: 100%; height: 220px; display: block; object-fit: cover;" />
                 </div>
             </div>
         </div>
@@ -3840,13 +3957,91 @@
                 <p>Tìm hiểu chi tiết các công nghệ cấy ghép tiên tiến và giải pháp phục hình răng chuẩn y khoa từ hệ thống ImplantSwiss.</p>
             </div>
 
-            <div class="gallery-grid mobile-slider">
-                <div class="gallery-item"><img src="ngayhoi_item/ig_img (1).jpg" alt="Hệ thống ImplantSwiss" /></div>
-                <div class="gallery-item"><img src="ngayhoi_item/ig_img (2).jpg" alt="Máng hướng dẫn Guided Surgery" /></div>
-                <div class="gallery-item"><img src="ngayhoi_item/ig_img (3).jpg" alt="Trường hợp cấy ghép lâm sàng" /></div>
-                <div class="gallery-item"><img src="ngayhoi_item/ig_img (4).jpg" alt="Thiết kế ren nén xương tối ưu" /></div>
-                <div class="gallery-item"><img src="ngayhoi_item/ig_img (5).jpg" alt="Giải pháp phục hình Zygoma" /></div>
-                <div class="gallery-item"><img src="ngayhoi_item/ig_img (6).jpg" alt="Trụ ngắn Short Implant" /></div>
+            <div class="tech-grid reveal mobile-slider">
+                <!-- Card 1 -->
+                <div class="tech-card">
+                    <div class="tech-card-visual">
+                        <img src="ngayhoi_item/Tru-1.png" alt="Hệ Thống Trụ Implant Chuyên Sâu" />
+                    </div>
+                    <div class="tech-card-info">
+                        <h3>Hệ Thống Trụ Implant Chuyên Sâu</h3>
+                        <ul class="tech-card-list">
+                            <li><i class="fa-solid fa-circle-check"></i> <span>Chế tác từ Titanium Grade 4/5 tinh khiết, tương thích sinh học cao.</span></li>
+                            <li><i class="fa-solid fa-circle-check"></i> <span>Đa dạng kích thước và kiểu dáng, phù hợp mọi vị trí mất răng.</span></li>
+                            <li><i class="fa-solid fa-circle-check"></i> <span>Khả năng chịu lực ăn nhai cực tốt, độ bền cao trọn đời.</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="tech-card">
+                    <div class="tech-card-visual">
+                        <img src="ngayhoi_item/Kit.png" alt="Máng Hướng Dẫn Guided Surgery" />
+                    </div>
+                    <div class="tech-card-info">
+                        <h3>Máng Hướng Dẫn Guided Surgery</h3>
+                        <ul class="tech-card-list">
+                            <li><i class="fa-solid fa-circle-check"></i> <span>Thiết kế số hóa 3D chính xác, hỗ trợ phẫu thuật không vạt nướu.</span></li>
+                            <li><i class="fa-solid fa-circle-check"></i> <span>Giảm thiểu xâm lấn tối đa, hạn chế sưng đau và chảy máu.</span></li>
+                            <li><i class="fa-solid fa-circle-check"></i> <span>Rút ngắn thời gian thực hiện tiểu phẫu chỉ còn 15-20 phút.</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="tech-card">
+                    <div class="tech-card-visual">
+                        <img src="ngayhoi_item/Element.png" alt="Khớp Nối Khít Sát Chống Xoay" />
+                    </div>
+                    <div class="tech-card-info">
+                        <h3>Khớp Nối Khít Sát Chống Xoay</h3>
+                        <ul class="tech-card-list">
+                            <li><i class="fa-solid fa-circle-check"></i> <span>Kết nối côn thuôn lục giác siêu khít, phân bố lực nhai đồng đều.</span></li>
+                            <li><i class="fa-solid fa-circle-check"></i> <span>Ngăn ngừa hoàn toàn vi khuẩn xâm nhập, chống tiêu xương cổ trụ.</span></li>
+                            <li><i class="fa-solid fa-circle-check"></i> <span>Độ ổn định cơ học vượt trội, hạn chế tối đa nguy cơ lỏng vít.</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="tech-card">
+                    <div class="tech-card-visual">
+                        <img src="ngayhoi_item/Tru-3.png" alt="Giải Pháp Trụ Zygoma Đặc Biệt" />
+                    </div>
+                    <div class="tech-card-info">
+                        <h3>Giải Pháp Trụ Zygoma Đặc Biệt</h3>
+                        <ul class="tech-card-list">
+                            <li><i class="fa-solid fa-circle-check"></i> <span>Dành riêng cho bệnh nhân tiêu xương hàm trên nghiêm trọng.</span></li>
+                            <li><i class="fa-solid fa-circle-check"></i> <span>Chiều dài trụ vượt trội để neo giữ chắc chắn vào xương gò má.</span></li>
+                            <li><i class="fa-solid fa-circle-check"></i> <span>Khôi phục răng toàn hàm mà không cần ghép xương phức tạp.</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="tech-card">
+                    <div class="tech-card-visual">
+                        <img src="ngayhoi_item/Tru-4.png" alt="Trụ Implant Ngắn Tối Ưu" />
+                    </div>
+                    <div class="tech-card-info">
+                        <h3>Trụ Implant Ngắn Tối Ưu</h3>
+                        <ul class="tech-card-list">
+                            <li><i class="fa-solid fa-circle-check"></i> <span>Thiết kế chiều dài tối thiểu nhưng diện tích tiếp xúc lớn.</span></li>
+                            <li><i class="fa-solid fa-circle-check"></i> <span>Giải pháp lý tưởng cho vùng xương hàm có chiều cao hạn chế.</span></li>
+                            <li><i class="fa-solid fa-circle-check"></i> <span>Tránh chạm vào các cấu trúc giải phẫu quan trọng (xoang hàm, thần kinh).</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Card 6 -->
+                <div class="tech-card">
+                    <div class="tech-card-visual">
+                        <img src="ngayhoi_item/Tru-2.png" alt="Ren Nén Xương & Bề Mặt SRA" />
+                    </div>
+                    <div class="tech-card-info">
+                        <h3>Ren Nén Xương & Bề Mặt SRA</h3>
+                        <ul class="tech-card-list">
+                            <li><i class="fa-solid fa-circle-check"></i> <span>Thiết kế ren kép tự cắt, đạt độ ổn định sơ khởi cực cao khi đặt trụ.</span></li>
+                            <li><i class="fa-solid fa-circle-check"></i> <span>Công nghệ xử lý bề mặt SRA đẩy nhanh tốc độ tích hợp xương.</span></li>
+                            <li><i class="fa-solid fa-circle-check"></i> <span>Rút ngắn thời gian lành thương từ vài tháng xuống vài tuần.</span></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -4079,7 +4274,7 @@
         <div class="container footer-grid">
             <!-- Left Column: Intro -->
             <div>
-                <img src="ngayhoi_item/Logo-Flora1.png" alt="Flora Dental Logo" style="height: 38px; width: auto; margin-bottom: 20px; display: block; filter: brightness(0) invert(1);" />
+                <img src="ngayhoi_item/Logo-Flora1.png" alt="Flora Dental Logo" style="height: 70px; width: auto; margin-bottom: 20px; display: block; filter: brightness(0) invert(1);" />
                 <p style="font-size: 0.85rem; line-height: 1.6; color: #cbd5e1; margin: 0;">Nha Khoa Flora là phòng khám nha khoa đạt tiêu chuẩn quốc tế, cung cấp các dịch vụ điều trị nha khoa tổng quát và chuyên sâu</p>
             </div>
             
