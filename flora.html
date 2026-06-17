@@ -71,9 +71,9 @@
     <!-- LadiPage ImplantETK Inspired Clean Gradient Stylesheet -->
     <style>
         :root {
-            --clr-primary: #111d61;      /* Royal Blue */
-            --clr-secondary: #239eb7;    /* Teal/Cyan */
-            --clr-accent: #00a2e8;       /* Vibrant Cyan Accent */
+            --clr-primary: #0673ba;      /* Royal Blue */
+            --clr-secondary: #1fbdef;    /* Teal/Cyan */
+            --clr-accent: #1fbdef;       /* Vibrant Cyan Accent */
             --clr-navy: #0a1931;         /* Deep Slate Navy */
             --clr-bg: #ffffff;
             --clr-bg-light: #f4f7fa;     /* Light Gray-Blue background */
@@ -82,9 +82,9 @@
             --clr-border: #e2e8f0;       /* Thin layout borders */
             --clr-white: #ffffff;
 
-            --grad-primary: linear-gradient(135deg, #111d61, #1e2e8c);
-            --grad-accent: linear-gradient(135deg, #1e2e8c, #111d61);
-            --grad-hero: linear-gradient(135deg, #090e26 0%, #111d61 100%);
+            --grad-primary: linear-gradient(135deg, #0673ba, #0673ba);
+            --grad-accent: linear-gradient(135deg, #0673ba, #0673ba);
+            --grad-hero: linear-gradient(135deg, #090e26 0%, #0673ba 100%);
             
             --font-title: 'Montserrat', sans-serif;
             --font-body: 'Quicksand', sans-serif;
@@ -94,10 +94,10 @@
             --radius-lg: 24px;
             
             --transition: all 0.25s ease-in-out;
-            --shadow: 0 10px 25px -5px rgba(17, 29, 97, 0.06), 0 8px 10px -6px rgba(17, 29, 97, 0.06);
+            --shadow: 0 10px 25px -5px rgba(6, 115, 186, 0.06), 0 8px 10px -6px rgba(6, 115, 186, 0.06);
 
             --shadow-premium: 0 15px 35px -5px rgba(10, 25, 49, 0.05), 0 5px 15px -5px rgba(10, 25, 49, 0.03);
-            --shadow-premium-hover: 0 25px 50px -10px rgba(17, 29, 97, 0.12), 0 10px 20px -10px rgba(17, 29, 97, 0.08);
+            --shadow-premium-hover: 0 25px 50px -10px rgba(6, 115, 186, 0.12), 0 10px 20px -10px rgba(6, 115, 186, 0.08);
             --glass-bg: rgba(255, 255, 255, 0.7);
             --glass-border: rgba(255, 255, 255, 0.5);
         }
@@ -207,7 +207,7 @@
             display: inline-block;
             padding: 6px 16px;
             background: var(--clr-bg-light);
-            border: 1px solid rgba(35, 158, 183, 0.2);
+            border: 1px solid rgba(31, 189, 239, 0.2);
             color: var(--clr-secondary);
             border-radius: 100px;
             font-size: 0.8rem;
@@ -262,7 +262,7 @@
         .btn-primary {
             background: var(--grad-primary);
             color: var(--clr-white) !important;
-            box-shadow: 0 4px 15px rgba(17, 29, 97, 0.2);
+            box-shadow: 0 4px 15px rgba(6, 115, 186, 0.2);
             position: relative;
             overflow: hidden;
         }
@@ -285,7 +285,7 @@
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(17, 29, 97, 0.35);
+            box-shadow: 0 6px 20px rgba(6, 115, 186, 0.35);
         }
 
         @keyframes pulse-number {
@@ -296,12 +296,12 @@
         .btn-accent {
             background: var(--grad-accent);
             color: var(--clr-white) !important;
-            box-shadow: 0 4px 15px rgba(17, 29, 97, 0.15);
+            box-shadow: 0 4px 15px rgba(6, 115, 186, 0.15);
         }
 
         .btn-accent:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(17, 29, 97, 0.25);
+            box-shadow: 0 6px 20px rgba(6, 115, 186, 0.25);
         }
 
         .btn-outline {
@@ -311,7 +311,7 @@
         }
 
         .btn-outline:hover {
-            background: rgba(17, 29, 97, 0.05);
+            background: rgba(6, 115, 186, 0.05);
             transform: translateY(-2px);
         }
 
@@ -362,6 +362,7 @@
         }
 
         .header-bar.header-transparent .logo-img,
+        .header-bar.header-transparent .logo-brandson,
         .header-bar.header-transparent .logo-swiss {
             filter: brightness(0) invert(1);
         }
@@ -411,6 +412,11 @@
         }
 
         .logo-swiss {
+            height: 18px;
+            width: auto;
+        }
+
+        .logo-brandson {
             height: 18px;
             width: auto;
         }
@@ -555,8 +561,8 @@
             position: absolute;
             inset: 0;
             background-image: 
-                radial-gradient(circle at 85% 85%, rgba(17, 29, 97, 0.5) 0%, transparent 60%),
-                radial-gradient(circle at 15% 15%, rgba(35, 158, 183, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 85% 85%, rgba(6, 115, 186, 0.5) 0%, transparent 60%),
+                radial-gradient(circle at 15% 15%, rgba(31, 189, 239, 0.15) 0%, transparent 50%),
                 linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
             background-size: 100% 100%, 100% 100%, 50px 50px, 50px 50px;
@@ -631,7 +637,7 @@
         }
 
         .hero-content h1 span.text-highlight {
-            background: linear-gradient(135deg, #111d61 0%, #1e2e8c 100%);
+            background: linear-gradient(135deg, #0673ba 0%, #0673ba 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -659,7 +665,7 @@
             background: rgba(10, 25, 49, 0.45);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(35, 158, 183, 0.25);
+            border: 1px solid rgba(31, 189, 239, 0.25);
             border-radius: var(--radius-md);
             padding: 24px;
             display: flex;
@@ -689,22 +695,22 @@
         }
 
         .glass-info-item i {
-            color: #00a2e8;
+            color: #1fbdef;
             font-size: 1.3rem;
             width: 42px;
             height: 42px;
-            background: rgba(0, 162, 228, 0.12);
+            background: rgba(31, 189, 239, 0.12);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid rgba(0, 162, 228, 0.25);
+            border: 1px solid rgba(31, 189, 239, 0.25);
             flex-shrink: 0;
         }
 
         .glass-info-item h4 {
             font-size: 0.75rem;
-            color: #239eb7;
+            color: #1fbdef;
             letter-spacing: 0.1em;
             margin-bottom: 2px;
             font-weight: 800;
@@ -766,7 +772,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            box-shadow: 0 10px 25px rgba(17, 29, 97, 0.2);
+            box-shadow: 0 10px 25px rgba(6, 115, 186, 0.2);
             animation: float-gentle 4s ease-in-out infinite alternate;
         }
 
@@ -798,7 +804,7 @@
         .countdown-title {
             font-size: 0.72rem;
             font-weight: 800;
-            color: #00a2e8;
+            color: #1fbdef;
             letter-spacing: 0.12em;
             text-transform: uppercase;
             margin-bottom: 12px;
@@ -813,11 +819,11 @@
 
         .countdown-box {
             background: rgba(10, 25, 49, 0.7);
-            border: 1px solid rgba(0, 162, 228, 0.3);
+            border: 1px solid rgba(31, 189, 239, 0.3);
             border-radius: var(--radius-sm);
             padding: 14px 6px;
             text-align: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3), inset 0 0 12px rgba(0, 162, 228, 0.15);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3), inset 0 0 12px rgba(31, 189, 239, 0.15);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             transition: var(--transition);
@@ -882,7 +888,7 @@
         }
 
         .fact-card:hover {
-            border-color: rgba(35, 158, 183, 0.45);
+            border-color: rgba(31, 189, 239, 0.45);
             background-color: var(--clr-white);
             box-shadow: var(--shadow-premium-hover);
             transform: translateY(-5px);
@@ -957,7 +963,7 @@
         .value-card:hover {
             transform: translateY(-4px);
             background-color: var(--clr-white);
-            border-color: rgba(35, 158, 183, 0.45);
+            border-color: rgba(31, 189, 239, 0.45);
             box-shadow: var(--shadow-premium-hover);
         }
 
@@ -978,14 +984,14 @@
             color: var(--clr-secondary);
             line-height: 1;
             flex-shrink: 0;
-            background: rgba(35, 158, 183, 0.08);
+            background: rgba(31, 189, 239, 0.08);
             width: 42px;
             height: 42px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid rgba(35, 158, 183, 0.15);
+            border: 1px solid rgba(31, 189, 239, 0.15);
         }
 
         .value-info {
@@ -1036,7 +1042,7 @@
         .value-float-img:hover {
             transform: scale(1.05) translateY(-5px) !important;
             z-index: 10 !important;
-            box-shadow: 0 20px 40px rgba(17, 29, 97, 0.2);
+            box-shadow: 0 20px 40px rgba(6, 115, 186, 0.2);
         }
 
         .value-float-img.img-1 {
@@ -1064,7 +1070,7 @@
             left: 15%;
             transform: rotate(2deg);
             z-index: 3;
-            box-shadow: 0 20px 35px rgba(17, 29, 97, 0.15);
+            box-shadow: 0 20px 35px rgba(6, 115, 186, 0.15);
         }
 
         /* ─── "AI NÊN THAM GIA?" SECTION ─── */
@@ -1115,7 +1121,7 @@
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--clr-white);
-            box-shadow: 0 4px 8px rgba(17, 29, 97, 0.15);
+            box-shadow: 0 4px 8px rgba(6, 115, 186, 0.15);
             flex-shrink: 0;
         }
 
@@ -1158,7 +1164,7 @@
         .expert-card:hover {
             transform: translateY(-5px);
             background-color: var(--clr-white);
-            border-color: rgba(35, 158, 183, 0.45);
+            border-color: rgba(31, 189, 239, 0.45);
             box-shadow: var(--shadow-premium-hover);
         }
 
@@ -1238,8 +1244,8 @@
         }
 
          .stat-banner {
-            border: 1px solid rgba(35, 158, 183, 0.2);
-            background: linear-gradient(135deg, rgba(35, 158, 183, 0.04) 0%, rgba(17, 29, 97, 0.02) 100%);
+            border: 1px solid rgba(31, 189, 239, 0.2);
+            background: linear-gradient(135deg, rgba(31, 189, 239, 0.04) 0%, rgba(6, 115, 186, 0.02) 100%);
             border-radius: var(--radius-md);
             padding: 45px 30px;
             text-align: center;
@@ -1270,7 +1276,7 @@
             line-height: 1.1;
             margin-bottom: 12px;
             display: inline-block;
-            filter: drop-shadow(0 2px 4px rgba(17, 29, 97, 0.1));
+            filter: drop-shadow(0 2px 4px rgba(6, 115, 186, 0.1));
         }
 
         .stat-text {
@@ -1321,7 +1327,7 @@
             background-color: var(--clr-primary);
             color: var(--clr-white);
             border-color: var(--clr-primary);
-            box-shadow: 0 6px 15px rgba(17, 29, 97, 0.25);
+            box-shadow: 0 6px 15px rgba(6, 115, 186, 0.25);
             transform: translateY(-50%) scale(1.05);
         }
 
@@ -1371,13 +1377,56 @@
             }
         }
 
-        .testimonial-img-box img {
+        .testimonial-img-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .bf-at-wrapper {
+            position: relative;
             width: 100%;
-            aspect-ratio: 1.35;
-            object-fit: cover;
             border-radius: var(--radius-sm);
-            border: 2px solid var(--clr-white);
+            overflow: hidden;
             box-shadow: 0 4px 12px rgba(10, 25, 49, 0.05);
+            border: 2px solid var(--clr-white);
+        }
+
+        .bf-at-wrapper img {
+            width: 100%;
+            aspect-ratio: 1.15;
+            object-fit: cover;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .bf-at-wrapper:hover img {
+            transform: scale(1.04);
+        }
+
+        .bf-at-label {
+            position: absolute;
+            bottom: 8px;
+            padding: 4px 10px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--clr-white);
+            border-radius: var(--radius-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            font-family: var(--font-title);
+            z-index: 2;
+        }
+
+        .bf-at-label.label-before {
+            left: 8px;
+            background-color: #ef4444;
+        }
+
+        .bf-at-label.label-after {
+            right: 8px;
+            background-color: #10b981;
         }
 
         .testimonial-content {
@@ -1474,6 +1523,14 @@
             transform: scale(1.05);
         }
 
+        .partner-gallery-img {
+            transition: var(--transition);
+        }
+        .partner-gallery-img:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-premium-hover) !important;
+        }
+
         /* ─── "ƯU ĐÃI" SECTION ─── */
         .offer-section {
             background-color: var(--clr-white);
@@ -1495,7 +1552,7 @@
         }
 
         .offer-card-premium {
-            background: linear-gradient(135deg, #090e26 0%, #111d61 100%);
+            background: linear-gradient(135deg, #090e26 0%, #0673ba 100%);
             color: var(--clr-white);
             border-radius: var(--radius-md);
             padding: 45px 40px;
@@ -1531,12 +1588,12 @@
         .offer-card-premium.blue-tier {
             background: var(--clr-white);
             color: var(--clr-text);
-            border: 2px solid rgba(0, 162, 228, 0.25);
-            box-shadow: 0 15px 35px rgba(17, 29, 97, 0.05);
+            border: 2px solid rgba(31, 189, 239, 0.25);
+            box-shadow: 0 15px 35px rgba(6, 115, 186, 0.05);
         }
 
         .offer-card-premium.blue-tier::before {
-            background: radial-gradient(circle, rgba(0, 162, 228, 0.08) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(31, 189, 239, 0.08) 0%, transparent 70%);
         }
 
         .offer-card-premium:hover {
@@ -1549,8 +1606,8 @@
         }
 
         .offer-card-premium.blue-tier:hover {
-            box-shadow: 0 20px 40px rgba(0, 162, 228, 0.12);
-            border-color: rgba(0, 162, 228, 0.8);
+            box-shadow: 0 20px 40px rgba(31, 189, 239, 0.12);
+            border-color: rgba(31, 189, 239, 0.8);
         }
 
         .offer-card-premium.blue-tier h3 {
@@ -1596,8 +1653,8 @@
         }
 
         .offer-card-premium.blue-tier .offer-card-visual {
-            background: rgba(17, 29, 97, 0.03);
-            border-color: rgba(17, 29, 97, 0.08);
+            background: rgba(6, 115, 186, 0.03);
+            border-color: rgba(6, 115, 186, 0.08);
         }
 
         .offer-card-visual img {
@@ -1646,9 +1703,9 @@
         }
 
         .offer-badge.blue-badge {
-            background: rgba(0, 162, 228, 0.15);
-            color: #00a2e8;
-            border: 1px solid rgba(0, 162, 228, 0.3);
+            background: rgba(31, 189, 239, 0.15);
+            color: #1fbdef;
+            border: 1px solid rgba(31, 189, 239, 0.3);
         }
 
         .offer-card-premium h3 {
@@ -1679,7 +1736,7 @@
         }
 
         .offer-card-premium .offer-value.blue-text {
-            background: linear-gradient(135deg, #111d61 0%, #1e2e8c 60%, #2b45cf 100%);
+            background: linear-gradient(135deg, #0673ba 0%, #0673ba 60%, #1fbdef 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -1738,30 +1795,30 @@
         .offer-sub-card:hover {
             transform: translateY(-5px);
             background-color: var(--clr-white);
-            border-color: rgba(0, 162, 228, 0.45);
+            border-color: rgba(31, 189, 239, 0.45);
             box-shadow: var(--shadow-premium-hover);
         }
 
         .sub-card-icon {
             width: 54px;
             height: 54px;
-            background-color: rgba(0, 162, 228, 0.06);
-            color: #00a2e8;
+            background-color: rgba(31, 189, 239, 0.06);
+            color: #1fbdef;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.35rem;
             margin-bottom: 18px;
-            border: 1px solid rgba(0, 162, 228, 0.15);
+            border: 1px solid rgba(31, 189, 239, 0.15);
             transition: var(--transition);
         }
 
         .offer-sub-card:hover .sub-card-icon {
-            background-color: #00a2e8;
+            background-color: #1fbdef;
             color: var(--clr-white);
             transform: scale(1.05);
-            border-color: #00a2e8;
+            border-color: #1fbdef;
         }
 
         .offer-sub-card h3 {
@@ -1991,7 +2048,7 @@
         .form-input:focus {
             outline: none;
             border-color: var(--clr-secondary);
-            box-shadow: 0 0 0 4px rgba(35, 158, 183, 0.15), inset 0 2px 4px rgba(10, 25, 49, 0.03);
+            box-shadow: 0 0 0 4px rgba(31, 189, 239, 0.15), inset 0 2px 4px rgba(10, 25, 49, 0.03);
             background-color: var(--clr-white);
         }
 
@@ -2040,9 +2097,9 @@
         }
 
         @keyframes heartbeat {
-            0% { transform: scale(1); box-shadow: 0 4px 15px rgba(17, 29, 97, 0.2); }
-            50% { transform: scale(1.025); box-shadow: 0 8px 25px rgba(17, 29, 97, 0.35); }
-            100% { transform: scale(1); box-shadow: 0 4px 15px rgba(17, 29, 97, 0.2); }
+            0% { transform: scale(1); box-shadow: 0 4px 15px rgba(6, 115, 186, 0.2); }
+            50% { transform: scale(1.025); box-shadow: 0 8px 25px rgba(6, 115, 186, 0.35); }
+            100% { transform: scale(1); box-shadow: 0 4px 15px rgba(6, 115, 186, 0.2); }
         }
         .form-submit-btn {
             width: 100%;
@@ -2054,7 +2111,7 @@
         .form-submit-btn:hover {
             animation: none;
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(17, 29, 97, 0.4);
+            box-shadow: 0 8px 25px rgba(6, 115, 186, 0.4);
         }
 
         /* ─── FOOTER ─── */
@@ -2223,7 +2280,7 @@
             transform: translateX(-50%) translateY(0);
             padding: 10px 22px;
             background-color: var(--clr-white);
-            border: 1px solid rgba(17, 29, 97, 0.15);
+            border: 1px solid rgba(6, 115, 186, 0.15);
             color: var(--clr-primary);
             border-radius: 50px;
             display: flex;
@@ -2250,7 +2307,7 @@
             color: var(--clr-white);
             border-color: var(--clr-primary);
             transform: translateX(-50%) translateY(-3px);
-            box-shadow: 0 10px 25px rgba(17, 29, 97, 0.25);
+            box-shadow: 0 10px 25px rgba(6, 115, 186, 0.25);
         }
 
         .back-to-top .btn-text {
@@ -2292,6 +2349,12 @@
                 white-space: nowrap !important;
                 font-size: 0.78rem !important;
                 padding: 6px 16px !important;
+            }
+            .partner-gallery {
+                grid-template-columns: 1fr !important;
+                gap: 16px !important;
+                margin-top: 30px !important;
+                padding-top: 20px !important;
             }
         }
 
@@ -2434,7 +2497,7 @@
             border: 1px solid var(--clr-border);
             border-radius: var(--radius-lg);
             padding: 60px 50px 50px;
-            box-shadow: 0 15px 40px rgba(17, 29, 97, 0.04);
+            box-shadow: 0 15px 40px rgba(6, 115, 186, 0.04);
             position: relative;
             box-sizing: border-box;
             z-index: 2;
@@ -2560,7 +2623,7 @@
         .swiss-feature-icon {
             width: 36px;
             height: 36px;
-            background: rgba(35, 158, 183, 0.08); /* Soft Teal accent */
+            background: rgba(31, 189, 239, 0.08); /* Soft Teal accent */
             color: var(--clr-secondary);
             border-radius: 50%;
             display: flex;
@@ -2568,7 +2631,7 @@
             justify-content: center;
             font-size: 0.95rem;
             flex-shrink: 0;
-            border: 1px solid rgba(35, 158, 183, 0.15);
+            border: 1px solid rgba(31, 189, 239, 0.15);
         }
 
         .swiss-feature-text h4 {
@@ -2597,7 +2660,7 @@
             font-size: 0.85rem;
             font-weight: 700;
             border-radius: 50px;
-            box-shadow: 0 4px 12px rgba(17, 29, 97, 0.2);
+            box-shadow: 0 4px 12px rgba(6, 115, 186, 0.2);
             font-family: var(--font-title);
         }
 
@@ -2620,15 +2683,15 @@
             color: #cbd5e1;
         }
         .timeline-section .text-gradient {
-            background: linear-gradient(135deg, #00a2e8 0%, #239eb7 100%);
+            background: linear-gradient(135deg, #1fbdef 0%, #1fbdef 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         .timeline-section .curved-badge {
-            background: rgba(0, 162, 228, 0.1);
-            border-color: rgba(0, 162, 228, 0.25);
-            color: #00a2e8;
+            background: rgba(31, 189, 239, 0.1);
+            border-color: rgba(31, 189, 239, 0.25);
+            color: #1fbdef;
         }
         .timeline-container {
             position: relative;
@@ -2753,7 +2816,7 @@
             transform: translateY(-5px);
             background-color: rgba(255, 255, 255, 0.08);
             border-color: var(--clr-accent);
-            box-shadow: 0 20px 45px rgba(0, 162, 228, 0.15);
+            box-shadow: 0 20px 45px rgba(31, 189, 239, 0.15);
         }
         .timeline-step {
             font-family: var(--font-title);
@@ -3050,7 +3113,7 @@
                 width: 8px;
                 height: 8px;
                 border-radius: 50%;
-                background-color: rgba(17, 29, 97, 0.15);
+                background-color: rgba(6, 115, 186, 0.15);
                 border: none;
                 padding: 0;
                 cursor: pointer;
@@ -3058,7 +3121,7 @@
             }
             
             .mobile-slider-dot.active {
-                background-color: #00a2e8; /* Active color */
+                background-color: #1fbdef; /* Active color */
                 width: 20px;
                 border-radius: 4px;
             }
@@ -3082,7 +3145,9 @@
     <header class="header-bar">
         <div class="container header-inner">
             <div class="logo-box">
-                <img src="assets/brandson_logo.png" alt="Flora Logo" class="logo-img" />
+                <img src="ngayhoi_item/Logo-Flora1.png" alt="Flora Logo" class="logo-img" />
+                <div class="logo-sep"></div>
+                <img src="assets/brandson_logo.png" alt="Brandson Logo" class="logo-brandson" />
                 <div class="logo-sep"></div>
                 <img src="assets/implantswiss-logo-gray.png" alt="ImplantSwiss Logo" class="logo-swiss" />
             </div>
@@ -3108,7 +3173,7 @@
     <div class="drawer-overlay" id="drawerOverlay"></div>
     <nav class="drawer-nav" id="drawerNav">
         <div class="logo-box" style="margin-bottom: 24px;">
-            <img src="assets/brandson_logo.png" alt="Flora Logo" class="logo-img" style="height: 30px;" />
+            <img src="ngayhoi_item/Logo-Flora1.png" alt="Flora Logo" class="logo-img" style="height: 30px;" />
         </div>
         <a href="#banner">Trang chủ</a>
         <a href="#value">Nội dung</a>
@@ -3134,21 +3199,21 @@
                     </feMerge>
                 </filter>
             </defs>
-            <path d="M-100 300 Q 300 100, 800 450 T 1600 200" fill="none" pathLength="100" stroke="#00a2e8"
+            <path d="M-100 300 Q 300 100, 800 450 T 1600 200" fill="none" pathLength="100" stroke="#1fbdef"
                 stroke-dasharray="100" stroke-dashoffset="100" stroke-width="1.5">
                 <animate attributeName="stroke-dashoffset" dur="6s" repeatCount="indefinite" values="100; 0">
                 </animate>
             </path>
-            <path d="M-100 500 Q 500 700, 1000 300 T 1600 600" fill="none" pathLength="100" stroke="#239eb7"
+            <path d="M-100 500 Q 500 700, 1000 300 T 1600 600" fill="none" pathLength="100" stroke="#1fbdef"
                 stroke-dasharray="100" stroke-dashoffset="100" stroke-width="1">
                 <animate attributeName="stroke-dashoffset" dur="8s" repeatCount="indefinite" values="100; 0">
                 </animate>
             </path>
-            <circle fill="#00a2e8" filter="url(#glowParticleBlue)" r="3">
+            <circle fill="#1fbdef" filter="url(#glowParticleBlue)" r="3">
                 <animate attributeName="cx" dur="12s" repeatCount="indefinite" values="-50; 1500"></animate>
                 <animate attributeName="cy" dur="12s" repeatCount="indefinite" values="300; 200"></animate>
             </circle>
-            <circle fill="#111d61" filter="url(#glowParticleBlue)" r="2">
+            <circle fill="#0673ba" filter="url(#glowParticleBlue)" r="2">
                 <animate attributeName="cx" dur="15s" repeatCount="indefinite" values="1500; -50"></animate>
                 <animate attributeName="cy" dur="15s" repeatCount="indefinite" values="500; 600"></animate>
             </circle>
@@ -3156,16 +3221,16 @@
         <div class="container hero-grid" style="position: relative; z-index: 2;">
             <div class="hero-left-col reveal">
                 <div class="hero-content">
-                    <span class="curved-badge" style="background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.15); color: #00a2e8;">Sự Kiện Sức Khỏe Nha Khoa Flora</span>
+                    <span class="curved-badge" style="background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.15); color: #1fbdef;">Sự Kiện Sức Khỏe Nha Khoa Flora</span>
                     <h1 style="display: flex; flex-direction: column; gap: 6px; margin-bottom: 24px;">
-                        <span style="display: block; font-size: 0.45em; text-transform: uppercase; letter-spacing: 0.15em; color: #00a2e8; font-weight: 800;">Ngày Hội Implant 2026</span>
+                        <span style="display: block; font-size: 0.45em; text-transform: uppercase; letter-spacing: 0.15em; color: #1fbdef; font-weight: 800;">Ngày Hội Implant 2026</span>
                         <span style="display: inline-block; font-family: 'Dancing Script', cursive; background: linear-gradient(135deg, #fff2a3 0%, #dfb76c 60%, #c59f4e 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: clamp(2.2rem, 6.5vw, 5rem); font-weight: 700; line-height: 1.25; text-transform: none; filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.35)); margin-top: 4px;">
                             Vững Vàng Ăn Nhai<br>Tự Tin Sống Khỏe
                         </span>
                     </h1>
                     
                     <div class="hero-desc-wrapper" style="margin-bottom: 30px;">
-                        <strong style="display: block; font-size: 1.12rem; color: #00a2e8; margin-bottom: 8px; font-family: var(--font-title); font-weight: 700;">Từ mất răng lâu năm đến ăn nhai tự tin trở lại</strong>
+                        <strong style="display: block; font-size: 1.12rem; color: #1fbdef; margin-bottom: 8px; font-family: var(--font-title); font-weight: 700;">Từ mất răng lâu năm đến ăn nhai tự tin trở lại</strong>
                         <p style="font-size: 0.96rem; color: #e2e8f0; line-height: 1.6; margin: 0; font-family: var(--font-body);">Hành trình lấy lại chức năng ăn nhai, để mỗi bữa ăn được trọn vẹn như trước tại Ngày hội Implant Flora.</p>
                     </div>
                 </div>
@@ -3175,17 +3240,17 @@
                     <div class="hero-info-cards">
                         <!-- Card 1: Thời gian -->
                         <div class="glass-info-card" style="padding: 16px; flex-direction: row; align-items: center; gap: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.15);">
-                            <i class="fa-solid fa-calendar-day" style="color: #00a2e8; font-size: 1.2rem; width: 38px; height: 38px; background: rgba(0, 162, 228, 0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(0, 162, 228, 0.25); flex-shrink: 0;"></i>
+                            <i class="fa-solid fa-calendar-day" style="color: #1fbdef; font-size: 1.2rem; width: 38px; height: 38px; background: rgba(31, 189, 239, 0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(31, 189, 239, 0.25); flex-shrink: 0;"></i>
                             <div>
-                                <h4 style="font-size: 0.7rem; color: #239eb7; letter-spacing: 0.05em; margin-bottom: 2px; font-weight: 800; text-transform: uppercase;">THỜI GIAN</h4>
+                                <h4 style="font-size: 0.7rem; color: #1fbdef; letter-spacing: 0.05em; margin-bottom: 2px; font-weight: 800; text-transform: uppercase;">THỜI GIAN</h4>
                                 <p style="font-size: 0.88rem; color: var(--clr-white); font-weight: 600; line-height: 1.25;">25/07/2026<br><span style="font-size: 0.78rem; font-weight: 500; opacity: 0.9;">08:30 - 13:00</span></p>
                             </div>
                         </div>
                         <!-- Card 2: Địa điểm -->
                         <div class="glass-info-card" style="padding: 16px; flex-direction: row; align-items: center; gap: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.15);">
-                            <i class="fa-solid fa-location-dot" style="color: #00a2e8; font-size: 1.2rem; width: 38px; height: 38px; background: rgba(0, 162, 228, 0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(0, 162, 228, 0.25); flex-shrink: 0;"></i>
+                            <i class="fa-solid fa-location-dot" style="color: #1fbdef; font-size: 1.2rem; width: 38px; height: 38px; background: rgba(31, 189, 239, 0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(31, 189, 239, 0.25); flex-shrink: 0;"></i>
                             <div>
-                                <h4 style="font-size: 0.7rem; color: #239eb7; letter-spacing: 0.05em; margin-bottom: 2px; font-weight: 800; text-transform: uppercase;">ĐỊA ĐIỂM</h4>
+                                <h4 style="font-size: 0.7rem; color: #1fbdef; letter-spacing: 0.05em; margin-bottom: 2px; font-weight: 800; text-transform: uppercase;">ĐỊA ĐIỂM</h4>
                                 <p style="font-size: 0.82rem; color: var(--clr-white); font-weight: 600; line-height: 1.35;">326 Nguyễn Thị Minh Khai, P. Bàn Cờ, TP.HCM</p>
                             </div>
                         </div>
@@ -3347,19 +3412,19 @@
 
             <div class="audience-grid">
                 <div class="audience-card reveal">
-                    <img src="assets/p1.png" alt="Mất một hoặc nhiều răng" class="audience-avatar" />
+                    <img src="ngayhoi_item/bf_at/diem_chau_at.JPG" alt="Mất một hoặc nhiều răng" class="audience-avatar" />
                     <h3>Người mất một hoặc nhiều răng</h3>
                 </div>
                 <div class="audience-card reveal reveal-delay-1">
-                    <img src="assets/p2.png" alt="Mất răng lâu năm" class="audience-avatar" />
+                    <img src="ngayhoi_item/bf_at/chu_ba_phuoc_at.JPG" alt="Mất răng lâu năm" class="audience-avatar" />
                     <h3>Người mất răng lâu năm</h3>
                 </div>
                 <div class="audience-card reveal reveal-delay-2">
-                    <img src="assets/bs_lamsan.png" alt="Đang dùng hàm tháo lắp" class="audience-avatar" />
+                    <img src="ngayhoi_item/bf_at/co_cuc_at.jpg" alt="Đang dùng hàm tháo lắp" class="audience-avatar" />
                     <h3>Người đang sử dụng hàm tháo lắp bất tiện</h3>
                 </div>
                 <div class="audience-card reveal reveal-delay-3">
-                    <img src="assets/tran_minh_triet.png" alt="Quan tâm cấy ghép Implant" class="audience-avatar" />
+                    <img src="ngayhoi_item/bf_at/Ah_sen_at.jpg" alt="Quan tâm cấy ghép Implant" class="audience-avatar" />
                     <h3>Người quan tâm đến cấy ghép Implant</h3>
                 </div>
             </div>
@@ -3391,7 +3456,7 @@
                     </div>
                     <div class="timeline-img-col">
                         <div class="timeline-img-box">
-                            <img src="ngayhoi_item/ig_img (4).jpg" alt="Chụp phim CT Cone Beam 3D" />
+                            <img src="ngayhoi_item/b1.jpg" alt="Chụp phim CT Cone Beam 3D" />
                         </div>
                     </div>
                 </div>
@@ -3409,7 +3474,7 @@
                     </div>
                     <div class="timeline-img-col">
                         <div class="timeline-img-box">
-                            <img src="ngayhoi_item/ig_img (2).jpg" alt="Tư vấn phác đồ 1:1" />
+                            <img src="assets/p1.jpg" alt="Tư vấn phác đồ 1:1" />
                         </div>
                     </div>
                 </div>
@@ -3427,7 +3492,7 @@
                     </div>
                     <div class="timeline-img-col">
                         <div class="timeline-img-box">
-                            <img src="ngayhoi_item/ig_img (3).jpg" alt="Cấy ghép trụ Implant Thụy Sĩ" />
+                            <img src="assets/bs_lamsan.png" alt="Cấy ghép trụ Implant Thụy Sĩ" />
                         </div>
                     </div>
                 </div>
@@ -3445,7 +3510,7 @@
                     </div>
                     <div class="timeline-img-col">
                         <div class="timeline-img-box">
-                            <img src="ngayhoi_item/ig_img (1).jpg" alt="Phục hình răng sứ hoàn tất" />
+                            <img src="ngayhoi_item/fb4.jpg" alt="Phục hình răng sứ hoàn tất" />
                         </div>
                     </div>
                 </div>
@@ -3521,7 +3586,14 @@
                         <div class="slider-slide">
                             <div class="testimonial-card">
                                 <div class="testimonial-img-box">
-                                    <img src="https://nhakhoaflora.com/wp-content/uploads/2022/07/Diem-Chau-1067x800.jpg" alt="Chị Diễm Châu" />
+                                    <div class="bf-at-wrapper">
+                                        <img src="ngayhoi_item/bf_at/diem_chau_bf.JPG" alt="Chị Diễm Châu trước điều trị" />
+                                        <span class="bf-at-label label-before">Trước</span>
+                                    </div>
+                                    <div class="bf-at-wrapper">
+                                        <img src="ngayhoi_item/bf_at/diem_chau_at.JPG" alt="Chị Diễm Châu sau điều trị" />
+                                        <span class="bf-at-label label-after">Sau</span>
+                                    </div>
                                 </div>
                                 <div class="testimonial-content">
                                     <span class="testimonial-badge">Mất răng nhiều năm - Khó ăn nhai</span>
@@ -3534,7 +3606,14 @@
                         <div class="slider-slide">
                             <div class="testimonial-card">
                                 <div class="testimonial-img-box">
-                                    <img src="https://nhakhoaflora.com/wp-content/uploads/2021/05/Anh-Nguyet-e1627437122387-1067x800.jpg" alt="Cô Cúc" />
+                                    <div class="bf-at-wrapper">
+                                        <img src="ngayhoi_item/bf_at/co_cuc_bf.jpg" alt="Cô Cúc trước điều trị" />
+                                        <span class="bf-at-label label-before">Trước</span>
+                                    </div>
+                                    <div class="bf-at-wrapper">
+                                        <img src="ngayhoi_item/bf_at/co_cuc_at.jpg" alt="Cô Cúc sau điều trị" />
+                                        <span class="bf-at-label label-after">Sau</span>
+                                    </div>
                                 </div>
                                 <div class="testimonial-content">
                                     <span class="testimonial-badge">Mất răng lâu năm - Ăn nhai bất tiện</span>
@@ -3547,7 +3626,14 @@
                         <div class="slider-slide">
                             <div class="testimonial-card">
                                 <div class="testimonial-img-box">
-                                    <img src="https://nhakhoaflora.com/wp-content/uploads/2021/05/Huy-Cuong-e1627436994742-1067x800.jpg" alt="Mr. Ah Sen" />
+                                    <div class="bf-at-wrapper">
+                                        <img src="ngayhoi_item/bf_at/Ah_sen_bf.jpg" alt="Mr. Ah Sen trước điều trị" />
+                                        <span class="bf-at-label label-before">Trước</span>
+                                    </div>
+                                    <div class="bf-at-wrapper">
+                                        <img src="ngayhoi_item/bf_at/Ah_sen_at.jpg" alt="Mr. Ah Sen sau điều trị" />
+                                        <span class="bf-at-label label-after">Sau</span>
+                                    </div>
                                 </div>
                                 <div class="testimonial-content">
                                     <span class="testimonial-badge">Mất nhiều răng - Hạn chế trong sinh hoạt hằng ngày</span>
@@ -3560,7 +3646,14 @@
                         <div class="slider-slide">
                             <div class="testimonial-card">
                                 <div class="testimonial-img-box">
-                                    <img src="https://nhakhoaflora.com/wp-content/uploads/2021/05/Phong-Pham-e1627436968131-1067x800.jpg" alt="Chú Phước" />
+                                    <div class="bf-at-wrapper">
+                                        <img src="ngayhoi_item/bf_at/chu_ba_phuoc_bf.JPG" alt="Chú Phước trước điều trị" />
+                                        <span class="bf-at-label label-before">Trước</span>
+                                    </div>
+                                    <div class="bf-at-wrapper">
+                                        <img src="ngayhoi_item/bf_at/chu_ba_phuoc_at.JPG" alt="Chú Phước sau điều trị" />
+                                        <span class="bf-at-label label-after">Sau</span>
+                                    </div>
                                 </div>
                                 <div class="testimonial-content">
                                     <span class="testimonial-badge">Mất răng lâu năm</span>
@@ -3586,6 +3679,15 @@
             <div class="partner-flex">
                 <img src="assets/brandson_logo.png" alt="Brandson Logo" class="partner-logo brandson-logo" />
                 <img src="assets/implantswiss-logo-gray.png" alt="ImplantSwiss Logo" class="partner-logo" />
+            </div>
+            
+            <div class="partner-gallery" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 900px; margin: 40px auto 0; padding-top: 30px; border-top: 1px solid rgba(0,0,0,0.08);">
+                <div style="border-radius: var(--radius-md); overflow: hidden; border: 4px solid var(--clr-white); box-shadow: var(--shadow-premium); transition: var(--transition);" class="partner-gallery-img">
+                    <img src="ngayhoi_item/DSC00091.jpg" alt="Hợp tác chính thức Flora & Brandson & ImplantSwiss" style="width: 100%; height: auto; display: block; object-fit: cover;" />
+                </div>
+                <div style="border-radius: var(--radius-md); overflow: hidden; border: 4px solid var(--clr-white); box-shadow: var(--shadow-premium); transition: var(--transition);" class="partner-gallery-img">
+                    <img src="ngayhoi_item/DSC00090.jpg" alt="Lễ ký kết đối tác chiến lược" style="width: 100%; height: auto; display: block; object-fit: cover;" />
+                </div>
             </div>
         </div>
     </section>
@@ -3977,7 +4079,7 @@
         <div class="container footer-grid">
             <!-- Left Column: Intro -->
             <div>
-                <h3 style="font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 8px; margin-bottom: 15px; width: fit-content; font-weight: 700;">Nha Khoa Flora</h3>
+                <img src="ngayhoi_item/Logo-Flora1.png" alt="Flora Dental Logo" style="height: 38px; width: auto; margin-bottom: 20px; display: block; filter: brightness(0) invert(1);" />
                 <p style="font-size: 0.85rem; line-height: 1.6; color: #cbd5e1; margin: 0;">Nha Khoa Flora là phòng khám nha khoa đạt tiêu chuẩn quốc tế, cung cấp các dịch vụ điều trị nha khoa tổng quát và chuyên sâu</p>
             </div>
             
@@ -4034,19 +4136,21 @@
                 <span style="color: var(--clr-secondary); font-weight: 800; font-size: 0.82rem; letter-spacing: 0.04em; text-transform: uppercase;">CHỈ DIỄN RA TRONG NGÀY HỘI IMPLANT TẠI NHA KHOA FLORA</span>
                 
                 <div class="popup-logos" style="display: flex; align-items: center; justify-content: center; gap: 24px; margin: 8px 0 15px; padding-bottom: 12px; border-bottom: 1px solid var(--clr-border);">
+                    <img src="ngayhoi_item/Logo-Flora.png" alt="Flora Logo" style="height: 30px; width: auto; object-fit: contain;" />
+                    <div style="width: 1px; height: 16px; background-color: var(--clr-border);"></div>
                     <img src="assets/implantswiss-logo-gray.png" alt="ImplantSwiss Logo" style="height: 25px; width: auto; object-fit: contain;" />
                     <div style="width: 1px; height: 16px; background-color: var(--clr-border);"></div>
                     <img src="assets/brandson_logo.png" alt="Brandson Logo" style="height: 28px; width: auto; object-fit: contain; filter: grayscale(1); opacity: 0.75;" />
                 </div>
 
                 <!-- Program Box with circular '3' -->
-                <div style="display: flex; align-items: center; gap: 20px; text-align: left; background: rgba(35, 158, 183, 0.06); border: 1.5px dashed var(--clr-secondary); border-radius: var(--radius-md); padding: 20px; margin: 5px 0 10px;">
+                <div style="display: flex; align-items: center; gap: 20px; text-align: left; background: rgba(31, 189, 239, 0.06); border: 1.5px dashed var(--clr-secondary); border-radius: var(--radius-md); padding: 20px; margin: 5px 0 10px;">
                     <!-- Large Circular Number 3 -->
-                    <div style="flex-shrink: 0; width: 75px; height: 75px; border-radius: 50%; background: linear-gradient(135deg, var(--clr-primary) 0%, #1e2e8c 100%); color: var(--clr-white); display: flex; align-items: center; justify-content: center; font-size: 2.8rem; font-weight: 800; font-family: var(--font-title); border: 3px solid var(--clr-secondary); box-shadow: 0 6px 15px rgba(17, 29, 97, 0.25);">3</div>
+                    <div style="flex-shrink: 0; width: 75px; height: 75px; border-radius: 50%; background: linear-gradient(135deg, var(--clr-primary) 0%, #0673ba 100%); color: var(--clr-white); display: flex; align-items: center; justify-content: center; font-size: 2.8rem; font-weight: 800; font-family: var(--font-title); border: 3px solid var(--clr-secondary); box-shadow: 0 6px 15px rgba(6, 115, 186, 0.25);">3</div>
                     <!-- Program Content -->
                     <div style="display: flex; flex-direction: column; gap: 6px;">
                         <h3 style="font-size: 0.9rem; font-weight: 800; color: var(--clr-primary); text-transform: uppercase; margin: 0; line-height: 1.35; font-family: var(--font-title);">SUẤT TÀI TRỢ ĐẶC BIỆT TỪ HÃNG IMPLANT SWISS</h3>
-                        <div style="height: 1px; background: rgba(17, 29, 97, 0.15); width: 100%;"></div>
+                        <div style="height: 1px; background: rgba(6, 115, 186, 0.15); width: 100%;"></div>
                         <h4 style="font-size: 0.82rem; font-weight: 700; color: var(--clr-secondary); text-transform: uppercase; margin: 0; line-height: 1.35; font-family: var(--font-title);">TÀI TRỢ 50% CHI PHÍ TRỤ IMPLANT TỪ IMPLANT SWISS</h4>
                     </div>
                 </div>
