@@ -1116,12 +1116,12 @@
         }
 
         .audience-avatar {
-            width: 44px;
-            height: 44px;
+            width: 68px;
+            height: 68px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--clr-white);
-            box-shadow: 0 4px 8px rgba(6, 115, 186, 0.15);
+            box-shadow: 0 4px 10px rgba(6, 115, 186, 0.15);
             flex-shrink: 0;
         }
 
@@ -1729,10 +1729,19 @@
         }
 
         .offer-card-premium .offer-value.gold-text {
-            background: linear-gradient(135deg, #fff2a3 0%, #dfb76c 60%, #c59f4e 100%);
+            background: linear-gradient(135deg, #ff4d4d 0%, #e20613 60%, #b3000a 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            filter: drop-shadow(0 2px 10px rgba(226, 6, 19, 0.45));
+        }
+
+        .offer-card-premium.gold-tier .offer-card-visual {
+            width: 160px;
+            height: 185px;
+            background: radial-gradient(circle at center, rgba(223, 183, 108, 0.25) 0%, rgba(6, 115, 186, 0.15) 100%);
+            border-color: rgba(223, 183, 108, 0.4);
+            box-shadow: 0 8px 25px rgba(223, 183, 108, 0.15);
         }
 
         .offer-card-premium .offer-value.blue-text {
@@ -1881,109 +1890,7 @@
             transform: scale(1.05);
         }
 
-        /* ─── CÔNG NGHỆ & TIÊU CHUẨN TRỤ IMPLANT SWISS ─── */
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
 
-        @media (max-width: 1024px) {
-            .tech-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .tech-grid {
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
-        }
-
-        .tech-card {
-            background-color: var(--clr-white);
-            border: 1px solid var(--clr-border);
-            border-left: 4px solid var(--clr-primary);
-            border-radius: var(--radius-md);
-            padding: 30px 24px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            position: relative;
-            overflow: hidden;
-            text-align: left;
-        }
-
-        .tech-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-premium-hover);
-            border-left-color: var(--clr-secondary);
-        }
-
-        .tech-card-visual {
-            height: 160px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: radial-gradient(circle, rgba(31, 189, 239, 0.08) 0%, transparent 70%);
-            border-radius: var(--radius-sm);
-            padding: 10px;
-            position: relative;
-        }
-
-        .tech-card-visual img {
-            max-height: 100%;
-            width: auto;
-            object-fit: contain;
-            transition: var(--transition);
-            filter: drop-shadow(0 10px 15px rgba(6, 115, 186, 0.15));
-        }
-
-        .tech-card:hover .tech-card-visual img {
-            transform: scale(1.08) rotate(3deg);
-            filter: drop-shadow(0 15px 25px rgba(6, 115, 186, 0.25));
-        }
-
-        .tech-card-info {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .tech-card-info h3 {
-            font-size: 1.15rem;
-            font-weight: 800;
-            color: var(--clr-navy);
-            line-height: 1.3;
-        }
-
-        .tech-card-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .tech-card-list li {
-            font-size: 0.88rem;
-            color: var(--clr-text);
-            line-height: 1.5;
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-        }
-
-        .tech-card-list li i {
-            color: var(--clr-secondary);
-            font-size: 0.8rem;
-            margin-top: 4px;
-            flex-shrink: 0;
-        }
 
         /* ─── "ĐĂNG KÝ THAM DỰ" SECTION ─── */
         .registration-section {
@@ -3074,91 +2981,7 @@
             line-height: 1.6;
         }
 
-        /* ─── BLOG SECTION ─── */
-        .blog-section {
-            background-color: var(--clr-white);
-        }
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-            margin-top: 40px;
-        }
-        .blog-card {
-            background-color: var(--clr-white);
-            border: 1px solid var(--clr-border);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            box-shadow: var(--shadow-premium);
-            transition: var(--transition);
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-        .blog-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-premium-hover);
-            border-color: var(--clr-secondary);
-        }
-        .blog-card-img {
-            width: 100%;
-            aspect-ratio: 1;
-            object-fit: cover;
-        }
-        .blog-card-content {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-        .blog-card-content h4 {
-            font-size: 1rem;
-            color: var(--clr-navy);
-            margin-bottom: 10px;
-            font-weight: 700;
-            line-height: 1.45;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-        .blog-card-content p {
-            font-size: 0.85rem;
-            color: var(--clr-text-muted);
-            margin-bottom: 16px;
-            line-height: 1.6;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-        .blog-readmore {
-            font-size: 0.82rem;
-            color: var(--clr-secondary);
-            font-weight: 700;
-            margin-top: auto;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .blog-readmore i {
-            transition: transform 0.3s ease;
-        }
-        .blog-card:hover .blog-readmore i {
-            transform: translateX(4px);
-        }
-        
-        @media (max-width: 992px) {
-            .blog-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        @media (max-width: 576px) {
-            .blog-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+
 
         /* ─── MOBILE SLIDERS STYLING ─── */
         .mobile-slider-dots {
@@ -3170,9 +2993,7 @@
             .fact-grid.mobile-slider,
             .audience-grid.mobile-slider,
             .offer-sub-grid.mobile-slider,
-            .gallery-grid.mobile-slider,
-            .tech-grid.mobile-slider,
-            .blog-grid.mobile-slider {
+            .gallery-grid.mobile-slider {
                 display: flex !important;
                 flex-direction: row !important;
                 flex-wrap: nowrap !important;
@@ -3189,18 +3010,14 @@
             .fact-grid.mobile-slider::-webkit-scrollbar,
             .audience-grid.mobile-slider::-webkit-scrollbar,
             .offer-sub-grid.mobile-slider::-webkit-scrollbar,
-            .gallery-grid.mobile-slider::-webkit-scrollbar,
-            .tech-grid.mobile-slider::-webkit-scrollbar,
-            .blog-grid.mobile-slider::-webkit-scrollbar {
+            .gallery-grid.mobile-slider::-webkit-scrollbar {
                 display: none !important; /* Safari and Chrome */
             }
             
             .fact-grid.mobile-slider .fact-card,
             .audience-grid.mobile-slider .audience-card,
             .offer-sub-grid.mobile-slider .offer-sub-card,
-            .gallery-grid.mobile-slider .gallery-item,
-            .tech-grid.mobile-slider .tech-card,
-            .blog-grid.mobile-slider .blog-card {
+            .gallery-grid.mobile-slider .gallery-item {
                 flex: 0 0 88% !important;
                 width: 88% !important;
                 scroll-snap-align: center !important;
@@ -3513,7 +3330,6 @@
         <img src="ngayhoi_item/Element.png" alt="Trang trí implant" class="decor-implant-img decor-aud-elem float-anim-1" />
         <div class="container">
             <div class="section-header reveal">
-                <span class="curved-badge">Khuyên dùng</span>
                 <h2>Ai Nên Tham Gia<br><span class="text-gradient">Ngày Hội Implant Flora?</span></h2>
                 <p>Sự kiện được chuẩn bị cho bất kỳ ai đang gặp trở ngại về chức năng ăn nhai và muốn cải thiện chất lượng cuộc sống.</p>
             </div>
@@ -3657,16 +3473,15 @@
                 <!-- Chuyên gia 2 -->
                 <div class="expert-card reveal reveal-delay-1">
                     <div class="expert-header">
-                        <img src="assets/cao_huu_tien.png" alt="Ông Cao Hữu Tiến" class="expert-img" />
+                        <img src="assets/giang_vien_1_1781091437129.png" alt="Bà Lê Thị Thanh Tuyết" class="expert-img" />
                         <div class="expert-title">
-                            <h3>Ông Cao Hữu Tiến</h3>
-                            <p style="font-size: 0.82rem; color: var(--clr-text-muted); font-weight: 600;">Tổng giám đốc Brandson Việt Nam</p>
+                            <h3>Bà Lê Thị Thanh Tuyết</h3>
+                            <p style="font-size: 0.82rem; color: var(--clr-text-muted); font-weight: 600;">Đại diện hãng ImplantSwiss tại Việt Nam</p>
                         </div>
                     </div>
                     <ul class="expert-list">
-                        <li><i class="fa-solid fa-award"></i> Tổng giám đốc Brandson Việt Nam</li>
-                        <li><i class="fa-solid fa-award"></i> Đại diện ImplantSwiss Thụy Sĩ tại thị trường Việt Nam</li>
-                        <li><i class="fa-solid fa-award"></i> Chia sẻ về công nghệ Implant Swiss chất lượng Thụy Sĩ và những tiêu chuẩn quốc tế trong điều trị cấy ghép Implant.</li>
+                        <li><i class="fa-solid fa-award"></i> Đại diện hãng ImplantSwiss tại Việt Nam</li>
+                        <li><i class="fa-solid fa-award"></i> Chia sẻ về công nghệ Implant Swiss chất lượng Thụy Sĩ và các tiêu chuẩn quốc tế tại sự kiện</li>
                     </ul>
                 </div>
             </div>
@@ -3764,7 +3579,7 @@
                                     </div>
                                 </div>
                                 <div class="testimonial-content">
-                                    <span class="testimonial-badge">Mất răng lâu năm</span>
+                                    <span class="testimonial-badge">Mất răng toàn hàm trên</span>
                                     <p class="testimonial-quote">"Sau khi cấy Implant, tôi tự tin hơn trong giao tiếp và sinh hoạt hằng ngày. Kết quả thực tế tốt hơn những gì tôi từng nghĩ."</p>
                                     <div class="testimonial-author">CHÚ PHƯỚC</div>
                                 </div>
@@ -3829,7 +3644,11 @@
                             <span class="offer-badge gold-badge"><i class="fa-solid fa-star"></i> Đặc quyền lớn nhất</span>
                             <h3>Suất Tài Trợ Trụ ImplantSwiss</h3>
                             <div class="offer-value gold-text">TÀI TRỢ 50%</div>
-                            <p class="offer-desc">Dành riêng cho 03 khách hàng đăng ký sớm nhất, được Bác sĩ khám lâm sàng xác nhận tình trạng xương hàm phù hợp với phác đồ điều trị.</p>
+                            <p class="offer-desc" style="margin-bottom: 8px;">Dành riêng cho 03 khách hàng đăng ký sớm nhất, được Bác sĩ khám lâm sàng xác nhận tình trạng xương hàm phù hợp với phác đồ điều trị.</p>
+                            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; font-size: 0.85rem; color: rgba(255, 255, 255, 0.75);">
+                                <li style="display: flex; gap: 6px; align-items: flex-start;"><i class="fa-solid fa-circle-exclamation" style="color: #ff4d4d; margin-top: 3px; flex-shrink: 0;"></i> <span>Không áp dụng đồng thời với các chương trình khuyến mãi khác</span></li>
+                                <li style="display: flex; gap: 6px; align-items: flex-start;"><i class="fa-solid fa-circle-check" style="color: #10b981; margin-top: 3px; flex-shrink: 0;"></i> <span>Chỉ áp dụng cho khách hàng tham dự trực tiếp tại Ngày hội</span></li>
+                            </ul>
                         </div>
                         <div class="offer-card-visual">
                             <img src="ngayhoi_item/Tru-3.png" alt="Trụ Implant Thụy Sĩ ImplantSwiss" />
@@ -3861,7 +3680,7 @@
                 <div class="offer-sub-card reveal">
                     <div class="sub-card-icon"><i class="fa-solid fa-user-doctor"></i></div>
                     <h3>Khám 1:1 Với Chuyên Gia</h3>
-                    <p>Thăm khám lâm sàng trực tiếp cùng Bác sĩ Nguyễn Đắc Minh để phân tích cấu trúc răng hàm.</p>
+                    <p>Thăm khám lâm sàng trực tiếp cùng Bác sĩ Nguyễn Đắc Minh để đánh giá tình trạng răng miệng.</p>
                 </div>
                 <!-- Benefit 2 -->
                 <div class="offer-sub-card reveal reveal-delay-1">
@@ -3948,153 +3767,7 @@
         </div>
     </section>
 
-    <!-- SECTION - CÔNG NGHỆ IMPLANT -->
-    <section class="section-padding gallery-section">
-        <div class="container">
-            <div class="section-header center">
-                <span class="curved-badge">Tiêu chuẩn Châu Âu</span>
-                <h2>Công Nghệ & Tiêu Chuẩn<br><span class="text-gradient">Trụ Implant Thụy Sĩ</span></h2>
-                <p>Tìm hiểu chi tiết các công nghệ cấy ghép tiên tiến và giải pháp phục hình răng chuẩn y khoa từ hệ thống ImplantSwiss.</p>
-            </div>
-
-            <div class="tech-grid reveal mobile-slider">
-                <!-- Card 1 -->
-                <div class="tech-card">
-                    <div class="tech-card-visual">
-                        <img src="ngayhoi_item/Tru-1.png" alt="Hệ Thống Trụ Implant Chuyên Sâu" />
-                    </div>
-                    <div class="tech-card-info">
-                        <h3>Hệ Thống Trụ Implant Chuyên Sâu</h3>
-                        <ul class="tech-card-list">
-                            <li><i class="fa-solid fa-circle-check"></i> <span>Chế tác từ Titanium Grade 4/5 tinh khiết, tương thích sinh học cao.</span></li>
-                            <li><i class="fa-solid fa-circle-check"></i> <span>Đa dạng kích thước và kiểu dáng, phù hợp mọi vị trí mất răng.</span></li>
-                            <li><i class="fa-solid fa-circle-check"></i> <span>Khả năng chịu lực ăn nhai cực tốt, độ bền cao trọn đời.</span></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Card 2 -->
-                <div class="tech-card">
-                    <div class="tech-card-visual">
-                        <img src="ngayhoi_item/Kit.png" alt="Máng Hướng Dẫn Guided Surgery" />
-                    </div>
-                    <div class="tech-card-info">
-                        <h3>Máng Hướng Dẫn Guided Surgery</h3>
-                        <ul class="tech-card-list">
-                            <li><i class="fa-solid fa-circle-check"></i> <span>Thiết kế số hóa 3D chính xác, hỗ trợ phẫu thuật không vạt nướu.</span></li>
-                            <li><i class="fa-solid fa-circle-check"></i> <span>Giảm thiểu xâm lấn tối đa, hạn chế sưng đau và chảy máu.</span></li>
-                            <li><i class="fa-solid fa-circle-check"></i> <span>Rút ngắn thời gian thực hiện tiểu phẫu chỉ còn 15-20 phút.</span></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Card 3 -->
-                <div class="tech-card">
-                    <div class="tech-card-visual">
-                        <img src="ngayhoi_item/Element.png" alt="Khớp Nối Khít Sát Chống Xoay" />
-                    </div>
-                    <div class="tech-card-info">
-                        <h3>Khớp Nối Khít Sát Chống Xoay</h3>
-                        <ul class="tech-card-list">
-                            <li><i class="fa-solid fa-circle-check"></i> <span>Kết nối côn thuôn lục giác siêu khít, phân bố lực nhai đồng đều.</span></li>
-                            <li><i class="fa-solid fa-circle-check"></i> <span>Ngăn ngừa hoàn toàn vi khuẩn xâm nhập, chống tiêu xương cổ trụ.</span></li>
-                            <li><i class="fa-solid fa-circle-check"></i> <span>Độ ổn định cơ học vượt trội, hạn chế tối đa nguy cơ lỏng vít.</span></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Card 4 -->
-                <div class="tech-card">
-                    <div class="tech-card-visual">
-                        <img src="ngayhoi_item/Tru-3.png" alt="Giải Pháp Trụ Zygoma Đặc Biệt" />
-                    </div>
-                    <div class="tech-card-info">
-                        <h3>Giải Pháp Trụ Zygoma Đặc Biệt</h3>
-                        <ul class="tech-card-list">
-                            <li><i class="fa-solid fa-circle-check"></i> <span>Dành riêng cho bệnh nhân tiêu xương hàm trên nghiêm trọng.</span></li>
-                            <li><i class="fa-solid fa-circle-check"></i> <span>Chiều dài trụ vượt trội để neo giữ chắc chắn vào xương gò má.</span></li>
-                            <li><i class="fa-solid fa-circle-check"></i> <span>Khôi phục răng toàn hàm mà không cần ghép xương phức tạp.</span></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Card 5 -->
-                <div class="tech-card">
-                    <div class="tech-card-visual">
-                        <img src="ngayhoi_item/Tru-4.png" alt="Trụ Implant Ngắn Tối Ưu" />
-                    </div>
-                    <div class="tech-card-info">
-                        <h3>Trụ Implant Ngắn Tối Ưu</h3>
-                        <ul class="tech-card-list">
-                            <li><i class="fa-solid fa-circle-check"></i> <span>Thiết kế chiều dài tối thiểu nhưng diện tích tiếp xúc lớn.</span></li>
-                            <li><i class="fa-solid fa-circle-check"></i> <span>Giải pháp lý tưởng cho vùng xương hàm có chiều cao hạn chế.</span></li>
-                            <li><i class="fa-solid fa-circle-check"></i> <span>Tránh chạm vào các cấu trúc giải phẫu quan trọng (xoang hàm, thần kinh).</span></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Card 6 -->
-                <div class="tech-card">
-                    <div class="tech-card-visual">
-                        <img src="ngayhoi_item/Tru-2.png" alt="Ren Nén Xương & Bề Mặt SRA" />
-                    </div>
-                    <div class="tech-card-info">
-                        <h3>Ren Nén Xương & Bề Mặt SRA</h3>
-                        <ul class="tech-card-list">
-                            <li><i class="fa-solid fa-circle-check"></i> <span>Thiết kế ren kép tự cắt, đạt độ ổn định sơ khởi cực cao khi đặt trụ.</span></li>
-                            <li><i class="fa-solid fa-circle-check"></i> <span>Công nghệ xử lý bề mặt SRA đẩy nhanh tốc độ tích hợp xương.</span></li>
-                            <li><i class="fa-solid fa-circle-check"></i> <span>Rút ngắn thời gian lành thương từ vài tháng xuống vài tuần.</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION - TIN TỨC & CHIA SẺ (BLOG) -->
-    <section class="section-padding blog-section" id="blog">
-        <div class="container">
-            <div class="section-header center reveal">
-                <span class="curved-badge">Tin tức &amp; Chia sẻ</span>
-                <h2>Góc Kiến Thức &amp; <span class="text-gradient">Kinh Nghiệm</span></h2>
-                <p>Các bài viết chuyên sâu chia sẻ kiến thức và lưu ý quan trọng trước - sau khi trồng răng Implant từ Nha khoa Flora.</p>
-            </div>
-
-            <div class="blog-grid reveal mobile-slider">
-                <!-- Card 1 -->
-                <div class="blog-card" onclick="openBlogModal(1)">
-                    <img src="ngayhoi_item/fb1.jpg" alt="4 Lợi ích khi trồng răng Implant" class="blog-card-img" />
-                    <div class="blog-card-content">
-                        <h4>4 Lợi ích khi trồng răng Implant</h4>
-                        <p>Mất răng không chỉ ảnh hưởng đến nụ cười mà còn tác động lớn đến khả năng ăn nhai và sức khỏe xương hàm...</p>
-                        <span class="blog-readmore">Xem chi tiết <i class="fa-solid fa-arrow-right"></i></span>
-                    </div>
-                </div>
-                <!-- Card 2 -->
-                <div class="blog-card" onclick="openBlogModal(2)">
-                    <img src="ngayhoi_item/fb2.jpg" alt="Những điều cần lưu ý sau khi cấy ghép Implant" class="blog-card-img" />
-                    <div class="blog-card-content">
-                        <h4>Những lưu ý sau khi cấy ghép</h4>
-                        <p>Sau khi cấy ghép Implant, việc chăm sóc đúng cách sẽ giúp trụ Implant ổn định tốt, nhanh lành thương...</p>
-                        <span class="blog-readmore">Xem chi tiết <i class="fa-solid fa-arrow-right"></i></span>
-                    </div>
-                </div>
-                <!-- Card 3 -->
-                <div class="blog-card" onclick="openBlogModal(3)">
-                    <img src="ngayhoi_item/fb3.jpg" alt="Trồng răng Implant - Giải pháp phục hồi răng tối ưu nhất" class="blog-card-img" />
-                    <div class="blog-card-content">
-                        <h4>Giải pháp phục hồi răng tối ưu</h4>
-                        <p>Mất răng không chỉ ảnh hưởng đến thẩm mỹ mà còn làm suy giảm khả năng ăn nhai và gây tiêu xương hàm...</p>
-                        <span class="blog-readmore">Xem chi tiết <i class="fa-solid fa-arrow-right"></i></span>
-                    </div>
-                </div>
-                <!-- Card 4 -->
-                <div class="blog-card" onclick="openBlogModal(4)">
-                    <img src="ngayhoi_item/fb4.jpg" alt="Trồng 1 răng Implant và nhiều răng Implant khác nhau như thế nào?" class="blog-card-img" />
-                    <div class="blog-card-content">
-                        <h4>Trồng 1 răng &amp; nhiều răng khác nhau thế nào?</h4>
-                        <p>Không phải mọi trường hợp mất răng đều áp dụng cùng một phương pháp Implant. Tùy vào số lượng răng mất...</p>
-                        <span class="blog-readmore">Xem chi tiết <i class="fa-solid fa-arrow-right"></i></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- SECTION - CÔNG NGHỆ VÀ TIN TỨC ĐÃ ĐƯỢC LƯỢC BỎ THEO YÊU CẦU -->
 
     <!-- SECTION - CÂU HỎI THƯỜNG GẶP (FAQ) -->
     <section class="section-padding faq-section" id="faq">
@@ -4154,6 +3827,10 @@
                     <div class="faq-answer">
                         <div class="faq-answer-content">
                             Tất cả trụ Implant cấy ghép tại Nha khoa Flora, đặc biệt là dòng trụ ImplantSwiss Thụy Sĩ, đều được cấp thẻ bảo hành chính hãng từ nhà sản xuất. Hãng cam kết bảo hành chất lượng trụ trọn đời trên toàn thế giới, giúp bạn hoàn toàn an tâm ăn nhai và sử dụng lâu dài.
+                            <div style="margin-top: 10px; font-weight: 600; color: var(--clr-primary); display: flex; align-items: center; gap: 8px;">
+                                <i class="fa-solid fa-circle-info" style="color: var(--clr-secondary);"></i>
+                                <span>Tham gia Ngày hội để được Bác sĩ chuyên khoa giải đáp trực tiếp những vấn đề bạn quan tâm.</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -4312,15 +3989,7 @@
         </div>
     </footer>
 
-    <!-- Blog Post Modal -->
-    <div class="modal" id="blogModal" style="z-index: 9999; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);">
-        <div class="modal-box" style="max-width: 600px; max-height: 85vh; overflow-y: auto; padding: 30px;">
-            <button class="modal-close" onclick="closeBlogModal()"><i class="fa-solid fa-xmark"></i></button>
-            <img id="modal-blog-img" src="" alt="" style="width: 100%; border-radius: var(--radius-md); margin-bottom: 20px; aspect-ratio: 1; object-fit: cover; border: 1px solid var(--clr-border);" />
-            <h3 id="modal-blog-title" style="font-size: 1.3rem; color: var(--clr-navy); margin-bottom: 15px; font-weight: 800; line-height: 1.3; font-family: var(--font-title);"></h3>
-            <div id="modal-blog-body" style="font-size: 0.92rem; line-height: 1.6; color: var(--clr-text); white-space: pre-wrap; text-align: left;"></div>
-        </div>
-    </div>
+
 
     <!-- POPUP KHUYẾN MÃI -->
     <div class="modal" id="promoPopup">
@@ -5062,66 +4731,11 @@
         }
         initSnowfall();
 
-        // Facebook Blog Posts Data
-        const blogPosts = {
-            1: {
-                title: "4 LỢI ÍCH KHI TRỒNG RĂNG IMPLANT",
-                image: "ngayhoi_item/fb1.jpg",
-                content: `🦷 4 LỢI ÍCH KHI TRỒNG RĂNG IMPLANT\n\nMất răng không chỉ ảnh hưởng đến nụ cười mà còn tác động lớn đến khả năng ăn nhai và sức khỏe xương hàm. Implant hiện là giải pháp phục hồi răng hiện đại được nhiều khách hàng lựa chọn nhờ những ưu điểm vượt trội:\n\n✨ 1. Khôi phục ăn nhai chắc chắn\nRăng Implant có độ ổn định cao, giúp ăn nhai gần như răng thật và thoải mái thưởng thức món ăn yêu thích.\n\n✨ 2. Ngăn ngừa tiêu xương hàm\nTrụ Implant thay thế chân răng đã mất, hỗ trợ duy trì mật độ xương và hạn chế tình trạng hóp má, lão hóa khuôn mặt.\n\n✨ 3. Thẩm mỹ tự nhiên\nRăng sứ trên Implant được thiết kế hài hòa với màu sắc và hình dáng răng thật, mang lại nụ cười tự nhiên, tự tin hơn.\n\n✨ 4. Độ bền cao, sử dụng lâu dài\nNếu chăm sóc đúng cách và tái khám định kỳ, Implant có thể sử dụng ổn định trong nhiều năm.\n\n📞 Tại Nha khoa Flora, khách hàng được thăm khám kỹ lưỡng và lên phác đồ Implant phù hợp với từng tình trạng mất răng, giúp quá trình phục hồi an toàn và tối ưu hiệu quả.`
-            },
-            2: {
-                title: "NHỮNG ĐIỀU CẦN LƯU Ý SAU KHI CẤY GHÉP IMPLANT",
-                image: "ngayhoi_item/fb2.jpg",
-                content: `🦷 NHỮNG ĐIỀU CẦN LƯU Ý SAU KHI CẤY GHÉP IMPLANT\n\nSau khi cấy ghép Implant, việc chăm sóc đúng cách sẽ giúp trụ Implant ổn định tốt, nhanh lành thương và tăng độ bền lâu dài.\n\n✨ Một số lưu ý quan trọng sau khi trồng Implant:\n✔️ Dùng thuốc đúng theo hướng dẫn của bác sĩ\n✔️ Hạn chế ăn đồ quá cứng, quá nóng trong những ngày đầu\n✔️ Không hút thuốc lá, hạn chế rượu bia sau cấy ghép\n✔️ Vệ sinh răng miệng nhẹ nhàng, sạch sẽ mỗi ngày\n✔️ Tái khám đúng lịch để bác sĩ kiểm tra độ tích hợp của Implant\n\n💎 Sau cấy ghép, tình trạng hơi ê nhẹ hoặc sưng nhẹ trong vài ngày đầu là phản ứng bình thường. Tuy nhiên, nếu đau kéo dài hoặc có dấu hiệu bất thường, bạn nên liên hệ nha khoa để được kiểm tra kịp thời.\n\nTại Nha khoa Flora, khách hàng luôn được bác sĩ theo dõi sát sao sau điều trị và hướng dẫn chăm sóc chi tiết nhằm đảm bảo quá trình phục hồi an toàn, hiệu quả.\n\n📞 Liên hệ Flora để được tư vấn và đồng hành cùng bạn trên hành trình phục hồi nụ cười khỏe đẹp!`
-            },
-            3: {
-                title: "TRỒNG RĂNG IMPLANT – GIẢI PHÁP PHỤC HỒI RĂNG TỐI ƯU NHẤT",
-                image: "ngayhoi_item/fb3.jpg",
-                content: `🦷 TRỒNG RĂNG IMPLANT – GIẢI PHÁP PHỤC HỒI RĂNG TỐI ƯU NHẤT\n\nMất răng không chỉ ảnh hưởng đến thẩm mỹ mà còn làm suy giảm khả năng ăn nhai và gây tiêu xương hàm theo thời gian. Implant được xem là giải pháp hiện đại giúp phục hồi răng mất một cách chắc chắn, bền đẹp và tự nhiên gần như răng thật.\n\n✨ Vì sao nhiều khách hàng lựa chọn Implant tại Nha khoa Flora?\n✔️ Khôi phục khả năng ăn nhai chắc khỏe\n✔️ Ngăn ngừa tiêu xương hàm hiệu quả\n✔️ Thẩm mỹ tự nhiên, hài hòa nụ cười\n✔️ Không ảnh hưởng đến răng bên cạnh\n✔️ Độ bền cao, sử dụng lâu dài\n\nTại Nha khoa Flora, quy trình cấy ghép Implant được thực hiện với công nghệ hiện đại, bác sĩ thăm khám kỹ lưỡng và xây dựng phác đồ phù hợp cho từng tình trạng mất răng, giúp khách hàng an tâm trong suốt quá trình điều trị.\n\n📞 Đừng để mất răng ảnh hưởng đến chất lượng cuộc sống của bạn!\nLiên hệ Flora ngay hôm nay để được tư vấn giải pháp phục hồi phù hợp và lấy lại nụ cười tự tin.`
-            },
-            4: {
-                title: "TRỒNG 1 RĂNG IMPLANT VÀ NHIỀU RĂNG IMPLANT KHÁC NHAU NHƯ THẾ NÀO?",
-                image: "ngayhoi_item/fb4.jpg",
-                content: `🦷 TRỒNG 1 RĂNG IMPLANT VÀ NHIỀU RĂNG IMPLANT KHÁC NHAU NHƯ THẾ NÀO?\n\nKhông phải mọi trường hợp mất răng đều áp dụng cùng một phương pháp Implant. Tùy vào số lượng răng mất, tình trạng xương hàm và sức khỏe răng miệng, bác sĩ sẽ đưa ra phác đồ điều trị phù hợp nhất.\n\n✨ Với trường hợp mất 1 răng:\n• Cấy 1 trụ Implant độc lập tại vị trí mất răng\n• Không ảnh hưởng răng bên cạnh\n• Khôi phục ăn nhai và thẩm mỹ tự nhiên như răng thật\n\n✨ Với trường hợp mất nhiều răng:\n• Có thể cấy nhiều trụ Implant hoặc kết hợp cầu răng trên Implant để tối ưu chi phí\n• Giúp phục hồi toàn diện chức năng ăn nhai\n• Hạn chế tiêu xương hàm và tình trạng xô lệch răng còn lại\n\n💎 Dù mất 1 răng hay nhiều răng, Implant vẫn là giải pháp hiện đại giúp phục hồi chắc chắn, bền đẹp và cải thiện chất lượng cuộc sống lâu dài.\n\nTại Nha khoa Flora, khách hàng được chụp phim, kiểm tra mật độ xương, lên kế hoạch điều trị cá nhân hóa nhằm đảm bảo quá trình cấy ghép an toàn và đạt hiệu quả tối ưu.\n\n📞 Đừng để mất răng kéo dài ảnh hưởng đến sức khỏe và sự tự tin của bạn!\nLiên hệ Flora để được bác sĩ tư vấn giải pháp Implant phù hợp ngay hôm nay.`
-            }
-        };
-
-        function openBlogModal(id) {
-            const modal = document.getElementById('blogModal');
-            const post = blogPosts[id];
-            if (!modal || !post) return;
-
-            document.getElementById('modal-blog-img').src = post.image;
-            document.getElementById('modal-blog-img').alt = post.title;
-            document.getElementById('modal-blog-title').innerText = post.title;
-            document.getElementById('modal-blog-body').innerText = post.content;
-
-            modal.classList.add('active');
-        }
-
-        function closeBlogModal() {
-            const modal = document.getElementById('blogModal');
-            if (modal) {
-                modal.classList.remove('active');
-            }
-        }
-
-        // Close on overlay click
-        const blogModal = document.getElementById('blogModal');
-        if (blogModal) {
-            blogModal.addEventListener('click', (e) => {
-                if (e.target === blogModal) {
-                    closeBlogModal();
-                }
-            });
-        }
-
         // Close on ESC
         window.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 promoPopup.classList.remove('active');
                 successPopup.classList.remove('active');
-                closeBlogModal();
             }
         });
     </script>
