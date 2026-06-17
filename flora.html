@@ -96,8 +96,8 @@
             --transition: all 0.25s ease-in-out;
             --shadow: 0 10px 25px -5px rgba(6, 115, 186, 0.06), 0 8px 10px -6px rgba(6, 115, 186, 0.06);
 
-            --shadow-premium: 0 15px 35px -5px rgba(10, 25, 49, 0.05), 0 5px 15px -5px rgba(10, 25, 49, 0.03);
-            --shadow-premium-hover: 0 25px 50px -10px rgba(6, 115, 186, 0.12), 0 10px 20px -10px rgba(6, 115, 186, 0.08);
+            --shadow-premium: 0 12px 28px rgba(0, 0, 0, 0.09), 0 4px 10px rgba(6, 115, 186, 0.05);
+            --shadow-premium-hover: 0 20px 40px rgba(0, 0, 0, 0.14), 0 8px 16px rgba(6, 115, 186, 0.08);
             --glass-bg: rgba(255, 255, 255, 0.7);
             --glass-border: rgba(255, 255, 255, 0.5);
         }
@@ -1541,17 +1541,10 @@
 
         .offer-main-row {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 7fr 3fr;
             gap: 30px;
             margin-bottom: 40px;
             align-items: stretch;
-        }
-
-        @media (max-width: 992px) {
-            .offer-main-row {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
         }
 
         .offer-card-premium {
@@ -1566,6 +1559,7 @@
             overflow: hidden;
             transition: var(--transition);
             box-sizing: border-box;
+            height: 100%;
         }
 
         .offer-card-premium::before {
@@ -1581,7 +1575,18 @@
 
         .offer-card-premium.gold-tier {
             border: 2px solid rgba(223, 183, 108, 0.45);
-            box-shadow: 0 15px 35px rgba(223, 183, 108, 0.08);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25), 0 5px 15px rgba(223, 183, 108, 0.15);
+            padding: 50px 60px 40px 60px;
+        }
+
+        .offer-card-premium.gold-tier h3 {
+            font-size: clamp(1.4rem, 2.2vw, 2.0rem);
+            margin-bottom: 8px;
+        }
+
+        .offer-card-premium.gold-tier .offer-value {
+            font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+            margin: 8px 0;
         }
 
         .offer-card-premium.gold-tier::before {
@@ -1592,7 +1597,8 @@
             background: var(--clr-white);
             color: var(--clr-text);
             border: 2px solid rgba(31, 189, 239, 0.25);
-            box-shadow: 0 15px 35px rgba(6, 115, 186, 0.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08), 0 5px 15px rgba(6, 115, 186, 0.06);
+            padding: 45px 30px 40px 30px;
         }
 
         .offer-card-premium.blue-tier::before {
@@ -1604,12 +1610,12 @@
         }
 
         .offer-card-premium.gold-tier:hover {
-            box-shadow: 0 20px 40px rgba(223, 183, 108, 0.18);
+            box-shadow: 0 25px 55px rgba(0, 0, 0, 0.35), 0 8px 20px rgba(223, 183, 108, 0.25);
             border-color: rgba(223, 183, 108, 0.8);
         }
 
         .offer-card-premium.blue-tier:hover {
-            box-shadow: 0 20px 40px rgba(31, 189, 239, 0.12);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12), 0 8px 20px rgba(31, 189, 239, 0.15);
             border-color: rgba(31, 189, 239, 0.8);
         }
 
@@ -1627,61 +1633,167 @@
         }
 
         .offer-card-body {
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            gap: 40px;
+            align-items: center;
+            width: 100%;
+        }
+
+        .offer-card-premium.blue-tier .offer-card-body {
             display: flex;
+            flex-direction: column;
             gap: 20px;
-            align-items: flex-start;
-            justify-content: space-between;
+            align-items: stretch;
+            justify-content: flex-start;
+            flex-grow: 1;
+        }
+
+        .offer-card-premium.blue-tier .offer-card-visual {
+            align-self: center;
+            margin-top: auto;
+        }
+
+        @media (max-width: 992px) {
+            .offer-main-row {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .offer-card-premium.blue-tier {
+                padding: 45px 40px;
+            }
+            .offer-card-premium.blue-tier .offer-card-body {
+                display: grid;
+                grid-template-columns: 1.2fr 0.8fr;
+                gap: 30px;
+                align-items: center;
+            }
+            .offer-card-premium.blue-tier .offer-card-visual {
+                align-self: center;
+                margin-top: 0;
+            }
+            .offer-card-premium.gold-tier {
+                padding: 40px 30px;
+            }
+            .offer-card-premium.gold-tier .offer-card-body {
+                grid-template-columns: 1.2fr 0.8fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .offer-card-body {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: stretch !important;
+                gap: 24px;
+            }
+            .offer-card-premium.gold-tier {
+                padding: 30px 20px 24px 20px;
+            }
+            .offer-card-premium.blue-tier {
+                padding: 30px 20px 24px 20px;
+            }
+            .offer-card-premium.blue-tier .offer-card-body {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: stretch !important;
+                gap: 24px;
+            }
         }
 
         .offer-card-content {
-            flex: 1;
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
 
         .offer-card-visual {
-            width: 120px;
-            height: 120px;
-            flex-shrink: 0;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius-sm);
+            justify-self: center;
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
-            box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.02);
+            position: relative;
+            overflow: visible;
             transition: var(--transition);
+        }
+
+        .offer-card-premium.gold-tier .offer-card-visual {
+            width: 220px;
+            height: 220px;
+            background: none !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        .offer-card-premium.gold-tier .offer-card-visual::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(223, 183, 108, 0.3) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .offer-card-premium.gold-tier .offer-card-visual img {
+            max-width: 100% !important;
+            max-height: 100% !important;
+            object-fit: contain;
+            filter: drop-shadow(0 12px 25px rgba(0, 0, 0, 0.35));
+            animation: floatUpDown 4s ease-in-out infinite;
+            z-index: 2;
         }
 
         .offer-card-premium.blue-tier .offer-card-visual {
-            background: rgba(6, 115, 186, 0.03);
-            border-color: rgba(6, 115, 186, 0.08);
+            width: 180px;
+            height: 180px;
+            background: none !important;
+            border: none !important;
+            box-shadow: none !important;
         }
 
-        .offer-card-visual img {
-            max-width: 85%;
-            max-height: 85%;
+        .offer-card-premium.blue-tier .offer-card-visual::after {
+            content: '';
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            background: radial-gradient(circle, rgba(31, 189, 239, 0.22) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .offer-card-premium.blue-tier .offer-card-visual img {
+            max-width: 100% !important;
+            max-height: 100% !important;
             object-fit: contain;
-            transition: var(--transition);
+            filter: drop-shadow(0 10px 20px rgba(6, 115, 186, 0.18));
+            animation: floatUpDown 4s ease-in-out infinite 0.5s;
+            z-index: 2;
         }
 
-        .offer-card-premium:hover .offer-card-visual img {
-            transform: scale(1.08) rotate(3deg);
+        .offer-card-premium:hover .offer-card-visual {
+            transform: scale(1.06) rotate(2deg);
+        }
+
+        @keyframes floatUpDown {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
         }
 
         @media (max-width: 768px) {
             .offer-card-visual {
                 display: none !important;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .offer-card-body {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 20px;
             }
         }
 
@@ -1732,20 +1844,14 @@
         }
 
         .offer-card-premium .offer-value.gold-text {
-            background: linear-gradient(135deg, #ff4d4d 0%, #e20613 60%, #b3000a 100%);
+            background: linear-gradient(135deg, #fff2a3 0%, #dfb76c 60%, #c59f4e 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            filter: drop-shadow(0 2px 10px rgba(226, 6, 19, 0.45));
+            filter: drop-shadow(0 2px 10px rgba(223, 183, 108, 0.35));
         }
 
-        .offer-card-premium.gold-tier .offer-card-visual {
-            width: 160px;
-            height: 185px;
-            background: radial-gradient(circle at center, rgba(223, 183, 108, 0.25) 0%, rgba(6, 115, 186, 0.15) 100%);
-            border-color: rgba(223, 183, 108, 0.4);
-            box-shadow: 0 8px 25px rgba(223, 183, 108, 0.15);
-        }
+
 
         .offer-card-premium .offer-value.blue-text {
             background: linear-gradient(135deg, #0673ba 0%, #0673ba 60%, #1fbdef 100%);
@@ -3478,14 +3584,14 @@
                             <span class="offer-badge gold-badge"><i class="fa-solid fa-star"></i> Đặc quyền lớn nhất</span>
                             <h3>Suất Tài Trợ Trụ ImplantSwiss</h3>
                             <div class="offer-value gold-text">TÀI TRỢ 50%</div>
-                            <p class="offer-desc" style="margin-bottom: 12px; font-weight: 800; font-size: 1.1rem; color: #ff4d4d; letter-spacing: 0.02em;">Duy nhất cho 03 khách hàng</p>
-                            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; font-size: 0.85rem; color: rgba(255, 255, 255, 0.85);">
-                                <li style="display: flex; gap: 6px; align-items: flex-start;"><i class="fa-solid fa-circle-exclamation" style="color: #ff4d4d; margin-top: 3px; flex-shrink: 0;"></i> <span>Không áp dụng đồng thời với các chương trình khuyến mãi khác</span></li>
-                                <li style="display: flex; gap: 6px; align-items: flex-start;"><i class="fa-solid fa-circle-check" style="color: #10b981; margin-top: 3px; flex-shrink: 0;"></i> <strong>Chỉ áp dụng khách tham dự và được Bác sĩ tư vấn xác nhận phù hợp điều trị theo phác đồ</strong></li>
+                            <p class="offer-desc" style="margin-bottom: 12px; font-weight: 800; font-size: 1.25rem; color: #dfb76c; letter-spacing: 0.02em;">Duy nhất cho 03 khách hàng</p>
+                            <ul style="list-style: none; padding: 0; margin: 15px 0 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 0.95rem; color: rgba(255, 255, 255, 0.95);">
+                                <li style="display: flex; gap: 8px; align-items: flex-start;"><i class="fa-solid fa-circle-exclamation" style="color: #dfb76c; margin-top: 3px; flex-shrink: 0;"></i> <span style="line-height: 1.45;">Không áp dụng đồng thời với các chương trình khuyến mãi khác</span></li>
+                                <li style="display: flex; gap: 8px; align-items: flex-start;"><i class="fa-solid fa-circle-check" style="color: #10b981; margin-top: 3px; flex-shrink: 0;"></i> <strong style="line-height: 1.45;">Chỉ áp dụng khách tham dự và được Bác sĩ tư vấn xác nhận phù hợp điều trị theo phác đồ</strong></li>
                             </ul>
                         </div>
                         <div class="offer-card-visual">
-                            <img src="ngayhoi_item/Tru-3.png" alt="Trụ Implant Thụy Sĩ ImplantSwiss" />
+                            <img src="ngayhoi_item/Tru-2.png" alt="Trụ Implant Thụy Sĩ ImplantSwiss" />
                         </div>
                     </div>
                     <div class="offer-footer-note">* Áp dụng trực tiếp cho chi phí trụ Implant chính hãng Thụy Sĩ.</div>
@@ -3499,9 +3605,6 @@
                             <h3>Ưu Đãi Chi Phí Cấy Ghép Implant</h3>
                             <div class="offer-value blue-text">GIẢM 15%</div>
                             <p class="offer-desc">Ưu đãi giảm trực tiếp trên tổng chi phí điều trị cấy ghép Implant dành cho tất cả khách hàng hoàn tất đăng ký và tham dự Ngày hội.</p>
-                        </div>
-                        <div class="offer-card-visual">
-                            <img src="ngayhoi_item/Kit.png" alt="Bộ Kit Phẫu Thuật ImplantSwiss" />
                         </div>
                     </div>
                     <div class="offer-footer-note">* Không áp dụng đồng thời với các chương trình khuyến mãi khác.</div>
