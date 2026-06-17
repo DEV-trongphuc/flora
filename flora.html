@@ -1611,15 +1611,17 @@
             transform: scale(1.08) rotate(3deg);
         }
 
+        @media (max-width: 768px) {
+            .offer-card-visual {
+                display: none !important;
+            }
+        }
+
         @media (max-width: 576px) {
             .offer-card-body {
                 flex-direction: column;
                 align-items: stretch;
                 gap: 20px;
-            }
-            .offer-card-visual {
-                width: 100%;
-                height: 140px;
             }
         }
 
@@ -2281,6 +2283,16 @@
             .hero-section {
                 padding: 100px 0 50px;
             }
+            .swiss-quality-card {
+                padding: 40px 16px 24px !important;
+            }
+            .swiss-pill {
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                white-space: nowrap !important;
+                font-size: 0.78rem !important;
+                padding: 6px 16px !important;
+            }
         }
 
         @media (max-width: 576px) {
@@ -2813,9 +2825,7 @@
                 order: 1;
             }
             .timeline-img-col {
-                order: 2;
-                max-width: 450px;
-                width: 100%;
+                display: none !important;
             }
             .timeline-img-box {
                 position: relative;
@@ -2992,7 +3002,8 @@
             .fact-grid.mobile-slider,
             .audience-grid.mobile-slider,
             .offer-sub-grid.mobile-slider,
-            .gallery-grid.mobile-slider {
+            .gallery-grid.mobile-slider,
+            .blog-grid.mobile-slider {
                 display: flex !important;
                 flex-direction: row !important;
                 flex-wrap: nowrap !important;
@@ -3009,14 +3020,16 @@
             .fact-grid.mobile-slider::-webkit-scrollbar,
             .audience-grid.mobile-slider::-webkit-scrollbar,
             .offer-sub-grid.mobile-slider::-webkit-scrollbar,
-            .gallery-grid.mobile-slider::-webkit-scrollbar {
+            .gallery-grid.mobile-slider::-webkit-scrollbar,
+            .blog-grid.mobile-slider::-webkit-scrollbar {
                 display: none !important; /* Safari and Chrome */
             }
             
             .fact-grid.mobile-slider .fact-card,
             .audience-grid.mobile-slider .audience-card,
             .offer-sub-grid.mobile-slider .offer-sub-card,
-            .gallery-grid.mobile-slider .gallery-item {
+            .gallery-grid.mobile-slider .gallery-item,
+            .blog-grid.mobile-slider .blog-card {
                 flex: 0 0 88% !important;
                 width: 88% !important;
                 scroll-snap-align: center !important;
@@ -3624,7 +3637,7 @@
             </div>
 
             <!-- Bottom Row: 3 Standard Cards -->
-            <div class="offer-sub-grid mobile-slider">
+            <div class="offer-sub-grid">
                 <!-- Benefit 1 -->
                 <div class="offer-sub-card reveal">
                     <div class="sub-card-icon"><i class="fa-solid fa-user-doctor"></i></div>
@@ -3745,7 +3758,7 @@
                 <p>Các bài viết chuyên sâu chia sẻ kiến thức và lưu ý quan trọng trước - sau khi trồng răng Implant từ Nha khoa Flora.</p>
             </div>
 
-            <div class="blog-grid reveal">
+            <div class="blog-grid reveal mobile-slider">
                 <!-- Card 1 -->
                 <div class="blog-card" onclick="openBlogModal(1)">
                     <img src="ngayhoi_item/fb1.jpg" alt="4 Lợi ích khi trồng răng Implant" class="blog-card-img" />
