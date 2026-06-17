@@ -95,7 +95,29 @@
             
             --transition: all 0.25s ease-in-out;
             --shadow: 0 10px 25px -5px rgba(17, 29, 97, 0.06), 0 8px 10px -6px rgba(17, 29, 97, 0.06);
+
+            --shadow-premium: 0 15px 35px -5px rgba(10, 25, 49, 0.05), 0 5px 15px -5px rgba(10, 25, 49, 0.03);
+            --shadow-premium-hover: 0 25px 50px -10px rgba(17, 29, 97, 0.12), 0 10px 20px -10px rgba(17, 29, 97, 0.08);
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.5);
         }
+
+        /* ─── SCROLL REVEAL ANIMATIONS ─── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
 
         /* ─── RESET & STRUCTURE ─── */
         *, *::before, *::after {
@@ -545,20 +567,60 @@
         .hero-grid {
             display: grid;
             grid-template-columns: 1.05fr 0.95fr;
-            gap: 60px;
+            gap: 20px 60px;
             align-items: center;
         }
 
-        @media (max-width: 992px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-                gap: 50px;
-            }
+        .hero-left-col {
+            grid-column: 1;
+            grid-row: 1;
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
         }
 
         .hero-content {
             position: relative;
             z-index: 10;
+        }
+
+        .hero-info-block {
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-visual {
+            grid-column: 2;
+            grid-row: 1;
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        @media (max-width: 992px) {
+            .hero-grid {
+                display: flex;
+                flex-direction: column;
+                gap: 35px;
+            }
+            .hero-left-col {
+                display: contents;
+            }
+            .hero-content {
+                order: 1;
+            }
+            .hero-visual {
+                order: 2;
+                width: 100%;
+            }
+            .hero-info-block {
+                order: 3;
+                width: 100%;
+            }
         }
 
         .hero-content h1 {
@@ -591,13 +653,6 @@
             flex-wrap: wrap;
         }
 
-        .hero-visual {
-            position: relative;
-            z-index: 10;
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
 
         /* Glassmorphic Event Info Card */
         .glass-info-card {
@@ -757,12 +812,21 @@
         }
 
         .countdown-box {
-            background: rgba(10, 25, 49, 0.55);
-            border: 1px solid rgba(35, 158, 183, 0.25);
+            background: rgba(10, 25, 49, 0.7);
+            border: 1px solid rgba(0, 162, 228, 0.3);
             border-radius: var(--radius-sm);
-            padding: 12px 6px;
+            padding: 14px 6px;
             text-align: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3), inset 0 0 12px rgba(0, 162, 228, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+
+        .countdown-box:hover {
+            border-color: rgba(223, 183, 108, 0.65);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.4), 0 0 15px rgba(223, 183, 108, 0.25), inset 0 0 12px rgba(223, 183, 108, 0.15);
+            transform: translateY(-2px);
         }
 
         .countdown-num {
@@ -807,19 +871,21 @@
         }
 
         .fact-card {
-            border: 1px solid var(--clr-border);
+            border: 1px solid var(--glass-border);
             border-radius: var(--radius-md);
             padding: 36px 30px;
-            background-color: var(--clr-bg-light);
+            background-color: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             transition: var(--transition);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+            box-shadow: var(--shadow-premium);
         }
 
         .fact-card:hover {
-            border-color: var(--clr-secondary);
+            border-color: rgba(35, 158, 183, 0.45);
             background-color: var(--clr-white);
-            box-shadow: var(--shadow);
-            transform: translateY(-4px);
+            box-shadow: var(--shadow-premium-hover);
+            transform: translateY(-5px);
         }
 
         .fact-card i {
@@ -874,22 +940,25 @@
         }
 
         .value-card {
-            background-color: var(--clr-white);
-            border: 1px solid var(--clr-border);
+            background-color: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
             border-radius: var(--radius-md);
-            padding: 20px;
+            padding: 24px;
             display: flex;
             gap: 16px;
             align-items: flex-start;
             transition: var(--transition);
             box-sizing: border-box;
-            box-shadow: 0 4px 15px rgba(10, 25, 49, 0.02);
+            box-shadow: var(--shadow-premium);
         }
 
         .value-card:hover {
-            transform: translateY(-2px);
-            border-color: var(--clr-secondary);
-            box-shadow: 0 10px 20px rgba(17, 29, 97, 0.05);
+            transform: translateY(-4px);
+            background-color: var(--clr-white);
+            border-color: rgba(35, 158, 183, 0.45);
+            box-shadow: var(--shadow-premium-hover);
         }
 
         .value-card.full-width {
@@ -1076,11 +1145,21 @@
         }
 
         .expert-card {
-            background-color: var(--clr-white);
-            border: 1px solid var(--clr-border);
+            background-color: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
             border-radius: var(--radius-md);
             padding: 40px;
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-premium);
+            transition: var(--transition);
+        }
+
+        .expert-card:hover {
+            transform: translateY(-5px);
+            background-color: var(--clr-white);
+            border-color: rgba(35, 158, 183, 0.45);
+            box-shadow: var(--shadow-premium-hover);
         }
 
         .expert-header {
@@ -1158,23 +1237,40 @@
             background-color: var(--clr-white);
         }
 
-        .stat-banner {
-            border: 1px solid var(--clr-border);
-            background-color: var(--clr-bg-light);
+         .stat-banner {
+            border: 1px solid rgba(35, 158, 183, 0.2);
+            background: linear-gradient(135deg, rgba(35, 158, 183, 0.04) 0%, rgba(17, 29, 97, 0.02) 100%);
             border-radius: var(--radius-md);
-            padding: 40px;
+            padding: 45px 30px;
             text-align: center;
             margin-bottom: 60px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+            box-shadow: var(--shadow-premium);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--grad-primary);
         }
 
         .stat-num {
             font-family: var(--font-title);
-            font-size: clamp(3rem, 6vw, 4.5rem);
+            font-size: clamp(3.5rem, 7vw, 5rem);
             font-weight: 800;
-            color: var(--clr-primary);
-            line-height: 1;
-            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+            margin-bottom: 12px;
+            display: inline-block;
+            filter: drop-shadow(0 2px 4px rgba(17, 29, 97, 0.1));
         }
 
         .stat-text {
@@ -1194,6 +1290,7 @@
             width: 100%;
             overflow: hidden;
             cursor: grab;
+            transition: height 0.4s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         .slider-wrapper:active {
@@ -1367,6 +1464,9 @@
             width: auto;
             opacity: 0.85;
             transition: var(--transition);
+        }
+        .partner-logo.brandson-logo {
+            height: 58px;
         }
 
         .partner-logo:hover {
@@ -1618,11 +1718,13 @@
         }
 
         .offer-sub-card {
-            background: var(--clr-white);
-            border: 1px solid var(--clr-border);
+            background-color: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
             padding: 30px 24px;
             border-radius: var(--radius-md);
-            box-shadow: 0 8px 20px rgba(10, 25, 49, 0.02);
+            box-shadow: var(--shadow-premium);
             transition: var(--transition);
             display: flex;
             flex-direction: column;
@@ -1632,9 +1734,10 @@
         }
 
         .offer-sub-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(0, 162, 228, 0.35);
-            box-shadow: 0 15px 30px rgba(17, 29, 97, 0.06);
+            transform: translateY(-5px);
+            background-color: var(--clr-white);
+            border-color: rgba(0, 162, 228, 0.45);
+            box-shadow: var(--shadow-premium-hover);
         }
 
         .sub-card-icon {
@@ -1735,7 +1838,8 @@
 
         @media (max-width: 992px) {
             .reg-split-container {
-                grid-template-columns: 1fr;
+                display: flex;
+                flex-direction: column-reverse;
                 gap: 30px;
             }
         }
@@ -1871,7 +1975,7 @@
 
         .form-input {
             width: 100%;
-            padding: 12px 16px;
+            padding: 14px 18px;
             border: 1px solid var(--clr-border);
             background-color: var(--clr-white);
             border-radius: var(--radius-sm);
@@ -1879,12 +1983,14 @@
             font-size: 0.95rem;
             color: var(--clr-text);
             transition: var(--transition);
+            box-shadow: inset 0 2px 4px rgba(10, 25, 49, 0.03);
         }
 
         .form-input:focus {
             outline: none;
             border-color: var(--clr-secondary);
-            box-shadow: 0 0 0 3px rgba(35, 158, 183, 0.15);
+            box-shadow: 0 0 0 4px rgba(35, 158, 183, 0.15), inset 0 2px 4px rgba(10, 25, 49, 0.03);
+            background-color: var(--clr-white);
         }
 
         /* Radio & Checkbox customize */
@@ -1931,11 +2037,22 @@
             cursor: pointer;
         }
 
+        @keyframes heartbeat {
+            0% { transform: scale(1); box-shadow: 0 4px 15px rgba(17, 29, 97, 0.2); }
+            50% { transform: scale(1.025); box-shadow: 0 8px 25px rgba(17, 29, 97, 0.35); }
+            100% { transform: scale(1); box-shadow: 0 4px 15px rgba(17, 29, 97, 0.2); }
+        }
         .form-submit-btn {
             width: 100%;
             padding: 16px;
             font-size: 1.05rem;
             margin-top: 10px;
+            animation: heartbeat 3s infinite ease-in-out;
+        }
+        .form-submit-btn:hover {
+            animation: none;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(17, 29, 97, 0.4);
         }
 
         /* ─── FOOTER ─── */
@@ -1947,8 +2064,8 @@
 
         .footer-grid {
             display: grid;
-            grid-template-columns: 1.25fr 0.75fr;
-            gap: 50px;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
             margin-bottom: 50px;
         }
 
@@ -2334,16 +2451,10 @@
             align-items: center;
         }
 
-        .swiss-brand-title {
-            font-family: var(--font-title);
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--clr-navy);
-            letter-spacing: -0.03em;
-        }
-
-        .swiss-brand-title span {
-            color: #d32f2f; /* Red brand accent */
+        .swiss-brand-logo {
+            height: 40px;
+            width: auto;
+            margin-bottom: 10px;
         }
 
         .swiss-product-image-container {
@@ -2476,18 +2587,479 @@
             border-radius: 50px;
             box-shadow: 0 4px 12px rgba(17, 29, 97, 0.2);
             font-family: var(--font-title);
-            letter-spacing: 0.03em;
         }
 
-        @media (max-width: 576px) {
-            .swiss-quality-card {
-                padding: 40px 20px 30px;
+        /* ─── TIMELINE SECTION ─── */
+        .timeline-section {
+            background-color: #051026; /* Deep dark navy theme background */
+            position: relative;
+            color: var(--clr-white);
+            padding: 150px 0;
+        }
+        @media (max-width: 768px) {
+            .timeline-section {
+                padding: 100px 0;
             }
-            .swiss-pill {
+        }
+        .timeline-section .section-header h2 {
+            color: var(--clr-white);
+        }
+        .timeline-section .section-header p {
+            color: #cbd5e1;
+        }
+        .timeline-section .text-gradient {
+            background: linear-gradient(135deg, #00a2e8 0%, #239eb7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .timeline-section .curved-badge {
+            background: rgba(0, 162, 228, 0.1);
+            border-color: rgba(0, 162, 228, 0.25);
+            color: #00a2e8;
+        }
+        .timeline-container {
+            position: relative;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--clr-secondary), var(--clr-accent));
+            transform: translateX(-50%);
+            border-radius: 2px;
+            z-index: 1;
+        }
+        .timeline-item {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: stretch;
+            width: 100%;
+            box-sizing: border-box;
+            z-index: 2;
+        }
+        .timeline-card-col {
+            grid-row: 1;
+            display: flex;
+        }
+        .timeline-img-col {
+            grid-row: 1;
+            display: flex;
+            position: relative;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 24px;
+            height: 24px;
+            background-color: #051026;
+            border: 4px solid var(--clr-secondary);
+            border-radius: 50%;
+            z-index: 5;
+            transition: var(--transition);
+        }
+        .timeline-item:hover .timeline-dot {
+            background-color: var(--clr-accent);
+            border-color: var(--clr-white);
+            transform: translate(-50%, -50%) scale(1.25);
+        }
+        
+        /* Left items: Card on left, Image on right */
+        .timeline-item.left .timeline-card-col {
+            grid-column: 1;
+        }
+        .timeline-item.left .timeline-img-col {
+            grid-column: 2;
+        }
+        
+        /* Right items: Image on left, Card on right */
+        .timeline-item.right .timeline-card-col {
+            grid-column: 2;
+        }
+        .timeline-item.right .timeline-img-col {
+            grid-column: 1;
+        }
+        
+        /* Timeline Image styling */
+        .timeline-img-box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 4px solid rgba(255, 255, 255, 0.15); /* Glassmorphic border */
+            box-shadow: var(--shadow-premium);
+            transition: var(--transition);
+            display: block;
+        }
+        .timeline-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        .timeline-item:hover .timeline-img-box {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-premium-hover);
+            border-color: var(--clr-accent);
+        }
+        .timeline-item:hover .timeline-img-box img {
+            transform: scale(1.03);
+        }
+ 
+        .timeline-card {
+            background-color: rgba(255, 255, 255, 0.04); /* Glassmorphic card back */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: var(--radius-md);
+            padding: 30px;
+            box-shadow: var(--shadow-premium);
+            transition: var(--transition);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            text-align: left;
+        }
+        .timeline-card:hover {
+            transform: translateY(-5px);
+            background-color: rgba(255, 255, 255, 0.08);
+            border-color: var(--clr-accent);
+            box-shadow: 0 20px 45px rgba(0, 162, 228, 0.15);
+        }
+        .timeline-step {
+            font-family: var(--font-title);
+            font-size: 0.82rem;
+            font-weight: 800;
+            color: var(--clr-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .timeline-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+            color: var(--clr-white);
+        }
+        .timeline-card p {
+            font-size: 0.92rem;
+            line-height: 1.5;
+            color: #cbd5e1;
+            margin: 0;
+        }
+        .timeline-card-icon {
+            font-size: 1.5rem;
+            color: var(--clr-accent);
+            margin-bottom: 16px;
+            display: inline-block;
+            width: 48px;
+            height: 48px;
+            background-color: rgba(255, 255, 255, 0.06);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .timeline-card:hover .timeline-card-icon {
+            background-color: var(--clr-accent);
+            color: var(--clr-white);
+            border-color: var(--clr-accent);
+        }
+
+        @media (max-width: 768px) {
+            .timeline-line {
                 left: 20px;
-                padding: 6px 18px;
-                font-size: 0.75rem;
+                transform: none;
             }
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding-left: 50px;
+                padding-right: 0;
+            }
+            .timeline-dot {
+                left: 20px;
+                top: 40px;
+                transform: translateX(-50%);
+            }
+            .timeline-item:hover .timeline-dot {
+                transform: translateX(-50%) scale(1.25);
+            }
+            .timeline-item.left .timeline-card-col,
+            .timeline-item.left .timeline-img-col,
+            .timeline-item.right .timeline-card-col,
+            .timeline-item.right .timeline-img-col {
+                grid-column: 1;
+            }
+            .timeline-card-col {
+                order: 1;
+            }
+            .timeline-img-col {
+                order: 2;
+                max-width: 450px;
+                width: 100%;
+            }
+            .timeline-img-box {
+                position: relative;
+                height: 260px;
+                aspect-ratio: auto;
+            }
+            .timeline-card-col, .timeline-img-col {
+                grid-row: auto;
+                display: block;
+            }
+        }
+
+        /* ─── FAQ ACCORDION SECTION ─── */
+        .faq-section {
+            background-color: var(--clr-bg-light);
+        }
+        .faq-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            margin-top: 40px;
+        }
+        .faq-item {
+            background-color: var(--clr-white);
+            border: 1px solid var(--clr-border);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        .faq-item:hover {
+            border-color: var(--clr-secondary);
+            box-shadow: var(--shadow-premium);
+        }
+        .faq-question {
+            width: 100%;
+            padding: 20px 24px;
+            background: none;
+            border: none;
+            text-align: left;
+            font-family: var(--font-title);
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--clr-navy);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            transition: var(--transition);
+        }
+        .faq-question i {
+            font-size: 0.95rem;
+            color: var(--clr-secondary);
+            transition: transform 0.3s ease;
+        }
+        .faq-item.active {
+            border-color: var(--clr-secondary);
+            box-shadow: var(--shadow-premium);
+        }
+        .faq-item.active .faq-question {
+            color: var(--clr-secondary);
+        }
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .faq-answer-content {
+            padding: 0 24px 20px 24px;
+            font-size: 0.95rem;
+            color: var(--clr-text-muted);
+            line-height: 1.6;
+        }
+
+        /* ─── BLOG SECTION ─── */
+        .blog-section {
+            background-color: var(--clr-white);
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+        .blog-card {
+            background-color: var(--clr-white);
+            border: 1px solid var(--clr-border);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-premium);
+            transition: var(--transition);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-premium-hover);
+            border-color: var(--clr-secondary);
+        }
+        .blog-card-img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+        }
+        .blog-card-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .blog-card-content h4 {
+            font-size: 1rem;
+            color: var(--clr-navy);
+            margin-bottom: 10px;
+            font-weight: 700;
+            line-height: 1.45;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .blog-card-content p {
+            font-size: 0.85rem;
+            color: var(--clr-text-muted);
+            margin-bottom: 16px;
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .blog-readmore {
+            font-size: 0.82rem;
+            color: var(--clr-secondary);
+            font-weight: 700;
+            margin-top: auto;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .blog-readmore i {
+            transition: transform 0.3s ease;
+        }
+        .blog-card:hover .blog-readmore i {
+            transform: translateX(4px);
+        }
+        
+        @media (max-width: 992px) {
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 576px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ─── MOBILE SLIDERS STYLING ─── */
+        .mobile-slider-dots {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            /* Mobile Sliders for grid elements */
+            .fact-grid.mobile-slider,
+            .audience-grid.mobile-slider,
+            .offer-sub-grid.mobile-slider,
+            .gallery-grid.mobile-slider {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                overflow-x: auto !important;
+                scroll-snap-type: x mandatory !important;
+                scroll-behavior: smooth !important;
+                gap: 16px !important;
+                padding: 10px 4px 20px 4px !important;
+                scrollbar-width: none !important; /* Firefox */
+                -webkit-overflow-scrolling: touch !important;
+                margin-bottom: 10px !important;
+            }
+            
+            .fact-grid.mobile-slider::-webkit-scrollbar,
+            .audience-grid.mobile-slider::-webkit-scrollbar,
+            .offer-sub-grid.mobile-slider::-webkit-scrollbar,
+            .gallery-grid.mobile-slider::-webkit-scrollbar {
+                display: none !important; /* Safari and Chrome */
+            }
+            
+            .fact-grid.mobile-slider .fact-card,
+            .audience-grid.mobile-slider .audience-card,
+            .offer-sub-grid.mobile-slider .offer-sub-card,
+            .gallery-grid.mobile-slider .gallery-item {
+                flex: 0 0 88% !important;
+                width: 88% !important;
+                scroll-snap-align: center !important;
+                box-sizing: border-box !important;
+                margin: 0 !important;
+            }
+            
+            .mobile-slider-dots {
+                display: flex !important;
+                justify-content: center;
+                gap: 8px;
+                margin-top: 5px;
+                margin-bottom: 20px;
+                width: 100%;
+            }
+            
+            .mobile-slider-dot {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background-color: rgba(17, 29, 97, 0.15);
+                border: none;
+                padding: 0;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+            
+            .mobile-slider-dot.active {
+                background-color: #00a2e8; /* Active color */
+                width: 20px;
+                border-radius: 4px;
+            }
+        }
+        
+        /* Snow Canvas Overlay */
+        #snow-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
         }
     </style>
 </head>
@@ -2535,6 +3107,7 @@
 
     <!-- HERO SECTION (Updated to dark mode premium) -->
     <section class="hero-section" id="banner">
+        <canvas id="snow-canvas"></canvas>
         <!-- Thread Animation Background (Blue/Teal Thread) -->
         <svg class="hero-thread-svg" preserveAspectRatio="none"
             style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; opacity: 0.25;"
@@ -2568,53 +3141,54 @@
             </circle>
         </svg>
         <div class="container hero-grid" style="position: relative; z-index: 2;">
-            <div class="hero-content">
-                <span class="curved-badge" style="background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.15); color: #00a2e8;">Sự Kiện Sức Khỏe Nha Khoa Flora</span>
-                <h1 style="display: flex; flex-direction: column; gap: 6px; margin-bottom: 24px;">
-                    <span style="display: block; font-size: 0.45em; text-transform: uppercase; letter-spacing: 0.15em; color: #00a2e8; font-weight: 800;">Ngày Hội Implant 2026</span>
-                    <span style="display: inline-block; font-family: 'Dancing Script', cursive; background: linear-gradient(135deg, #fff2a3 0%, #dfb76c 60%, #c59f4e 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: clamp(3.2rem, 6.5vw, 5rem); font-weight: 700; line-height: 1.25; text-transform: none; filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.35)); margin-top: 4px;">
-                        Vững Vàng Ăn Nhai<br>Tự Tin Sống Khỏe
-                    </span>
-                </h1>
-                
-                <div class="hero-desc-wrapper" style="margin-bottom: 30px;">
-                    <strong style="display: block; font-size: 1.12rem; color: #00a2e8; margin-bottom: 8px; font-family: var(--font-title); font-weight: 700;">Từ mất răng lâu năm đến ăn nhai tự tin trở lại</strong>
-                    <p style="font-size: 0.96rem; color: #e2e8f0; line-height: 1.6; margin: 0; font-family: var(--font-body);">Hành trình lấy lại chức năng ăn nhai, để mỗi bữa ăn được trọn vẹn như trước tại Ngày hội Implant Flora.</p>
-                </div>
-                
-                <!-- Time & Location Cards on the Left -->
-                <div class="hero-info-cards">
-                    <!-- Card 1: Thời gian -->
-                    <div class="glass-info-card" style="padding: 16px; flex-direction: row; align-items: center; gap: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.15);">
-                        <i class="fa-solid fa-calendar-day" style="color: #00a2e8; font-size: 1.2rem; width: 38px; height: 38px; background: rgba(0, 162, 228, 0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(0, 162, 228, 0.25); flex-shrink: 0;"></i>
-                        <div>
-                            <h4 style="font-size: 0.7rem; color: #239eb7; letter-spacing: 0.05em; margin-bottom: 2px; font-weight: 800; text-transform: uppercase;">THỜI GIAN</h4>
-                            <p style="font-size: 0.88rem; color: var(--clr-white); font-weight: 600; line-height: 1.25;">25/07/2026<br><span style="font-size: 0.78rem; font-weight: 500; opacity: 0.9;">08:30 - 13:00</span></p>
-                        </div>
-                    </div>
-                    <!-- Card 2: Địa điểm -->
-                    <div class="glass-info-card" style="padding: 16px; flex-direction: row; align-items: center; gap: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.15);">
-                        <i class="fa-solid fa-location-dot" style="color: #00a2e8; font-size: 1.2rem; width: 38px; height: 38px; background: rgba(0, 162, 228, 0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(0, 162, 228, 0.25); flex-shrink: 0;"></i>
-                        <div>
-                            <h4 style="font-size: 0.7rem; color: #239eb7; letter-spacing: 0.05em; margin-bottom: 2px; font-weight: 800; text-transform: uppercase;">ĐỊA ĐIỂM</h4>
-                            <p style="font-size: 0.82rem; color: var(--clr-white); font-weight: 600; line-height: 1.35;">326 Nguyễn Thị Minh Khai, P. Bàn Cờ, TP.HCM</p>
-                        </div>
+            <div class="hero-left-col reveal">
+                <div class="hero-content">
+                    <span class="curved-badge" style="background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.15); color: #00a2e8;">Sự Kiện Sức Khỏe Nha Khoa Flora</span>
+                    <h1 style="display: flex; flex-direction: column; gap: 6px; margin-bottom: 24px;">
+                        <span style="display: block; font-size: 0.45em; text-transform: uppercase; letter-spacing: 0.15em; color: #00a2e8; font-weight: 800;">Ngày Hội Implant 2026</span>
+                        <span style="display: inline-block; font-family: 'Dancing Script', cursive; background: linear-gradient(135deg, #fff2a3 0%, #dfb76c 60%, #c59f4e 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: clamp(2.2rem, 6.5vw, 5rem); font-weight: 700; line-height: 1.25; text-transform: none; filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.35)); margin-top: 4px;">
+                            Vững Vàng Ăn Nhai<br>Tự Tin Sống Khỏe
+                        </span>
+                    </h1>
+                    
+                    <div class="hero-desc-wrapper" style="margin-bottom: 30px;">
+                        <strong style="display: block; font-size: 1.12rem; color: #00a2e8; margin-bottom: 8px; font-family: var(--font-title); font-weight: 700;">Từ mất răng lâu năm đến ăn nhai tự tin trở lại</strong>
+                        <p style="font-size: 0.96rem; color: #e2e8f0; line-height: 1.6; margin: 0; font-family: var(--font-body);">Hành trình lấy lại chức năng ăn nhai, để mỗi bữa ăn được trọn vẹn như trước tại Ngày hội Implant Flora.</p>
                     </div>
                 </div>
 
-                <div class="hero-actions">
-                    <a href="#dang-ky" class="btn btn-primary">Đăng Ký Nhận Vé Mời <i class="fa-solid fa-arrow-right"></i></a>
-                    <a href="#offer" class="btn btn-outline-white">Xem Chương Trình Ưu Đãi</a>
+                <div class="hero-info-block">
+                    <!-- Time & Location Cards on the Left -->
+                    <div class="hero-info-cards">
+                        <!-- Card 1: Thời gian -->
+                        <div class="glass-info-card" style="padding: 16px; flex-direction: row; align-items: center; gap: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.15);">
+                            <i class="fa-solid fa-calendar-day" style="color: #00a2e8; font-size: 1.2rem; width: 38px; height: 38px; background: rgba(0, 162, 228, 0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(0, 162, 228, 0.25); flex-shrink: 0;"></i>
+                            <div>
+                                <h4 style="font-size: 0.7rem; color: #239eb7; letter-spacing: 0.05em; margin-bottom: 2px; font-weight: 800; text-transform: uppercase;">THỜI GIAN</h4>
+                                <p style="font-size: 0.88rem; color: var(--clr-white); font-weight: 600; line-height: 1.25;">25/07/2026<br><span style="font-size: 0.78rem; font-weight: 500; opacity: 0.9;">08:30 - 13:00</span></p>
+                            </div>
+                        </div>
+                        <!-- Card 2: Địa điểm -->
+                        <div class="glass-info-card" style="padding: 16px; flex-direction: row; align-items: center; gap: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.15);">
+                            <i class="fa-solid fa-location-dot" style="color: #00a2e8; font-size: 1.2rem; width: 38px; height: 38px; background: rgba(0, 162, 228, 0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(0, 162, 228, 0.25); flex-shrink: 0;"></i>
+                            <div>
+                                <h4 style="font-size: 0.7rem; color: #239eb7; letter-spacing: 0.05em; margin-bottom: 2px; font-weight: 800; text-transform: uppercase;">ĐỊA ĐIỂM</h4>
+                                <p style="font-size: 0.82rem; color: var(--clr-white); font-weight: 600; line-height: 1.35;">326 Nguyễn Thị Minh Khai, P. Bàn Cờ, TP.HCM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-actions">
+                        <a href="#dang-ky" class="btn btn-primary">Đăng Ký Nhận Vé Mời <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="#offer" class="btn btn-outline-white">Xem Chương Trình Ưu Đãi</a>
+                    </div>
                 </div>
             </div>
             
-            <div class="hero-visual">
+            <div class="hero-visual reveal reveal-delay-2">
                 <!-- Overlapping Image Stack -->
                 <div class="hero-image-stack">
-                    <video class="main-hero-img" autoplay loop muted playsinline poster="ngayhoi_item/ig_img (1).jpg">
-                        <source src="ngayhoi_item/reelsvideo.io_1781593995097.mp4" type="video/mp4">
-                        Trình duyệt của bạn không hỗ trợ phát video.
-                    </video>
+                    <img src="ngayhoi_item/hero.png" alt="Ngày Hội Implant Flora 2026" class="main-hero-img" />
                     <img src="ngayhoi_item/Tru-2.png" alt="Trụ Implant Thụy Sĩ ImplantSwiss" class="sub-hero-img" />
                     <div class="floating-sponsorship-tag">
                         <i class="fa-solid fa-award"></i>
@@ -2656,27 +3230,27 @@
         <img src="ngayhoi_item/Tru-1.png" alt="Trụ Implant Thụy Sĩ" class="decor-implant-img decor-fact-tru1 float-anim-1" />
         <img src="ngayhoi_item/element-2.png" alt="Trang trí implant" class="decor-implant-img decor-fact-elem2 float-anim-2" />
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="curved-badge">Khảo sát y khoa</span>
                 <h2>Khảo sát thực trạng: <span class="text-gradient">Bạn Có Biết?</span></h2>
                 <p>Những con số và sự thật y tế về tình trạng mất răng lâu ngày mà bạn không nên xem thường.</p>
             </div>
             
-            <div class="fact-grid">
+            <div class="fact-grid mobile-slider">
                 <!-- Card 1 -->
-                <div class="fact-card">
+                <div class="fact-card reveal">
                     <i class="fa-solid fa-triangle-exclamation"></i>
                     <h3>Mất một răng cũng có thể dẫn đến tiêu xương hàm?</h3>
                     <p>Ngay khi chân răng bị mất, xương ổ răng sẽ tiêu dần đi một cách thầm lặng. Lâu dài làm tụt nướu, hóp má, biến đổi hình dạng khuôn mặt và xô lệch cả hàm răng.</p>
                 </div>
                 <!-- Card 2 -->
-                <div class="fact-card">
+                <div class="fact-card reveal reveal-delay-1">
                     <i class="fa-solid fa-circle-question"></i>
                     <h3>Rất nhiều người trì hoãn Implant vì hiểu lầm phổ biến?</h3>
                     <p>Nỗi sợ đau, sợ thời gian lành thương kéo dài hay băn khoăn về chi phí điều trị khiến người mất răng bỏ lỡ thời điểm phục hình tốt nhất, dẫn tới các bệnh lý hàm mặt.</p>
                 </div>
                 <!-- Card 3 -->
-                <div class="fact-card">
+                <div class="fact-card reveal reveal-delay-2">
                     <i class="fa-solid fa-user-shield"></i>
                     <h3>Người 70 tuổi vẫn có thể phục hồi răng bằng Implant?</h3>
                     <p>Tuổi tác không bao giờ là giới hạn. Chỉ cần tình trạng sức khỏe tổng quát (huyết áp, tim mạch, tiểu đường) được kiểm soát tốt, bạn hoàn toàn đủ điều kiện cấy ghép an toàn.</p>
@@ -2691,42 +3265,42 @@
             <div class="value-layout">
                 <!-- Left: Header and Grid of Cards -->
                 <div class="value-content-col">
-                    <div class="section-header">
+                    <div class="section-header reveal">
                         <span class="curved-badge">Giá trị mang lại</span>
                         <h2>Điều Gì Diễn Ra Tại<br><span class="text-gradient">Ngày Hội Implant Flora?</span></h2>
                         <p>Chúng tôi mang tới giải pháp toàn diện giúp khách hàng thấu hiểu tình trạng răng miệng và chuẩn bị hành trình điều trị tốt nhất.</p>
                     </div>
 
                     <div class="value-cards-grid">
-                        <div class="value-card">
+                        <div class="value-card reveal">
                             <div class="value-num">01</div>
                             <div class="value-info">
                                 <h3>Nhận Biết Hệ Lụy</h3>
                                 <p>Hiểu rõ tác hại của mất răng đối với cơ nhai, hệ tiêu hóa và sức khỏe toàn thân.</p>
                             </div>
                         </div>
-                        <div class="value-card">
+                        <div class="value-card reveal reveal-delay-1">
                             <div class="value-num">02</div>
                             <div class="value-info">
                                 <h3>Giải Đáp Nỗi Lo</h3>
                                 <p>Được giải đáp chi tiết về cảm giác trong quá trình cấy ghép, thời gian và chi phí.</p>
                             </div>
                         </div>
-                        <div class="value-card">
+                        <div class="value-card reveal">
                             <div class="value-num">03</div>
                             <div class="value-info">
                                 <h3>Hiểu Đúng Implant</h3>
                                 <p>Tiếp cận kiến thức cấy ghép Implant chuẩn y khoa và công nghệ trụ Thụy Sĩ.</p>
                             </div>
                         </div>
-                        <div class="value-card">
+                        <div class="value-card reveal reveal-delay-1">
                             <div class="value-num">04</div>
                             <div class="value-info">
                                 <h3>Thăm Khám 1:1</h3>
                                 <p>Chụp phim kiểm tra mật độ xương CT và nhận tư vấn phác đồ điều trị miễn phí.</p>
                             </div>
                         </div>
-                        <div class="value-card full-width">
+                        <div class="value-card full-width reveal reveal-delay-2">
                             <div class="value-num">05</div>
                             <div class="value-info">
                                 <h3>Đặc Quyền Riêng</h3>
@@ -2737,11 +3311,11 @@
                 </div>
 
                 <!-- Right: Overlapping Floating Images -->
-                <div class="value-image-col">
+                <div class="value-image-col reveal reveal-delay-2">
                     <div class="value-image-group">
-                        <img src="assets/Brandson_9.jpg" alt="Không khí ngày hội" class="value-float-img img-1" />
-                        <img src="assets/Brandson_12.jpg" alt="Bác sĩ tư vấn 1:1" class="value-float-img img-2" />
-                        <img src="assets/Brandson_13.jpg" alt="Chụp phim CT Cone Beam" class="value-float-img img-3" />
+                        <img src="ngayhoi_item/ig_img (5).jpg" alt="Không khí ngày hội" class="value-float-img img-1" />
+                        <img src="ngayhoi_item/ig_img (2).jpg" alt="Bác sĩ tư vấn 1:1" class="value-float-img img-2" />
+                        <img src="ngayhoi_item/ig_img (6).jpg" alt="Chụp phim CT Cone Beam" class="value-float-img img-3" />
                     </div>
                 </div>
             </div>
@@ -2752,28 +3326,115 @@
     <section class="section-padding audience-section" id="audience">
         <img src="ngayhoi_item/Element.png" alt="Trang trí implant" class="decor-implant-img decor-aud-elem float-anim-1" />
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="curved-badge">Khuyên dùng</span>
                 <h2>Ai Nên Tham Gia<br><span class="text-gradient">Ngày Hội Implant Flora?</span></h2>
                 <p>Sự kiện được chuẩn bị cho bất kỳ ai đang gặp trở ngại về chức năng ăn nhai và muốn cải thiện chất lượng cuộc sống.</p>
             </div>
 
             <div class="audience-grid">
-                <div class="audience-card">
+                <div class="audience-card reveal">
                     <img src="assets/p1.png" alt="Mất một hoặc nhiều răng" class="audience-avatar" />
                     <h3>Người mất một hoặc nhiều răng</h3>
                 </div>
-                <div class="audience-card">
+                <div class="audience-card reveal reveal-delay-1">
                     <img src="assets/p2.png" alt="Mất răng lâu năm" class="audience-avatar" />
                     <h3>Người mất răng lâu năm</h3>
                 </div>
-                <div class="audience-card">
+                <div class="audience-card reveal reveal-delay-2">
                     <img src="assets/bs_lamsan.png" alt="Đang dùng hàm tháo lắp" class="audience-avatar" />
                     <h3>Người đang sử dụng hàm tháo lắp bất tiện</h3>
                 </div>
-                <div class="audience-card">
+                <div class="audience-card reveal reveal-delay-3">
                     <img src="assets/tran_minh_triet.png" alt="Quan tâm cấy ghép Implant" class="audience-avatar" />
                     <h3>Người quan tâm đến cấy ghép Implant</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION - HÀNH TRÌNH TIMELINE (NEW) -->
+    <section class="section-padding timeline-section" id="journey">
+        <div class="container">
+            <div class="section-header center reveal">
+                <span class="curved-badge">Hành trình cấy ghép</span>
+                <h2>4 Bước Trải Nghiệm<br><span class="text-gradient">Cấy Ghép Implant Êm Ái</span></h2>
+                <p>Khám phá lộ trình chăm sóc răng miệng chuyên sâu, chuẩn y khoa từ khâu chẩn đoán ban đầu tới phục hình răng hoàn tất.</p>
+            </div>
+
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+
+                <!-- Step 1: Khảo sát & Chụp CT -->
+                <div class="timeline-item left reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card-col">
+                        <div class="timeline-card">
+                            <div class="timeline-card-icon"><i class="fa-solid fa-x-ray"></i></div>
+                            <span class="timeline-step">Bước 01</span>
+                            <h3>Chụp CT Cone Beam 3D</h3>
+                            <p>Thực hiện khảo sát mật độ xương hàm, định vị dây thần kinh răng bằng hệ thống phim CT Cone Beam 3D nhập khẩu châu Âu, đảm bảo dữ liệu chẩn đoán chính xác tuyệt đối.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-img-col">
+                        <div class="timeline-img-box">
+                            <img src="ngayhoi_item/ig_img (4).jpg" alt="Chụp phim CT Cone Beam 3D" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Tư vấn 1:1 -->
+                <div class="timeline-item right reveal reveal-delay-1">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card-col">
+                        <div class="timeline-card">
+                            <div class="timeline-card-icon"><i class="fa-solid fa-user-doctor"></i></div>
+                            <span class="timeline-step">Bước 02</span>
+                            <h3>Tư Vấn Phác Đồ 1:1</h3>
+                            <p>Trao đổi trực tiếp cùng Bác sĩ Nguyễn Đắc Minh để thiết kế máng hướng dẫn cấy ghép số hóa Guided Surgery, cá nhân hóa lộ trình điều trị theo thể trạng xương hàm của bạn.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-img-col">
+                        <div class="timeline-img-box">
+                            <img src="ngayhoi_item/ig_img (2).jpg" alt="Tư vấn phác đồ 1:1" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Phẫu thuật êm ái -->
+                <div class="timeline-item left reveal reveal-delay-2">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card-col">
+                        <div class="timeline-card">
+                            <div class="timeline-card-icon"><i class="fa-solid fa-kit-medical"></i></div>
+                            <span class="timeline-step">Bước 03</span>
+                            <h3>Cấy Ghép Trụ Êm Ái</h3>
+                            <p>Thực hiện tiểu phẫu đặt trụ Implant Thụy Sĩ ImplantSwiss với công nghệ hạn chế xâm lấn, kiểm soát cơn đau tối ưu giúp quá trình cấy ghép diễn ra nhanh chóng, êm ái.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-img-col">
+                        <div class="timeline-img-box">
+                            <img src="ngayhoi_item/ig_img (3).jpg" alt="Cấy ghép trụ Implant Thụy Sĩ" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Chăm sóc & Phục hình -->
+                <div class="timeline-item right reveal reveal-delay-3">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card-col">
+                        <div class="timeline-card">
+                            <div class="timeline-card-icon"><i class="fa-solid fa-tooth"></i></div>
+                            <span class="timeline-step">Bước 04</span>
+                            <h3>Phục Hình Sứ & Chăm Sóc</h3>
+                            <p>Lắp mão răng sứ thẩm mỹ trên trụ Implant sau khi tích hợp xương ổn định, khôi phục 100% chức năng ăn nhai vững vàng và tự tin nở nụ cười rạng rỡ.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-img-col">
+                        <div class="timeline-img-box">
+                            <img src="ngayhoi_item/ig_img (1).jpg" alt="Phục hình răng sứ hoàn tất" />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2783,7 +3444,7 @@
     <section class="section-padding expert-section" id="expert">
         <img src="ngayhoi_item/Tru-4.png" alt="Trụ Implant Thụy Sĩ" class="decor-implant-img decor-exp-tru4 float-anim-2" />
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="curved-badge">Đồng hành cùng bạn</span>
                 <h2>Gặp Gỡ <span class="text-gradient">Chuyên Gia Implant</span></h2>
                 <p>Trao đổi chuyên môn và nhận định hướng kế hoạch điều trị từ các bác sĩ có chứng chỉ phẫu thuật chuyên sâu.</p>
@@ -2791,34 +3452,35 @@
 
             <div class="expert-grid">
                 <!-- Chuyên gia 1 -->
-                <div class="expert-card">
+                <div class="expert-card reveal">
                     <div class="expert-header">
-                        <img src="assets/bs_rhm.png" alt="Bác sĩ Nguyễn Đắc Minh" class="expert-img" />
+                        <img src="assets/bs_rhm.png" alt="Bác sĩ CKI - Nguyễn Đắc Minh" class="expert-img" />
                         <div class="expert-title">
-                            <h3>Bác sĩ Nguyễn Đắc Minh</h3>
-                            <p>Chuyên Gia Cấy Ghép Implant</p>
+                            <h3>Bác sĩ CKI - Nguyễn Đắc Minh</h3>
+                            <p style="font-size: 0.82rem; color: var(--clr-text-muted); font-weight: 600;">Chuyên gia Cấy Ghép Implant và Phục Hình Thẩm Mỹ</p>
                         </div>
                     </div>
                     <ul class="expert-list">
-                        <li><i class="fa-solid fa-award"></i> Tốt nghiệp Bác sĩ Răng Hàm Mặt hệ chính quy.</li>
-                        <li><i class="fa-solid fa-award"></i> Chứng chỉ cấy ghép Nha khoa cấp bởi Bệnh Viện Răng Hàm Mặt Trung Ương.</li>
-                        <li><i class="fa-solid fa-award"></i> Thành viên Hiệp hội Implant Thế giới (ICOI) và Hiệp hội Implant Thụy Sĩ (ITI).</li>
+                        <li><i class="fa-solid fa-award"></i> Tốt nghiệp chính quy: Bác sĩ Chuyên khoa Răng Hàm Mặt</li>
+                        <li><i class="fa-solid fa-award"></i> Chứng chỉ Cấy Ghép Nha Khoa: Bệnh Viện Răng Hàm Mặt Trung Ương</li>
+                        <li><i class="fa-solid fa-award"></i> Thành viên: Hiệp hội Implant Thế giới (ICOI)</li>
+                        <li><i class="fa-solid fa-award"></i> Thành viên: Hiệp hội Implant Thụy Sĩ (ITI)</li>
                     </ul>
                 </div>
 
                 <!-- Chuyên gia 2 -->
-                <div class="expert-card">
+                <div class="expert-card reveal reveal-delay-1">
                     <div class="expert-header">
-                        <img src="assets/cao_huu_tien.png" alt="Bác sĩ Cao Hữu Tiến" class="expert-img" />
+                        <img src="assets/cao_huu_tien.png" alt="Ông Cao Hữu Tiến" class="expert-img" />
                         <div class="expert-title">
-                            <h3>Bác sĩ Cao Hữu Tiến</h3>
-                            <p>Đại diện hãng Thụy Sĩ tại Việt Nam</p>
+                            <h3>Ông Cao Hữu Tiến</h3>
+                            <p style="font-size: 0.82rem; color: var(--clr-text-muted); font-weight: 600;">Tổng giám đốc Brandson Việt Nam</p>
                         </div>
                     </div>
                     <ul class="expert-list">
-                        <li><i class="fa-solid fa-award"></i> Đại diện truyền thông các giải pháp Implant Thụy Sĩ tại Việt Nam.</li>
-                        <li><i class="fa-solid fa-award"></i> Hướng dẫn kỹ thuật và chia sẻ tiêu chuẩn chất lượng châu Âu của ImplantSwiss.</li>
-                        <li><i class="fa-solid fa-award"></i> Chuyển giao công nghệ xử lý bề mặt STAE độc quyền hỗ trợ tích hợp xương nhanh.</li>
+                        <li><i class="fa-solid fa-award"></i> Tổng giám đốc Brandson Việt Nam</li>
+                        <li><i class="fa-solid fa-award"></i> Đại diện ImplantSwiss Thụy Sĩ tại thị trường Việt Nam</li>
+                        <li><i class="fa-solid fa-award"></i> Chia sẻ về công nghệ Implant Swiss chất lượng Thụy Sĩ và những tiêu chuẩn quốc tế trong điều trị cấy ghép Implant.</li>
                     </ul>
                 </div>
             </div>
@@ -2828,8 +3490,8 @@
     <!-- SECTION - TRẢI NGHIỆM KHÁCH HÀNG -->
     <section class="section-padding testimonials-section" id="testimonials">
         <div class="container">
-            <div class="stat-banner">
-                <div class="stat-num">7.500+</div>
+            <div class="stat-banner reveal">
+                <div class="stat-num" id="counter-implant" data-target="7500">0+</div>
                 <div class="stat-text">Ca cấy ghép Implant thành công – Khôi phục khả năng ăn nhai khỏe mạnh</div>
             </div>
 
@@ -2987,7 +3649,7 @@
         <div class="container">
             <h3 class="partner-title">Đơn vị đồng hành chính hãng</h3>
             <div class="partner-flex">
-                <img src="assets/brandson_logo.png" alt="Brandson Logo" class="partner-logo" />
+                <img src="assets/brandson_logo.png" alt="Brandson Logo" class="partner-logo brandson-logo" />
                 <img src="assets/implantswiss-logo-gray.png" alt="ImplantSwiss Logo" class="partner-logo" />
             </div>
         </div>
@@ -2998,7 +3660,7 @@
         <img src="ngayhoi_item/Tru-3.png" alt="Trụ Implant Thụy Sĩ" class="decor-implant-img decor-off-tru3 float-anim-1" />
         <img src="ngayhoi_item/Kit.png" alt="Bộ phẫu thuật Implant" class="decor-implant-img decor-off-kit float-anim-2" />
         <div class="container">
-            <div class="section-header center">
+            <div class="section-header center reveal">
                 <span class="curved-badge">Chương trình hỗ trợ</span>
                 <h2>Quyền Lợi Dành Cho<br><span class="text-gradient">Khách Hàng Đăng Ký</span></h2>
                 <p>Đăng ký tham dự Ngày hội để nhận các đặc quyền tài trợ và dịch vụ chăm sóc răng miệng chuyên sâu từ Nha khoa Flora & ImplantSwiss.</p>
@@ -3007,7 +3669,7 @@
             <!-- Top Row: 2 Major Cards -->
             <div class="offer-main-row">
                 <!-- Card 1: 50% Sponsorship -->
-                <div class="offer-card-premium gold-tier">
+                <div class="offer-card-premium gold-tier reveal">
                     <div class="offer-card-body">
                         <div class="offer-card-content">
                             <span class="offer-badge gold-badge"><i class="fa-solid fa-star"></i> Đặc quyền lớn nhất</span>
@@ -3023,7 +3685,7 @@
                 </div>
 
                 <!-- Card 2: 15% General Discount -->
-                <div class="offer-card-premium blue-tier">
+                <div class="offer-card-premium blue-tier reveal reveal-delay-1">
                     <div class="offer-card-body">
                         <div class="offer-card-content">
                             <span class="offer-badge blue-badge"><i class="fa-solid fa-users"></i> Tất cả khách hàng</span>
@@ -3040,21 +3702,21 @@
             </div>
 
             <!-- Bottom Row: 3 Standard Cards -->
-            <div class="offer-sub-grid">
+            <div class="offer-sub-grid mobile-slider">
                 <!-- Benefit 1 -->
-                <div class="offer-sub-card">
+                <div class="offer-sub-card reveal">
                     <div class="sub-card-icon"><i class="fa-solid fa-user-doctor"></i></div>
                     <h3>Khám 1:1 Với Chuyên Gia</h3>
                     <p>Thăm khám lâm sàng trực tiếp cùng Bác sĩ Nguyễn Đắc Minh để phân tích cấu trúc răng hàm.</p>
                 </div>
                 <!-- Benefit 2 -->
-                <div class="offer-sub-card">
+                <div class="offer-sub-card reveal reveal-delay-1">
                     <div class="sub-card-icon"><i class="fa-solid fa-x-ray"></i></div>
                     <h3>Chụp CT Cone Beam Miễn Phí</h3>
                     <p>Khảo sát mật độ xương hàm và dây thần kinh bằng công nghệ 3D chuẩn xác, an toàn.</p>
                 </div>
                 <!-- Benefit 3 -->
-                <div class="offer-sub-card">
+                <div class="offer-sub-card reveal reveal-delay-2">
                     <div class="sub-card-icon"><i class="fa-solid fa-gift"></i></div>
                     <h3>Quà Tặng Chăm Sóc Flora</h3>
                     <p>Nhận ngay bộ sản phẩm chăm sóc răng miệng chuyên khoa cao cấp khi tham dự sự kiện.</p>
@@ -3073,7 +3735,7 @@
                 <div class="swiss-card-split">
                     <!-- Left: Branding & Product Image -->
                     <div class="swiss-left-col">
-                        <div class="swiss-brand-title">implant<span>swiss</span></div>
+                        <img src="assets/implantswiss-logo-gray.png" alt="ImplantSwiss Logo" class="swiss-brand-logo" />
                         <div class="swiss-product-image-container">
                             <img src="ngayhoi_item/Tru-2.png" alt="Trụ Implant Thụy Sĩ" />
                         </div>
@@ -3141,13 +3803,128 @@
                 <p>Tìm hiểu chi tiết các công nghệ cấy ghép tiên tiến và giải pháp phục hình răng chuẩn y khoa từ hệ thống ImplantSwiss.</p>
             </div>
 
-            <div class="gallery-grid">
+            <div class="gallery-grid mobile-slider">
                 <div class="gallery-item"><img src="ngayhoi_item/ig_img (1).jpg" alt="Hệ thống ImplantSwiss" /></div>
                 <div class="gallery-item"><img src="ngayhoi_item/ig_img (2).jpg" alt="Máng hướng dẫn Guided Surgery" /></div>
                 <div class="gallery-item"><img src="ngayhoi_item/ig_img (3).jpg" alt="Trường hợp cấy ghép lâm sàng" /></div>
                 <div class="gallery-item"><img src="ngayhoi_item/ig_img (4).jpg" alt="Thiết kế ren nén xương tối ưu" /></div>
                 <div class="gallery-item"><img src="ngayhoi_item/ig_img (5).jpg" alt="Giải pháp phục hình Zygoma" /></div>
                 <div class="gallery-item"><img src="ngayhoi_item/ig_img (6).jpg" alt="Trụ ngắn Short Implant" /></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION - TIN TỨC & CHIA SẺ (BLOG) -->
+    <section class="section-padding blog-section" id="blog">
+        <div class="container">
+            <div class="section-header center reveal">
+                <span class="curved-badge">Tin tức &amp; Chia sẻ</span>
+                <h2>Góc Kiến Thức &amp; <span class="text-gradient">Kinh Nghiệm</span></h2>
+                <p>Các bài viết chuyên sâu chia sẻ kiến thức và lưu ý quan trọng trước - sau khi trồng răng Implant từ Nha khoa Flora.</p>
+            </div>
+
+            <div class="blog-grid reveal">
+                <!-- Card 1 -->
+                <div class="blog-card" onclick="openBlogModal(1)">
+                    <img src="ngayhoi_item/fb1.jpg" alt="4 Lợi ích khi trồng răng Implant" class="blog-card-img" />
+                    <div class="blog-card-content">
+                        <h4>4 Lợi ích khi trồng răng Implant</h4>
+                        <p>Mất răng không chỉ ảnh hưởng đến nụ cười mà còn tác động lớn đến khả năng ăn nhai và sức khỏe xương hàm...</p>
+                        <span class="blog-readmore">Xem chi tiết <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="blog-card" onclick="openBlogModal(2)">
+                    <img src="ngayhoi_item/fb2.jpg" alt="Những điều cần lưu ý sau khi cấy ghép Implant" class="blog-card-img" />
+                    <div class="blog-card-content">
+                        <h4>Những lưu ý sau khi cấy ghép</h4>
+                        <p>Sau khi cấy ghép Implant, việc chăm sóc đúng cách sẽ giúp trụ Implant ổn định tốt, nhanh lành thương...</p>
+                        <span class="blog-readmore">Xem chi tiết <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="blog-card" onclick="openBlogModal(3)">
+                    <img src="ngayhoi_item/fb3.jpg" alt="Trồng răng Implant - Giải pháp phục hồi răng tối ưu nhất" class="blog-card-img" />
+                    <div class="blog-card-content">
+                        <h4>Giải pháp phục hồi răng tối ưu</h4>
+                        <p>Mất răng không chỉ ảnh hưởng đến thẩm mỹ mà còn làm suy giảm khả năng ăn nhai và gây tiêu xương hàm...</p>
+                        <span class="blog-readmore">Xem chi tiết <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="blog-card" onclick="openBlogModal(4)">
+                    <img src="ngayhoi_item/fb4.jpg" alt="Trồng 1 răng Implant và nhiều răng Implant khác nhau như thế nào?" class="blog-card-img" />
+                    <div class="blog-card-content">
+                        <h4>Trồng 1 răng &amp; nhiều răng khác nhau thế nào?</h4>
+                        <p>Không phải mọi trường hợp mất răng đều áp dụng cùng một phương pháp Implant. Tùy vào số lượng răng mất...</p>
+                        <span class="blog-readmore">Xem chi tiết <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION - CÂU HỎI THƯỜNG GẶP (FAQ) -->
+    <section class="section-padding faq-section" id="faq">
+        <div class="container">
+            <div class="section-header center reveal">
+                <span class="curved-badge">Giải đáp thắc mắc</span>
+                <h2>Câu Hỏi <span class="text-gradient">Thường Gặp</span></h2>
+                <p>Những băn khoăn phổ biến của khách hàng về dịch vụ cấy ghép Implant được chuyên gia giải đáp chi tiết.</p>
+            </div>
+
+            <div class="faq-container reveal">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Cấy ghép Implant có đau nhiều không?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Quá trình cấy ghép Implant tại Nha khoa Flora được thực hiện dưới sự hỗ trợ của thuốc gây tê chuyên dụng cùng kỹ thuật cấy ghép êm ái, hạn chế tối đa xâm lấn của bác sĩ. Trong suốt quá trình phẫu thuật (chỉ mất khoảng 15-20 phút cho một trụ), bạn hoàn toàn không cảm thấy đau đớn. Sau khi thuốc tê hết tác dụng, cảm giác ê nhẹ có thể xuất hiện nhưng hoàn toàn nằm trong tầm kiểm soát và sẽ nhanh chóng biến mất sau 2-3 ngày.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Thời gian hoàn tất một ca cấy ghép Implant mất bao lâu?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Một quy trình cấy ghép Implant gồm 2 giai đoạn chính. Giai đoạn 1 là cấy trụ Implant vào xương hàm (chỉ mất 15-20 phút/trụ). Giai đoạn 2 là gắn mão răng sứ lên trụ sau khi trụ đã tích hợp hoàn toàn vào xương hàm (thường từ 2 đến 6 tháng tùy theo cơ địa và loại trụ bạn lựa chọn). Với trụ Implant Thụy Sĩ ImplantSwiss chất lượng cao, bề mặt sinh học đặc biệt giúp đẩy nhanh tốc độ tích hợp xương, rút ngắn đáng kể thời gian chờ đợi.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Trụ Implant Thụy Sĩ ImplantSwiss có gì vượt trội?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            ImplantSwiss là thương hiệu trụ Implant hàng đầu thế giới của Thụy Sĩ. Ưu điểm nổi bật của dòng trụ này bao gồm: (1) Thiết kế ren nén xương thông minh giúp đạt độ ổn định sơ khởi cực cao; (2) Công nghệ xử lý bề mặt SRA tối ưu khả năng tích hợp tế bào xương; (3) Kết nối Abutment lục giác siêu khít chống xoay và ngăn vi khuẩn xâm nhập; (4) Tuổi thọ trọn đời nếu chăm sóc đúng cách.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Trụ Implant cấy ghép có được bảo hành không?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Tất cả trụ Implant cấy ghép tại Nha khoa Flora, đặc biệt là dòng trụ ImplantSwiss Thụy Sĩ, đều được cấp thẻ bảo hành chính hãng từ nhà sản xuất. Hãng cam kết bảo hành chất lượng trụ trọn đời trên toàn thế giới, giúp bạn hoàn toàn an tâm ăn nhai và sử dụng lâu dài.
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -3263,62 +4040,93 @@
     <!-- FOOTER -->
     <footer class="footer">
         <div class="container footer-grid">
+            <!-- Left Column: Intro -->
             <div>
-                <h3>Nha Khoa Flora</h3>
-                <p>Nha khoa Flora cam kết mang đến những giá trị điều trị chuẩn mực nhất. Hệ thống trang thiết bị tiên tiến, đội ngũ bác sĩ được đào tạo chuyên sâu và quy trình điều trị tối ưu trải nghiệm khách hàng.</p>
-                <div class="footer-socials">
-                    <a href="https://facebook.com" class="social-btn" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://instagram.com" class="social-btn" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://nhakhoaflora.com" class="social-btn" target="_blank"><i class="fa-solid fa-globe"></i></a>
-                    <a href="https://youtube.com" class="social-btn" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                <h3 style="font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 8px; margin-bottom: 15px; width: fit-content; font-weight: 700;">Nha Khoa Flora</h3>
+                <p style="font-size: 0.85rem; line-height: 1.6; color: #cbd5e1; margin: 0;">Nha Khoa Flora là phòng khám nha khoa đạt tiêu chuẩn quốc tế, cung cấp các dịch vụ điều trị nha khoa tổng quát và chuyên sâu</p>
+            </div>
+            
+            <!-- Middle Column: Info -->
+            <div>
+                <h3 style="font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 8px; margin-bottom: 15px; width: fit-content; font-weight: 700;">THÔNG TIN</h3>
+                <div style="font-size: 0.85rem; line-height: 1.6; color: #cbd5e1; display: flex; flex-direction: column; gap: 10px;">
+                    <p style="margin: 0;">CN 01: 257 - 259 Nguyễn Đình Chiểu, P.5, Q. 3, Tp. HCM</p>
+                    <p style="margin: 0;">CN 02: 246B Xô Viết Nghệ Tĩnh, P.21, Q. Bình Thạnh, TP.HCM</p>
+                    <p style="margin: 0; margin-top: 10px;">Hotline: 028 7305 8999</p>
+                    <p style="margin: 0;">Website: <a href="https://nhakhoaflora.com" target="_blank" style="color: var(--clr-accent); text-decoration: none;">https://nhakhoaflora.com</a></p>
+                    <p style="margin: 0;">Email: support@floraclinic.vn</p>
+                    <p style="margin: 0;">Giờ làm việc: 8:00 - 18:00 | (T2 - CN)</p>
                 </div>
             </div>
-            <div class="footer-info">
-                <div class="info-row">
-                    <i class="fa-solid fa-phone"></i>
-                    <div>
-                        <strong>Điện thoại liên hệ</strong>
-                        <p>028 7305 8999</p>
-                    </div>
+
+            <!-- Right Column: Socials & Policies -->
+            <div>
+                <h3 style="font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 8px; margin-bottom: 15px; width: fit-content; font-weight: 700;">LIÊN HỆ</h3>
+                <div class="social-icons follow-icons" style="display: flex; gap: 8px; margin-bottom: 20px;">
+                    <a href="https://facebook.com/nhakhoaflora" target="_blank" class="social-btn" aria-label="Follow on Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/nhakhoaflora.hcm/" target="_blank" class="social-btn" aria-label="Follow on Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@nhakhoaflora" target="_blank" class="social-btn" aria-label="Follow on TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="tel:02873058999" class="social-btn" aria-label="Call us"><i class="fa-solid fa-phone"></i></a>
+                    <a href="https://youtube.com/c/nhakhoaflora" target="_blank" class="social-btn" aria-label="Follow on YouTube"><i class="fa-brands fa-youtube"></i></a>
                 </div>
-                <div class="info-row">
-                    <i class="fa-solid fa-envelope"></i>
-                    <div>
-                        <strong>Địa chỉ thư điện tử</strong>
-                        <p>support@floraclinic.vn</p>
-                    </div>
-                </div>
-                <div class="info-row">
-                    <i class="fa-solid fa-clock"></i>
-                    <div>
-                        <strong>Thời gian làm việc</strong>
-                        <p>8:00 - 18:00 | Thứ 2 - Chủ Nhật</p>
-                    </div>
+                <div style="font-size: 0.85rem; line-height: 1.6; color: #cbd5e1; display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;">
+                    <p style="margin: 0;"><a href="https://nhakhoaflora.com/chinh-sach-bao-hanh" target="_blank" style="color: #cbd5e1; text-decoration: none; transition: var(--transition);" onmouseover="this.style.color='var(--clr-accent)'" onmouseout="this.style.color='#cbd5e1'">Chính sách bảo hành tại Flora</a></p>
+                    <p style="margin: 0;"><a href="https://nhakhoaflora.com/chinh-sach-bao-mat-thong-tin-khach-hang" target="_blank" style="color: #cbd5e1; text-decoration: none; transition: var(--transition);" onmouseover="this.style.color='var(--clr-accent)'" onmouseout="this.style.color='#cbd5e1'">Chính sách bảo mật thông tin Khách hàng</a></p>
                 </div>
             </div>
         </div>
         <div class="container footer-bottom">
-            <p>&copy; 2026 Nha Khoa Flora. Bảo lưu mọi quyền.</p>
-            <p>Hợp tác phát triển cùng Brandson</p>
+            <p>Copyright 2026 &copy; Flora Dental</p>
         </div>
     </footer>
 
-    <!-- POPUP KHUYẾN MÃI (Updated button) -->
+    <!-- Blog Post Modal -->
+    <div class="modal" id="blogModal" style="z-index: 9999; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);">
+        <div class="modal-box" style="max-width: 600px; max-height: 85vh; overflow-y: auto; padding: 30px;">
+            <button class="modal-close" onclick="closeBlogModal()"><i class="fa-solid fa-xmark"></i></button>
+            <img id="modal-blog-img" src="" alt="" style="width: 100%; border-radius: var(--radius-md); margin-bottom: 20px; aspect-ratio: 1; object-fit: cover; border: 1px solid var(--clr-border);" />
+            <h3 id="modal-blog-title" style="font-size: 1.3rem; color: var(--clr-navy); margin-bottom: 15px; font-weight: 800; line-height: 1.3; font-family: var(--font-title);"></h3>
+            <div id="modal-blog-body" style="font-size: 0.92rem; line-height: 1.6; color: var(--clr-text); white-space: pre-wrap; text-align: left;"></div>
+        </div>
+    </div>
+
+    <!-- POPUP KHUYẾN MÃI -->
     <div class="modal" id="promoPopup">
-        <div class="modal-box">
-            <button class="modal-close" id="closePromoBtn"><i class="fa-solid fa-xmark"></i></button>
-            <div class="modal-body" style="text-align: center; display: flex; flex-direction: column; gap: 16px;">
-                <span class="curved-badge" style="margin: 0 auto;">Đặc biệt tại sự kiện</span>
-                <h3 style="font-size: 1.3rem;">CHỈ DIỄN RA TRONG NGÀY HỘI IMPLANT FLORA 2026!</h3>
-                <p style="font-size: 0.95rem; line-height: 1.5;">
-                    Ưu đãi dịch vụ tại Flora lên đến 15% cùng cơ hội nhận <strong>03 SUẤT TÀI TRỢ ĐẶC BIỆT 50%</strong> chi phí trụ ImplantSwiss Thụy Sĩ.
-                </p>
-                <div style="background-color: var(--clr-bg-light); border: 1px solid var(--clr-border); padding: 16px; border-radius: var(--radius-sm); text-align: left; font-size: 0.88rem; display: flex; flex-direction: column; gap: 8px;">
-                    <div><i class="fa-solid fa-check" style="color: var(--clr-secondary); margin-right: 8px;"></i> 3 Suất tài trợ đặc biệt từ hãng Swiss</div>
-                    <div><i class="fa-solid fa-check" style="color: var(--clr-secondary); margin-right: 8px;"></i> Ưu đãi 15% Implant Swiss</div>
-                    <div><i class="fa-solid fa-check" style="color: var(--clr-secondary); margin-right: 8px;"></i> Thăm khám & tư vấn 1:1 cùng chuyên gia</div>
+        <div class="modal-box" style="max-width: 520px; padding: 30px;">
+            <button class="modal-close" id="closePromoBtn" style="top: 15px; right: 15px;"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-body" style="text-align: center; display: flex; flex-direction: column; gap: 12px; padding: 0;">
+                
+                <span style="color: var(--clr-secondary); font-weight: 800; font-size: 0.82rem; letter-spacing: 0.04em; text-transform: uppercase;">CHỈ DIỄN RA TRONG NGÀY HỘI IMPLANT TẠI NHA KHOA FLORA</span>
+                
+                <div class="popup-logos" style="display: flex; align-items: center; justify-content: center; gap: 24px; margin: 8px 0 15px; padding-bottom: 12px; border-bottom: 1px solid var(--clr-border);">
+                    <img src="assets/implantswiss-logo-gray.png" alt="ImplantSwiss Logo" style="height: 25px; width: auto; object-fit: contain;" />
+                    <div style="width: 1px; height: 16px; background-color: var(--clr-border);"></div>
+                    <img src="assets/brandson_logo.png" alt="Brandson Logo" style="height: 28px; width: auto; object-fit: contain; filter: grayscale(1); opacity: 0.75;" />
                 </div>
-                <button class="btn btn-primary" id="promoRegisterBtn" style="width: 100%; margin-top: 8px;">ĐĂNG KÝ NGAY</button>
+
+                <!-- Program Box with circular '3' -->
+                <div style="display: flex; align-items: center; gap: 20px; text-align: left; background: rgba(35, 158, 183, 0.06); border: 1.5px dashed var(--clr-secondary); border-radius: var(--radius-md); padding: 20px; margin: 5px 0 10px;">
+                    <!-- Large Circular Number 3 -->
+                    <div style="flex-shrink: 0; width: 75px; height: 75px; border-radius: 50%; background: linear-gradient(135deg, var(--clr-primary) 0%, #1e2e8c 100%); color: var(--clr-white); display: flex; align-items: center; justify-content: center; font-size: 2.8rem; font-weight: 800; font-family: var(--font-title); border: 3px solid var(--clr-secondary); box-shadow: 0 6px 15px rgba(17, 29, 97, 0.25);">3</div>
+                    <!-- Program Content -->
+                    <div style="display: flex; flex-direction: column; gap: 6px;">
+                        <h3 style="font-size: 0.9rem; font-weight: 800; color: var(--clr-primary); text-transform: uppercase; margin: 0; line-height: 1.35; font-family: var(--font-title);">SUẤT TÀI TRỢ ĐẶC BIỆT TỪ HÃNG IMPLANT SWISS</h3>
+                        <div style="height: 1px; background: rgba(17, 29, 97, 0.15); width: 100%;"></div>
+                        <h4 style="font-size: 0.82rem; font-weight: 700; color: var(--clr-secondary); text-transform: uppercase; margin: 0; line-height: 1.35; font-family: var(--font-title);">TÀI TRỢ 50% CHI PHÍ TRỤ IMPLANT TỪ IMPLANT SWISS</h4>
+                    </div>
+                </div>
+
+                <div style="background-color: var(--clr-bg-light); border: 1px solid var(--clr-border); padding: 18px; border-radius: var(--radius-sm); text-align: left; font-size: 0.9rem; display: flex; flex-direction: column; gap: 8px; margin-bottom: 8px;">
+                    <p style="font-weight: 700; color: var(--clr-navy); margin-bottom: 4px;">Cùng nhiều quyền lợi dành riêng cho khách tham dự:</p>
+                    <div style="display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-check" style="color: var(--clr-secondary); font-size: 0.85rem;"></i> <span>Ưu đãi 15% Implant Swiss</span></div>
+                    <div style="display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-check" style="color: var(--clr-secondary); font-size: 0.85rem;"></i> <span>Thăm khám & tư vấn 1:1 cùng chuyên gia</span></div>
+                </div>
+
+                <p style="font-size: 0.75rem; line-height: 1.4; color: var(--clr-text-muted); text-align: left; margin-bottom: 5px;">* Chương trình áp dụng cho khách hàng mất răng đủ điều kiện điều trị, được Bác sĩ thăm khám và xác nhận phù hợp với phác đồ Implant</p>
+
+                <p style="font-size: 0.82rem; font-weight: 800; color: var(--clr-secondary); text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; justify-content: center; gap: 6px; margin-bottom: 10px;"><i class="fa-solid fa-circle-exclamation"></i> Số lượng có hạn</p>
+
+                <button class="btn btn-primary" id="promoRegisterBtn" style="width: 100%; font-size: 1rem; padding: 14px 20px;">ĐĂNG KÝ NGAY</button>
             </div>
         </div>
     </div>
@@ -3486,7 +4294,33 @@
             dots[currentIdx].classList.remove('active');
             dots[idx].classList.add('active');
             currentIdx = idx;
+            
+            // Adjust slider height dynamically to remove empty white space
+            const activeCard = slides[idx].querySelector('.testimonial-card');
+            const wrapper = document.querySelector('.slider-wrapper');
+            if (activeCard && wrapper) {
+                requestAnimationFrame(() => {
+                    wrapper.style.height = activeCard.offsetHeight + 'px';
+                });
+            }
         }
+
+        // Set initial testimonial slider height
+        const firstCard = slides[0].querySelector('.testimonial-card');
+        const testimonialWrapper = document.querySelector('.slider-wrapper');
+        if (firstCard && testimonialWrapper) {
+            setTimeout(() => {
+                testimonialWrapper.style.height = firstCard.offsetHeight + 'px';
+            }, 300);
+        }
+
+        window.addEventListener('resize', () => {
+            const activeCard = slides[currentIdx].querySelector('.testimonial-card');
+            const wrapper = document.querySelector('.slider-wrapper');
+            if (activeCard && wrapper) {
+                wrapper.style.height = activeCard.offsetHeight + 'px';
+            }
+        });
 
         let slideInterval = setInterval(() => {
             moveToSlide((currentIdx + 1) % slides.length);
@@ -3619,7 +4453,8 @@
             const lockTargets = [
                 document.getElementById('promoPopup'),
                 document.getElementById('successPopup'),
-                document.getElementById('drawerNav')
+                document.getElementById('drawerNav'),
+                document.getElementById('blogModal')
             ];
 
             lockTargets.forEach(target => {
@@ -3772,11 +4607,287 @@
 
 
 
+        // Initialize mobile sliders for grids
+        function initMobileSliders() {
+            const sliders = document.querySelectorAll('.mobile-slider');
+            
+            sliders.forEach(slider => {
+                if (slider.classList.contains('no-dots')) return;
+                const cards = slider.children;
+                if (cards.length === 0) return;
+                
+                // Create dots container
+                const dotsContainer = document.createElement('div');
+                dotsContainer.className = 'mobile-slider-dots';
+                slider.parentNode.insertBefore(dotsContainer, slider.nextSibling);
+                
+                const dots = [];
+                for (let i = 0; i < cards.length; i++) {
+                    const dot = document.createElement('button');
+                    dot.className = 'mobile-slider-dot' + (i === 0 ? ' active' : '');
+                    dot.setAttribute('aria-label', `Trượt tới slide ${i + 1}`);
+                    
+                    dot.addEventListener('click', () => {
+                        const cardWidth = cards[0].offsetWidth;
+                        const style = window.getComputedStyle(slider);
+                        const gap = parseFloat(style.gap) || 16;
+                        slider.scrollTo({
+                            left: i * (cardWidth + gap),
+                            behavior: 'smooth'
+                        });
+                    });
+                    
+                    dotsContainer.appendChild(dot);
+                    dots.push(dot);
+                }
+                
+                // Scroll synchronization to update active dot
+                let scrollTimeout;
+                slider.addEventListener('scroll', () => {
+                    window.clearTimeout(scrollTimeout);
+                    scrollTimeout = setTimeout(() => {
+                        const cardWidth = cards[0].offsetWidth;
+                        const style = window.getComputedStyle(slider);
+                        const gap = parseFloat(style.gap) || 16;
+                        const scrollLeft = slider.scrollLeft;
+                        const activeIndex = Math.min(
+                            Math.round(scrollLeft / (cardWidth + gap)),
+                            cards.length - 1
+                        );
+                        
+                        dots.forEach((dot, idx) => {
+                            if (idx === activeIndex) {
+                                dot.classList.add('active');
+                            } else {
+                                dot.classList.remove('active');
+                            }
+                        });
+                    }, 50);
+                }, { passive: true });
+            });
+        }
+        
+        initMobileSliders();
+
+        function animateCounter(el) {
+            const target = parseInt(el.getAttribute('data-target'), 10);
+            const duration = 2000; // 2 seconds
+            const startTime = performance.now();
+
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                // Ease out quad
+                const easeProgress = progress * (2 - progress);
+                const currentValue = Math.floor(easeProgress * target);
+                
+                // Format with dot separator (e.g. 7.500)
+                el.innerText = currentValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.') + '+';
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                } else {
+                    el.innerText = target.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.') + '+';
+                }
+            }
+
+            requestAnimationFrame(update);
+        }
+
+        // Scroll Reveal Animation Initialization
+        function initScrollReveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        
+                        // Trigger counter if present inside reveal container
+                        const counter = entry.target.querySelector('#counter-implant');
+                        if (counter) {
+                            animateCounter(counter);
+                        }
+                        
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            reveals.forEach(reveal => {
+                if (reveal.closest('#banner')) {
+                    setTimeout(() => {
+                        reveal.classList.add('active');
+                        const counter = reveal.querySelector('#counter-implant');
+                        if (counter) {
+                            animateCounter(counter);
+                        }
+                    }, 150);
+                } else {
+                    observer.observe(reveal);
+                }
+            });
+        }
+        document.addEventListener('DOMContentLoaded', initScrollReveal);
+
+        // FAQ Accordion Toggle Logic
+        function initFAQ() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const button = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                
+                button.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('.faq-answer').style.maxHeight = null;
+                    });
+                    
+                    if (!isActive) {
+                        item.classList.add('active');
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                    }
+                });
+            });
+        }
+        document.addEventListener('DOMContentLoaded', initFAQ);
+
+        // Gentle Snowfall Effect for Hero Section
+        function initSnowfall() {
+            const canvas = document.getElementById('snow-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            let width = canvas.offsetWidth;
+            let height = canvas.offsetHeight;
+            canvas.width = width;
+            canvas.height = height;
+
+            window.addEventListener('resize', () => {
+                width = canvas.offsetWidth;
+                height = canvas.offsetHeight;
+                canvas.width = width;
+                canvas.height = height;
+            });
+
+            const maxFlakes = 45; // Low density for gentle, high-performance snow
+            const flakes = [];
+
+            for (let i = 0; i < maxFlakes; i++) {
+                flakes.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    r: Math.random() * 2 + 1, // Flake size: 1px to 3px
+                    speed: Math.random() * 0.4 + 0.15, // Very slow descent
+                    wind: Math.random() * 0.2 - 0.1 // Slight side drift
+                });
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, width, height);
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.75)';
+                ctx.beginPath();
+                for (let i = 0; i < maxFlakes; i++) {
+                    const f = flakes[i];
+                    ctx.moveTo(f.x, f.y);
+                    ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2, true);
+                }
+                ctx.fill();
+                update();
+                requestAnimationFrame(draw);
+            }
+
+            function update() {
+                for (let i = 0; i < maxFlakes; i++) {
+                    const f = flakes[i];
+                    f.y += f.speed;
+                    f.x += f.wind;
+
+                    if (f.y > height) {
+                        flakes[i] = {
+                            x: Math.random() * width,
+                            y: -10,
+                            r: f.r,
+                            speed: f.speed,
+                            wind: f.wind
+                        };
+                    }
+                    if (f.x > width + 5 || f.x < -5) {
+                        f.x = f.x > width ? -5 : width + 5;
+                    }
+                }
+            }
+
+            draw();
+        }
+        initSnowfall();
+
+        // Facebook Blog Posts Data
+        const blogPosts = {
+            1: {
+                title: "4 LỢI ÍCH KHI TRỒNG RĂNG IMPLANT",
+                image: "ngayhoi_item/fb1.jpg",
+                content: `🦷 4 LỢI ÍCH KHI TRỒNG RĂNG IMPLANT\n\nMất răng không chỉ ảnh hưởng đến nụ cười mà còn tác động lớn đến khả năng ăn nhai và sức khỏe xương hàm. Implant hiện là giải pháp phục hồi răng hiện đại được nhiều khách hàng lựa chọn nhờ những ưu điểm vượt trội:\n\n✨ 1. Khôi phục ăn nhai chắc chắn\nRăng Implant có độ ổn định cao, giúp ăn nhai gần như răng thật và thoải mái thưởng thức món ăn yêu thích.\n\n✨ 2. Ngăn ngừa tiêu xương hàm\nTrụ Implant thay thế chân răng đã mất, hỗ trợ duy trì mật độ xương và hạn chế tình trạng hóp má, lão hóa khuôn mặt.\n\n✨ 3. Thẩm mỹ tự nhiên\nRăng sứ trên Implant được thiết kế hài hòa với màu sắc và hình dáng răng thật, mang lại nụ cười tự nhiên, tự tin hơn.\n\n✨ 4. Độ bền cao, sử dụng lâu dài\nNếu chăm sóc đúng cách và tái khám định kỳ, Implant có thể sử dụng ổn định trong nhiều năm.\n\n📞 Tại Nha khoa Flora, khách hàng được thăm khám kỹ lưỡng và lên phác đồ Implant phù hợp với từng tình trạng mất răng, giúp quá trình phục hồi an toàn và tối ưu hiệu quả.`
+            },
+            2: {
+                title: "NHỮNG ĐIỀU CẦN LƯU Ý SAU KHI CẤY GHÉP IMPLANT",
+                image: "ngayhoi_item/fb2.jpg",
+                content: `🦷 NHỮNG ĐIỀU CẦN LƯU Ý SAU KHI CẤY GHÉP IMPLANT\n\nSau khi cấy ghép Implant, việc chăm sóc đúng cách sẽ giúp trụ Implant ổn định tốt, nhanh lành thương và tăng độ bền lâu dài.\n\n✨ Một số lưu ý quan trọng sau khi trồng Implant:\n✔️ Dùng thuốc đúng theo hướng dẫn của bác sĩ\n✔️ Hạn chế ăn đồ quá cứng, quá nóng trong những ngày đầu\n✔️ Không hút thuốc lá, hạn chế rượu bia sau cấy ghép\n✔️ Vệ sinh răng miệng nhẹ nhàng, sạch sẽ mỗi ngày\n✔️ Tái khám đúng lịch để bác sĩ kiểm tra độ tích hợp của Implant\n\n💎 Sau cấy ghép, tình trạng hơi ê nhẹ hoặc sưng nhẹ trong vài ngày đầu là phản ứng bình thường. Tuy nhiên, nếu đau kéo dài hoặc có dấu hiệu bất thường, bạn nên liên hệ nha khoa để được kiểm tra kịp thời.\n\nTại Nha khoa Flora, khách hàng luôn được bác sĩ theo dõi sát sao sau điều trị và hướng dẫn chăm sóc chi tiết nhằm đảm bảo quá trình phục hồi an toàn, hiệu quả.\n\n📞 Liên hệ Flora để được tư vấn và đồng hành cùng bạn trên hành trình phục hồi nụ cười khỏe đẹp!`
+            },
+            3: {
+                title: "TRỒNG RĂNG IMPLANT – GIẢI PHÁP PHỤC HỒI RĂNG TỐI ƯU NHẤT",
+                image: "ngayhoi_item/fb3.jpg",
+                content: `🦷 TRỒNG RĂNG IMPLANT – GIẢI PHÁP PHỤC HỒI RĂNG TỐI ƯU NHẤT\n\nMất răng không chỉ ảnh hưởng đến thẩm mỹ mà còn làm suy giảm khả năng ăn nhai và gây tiêu xương hàm theo thời gian. Implant được xem là giải pháp hiện đại giúp phục hồi răng mất một cách chắc chắn, bền đẹp và tự nhiên gần như răng thật.\n\n✨ Vì sao nhiều khách hàng lựa chọn Implant tại Nha khoa Flora?\n✔️ Khôi phục khả năng ăn nhai chắc khỏe\n✔️ Ngăn ngừa tiêu xương hàm hiệu quả\n✔️ Thẩm mỹ tự nhiên, hài hòa nụ cười\n✔️ Không ảnh hưởng đến răng bên cạnh\n✔️ Độ bền cao, sử dụng lâu dài\n\nTại Nha khoa Flora, quy trình cấy ghép Implant được thực hiện với công nghệ hiện đại, bác sĩ thăm khám kỹ lưỡng và xây dựng phác đồ phù hợp cho từng tình trạng mất răng, giúp khách hàng an tâm trong suốt quá trình điều trị.\n\n📞 Đừng để mất răng ảnh hưởng đến chất lượng cuộc sống của bạn!\nLiên hệ Flora ngay hôm nay để được tư vấn giải pháp phục hồi phù hợp và lấy lại nụ cười tự tin.`
+            },
+            4: {
+                title: "TRỒNG 1 RĂNG IMPLANT VÀ NHIỀU RĂNG IMPLANT KHÁC NHAU NHƯ THẾ NÀO?",
+                image: "ngayhoi_item/fb4.jpg",
+                content: `🦷 TRỒNG 1 RĂNG IMPLANT VÀ NHIỀU RĂNG IMPLANT KHÁC NHAU NHƯ THẾ NÀO?\n\nKhông phải mọi trường hợp mất răng đều áp dụng cùng một phương pháp Implant. Tùy vào số lượng răng mất, tình trạng xương hàm và sức khỏe răng miệng, bác sĩ sẽ đưa ra phác đồ điều trị phù hợp nhất.\n\n✨ Với trường hợp mất 1 răng:\n• Cấy 1 trụ Implant độc lập tại vị trí mất răng\n• Không ảnh hưởng răng bên cạnh\n• Khôi phục ăn nhai và thẩm mỹ tự nhiên như răng thật\n\n✨ Với trường hợp mất nhiều răng:\n• Có thể cấy nhiều trụ Implant hoặc kết hợp cầu răng trên Implant để tối ưu chi phí\n• Giúp phục hồi toàn diện chức năng ăn nhai\n• Hạn chế tiêu xương hàm và tình trạng xô lệch răng còn lại\n\n💎 Dù mất 1 răng hay nhiều răng, Implant vẫn là giải pháp hiện đại giúp phục hồi chắc chắn, bền đẹp và cải thiện chất lượng cuộc sống lâu dài.\n\nTại Nha khoa Flora, khách hàng được chụp phim, kiểm tra mật độ xương, lên kế hoạch điều trị cá nhân hóa nhằm đảm bảo quá trình cấy ghép an toàn và đạt hiệu quả tối ưu.\n\n📞 Đừng để mất răng kéo dài ảnh hưởng đến sức khỏe và sự tự tin của bạn!\nLiên hệ Flora để được bác sĩ tư vấn giải pháp Implant phù hợp ngay hôm nay.`
+            }
+        };
+
+        function openBlogModal(id) {
+            const modal = document.getElementById('blogModal');
+            const post = blogPosts[id];
+            if (!modal || !post) return;
+
+            document.getElementById('modal-blog-img').src = post.image;
+            document.getElementById('modal-blog-img').alt = post.title;
+            document.getElementById('modal-blog-title').innerText = post.title;
+            document.getElementById('modal-blog-body').innerText = post.content;
+
+            modal.classList.add('active');
+        }
+
+        function closeBlogModal() {
+            const modal = document.getElementById('blogModal');
+            if (modal) {
+                modal.classList.remove('active');
+            }
+        }
+
+        // Close on overlay click
+        const blogModal = document.getElementById('blogModal');
+        if (blogModal) {
+            blogModal.addEventListener('click', (e) => {
+                if (e.target === blogModal) {
+                    closeBlogModal();
+                }
+            });
+        }
+
         // Close on ESC
         window.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 promoPopup.classList.remove('active');
                 successPopup.classList.remove('active');
+                closeBlogModal();
             }
         });
     </script>
