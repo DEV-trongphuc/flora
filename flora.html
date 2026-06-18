@@ -603,7 +603,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.75) 100%);
+            /* background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.25) 100%); */
             z-index: 1;
             pointer-events: none;
         }
@@ -3919,28 +3919,75 @@
         }
 
         @keyframes float-decor-1 {
-            0%, 100% { transform: translateY(0) rotate(-8deg); }
-            50% { transform: translateY(-8px) rotate(-7deg); }
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(-8deg);
+            }
+
+            50% {
+                transform: translateY(-8px) rotate(-7deg);
+            }
         }
+
         @keyframes float-decor-2 {
-            0%, 100% { transform: translateY(0) rotate(4deg); }
-            50% { transform: translateY(-6px) rotate(5deg); }
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(4deg);
+            }
+
+            50% {
+                transform: translateY(-6px) rotate(5deg);
+            }
         }
+
         @keyframes float-decor-3 {
-            0%, 100% { transform: translateY(0) rotate(-6deg); }
-            50% { transform: translateY(-10px) rotate(-5deg); }
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(-6deg);
+            }
+
+            50% {
+                transform: translateY(-10px) rotate(-5deg);
+            }
         }
+
         @keyframes float-decor-4 {
-            0%, 100% { transform: translateY(0) rotate(8deg); }
-            50% { transform: translateY(-7px) rotate(7deg); }
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(8deg);
+            }
+
+            50% {
+                transform: translateY(-7px) rotate(7deg);
+            }
         }
+
         @keyframes float-decor-5 {
-            0%, 100% { transform: translateY(0) rotate(-4deg); }
-            50% { transform: translateY(-8px) rotate(-3deg); }
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(-4deg);
+            }
+
+            50% {
+                transform: translateY(-8px) rotate(-3deg);
+            }
         }
+
         @keyframes float-decor-6 {
-            0%, 100% { transform: translateY(0) rotate(-6deg); }
-            50% { transform: translateY(-9px) rotate(-7deg); }
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(-6deg);
+            }
+
+            50% {
+                transform: translateY(-9px) rotate(-7deg);
+            }
         }
 
         /* Hide floating decor on smaller viewports */
@@ -4563,7 +4610,8 @@
             <div class="offer-main-row">
                 <!-- Card 1: 50% Sponsorship -->
                 <div class="offer-card-img-wrapper reveal">
-                    <img src="ngayhoi_item/50_percent.png" alt="Suất Tài Trợ Trụ ImplantSwiss 50%" class="offer-card-img" />
+                    <img src="ngayhoi_item/50_percent.png" alt="Suất Tài Trợ Trụ ImplantSwiss 50%"
+                        class="offer-card-img" />
                 </div>
 
                 <!-- Card 2: 15% General Discount -->
