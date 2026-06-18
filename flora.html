@@ -235,6 +235,18 @@
             color: var(--clr-primary);
         }
 
+        .visually-hidden {
+            position: absolute !important;
+            width: 1px !important;
+            height: 1px !important;
+            padding: 0 !important;
+            margin: -1px !important;
+            overflow: hidden !important;
+            clip: rect(0, 0, 0, 0) !important;
+            white-space: nowrap !important;
+            border: 0 !important;
+        }
+
         /* Flat Curved Badge */
         .curved-badge {
             display: inline-block;
@@ -394,37 +406,25 @@
         }
 
         .header-bar.header-transparent .nav-links a {
-            color: rgba(255, 255, 255, 0.9);
+            color: var(--clr-navy);
         }
 
         .header-bar.header-transparent .nav-links a:hover {
-            color: var(--clr-accent);
+            color: var(--clr-secondary);
         }
 
         .header-bar.header-transparent .logo-sep {
-            background: rgba(255, 255, 255, 0.2);
+            background: var(--clr-border);
         }
 
         .header-bar.header-transparent .logo-img,
         .header-bar.header-transparent .logo-brandson,
         .header-bar.header-transparent .logo-swiss {
-            filter: brightness(0) invert(1);
-        }
-
-        .header-bar.header-transparent .btn-primary {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: var(--clr-white) !important;
-            box-shadow: none;
-        }
-
-        .header-bar.header-transparent .btn-primary:hover {
-            background: var(--clr-white);
-            color: var(--clr-navy) !important;
+            filter: none;
         }
 
         .header-bar.header-transparent .hamburger-btn span {
-            background: var(--clr-white);
+            background: var(--clr-navy);
         }
 
         .header-bar.header-hidden {
@@ -579,7 +579,7 @@
 
         /* ─── DYNAMIC DARK HERO SECTION (Premium Medical-Tech Vibe) ─── */
         .hero-wrapper {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             position: relative;
@@ -590,11 +590,10 @@
             content: '';
             position: absolute;
             inset: 0;
-            background-image: url('https://owa.bestprice.vn/images/articles/uploads/chinh-phuc-nui-titlis-dinh-nui-than-tien-hung-vi-tai-thuy-si-678a1f2600eee.png');
+            background-image: url('ngayhoi_item/HERO/hero_bg.jpg');
             background-size: cover;
             background-position: center;
-            filter: brightness(0.32) contrast(1.05);
-            transform: scale(1.02);
+            transform: scale(1.01);
             z-index: 0;
             pointer-events: none;
         }
@@ -603,22 +602,21 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(rgba(5, 16, 38, 0.35), rgba(5, 16, 38, 0.55));
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.75) 100%);
             z-index: 1;
             pointer-events: none;
         }
 
         .hero-section {
             flex: 1;
-            min-height: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 110px 0 40px;
+            padding: 120px 0 60px;
             background-color: transparent;
             position: relative;
             z-index: 2;
-            color: var(--clr-white);
+            color: var(--clr-text);
         }
 
         @media (max-width: 992px) {
@@ -629,6 +627,64 @@
             .hero-section {
                 flex: none;
                 padding: 100px 0 50px;
+            }
+        }
+
+        /* Centered Hero Redesign styles */
+        .hero-info-card {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1.5px solid rgba(0, 51, 163, 0.15);
+            border-radius: var(--radius-md);
+            padding: 16px 24px;
+            box-shadow: 0 10px 30px rgba(0, 51, 163, 0.06);
+            max-width: 580px;
+            width: 100%;
+            margin: 0 auto 24px auto;
+            box-sizing: border-box;
+        }
+
+        .info-card-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 1.25fr;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .info-card-col-1 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-right: 1.5px solid rgba(0, 51, 163, 0.1);
+            padding-right: 15px;
+        }
+
+        .info-card-col-2 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-left: 5px;
+            transition: var(--transition);
+        }
+        
+        .info-card-col-2:hover {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 576px) {
+            .info-card-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .info-card-col-1 {
+                border-right: none;
+                border-bottom: 1.5px solid rgba(0, 51, 163, 0.1);
+                padding-right: 0;
+                padding-bottom: 12px;
+            }
+            .info-card-col-2 {
+                padding-left: 0;
             }
         }
 
@@ -703,6 +759,58 @@
             opacity: 0.85;
             letter-spacing: 0.05em;
             text-transform: uppercase;
+        }
+
+        /* Hero Features Styling */
+        .hero-features-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .hero-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 220px;
+            text-align: left;
+        }
+
+        .hero-feature-item img {
+            width: 60px;
+            height: 60px;
+            flex-shrink: 0;
+        }
+
+        .hero-feature-text {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            color: #334155;
+            line-height: 1.3;
+            font-weight: 600;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-feature-text strong {
+            color: #0033a3;
+            font-size: 1.25rem;
+            font-family: var(--font-title);
+            font-weight: 800;
+            line-height: 1.1;
+            margin: 1px 0;
+        }
+
+        .hero-feature-text strong.small-strong {
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+
+        .hero-feature-text strong.accent-text {
+            color: #ef4444;
         }
 
         @media (max-width: 992px) {
@@ -3690,105 +3798,120 @@
         <a href="#dang-ky" class="btn btn-primary" style="margin-top: 15px; width: 100%;">Đăng ký đặt chỗ</a>
     </nav>
 
-    <!-- HERO SECTION (Awesome Conference Style Centered - Compact) -->
+    <!-- HERO SECTION (Centered Redesign with Light City Background) -->
     <div class="hero-wrapper">
         <section class="hero-section" id="banner">
             <div class="container" style="position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; height: 100%;">
-                <div class="reveal" style="max-width: 850px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 12px;">
-                    <span class="curved-badge"
-                        style="background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.15); color: #0493f1; margin-bottom: 0; font-size: 0.8rem; padding: 6px 16px; display: inline-flex; align-items: center;">
-                        <img src="ngayhoi_item/icon_va_avtar/icon-trụ-implant.webp" alt="icon"
-                            style="height: 16px; width: auto; vertical-align: middle; margin-right: 6px; display: inline-block;">
-                        Ngày Hội Implant 2026
-                    </span>
+                <div class="reveal" style="max-width: 850px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 16px;">
+                    
+                    <!-- Hidden H1 for SEO -->
+                    <h1 class="visually-hidden">Ngày Hội Implant 2026 - Vững Vàng Ăn Nhai Tự Tin Sống Khỏe</h1>
+                    
+                    <!-- Main Title Image -->
+                    <div style="text-align: center; margin-bottom: 8px; width: 100%;">
+                        <img src="ngayhoi_item/HERO/text_main.png" alt="Ngày Hội Implant 2026 Vững Vàng Ăn Nhai Tự Tin Sống Khỏe" 
+                             style="width: 100%; max-width: 560px; height: auto; display: block; margin: 0 auto;" />
+                    </div>
 
-                    <h1 style="display: flex; flex-direction: column; gap: 3px; margin-bottom: 8px;">
-                        <span style="display: inline-block; font-family: 'Dancing Script', cursive; background: linear-gradient(135deg, #fff2a3 0%, #dfb76c 60%, #c59f4e 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: clamp(1.8rem, 4.4vw, 3.2rem); font-weight: 700; line-height: 1.25; text-transform: none; filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.35)); margin-top: 2px;">
-                            Vững Vàng Ăn Nhai <br>Tự Tin Sống Khỏe
-                        </span>
-                    </h1>
-
-                    <div class="hero-desc-wrapper" style="margin-bottom: 15px; max-width: 660px;">
-                        <strong style="display: block; font-size: clamp(0.95rem, 2.1vw, 1.1rem); color: #0493f1; margin-bottom: 4px; font-family: var(--font-title); font-weight: 700;">
+                    <!-- Hero Subtitle & Description -->
+                    <div class="hero-desc-wrapper" style="margin-bottom: 20px; max-width: 660px; text-align: center;">
+                        <strong style="display: block; font-size: clamp(1.0rem, 2.2vw, 1.2rem); color: #0033a3; margin-bottom: 6px; font-family: var(--font-title); font-weight: 700;">
                             Từ mất răng lâu năm đến ăn nhai tự tin trở lại
                         </strong>
-                        <p style="font-size: clamp(0.85rem, 1.8vw, 0.95rem); color: #e2e8f0; line-height: 1.5; margin: 0; font-family: var(--font-body);">
+                        <p style="font-size: clamp(0.85rem, 1.8vw, 0.95rem); color: #334155; line-height: 1.6; margin: 0; font-family: var(--font-body);">
                             Hành trình lấy lại chức năng ăn nhai, để mỗi bữa ăn được trọn vẹn như trước tại Ngày hội Implant Flora.
                         </p>
                     </div>
 
-                    <!-- Countdown Timer -->
-                    <div class="countdown-container" style="margin-bottom: 18px; width: 100%; max-width: 440px; margin-left: auto; margin-right: auto;">
-                        <div class="countdown-title" style="color: #0493f1; font-size: clamp(0.68rem, 1.5vw, 0.8rem); font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 6px; text-align: center;">Sự kiện sẽ bắt đầu sau:</div>
-                        <div class="countdown-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
-                            <div class="countdown-box" style="padding: 10px 6px; background: #0a1931; border: 1.5px solid rgba(4, 147, 241, 0.35); border-radius: var(--radius-sm); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);">
-                                <span id="countdown-days" class="countdown-num" style="font-size: clamp(1.35rem, 3.2vw, 1.7rem); display: inline-block; width: 100%;">00</span>
-                                <span class="countdown-label" style="font-size: 0.65rem; color: #e2e8f0; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; display: block; margin-top: 4px;">Ngày</span>
+<!-- 3 Horizontal Features -->
+                    <div class="hero-features-container">
+                        <!-- Feature 1 -->
+                        <div class="hero-feature-item">
+                            <img src="ngayhoi_item/HERO/sponsorship_icon.png" alt="Tài trợ" />
+                            <div class="hero-feature-text">
+                                <span>Suất tài trợ</span>
+                                <strong>50%</strong>
+                                <span>chi phí implant</span>
                             </div>
-                            <div class="countdown-box" style="padding: 10px 6px; background: #0a1931; border: 1.5px solid rgba(4, 147, 241, 0.35); border-radius: var(--radius-sm); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);">
-                                <span id="countdown-hours" class="countdown-num" style="font-size: clamp(1.35rem, 3.2vw, 1.7rem); display: inline-block; width: 100%;">00</span>
-                                <span class="countdown-label" style="font-size: 0.65rem; color: #e2e8f0; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; display: block; margin-top: 4px;">Giờ</span>
+                        </div>
+                        <!-- Feature 2 -->
+                        <div class="hero-feature-item">
+                            <img src="ngayhoi_item/HERO/gift_icon.png" alt="Quà tặng" />
+                            <div class="hero-feature-text">
+                                <span>Bộ Quà Tặng</span>
+                                <strong class="small-strong">độc quyền</strong>
+                                <span>từ Flora</span>
                             </div>
-                            <div class="countdown-box" style="padding: 10px 6px; background: #0a1931; border: 1.5px solid rgba(4, 147, 241, 0.35); border-radius: var(--radius-sm); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);">
-                                <span id="countdown-minutes" class="countdown-num" style="font-size: clamp(1.35rem, 3.2vw, 1.7rem); display: inline-block; width: 100%;">00</span>
-                                <span class="countdown-label" style="font-size: 0.65rem; color: #e2e8f0; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; display: block; margin-top: 4px;">Phút</span>
-                            </div>
-                            <div class="countdown-box" style="padding: 10px 6px; background: #0a1931; border: 1.5px solid rgba(4, 147, 241, 0.35); border-radius: var(--radius-sm); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);">
-                                <span id="countdown-seconds" class="countdown-num" style="font-size: clamp(1.35rem, 3.2vw, 1.7rem); animation: pulse-number 1s infinite alternate; display: inline-block; width: 100%;">00</span>
-                                <span class="countdown-label" style="font-size: 0.65rem; color: #e2e8f0; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; display: block; margin-top: 4px;">Giây</span>
+                        </div>
+                        <!-- Feature 3 -->
+                        <div class="hero-feature-item">
+                            <img src="ngayhoi_item/HERO/join_icon.png" alt="Tham gia" />
+                            <div class="hero-feature-text">
+                                <span>Tham gia</span>
+                                <span>hoàn toàn</span>
+                                <strong class="accent-text">MIỄN PHÍ</strong>
                             </div>
                         </div>
                     </div>
 
-                    <div class="hero-actions" style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-                        <a href="#dang-ky" class="btn btn-primary" style="padding: 10px 24px; font-size: 0.88rem; gap: 8px;">Đăng Ký Nhận Vé Mời <i class="fa-solid fa-arrow-right"></i></a>
-                        <a href="#offer" class="btn btn-outline-white" style="padding: 10px 24px; font-size: 0.88rem;">Xem Chương Trình Ưu Đãi</a>
+                    <!-- Countdown Timer Title -->
+                    <div style="font-family: var(--font-title); font-size: clamp(0.72rem, 1.5vw, 0.85rem); font-weight: 800; color: #475569; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: -4px; text-align: center; width: 100%;">Sự kiện sẽ bắt đầu sau:</div>
+
+                    <!-- Countdown Timer Grid -->
+                    <div class="countdown-container" style="margin-bottom: 20px; width: 100%; max-width: 440px; margin-left: auto; margin-right: auto;">
+                        <div class="countdown-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+                            <div class="countdown-box" style="padding: 12px 6px; background: linear-gradient(135deg, #0493f1 0%, #0135a6 100%); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: var(--radius-sm); box-shadow: 0 8px 20px rgba(0, 51, 163, 0.12);">
+                                <span id="countdown-days" class="countdown-num" style="font-size: clamp(1.35rem, 3.2vw, 1.7rem); font-weight: 700; color: #fff2a3; display: inline-block; width: 100%;">00</span>
+                                <span class="countdown-label" style="font-size: 0.65rem; color: rgba(255, 255, 255, 0.9); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; display: block; margin-top: 4px;">Ngày</span>
+                            </div>
+                            <div class="countdown-box" style="padding: 12px 6px; background: linear-gradient(135deg, #0493f1 0%, #0135a6 100%); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: var(--radius-sm); box-shadow: 0 8px 20px rgba(0, 51, 163, 0.12);">
+                                <span id="countdown-hours" class="countdown-num" style="font-size: clamp(1.35rem, 3.2vw, 1.7rem); font-weight: 700; color: #fff2a3; display: inline-block; width: 100%;">00</span>
+                                <span class="countdown-label" style="font-size: 0.65rem; color: rgba(255, 255, 255, 0.9); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; display: block; margin-top: 4px;">Giờ</span>
+                            </div>
+                            <div class="countdown-box" style="padding: 12px 6px; background: linear-gradient(135deg, #0493f1 0%, #0135a6 100%); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: var(--radius-sm); box-shadow: 0 8px 20px rgba(0, 51, 163, 0.12);">
+                                <span id="countdown-minutes" class="countdown-num" style="font-size: clamp(1.35rem, 3.2vw, 1.7rem); font-weight: 700; color: #fff2a3; display: inline-block; width: 100%;">00</span>
+                                <span class="countdown-label" style="font-size: 0.65rem; color: rgba(255, 255, 255, 0.9); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; display: block; margin-top: 4px;">Phút</span>
+                            </div>
+                            <div class="countdown-box" style="padding: 12px 6px; background: linear-gradient(135deg, #0493f1 0%, #0135a6 100%); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: var(--radius-sm); box-shadow: 0 8px 20px rgba(0, 51, 163, 0.12);">
+                                <span id="countdown-seconds" class="countdown-num" style="font-size: clamp(1.35rem, 3.2vw, 1.7rem); font-weight: 700; color: #fff2a3; display: inline-block; width: 100%;">00</span>
+                                <span class="countdown-label" style="font-size: 0.65rem; color: rgba(255, 255, 255, 0.9); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; display: block; margin-top: 4px;">Giây</span>
+                            </div>
+                        </div>
                     </div>
+
+                    <!-- Date & Location Card -->
+                    <div class="hero-info-card">
+                        <div class="info-card-grid">
+                            <!-- Column 1: Date/Time -->
+                            <div class="info-card-col-1">
+                                <i class="fa-solid fa-calendar-day" style="font-size: 1.8rem; color: #0033a3;"></i>
+                                <div style="text-align: left; display: flex; flex-direction: column; gap: 2px;">
+                                    <span style="font-family: var(--font-title); font-size: 1.1rem; font-weight: 700; color: #0033a3; line-height: 1.2;">25/07/2026</span>
+                                    <span style="font-family: var(--font-body); font-size: 0.78rem; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.05em;">08:30 - 13:00</span>
+                                </div>
+                            </div>
+                            <!-- Column 2: Location (Clickable) -->
+                            <a href="https://share.google/ISpGEsHo4eFFrPd7L" target="_blank" class="info-card-col-2" style="text-decoration: none; display: flex; align-items: center; gap: 12px;">
+                                <i class="fa-solid fa-location-dot" style="font-size: 1.8rem; color: #0033a3;"></i>
+                                <div style="text-align: left; display: flex; flex-direction: column; gap: 2px;">
+                                    <span style="font-family: var(--font-body); font-size: 0.72rem; font-weight: 700; color: #0033a3; text-transform: uppercase; letter-spacing: 0.05em; line-height: 1.2;">ĐỊA ĐIỂM</span>
+                                    <span style="font-family: var(--font-title); font-size: 0.82rem; font-weight: 700; color: #334155; line-height: 1.3;">326 Nguyễn Thị Minh Khai, P. Bàn Cờ, TP.HCM</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Hero Action Buttons -->
+                    <div class="hero-actions" style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; width: 100%;">
+                        <a href="#dang-ky" class="btn btn-primary" style="padding: 12px 28px; font-size: 0.95rem; gap: 8px; justify-content: center;">Đăng Ký Nhận Vé Mới <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="#offer" class="btn btn-outline" style="padding: 12px 28px; font-size: 0.95rem; justify-content: center;">Xem Chương Trình Ưu Đãi</a>
+                    </div>
+                    
                 </div>
             </div>
         </section>
-
-        <!-- INFO BAR SECTION (Blue Bar) -->
-        <div class="hero-info-bar">
-            <div class="container">
-                <div class="info-bar-grid">
-                    <!-- Item 1: Thời gian -->
-                    <div class="info-bar-item">
-                        <i class="fa-solid fa-calendar-day info-bar-icon"></i>
-                        <div class="info-bar-text">
-                            <span class="info-bar-title">25/07/2026</span>
-                            <span class="info-bar-subtitle">08:30 - 13:00</span>
-                        </div>
-                    </div>
-                    <!-- Item 2: Địa điểm (Clickable) -->
-                    <a href="https://share.google/ISpGEsHo4eFFrPd7L" target="_blank" class="info-bar-item link-item">
-                        <i class="fa-solid fa-location-dot info-bar-icon"></i>
-                        <div class="info-bar-text">
-                            <span class="info-bar-title">326 Nguyễn Thị Minh Khai</span>
-                            <span class="info-bar-subtitle">P. Bàn Cờ, TP.HCM</span>
-                        </div>
-                    </a>
-                    <!-- Item 3: Đặc quyền -->
-                    <div class="info-bar-item">
-                        <i class="fa-solid fa-award info-bar-icon"></i>
-                        <div class="info-bar-text">
-                            <span class="info-bar-title">Tài Trợ 50%</span>
-                            <span class="info-bar-subtitle">Duy nhất 03 suất</span>
-                        </div>
-                    </div>
-                    <!-- Item 4: Đăng ký -->
-                    <div class="info-bar-item">
-                        <i class="fa-solid fa-ticket info-bar-icon"></i>
-                        <div class="info-bar-text">
-                            <span class="info-bar-title">Vé Mời Miễn Phí</span>
-                            <span class="info-bar-subtitle">Số lượng có hạn</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
-
+    
     <!-- SECTION - BẠN CÓ BIẾT? -->
     <section class="section-padding fact-section" id="fact">
         <img src="ngayhoi_item/Tru-1.webp" alt="Trụ Implant Thụy Sĩ"
