@@ -55,7 +55,8 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
 
     <!-- Favicon -->
-    <link href="https://nhakhoaflora.com/wp-content/uploads/2022/05/cropped-LOGO-FLORA1-3-192x192.png" rel="icon" type="image/png" />
+    <link href="https://nhakhoaflora.com/wp-content/uploads/2022/05/cropped-LOGO-FLORA1-3-192x192.png" rel="icon"
+        type="image/png" />
 
     <!-- SEO Primary -->
     <title>Ngày Hội Implant Flora 2026 | Vững Vàng Ăn Nhai</title>
@@ -612,7 +613,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 120px 0 60px;
+            padding: 80px 0 60px;
             background-color: transparent;
             position: relative;
             z-index: 2;
@@ -624,6 +625,7 @@
                 height: auto;
                 min-height: 100vh;
             }
+
             .hero-section {
                 flex: none;
                 padding: 100px 0 50px;
@@ -667,7 +669,7 @@
             padding-left: 5px;
             transition: var(--transition);
         }
-        
+
         .info-card-col-2:hover {
             opacity: 0.8;
         }
@@ -677,14 +679,55 @@
                 grid-template-columns: 1fr;
                 gap: 16px;
             }
+
             .info-card-col-1 {
                 border-right: none;
                 border-bottom: 1.5px solid rgba(0, 51, 163, 0.1);
                 padding-right: 0;
                 padding-bottom: 12px;
             }
+
             .info-card-col-2 {
                 padding-left: 0;
+            }
+
+            /* Compact Mobile Features in 1 Row */
+            .hero-features-container {
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                justify-content: center !important;
+                align-items: flex-start !important;
+                gap: 8px !important;
+                margin-bottom: 20px !important;
+                width: 100% !important;
+            }
+
+            .hero-feature-item {
+                flex-direction: column !important;
+                align-items: center !important;
+                text-align: center !important;
+                width: 32% !important;
+                max-width: 110px !important;
+                gap: 6px !important;
+            }
+
+            .hero-feature-item img {
+                width: 38px !important;
+                height: 38px !important;
+            }
+
+            .hero-feature-text {
+                font-size: 0.65rem !important;
+                line-height: 1.25 !important;
+                align-items: center !important;
+            }
+
+            .hero-feature-text strong {
+                font-size: 0.85rem !important;
+            }
+
+            .hero-feature-text strong.small-strong {
+                font-size: 0.72rem !important;
             }
         }
 
@@ -695,8 +738,8 @@
             -webkit-backdrop-filter: blur(10px);
             color: #ffffff;
             width: 100%;
-            border-top: 1px solid rgba(255,255,255,0.15);
-            border-bottom: 1px solid rgba(255,255,255,0.15);
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
             position: relative;
             z-index: 10;
         }
@@ -817,13 +860,16 @@
             .info-bar-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+
             .info-bar-item {
                 border-bottom: 1px solid rgba(255, 255, 255, 0.2);
                 padding: 18px 10px;
             }
+
             .info-bar-item:nth-child(2n) {
                 border-right: none;
             }
+
             .info-bar-item:nth-child(3),
             .info-bar-item:nth-child(4) {
                 border-bottom: none;
@@ -834,10 +880,12 @@
             .info-bar-grid {
                 grid-template-columns: 1fr;
             }
+
             .info-bar-item {
                 border-right: none !important;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             }
+
             .info-bar-item:last-child {
                 border-bottom: none;
             }
@@ -1129,7 +1177,8 @@
         }
 
         .countdown-box {
-            background: #0a1931; /* Solid dark blue, no glassmorphism */
+            background: #0a1931;
+            /* Solid dark blue, no glassmorphism */
             border: 1.5px solid rgba(4, 147, 241, 0.35);
             border-radius: var(--radius-sm);
             padding: 10px 6px;
@@ -1973,6 +2022,27 @@
         .offer-card-premium.blue-tier .offer-card-visual {
             align-self: center;
             margin-top: auto;
+        }
+
+        .offer-card-img-wrapper {
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .offer-card-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: var(--radius-md);
+            border: 2px solid rgba(4, 147, 241, 0.25);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08), 0 5px 15px rgba(0, 51, 163, 0.06);
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+        }
+
+        .offer-card-img-wrapper:hover .offer-card-img {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12), 0 8px 20px rgba(4, 147, 241, 0.15);
+            border-color: rgba(4, 147, 241, 0.8);
         }
 
         @media (max-width: 992px) {
@@ -3387,7 +3457,10 @@
                 scroll-snap-type: x mandatory !important;
                 scroll-behavior: smooth !important;
                 gap: 16px !important;
-                padding: 10px 4px 20px 4px !important;
+                padding: 20px 24px 30px 24px !important;
+                margin-left: -24px !important;
+                margin-right: -24px !important;
+                width: auto !important;
                 scrollbar-width: none !important;
                 /* Firefox */
                 -webkit-overflow-scrolling: touch !important;
@@ -3603,12 +3676,15 @@
         .popup-logo-flora {
             height: 38px;
         }
+
         .popup-logo-brandson {
             height: 25px;
         }
+
         .popup-logo-swiss {
             height: 18px;
         }
+
         .popup-logo-sep {
             height: 20px;
         }
@@ -3634,19 +3710,24 @@
             .logo-box {
                 gap: 8px !important;
             }
+
             .logo-img {
                 height: 28px !important;
             }
+
             .logo-sep {
                 height: 14px !important;
                 margin: 0 3px !important;
             }
+
             .logo-brandson {
                 height: 18px !important;
             }
+
             .logo-swiss {
                 height: 13px !important;
             }
+
             .header-inner.container {
                 padding: 0 12px !important;
             }
@@ -3655,11 +3736,13 @@
             .section-header h2 br {
                 display: none !important;
             }
+
             .section-header h2 {
                 font-size: clamp(1.3rem, 4.5vw, 1.6rem) !important;
                 line-height: 1.35 !important;
                 text-wrap: balance !important;
             }
+
             .section-header p {
                 font-size: 0.88rem !important;
                 line-height: 1.55 !important;
@@ -3674,6 +3757,7 @@
                 max-width: 480px !important;
                 width: calc(100% - 24px) !important;
             }
+
             #promoPopup .modal-close {
                 top: 10px !important;
                 right: 10px !important;
@@ -3681,8 +3765,9 @@
                 height: 28px !important;
                 font-size: 0.9rem !important;
             }
+
             /* First span in modal body (top text) */
-            #promoPopup .modal-body > span:first-of-type {
+            #promoPopup .modal-body>span:first-of-type {
                 font-size: 0.72rem !important;
                 padding-right: 28px !important;
                 line-height: 1.4 !important;
@@ -3690,21 +3775,26 @@
                 text-align: center !important;
                 display: block !important;
             }
+
             /* Popup logo container */
             .popup-logos {
                 gap: 14px !important;
                 margin: 6px 0 10px !important;
                 padding-bottom: 8px !important;
             }
+
             .popup-logo-flora {
                 height: 26px !important;
             }
+
             .popup-logo-brandson {
                 height: 17px !important;
             }
+
             .popup-logo-swiss {
                 height: 12px !important;
             }
+
             .popup-logo-sep {
                 height: 14px !important;
             }
@@ -3716,6 +3806,7 @@
                 margin-top: 4px !important;
                 margin-bottom: 8px !important;
             }
+
             .popup-badge {
                 width: 44px !important;
                 height: 44px !important;
@@ -3723,33 +3814,139 @@
                 border-width: 1px !important;
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
             }
+
             .popup-badge.blue-badge {
                 font-size: 1.1rem !important;
             }
+
             .popup-text {
                 gap: 2px !important;
             }
+
             .popup-text span {
                 font-size: 0.7rem !important;
                 line-height: 1.2 !important;
             }
+
             .popup-text h3 {
                 font-size: 0.78rem !important;
                 line-height: 1.3 !important;
             }
+
             .popup-benefit-row {
                 padding: 8px 12px !important;
                 margin-bottom: 6px !important;
             }
+
             .popup-benefit-row span {
                 font-size: 0.72rem !important;
             }
+
             .popup-benefit-row i {
                 font-size: 0.78rem !important;
             }
+
             #promoRegisterBtn {
                 padding: 12px 16px !important;
                 font-size: 0.9rem !important;
+            }
+        }
+
+        /* Hero Floating Decor Images */
+        .hero-decor-wrapper {
+            position: absolute;
+            z-index: 5;
+            pointer-events: auto;
+            transition: z-index 0.4s ease;
+        }
+
+        .hero-decor-wrapper:hover {
+            z-index: 12;
+        }
+
+        .hero-decor-card {
+            width: clamp(160px, 13vw, 210px);
+            aspect-ratio: 4/3;
+            border: 4px solid #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 51, 163, 0.08);
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+            cursor: pointer;
+        }
+
+        .hero-decor-card:hover {
+            transform: scale(1.08) translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 51, 163, 0.18);
+        }
+
+        /* Positions comfortable away from borders ("đừng sát lề quá") */
+        .hero-decor-1 {
+            top: 15%;
+            left: 6.0%;
+            animation: float-decor-1 6s ease-in-out infinite;
+        }
+
+        .hero-decor-2 {
+            top: 46%;
+            left: 4.5%;
+            animation: float-decor-2 5s ease-in-out infinite;
+        }
+
+        .hero-decor-3 {
+            bottom: 8%;
+            left: 6.0%;
+            animation: float-decor-3 7s ease-in-out infinite;
+        }
+
+        .hero-decor-4 {
+            top: 18%;
+            right: 6.0%;
+            animation: float-decor-4 5.5s ease-in-out infinite;
+        }
+
+        .hero-decor-5 {
+            top: 48%;
+            right: 4.5%;
+            animation: float-decor-5 6s ease-in-out infinite;
+        }
+
+        .hero-decor-6 {
+            bottom: 12%;
+            right: 6.0%;
+            animation: float-decor-6 6.5s ease-in-out infinite;
+        }
+
+        @keyframes float-decor-1 {
+            0%, 100% { transform: translateY(0) rotate(-8deg); }
+            50% { transform: translateY(-8px) rotate(-7deg); }
+        }
+        @keyframes float-decor-2 {
+            0%, 100% { transform: translateY(0) rotate(4deg); }
+            50% { transform: translateY(-6px) rotate(5deg); }
+        }
+        @keyframes float-decor-3 {
+            0%, 100% { transform: translateY(0) rotate(-6deg); }
+            50% { transform: translateY(-10px) rotate(-5deg); }
+        }
+        @keyframes float-decor-4 {
+            0%, 100% { transform: translateY(0) rotate(8deg); }
+            50% { transform: translateY(-7px) rotate(7deg); }
+        }
+        @keyframes float-decor-5 {
+            0%, 100% { transform: translateY(0) rotate(-4deg); }
+            50% { transform: translateY(-8px) rotate(-3deg); }
+        }
+        @keyframes float-decor-6 {
+            0%, 100% { transform: translateY(0) rotate(-6deg); }
+            50% { transform: translateY(-9px) rotate(-7deg); }
+        }
+
+        /* Hide floating decor on smaller viewports */
+        @media (max-width: 1024px) {
+            .hero-decor-wrapper {
+                display: none !important;
             }
         }
     </style>
@@ -3800,30 +3997,55 @@
 
     <!-- HERO SECTION (Centered Redesign with Light City Background) -->
     <div class="hero-wrapper">
+        <!-- Floating Decor Images (Desktop only) -->
+        <div class="hero-decor-wrapper hero-decor-1">
+            <img src="ngayhoi_item/khach_cuoi/12.webp" alt="Khách hàng Flora" class="hero-decor-card" />
+        </div>
+        <div class="hero-decor-wrapper hero-decor-2">
+            <img src="ngayhoi_item/khach_cuoi/IMG_2805.webp" alt="Khách hàng Flora" class="hero-decor-card" />
+        </div>
+        <div class="hero-decor-wrapper hero-decor-3">
+            <img src="ngayhoi_item/khach_cuoi/13.webp" alt="Khách hàng Flora" class="hero-decor-card" />
+        </div>
+        <div class="hero-decor-wrapper hero-decor-4">
+            <img src="ngayhoi_item/khach_cuoi/_ROM9345.webp" alt="Khách hàng Flora" class="hero-decor-card" />
+        </div>
+        <div class="hero-decor-wrapper hero-decor-5">
+            <img src="ngayhoi_item/khach_cuoi/IMG_9944.webp" alt="Khách hàng Flora" class="hero-decor-card" />
+        </div>
+        <div class="hero-decor-wrapper hero-decor-6">
+            <img src="ngayhoi_item/khach_cuoi/_ROM9565.webp" alt="Khách hàng Flora" class="hero-decor-card" />
+        </div>
         <section class="hero-section" id="banner">
-            <div class="container" style="position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; height: 100%;">
-                <div class="reveal" style="max-width: 850px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 16px;">
-                    
+            <div class="container"
+                style="position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; height: 100%;">
+                <div class="reveal"
+                    style="max-width: 850px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 16px;">
+
                     <!-- Hidden H1 for SEO -->
                     <h1 class="visually-hidden">Ngày Hội Implant 2026 - Vững Vàng Ăn Nhai Tự Tin Sống Khỏe</h1>
-                    
+
                     <!-- Main Title Image -->
                     <div style="text-align: center; margin-bottom: 8px; width: 100%;">
-                        <img src="ngayhoi_item/HERO/text_main.png" alt="Ngày Hội Implant 2026 Vững Vàng Ăn Nhai Tự Tin Sống Khỏe" 
-                             style="width: 100%; max-width: 560px; height: auto; display: block; margin: 0 auto;" />
+                        <img src="ngayhoi_item/HERO/text_main.png"
+                            alt="Ngày Hội Implant 2026 Vững Vàng Ăn Nhai Tự Tin Sống Khỏe"
+                            style="width: 100%; max-width: 720px; height: auto; display: block; margin: 0 auto;" />
                     </div>
 
                     <!-- Hero Subtitle & Description -->
                     <div class="hero-desc-wrapper" style="margin-bottom: 20px; max-width: 660px; text-align: center;">
-                        <strong style="display: block; font-size: clamp(1.0rem, 2.2vw, 1.2rem); color: #0033a3; margin-bottom: 6px; font-family: var(--font-title); font-weight: 700;">
+                        <strong
+                            style="display: block; font-size: clamp(1.0rem, 2.2vw, 1.2rem); color: #0033a3; margin-bottom: 6px; font-family: var(--font-title); font-weight: 700;">
                             Từ mất răng lâu năm đến ăn nhai tự tin trở lại
                         </strong>
-                        <p style="font-size: clamp(0.85rem, 1.8vw, 0.95rem); color: #334155; line-height: 1.6; margin: 0; font-family: var(--font-body);">
-                            Hành trình lấy lại chức năng ăn nhai, để mỗi bữa ăn được trọn vẹn như trước tại Ngày hội Implant Flora.
+                        <p
+                            style="font-size: clamp(0.85rem, 1.8vw, 0.95rem); color: #334155; line-height: 1.6; margin: 0; font-family: var(--font-body);">
+                            Hành trình lấy lại chức năng ăn nhai, để mỗi bữa ăn được trọn vẹn như trước tại Ngày hội
+                            Implant Flora.
                         </p>
                     </div>
 
-<!-- 3 Horizontal Features -->
+                    <!-- 3 Horizontal Features -->
                     <div class="hero-features-container">
                         <!-- Feature 1 -->
                         <div class="hero-feature-item">
@@ -3855,26 +4077,42 @@
                     </div>
 
                     <!-- Countdown Timer Title -->
-                    <div style="font-family: var(--font-title); font-size: clamp(0.72rem, 1.5vw, 0.85rem); font-weight: 800; color: #475569; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: -4px; text-align: center; width: 100%;">Sự kiện sẽ bắt đầu sau:</div>
+                    <div
+                        style="font-family: var(--font-title); font-size: clamp(0.72rem, 1.5vw, 0.85rem); font-weight: 800; color: #475569; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: -4px; text-align: center; width: 100%;">
+                        Sự kiện sẽ bắt đầu sau:</div>
 
                     <!-- Countdown Timer Grid -->
-                    <div class="countdown-container" style="margin-bottom: 20px; width: 100%; max-width: 440px; margin-left: auto; margin-right: auto;">
-                        <div class="countdown-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
-                            <div class="countdown-box" style="padding: 12px 6px; background: linear-gradient(135deg, #0493f1 0%, #0135a6 100%); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: var(--radius-sm); box-shadow: 0 8px 20px rgba(0, 51, 163, 0.12);">
-                                <span id="countdown-days" class="countdown-num" style="font-size: clamp(1.35rem, 3.2vw, 1.7rem); font-weight: 700; color: #fff2a3; display: inline-block; width: 100%;">00</span>
-                                <span class="countdown-label" style="font-size: 0.65rem; color: rgba(255, 255, 255, 0.9); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; display: block; margin-top: 4px;">Ngày</span>
+                    <div class="countdown-container"
+                        style="margin-bottom: 20px; width: 100%; max-width: 440px; margin-left: auto; margin-right: auto;">
+                        <div class="countdown-grid"
+                            style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+                            <div class="countdown-box"
+                                style="padding: 12px 6px; background: linear-gradient(135deg, #0493f1 0%, #0135a6 100%); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: var(--radius-sm); box-shadow: 0 8px 20px rgba(0, 51, 163, 0.12);">
+                                <span id="countdown-days" class="countdown-num"
+                                    style="font-size: clamp(1.35rem, 3.2vw, 1.7rem); font-weight: 700; color: #fff2a3; display: inline-block; width: 100%;">00</span>
+                                <span class="countdown-label"
+                                    style="font-size: 0.65rem; color: rgba(255, 255, 255, 0.9); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; display: block; margin-top: 4px;">Ngày</span>
                             </div>
-                            <div class="countdown-box" style="padding: 12px 6px; background: linear-gradient(135deg, #0493f1 0%, #0135a6 100%); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: var(--radius-sm); box-shadow: 0 8px 20px rgba(0, 51, 163, 0.12);">
-                                <span id="countdown-hours" class="countdown-num" style="font-size: clamp(1.35rem, 3.2vw, 1.7rem); font-weight: 700; color: #fff2a3; display: inline-block; width: 100%;">00</span>
-                                <span class="countdown-label" style="font-size: 0.65rem; color: rgba(255, 255, 255, 0.9); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; display: block; margin-top: 4px;">Giờ</span>
+                            <div class="countdown-box"
+                                style="padding: 12px 6px; background: linear-gradient(135deg, #0493f1 0%, #0135a6 100%); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: var(--radius-sm); box-shadow: 0 8px 20px rgba(0, 51, 163, 0.12);">
+                                <span id="countdown-hours" class="countdown-num"
+                                    style="font-size: clamp(1.35rem, 3.2vw, 1.7rem); font-weight: 700; color: #fff2a3; display: inline-block; width: 100%;">00</span>
+                                <span class="countdown-label"
+                                    style="font-size: 0.65rem; color: rgba(255, 255, 255, 0.9); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; display: block; margin-top: 4px;">Giờ</span>
                             </div>
-                            <div class="countdown-box" style="padding: 12px 6px; background: linear-gradient(135deg, #0493f1 0%, #0135a6 100%); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: var(--radius-sm); box-shadow: 0 8px 20px rgba(0, 51, 163, 0.12);">
-                                <span id="countdown-minutes" class="countdown-num" style="font-size: clamp(1.35rem, 3.2vw, 1.7rem); font-weight: 700; color: #fff2a3; display: inline-block; width: 100%;">00</span>
-                                <span class="countdown-label" style="font-size: 0.65rem; color: rgba(255, 255, 255, 0.9); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; display: block; margin-top: 4px;">Phút</span>
+                            <div class="countdown-box"
+                                style="padding: 12px 6px; background: linear-gradient(135deg, #0493f1 0%, #0135a6 100%); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: var(--radius-sm); box-shadow: 0 8px 20px rgba(0, 51, 163, 0.12);">
+                                <span id="countdown-minutes" class="countdown-num"
+                                    style="font-size: clamp(1.35rem, 3.2vw, 1.7rem); font-weight: 700; color: #fff2a3; display: inline-block; width: 100%;">00</span>
+                                <span class="countdown-label"
+                                    style="font-size: 0.65rem; color: rgba(255, 255, 255, 0.9); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; display: block; margin-top: 4px;">Phút</span>
                             </div>
-                            <div class="countdown-box" style="padding: 12px 6px; background: linear-gradient(135deg, #0493f1 0%, #0135a6 100%); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: var(--radius-sm); box-shadow: 0 8px 20px rgba(0, 51, 163, 0.12);">
-                                <span id="countdown-seconds" class="countdown-num" style="font-size: clamp(1.35rem, 3.2vw, 1.7rem); font-weight: 700; color: #fff2a3; display: inline-block; width: 100%;">00</span>
-                                <span class="countdown-label" style="font-size: 0.65rem; color: rgba(255, 255, 255, 0.9); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; display: block; margin-top: 4px;">Giây</span>
+                            <div class="countdown-box"
+                                style="padding: 12px 6px; background: linear-gradient(135deg, #0493f1 0%, #0135a6 100%); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: var(--radius-sm); box-shadow: 0 8px 20px rgba(0, 51, 163, 0.12);">
+                                <span id="countdown-seconds" class="countdown-num"
+                                    style="font-size: clamp(1.35rem, 3.2vw, 1.7rem); font-weight: 700; color: #fff2a3; display: inline-block; width: 100%;">00</span>
+                                <span class="countdown-label"
+                                    style="font-size: 0.65rem; color: rgba(255, 255, 255, 0.9); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; display: block; margin-top: 4px;">Giây</span>
                             </div>
                         </div>
                     </div>
@@ -3886,32 +4124,45 @@
                             <div class="info-card-col-1">
                                 <i class="fa-solid fa-calendar-day" style="font-size: 1.8rem; color: #0033a3;"></i>
                                 <div style="text-align: left; display: flex; flex-direction: column; gap: 2px;">
-                                    <span style="font-family: var(--font-title); font-size: 1.1rem; font-weight: 700; color: #0033a3; line-height: 1.2;">25/07/2026</span>
-                                    <span style="font-family: var(--font-body); font-size: 0.78rem; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.05em;">08:30 - 13:00</span>
+                                    <span
+                                        style="font-family: var(--font-title); font-size: 1.1rem; font-weight: 700; color: #0033a3; line-height: 1.2;">25/07/2026</span>
+                                    <span
+                                        style="font-family: var(--font-body); font-size: 0.78rem; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.05em;">08:30
+                                        - 13:00</span>
                                 </div>
                             </div>
                             <!-- Column 2: Location (Clickable) -->
-                            <a href="https://share.google/ISpGEsHo4eFFrPd7L" target="_blank" class="info-card-col-2" style="text-decoration: none; display: flex; align-items: center; gap: 12px;">
+                            <a href="https://share.google/ISpGEsHo4eFFrPd7L" target="_blank" class="info-card-col-2"
+                                style="text-decoration: none; display: flex; align-items: center; gap: 12px;">
                                 <i class="fa-solid fa-location-dot" style="font-size: 1.8rem; color: #0033a3;"></i>
                                 <div style="text-align: left; display: flex; flex-direction: column; gap: 2px;">
-                                    <span style="font-family: var(--font-body); font-size: 0.72rem; font-weight: 700; color: #0033a3; text-transform: uppercase; letter-spacing: 0.05em; line-height: 1.2;">ĐỊA ĐIỂM</span>
-                                    <span style="font-family: var(--font-title); font-size: 0.82rem; font-weight: 700; color: #334155; line-height: 1.3;">326 Nguyễn Thị Minh Khai, P. Bàn Cờ, TP.HCM</span>
+                                    <span
+                                        style="font-family: var(--font-body); font-size: 0.72rem; font-weight: 700; color: #0033a3; text-transform: uppercase; letter-spacing: 0.05em; line-height: 1.2;">ĐỊA
+                                        ĐIỂM</span>
+                                    <span
+                                        style="font-family: var(--font-title); font-size: 0.82rem; font-weight: 700; color: #334155; line-height: 1.3;">326
+                                        Nguyễn Thị Minh Khai, P. Bàn Cờ, TP.HCM</span>
                                 </div>
                             </a>
                         </div>
                     </div>
 
                     <!-- Hero Action Buttons -->
-                    <div class="hero-actions" style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; width: 100%;">
-                        <a href="#dang-ky" class="btn btn-primary" style="padding: 12px 28px; font-size: 0.95rem; gap: 8px; justify-content: center;">Đăng Ký Nhận Vé Mới <i class="fa-solid fa-arrow-right"></i></a>
-                        <a href="#offer" class="btn btn-outline" style="padding: 12px 28px; font-size: 0.95rem; justify-content: center;">Xem Chương Trình Ưu Đãi</a>
+                    <div class="hero-actions"
+                        style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; width: 100%;">
+                        <a href="#dang-ky" class="btn btn-primary"
+                            style="padding: 12px 28px; font-size: 0.95rem; gap: 8px; justify-content: center;">Đăng Ký
+                            Nhận Vé Mới <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="#offer" class="btn btn-outline"
+                            style="padding: 12px 28px; font-size: 0.95rem; justify-content: center;">Xem Chương Trình Ưu
+                            Đãi</a>
                     </div>
-                    
+
                 </div>
             </div>
         </section>
     </div>
-    
+
     <!-- SECTION - BẠN CÓ BIẾT? -->
     <section class="section-padding fact-section" id="fact">
         <img src="ngayhoi_item/Tru-1.webp" alt="Trụ Implant Thụy Sĩ"
@@ -4311,35 +4562,8 @@
             <!-- Top Row: 2 Major Cards -->
             <div class="offer-main-row">
                 <!-- Card 1: 50% Sponsorship -->
-                <div class="offer-card-premium gold-tier reveal">
-                    <div class="offer-card-body">
-                        <div class="offer-card-content">
-                            <span class="offer-badge gold-badge"><i class="fa-solid fa-star"></i> Đặc quyền lớn
-                                nhất</span>
-                            <h3>Suất Tài Trợ Trụ ImplantSwiss</h3>
-                            <div class="offer-value gold-text">TÀI TRỢ 50%</div>
-                            <p class="offer-desc"
-                                style="margin-bottom: 12px; font-weight: 800; font-size: 1.25rem; color: #dfb76c; letter-spacing: 0.02em;">
-                                Duy nhất cho 03 khách hàng</p>
-                            <ul
-                                style="list-style: none; padding: 0; margin: 15px 0 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 0.95rem; color: rgba(255, 255, 255, 0.95);">
-                                <li style="display: flex; gap: 8px; align-items: flex-start;"><i
-                                        class="fa-solid fa-circle-exclamation"
-                                        style="color: #dfb76c; margin-top: 3px; flex-shrink: 0;"></i> <span
-                                        style="line-height: 1.45;">Không áp dụng đồng thời với các chương trình khuyến
-                                        mãi khác</span></li>
-                                <li style="display: flex; gap: 8px; align-items: flex-start;"><i
-                                        class="fa-solid fa-circle-check"
-                                        style="color: #10b981; margin-top: 3px; flex-shrink: 0;"></i> <strong
-                                        style="line-height: 1.45;">Chỉ áp dụng khách tham dự và được Bác sĩ tư vấn xác
-                                        nhận phù hợp điều trị theo phác đồ</strong></li>
-                            </ul>
-                        </div>
-                        <div class="offer-card-visual">
-                            <img src="ngayhoi_item/Trụ.webp" alt="Trụ Implant Thụy Sĩ ImplantSwiss" />
-                        </div>
-                    </div>
-                    <div class="offer-footer-note">* Áp dụng trực tiếp cho chi phí trụ Implant chính hãng Thụy Sĩ.</div>
+                <div class="offer-card-img-wrapper reveal">
+                    <img src="ngayhoi_item/50_percent.png" alt="Suất Tài Trợ Trụ ImplantSwiss 50%" class="offer-card-img" />
                 </div>
 
                 <!-- Card 2: 15% General Discount -->
@@ -4759,7 +4983,8 @@
                     THÔNG TIN</h3>
                 <div
                     style="font-size: 0.85rem; line-height: 1.6; color: #cbd5e1; display: flex; flex-direction: column; gap: 10px;">
-                    <p style="margin: 0;">Địa chỉ: <a href="https://share.google/ISpGEsHo4eFFrPd7L" target="_blank" class="footer-address-link">326 Nguyễn Thị Minh Khai, P. Bàn Cờ, TP.HCM</a></p>
+                    <p style="margin: 0;">Địa chỉ: <a href="https://share.google/ISpGEsHo4eFFrPd7L" target="_blank"
+                            class="footer-address-link">326 Nguyễn Thị Minh Khai, P. Bàn Cờ, TP.HCM</a></p>
                     <p style="margin: 0; margin-top: 10px;">Hotline: 028 7305 8999</p>
                     <p style="margin: 0;">Website: <a href="https://nhakhoaflora.com" target="_blank"
                             style="color: var(--clr-accent); text-decoration: none;">https://nhakhoaflora.com</a></p>
@@ -4872,7 +5097,8 @@
                     <div
                         style="display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--clr-navy);">
                         <i class="fa-solid fa-user-doctor" style="color: var(--clr-secondary); font-size: 0.9rem;"></i>
-                        <span>Thăm khám & tư vấn 1:1 cùng chuyên gia</span></div>
+                        <span>Thăm khám & tư vấn 1:1 cùng chuyên gia</span>
+                    </div>
                 </div>
 
                 <p
@@ -4882,7 +5108,8 @@
 
                 <p
                     style="font-size: 0.82rem; font-weight: 800; color: var(--clr-secondary); text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; justify-content: center; gap: 6px; margin-bottom: 10px;">
-                    <i class="fa-solid fa-circle-exclamation"></i> Số lượng có hạn</p>
+                    <i class="fa-solid fa-circle-exclamation"></i> Số lượng có hạn
+                </p>
 
                 <button class="btn btn-primary" id="promoRegisterBtn"
                     style="width: 100%; font-size: 1rem; padding: 14px 20px;">ĐĂNG KÝ NGAY</button>
