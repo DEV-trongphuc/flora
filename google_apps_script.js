@@ -18,8 +18,8 @@
  */
 
 // ĐIỀN ID BẢNG TÍNH GOOGLE SHEETS CỦA BẠN VÀO ĐÂY (Hoặc để trống nếu Script được tạo trực tiếp bên trong Trang tính)
-const SPREADSHEET_ID = "1DjptVktrbp__2MZ-rS8_XAipBwNUqkID4XqzTDg0V4o"; 
-const SHEET_NAME = "LEAD_WEBSITE";
+const SPREADSHEET_ID = "1H8CVdQAlyuggCdt0YC1KUmJMQvUbIleGLcg_bXnwN-4"; 
+const SHEET_NAME = "DATA";
 
 // CẤU HÌNH META CONVERSIONS API (CAPI)
 const META_PIXEL_ID = "1560663312285833"; // Thay thế bằng Pixel ID thực tế của bạn
