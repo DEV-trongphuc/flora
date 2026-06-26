@@ -22,7 +22,16 @@
         content="ngày hội implant flora, cấy ghép implant, nha khoa flora, ưu đãi implant swiss, bác sĩ nguyễn đắc minh, răng hàm mặt, tiêu xương hàm"
         name="keywords" />
     <meta content="index, follow" name="robots" />
-    <link href="https://brandson.vn/flora.html" rel="canonical" />
+    <link href="https://nhakhoaflora.com/ngay-hoi-implant/" rel="canonical" />
+
+    <!-- Open Graph Metadata for Social Sharing (Facebook, Zalo, Telegram, etc.) -->
+    <meta property="og:title" content="Ngày Hội Implant Flora 2026 | Vững Vàng Ăn Nhai" />
+    <meta property="og:description" content="Đăng ký tham gia Ngày hội Implant Flora 2026. Nhận ưu đãi 15% dịch vụ cấy ghép Implant Swiss, cơ hội nhận 3 suất tài trợ đặc biệt 50% cùng thăm khám 1:1 miễn phí." />
+    <meta property="og:image" content="https://nhakhoaflora.com/ngay-hoi-implant/ngayhoi_item/khach_cuoi/_ROM9565.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="https://nhakhoaflora.com/ngay-hoi-implant/" />
+    <meta property="og:type" content="website" />
 
     <!-- Google Fonts supporting Vietnamese diacritics natively -->
     <link
@@ -2810,7 +2819,7 @@
             .back-to-top {
                 left: auto;
                 right: 20px;
-                bottom: 20px;
+                bottom: 90px;
                 transform: none;
                 width: 40px;
                 height: 40px;
@@ -3953,6 +3962,100 @@
                 display: none !important;
             }
         }
+
+        .bottom-sheet-handle {
+            display: none;
+        }
+
+        /* Mobile Bottom Sheet style for modals in flora.html */
+        @media (max-width: 640px) {
+            .modal {
+                align-items: flex-end;
+                padding: 0;
+            }
+
+            .modal-box {
+                border-radius: 24px 24px 0 0;
+                transform: translateY(100%) scale(1);
+                transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+                max-width: 100% !important;
+                width: 100% !important;
+                max-height: 85vh;
+                overflow-y: auto;
+            }
+
+            .modal.active .modal-box {
+                transform: translateY(0) scale(1);
+            }
+
+            .bottom-sheet-handle {
+                display: block;
+                width: 40px;
+                height: 4px;
+                background: rgba(10, 25, 49, 0.15);
+                border-radius: 2px;
+                margin: 15px auto 5px;
+            }
+        }
+
+        /* Mobile Floating Dock Bar */
+        .mobile-floating-dock {
+            position: fixed;
+            bottom: 16px;
+            left: 16px;
+            right: 16px;
+            background: #ffffff;
+            border: 1px solid rgba(4, 147, 241, 0.15);
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 8px 8px 24px;
+            z-index: 999;
+            box-shadow: 0 10px 30px rgba(0, 51, 163, 0.15);
+            width: calc(100% - 32px);
+        }
+
+        @media (min-width: 769px) {
+            .mobile-floating-dock {
+                display: none;
+            }
+        }
+
+        .dock-register-btn {
+            padding: 10px 22px;
+            border-radius: 100px;
+            background: var(--grad-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: #ffffff !important;
+            font-weight: 800;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            box-shadow: 0 4px 15px rgba(0, 51, 163, 0.25);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            white-space: nowrap;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dock-register-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 51, 163, 0.35);
+        }
+
+        .dock-register-btn i {
+            font-size: 0.95rem;
+            transition: transform 0.2s ease;
+        }
+
+        .dock-register-btn:hover i {
+            transform: translateX(3px);
+        }
     </style>
 </head>
 
@@ -5044,6 +5147,7 @@
     <!-- POPUP KHUYẾN MÃI -->
     <div class="modal" id="promoPopup">
         <div class="modal-box" style="max-width: 520px; padding: 30px;">
+            <div class="bottom-sheet-handle"></div>
             <button class="modal-close" id="closePromoBtn" style="top: 15px; right: 15px;"><i
                     class="fa-solid fa-xmark"></i></button>
             <div class="modal-body"
@@ -5127,9 +5231,112 @@
         </div>
     </div>
 
+    <!-- POPUP ĐĂNG KÝ (BOTTOM SHEET TRÊN MOBILE) -->
+    <div class="modal" id="registrationPopup">
+        <div class="modal-box" style="max-width: 550px; padding: 25px 20px;">
+            <div class="bottom-sheet-handle"></div>
+            <button class="modal-close" id="closeRegistrationBtn" style="top: 15px; right: 15px;">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="modal-body" style="padding: 10px 10px 0;">
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <span class="curved-badge" style="font-size: 0.78rem; padding: 6px 16px; margin-bottom: 10px;">ĐĂNG KÝ THAM GIA</span>
+                    <h3 style="font-size: 1.25rem; font-family: var(--font-title); font-weight: 700; color: var(--clr-primary); margin-bottom: 6px;">Ngày Hội Implant Flora 2026</h3>
+                    <p style="font-size: 0.82rem; color: var(--clr-text-muted); line-height: 1.4;">Điền thông tin bên dưới để đăng ký nhận vé mời và ưu đãi đặc biệt.</p>
+                </div>
+                
+                <form id="popupRegistrationForm">
+                    <div class="form-grid" style="display: grid; grid-template-columns: 1fr; gap: 12px;">
+                        <!-- Họ và tên -->
+                        <div class="form-group" style="display: flex; flex-direction: column; gap: 4px;">
+                            <label class="form-label" for="popupFullname" style="font-size: 0.78rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 0;">Họ và tên *</label>
+                            <input class="form-input" id="popupFullname" name="fullname" required placeholder="Nhập họ và tên" type="text" style="width: 100%;" />
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                            <!-- Số điện thoại -->
+                            <div class="form-group" style="display: flex; flex-direction: column; gap: 4px;">
+                                <label class="form-label" for="popupPhone" style="font-size: 0.78rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 0;">Số điện thoại / Zalo *</label>
+                                <input class="form-input" id="popupPhone" name="phone" required placeholder="Nhập số điện thoại" type="tel" style="width: 100%;" />
+                            </div>
+
+                            <!-- Năm sinh -->
+                            <div class="form-group" style="display: flex; flex-direction: column; gap: 4px;">
+                                <label class="form-label" for="popupBirthYear" style="font-size: 0.78rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 0;">Năm sinh *</label>
+                                <input class="form-input" id="popupBirthYear" name="birthYear" required placeholder="Ví dụ: 1970" type="number" min="1920" max="2020" style="width: 100%;" />
+                            </div>
+                        </div>
+
+                        <!-- Giới tính -->
+                        <div class="form-group" style="display: flex; flex-direction: column; gap: 4px;">
+                            <label class="form-label" style="font-size: 0.78rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 0;">Giới tính *</label>
+                            <div class="gender-options" style="display: flex; gap: 20px;">
+                                <label class="radio-item" style="font-size: 0.85rem; display: flex; align-items: center; gap: 6px; cursor: pointer;">
+                                    <input type="radio" name="popupGender" value="Nam" required checked /> Nam
+                                </label>
+                                <label class="radio-item" style="font-size: 0.85rem; display: flex; align-items: center; gap: 6px; cursor: pointer;">
+                                    <input type="radio" name="popupGender" value="Nữ" required /> Nữ
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Địa chỉ -->
+                        <div class="form-group" style="display: flex; flex-direction: column; gap: 4px;">
+                            <label class="form-label" for="popupAddress" style="font-size: 0.78rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 0;">Địa chỉ</label>
+                            <input class="form-input" id="popupAddress" name="address" placeholder="Nhập địa chỉ cư trú (Quận/Huyện, Tỉnh/TP)" type="text" style="width: 100%;" />
+                        </div>
+
+                        <!-- Tình trạng mất răng -->
+                        <div class="form-group" style="display: flex; flex-direction: column; gap: 4px;">
+                            <label class="form-label" for="popupToothStatus" style="font-size: 0.78rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 0;">Tình trạng mất răng *</label>
+                            <select class="form-input" id="popupToothStatus" name="toothStatus" required style="width: 100%; background: #ffffff;">
+                                <option value="" disabled selected>-- Vui lòng chọn tình trạng --</option>
+                                <option value="Mất một răng">Mất một răng</option>
+                                <option value="Mất nhiều răng">Mất nhiều răng</option>
+                                <option value="Mất răng lâu năm">Mất răng lâu năm</option>
+                                <option value="Đang dùng hàm tháo lắp">Đang dùng hàm tháo lắp</option>
+                                <option value="Cần tìm hiểu dịch vụ">Chưa mất răng / Cần tìm hiểu thông tin</option>
+                            </select>
+                        </div>
+
+                        <!-- Nhu cầu đăng ký -->
+                        <div class="form-group" style="display: flex; flex-direction: column; gap: 4px;">
+                            <label class="form-label" style="font-size: 0.78rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 0;">Nhu cầu đăng ký *</label>
+                            <div class="checkbox-container" style="display: flex; flex-direction: column; gap: 8px;">
+                                <label class="checkbox-item" style="font-size: 0.82rem; display: flex; align-items: center; gap: 6px; cursor: pointer;">
+                                    <input type="checkbox" name="popupNeed" value="Đăng ký tham gia Ngày hội Implant" checked />
+                                    <span>Đăng ký tham gia Ngày hội Implant</span>
+                                </label>
+                                <label class="checkbox-item" style="font-size: 0.82rem; display: flex; align-items: center; gap: 6px; cursor: pointer;">
+                                    <input type="checkbox" name="popupNeed" value="Thăm khám 1:1 với Bác sĩ" />
+                                    <span>Thăm khám 1:1 với Bác sĩ</span>
+                                </label>
+                                <label class="checkbox-item" style="font-size: 0.82rem; display: flex; align-items: center; gap: 6px; cursor: pointer;">
+                                    <input type="checkbox" name="popupNeed" value="Cần tư vấn thêm" />
+                                    <span>Cần tư vấn thêm</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Ghi chú -->
+                        <div class="form-group" style="display: flex; flex-direction: column; gap: 4px;">
+                            <label class="form-label" for="popupNote" style="font-size: 0.78rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 0;">Ghi chú thêm (nếu có)</label>
+                            <input class="form-input" id="popupNote" name="note" placeholder="Nhập ghi chú hoặc câu hỏi cho bác sĩ" type="text" style="width: 100%;" />
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary form-submit-btn" type="submit" id="popupSubmitBtn" style="width: 100%; margin-top: 15px; padding: 14px 20px;">
+                        Gửi Thông Tin Đăng Ký
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- POPUP THÀNH CÔNG -->
     <div class="modal" id="successPopup">
         <div class="modal-box">
+            <div class="bottom-sheet-handle"></div>
             <button class="modal-close" id="closeSuccessBtn"><i class="fa-solid fa-xmark"></i></button>
             <div class="modal-body" style="text-align: center; padding: 40px 30px;">
                 <i class="fa-solid fa-circle-check"
@@ -5150,10 +5357,25 @@
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 
+    <!-- Mobile Quick Action Bar (Floating Pill) -->
+    <div class="mobile-floating-dock">
+        <div class="dock-promo-container" style="display: flex; align-items: center; gap: 8px; text-align: left; padding-right: 8px;">
+            <i class="fa-solid fa-gift" style="color: var(--clr-secondary); font-size: 1.2rem; flex-shrink: 0;"></i>
+            <span class="dock-promo-text" style="font-size: 0.72rem; color: var(--clr-navy); font-weight: 700; line-height: 1.25; display: inline-block;">
+                Tài trợ đến<br>
+                <span style="color: var(--clr-secondary); font-weight: 800; font-size: 0.92rem; line-height: 1.1;">50% CHI PHÍ!</span>
+            </span>
+        </div>
+        <a aria-label="Đăng ký ngay" class="dock-register-btn" href="#dang-ky">
+            <span>Đăng ký ngay</span>
+            <i class="fa-solid fa-arrow-right" style="font-size: 0.85rem;"></i>
+        </a>
+    </div>
+
     <!-- ACTIONS SCRIPTS -->
     <script>
         // Thay thế URL dưới đây bằng URL Ứng dụng Web (Web App URL) nhận được sau khi triển khai Apps Script mới (trong file google_apps_script.js)
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxWUpUjxdYe2uqh3shj3y4acTy7pgcl5jmFmhkBCNAHUu5rHT7tUuWnDvBkDv82Xz2ovw/exec';
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwynAqJc_hyqWmMvFz1QEf6c-8ZKyIlexvg_NCOM2fZ8oGLa579QV3hTMJ0BTySuR6YiA/exec';
 
         function getCookie(name) {
             const value = `; ${document.cookie}`;
@@ -5452,6 +5674,7 @@
             const lockTargets = [
                 document.getElementById('promoPopup'),
                 document.getElementById('successPopup'),
+                document.getElementById('registrationPopup'),
                 document.getElementById('drawerNav')
             ];
 
@@ -5476,16 +5699,51 @@
             promoPopup.classList.remove('active');
         });
 
-        document.getElementById('promoRegisterBtn').addEventListener('click', () => {
-            promoPopup.classList.remove('active');
-            const formSection = document.getElementById('dang-ky');
-            if (formSection) {
-                const rect = formSection.getBoundingClientRect().top;
-                const offset = window.scrollY + rect - 70;
-                window.scrollTo({
-                    top: offset,
-                    behavior: 'smooth'
-                });
+        // Registration Popup Modal logic for mobile
+        const registrationPopup = document.getElementById('registrationPopup');
+
+        function handleRegisterClick(e) {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                e.stopPropagation();
+                promoPopup.classList.remove('active');
+                registrationPopup.classList.add('active');
+            }
+        }
+
+        // Bind all links with href="#dang-ky"
+        document.querySelectorAll('a[href="#dang-ky"]').forEach(link => {
+            link.addEventListener('click', handleRegisterClick);
+        });
+
+        // Close registration popup handlers
+        const closeRegistrationBtn = document.getElementById('closeRegistrationBtn');
+        if (closeRegistrationBtn) {
+            closeRegistrationBtn.addEventListener('click', () => {
+                registrationPopup.classList.remove('active');
+            });
+        }
+
+        registrationPopup.addEventListener('click', (e) => {
+            if (e.target === registrationPopup) {
+                registrationPopup.classList.remove('active');
+            }
+        });
+
+        document.getElementById('promoRegisterBtn').addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                handleRegisterClick(e);
+            } else {
+                promoPopup.classList.remove('active');
+                const formSection = document.getElementById('dang-ky');
+                if (formSection) {
+                    const rect = formSection.getBoundingClientRect().top;
+                    const offset = window.scrollY + rect - 70;
+                    window.scrollTo({
+                        top: offset,
+                        behavior: 'smooth'
+                    });
+                }
             }
         });
 
@@ -5560,6 +5818,63 @@
                 registrationForm.reset();
             }, 1800);
         });
+
+        // Popup Form Submit Actions
+        const popupRegistrationForm = document.getElementById('popupRegistrationForm');
+        if (popupRegistrationForm) {
+            popupRegistrationForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const eventId = 'lead_' + Date.now() + '_' + Math.random().toString(36).substring(2, 9);
+
+                const selectedNeeds = [];
+                document.querySelectorAll('input[name="popupNeed"]:checked').forEach(cb => {
+                    selectedNeeds.push(cb.value);
+                });
+                const needStr = selectedNeeds.join(', ');
+
+                const fullname = document.getElementById('popupFullname').value;
+                const phone = document.getElementById('popupPhone').value;
+                const birthYear = document.getElementById('popupBirthYear').value;
+                const gender = document.querySelector('input[name="popupGender"]:checked').value;
+                const address = document.getElementById('popupAddress').value;
+                const toothStatus = document.getElementById('popupToothStatus').value;
+                const userNote = document.getElementById('popupNote').value;
+
+                const data = {
+                    formType: "Ngày hội Implant (flora.html - Mobile Popup)",
+                    fullname: fullname,
+                    phone: phone,
+                    email: "",
+                    clinic: toothStatus,
+                    city: address,
+                    interest: needStr,
+                    date: "25/07/2026",
+                    timeSlot: "08:30 - 13:00",
+                    note: `Năm sinh: ${birthYear} | Giới tính: ${gender} | Ghi chú thêm: ${userNote}`,
+                    clientUserAgent: navigator.userAgent,
+                    eventSourceUrl: window.location.href,
+                    fbp: getCookie('_fbp'),
+                    fbc: getCookie('_fbc') || getFbcQueryParam(),
+                    eventId: eventId
+                };
+
+                submitLeadToSheets(data);
+
+                const submitBtn = document.getElementById('popupSubmitBtn');
+                const originalText = submitBtn.textContent;
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = 'Đang gửi thông tin đăng ký... <i class="fa-solid fa-spinner fa-spin" style="margin-left: 8px;"></i>';
+
+                setTimeout(() => {
+                    document.getElementById('registrationPopup').classList.remove('active');
+                    successPopup.classList.add('active');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
+                    popupRegistrationForm.reset();
+                }, 1800);
+            });
+        }
 
         // Live Countdown Timer
         const targetDate = new Date('2026-07-25T08:30:00+07:00').getTime();
