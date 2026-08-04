@@ -22,8 +22,31 @@
     
     <!-- Shared Stylesheet -->
     <link href="css/flora-style.css" rel="stylesheet" />
+    <link href="css/decor-animations.css" rel="stylesheet" />
 </head>
 <body>
+    <!-- Global SVG Gradient Definitions -->
+    <svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="sparkleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0493f1" />
+                <stop offset="100%" stop-color="#0033a3" />
+            </linearGradient>
+            <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#0493f1" />
+                <stop offset="100%" stop-color="#0033a3" />
+            </linearGradient>
+            <linearGradient id="swissGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#e20613" />
+                <stop offset="100%" stop-color="#9f040d" />
+            </linearGradient>
+            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ffd700" />
+                <stop offset="100%" stop-color="#ffa500" />
+            </linearGradient>
+        </defs>
+    </svg>
+
     <!-- HEADER -->
     <header class="header-bar">
         <div class="container header-inner">
@@ -67,6 +90,17 @@
     </nav>
 
     <div class="hero-wrapper">
+        <!-- Floating SVG Sparkles -->
+        <div class="hero-sparkle hero-sparkle-1">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z" fill="url(#sparkleGrad)"/></svg>
+        </div>
+        <div class="hero-sparkle hero-sparkle-2">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z" fill="url(#sparkleGrad)"/></svg>
+        </div>
+        <div class="hero-sparkle hero-sparkle-3">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z" fill="url(#sparkleGrad)"/></svg>
+        </div>
+
         <!-- Floating Decor Images (Desktop only) -->
         <div class="hero-decor-wrapper hero-decor-1">
             <img src="ngayhoi_item/bf_at/Ah_sen_at.webp" alt="Khách hàng Flora" class="hero-decor-card" />
@@ -95,9 +129,21 @@
                     <!-- Hidden H1 for SEO -->
                     <h1 class="visually-hidden">Nha Khoa Flora - Kiến Tạo Nụ Cười Rạng Rỡ & Tự Nhiên</h1>
 
+                    <!-- Central Flora Logo -->
+                    <div style="margin-bottom: 18px; width: 100%; display: flex; justify-content: center;">
+                        <img src="ngayhoi_item/Logo-Flora1.webp" alt="Nha Khoa Flora Logo" style="max-width: 260px; width: 80%; height: auto; display: block;" />
+                    </div>
+
                     <!-- Main Title HTML -->
                     <div style="text-align: center; margin-bottom: 12px; width: 100%;">
-                        <h2 style="font-family: var(--font-title); font-size: clamp(2.2rem, 5.2vw, 3.8rem); font-weight: 800; color: #0033a3; line-height: 1.25; margin: 0;">Kiến Tạo Nụ Cười<br/><span style="background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-secondary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Rạng Rỡ & Tự Nhiên</span></h2>
+                        <h2 style="font-family: var(--font-title); font-size: clamp(2.2rem, 5.2vw, 3.8rem); font-weight: 800; color: #0033a3; line-height: 1.25; margin: 0;">Kiến Tạo Nụ Cười<br/>
+                            <span class="highlight-text-container">
+                                <span style="background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-secondary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Rạng Rỡ & Tự Nhiên</span>
+                                <svg class="heading-underline-svg" viewBox="0 0 300 20" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 12 C 100 2, 200 18, 295 10" stroke="url(#accentGrad)" stroke-width="4" stroke-linecap="round" />
+                                </svg>
+                            </span>
+                        </h2>
                     </div>
 
                     <!-- Hero Subtitle & Description -->
@@ -183,10 +229,32 @@
 
     <!-- ─── BẠN CÓ BIẾT? (FACT SECTION) ─── -->
     <section class="section-padding fact-section" id="fact">
+        <!-- Background SVG Smile Contours & Sparkles -->
+        <div class="fact-bg-decor">
+            <svg viewBox="0 0 1000 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Smile contour lines (representing smile design) -->
+                <path d="M 80 80 C 300 220, 700 220, 920 80" stroke="rgba(4, 147, 241, 0.12)" stroke-width="2" stroke-linecap="round" />
+                <path d="M 120 100 C 320 230, 680 230, 880 100" stroke="rgba(0, 51, 163, 0.08)" stroke-width="1.5" stroke-dasharray="8 6" stroke-linecap="round" />
+                
+                <!-- Shining Sparkles (representing shining healthy smiles) -->
+                <!-- Sparkle Left -->
+                <g transform="translate(68, 65)">
+                    <path d="M 8 0 L 10 6 L 16 8 L 10 10 L 8 16 L 6 10 L 0 8 L 6 6 Z" fill="url(#sparkleGrad)" class="pulse-node" />
+                </g>
+                <!-- Sparkle Right -->
+                <g transform="translate(912, 65)">
+                    <path d="M 8 0 L 10 6 L 16 8 L 10 10 L 8 16 L 6 10 L 0 8 L 6 6 Z" fill="url(#sparkleGrad)" class="pulse-node" style="animation-delay: 1.5s;" />
+                </g>
+                
+                <!-- Tiny floating light nodes -->
+                <circle cx="250" cy="150" r="3" fill="rgba(4, 147, 241, 0.2)" class="pulse-node" />
+                <circle cx="750" cy="150" r="3" fill="rgba(0, 51, 163, 0.12)" class="pulse-node-slow" />
+            </svg>
+        </div>
         <div class="container">
             <div class="section-header center reveal">
                 <span class="curved-badge">Cột mốc uy tín</span>
-                <h2>Flora - Hành Trình Kiến Tạo 32.000 Nụ Cười</h2>
+                <h2>Flora - Hành Trình Kiến Tạo <span style="color: var(--clr-secondary);">32.000</span> Nụ Cười</h2>
             </div>
             <div class="fact-grid reveal reveal-delay-1">
                 <div class="fact-card text-center">
@@ -205,21 +273,36 @@
                     <p style="margin-top: 10px; font-size: 0.9rem;">Dán sứ E.max siêu mỏng không mài răng, bảo tồn tối đa men răng gốc.</p>
                 </div>
             </div>
+            <!-- Slider Dots (Mobile only) -->
+            <div class="fact-slider-dots" id="factSliderDots">
+                <span class="fact-dot active" data-index="0"></span>
+                <span class="fact-dot" data-index="1"></span>
+                <span class="fact-dot" data-index="2"></span>
+            </div>
         </div>
     </section>
 
     <!-- ─── AI NÊN THAM GIA (AUDIENCE SECTION - REPURPOSED FOR CORE SERVICES) ─── -->
     <section class="section-padding audience-section" id="audience">
+        <!-- Background SVG Connecting Curves -->
+        <div class="audience-bg-decor">
+            <svg viewBox="0 0 1200 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M-50 150 C 300 50, 450 350, 750 200 C 950 100, 1100 250, 1250 150" stroke="rgba(4, 147, 241, 0.04)" stroke-width="2.5" />
+                <path d="M-50 200 C 250 120, 500 420, 800 250 C 1000 150, 1150 300, 1250 220" stroke="rgba(0, 51, 163, 0.02)" stroke-width="1.5" stroke-dasharray="10 5" />
+                <circle cx="200" cy="180" r="3" fill="rgba(4, 147, 241, 0.15)" />
+                <circle cx="1000" cy="380" r="4" fill="rgba(4, 147, 241, 0.1)" />
+            </svg>
+        </div>
         <div class="container">
             <div class="section-header center reveal">
                 <span class="curved-badge">Dịch vụ y khoa</span>
-                <h2>4 Nhóm Dịch Vụ Mũi Nhọn Tại Flora</h2>
+                <h2>Các Dịch Vụ Tại <span style="color: var(--clr-secondary);">Nha Khoa Flora</span></h2>
             </div>
             <div class="audience-grid reveal reveal-delay-1">
                 <!-- Card 1: Implant Swiss -->
                 <div class="audience-card">
                     <div class="audience-card-img-wrapper">
-                        <img src="assets/implant_hero.webp" alt="Implant Thụy Sĩ Êm Ái" class="audience-card-img" />
+                        <img src="assets/implant_hero.webp" alt="Implant Thụy Sĩ Êm Ái" class="audience-card-img" loading="lazy" width="560" height="320" />
                     </div>
                     <div class="audience-card-body">
                         <div class="audience-card-icon-badge">
@@ -233,7 +316,7 @@
                 <!-- Card 2: Niềng răng -->
                 <div class="audience-card">
                     <div class="audience-card-img-wrapper">
-                        <img src="assets/anh25.webp" alt="Niềng Răng Công Nghệ Số" class="audience-card-img" />
+                        <img src="assets/anh25.webp" alt="Niềng Răng Công Nghệ Số" class="audience-card-img" loading="lazy" width="560" height="320" />
                     </div>
                     <div class="audience-card-body">
                         <div class="audience-card-icon-badge">
@@ -247,7 +330,7 @@
                 <!-- Card 3: Cười hở lợi -->
                 <div class="audience-card">
                     <div class="audience-card-img-wrapper">
-                        <img src="ngayhoi_item/hero.webp" alt="Điều Trị Cười Hở Lợi" class="audience-card-img" />
+                        <img src="ngayhoi_item/hero.webp" alt="Điều Trị Cười Hở Lợi" class="audience-card-img" loading="lazy" width="560" height="320" />
                     </div>
                     <div class="audience-card-body">
                         <div class="audience-card-icon-badge">
@@ -261,7 +344,7 @@
                 <!-- Card 4: Veneer -->
                 <div class="audience-card">
                     <div class="audience-card-img-wrapper">
-                        <img src="ngayhoi_item/DSC00091.webp" alt="Dán Sứ Veneer E.max" class="audience-card-img" />
+                        <img src="ngayhoi_item/DSC00091.webp" alt="Dán Sứ Veneer E.max" class="audience-card-img" loading="lazy" width="560" height="320" />
                     </div>
                     <div class="audience-card-body">
                         <div class="audience-card-icon-badge">
@@ -278,6 +361,16 @@
 
     <!-- ─── GIẢI PHÁP TỪ VẤN ĐỀ (VALUE SECTION) ─── -->
     <section class="section-padding value-section" id="value">
+        <!-- Background SVG Tech Nodes & Grid -->
+        <div class="value-bg-decor">
+            <svg viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 50 100 L 1150 100 M 50 300 L 1150 300 M 50 500 L 1150 500 M 50 700 L 1150 700" stroke="rgba(4, 147, 241, 0.015)" stroke-width="1" />
+                <path d="M 150 50 L 150 750 M 550 50 L 550 750 M 950 50 L 950 750" stroke="rgba(4, 147, 241, 0.015)" stroke-width="1" />
+                <path d="M-50 450 Q 300 250, 600 500 T 1250 350" stroke="rgba(4, 147, 241, 0.03)" stroke-width="2" />
+                <circle cx="300" cy="250" r="4" fill="rgba(4, 147, 241, 0.1)" class="pulse-node" />
+                <circle cx="900" cy="450" r="4" fill="rgba(0, 51, 163, 0.08)" class="pulse-node-slow" />
+            </svg>
+        </div>
         <div class="container">
             <div class="section-header center reveal">
                 <span class="curved-badge">Bắt đầu từ tình trạng của bạn</span>
@@ -289,55 +382,67 @@
                         <div class="value-num">01</div>
                         <div class="value-info">
                             <h3>Mất một hoặc nhiều răng</h3>
-                            <p>Phục hồi chân răng đã mất bằng Implant đơn lẻ hoặc cầu răng sứ chắc chắn. <a href="implant.html" style="color: var(--clr-secondary); font-weight: 700;">Chi tiết <i class="fa-solid fa-angle-right"></i></a></p>
+                            <p>Phục hồi chân răng đã mất bằng Implant đơn lẻ hoặc cầu răng sứ chắc chắn.</p>
+                            <a href="implant.html" class="value-card-more">Chi tiết <i class="fa-solid fa-angle-right"></i></a>
                         </div>
                     </div>
                     <div class="value-card" data-modal="implant-toan-ham">
                         <div class="value-num">02</div>
                         <div class="value-info">
                             <h3>Mất răng nguyên hàm lâu năm</h3>
-                            <p>Giải pháp All-on-4 và All-on-6 cố định chắc chắn trên xương hàm, ngăn tiêu xương. <a href="implant.html" style="color: var(--clr-secondary); font-weight: 700;">Chi tiết <i class="fa-solid fa-angle-right"></i></a></p>
+                            <p>Giải pháp All-on-4 và All-on-6 cố định chắc chắn trên xương hàm, ngăn tiêu xương.</p>
+                            <a href="implant.html" class="value-card-more">Chi tiết <i class="fa-solid fa-angle-right"></i></a>
                         </div>
                     </div>
                     <div class="value-card" data-modal="cuoi-ho-loi">
                         <div class="value-num">03</div>
                         <div class="value-info">
                             <h3>Cười lộ nhiều nướu (Hở lợi)</h3>
-                            <p>Định hình lại viền nướu nụ cười đối xứng hài hòa chỉ trong 45 phút điều trị. <a href="ho-loi.html" style="color: var(--clr-secondary); font-weight: 700;">Chi tiết <i class="fa-solid fa-angle-right"></i></a></p>
+                            <p>Định hình lại viền nướu nụ cười đối xứng hài hòa chỉ trong 45 phút điều trị.</p>
+                            <a href="ho-loi.html" class="value-card-more">Chi tiết <i class="fa-solid fa-angle-right"></i></a>
                         </div>
                     </div>
                     <div class="value-card" data-modal="nieng-rang-so">
                         <div class="value-num">04</div>
                         <div class="value-info">
                             <h3>Răng hô, móm, thưa, lệch lạc</h3>
-                            <p>Niềng răng mắc cài thông minh hoặc khay niềng vô hình Invisalign công nghệ số. <a href="nieng-rang.html" style="color: var(--clr-secondary); font-weight: 700;">Chi tiết <i class="fa-solid fa-angle-right"></i></a></p>
+                            <p>Niềng răng mắc cài thông minh hoặc khay niềng vô hình Invisalign công nghệ số.</p>
+                            <a href="nieng-rang.html" class="value-card-more">Chi tiết <i class="fa-solid fa-angle-right"></i></a>
                         </div>
                     </div>
                     <div class="value-card" data-modal="tham-my-rang-su">
                         <div class="value-num">05</div>
                         <div class="value-info">
                             <h3>Muốn cải thiện màu sắc & dáng răng</h3>
-                            <p>Dán sứ Veneer E.max bảo tồn tối đa răng thật hoặc phục hình bọc răng sứ thẩm mỹ cao cấp. <a href="veneer.html" style="color: var(--clr-secondary); font-weight: 700;">Chi tiết <i class="fa-solid fa-angle-right"></i></a></p>
+                            <p>Dán sứ Veneer E.max bảo tồn tối đa răng thật hoặc phục hình bọc răng sứ thẩm mỹ cao cấp.</p>
+                            <a href="veneer.html" class="value-card-more">Chi tiết <i class="fa-solid fa-angle-right"></i></a>
                         </div>
                     </div>
                     <div class="value-card" data-modal="nha-khoa-tong-quat">
                         <div class="value-num">06</div>
                         <div class="value-info">
                             <h3>Bệnh lý răng miệng & Đau nhức</h3>
-                            <p>Điều trị triệt để sâu răng, viêm tủy, viêm nướu hoặc nhổ răng khôn bằng máy Piezotome. <a href="#dang-ky" style="color: var(--clr-secondary); font-weight: 700;">Chi tiết <i class="fa-solid fa-angle-right"></i></a></p>
+                            <p>Điều trị triệt để sâu răng, viêm tủy, viêm nướu hoặc nhổ răng khôn bằng máy Piezotome.</p>
+                            <a href="#dang-ky" class="value-card-more">Chi tiết <i class="fa-solid fa-angle-right"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="value-image-group reveal reveal-delay-2">
-                    <img src="ngayhoi_item/DSC00090.webp" alt="Flora Clinic" class="value-float-img img-1" />
-                    <img src="ngayhoi_item/DSC00091.webp" alt="Flora Treatment" class="value-float-img img-2" />
-                    <img src="ngayhoi_item/hero.webp" alt="Flora Smile" class="value-float-img img-3" />
+                    <img src="ngayhoi_item/DSC00090.webp" alt="Flora Clinic" class="value-float-img img-1" loading="lazy" width="300" height="225" />
+                    <img src="ngayhoi_item/DSC00091.webp" alt="Flora Treatment" class="value-float-img img-2" loading="lazy" width="300" height="225" />
+                    <img src="ngayhoi_item/hero.webp" alt="Flora Smile" class="value-float-img img-3" loading="lazy" width="300" height="225" />
                 </div>
             </div>
         </div>
     </section>
 
     <section class="section-padding timeline-section" id="journey">
+        <!-- Timeline Connecting Line SVG (Desktop only) -->
+        <div class="timeline-svg-path-desktop">
+            <svg viewBox="0 0 1000 40" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                <path d="M 100 20 Q 200 6, 300 20 T 500 20 T 700 20 T 900 20" stroke="rgba(4, 147, 241, 0.45)" stroke-width="3" stroke-dasharray="8 6" stroke-linecap="round" />
+            </svg>
+        </div>
         <div class="container" style="max-width: 1350px !important;">
             <div class="section-header center reveal">
                 <span class="curved-badge">Quy trình y khoa</span>
@@ -345,35 +450,35 @@
             </div>
             <div class="steps-grid">
                 <!-- Step 1 -->
-                <div class="step-card reveal">
+                <div class="step-card reveal-left">
                     <div class="step-card-icon"><i class="fa-solid fa-comments"></i></div>
                     <span class="step-badge">BƯỚC 1</span>
                     <h3>LẮNG NGHE NHU CẦU</h3>
                     <p>Trao đổi chuyên sâu 1:1 cùng bác sĩ phụ trách để chia sẻ mong muốn, bệnh sử và nhận định giải pháp ban đầu.</p>
                 </div>
                 <!-- Step 2 -->
-                <div class="step-card reveal reveal-delay-1">
+                <div class="step-card reveal-left reveal-delay-1">
                     <div class="step-card-icon"><i class="fa-solid fa-x-ray"></i></div>
                     <span class="step-badge">BƯỚC 2</span>
                     <h3>THĂM KHÁM & CHẨN ĐOÁN</h3>
                     <p>Chụp phim CT Cone Beam 3D khảo sát xương hàm, scan dấu răng 3D bằng TRIOS kỹ thuật số hoàn toàn miễn phí.</p>
                 </div>
                 <!-- Step 3 -->
-                <div class="step-card reveal reveal-delay-2">
+                <div class="step-card reveal-left reveal-delay-2">
                     <div class="step-card-icon"><i class="fa-solid fa-file-medical"></i></div>
                     <span class="step-badge">BƯỚC 3</span>
                     <h3>LẬP PHÁC ĐỒ & BÁO GIÁ</h3>
                     <p>Lên phác đồ thiết kế nụ cười 3D chi tiết, chốt phương án chọn vật liệu và tổng chi phí cam kết trọn gói.</p>
                 </div>
                 <!-- Step 4 -->
-                <div class="step-card reveal reveal-delay-3">
+                <div class="step-card reveal-left reveal-delay-3">
                     <div class="step-card-icon"><i class="fa-solid fa-laptop-medical"></i></div>
                     <span class="step-badge">BƯỚC 4</span>
                     <h3>TIẾN HÀNH ĐIỀU TRỊ</h3>
                     <p>Tiểu phẫu nhẹ nhàng dưới sự hỗ trợ của công nghệ gây tê DentalVibe, phòng phẫu thuật vô trùng khép kín y khoa.</p>
                 </div>
                 <!-- Step 5 -->
-                <div class="step-card reveal reveal-delay-4">
+                <div class="step-card reveal-left reveal-delay-4">
                     <div class="step-card-icon"><i class="fa-solid fa-circle-check"></i></div>
                     <span class="step-badge">BƯỚC 5</span>
                     <h3>TÁI KHÁM & BẢO HÀNH</h3>
@@ -385,18 +490,27 @@
 
     <!-- ─── CHUYÊN GIA (EXPERT SECTION) ─── -->
     <section class="section-padding expert-section" id="expert">
+        <!-- Background SVG Expert Crest & Abstract Cross Nodes -->
+        <div class="expert-bg-decor">
+            <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="180" y="100" width="40" height="200" rx="6" fill="rgba(4, 147, 241, 0.04)" />
+                <rect x="100" y="180" width="200" height="40" rx="6" fill="rgba(4, 147, 241, 0.04)" />
+                <circle cx="200" cy="200" r="160" stroke="rgba(0, 51, 163, 0.03)" stroke-width="1.5" stroke-dasharray="10 6" class="rot-clockwise" />
+            </svg>
+        </div>
         <div class="container">
             <div class="section-header center reveal">
                 <span class="curved-badge">Đội ngũ y bác sĩ</span>
                 <h2>Bác Sĩ Trực Tiếp Điều Trị Tại Flora</h2>
             </div>
                         <div class="expert-grid reveal" style="margin-top: 50px; display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; align-items: center; background: var(--clr-white); padding: 40px 40px 40px 20px; border-radius: var(--radius-md); box-shadow: var(--shadow-premium); border: 1px solid var(--clr-border);">
-                <!-- Left Column: Portrait image with gradient overlay footer -->
-                <div class="reveal-left" style="position: relative; border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-premium); border: 1px solid var(--clr-border); max-width: 520px; margin: 0 auto; width: 100%;">
-                    <img src="assets/bs_rhm.webp" alt="Bác sĩ Nguyễn Đắc Minh" style="width: 100%; height: auto; display: block;" onerror="this.src='ngayhoi_item/DSC00090.webp'" />
-                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(10, 25, 49, 0.95) 0%, rgba(10, 25, 49, 0) 100%); padding: 30px 20px; text-align: center;">
-                        <h3 style="font-family: var(--font-title); font-size: 1.45rem; font-weight: 700; color: var(--clr-white); margin-bottom: 5px; text-shadow: 0 2px 4px rgba(0,0,0,0.4);">Bác sĩ Nguyễn Đắc Minh</h3>
-                        <p style="font-size: 0.85rem; color: var(--clr-secondary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin: 0; text-shadow: 0 1px 2px rgba(0,0,0,0.4);">CHUYÊN SÂU CẤY GHÉP IMPLANT & PHỤC HÌNH THẨM MỸ</p>
+                <!-- Left Column: Premium Framed portrait image -->
+                <div class="reveal-left expert-portrait-frame">
+                    <div class="expert-badge-top">CHUYÊN GIA TRƯỞNG</div>
+                    <img src="assets/bs_rhm.webp" alt="Bác sĩ Nguyễn Đắc Minh" class="expert-portrait-img" loading="lazy" width="480" height="580" onerror="this.src='ngayhoi_item/DSC00090.webp'" />
+                    <div class="expert-name-badge">
+                        <h3>Bác sĩ Nguyễn Đắc Minh</h3>
+                        <p>Chuyên sâu Cấy ghép Implant & Phục hình Thẩm mỹ</p>
                     </div>
                 </div>
                 
@@ -439,6 +553,11 @@
                         <!-- Slide 1 -->
                         <div class="slider-slide">
                             <div class="testimonial-card">
+                                <div class="testimonial-quote-bg">
+                                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 40 c0-15 10-25 25-25 v10 c-10 0-15 5-15 15 h15 v25 h-25 z M50 40 c0-15 10-25 25-25 v10 c-10 0-15 5-15 15 h15 v25 h-25 z" />
+                                    </svg>
+                                </div>
                                 <div class="testimonial-content">
                                     <span class="testimonial-badge">Cấy Ghép Implant Toàn Hàm</span>
                                     <p class="testimonial-quote">"Tôi mất răng toàn hàm dưới nhiều năm, ăn uống rất khó khăn và ngại cười giao tiếp. Đến với Flora, tôi được bác sĩ Minh cấy ghép All-on-4 Thụy Sĩ. Suốt quá trình làm răng nhẹ nhàng hơn tôi nghĩ nhiều, hiện tại tôi đã có thể ăn nhai bình thường như răng thật!"</p>
@@ -446,11 +565,11 @@
                                 </div>
                                 <div class="testimonial-img-box">
                                     <div class="bf-at-wrapper">
-                                        <img src="ngayhoi_item/DSC00090.webp" alt="Before" />
+                                        <img src="ngayhoi_item/DSC00090.webp" alt="Before" loading="lazy" width="220" height="150" />
                                         <span class="bf-at-label label-before">Trước</span>
                                     </div>
                                     <div class="bf-at-wrapper">
-                                        <img src="ngayhoi_item/hero.webp" alt="After" />
+                                        <img src="ngayhoi_item/hero.webp" alt="After" loading="lazy" width="220" height="150" />
                                         <span class="bf-at-label label-after">Sau</span>
                                     </div>
                                 </div>
@@ -459,6 +578,11 @@
                         <!-- Slide 2 -->
                         <div class="slider-slide">
                             <div class="testimonial-card">
+                                <div class="testimonial-quote-bg">
+                                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 40 c0-15 10-25 25-25 v10 c-10 0-15 5-15 15 h15 v25 h-25 z M50 40 c0-15 10-25 25-25 v10 c-10 0-15 5-15 15 h15 v25 h-25 z" />
+                                    </svg>
+                                </div>
                                 <div class="testimonial-content">
                                     <span class="testimonial-badge">Phẫu Thuật Điều Trị Cười Hở Lợi</span>
                                     <p class="testimonial-quote">"Em bị cười hở lợi từ nhỏ, mỗi lần cười là nướu lộ rất nhiều khiến em tự ti vô cùng. Em quyết định làm dài thân răng tại Flora. Bác sĩ Minh làm cực kỳ khéo léo, chỉ mất khoảng 45 phút là xong. Giờ đây em có thể tự tin cười tươi rạng rỡ."</p>
@@ -466,11 +590,11 @@
                                 </div>
                                 <div class="testimonial-img-box">
                                     <div class="bf-at-wrapper">
-                                        <img src="ngayhoi_item/DSC00091.webp" alt="Before" />
+                                        <img src="ngayhoi_item/DSC00091.webp" alt="Before" loading="lazy" width="220" height="150" />
                                         <span class="bf-at-label label-before">Trước</span>
                                     </div>
                                     <div class="bf-at-wrapper">
-                                        <img src="ngayhoi_item/hero.webp" alt="After" />
+                                        <img src="ngayhoi_item/hero.webp" alt="After" loading="lazy" width="220" height="150" />
                                         <span class="bf-at-label label-after">Sau</span>
                                     </div>
                                 </div>
@@ -482,6 +606,49 @@
                 <button class="slider-nav-btn next" id="sliderNextBtn" aria-label="Next slide"><i class="fa-solid fa-angle-right"></i></button>
                 <div class="slider-dots" id="testimonialDots"></div>
             </div>
+
+            <!-- Soft separator divider line -->
+            <div style="width: 100%; height: 1px; background: rgba(0, 51, 163, 0.05); margin: 60px 0 50px;"></div>
+
+            <!-- Collage Grid of real patient photos (merged section) -->
+            <div class="collage-grid" style="margin-top: 0;">
+                <!-- Item 1: Ah_sen_at.webp -->
+                <div class="collage-item item-1">
+                    <img src="ngayhoi_item/bf_at/Ah_sen_at.webp" alt="Mr. Ah Sen cấy ghép Implant thành công" loading="lazy" width="360" height="270" />
+                </div>
+                <!-- Item 2: 13.png -->
+                <div class="collage-item item-2">
+                    <img src="ngayhoi_item/khach_cuoi/13.webp" alt="Khám răng miệng chuẩn y khoa" loading="lazy" width="360" height="270" />
+                </div>
+                <!-- Item 3: hồng vân.jpg -->
+                <div class="collage-item item-3">
+                    <img src="ngayhoi_item/khach_cuoi/hồng vân.webp" alt="Chị Hồng Vân cấy ghép Implant thành công" loading="lazy" width="360" height="270" />
+                </div>
+                <!-- Item 4: chu_dung.webp -->
+                <div class="collage-item item-4">
+                    <img src="ngayhoi_item/khach_cuoi/chu_dung.webp" alt="Chú Dũng nụ cười rạng rỡ" loading="lazy" width="270" height="200" />
+                </div>
+                <!-- Item 5: co_cuc_at.webp -->
+                <div class="collage-item item-5">
+                    <img src="ngayhoi_item/bf_at/co_cuc_at.webp" alt="Cô Cúc phục hồi răng ăn nhai" loading="lazy" width="270" height="200" />
+                </div>
+                <!-- Item 6: IMG_2805.jpg -->
+                <div class="collage-item item-6">
+                    <img src="ngayhoi_item/khach_cuoi/IMG_2805.webp" alt="Khách hàng chụp ảnh kỷ niệm tại phòng khám" loading="lazy" width="270" height="200" />
+                </div>
+                <!-- Item 7: IMG_9944.JPG -->
+                <div class="collage-item item-7">
+                    <img src="ngayhoi_item/khach_cuoi/IMG_9944.webp" alt="Nụ cười tự tin sau khi hoàn tất" loading="lazy" width="270" height="200" />
+                </div>
+                <!-- Item 8: _ROM9345.JPG -->
+                <div class="collage-item item-8">
+                    <img src="ngayhoi_item/khach_cuoi/_ROM9345.webp" alt="Theo dõi sát sao sau cấy ghép" loading="lazy" width="560" height="420" />
+                </div>
+                <!-- Item 9: _ROM9565.JPG -->
+                <div class="collage-item item-9">
+                    <img src="ngayhoi_item/khach_cuoi/_ROM9565.webp" alt="Khách hàng nhận quà chúc mừng" loading="lazy" width="560" height="420" />
+                </div>
+            </div>
         </div>
     </section>
 
@@ -490,22 +657,108 @@
         <div class="container">
             <div class="partner-title">Đơn vị phân phối vật liệu & Đối tác công nghệ chính thức</div>
             <div class="partner-flex">
-                <img src="assets/implantswiss-logo-gray.webp" alt="ImplantSwiss" class="partner-logo" />
-                <img src="assets/brandson_logo.webp" alt="Brandson" class="partner-logo brandson-logo" />
+                <img src="assets/implantswiss-logo-gray.webp" alt="ImplantSwiss" class="partner-logo" loading="lazy" width="160" height="40" />
+                <img src="assets/brandson_logo.webp" alt="Brandson" class="partner-logo brandson-logo" loading="lazy" width="160" height="40" />
             </div>
         </div>
     </section>
 
-
-
-    
-    <!-- ─── BỘ CÔNG CỤ DỰ TOÁN CHI PHÍ & LỘ TRÌNH ĐIỀU TRỊ ─── -->
-    <section class="section-padding calculator-section" id="du-toan" style="background-color: var(--clr-bg-light); border-top: 1px solid var(--clr-border); border-bottom: 1px solid var(--clr-border);">
+    <!-- ─── CẨM NANG NHA KHOA (BLOG SECTION) ─── -->
+    <section class="section-padding blog-section" id="blog">
         <div class="container">
             <div class="section-header center reveal">
-                <span class="curved-badge">Minh bạch chi phí</span>
-                <h2>Công Cụ Dự Toán Chi Phí & <br />Lộ Trình Phác Đồ</h2>
-                <p>Tự thiết lập phác đồ dự tính chi phí điều trị trọn gói và lộ trình chi tiết chỉ trong 10 giây.</p>
+                <span class="curved-badge">Kiến thức y khoa</span>
+                <h2>Tin Tức & Cẩm Nang Nha Khoa</h2>
+                <p>Khám phá các cẩm nang chăm sóc răng miệng từ đội ngũ bác sĩ chuyên gia tại Nha khoa Flora.</p>
+            </div>
+            
+            <div class="blog-grid reveal reveal-delay-1">
+                <!-- Blog Post 1 -->
+                <article class="blog-card">
+                    <div class="blog-card-img-wrapper">
+                        <img src="ngayhoi_item/DSC00091.webp" alt="Quy trình cấy ghép Implant" class="blog-card-img" loading="lazy" width="370" height="200" />
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-card-meta">
+                            <span class="blog-category">Implant Swiss</span>
+                            <span class="blog-date"><i class="fa-regular fa-calendar" style="margin-right: 4px;"></i> 02/08/2026</span>
+                        </div>
+                        <h3><a href="implant.html">Quy Trình Cấy Ghép Implant Thụy Sĩ Chuẩn Y Khoa</a></h3>
+                        <p>Tìm hiểu các bước trồng răng phục hồi ăn nhai không đau và an toàn tuyệt đối với công nghệ Implant 5C tiên tiến.</p>
+                        <a href="implant.html" class="blog-more-link">Xem chi tiết <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="blog-card">
+                    <div class="blog-card-img-wrapper">
+                        <img src="assets/anh25.webp" alt="Lưu ý khi niềng răng Invisalign" class="blog-card-img" loading="lazy" width="370" height="200" />
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-card-meta">
+                            <span class="blog-category">Niềng Răng Số</span>
+                            <span class="blog-date"><i class="fa-regular fa-calendar" style="margin-right: 4px;"></i> 28/07/2026</span>
+                        </div>
+                        <h3><a href="nieng-rang.html">Những Lưu Ý Quan Trọng Khi Niềng Răng Invisalign</a></h3>
+                        <p>Lên phác đồ dịch chuyển răng ClinCheck nhẹ nhàng và cách chăm sóc khay niềng trong suốt giúp đạt kết quả nhanh chóng.</p>
+                        <a href="nieng-rang.html" class="blog-more-link">Xem chi tiết <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="blog-card">
+                    <div class="blog-card-img-wrapper">
+                        <img src="ngayhoi_item/DSC00090.webp" alt="Chăm sóc răng sứ Veneer" class="blog-card-img" loading="lazy" width="370" height="200" />
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-card-meta">
+                            <span class="blog-category">Veneer E.max</span>
+                            <span class="blog-date"><i class="fa-regular fa-calendar" style="margin-right: 4px;"></i> 25/07/2026</span>
+                        </div>
+                        <h3><a href="veneer.html">Bí Quyết Giữ Răng Sứ Veneer Bền Đẹp Trọn Đời</a></h3>
+                        <p>Dán sứ siêu mỏng không mài răng, bảo tồn tối đa răng thật và cách vệ sinh, ăn uống khoa học để nâng cao tuổi thọ của sứ.</p>
+                        <a href="veneer.html" class="blog-more-link">Xem chi tiết <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="blog-more-center reveal reveal-delay-2" style="text-align: center; margin-top: 40px;">
+                <a href="https://nhakhoaflora.com" target="_blank" class="btn btn-outline" style="padding: 12px 30px; font-weight: 700; font-size: 0.95rem;">Xem Tất Cả Bài Viết <i class="fa-solid fa-book-open" style="margin-left: 8px;"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── BỘ CÔNG CỤ DỰ TOÁN CHI PHÍ & LỘ TRÌNH ĐIỀU TRỊ ─── -->
+    <section class="section-padding calculator-section" id="du-toan" style="background-color: #0a1931; border-top: 1px solid rgba(255, 255, 255, 0.1); border-bottom: 1px solid rgba(255, 255, 255, 0.1); position: relative; overflow: hidden;">
+        
+        <!-- Background SVG Decor for Calculator -->
+        <div class="calc-bg-decor" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden; z-index: 0;">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="opacity: 0.85;">
+                <defs>
+                    <!-- Dot grid pattern -->
+                    <pattern id="calc-dot-pattern" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
+                        <circle cx="2" cy="2" r="1.2" fill="rgba(4, 147, 241, 0.15)" />
+                    </pattern>
+                </defs>
+                
+                <!-- Fill the background with the dot grid -->
+                <rect width="100%" height="100%" fill="url(#calc-dot-pattern)" />
+
+                <!-- Curved overlay waves -->
+                <svg viewBox="0 0 1200 600" width="100%" height="100%" preserveAspectRatio="none" fill="none">
+                    <path d="M-100 100 C 300 20, 600 250, 1300 80" stroke="var(--clr-secondary)" stroke-width="1.5" stroke-dasharray="10 6" opacity="0.25" />
+                    <path d="M-50 450 Q 400 300, 700 550 T 1250 350" stroke="rgba(255,255,255,0.06)" stroke-width="1.2" />
+                    <circle cx="300" cy="80" r="4" fill="var(--clr-secondary)" class="pulse-node" />
+                    <circle cx="850" cy="480" r="5" fill="var(--clr-secondary)" class="pulse-node-slow" style="animation-delay: 2s;" />
+                </svg>
+            </svg>
+        </div>
+
+        <div class="container" style="position: relative; z-index: 1;">
+            <div class="section-header center reveal">
+                <span class="curved-badge" style="color: var(--clr-secondary); border-color: rgba(4, 147, 241, 0.3); background: rgba(4, 147, 241, 0.05);">Minh bạch chi phí</span>
+                <h2 style="color: var(--clr-white) !important;">Công Cụ Dự Toán Chi Phí & <br />Lộ Trình Phác Đồ</h2>
+                <p style="color: rgba(255, 255, 255, 0.7) !important;">Tự thiết lập phác đồ dự tính chi phí điều trị trọn gói và lộ trình chi tiết chỉ trong 10 giây.</p>
             </div>
             
             <div class="calc-grid reveal">
@@ -642,6 +895,7 @@
                     <p style="font-size: 0.88rem; color: var(--clr-text-muted); text-align: center; margin-bottom: 24px;">Miễn phí chụp phim CT 3D & Chẩn đoán y khoa cùng Bác sĩ Cấp Cao</p>
                     
                     <form id="floraRegistrationForm" class="modal-form" style="display: flex; flex-direction: column; gap: 15px;">
+                        <input type="hidden" id="note" name="note" value="" />
                         <div class="form-group">
                             <input class="form-input" name="name" placeholder="Họ và tên của bạn" required type="text" style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);" />
                         </div>
@@ -873,6 +1127,7 @@
         <a class="widget-btn widget-booking btn-booking" href="#dang-ky" aria-label="Book Calendar"><i class="fa-regular fa-calendar-days"></i></a>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
     <script src="js/flora-main.js"></script>
 
     <!-- SOLUTION DETAIL MODAL -->

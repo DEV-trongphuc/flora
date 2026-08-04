@@ -1,0 +1,1019 @@
+/* ─── SHARED KEYFRAMES & UTILITIES ─── */
+
+@keyframes floatParticle {
+    0% { transform: translateY(0px) rotate(0deg); opacity: 0.6; }
+    50% { transform: translateY(-10px) rotate(180deg); opacity: 0.9; }
+    100% { transform: translateY(0px) rotate(360deg); opacity: 0.6; }
+}
+
+@keyframes spinSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes pulseGlow {
+    0% { transform: scale(0.95); opacity: 0.3; }
+    50% { transform: scale(1.05); opacity: 0.7; }
+    100% { transform: scale(0.95); opacity: 0.3; }
+}
+
+@keyframes drawPath {
+    to { stroke-dashoffset: 0; }
+}
+
+/* Sparkles float */
+@keyframes sparkleFloat {
+    0% { transform: translate(0, 0) scale(0.8); opacity: 0.4; }
+    50% { transform: translate(5px, -15px) scale(1.2); opacity: 1; }
+    100% { transform: translate(0, 0) scale(0.8); opacity: 0.4; }
+}
+
+/* ─── 1. HERO SECTION DECORATIONS ─── */
+
+.highlight-text-container {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 8px;
+}
+
+.heading-underline-svg {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 14px;
+    pointer-events: none;
+}
+
+.heading-underline-svg path {
+    stroke-dasharray: 450;
+    stroke-dashoffset: 450;
+}
+
+.reveal.active .heading-underline-svg path {
+    animation: drawPath 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.4s;
+}
+
+.hero-sparkle {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero-sparkle-1 {
+    top: 15%;
+    left: 10%;
+    width: 32px;
+    height: 32px;
+    animation: sparkleFloat 6s ease-in-out infinite;
+}
+
+.hero-sparkle-2 {
+    top: 40%;
+    right: 12%;
+    width: 24px;
+    height: 24px;
+    animation: sparkleFloat 5s ease-in-out infinite 1s;
+}
+
+.hero-sparkle-3 {
+    bottom: 25%;
+    left: 20%;
+    width: 28px;
+    height: 28px;
+    animation: sparkleFloat 7s ease-in-out infinite 2s;
+}
+
+/* ─── 2. FACT SECTION DECORATIONS ─── */
+
+.fact-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.fact-bg-decor {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 92%;
+    max-width: 1000px;
+    height: auto;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.fact-bg-decor svg {
+    width: 100%;
+    height: auto;
+    opacity: 0.85;
+}
+.fact-bg-decor svg path {
+    stroke-width: 2px !important;
+}
+.fact-bg-decor svg circle {
+    fill: rgba(4, 147, 241, 0.35) !important;
+}
+
+.rot-clockwise {
+    transform-origin: center;
+    animation: spinSlow 35s linear infinite;
+}
+
+.pulse-node {
+    animation: pulseGlow 3s ease-in-out infinite;
+}
+.pulse-node-slow {
+    animation: pulseGlow 4s ease-in-out infinite 1.5s;
+}
+
+.fact-card {
+    position: relative;
+    z-index: 1;
+}
+
+.fact-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(4, 147, 241, 0.08), rgba(1, 53, 166, 0.02));
+    opacity: 0;
+    transition: var(--transition);
+    z-index: -1;
+}
+
+.fact-card:hover::before {
+    opacity: 1;
+}
+
+.fact-card:hover {
+    border-color: rgba(4, 147, 241, 0.3) !important;
+}
+
+/* ─── 3. AUDIENCE SECTION DECORATIONS ─── */
+
+.audience-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.audience-bg-decor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.audience-bg-decor svg {
+    width: 100%;
+    height: 100%;
+    opacity: 0.85;
+}
+.audience-bg-decor svg path {
+    stroke: rgba(4, 147, 241, 0.14) !important;
+    stroke-width: 2.2px !important;
+}
+.audience-bg-decor svg circle {
+    fill: rgba(4, 147, 241, 0.3) !important;
+}
+
+.audience-grid {
+    position: relative;
+    z-index: 1;
+}
+
+.audience-card {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease !important;
+    overflow: hidden;
+}
+
+.audience-card-img-wrapper {
+    overflow: hidden;
+}
+
+.audience-card-img {
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.audience-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-premium-hover) !important;
+    border-color: rgba(4, 147, 241, 0.45) !important;
+}
+
+.audience-card:hover .audience-card-img {
+    transform: scale(1.08);
+}
+
+.audience-card-icon-badge {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, color 0.3s ease !important;
+}
+
+.audience-card:hover .audience-card-icon-badge {
+    transform: scale(1.15) rotate(8deg);
+    background-color: var(--clr-primary) !important;
+    color: var(--clr-white) !important;
+}
+
+/* ─── 4. VALUE SECTION DECORATIONS ─── */
+
+.value-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.value-bg-decor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.value-bg-decor svg {
+    width: 100%;
+    height: 100%;
+    opacity: 0.85;
+}
+.value-bg-decor svg path {
+    stroke: rgba(4, 147, 241, 0.08) !important;
+    stroke-width: 1.5px !important;
+}
+.value-bg-decor svg circle {
+    fill: rgba(4, 147, 241, 0.25) !important;
+}
+
+.value-layout {
+    position: relative;
+    z-index: 1;
+}
+
+.value-card {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease !important;
+}
+
+.value-card:hover {
+    transform: translateX(6px);
+    border-color: rgba(4, 147, 241, 0.3) !important;
+    box-shadow: 0 8px 25px rgba(0, 51, 163, 0.06) !important;
+}
+
+.value-num {
+    transition: transform 0.3s ease, color 0.3s ease !important;
+}
+
+.value-card:hover .value-num {
+    transform: scale(1.2);
+    color: var(--clr-secondary) !important;
+}
+
+/* ─── 5. TIMELINE SECTION DASHED PATHWAY ─── */
+
+.timeline-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.timeline-svg-path-desktop {
+    position: absolute;
+    top: 74px; /* aligned with center of step-card-icon: icon width is 48px, top padding is 50px */
+    left: 0;
+    width: 100%;
+    height: 40px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.timeline-svg-path-desktop path {
+    stroke-dasharray: 1500;
+    stroke-dashoffset: 1500;
+}
+
+.timeline-section.reveal.active .timeline-svg-path-desktop path {
+    animation: drawPath 2.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation-delay: 0.2s;
+}
+
+/* Step Card badge glow pulse */
+.step-card-icon {
+    position: relative;
+}
+
+.step-card-icon::after {
+    content: '';
+    position: absolute;
+    top: -4px; left: -4px; right: -4px; bottom: -4px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(4, 147, 241, 0.35);
+    pointer-events: none;
+    animation: pulseGlow 2.5s ease-in-out infinite;
+    z-index: -1;
+}
+
+/* ─── 6. EXPERT SECTION BIO & ACCENTS ─── */
+
+.expert-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.expert-bg-decor {
+    position: absolute;
+    bottom: 10%;
+    right: 5%;
+    width: 320px;
+    height: 320px;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.12;
+}
+
+.expert-bg-decor svg {
+    width: 100%;
+    height: 100%;
+}
+.expert-bg-decor svg rect {
+    fill: rgba(4, 147, 241, 0.08) !important;
+}
+.expert-bg-decor svg circle {
+    stroke: rgba(0, 51, 163, 0.08) !important;
+    stroke-width: 2px !important;
+}
+
+.expert-grid {
+    position: relative;
+    z-index: 1;
+}
+
+.expert-section li {
+    transition: transform 0.25s ease !important;
+}
+
+.expert-section li:hover {
+    transform: translateX(4px);
+}
+
+.expert-section li i {
+    transition: transform 0.3s ease, color 0.3s ease !important;
+}
+
+.expert-section li:hover i {
+    transform: scale(1.2);
+    color: var(--clr-primary) !important;
+}
+
+/* ─── 7. TESTIMONIALS SECTION DOUBLE QUOTES ─── */
+
+.testimonial-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-quote-bg {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.testimonial-quote-bg svg {
+    width: 100%;
+    height: 100%;
+    fill: rgba(4, 147, 241, 0.12);
+}
+
+.testimonial-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* ─── 8. PREMIUM INTERACTIVE TRANSITIONS & HOVER ANIMATIONS ─── */
+
+/* Button shine sweep effect */
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+    transition: 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.btn:hover::after {
+    left: 100%;
+}
+
+/* Hero Logo floating drift */
+.hero-logo-wrapper img {
+    animation: float-logo 5s ease-in-out infinite;
+}
+@keyframes float-logo {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+/* Header nav link underline sliding effect */
+.nav-links a {
+    position: relative;
+}
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--clr-primary);
+    transition: width 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), left 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.nav-links a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Unified card hover transitions */
+.audience-card, .value-card, .blog-card {
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.4s ease !important;
+}
+.audience-card:hover, .value-card:hover, .blog-card:hover {
+    transform: translateY(-8px) scale(1.025);
+    box-shadow: 0 20px 40px rgba(0, 51, 163, 0.12) !important;
+    border-color: rgba(4, 147, 241, 0.3) !important;
+}
+
+/* ─── RESPONSIVE DECOR CONFIGURATIONS ─── */
+
+@media (max-width: 1024px) {
+    .timeline-svg-path-desktop {
+        display: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .fact-bg-decor,
+    .audience-bg-decor,
+    .value-bg-decor,
+    .expert-bg-decor,
+    .calc-bg-decor,
+    .hero-sparkle {
+        display: none !important;
+    }
+}
+
+/* ─── 9. BLOG SECTION STYLES ─── */
+
+.blog-section {
+    background-color: var(--clr-white);
+    border-top: 1px solid var(--clr-border);
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 45px;
+}
+
+@media (max-width: 992px) {
+    .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+}
+
+@media (max-width: 640px) {
+    .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+.blog-card {
+    background: var(--clr-white);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--clr-border);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-premium-hover);
+    border-color: rgba(4, 147, 241, 0.35);
+}
+
+.blog-card-img-wrapper {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.blog-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.blog-card:hover .blog-card-img {
+    transform: scale(1.08);
+}
+
+.blog-card-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.blog-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.blog-category {
+    color: var(--clr-secondary);
+    background: rgba(4, 147, 241, 0.08);
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+}
+
+.blog-date {
+    color: var(--clr-text-muted);
+}
+
+.blog-card h3 {
+    font-family: var(--font-title);
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 12px;
+    color: var(--clr-navy);
+}
+
+.blog-card h3 a {
+    color: inherit;
+    transition: color 0.25s ease;
+}
+
+.blog-card h3 a:hover {
+    color: var(--clr-secondary);
+}
+
+.blog-card p {
+    font-size: 0.85rem;
+    color: var(--clr-text-muted);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.blog-more-link {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--clr-primary);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.blog-card:hover .blog-more-link {
+    color: var(--clr-secondary);
+}
+
+.blog-more-link i {
+    transition: transform 0.25s ease;
+}
+
+.blog-more-link:hover i {
+    transform: translateX(4px);
+}
+
+/* ─── 10. VALUE CARDS MORE-LINK ALIGNMENT ─── */
+
+.value-card {
+    align-items: stretch !important; /* Stretch cards in the row to the same height */
+}
+
+.value-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.value-info p {
+    flex-grow: 1; /* Expand paragraph to push link below to the absolute bottom */
+    margin-bottom: 12px !important;
+}
+
+.value-card-more {
+    color: var(--clr-secondary);
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: auto; /* Aligns all links perfectly at the bottom */
+    width: fit-content;
+    transition: var(--transition);
+}
+
+.value-card:hover .value-card-more {
+    color: var(--clr-primary);
+    transform: translateX(4px);
+}
+
+/* ─── 11. VALUE SECTION IMAGE GROUP COLLAGE REDESIGN ─── */
+.value-image-group {
+    position: relative;
+    height: 460px !important;
+    display: block !important;
+}
+.value-image-group::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle, rgba(4, 147, 241, 0.12) 0%, transparent 70%);
+    filter: blur(40px);
+    z-index: 0;
+    pointer-events: none;
+    animation: pulseGlow 4s ease-in-out infinite;
+}
+.value-float-img {
+    transform: none !important; /* Remove messy rotations */
+    border: 5px solid var(--clr-white) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 15px 35px rgba(0, 51, 163, 0.08) !important;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease, z-index 0.3s ease !important;
+}
+.value-float-img.img-1 {
+    width: 58% !important;
+    top: 0% !important;
+    left: 0% !important;
+    z-index: 1 !important;
+}
+.value-float-img.img-2 {
+    width: 58% !important;
+    top: 22% !important;
+    right: 0% !important;
+    z-index: 2 !important;
+}
+.value-float-img.img-3 {
+    width: 54% !important;
+    bottom: 0% !important;
+    left: 12% !important;
+    z-index: 3 !important;
+}
+.value-float-img:hover {
+    transform: scale(1.06) translateY(-8px) !important;
+    z-index: 10 !important;
+    box-shadow: 0 25px 50px rgba(0, 51, 163, 0.22) !important;
+}
+
+/* ─── 12. AUDIENCE SECTION MOBILE 2 CARDS PER ROW ─── */
+@media (max-width: 768px) {
+    .audience-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+        margin: 30px auto 0 !important;
+    }
+    .audience-card-img-wrapper {
+        height: 110px !important;
+    }
+    .audience-card-body {
+        padding: 16px 12px !important;
+        gap: 8px !important;
+    }
+    .audience-card-icon-badge {
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 0.95rem !important;
+        top: -18px !important;
+        left: 12px !important;
+        border-width: 2px !important;
+    }
+    .audience-card h3 {
+        font-size: 0.85rem !important;
+        margin-top: 4px !important;
+    }
+    .audience-card p {
+        font-size: 0.72rem !important;
+        line-height: 1.35 !important;
+    }
+    .audience-card .btn {
+        padding: 6px 10px !important;
+        font-size: 0.7rem !important;
+        width: 100% !important;
+        text-align: center !important;
+        justify-content: center !important;
+        margin-top: 4px !important;
+    }
+}
+
+/* ─── 13. FACT SECTION MOBILE SLIDER & DOTS ─── */
+.fact-slider-dots {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+@media (max-width: 768px) {
+    .fact-grid {
+        display: flex !important;
+        flex-direction: row !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        scroll-behavior: smooth !important;
+        gap: 16px !important;
+        padding: 10px 4px 20px 4px !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+    .fact-grid::-webkit-scrollbar {
+        display: none !important;
+    }
+    .fact-card {
+        flex: 0 0 88% !important;
+        scroll-snap-align: center !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+    }
+    .fact-slider-dots {
+        display: flex;
+    }
+}
+.fact-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(0, 51, 163, 0.15);
+    cursor: pointer;
+    transition: var(--transition);
+}
+.fact-dot.active {
+    width: 22px;
+    border-radius: 4px;
+    background-color: var(--clr-secondary);
+}
+
+/* ─── 14. HERO SECTION MOBILE REFINEMENTS ─── */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 70px 0 35px !important;
+    }
+    .heading-underline-svg {
+        height: 8px !important;
+        bottom: -3px !important;
+    }
+    .hero-features-single-card {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 14px !important;
+        padding: 18px 20px !important;
+        margin: 15px auto 20px !important;
+        border-radius: 14px !important;
+    }
+    .hero-feature-item {
+        flex-direction: row !important;
+        align-items: center !important;
+        text-align: left !important;
+        width: 100% !important;
+        max-width: none !important;
+        gap: 12px !important;
+    }
+    .hero-feature-item img {
+        width: 42px !important;
+        height: 42px !important;
+    }
+    .hero-feature-text {
+        font-size: 0.74rem !important;
+        line-height: 1.3 !important;
+        align-items: flex-start !important;
+    }
+    .hero-feature-text strong {
+        font-size: 0.92rem !important;
+    }
+    .feature-card-divider {
+        display: none !important; /* Hide vertical lines on mobile stack */
+    }
+    .hero-actions {
+        gap: 12px !important;
+        width: 100% !important;
+    }
+    .hero-actions .btn {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 12px 20px !important;
+        font-size: 0.88rem !important;
+    }
+    .hero-desc-wrapper strong {
+        font-size: 0.95rem !important;
+    }
+    .hero-desc-wrapper p {
+        font-size: 0.78rem !important;
+    }
+}
+
+/* ─── 15. LENIS SMOOTH SCROLL COMPATIBILITY ─── */
+html.lenis {
+    height: auto;
+}
+.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+.lenis-stopped {
+    overflow: hidden;
+}
+
+/* Disable native scroll-behavior smooth globally to prevent conflict with Lenis */
+html, body {
+    scroll-behavior: auto !important;
+}
+
+/* ─── 16. EXPERT PORTRAIT FRAME REDESIGN ─── */
+.expert-portrait-frame {
+    position: relative;
+    background: var(--clr-white);
+    padding: 12px;
+    border-radius: 24px;
+    border: 1px solid rgba(4, 147, 241, 0.18);
+    box-shadow: var(--shadow-premium);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.expert-portrait-frame:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 30px 60px rgba(0, 51, 163, 0.16);
+}
+
+.expert-portrait-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+    object-fit: cover;
+}
+
+.expert-badge-top {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: var(--grad-primary);
+    color: var(--clr-white);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 10px rgba(0, 51, 163, 0.2);
+    z-index: 5;
+}
+
+.expert-name-badge {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 88%;
+    background: rgba(10, 25, 49, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 18px;
+    padding: 16px 20px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(10, 25, 49, 0.25);
+    z-index: 5;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.expert-portrait-frame:hover .expert-name-badge {
+    transform: translateX(-50%) translateY(-5px);
+    background: rgba(0, 51, 163, 0.95);
+    border-color: rgba(4, 147, 241, 0.3);
+}
+
+.expert-name-badge h3 {
+    font-family: var(--font-title);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--clr-white);
+    margin-bottom: 4px;
+    line-height: 1.2;
+}
+
+.expert-name-badge p {
+    font-size: 0.76rem;
+    color: var(--clr-secondary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin: 0;
+}
+
+/* ─── 17. PERFORMANCE OPTIMIZATIONS (GPU & LAZY RENDERING) ─── */
+.hero-sparkle, .pulse-node, .pulse-node-slow, .rot-clockwise, .timeline-dashed-line {
+    will-change: transform, opacity, stroke-dashoffset;
+}
+
+.audience-card, .blog-card, .value-card, .step-card, .expert-portrait-frame {
+    will-change: transform, box-shadow;
+}
+
+/* Offscreen sections performance optimization */
+.fact-section,
+.audience-section,
+.value-section,
+.timeline-section,
+.expert-section,
+.testimonial-section,
+.collage-section,
+.blog-section,
+.calculator-section,
+.registration-section {
+    content-visibility: auto;
+    contain-intrinsic-size: 1000px;
+}
+
+/* ─── 18. COLLAGE GRID PERFORMANCE OPTIMIZATION ─── */
+.collage-item {
+    will-change: transform;
+    transform: translate3d(0, 0, 0); /* Force GPU rasterization */
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+@media (max-width: 768px) {
+    /* Remove heavy rotations on mobile to make scrolling/swiping extra fluid */
+    .collage-item {
+        transform: none !important;
+    }
+}
+
+/* ─── 19. CALCULATOR INTERACTIVE HOVER & ACTIVE TRANSITIONS ─── */
+.calc-inputs, .calc-results {
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+.calc-inputs:hover, .calc-results:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 51, 163, 0.15) !important;
+}
+
+/* Range slider thumb transition enhancements */
+input[type="range"]#calc-qty::-webkit-slider-thumb:active {
+    transform: scale(1.35) !important;
+    background: var(--clr-secondary) !important;
+    box-shadow: 0 0 18px var(--clr-secondary) !important;
+}
+
+/* Select form-control improvements */
+#calc-service, #calc-sub-type {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+#calc-service:hover, #calc-sub-type:hover {
+    border-color: rgba(4, 147, 241, 0.5) !important;
+}
+
+#calc-service:focus, #calc-sub-type:focus {
+    box-shadow: 0 0 0 3px rgba(4, 147, 241, 0.18) !important;
+    border-color: var(--clr-secondary) !important;
+}

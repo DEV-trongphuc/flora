@@ -1148,17 +1148,56 @@ function initCostCalculator() {
             }
         }
 
-        // Render values
-        totalPriceEl.textContent = total.toLocaleString('vi-VN') + 'đ';
-        const installment = Math.round(total / 12);
-        installmentPriceEl.textContent = `Trả góp 0%: chỉ từ ${installment.toLocaleString('vi-VN')}đ / tháng`;
+        // Render values with smooth counting animation
+        const startVal = parseFloat(totalPriceEl.getAttribute('data-price')) || 0;
+        totalPriceEl.setAttribute('data-price', total);
+        
+        const oldAnimId = totalPriceEl.getAttribute('data-anim-id');
+        if (oldAnimId) {
+            cancelAnimationFrame(parseInt(oldAnimId));
+        }
+        
+        const duration = 450; // ms
+        const startTime = performance.now();
+        
+        function updateNumber(now) {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easeProgress = progress * (2 - progress); // Ease out quad
+            const current = Math.floor(startVal + (total - startVal) * easeProgress);
+            
+            totalPriceEl.textContent = current.toLocaleString('vi-VN') + 'đ';
+            const installment = Math.round(current / 12);
+            installmentPriceEl.textContent = `Trả góp 0%: chỉ từ ${installment.toLocaleString('vi-VN')}đ / tháng`;
+            
+            if (progress < 1) {
+                const animId = requestAnimationFrame(updateNumber);
+                totalPriceEl.setAttribute('data-anim-id', animId);
+            } else {
+                totalPriceEl.textContent = total.toLocaleString('vi-VN') + 'đ';
+                const finalInstallment = Math.round(total / 12);
+                installmentPriceEl.textContent = `Trả góp 0%: chỉ từ ${finalInstallment.toLocaleString('vi-VN')}đ / tháng`;
+                totalPriceEl.removeAttribute('data-anim-id');
+            }
+        }
+        
+        const initialAnimId = requestAnimationFrame(updateNumber);
+        totalPriceEl.setAttribute('data-anim-id', initialAnimId);
 
-        // Render timeline
+        // Render timeline with staggered entry animations
         timelineList.innerHTML = '';
-        data.timeline.forEach(step => {
+        data.timeline.forEach((step, idx) => {
             const li = document.createElement('li');
             li.innerHTML = `<span>${step}</span>`;
+            li.style.opacity = '0';
+            li.style.transform = 'translateX(-15px)';
+            li.style.transition = 'all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1)';
             timelineList.appendChild(li);
+            
+            setTimeout(() => {
+                li.style.opacity = '1';
+                li.style.transform = 'translateX(0)';
+            }, idx * 60);
         });
     }
 
@@ -1198,8 +1237,22 @@ function initCostCalculator() {
                 }
             }
 
-            // Find booking form textarea and auto-fill
-            const noteTextarea = document.querySelector('#dang-ky textarea, #dang-ky [name="note"], #dang-ky [name="noi_dung"]');
+            // Auto-select corresponding service in registration form
+            const formServiceSel = document.querySelector('#dang-ky select[name="service"]');
+            if (formServiceSel) {
+                let formServiceVal = '';
+                if (service === 'implant') formServiceVal = 'Trồng răng Implant';
+                else if (service === 'invisalign') formServiceVal = 'Niềng răng chỉnh nha';
+                else if (service === 'ho-loi') formServiceVal = 'Điều trị cười hở lợi';
+                else if (service === 'veneer') formServiceVal = 'Dán sứ thẩm mỹ Veneer';
+                
+                if (formServiceVal) {
+                    formServiceSel.value = formServiceVal;
+                }
+            }
+
+            // Find booking form textarea/hidden note and auto-fill
+            const noteTextarea = document.querySelector('#dang-ky textarea, #dang-ky [name="note"], #dang-ky [name="noi_dung"], #note');
             if (noteTextarea) {
                 noteTextarea.value = note;
             } else {
@@ -1429,15 +1482,107 @@ function initAICostProposal() {
         }
     };
 
+    const runAnalysis = () => {
+        const text = aiInput.value.toLowerCase().trim();
+        if (!text) return;
+        
+        aiBtn.disabled = true;
+        aiBtn.textContent = 'Đang phân tích...';
+        aiFeedback.style.display = 'none';
+        
+        setTimeout(() => {
+            analyzeText();
+            aiBtn.disabled = false;
+            aiBtn.textContent = 'Phân tích';
+        }, 250);
+    };
+
     aiBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        analyzeText();
+        runAnalysis();
     });
     aiInput.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
             e.preventDefault();
-            analyzeText();
+            runAnalysis();
         }
     });
 }
 document.addEventListener('DOMContentLoaded', initAICostProposal);
+
+// Lenis Smooth Scroll Initialization
+function initLenis() {
+    if (typeof Lenis === 'undefined') return;
+    
+    const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        direction: 'vertical',
+        gestureDirection: 'vertical',
+        smooth: true,
+        mouseMultiplier: 1,
+        smoothTouch: false,
+        touchMultiplier: 2,
+        infinite: false,
+    });
+
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+    
+    // Connect anchor links to Lenis scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            const targetEl = document.querySelector(targetId);
+            if (targetEl) {
+                e.preventDefault();
+                lenis.scrollTo(targetEl, {
+                    offset: -70 // offset header
+                });
+            }
+        });
+    });
+}
+document.addEventListener('DOMContentLoaded', initLenis);
+
+// Mobile Slider dots for Fact cards
+function initFactSlider() {
+    const factGrid = document.querySelector('.fact-grid');
+    const dots = document.querySelectorAll('#factSliderDots .fact-dot');
+    if (!factGrid || dots.length === 0) return;
+
+    factGrid.addEventListener('scroll', () => {
+        const width = factGrid.clientWidth;
+        const scrollLeft = factGrid.scrollLeft;
+        const index = Math.round(scrollLeft / width);
+        dots.forEach((dot, idx) => {
+            if (idx === index) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+    }, { passive: true });
+
+    dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+            const index = parseInt(dot.getAttribute('data-index'));
+            const card = factGrid.querySelector('.fact-card');
+            if (card) {
+                const cardWidth = card.clientWidth;
+                const gap = 16;
+                factGrid.scrollTo({
+                    left: index * (cardWidth + gap),
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+}
+document.addEventListener('DOMContentLoaded', initFactSlider);
+
