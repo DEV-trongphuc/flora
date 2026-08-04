@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xác nhận tham gia thành công | Nha Khoa Flora</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f7fa;
+      color: #0f172a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 51, 163, 0.08);
+      max-width: 500px;
+      width: 100%;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      text-align: center;
+    }
+    .header {
+      background: linear-gradient(135deg, #0493f1 0%, #0135a6 100%);
+      padding: 40px 20px;
+      color: #ffffff;
+    }
+    .logo {
+      height: 60px;
+      width: auto;
+      margin-bottom: 15px;
+    }
+    .success-icon {
+      font-size: 50px;
+      background: #ffffff;
+      color: #22c55e;
+      width: 80px;
+      height: 80px;
+      line-height: 80px;
+      border-radius: 50%;
+      margin: -40px auto 20px auto;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+      border: 3px solid #f4f7fa;
+    }
+    .content {
+      padding: 30px 25px 40px 25px;
+    }
+    h2 {
+      color: #0a1931;
+      font-size: 22px;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+    p {
+      color: #475569;
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+    .info-card {
+      background-color: rgba(4, 147, 241, 0.03);
+      border: 1px solid rgba(4, 147, 241, 0.12);
+      border-radius: 12px;
+      padding: 18px;
+      text-align: left;
+      margin-bottom: 25px;
+    }
+    .info-row {
+      display: flex;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    .info-row:last-child {
+      margin-bottom: 0;
+    }
+    .info-label {
+      font-weight: bold;
+      color: #0033a3;
+      width: 90px;
+      flex-shrink: 0;
+    }
+    .info-value {
+      color: #334155;
+    }
+    .btn-website {
+      display: inline-block;
+      background: #0493f1;
+      color: #ffffff !important;
+      text-decoration: none;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 14px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(4, 147, 241, 0.2);
+    }
+    .btn-website:hover {
+      background: #0033a3;
+      transform: translateY(-2px);
+    }
+    .footer {
+      background-color: #0a1931;
+      color: #cbd5e1;
+      padding: 20px;
+      font-size: 12px;
+    }
+    .footer a {
+      color: #0493f1;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="https://nhakhoaflora.com/wp-content/uploads/2022/05/cropped-LOGO-FLORA1-3-192x192.png" alt="Flora Logo" class="logo">
+    </div>
+    <div class="success-icon">✓</div>
+    <div class="content">
+      <h2>Xác Nhận Thành Công!</h2>
+      <p>
+        Cảm ơn Quý khách <strong><?= name ?></strong> đã xác nhận tham dự <strong>Ngày hội Implant 2026</strong>. Hệ thống đã ghi nhận thành công thông tin của Quý khách.
+      </p>
+      <div class="info-card">
+        <div class="info-row">
+          <div class="info-label">📅 Thời gian:</div>
+          <div class="info-value">25/07/2026 | 08:30 - 13:00</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">📍 Địa điểm:</div>
+          <div class="info-value">326 Nguyễn Thị Minh Khai, Phường Bàn Cờ, Quận 3, TP.HCM</div>
+        </div>
+      </div>
+      <a href="https://nhakhoaflora.com/ngay-hoi-implant/" target="_blank" class="btn-website">Ghé Thăm Website Flora</a>
+    </div>
+    <div class="footer">
+      <strong>NHA KHOA FLORA</strong><br>
+      Hotline: 028 7305 8999 | Zalo: 0902535068
+    </div>
+  </div>
+</body>
+</html>
