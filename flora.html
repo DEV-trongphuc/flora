@@ -412,7 +412,7 @@
         }
 
         .logo-img {
-            height: 38px;
+            height: 46px;
             width: auto;
         }
 
@@ -4065,10 +4065,6 @@
         <div class="container header-inner">
             <div class="logo-box">
                 <img src="ngayhoi_item/Logo-Flora1.webp" alt="Flora Logo" class="logo-img" />
-                <div class="logo-sep"></div>
-                <img src="assets/brandson_logo.webp" alt="Brandson Logo" class="logo-brandson" />
-                <div class="logo-sep"></div>
-                <img src="assets/implantswiss-logo-gray.webp" alt="ImplantSwiss Logo" class="logo-swiss" />
             </div>
             <ul class="nav-links">
                 <li><a href="#banner">Trang chủ</a></li>
@@ -5080,7 +5076,12 @@
 
     <!-- FOOTER -->
     <footer class="footer">
-        <div class="container footer-grid">
+        <!-- Animated Background Elements -->
+        <div class="footer-dot-grid"></div>
+        <div class="footer-bg-blob blob-1"></div>
+        <div class="footer-bg-blob blob-2"></div>
+        
+        <div class="container footer-grid" style="position: relative; z-index: 2;">
             <!-- Left Column: Intro -->
             <div>
                 <img src="ngayhoi_item/Logo-Flora1.webp" alt="Flora Dental Logo"
@@ -5265,6 +5266,12 @@
                                 <label class="form-label" for="popupBirthYear" style="font-size: 0.78rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 0;">Năm sinh *</label>
                                 <input class="form-input" id="popupBirthYear" name="birthYear" required placeholder="Ví dụ: 1970" type="number" min="1920" max="2020" style="width: 100%;" />
                             </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-group" style="display: flex; flex-direction: column; gap: 4px;">
+                            <label class="form-label" for="popupEmail" style="font-size: 0.78rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 0;">Địa chỉ Email *</label>
+                            <input class="form-input" id="popupEmail" name="email" required placeholder="Nhập địa chỉ Email" type="email" style="width: 100%;" />
                         </div>
 
                         <!-- Giới tính -->
@@ -5689,11 +5696,14 @@
         const promoPopup = document.getElementById('promoPopup');
         const successPopup = document.getElementById('successPopup');
 
+        // Auto-popup promo modal disabled per request
+        /*
         setTimeout(() => {
             if (!successPopup.classList.contains('active')) {
                 promoPopup.classList.add('active');
             }
         }, 12000);
+        */
 
         document.getElementById('closePromoBtn').addEventListener('click', () => {
             promoPopup.classList.remove('active');

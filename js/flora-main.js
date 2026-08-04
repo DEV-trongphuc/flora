@@ -273,7 +273,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const successPopup = document.getElementById('successPopup');
     const registrationPopup = document.getElementById('registrationPopup');
 
-    // Auto-popup promo modal after 12 seconds
+    // Auto-popup promo modal disabled per request
+    /*
     if (promoPopup && successPopup) {
         setTimeout(() => {
             if (!successPopup.classList.contains('active')) {
@@ -281,6 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }, 12000);
     }
+    */
 
     // Close promo button
     const closePromoBtn = document.getElementById('closePromoBtn');
@@ -652,6 +654,11 @@ function initFAQ() {
         const button = item.querySelector('.faq-question');
         const answer = item.querySelector('.faq-answer');
         if (!button || !answer) return;
+
+        // If the item is initially active, expand it
+        if (item.classList.contains('active')) {
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
 
         button.addEventListener('click', () => {
             const isActive = item.classList.contains('active');
@@ -1064,6 +1071,15 @@ function initCostCalculator() {
     
     if (!serviceSel || !subTypeSel) return;
 
+    function updateSliderFill() {
+        if (!qtyInput) return;
+        const min = parseFloat(qtyInput.min) || 1;
+        const max = parseFloat(qtyInput.max) || 14;
+        const val = parseFloat(qtyInput.value) || 1;
+        const percent = ((val - min) / (max - min)) * 100;
+        qtyInput.style.background = `linear-gradient(to right, var(--clr-primary) 0%, var(--clr-primary) ${percent}%, #e2e8f0 ${percent}%, #e2e8f0 100%)`;
+    }
+
     function updateOptions() {
         const service = serviceSel.value;
         const data = calcData[service];
@@ -1087,6 +1103,7 @@ function initCostCalculator() {
         qtyInput.max = data.maxQty;
         qtyInput.value = 1;
         qtyVal.textContent = 1;
+        updateSliderFill();
 
         // Toggle extras visibility
         if (data.extra) {
@@ -1140,7 +1157,7 @@ function initCostCalculator() {
         timelineList.innerHTML = '';
         data.timeline.forEach(step => {
             const li = document.createElement('li');
-            li.innerHTML = `<i class="fa-solid fa-clock-rotate-left" style="color: var(--clr-secondary); font-size: 1rem; margin-top: 3px; flex-shrink:0;"></i> <span>${step}</span>`;
+            li.innerHTML = `<span>${step}</span>`;
             timelineList.appendChild(li);
         });
     }
@@ -1149,6 +1166,7 @@ function initCostCalculator() {
     subTypeSel.addEventListener('change', calculateCost);
     qtyInput.addEventListener('input', () => {
         qtyVal.textContent = qtyInput.value;
+        updateSliderFill();
         calculateCost();
     });
 
@@ -1292,3 +1310,134 @@ function initCustomDropdowns() {
     });
 }
 document.addEventListener('DOMContentLoaded', initCustomDropdowns);
+
+// ─── AI ASSISTANT FOR ESTIMATOR ───
+function initAICostProposal() {
+    const aiInput = document.getElementById('calc-ai-input');
+    const aiBtn = document.getElementById('calc-ai-btn');
+    const aiFeedback = document.getElementById('calc-ai-feedback');
+    const serviceSel = document.getElementById('calc-service');
+    
+    if (!aiInput || !aiBtn || !serviceSel) return;
+
+    const analyzeText = () => {
+        const text = aiInput.value.toLowerCase().trim();
+        if (!text) return;
+
+        let detectedService = '';
+        let detectedQty = 1;
+        let feedbackText = '';
+
+        // 1. Detect service
+        if (text.includes('implant') || text.includes('mất răng') || text.includes('trồng răng') || text.includes('cắm trụ') || text.includes('răng giả') || text.includes('mất 1 răng') || text.includes('mất nhiều răng')) {
+            detectedService = 'implant';
+            feedbackText = 'Cấy ghép Implant Thụy Sĩ';
+        } else if (text.includes('niềng') || text.includes('invisalign') || text.includes('chỉnh nha') || text.includes('khay trong') || text.includes('mắc cài') || text.includes('khấp khểnh') || text.includes('hô vẩu') || text.includes('móm') || text.includes('lệch')) {
+            detectedService = 'invisalign';
+            feedbackText = 'Niềng răng Invisalign';
+        } else if (text.includes('hở lợi') || text.includes('cười hở lợi') || text.includes('cắt nướu') || text.includes('thân răng') || text.includes('nướu')) {
+            detectedService = 'ho-loi';
+            feedbackText = 'Điều trị Cười hở lợi';
+        } else if (text.includes('sứ') || text.includes('veneer') || text.includes('bọc răng') || text.includes('dán sứ') || text.includes('mặt dán')) {
+            detectedService = 'veneer';
+            feedbackText = 'Dán sứ Veneer';
+        } else if (text.includes('khôn') || text.includes('nhổ') || text.includes('tủy') || text.includes('sâu') || text.includes('nhổ răng') || text.includes('trám') || text.includes('cạo vôi')) {
+            detectedService = 'tong-quat';
+            feedbackText = 'Nha khoa tổng quát';
+        }
+
+        // 2. Parse quantity
+        const numberMatches = text.match(/\d+/);
+        if (numberMatches) {
+            detectedQty = parseInt(numberMatches[0]);
+        } else {
+            if (text.includes(' một ') || text.includes(' 1 ') || text.startsWith('1 ') || text.startsWith('một ')) detectedQty = 1;
+            else if (text.includes(' hai ') || text.includes(' 2 ') || text.startsWith('2 ') || text.startsWith('hai ')) detectedQty = 2;
+            else if (text.includes(' ba ') || text.includes(' 3 ') || text.startsWith('3 ') || text.startsWith('ba ')) detectedQty = 3;
+            else if (text.includes(' bốn ') || text.includes(' 4 ') || text.startsWith('4 ') || text.startsWith('bốn ')) detectedQty = 4;
+            else if (text.includes(' năm ') || text.includes(' 5 ') || text.startsWith('5 ') || text.startsWith('năm ')) detectedQty = 5;
+            else if (text.includes(' sáu ') || text.includes(' 6 ') || text.startsWith('6 ') || text.startsWith('sáu ')) detectedQty = 6;
+            else if (text.includes(' toàn hàm ') || text.includes('all-on') || text.includes('all on')) {
+                detectedQty = 4;
+            }
+        }
+
+        if (detectedService) {
+            serviceSel.value = detectedService;
+            // Trigger change event to populate subtypes
+            const changeEvent = new Event('change', { bubbles: true });
+            serviceSel.dispatchEvent(changeEvent);
+
+            // Fetch active service range settings
+            const qtyInput = document.getElementById('calc-qty');
+            if (qtyInput) {
+                const maxVal = parseInt(qtyInput.max) || 14;
+                const minVal = parseInt(qtyInput.min) || 1;
+                if (detectedQty > maxVal) detectedQty = maxVal;
+                if (detectedQty < minVal) detectedQty = minVal;
+                qtyInput.value = detectedQty;
+                // trigger input event
+                const inputEvent = new Event('input', { bubbles: true });
+                qtyInput.dispatchEvent(inputEvent);
+            }
+
+            // Try to match type/brand
+            const subTypeSel = document.getElementById('calc-sub-type');
+            if (subTypeSel) {
+                if (detectedService === 'implant') {
+                    if (text.includes('swiss') || text.includes('thụy sĩ') || text.includes('thụy sỹ') || text.includes('tốt nhất')) {
+                        for (let i = 0; i < subTypeSel.options.length; i++) {
+                            if (subTypeSel.options[i].text.toLowerCase().includes('swiss') || subTypeSel.options[i].text.toLowerCase().includes('thụy')) {
+                                subTypeSel.selectedIndex = i;
+                                break;
+                            }
+                        }
+                    } else if (text.includes('nhật') || text.includes('hàn quốc') || text.includes('osstem') || text.includes('dentium')) {
+                        for (let i = 0; i < subTypeSel.options.length; i++) {
+                            if (subTypeSel.options[i].text.toLowerCase().includes('osstem') || subTypeSel.options[i].text.toLowerCase().includes('hàn')) {
+                                subTypeSel.selectedIndex = i;
+                                break;
+                            }
+                        }
+                    }
+                }
+                const subChangeEvent = new Event('change', { bubbles: true });
+                subTypeSel.dispatchEvent(subChangeEvent);
+            }
+
+            // Check extras
+            const boneGraft = document.getElementById('calc-bone-graft');
+            const sedation = document.getElementById('calc-sedation');
+            if (boneGraft) {
+                boneGraft.checked = text.includes('ghép xương') || text.includes('nâng xoang') || text.includes('thiếu xương');
+                const boneEvent = new Event('change', { bubbles: true });
+                boneGraft.dispatchEvent(boneEvent);
+            }
+            if (sedation) {
+                sedation.checked = text.includes('tiền mê') || text.includes('gây mê') || text.includes('sợ đau') || text.includes('êm ái');
+                const sedationEvent = new Event('change', { bubbles: true });
+                sedation.dispatchEvent(sedationEvent);
+            }
+
+            aiFeedback.style.display = 'block';
+            aiFeedback.style.color = 'var(--clr-secondary)';
+            aiFeedback.innerHTML = `🤖 AI Đề xuất: <strong>${feedbackText}</strong> (Số lượng: ${detectedQty}). Bộ dự toán chi phí đã được cập nhật tự động!`;
+        } else {
+            aiFeedback.style.display = 'block';
+            aiFeedback.style.color = '#ef4444';
+            aiFeedback.innerHTML = `🤖 AI chưa nhận diện rõ nhu cầu. Bạn hãy mô tả rõ hơn (ví dụ: 'mất 2 răng', 'niềng răng hô vẩu', 'bị cười hở lợi').`;
+        }
+    };
+
+    aiBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        analyzeText();
+    });
+    aiInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            analyzeText();
+        }
+    });
+}
+document.addEventListener('DOMContentLoaded', initAICostProposal);
