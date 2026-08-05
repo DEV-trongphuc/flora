@@ -1188,21 +1188,86 @@
         }
 
         .fact-card {
-            border: 1px solid var(--glass-border);
+            position: relative;
+            border: 1px solid rgba(4, 147, 241, 0.08);
             border-radius: var(--radius-md);
-            padding: 36px 30px;
-            background-color: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            transition: var(--transition);
-            box-shadow: var(--shadow-premium);
+            padding: 40px 30px;
+            background-color: var(--clr-white);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 10px 30px rgba(0, 51, 163, 0.03);
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .fact-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: inherit;
+            background: radial-gradient(circle at 50% 0%, rgba(4, 147, 241, 0.06), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
         }
 
         .fact-card:hover {
-            border-color: rgba(4, 147, 241, 0.45);
+            transform: translateY(-8px);
+            border-color: rgba(4, 147, 241, 0.3) !important;
             background-color: var(--clr-white);
-            box-shadow: var(--shadow-premium-hover);
-            transform: translateY(-5px);
+            box-shadow: 0 24px 50px rgba(0, 51, 163, 0.08);
+        }
+
+        .fact-card:hover::before {
+            opacity: 1;
+        }
+
+        /* SVG Icon wrapper styles */
+        .fact-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(4, 147, 241, 0.05) 0%, rgba(0, 51, 163, 0.02) 100%);
+            border: 1.5px solid rgba(4, 147, 241, 0.12);
+            border-radius: 24px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        .fact-icon-wrapper::after {
+            content: '';
+            position: absolute;
+            top: -4px; left: -4px; right: -4px; bottom: -4px;
+            border-radius: 28px;
+            border: 1.5px solid transparent;
+            background: linear-gradient(135deg, var(--clr-secondary), var(--clr-primary)) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .fact-card:hover .fact-icon-wrapper {
+            transform: scale(1.08) rotate(3deg);
+            background: #ffffff;
+            box-shadow: 0 10px 25px rgba(4, 147, 241, 0.15);
+        }
+
+        .fact-card:hover .fact-icon-wrapper::after {
+            opacity: 1;
+        }
+
+        .fact-icon-svg {
+            width: 52px;
+            height: 52px;
+            transition: transform 0.4s ease;
+        }
+
+        .fact-card:hover .fact-icon-svg {
+            transform: scale(1.05);
         }
 
         .fact-card i {
@@ -1219,7 +1284,9 @@
         }
 
         .fact-card p {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            color: var(--clr-text-muted);
+            line-height: 1.6;
         }
 
         /* ─── "ĐIỀU GÌ DIỄN RA TẠI NGÀY HỘI?" SECTION ─── */
@@ -1422,6 +1489,20 @@
             box-shadow: var(--shadow-premium) !important;
         }
 
+        /* Scoped Premium overrides for index.html (Homepage services) */
+        .audience-section .audience-card {
+            background-color: var(--clr-white) !important;
+            border: 1px solid rgba(4, 147, 241, 0.08) !important;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+            box-shadow: 0 10px 30px rgba(0, 51, 163, 0.02) !important;
+        }
+
+        .audience-section .audience-card:hover {
+            transform: translateY(-10px) !important;
+            border-color: rgba(4, 147, 241, 0.35) !important;
+            box-shadow: 0 24px 50px rgba(0, 51, 163, 0.1), 0 0 0 1px rgba(4, 147, 241, 0.15) !important;
+        }
+
         .audience-card-img-wrapper {
             width: 100%;
             height: 240px;
@@ -1433,15 +1514,27 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         .audience-card:hover .audience-card-img {
-            transform: scale(1.06);
+            transform: scale(1.08);
+        }
+
+        .audience-card-img-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, transparent 40%, rgba(0, 51, 163, 0.12) 100%);
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .audience-card:hover .audience-card-img-overlay {
+            background: linear-gradient(to bottom, transparent 30%, rgba(4, 147, 241, 0.18) 100%);
         }
 
         .audience-card-body {
-            padding: 24px;
+            padding: 28px 24px 24px 24px;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
@@ -1451,21 +1544,27 @@
         }
 
         .audience-card-icon-badge {
-            background: var(--clr-white);
-            color: var(--clr-secondary);
-            width: 50px;
-            height: 50px;
+            background: linear-gradient(135deg, var(--clr-secondary) 0%, var(--clr-primary) 100%) !important;
+            color: var(--clr-white) !important;
+            width: 54px;
+            height: 54px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.25rem;
             position: absolute;
-            top: -25px;
+            top: -27px;
             left: 24px;
             z-index: 3;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 6px 15px rgba(0, 51, 163, 0.18);
             border: 3px solid var(--clr-white);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+        }
+
+        .audience-card:hover .audience-card-icon-badge {
+            transform: scale(1.1) rotate(6deg) !important;
+            box-shadow: 0 8px 20px rgba(0, 51, 163, 0.25) !important;
         }
 
         .audience-card h3 {
@@ -1475,6 +1574,30 @@
             color: var(--clr-navy) !important;
             margin-top: 15px !important;
             margin-bottom: 0 !important;
+            transition: color 0.3s ease;
+        }
+
+        .audience-card:hover h3 {
+            color: var(--clr-secondary) !important;
+        }
+
+        /* Interactive button transition */
+        .audience-card .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            margin-top: 5px;
+        }
+
+        .audience-card:hover .btn-outline {
+            background-color: var(--clr-primary) !important;
+            border-color: var(--clr-primary) !important;
+            color: var(--clr-white) !important;
+        }
+
+        .audience-card:hover .btn-outline i {
+            transform: translateX(4px);
         }
 
         .audience-card p {

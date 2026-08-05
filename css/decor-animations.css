@@ -211,13 +211,11 @@
 }
 
 .audience-card-icon-badge {
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, color 0.3s ease !important;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease !important;
 }
 
 .audience-card:hover .audience-card-icon-badge {
-    transform: scale(1.15) rotate(8deg);
-    background-color: var(--clr-primary) !important;
-    color: var(--clr-white) !important;
+    transform: scale(1.15) rotate(8deg) !important;
 }
 
 /* ─── 4. VALUE SECTION DECORATIONS ─── */
@@ -1016,4 +1014,44 @@ input[type="range"]#calc-qty::-webkit-slider-thumb:active {
 #calc-service:focus, #calc-sub-type:focus {
     box-shadow: 0 0 0 3px rgba(4, 147, 241, 0.18) !important;
     border-color: var(--clr-secondary) !important;
+}
+
+/* ─── 20. STAT CARDS SVG MICRO-ANIMATIONS ─── */
+.fact-card:hover .fact-icon-svg path {
+    transform-origin: center;
+}
+
+.fact-icon-svg .implant-screw,
+.fact-icon-svg .smile-lips,
+.fact-icon-svg .veneer-sparkle {
+    transform-origin: center;
+}
+
+/* Implant insertion animation */
+.fact-card:hover .implant-screw {
+    animation: implantInsert 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+@keyframes implantInsert {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(3px); }
+    100% { transform: translateY(0); }
+}
+
+/* Smile expansion animation */
+.fact-card:hover .smile-lips {
+    animation: smileExpand 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+@keyframes smileExpand {
+    0% { transform: scale(1); }
+    50% { transform: scaleY(1.08) scaleX(1.04); }
+    100% { transform: scale(1); }
+}
+
+/* Sparkles rotation & shine animation */
+.fact-card:hover .veneer-sparkle {
+    animation: sparkleSpin 1.2s ease-in-out infinite alternate;
+}
+@keyframes sparkleSpin {
+    0% { transform: scale(0.8) rotate(-10deg); opacity: 0.6; }
+    100% { transform: scale(1.2) rotate(15deg); opacity: 1; }
 }
