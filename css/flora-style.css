@@ -1600,6 +1600,16 @@
             align-items: flex-start !important;
         }
 
+        .audience-card:not(:has(.audience-card-body)) > img {
+            margin-top: -30px !important;
+            margin-left: -30px !important;
+            margin-right: -30px !important;
+            width: calc(100% + 60px) !important;
+            max-width: calc(100% + 60px) !important;
+            border-bottom-left-radius: 0 !important;
+            border-bottom-right-radius: 0 !important;
+        }
+
         .audience-card:hover {
             transform: translateY(-5px) !important;
             background-color: var(--clr-white) !important;
