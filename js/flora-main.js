@@ -761,7 +761,7 @@ const solutionModals = {
     "implant-don-le": {
         title: "Mất một hoặc nhiều răng",
         badge: "Giải pháp Cấy ghép Implant Swiss",
-        desc: "Mất răng đơn lẻ gây giảm lực nhai, lâu ngày dẫn đến tiêu xương răng và xô lệch các răng kế cận. Phục hình sớm bằng Implant đơn lẻ giúp khôi phục hoàn hảo chân răng mà không cần mài nhỏ răng thật bên cạnh.",
+        desc: "Khôi phục khoảng mất răng, cải thiện khả năng ăn nhai và hạn chế ảnh hưởng đến các răng kế cận.",
         treatments: [
             "<strong>Trụ Implant Titanium:</strong> Trụ răng đóng vai trò như chân răng thật, tích hợp vĩnh viễn vào xương hàm.",
             "<strong>Mão răng sứ cao cấp:</strong> Gắn cố định trên trụ Implant qua khớp nối Abutment, chịu lực nhai lớn, màu sắc tự nhiên.",
@@ -770,31 +770,31 @@ const solutionModals = {
         link: "implant.html"
     },
     "implant-toan-ham": {
-        title: "Mất răng nguyên hàm lâu năm",
+        title: "Mất răng toàn hàm",
         badge: "Giải pháp All-on-4 & All-on-6 Thụy Sĩ",
-        desc: "Mất răng toàn bộ hàm dẫn đến lão hóa khuôn mặt (móm), tiêu xương nặng và không thể ăn nhai. Giải pháp All-on-X giúp tái tạo toàn bộ cung răng cố định vững chắc chỉ trên 4 hoặc 6 trụ Implant nâng đỡ.",
+        desc: "Giải pháp phục hồi cố định trên Implant, hướng đến khả năng ăn nhai ổn định và sự thuận tiện trong sinh hoạt.",
         treatments: [
             "<strong>All-on-4 / All-on-6 Thụy Sĩ:</strong> Sử dụng 4 hoặc 6 trụ Implant chính hãng định vị tối ưu trên xương hàm.",
             "<strong>Khôi phục cơ mặt trẻ trung:</strong> Nâng đỡ môi má, lấy lại lực nhai khỏe mạnh giúp ăn uống ngon miệng.",
-            "<strong>Quy trình Pro-Implant:</strong> Công nghệ kiểm soát sưng đau y khoa và máy đo vững ổn xương hàm Penguin RFA."
+            "<strong>Quy trình Pro-Implant:</strong> Công nghệ kiểm soát sưng đau y khoa và máy đo vững ổn xương hàm."
         ],
         link: "implant.html"
     },
     "cuoi-ho-loi": {
-        title: "Cười lộ nhiều nướu (Hở lợi)",
+        title: "Cười lộ nhiều nướu",
         badge: "Kiến tạo cung cười nướu thẩm mỹ",
-        desc: "Cười hở lợi do nướu quá phát, xương ổ răng gồ hoặc cơ nâng môi trên hoạt động quá mức. Điều trị cười hở lợi mang lại cung cười cân đối, chuẩn tỷ lệ vàng giữa răng, nướu và viền môi.",
+        desc: "Đánh giá nguyên nhân từ nướu, răng, môi hoặc cấu trúc xương để lựa chọn phương pháp điều trị phù hợp.",
         treatments: [
             "<strong>Cắt nướu thẩm mỹ bằng Laser:</strong> Loại bỏ phần nướu thừa nhẹ nhàng, không chảy máu, không để lại sẹo.",
             "<strong>Mài xương ổ răng gồ:</strong> Xử lý tận gốc nguyên nhân gồ xương để bảo đảm kết quả duy trì trọn đời.",
-            "<strong>Cam kết 100% không tái phát:</strong> Thực hiện an tâm, xuất viện ngay sau 45 phút điều trị êm ái."
+            "<strong>Kiến tạo sự hài hòa:</strong> Phù hợp đường cười tự nhiên giữa răng, nướu, môi và khuôn mặt."
         ],
         link: "ho-loi.html"
     },
     "nieng-rang-so": {
-        title: "Răng hô, móm, thưa, lệch lạc",
+        title: "Răng hô, thưa hoặc lệch lạc",
         badge: "Niềng răng Invisalign & Mắc cài số hóa",
-        desc: "Răng lệch lạc, khấp khểnh hay sai khớp cắn làm giảm thẩm mỹ nụ cười và gây khó khăn khi vệ sinh răng miệng. Niềng răng kỹ thuật số giúp sắp xếp răng về đúng vị trí chuẩn xác trên cung hàm.",
+        desc: "Cải thiện vị trí răng, khớp cắn và sự hài hòa của nụ cười bằng mắc cài hoặc khay trong suốt.",
         treatments: [
             "<strong>Khay niềng trong suốt Invisalign:</strong> Khay niềng vô hình nhập khẩu Hoa Kỳ, tháo lắp linh hoạt, thẩm mỹ tuyệt đối.",
             "<strong>Hệ thống mắc cài thông minh:</strong> Tối ưu chi phí điều trị, rút ngắn thời gian và số lần tái khám.",
@@ -803,26 +803,15 @@ const solutionModals = {
         link: "nieng-rang.html"
     },
     "tham-my-rang-su": {
-        title: "Muốn cải thiện màu sắc & dáng răng",
-        badge: "Dán sứ Veneer E.max & Bọc răng sứ thẩm mỹ",
-        desc: "Răng sứt mẻ, ố vàng hoặc nhiễm kháng sinh nặng cần giải pháp cải thiện thẩm mỹ nhanh chóng. Mặt dán sứ Veneer siêu mỏng giúp kiến tạo dáng răng đều đặn, trắng sáng rạng rỡ tự nhiên.",
+        title: "Muốn cải thiện thẩm mỹ & kiểm tra tình trạng răng miệng",
+        badge: "Khám phá thẩm mỹ nụ cười",
+        desc: "Kiểm tra chuyên sâu tình trạng răng, đưa ra giải pháp cá nhân hóa cho từng khách hàng.",
         treatments: [
             "<strong>Mặt dán sứ Veneer E.max:</strong> Độ dày siêu mỏng chỉ từ 0.3mm, bảo tồn tối đa răng gốc và tủy răng.",
             "<strong>Bọc răng sứ toàn sứ cao cấp:</strong> Phục hình răng sứ chịu lực lớn Cercon/Zirconia, bảo hành chính hãng 10-15 năm.",
             "<strong>Thiết kế Smile Design:</strong> Cân đối màu sắc và dáng răng hài hòa theo phong thủy khuôn mặt từng khách hàng."
         ],
         link: "veneer.html"
-    },
-    "nha-khoa-tong-quat": {
-        title: "Bệnh lý răng miệng & Đau nhức",
-        badge: "Nha khoa Tổng quát & Điều trị bệnh lý",
-        desc: "Sâu răng, viêm tủy, viêm nướu hay răng khôn mọc lệch gây đau nhức ê buốt dữ dội và ảnh hưởng nghiêm trọng đến sức khỏe toàn thân. Nha khoa tổng quát giúp chẩn đoán và điều trị triệt để bệnh lý răng miệng hiệu quả.",
-        treatments: [
-            "<strong>Nhổ răng khôn siêu âm Piezotome:</strong> Sử dụng sóng siêu âm bóc tách mô nhẹ nhàng, bảo vệ mô mềm, nhổ răng êm ái, giảm sưng đau tối đa.",
-            "<strong>Điều trị tủy răng & Trám thẩm mỹ:</strong> Loại bỏ triệt để ổ tủy viêm nhiễm dưới kính hiển vi nha khoa, trám Composite thẩm mỹ phục hồi hình dáng răng.",
-            "<strong>Lấy cao răng & Chăm sóc nha chu:</strong> Làm sạch mảng bám chân răng bằng máy siêu âm, bảo vệ mô nướu, ngăn ngừa viêm lợi."
-        ],
-        link: "index.html#dang-ky"
     }
 };
 
@@ -1600,4 +1589,30 @@ function initFactSlider() {
     });
 }
 document.addEventListener('DOMContentLoaded', initFactSlider);
+
+// Clinical Cases Gallery Tab Switcher
+function initCasesTabs() {
+    const tabs = document.querySelectorAll('.cases-tab-btn');
+    const panels = document.querySelectorAll('.cases-tab-panel');
+    if (tabs.length === 0 || panels.length === 0) return;
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const targetTab = tab.getAttribute('data-tab');
+
+            // Set active class on buttons
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            // Set active class on panels
+            panels.forEach(panel => {
+                panel.classList.remove('active');
+                if (panel.id === `cases-${targetTab}`) {
+                    panel.classList.add('active');
+                }
+            });
+        });
+    });
+}
+document.addEventListener('DOMContentLoaded', initCasesTabs);
 
