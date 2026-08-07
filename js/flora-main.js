@@ -62,6 +62,15 @@ document.addEventListener('DOMContentLoaded', () => {
         hamburger.addEventListener('click', toggleDrawer);
         drawerOverlay.addEventListener('click', toggleDrawer);
 
+        // Mobile Accordion Toggle
+        const accordionHeader = drawerNav.querySelector('.drawer-accordion-header');
+        if (accordionHeader) {
+            accordionHeader.addEventListener('click', () => {
+                const accordion = accordionHeader.parentElement;
+                accordion.classList.toggle('active');
+            });
+        }
+
         drawerNav.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
@@ -977,7 +986,10 @@ const calcData = {
             { id: "biotem", name: "Biotem (Hàn Quốc) - 19.000.000đ/răng", price: 19000000 },
             { id: "dentium-super", name: "Dentium Superline (Mỹ) - 22.000.000đ/răng", price: 22000000 },
             { id: "neodent", name: "Neodent (Thụy Sĩ) - 26.000.000đ/răng", price: 26000000 },
-            { id: "straumann-slactive", name: "Straumann SLActive (Thụy Sĩ) - 38.000.000đ/răng", price: 38000000 }
+            { id: "implantswiss", name: "Implantswiss (Thụy Sĩ) - 29.000.000đ/răng", price: 29000000 },
+            { id: "straumann-sla", name: "Straumann SLA (Thụy Sĩ) - 32.000.000đ/răng", price: 32000000 },
+            { id: "nobel-biocare", name: "Nobel Biocare (Mỹ/Thụy Điển) - 35.000.000đ/răng", price: 35000000 },
+            { id: "straumann-slactive", name: "Straumann SLActive (Thụy Sĩ) - 39.000.000đ/răng", price: 39000000 }
         ],
         extra: true,
         timeline: [
@@ -990,12 +1002,13 @@ const calcData = {
     invisalign: {
         label: "Mức độ thưa lệch răng:",
         qtyLabel: "Chọn mức độ răng hiện tại:",
-        maxQty: 3,
-        qtyNames: ["Nhẹ / Hơi thưa lệch (Gói Lite) - 80M", "Trung bình (Gói Moderate) - 100M", "Nặng / Hô móm nhiều (Gói Comprehensive) - 120M"],
+        maxQty: 4,
+        qtyNames: ["Mức 1 (Lite) - 59M", "Mức 2 (Moderate) - 79M", "Mức 3 - 99M", "Mức 4 (Full) - 120M"],
         types: [
-            { id: "lite", name: "Gói Invisalign Lite - 80.000.000đ", price: 80000000 },
-            { id: "moderate", name: "Gói Invisalign Moderate - 100.000.000đ", price: 100000000 },
-            { id: "comprehensive", name: "Gói Invisalign Comprehensive - 120.000.000đ", price: 120000000 }
+            { id: "lite", name: "Invisalign Mức 1 (Lite) - 59.000.000đ", price: 59000000 },
+            { id: "moderate", name: "Invisalign Mức 2 (Moderate) - 79.000.000đ", price: 79000000 },
+            { id: "m3", name: "Invisalign Mức 3 - 99.000.000đ", price: 99000000 },
+            { id: "full", name: "Invisalign Mức 4 (Full) - 120.000.000đ", price: 120000000 }
         ],
         extra: false,
         timeline: [
@@ -1011,9 +1024,9 @@ const calcData = {
         maxQty: 20,
         types: [
             { id: "veneer-sarah", name: "Sứ Sarah Thẩm Mỹ - 6.000.000đ/răng", price: 6000000 },
-            { id: "veneer-emax", name: "Sứ E.max Thụy Sĩ - 8.000.000đ/răng", price: 8000000 },
-            { id: "veneer-lisi", name: "Sứ Lisi Press (Mỹ) - 10.000.000đ/răng", price: 10000000 },
-            { id: "veneer-lava", name: "Sứ Lava Plus (Đức) - 12.000.000đ/răng", price: 12000000 }
+            { id: "veneer-cercon-ht", name: "Sứ Cercon HT - 7.000.000đ/răng", price: 7000000 },
+            { id: "veneer-emax", name: "Sứ E.max Thụy Sĩ - 7.500.000đ/răng", price: 7500000 },
+            { id: "veneer-lava", name: "Sứ Lava Plus (Mỹ) - 8.000.000đ/răng", price: 8000000 }
         ],
         extra: false,
         timeline: [
@@ -1042,9 +1055,11 @@ const calcData = {
         qtyLabel: "Số lượng răng điều trị:",
         maxQty: 4,
         types: [
-            { id: "wisdom-teeth", name: "Nhổ răng khôn Piezotome mọc lệch - 2.500.000đ/răng", price: 2500000 },
-            { id: "root-canal", name: "Điều trị tủy răng hàm & Trám Composite - 3.000.000đ/răng", price: 3000000 },
-            { id: "cavity-filling", name: "Trám răng thẩm mỹ Composite Mỹ - 500.000đ/răng", price: 500000 }
+            { id: "wisdom-teeth-straight", name: "Nhổ răng khôn mọc thẳng - 1.500.000đ/răng", price: 1500000 },
+            { id: "wisdom-teeth-tilt", name: "Nhổ răng khôn mọc lệch / ngầm - 3.500.000đ/răng", price: 3500000 },
+            { id: "root-canal", name: "Điều trị tủy răng (nhiều chân) - 1.500.000đ/răng", price: 1500000 },
+            { id: "cavity-filling", name: "Trám răng Composite 3M - 400.000đ/răng", price: 400000 },
+            { id: "teeth-whitening", name: "Tẩy trắng răng tại phòng khám - 2.500.000đ/ca", price: 2500000 }
         ],
         extra: false,
         timeline: [
