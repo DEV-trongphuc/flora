@@ -1594,6 +1594,12 @@
             max-width: 540px;
         }
 
+        .audience-card:not(:has(.audience-card-body)) {
+            padding: 30px !important;
+            gap: 15px !important;
+            align-items: flex-start !important;
+        }
+
         .audience-card:hover {
             transform: translateY(-5px) !important;
             background-color: var(--clr-white) !important;
