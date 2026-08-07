@@ -6585,11 +6585,11 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
     object-fit: contain;
     filter: grayscale(1) opacity(0.6);
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    transform: scale(1.35);
+    transform: scale(1.18);
 }
 
 .partner-logo-img[src*="implantswiss"] {
-    transform: scale(0.7);
+    transform: scale(0.85);
 }
 
 .partner-card:hover {
@@ -6600,11 +6600,11 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
 
 .partner-card:hover .partner-logo-img {
     filter: grayscale(0) opacity(1);
-    transform: scale(1.45);
+    transform: scale(1.26);
 }
 
 .partner-card:hover .partner-logo-img[src*="implantswiss"] {
-    transform: scale(0.75);
+    transform: scale(0.92);
 }
 
 /* ─── SPLIT HERO SECTION FOR SUBPAGES ─── */
