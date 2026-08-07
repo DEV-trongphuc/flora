@@ -1269,6 +1269,88 @@
         </div>
     </section>
 
+    <!-- ─── CHỨNG NHẬN & CHỨNG CHỈ (CERTIFICATIONS SECTION) ─── -->
+    <section class="section-padding certifications-section" id="certifications">
+        <div class="container">
+            <div class="section-header center reveal">
+                <span class="curved-badge">Chứng nhận chất lượng</span>
+                <h2>Chứng Chỉ & Chứng Nhận Y Khoa</h2>
+                <p>Nha khoa Flora hoạt động chính quy dưới sự kiểm duyệt nghiêm ngặt của Bộ Y Tế và các tổ chức kiểm định quốc tế.</p>
+            </div>
+
+            <div class="cert-grid reveal reveal-delay-1">
+                <!-- Cert 1 -->
+                <div class="cert-card" onclick="openCertLightbox('assets/homepage/certifications/cert_1.webp')">
+                    <div class="cert-img-wrapper">
+                        <img src="assets/homepage/certifications/cert_1.webp" alt="Chứng chỉ Y khoa Flora 1" loading="lazy" />
+                    </div>
+                    <div class="cert-title">Chứng Chỉ Cấy Ghép Implant Nha Khoa</div>
+                </div>
+                <!-- Cert 2 -->
+                <div class="cert-card" onclick="openCertLightbox('assets/homepage/certifications/cert_2.webp')">
+                    <div class="cert-img-wrapper">
+                        <img src="assets/homepage/certifications/cert_2.webp" alt="Chứng chỉ Y khoa Flora 2" loading="lazy" />
+                    </div>
+                    <div class="cert-title">Chứng Chỉ Chỉnh Nha Chuyên Sâu</div>
+                </div>
+                <!-- Cert 3 -->
+                <div class="cert-card" onclick="openCertLightbox('assets/homepage/certifications/cert_3.webp')">
+                    <div class="cert-img-wrapper">
+                        <img src="assets/homepage/certifications/cert_3.webp" alt="Chứng chỉ Y khoa Flora 3" loading="lazy" />
+                    </div>
+                    <div class="cert-title">Chứng Nhận Hệ Thống Quản Lý Chất Lượng</div>
+                </div>
+                <!-- Cert 4 -->
+                <div class="cert-card" onclick="openCertLightbox('assets/homepage/certifications/cert_4.webp')">
+                    <div class="cert-img-wrapper">
+                        <img src="assets/homepage/certifications/cert_4.webp" alt="Chứng chỉ Y khoa Flora 4" loading="lazy" />
+                    </div>
+                    <div class="cert-title">Chứng Nhận Đào Tạo Straumann Swiss</div>
+                </div>
+                <!-- Cert 5 -->
+                <div class="cert-card" onclick="openCertLightbox('assets/homepage/certifications/cert_5.webp')">
+                    <div class="cert-img-wrapper">
+                        <img src="assets/homepage/certifications/cert_5.webp" alt="Chứng chỉ Y khoa Flora 5" loading="lazy" />
+                    </div>
+                    <div class="cert-title">Chứng Nhận Bác Sĩ Cấp Cao Invisalign</div>
+                </div>
+                <!-- Cert 6 -->
+                <div class="cert-card" onclick="openCertLightbox('assets/homepage/certifications/cert_6.webp')">
+                    <div class="cert-img-wrapper">
+                        <img src="assets/homepage/certifications/cert_6.webp" alt="Chứng chỉ Y khoa Flora 6" loading="lazy" />
+                    </div>
+                    <div class="cert-title">Thành Viên Hiệp Hội Implant Quốc Tế ITI</div>
+                </div>
+                <!-- Cert 7 -->
+                <div class="cert-card" onclick="openCertLightbox('assets/homepage/certifications/cert_7.webp')">
+                    <div class="cert-img-wrapper">
+                        <img src="assets/homepage/certifications/cert_7.webp" alt="Chứng chỉ Y khoa Flora 7" loading="lazy" />
+                    </div>
+                    <div class="cert-title">Giấy Phép Hoạt Động Sở Y Tế</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox-modal" id="certLightbox" onclick="closeCertLightbox()">
+        <button class="lightbox-close" onclick="closeCertLightbox()"><i class="fa-solid fa-xmark"></i></button>
+        <img class="lightbox-content" id="lightboxImg" src="" alt="Chứng chỉ phóng lớn" onclick="event.stopPropagation()" />
+    </div>
+
+    <script>
+        function openCertLightbox(src) {
+            const modal = document.getElementById('certLightbox');
+            const img = document.getElementById('lightboxImg');
+            img.src = src;
+            modal.classList.add('active');
+        }
+        function closeCertLightbox() {
+            const modal = document.getElementById('certLightbox');
+            modal.classList.remove('active');
+        }
+    </script>
+
     <!-- ─── CẢM NHẬN KHÁCH HÀNG (TESTIMONIALS SECTION) ─── -->
     <section class="section-padding testimonials-section" id="testimonials">
         <div class="container">
