@@ -3890,6 +3890,9 @@
             .fact-grid.mobile-slider,
             .audience-grid.mobile-slider,
             .offer-sub-grid.mobile-slider,
+            .steps-grid.mobile-slider,
+            .value-cards-grid.mobile-slider,
+            .cert-grid.mobile-slider,
             .gallery-grid.mobile-slider {
                 display: flex !important;
                 flex-direction: row !important;
@@ -3911,6 +3914,9 @@
             .fact-grid.mobile-slider::-webkit-scrollbar,
             .audience-grid.mobile-slider::-webkit-scrollbar,
             .offer-sub-grid.mobile-slider::-webkit-scrollbar,
+            .steps-grid.mobile-slider::-webkit-scrollbar,
+            .value-cards-grid.mobile-slider::-webkit-scrollbar,
+            .cert-grid.mobile-slider::-webkit-scrollbar,
             .gallery-grid.mobile-slider::-webkit-scrollbar {
                 display: none !important;
                 /* Safari and Chrome */
@@ -3919,6 +3925,9 @@
             .fact-grid.mobile-slider .fact-card,
             .audience-grid.mobile-slider .audience-card,
             .offer-sub-grid.mobile-slider .offer-sub-card,
+            .steps-grid.mobile-slider .step-card,
+            .value-cards-grid.mobile-slider .value-card,
+            .cert-grid.mobile-slider .cert-card,
             .gallery-grid.mobile-slider .gallery-item {
                 flex: 0 0 88% !important;
                 width: 88% !important;
