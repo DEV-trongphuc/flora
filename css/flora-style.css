@@ -7068,7 +7068,7 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
 }
 
 /* ─── CUSTOM ROW LAYOUTS FOR STEPS GRID ─── */
-@media (min-width: 1025px) {
+@media (min-width: 992px) {
     .steps-grid.steps-5 {
         display: flex !important;
         flex-wrap: wrap !important;
