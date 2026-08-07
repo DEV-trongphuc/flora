@@ -312,7 +312,7 @@
                 <h2>9 Bước Quy Trình Dán Sứ Veneer Flora</h2>
             </div>
             
-            <div class="steps-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+            <div class="steps-grid">
                 <div class="step-card reveal">
                     <div class="step-card-icon"><i class="fa-solid fa-stethoscope"></i></div>
                     <span class="step-badge">BƯỚC 1</span>
@@ -469,48 +469,38 @@
                 <div class="reg-video-card reveal">
                     <!-- Video/Image placeholder (Page 60) -->
                     <img src="https://placehold.co/1200x700/0a1931/ffffff?text=Cover+Video+Th%E1%BA%A9m+M%E1%BB%B9+Veneer+1200x700" alt="Nha Khoa Flora Veneer" style="width: 100%; height: 100%; object-fit: cover;" />
-                    <div style="position: absolute; inset: 0; background: rgba(10, 25, 49, 0.4); display: flex; align-items: center; justify-content: center;">
-                        <a href="https://nhakhoaflora.com" target="_blank" style="width: 60px; height: 60px; border-radius: 50%; background: #ffffff; color: var(--clr-primary); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 10px 25px rgba(0,0,0,0.3); transition: var(--transition);"><i class="fa-solid fa-play" style="margin-left: 4px;"></i></a>
-                    </div>
+                    
                 </div>
                 <div class="cta-form reveal reveal-delay-2" style="background: var(--clr-bg-light); border: 1px solid var(--clr-border); padding: 40px; border-radius: var(--radius-md);">
                     <h3 style="color: var(--clr-navy); font-size: 1.4rem; margin-bottom: 8px; text-align: center;">Đăng Ký Thiết Kế Smile Design</h3>
                     <p style="font-size: 0.88rem; color: var(--clr-text-muted); text-align: center; margin-bottom: 24px;">Miễn phí mô phỏng nụ cười tương lai 3D trên ảnh chân thực cùng Bác sĩ Minh</p>
                     
-                    <form id="floraRegistrationForm" class="modal-form" style="display: flex; flex-direction: column; gap: 15px;">
-                        <input name="service" type="hidden" value="Dán sứ thẩm mỹ Veneer" />
-                        <div class="form-group">
-                            <input class="form-input" name="name" placeholder="Họ và tên của bạn" required type="text" style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);" />
+                    <form id="floraRegistrationForm" class="modal-form" style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
+                    <input name="service" type="hidden" value="Dán sứ Veneer" />
+                    <div class="form-group">
+                        <input class="form-input" name="name" placeholder="Họ và tên của bạn" required type="text" style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);" />
+                    </div>
+                    <div class="form-group">
+                        <input class="form-input" name="phone" placeholder="Số điện thoại liên hệ" required type="tel" style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);" />
+                    </div>
+                    <div class="form-group">
+                        <input class="form-input" name="email" placeholder="Địa chỉ Email" required type="email" style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);" />
+                    </div>
+                    <div class="form-group">
+                        <label style="display: block; font-size: 0.85rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 6px; text-align: left;">Giới tính:</label>
+                        <div style="display: flex; gap: 10px;">
+                            <label style="flex: 1; text-align: center; border: 1px solid var(--clr-border); padding: 10px; border-radius: var(--radius-sm); background: var(--clr-white); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 600; font-size: 0.9rem; transition: var(--transition);">
+                                <input type="radio" name="gender" value="Nam" checked style="display: none;" />
+                                <i class="fa-solid fa-mars" style="color: #0084ff;"></i> Nam
+                            </label>
+                            <label style="flex: 1; text-align: center; border: 1px solid var(--clr-border); padding: 10px; border-radius: var(--radius-sm); background: var(--clr-white); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 600; font-size: 0.9rem; transition: var(--transition);">
+                                <input type="radio" name="gender" value="Nữ" style="display: none;" />
+                                <i class="fa-solid fa-venus" style="color: #ff007f;"></i> Nữ
+                            </label>
                         </div>
-                        <div class="form-group">
-                            <input class="form-input" name="phone" placeholder="Số điện thoại liên hệ" required type="tel" style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);" />
-                        </div>
-                        <div class="form-group">
-                            <input class="form-input" name="email" placeholder="Địa chỉ Email" required type="email" style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);" />
-                        </div>
-                        <div class="form-group">
-                            <label style="display: block; font-size: 0.85rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 6px; text-align: left;">Giới tính:</label>
-                            <div style="display: flex; gap: 10px;">
-                                <label style="flex: 1; text-align: center; border: 1px solid var(--clr-border); padding: 10px; border-radius: var(--radius-sm); background: var(--clr-white); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 600; font-size: 0.9rem; transition: var(--transition);">
-                                    <input type="radio" name="gender" value="Nam" checked style="display: none;" />
-                                    <i class="fa-solid fa-mars" style="color: #0084ff;"></i> Nam
-                                </label>
-                                <label style="flex: 1; text-align: center; border: 1px solid var(--clr-border); padding: 10px; border-radius: var(--radius-sm); background: var(--clr-white); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 600; font-size: 0.9rem; transition: var(--transition);">
-                                    <input type="radio" name="gender" value="Nữ" style="display: none;" />
-                                    <i class="fa-solid fa-venus" style="color: #ff007f;"></i> Nữ
-                                </label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <select class="form-select" name="preferredTime" required style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);">
-                                <option value="" disabled selected>Thời gian muốn được liên hệ</option>
-                                <option value="Sáng (8h00 - 12h00)">Sáng (8h00 - 12h00)</option>
-                                <option value="Chiều (13h30 - 17h30)">Chiều (13h30 - 17h30)</option>
-                                <option value="Tối (18h00 - 20h00)">Tối (18h00 - 20h00)</option>
-                            </select>
-                        </div>
-                        <button class="form-submit-btn btn btn-primary" type="submit" style="background: var(--grad-primary); border: none; color: #ffffff;">Gửi Đăng Ký Đặt Lịch</button>
-                    </form>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="padding: 14px; margin-top: 10px; font-size: 1rem; font-weight: bold; width: 100%;">Gửi Yêu Cầu Đăng Ký</button>
+                </form>
                     
                     <div style="margin-top: 15px; text-align: center; font-size: 0.78rem; color: var(--clr-text-muted);">
                         <p>* Thời gian phản hồi dự kiến: Trong giờ làm việc.</p>

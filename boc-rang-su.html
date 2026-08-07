@@ -421,32 +421,31 @@
                     <h2 style="font-size: 1.8rem; margin: 10px 0;">Khám & Tư Vấn Miễn Phí</h2>
                     <p style="font-size: 0.9rem; color: var(--clr-text-muted);">Hãy để bác sĩ Flora kiểm tra tình trạng răng miệng thực tế của bạn trước khi đưa ra chỉ định bọc sứ.</p>
                 </div>
-                <form class="booking-form" id="bookingForm" style="margin-top: 25px; display: flex; flex-direction: column; gap: 15px;">
-                    <div style="display: flex; flex-direction: column;">
-                        <label style="font-weight: bold; margin-bottom: 5px; font-size: 0.9rem;">Họ và tên *</label>
-                        <input type="text" placeholder="Nhập họ và tên của bạn" required style="padding: 12px; border: 1px solid var(--clr-border); border-radius: 8px;" />
+                <form id="floraRegistrationForm" class="modal-form" style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
+                    <input name="service" type="hidden" value="Bọc răng sứ" />
+                    <div class="form-group">
+                        <input class="form-input" name="name" placeholder="Họ và tên của bạn" required type="text" style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);" />
                     </div>
-                    <div style="display: flex; flex-direction: column;">
-                        <label style="font-weight: bold; margin-bottom: 5px; font-size: 0.9rem;">Số điện thoại *</label>
-                        <input type="tel" placeholder="Nhập số điện thoại liên hệ" required style="padding: 12px; border: 1px solid var(--clr-border); border-radius: 8px;" />
+                    <div class="form-group">
+                        <input class="form-input" name="phone" placeholder="Số điện thoại liên hệ" required type="tel" style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);" />
                     </div>
-                    <div style="display: flex; flex-direction: column;">
-                        <label style="font-weight: bold; margin-bottom: 5px; font-size: 0.9rem;">Dịch vụ quan tâm</label>
-                        <select style="padding: 12px; border: 1px solid var(--clr-border); border-radius: 8px;">
-                            <option value="Bọc răng sứ">Bọc răng sứ thẩm mỹ</option>
-                            <option value="Dán sứ Veneer">Dán sứ Veneer</option>
-                            <option value="Cười hở lợi">Điều trị cười hở lợi</option>
-                            <option value="Implant">Trồng răng Implant</option>
-                        </select>
+                    <div class="form-group">
+                        <input class="form-input" name="email" placeholder="Địa chỉ Email" required type="email" style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);" />
                     </div>
-                    <div style="display: flex; flex-direction: column;">
-                        <label style="font-weight: bold; margin-bottom: 5px; font-size: 0.9rem;">Thời gian mong muốn liên hệ</label>
-                        <input type="text" placeholder="Ví dụ: Trong giờ hành chính, sau 17h, v.v." style="padding: 12px; border: 1px solid var(--clr-border); border-radius: 8px;" />
+                    <div class="form-group">
+                        <label style="display: block; font-size: 0.85rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 6px; text-align: left;">Giới tính:</label>
+                        <div style="display: flex; gap: 10px;">
+                            <label style="flex: 1; text-align: center; border: 1px solid var(--clr-border); padding: 10px; border-radius: var(--radius-sm); background: var(--clr-white); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 600; font-size: 0.9rem; transition: var(--transition);">
+                                <input type="radio" name="gender" value="Nam" checked style="display: none;" />
+                                <i class="fa-solid fa-mars" style="color: #0084ff;"></i> Nam
+                            </label>
+                            <label style="flex: 1; text-align: center; border: 1px solid var(--clr-border); padding: 10px; border-radius: var(--radius-sm); background: var(--clr-white); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 600; font-size: 0.9rem; transition: var(--transition);">
+                                <input type="radio" name="gender" value="Nữ" style="display: none;" />
+                                <i class="fa-solid fa-venus" style="color: #ff007f;"></i> Nữ
+                            </label>
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="padding: 14px; margin-top: 10px; font-size: 1rem; font-weight: bold;">Gửi Yêu Cầu Liên Hệ</button>
-                    <p style="font-size: 0.8rem; color: var(--clr-text-muted); text-align: center; margin-top: 10px; opacity: 0.8;">
-                        Thời gian phản hồi dự kiến: Trong giờ làm việc. Thông tin được bảo mật tuyệt đối.
-                    </p>
+                    <button type="submit" class="btn btn-primary" style="padding: 14px; margin-top: 10px; font-size: 1rem; font-weight: bold; width: 100%;">Gửi Yêu Cầu Đăng Ký</button>
                 </form>
             </div>
         </div>

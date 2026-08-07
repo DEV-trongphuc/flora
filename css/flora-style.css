@@ -1417,16 +1417,21 @@
         }
 
         .value-cards-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 16px;
             margin-top: 30px;
         }
 
+        .value-cards-grid .value-card {
+            flex: 0 1 calc(50% - 8px);
+            min-width: 280px;
+        }
+
         @media (max-width: 576px) {
-            .value-cards-grid {
-                grid-template-columns: 1fr;
-                gap: 12px;
+            .value-cards-grid .value-card {
+                flex: 1 1 100%;
             }
         }
 
@@ -1564,8 +1569,9 @@
         }
 
         .audience-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr) !important;
+            display: flex !important;
+            flex-wrap: wrap !important;
+            justify-content: center !important;
             gap: 30px !important;
             max-width: 1200px;
             margin: 40px auto 0;
@@ -1584,6 +1590,8 @@
             align-items: stretch !important;
             gap: 0 !important;
             box-sizing: border-box;
+            flex: 1 1 320px;
+            max-width: 540px;
         }
 
         .audience-card:hover {
@@ -3571,24 +3579,22 @@
         }
 
         .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 24px;
-            max-width: 1100px;
+            max-width: 1300px;
             margin: 40px auto 0;
         }
 
-        @media (max-width: 1024px) {
-            .steps-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-            }
+        .steps-grid .step-card {
+            flex: 1 1 280px;
+            max-width: 320px;
         }
 
         @media (max-width: 640px) {
-            .steps-grid {
-                grid-template-columns: 1fr;
-                gap: 16px;
+            .steps-grid .step-card {
+                max-width: 100%;
             }
         }
 
@@ -6612,8 +6618,8 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
     background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%) !important;
     position: relative;
     overflow: hidden;
-    padding-top: 130px; /* Offset fixed header */
-    padding-bottom: 70px;
+    padding-top: 90px; /* Offset fixed header */
+    padding-bottom: 50px;
     z-index: 1;
     min-height: auto !important;
 }
