@@ -7034,3 +7034,26 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
 .registration-wrapper label {
     color: var(--clr-navy) !important;
 }
+
+/* ─── HOMEPAGE SERVICES GRID (4 CARDS 1 ROW ON DESKTOP) ─── */
+.audience-grid.homepage-services {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 20px !important;
+    max-width: 1200px;
+    margin: 40px auto 0;
+}
+.audience-grid.homepage-services .audience-card {
+    max-width: 100% !important;
+    flex: none !important;
+}
+@media (max-width: 1024px) {
+    .audience-grid.homepage-services {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+@media (max-width: 640px) {
+    .audience-grid.homepage-services {
+        grid-template-columns: 1fr !important;
+    }
+}

@@ -382,71 +382,95 @@
     </section>
 
     <!-- ─── FAQ ─── -->
-    <section class="section-padding faq-section" style="background-color: var(--clr-bg-light);">
-        <div class="container">
-            <div class="section-header center reveal">
-                <span class="curved-badge">Giải đáp thắc mắc</span>
-                <h2>Câu Hỏi Thường Gặp Về Bọc Răng Sứ</h2>
-            </div>
-            
-            <div class="faq-list reveal reveal-delay-1" style="max-width: 800px; margin: 30px auto;">
-                <div style="background: white; border-radius: 8px; padding: 20px; margin-bottom: 15px; box-shadow: var(--shadow);">
-                    <h4 style="color: var(--clr-navy); margin-bottom: 8px;"><i class="fa-solid fa-circle-question" style="color: var(--clr-secondary); margin-right: 8px;"></i> Bọc răng sứ có bị ê buốt không?</h4>
-                    <p style="font-size: 0.9rem; color: var(--clr-text-muted); line-height: 1.5; padding-left: 24px;">
-                        Quá trình sửa soạn men răng được bác sĩ gây tê cục bộ êm ái nên không đau. Sau khi bọc răng sứ, một số trường hợp nhạy cảm nhẹ sẽ hết sau vài ngày. Bọc răng chuẩn khít sát tại Flora giúp ngăn ngừa tình trạng ê buốt triệt để.
-                    </p>
-                </div>
-                <div style="background: white; border-radius: 8px; padding: 20px; margin-bottom: 15px; box-shadow: var(--shadow);">
-                    <h4 style="color: var(--clr-navy); margin-bottom: 8px;"><i class="fa-solid fa-circle-question" style="color: var(--clr-secondary); margin-right: 8px;"></i> Tuổi thọ răng sứ được bao lâu?</h4>
-                    <p style="font-size: 0.9rem; color: var(--clr-text-muted); line-height: 1.5; padding-left: 24px;">
-                        Các dòng răng toàn sứ chất lượng tốt như Cercon, Lava Plus có tuổi thọ từ 10 - 20 năm, hoặc lâu hơn nếu được chăm sóc vệ sinh đúng cách và tái khám định kỳ để kiểm tra khớp cắn.
-                    </p>
-                </div>
-                <div style="background: white; border-radius: 8px; padding: 20px; margin-bottom: 15px; box-shadow: var(--shadow);">
-                    <h4 style="color: var(--clr-navy); margin-bottom: 8px;"><i class="fa-solid fa-circle-question" style="color: var(--clr-secondary); margin-right: 8px;"></i> Nên bọc gốm kim loại hay răng toàn sứ?</h4>
-                    <p style="font-size: 0.9rem; color: var(--clr-text-muted); line-height: 1.5; padding-left: 24px;">
-                        Răng toàn sứ có tính thẩm mỹ vượt trội, không xám nướu theo thời gian nên được ưu tiên cho vùng răng cửa. Răng sứ kim loại / Titan có chi phí tối ưu hơn, thích hợp bọc ở vùng răng hàm phía sau khuất tầm nhìn.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ─── REGISTRATION FORM ─── -->
+    <!-- ─── REGISTRATION SECTION (FAQ + FORM SPLIT) ─── -->
     <section class="section-padding registration-section" id="dang-ky">
         <div class="container">
-            <div class="registration-wrapper" style="max-width: 650px; margin: 0 auto; background: white; padding: 40px; border-radius: 18px; box-shadow: var(--shadow-premium);">
-                <div class="section-header center reveal">
-                    <span class="curved-badge">Đăng ký lịch hẹn</span>
-                    <h2 style="font-size: 1.8rem; margin: 10px 0;">Khám & Tư Vấn Miễn Phí</h2>
-                    <p style="font-size: 0.9rem; color: var(--clr-text-muted);">Hãy để bác sĩ Flora kiểm tra tình trạng răng miệng thực tế của bạn trước khi đưa ra chỉ định bọc sứ.</p>
-                </div>
-                <form id="floraRegistrationForm" class="modal-form" style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
-                    <input name="service" type="hidden" value="Bọc răng sứ" />
-                    <div class="form-group">
-                        <input class="form-input" name="name" placeholder="Họ và tên của bạn" required type="text" style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);" />
+            <div class="reg-split-container">
+                <!-- Left Column: FAQ Accordion -->
+                <div class="reveal" style="display: flex; flex-direction: column; justify-content: flex-start; gap: 20px;">
+                    <div>
+                        <span class="curved-badge" style="margin-bottom: 12px; display: inline-block;">Giải đáp chuyên khoa</span>
+                        <h3 style="font-family: var(--font-title); font-size: 1.6rem; font-weight: 700; color: var(--clr-navy); margin: 0 0 10px 0;">Câu Hỏi Thường Gặp</h3>
+                        <p style="font-size: 0.9rem; color: var(--clr-text-muted); margin: 0 0 20px 0; line-height: 1.6;">Những băn khoăn phổ biến của khách hàng khi tìm hiểu dịch vụ tại Nha khoa Flora.</p>
                     </div>
-                    <div class="form-group">
-                        <input class="form-input" name="phone" placeholder="Số điện thoại liên hệ" required type="tel" style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);" />
-                    </div>
-                    <div class="form-group">
-                        <input class="form-input" name="email" placeholder="Địa chỉ Email" required type="email" style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);" />
-                    </div>
-                    <div class="form-group">
-                        <label style="display: block; font-size: 0.85rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 6px; text-align: left;">Giới tính:</label>
-                        <div style="display: flex; gap: 10px;">
-                            <label style="flex: 1; text-align: center; border: 1px solid var(--clr-border); padding: 10px; border-radius: var(--radius-sm); background: var(--clr-white); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 600; font-size: 0.9rem; transition: var(--transition);">
-                                <input type="radio" name="gender" value="Nam" checked style="display: none;" />
-                                <i class="fa-solid fa-mars" style="color: #0084ff;"></i> Nam
-                            </label>
-                            <label style="flex: 1; text-align: center; border: 1px solid var(--clr-border); padding: 10px; border-radius: var(--radius-sm); background: var(--clr-white); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 600; font-size: 0.9rem; transition: var(--transition);">
-                                <input type="radio" name="gender" value="Nữ" style="display: none;" />
-                                <i class="fa-solid fa-venus" style="color: #ff007f;"></i> Nữ
-                            </label>
+                    <div class="faq-list" style="margin-top: 0;">
+                        <div class="faq-item active">
+                            <button class="faq-question">Bọc răng sứ có bị đau buốt hay ê răng không? <i class="fa-solid fa-chevron-down"></i></button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    Quá trình mài răng được thực hiện nhẹ nhàng dưới sự hỗ trợ của thuốc tê cao cấp. Sau khi gắn sứ, khớp cắn được cân chỉnh chuẩn xác nên răng sứ sẽ hoàn toàn êm ái, ăn nhai tự nhiên như răng thật.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">Nên chọn răng toàn sứ hay răng sứ kim loại? <i class="fa-solid fa-chevron-down"></i></button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    Bạn nên ưu tiên chọn răng toàn sứ (như Zirconia, Cercon, E.max) vì có tính thẩm mỹ cao, không bị đen viền nướu sau một thời gian sử dụng và hoàn toàn lành tính với cơ thể so với răng sứ kim loại.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">Tuổi thọ của răng bọc sứ kéo dài bao lâu? <i class="fa-solid fa-chevron-down"></i></button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    Răng toàn sứ chính hãng có độ bền dao động từ 10 - 15 năm, thậm chí trọn đời nếu được chăm sóc răng miệng tốt và tái khám định kỳ mỗi 6 tháng tại nha khoa.
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="padding: 14px; margin-top: 10px; font-size: 1rem; font-weight: bold; width: 100%;">Gửi Yêu Cầu Đăng Ký</button>
-                </form>
+                </div>
+
+                <!-- Right Column: Registration Form -->
+                <div class="cta-form reveal reveal-delay-2" style="background: #ffffff; border: 1px solid var(--clr-border); padding: 40px; border-radius: var(--radius-md); box-shadow: var(--shadow-premium);">
+                    <h3 style="color: var(--clr-navy); font-size: 1.4rem; margin-bottom: 8px; text-align: center;">Đăng Ký Khám & Tư Vấn Miễn Phí</h3>
+                    <p style="font-size: 0.88rem; color: var(--clr-text-muted); text-align: center; margin-bottom: 24px;">Miễn phí chụp phim CT 3D & Chẩn đoán y khoa cùng Bác sĩ Cấp Cao</p>
+                    
+                    <form id="floraRegistrationForm" class="modal-form" style="display: flex; flex-direction: column; gap: 15px;">
+                        <input type="hidden" id="note" name="note" value="" />
+                        <div class="form-group">
+                            <input class="form-input" name="name" placeholder="Họ và tên của bạn" required type="text" style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);" />
+                        </div>
+                        <div class="form-group">
+                            <input class="form-input" name="phone" placeholder="Số điện thoại liên hệ" required type="tel" style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);" />
+                        </div>
+                        <div class="form-group">
+                            <input class="form-input" name="email" placeholder="Địa chỉ Email" required type="email" style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);" />
+                        </div>
+                        <div class="form-group">
+                            <label style="display: block; font-size: 0.85rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 6px; text-align: left;">Giới tính:</label>
+                            <div style="display: flex; gap: 10px;">
+                                <label style="flex: 1; text-align: center; border: 1px solid var(--clr-border); padding: 10px; border-radius: var(--radius-sm); background: var(--clr-white); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 600; font-size: 0.9rem; transition: var(--transition);">
+                                    <input type="radio" name="gender" value="Nam" checked style="display: none;" />
+                                    <i class="fa-solid fa-mars" style="color: #0084ff;"></i> Nam
+                                </label>
+                                <label style="flex: 1; text-align: center; border: 1px solid var(--clr-border); padding: 10px; border-radius: var(--radius-sm); background: var(--clr-white); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 600; font-size: 0.9rem; transition: var(--transition);">
+                                    <input type="radio" name="gender" value="Nữ" style="display: none;" />
+                                    <i class="fa-solid fa-venus" style="color: #ff007f;"></i> Nữ
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-select" name="service" required style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);">
+<option value="Trồng răng Implant">Trồng răng Implant Thụy Sĩ</option>
+                                <option value="Niềng răng chỉnh nha">Niềng răng Invisalign / Mắc cài</option>
+                                <option value="Điều trị cười hở lợi">Điều trị cười hở lợi</option>
+                                <option value="Dán sứ thẩm mỹ Veneer">Dán sứ Veneer E.max</option>
+                                <option value="Bọc răng sứ" selected>Bọc răng sứ thẩm mỹ</option>
+                                <option value="Nha khoa tổng quát">Khám răng tổng quát / Lấy cao răng</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-select" name="preferredTime" required style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);">
+                                <option value="" disabled selected>Thời gian muốn được liên hệ</option>
+                                <option value="Sáng (8h00 - 12h00)">Sáng (8h00 - 12h00)</option>
+                                <option value="Chiều (13h30 - 17h30)">Chiều (13h30 - 17h30)</option>
+                                <option value="Tối (18h00 - 20h00)">Tối (18h00 - 20h00)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="padding: 14px; margin-top: 10px; font-size: 1rem; font-weight: bold; width: 100%;">Gửi Đăng Ký Đặt Lịch</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
