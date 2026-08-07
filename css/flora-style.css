@@ -6560,12 +6560,13 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
     background-color: var(--clr-white);
     border: 1px solid rgba(4, 147, 241, 0.06);
     border-radius: var(--radius-md);
-    padding: 24px 16px;
+    padding: 0;
     height: 100px;
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     text-decoration: none;
     box-sizing: border-box;
     box-shadow: 0 4px 15px rgba(0, 51, 163, 0.02);
+    overflow: hidden;
 }
 
 .partner-logo-wrapper {
@@ -6577,16 +6578,18 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
 }
 
 .partner-logo-img {
-    max-width: 90%;
-    max-height: 90%;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
     object-fit: contain;
     filter: grayscale(1) opacity(0.6);
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transform: scale(1.35);
 }
 
 .partner-logo-img[src*="implantswiss"] {
-    max-width: 65%;
-    max-height: 65%;
+    transform: scale(0.7);
 }
 
 .partner-card:hover {
@@ -6597,7 +6600,11 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
 
 .partner-card:hover .partner-logo-img {
     filter: grayscale(0) opacity(1);
-    transform: scale(1.05);
+    transform: scale(1.45);
+}
+
+.partner-card:hover .partner-logo-img[src*="implantswiss"] {
+    transform: scale(0.75);
 }
 
 /* ─── SPLIT HERO SECTION FOR SUBPAGES ─── */
