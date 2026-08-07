@@ -874,6 +874,10 @@ html, body {
     max-width: 480px;
     margin: 0 auto;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
 }
 
 .expert-portrait-frame:hover {
@@ -883,7 +887,8 @@ html, body {
 
 .expert-portrait-img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    flex-grow: 1;
     display: block;
     border-radius: 16px;
     object-fit: cover;
