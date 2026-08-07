@@ -6609,12 +6609,18 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
 
 /* ─── SPLIT HERO SECTION FOR SUBPAGES ─── */
 .subpage-hero-wrapper {
-    background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+    background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%) !important;
     position: relative;
     overflow: hidden;
     padding-top: 130px; /* Offset fixed header */
     padding-bottom: 70px;
     z-index: 1;
+    min-height: auto !important;
+}
+
+.subpage-hero-wrapper::before,
+.subpage-hero-wrapper::after {
+    display: none !important;
 }
 
 .hero-split-container {
@@ -6992,4 +6998,17 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
 }
 .premium-price-table .service-price.highlight {
     color: var(--clr-secondary);
+}
+
+/* ─── REGISTRATION CARD STYLES ON DARK SECTIONS ─── */
+.registration-wrapper input[type="text"],
+.registration-wrapper input[type="tel"],
+.registration-wrapper input[type="email"],
+.registration-wrapper select {
+    background: #ffffff !important;
+    color: var(--clr-navy) !important;
+    border: 1px solid var(--clr-border) !important;
+}
+.registration-wrapper label {
+    color: var(--clr-navy) !important;
 }
