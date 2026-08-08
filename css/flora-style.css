@@ -7263,13 +7263,12 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
 .case-img-split {
     display: flex;
     width: 100%;
-    height: 180px;
     background: #e2e8f0;
     position: relative;
 }
 .case-img-half {
     width: 50%;
-    height: 100%;
+    aspect-ratio: 1 / 1;
     position: relative;
     overflow: hidden;
 }
