@@ -7068,10 +7068,11 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
 }
 @media (max-width: 640px) {
     .audience-grid.homepage-services {
-        grid-template-columns: 1fr !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
     }
     .audience-grid.homepage-services .audience-card:nth-child(5) {
-        grid-column: auto !important;
+        grid-column: span 2 !important;
         max-width: 100% !important;
         margin: 0;
     }
@@ -7416,6 +7417,9 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
 @media (max-width: 768px) {
     .registration-section {
         padding-bottom: 100px !important; /* Increase bottom padding below FAQ list */
+    }
+    .brand-story-wrapper {
+        display: none !important; /* Hide long paragraphs of brand story on mobile */
     }
 }
 

@@ -652,7 +652,7 @@
 /* ─── 11. VALUE SECTION IMAGE GROUP COLLAGE REDESIGN ─── */
 .value-image-group {
     position: relative;
-    height: 460px !important;
+    height: 460px;
     display: block !important;
 }
 .value-image-group::before {
@@ -726,8 +726,7 @@
         margin-top: 4px !important;
     }
     .audience-card p {
-        font-size: 0.72rem !important;
-        line-height: 1.35 !important;
+        display: none !important;
     }
     .audience-card .btn {
         padding: 6px 10px !important;
