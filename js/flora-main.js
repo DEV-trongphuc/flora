@@ -1554,41 +1554,6 @@ function initLenis() {
 }
 document.addEventListener('DOMContentLoaded', initLenis);
 
-// Mobile Slider dots for Fact cards
-function initFactSlider() {
-    const factGrid = document.querySelector('.fact-grid');
-    const dots = document.querySelectorAll('#factSliderDots .fact-dot');
-    if (!factGrid || dots.length === 0) return;
-
-    factGrid.addEventListener('scroll', () => {
-        const width = factGrid.clientWidth;
-        const scrollLeft = factGrid.scrollLeft;
-        const index = Math.round(scrollLeft / width);
-        dots.forEach((dot, idx) => {
-            if (idx === index) {
-                dot.classList.add('active');
-            } else {
-                dot.classList.remove('active');
-            }
-        });
-    }, { passive: true });
-
-    dots.forEach(dot => {
-        dot.addEventListener('click', () => {
-            const index = parseInt(dot.getAttribute('data-index'));
-            const card = factGrid.querySelector('.fact-card');
-            if (card) {
-                const cardWidth = card.clientWidth;
-                const gap = 16;
-                factGrid.scrollTo({
-                    left: index * (cardWidth + gap),
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-}
-document.addEventListener('DOMContentLoaded', initFactSlider);
 
 // Clinical Cases Gallery Tab Switcher
 function initCasesTabs() {

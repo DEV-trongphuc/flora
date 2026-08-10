@@ -445,13 +445,6 @@
                     <p style="margin-top: 10px; font-size: 0.9rem;">Chăm sóc và điều trị bệnh lý răng miệng tận gốc, bảo tồn răng thật tối đa.</p>
                 </div>
             </div>
-            <!-- Slider Dots (Mobile only) -->
-            <div class="fact-slider-dots" id="factSliderDots">
-                <span class="fact-dot active" data-index="0"></span>
-                <span class="fact-dot" data-index="1"></span>
-                <span class="fact-dot" data-index="2"></span>
-                <span class="fact-dot" data-index="3"></span>
-            </div>
         </div>
     </section>
 
@@ -1127,7 +1120,7 @@
                 <span class="curved-badge">Quy trình y khoa</span>
                 <h2>Hành Trình Kiến Tạo Nụ Cười Êm Ái</h2>
             </div>
-            <div class="steps-grid">
+            <div class="steps-grid mobile-slider">
                 <!-- Step 1 -->
                 <div class="step-card reveal-left">
                     <div class="step-card-icon"><i class="fa-solid fa-comments"></i></div>
@@ -1228,7 +1221,7 @@
                 <p>Flora tin rằng công nghệ chỉ thực sự có giá trị khi hỗ trợ một quyết định lâm sàng đúng đắn.</p>
             </div>
 
-            <div class="fact-grid mobile-slider reveal reveal-delay-1" style="margin-top: 50px; display: grid !important; grid-template-columns: repeat(5, 1fr) !important; gap: 20px !important;">
+            <div class="fact-grid mobile-slider reveal reveal-delay-1" style="margin-top: 50px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px;">
                 <!-- Tech 1 -->
                 <div class="fact-card text-center" style="padding: 15px 15px 25px; box-shadow: var(--shadow-premium); border: 1px solid var(--clr-border); display: flex; flex-direction: column; align-items: center;">
                     <div class="tech-img-wrapper" style="width: 100%; aspect-ratio: 3 / 4; margin-bottom: 15px; border-radius: var(--radius-sm); overflow: hidden; background: #f8fafc;">
@@ -1282,7 +1275,7 @@
                 <p>Nha khoa Flora hoạt động chính quy dưới sự kiểm duyệt nghiêm ngặt của Bộ Y Tế và các tổ chức kiểm định quốc tế.</p>
             </div>
 
-            <div class="cert-grid reveal reveal-delay-1">
+            <div class="cert-grid mobile-slider reveal reveal-delay-1">
                 <!-- Cert 3 -->
                 <div class="cert-card" onclick="openCertLightbox('assets/homepage/certifications/cert_3.webp')">
                     <div class="cert-img-wrapper">
@@ -1637,8 +1630,8 @@
                         <label style="display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 0.9rem; color: var(--clr-primary); margin-bottom: 8px;">
                             <i class="fa-solid fa-robot" style="font-size: 1.05rem;"></i> Trợ Lý AI Gợi Ý Phác Đồ Nhanh:
                         </label>
-                        <div style="display: flex; gap: 8px;">
-                            <input type="text" id="calc-ai-input" placeholder="Ví dụ: 'tôi bị mất 2 răng hàm dưới và muốn cắm trụ loại tốt nhất'..." style="flex: 1; padding: 10px 14px; border: 1px solid var(--clr-border); border-radius: var(--radius-sm); font-size: 0.88rem; outline: none; transition: var(--transition); background: var(--clr-white); color: var(--clr-text);" />
+                        <div class="ai-input-wrapper" style="display: flex; gap: 8px;">
+                            <input type="text" id="calc-ai-input" placeholder="Ví dụ: 'tôi bị mất 2 răng hàm dưới và muốn cắm trụ loại tốt nhất'..." style="flex: 1; min-width: 0; padding: 10px 14px; border: 1px solid var(--clr-border); border-radius: var(--radius-sm); font-size: 0.88rem; outline: none; transition: var(--transition); background: var(--clr-white); color: var(--clr-text);" />
                             <button id="calc-ai-btn" class="btn btn-primary" style="padding: 10px 18px; font-size: 0.85rem; border-radius: var(--radius-sm); flex-shrink: 0; box-shadow: none; font-weight: 700; cursor: pointer;">Phân tích</button>
                         </div>
                         <div id="calc-ai-feedback" style="font-size: 0.8rem; color: var(--clr-secondary); font-weight: 600; margin-top: 8px; display: none; padding-top: 6px; border-top: 1px dashed rgba(4, 147, 241, 0.15); line-height: 1.4; text-align: left;"></div>
