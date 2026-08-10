@@ -3921,6 +3921,7 @@
             .audience-grid.mobile-slider,
             .offer-sub-grid.mobile-slider,
             .steps-grid.mobile-slider,
+            #journey .steps-grid.mobile-slider,
             .value-cards-grid.mobile-slider,
             .cert-grid.mobile-slider,
             .gallery-grid.mobile-slider {
@@ -3945,6 +3946,7 @@
             .audience-grid.mobile-slider::-webkit-scrollbar,
             .offer-sub-grid.mobile-slider::-webkit-scrollbar,
             .steps-grid.mobile-slider::-webkit-scrollbar,
+            #journey .steps-grid.mobile-slider::-webkit-scrollbar,
             .value-cards-grid.mobile-slider::-webkit-scrollbar,
             .cert-grid.mobile-slider::-webkit-scrollbar,
             .gallery-grid.mobile-slider::-webkit-scrollbar {
@@ -3956,6 +3958,7 @@
             .audience-grid.mobile-slider .audience-card,
             .offer-sub-grid.mobile-slider .offer-sub-card,
             .steps-grid.mobile-slider .step-card,
+            #journey .steps-grid.mobile-slider .step-card,
             .value-cards-grid.mobile-slider .value-card,
             .cert-grid.mobile-slider .cert-card,
             .gallery-grid.mobile-slider .gallery-item {
