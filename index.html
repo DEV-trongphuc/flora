@@ -28,83 +28,87 @@
     <style>
         .brand-story-card {
             display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 40px;
-            align-items: center;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(248, 250, 252, 0.65));
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(226, 232, 240, 0.8);
-            border-radius: var(--radius-lg);
-            padding: 45px;
-            box-shadow: 0 10px 30px rgba(0, 51, 163, 0.04), 0 1px 8px rgba(0, 51, 163, 0.02);
+            grid-template-columns: 1fr 1.4fr;
+            gap: 50px;
             margin: 0 auto 60px;
-            max-width: 1050px;
+            max-width: 1100px;
             text-align: left;
-            position: relative;
-            overflow: hidden;
-        }
-        .brand-story-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--clr-primary), var(--clr-secondary));
+            align-items: flex-start;
         }
         .story-left {
-            border-right: 1px solid rgba(226, 232, 240, 0.9);
-            padding-right: 40px;
+            position: sticky;
+            top: 100px;
         }
-        .story-left h3 {
-            font-family: var(--font-title);
-            font-size: 1.85rem;
-            font-weight: 800;
-            line-height: 1.35;
-            color: var(--clr-navy);
-            margin: 0 0 15px;
+        .story-quote-block {
+            margin-top: 30px;
+            padding: 25px;
+            background: rgba(4, 147, 241, 0.025);
+            border-left: 4px solid var(--clr-primary);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
         }
-        .story-left p {
-            font-size: 0.96rem;
+        .story-quote-block p {
+            font-family: var(--font-body);
+            font-size: 1.1rem;
             line-height: 1.6;
-            color: var(--clr-text-muted);
-            margin: 0;
-            font-weight: 500;
+            color: var(--clr-navy) !important;
+            font-weight: 600;
+            font-style: italic;
+            margin: 0 !important;
         }
-        .story-right {
+        .story-quote-block span {
+            display: block;
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: var(--clr-text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .story-feature-list {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 30px;
         }
-        .story-right p {
+        .story-feature-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        .feature-icon-box {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            border-radius: var(--radius-sm);
+            background: linear-gradient(135deg, rgba(4, 147, 241, 0.08), rgba(0, 51, 163, 0.04));
+            border: 1px solid rgba(4, 147, 241, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--clr-primary);
+            font-size: 1.25rem;
+            box-shadow: 0 4px 10px rgba(4, 147, 241, 0.05);
+        }
+        .feature-text-box h4 {
+            font-family: var(--font-title);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--clr-navy);
+            margin: 0 0 6px;
+        }
+        .feature-text-box p {
             margin: 0;
             font-family: var(--font-body);
-            line-height: 1.7;
-        }
-        .story-right p.lead {
-            font-size: 1.05rem;
-            color: var(--clr-navy);
-            font-weight: 600;
-        }
-        .story-right p.text {
-            font-size: 0.96rem;
+            font-size: 0.95rem;
+            line-height: 1.65;
             color: var(--clr-text-muted);
         }
         @media (max-width: 768px) {
             .brand-story-card {
                 grid-template-columns: 1fr;
-                gap: 30px;
-                padding: 30px 24px;
+                gap: 40px;
             }
             .story-left {
-                border-right: none;
-                border-bottom: 1px solid rgba(226, 232, 240, 0.9);
-                padding-right: 0;
-                padding-bottom: 25px;
-            }
-            .story-left h3 {
-                font-size: 1.6rem;
+                position: static;
             }
         }
     </style>
@@ -369,23 +373,48 @@
                 <h2>Flora - Hành Trình Kiến Tạo <span style="color: var(--clr-secondary);">32.000</span> Nụ Cười</h2>
             </div>
             
-            <!-- Brand Story Card Redesign -->
+            <!-- Editorial Brand Story Layout -->
             <div class="brand-story-card reveal">
                 <div class="story-left">
-                    <h3>
-                        Tiêu chuẩn Y khoa <span style="background: linear-gradient(to right, var(--clr-primary), var(--clr-secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Thụy Sĩ</span> & Trải nghiệm Êm ái
-                    </h3>
-                    <p>
-                        Flora được thiết kế từ cốt lõi hướng đến việc tối ưu hóa cảm giác điều trị của khách hàng, đảm bảo tính chuẩn xác và sự an tâm tối đa.
-                    </p>
+                    <img src="ngayhoi_item/Logo-Flora1.webp" alt="Flora Logo" style="max-height: 48px; width: auto; display: block;" />
+                    <div class="story-quote-block">
+                        <p>“Hành trình kiến tạo hơn 32.000 nụ cười chuẩn xác, an toàn và êm ái tuyệt đối.”</p>
+                        <span>Hệ thống nha khoa Thụy Sĩ</span>
+                    </div>
                 </div>
                 <div class="story-right">
-                    <p class="lead">
-                        Nha khoa Flora là hệ thống nha khoa êm ái tiêu chuẩn Thụy Sĩ, chuyên sâu về trồng răng Implant, điều trị cười hở lợi, chỉnh nha và phục hình thẩm mỹ. Với hơn 5 năm phát triển, chúng tôi tự hào đồng hành cùng hơn 32.000 khách hàng kiến tạo nụ cười tự nhiên.
-                    </p>
-                    <p class="text">
-                        Flora kết hợp đội ngũ bác sĩ giàu kinh nghiệm cùng hệ thống công nghệ hàng đầu như CT Cone Beam 3D, DentalVibe, Penguin RFA, TRIOS và Laser. Mỗi khách hàng đều được lập phác đồ riêng biệt, hướng đến sự chuẩn xác, hạn chế xâm lấn tối đa và mang lại cảm giác nhẹ nhàng, dễ chịu trong suốt hành trình.
-                    </p>
+                    <div class="story-feature-list">
+                        <!-- Feature 1 -->
+                        <div class="story-feature-item">
+                            <div class="feature-icon-box">
+                                <i class="fa-solid fa-house-medical-shield"></i>
+                            </div>
+                            <div class="feature-text-box">
+                                <h4>Hệ Thống Chuyên Sâu Chuẩn Thụy Sĩ</h4>
+                                <p>Nha khoa Flora chuyên sâu cấy ghép Implant Thụy Sĩ, điều trị cười hở lợi, niềng răng và răng sứ thẩm mỹ. Trải qua hơn 5 năm đồng hành, mang đến dịch vụ êm ái tiêu chuẩn quốc tế cho nụ cười Việt.</p>
+                            </div>
+                        </div>
+                        <!-- Feature 2 -->
+                        <div class="story-feature-item">
+                            <div class="feature-icon-box">
+                                <i class="fa-solid fa-user-doctor"></i>
+                            </div>
+                            <div class="feature-text-box">
+                                <h4>Bác Sĩ Chuyên Gia & Phác Đồ Cá Nhân</h4>
+                                <p>Đội ngũ bác sĩ lâm sàng giàu kinh nghiệm trực tiếp thăm khám kỹ lưỡng, tìm đúng nguyên nhân và thiết kế phác đồ điều trị riêng biệt cho từng khách hàng, bảo tồn tối đa răng gốc và hạn chế tối đa xâm lấn.</p>
+                            </div>
+                        </div>
+                        <!-- Feature 3 -->
+                        <div class="story-feature-item">
+                            <div class="feature-icon-box">
+                                <i class="fa-solid fa-microscope"></i>
+                            </div>
+                            <div class="feature-text-box">
+                                <h4>Trang Thiết Bị Hiện Đại Hàng Đầu</h4>
+                                <p>Sở hữu công nghệ chẩn đoán và điều trị tiên tiến nhất hiện nay: CT Cone Beam 3D, Thiết bị kiểm soát đau DentalVibe, Máy đo tích hợp xương Penguin RFA, Máy quét TRIOS 3D kỹ thuật số và công nghệ Laser.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
