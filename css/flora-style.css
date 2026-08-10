@@ -3938,6 +3938,8 @@
                 margin-right: -24px !important;
                 width: auto !important;
                 max-width: none !important; /* Allow the slider to expand beyond parent container margins */
+                scroll-padding-left: 24px !important; /* Keep slider items indented from screen edges when snapped */
+                scroll-padding-right: 24px !important;
                 scrollbar-width: none !important;
                 /* Firefox */
                 -webkit-overflow-scrolling: touch !important;
@@ -6088,6 +6090,8 @@ input:focus, select:focus, textarea:focus {
         margin-left: -24px !important;
         margin-right: -24px !important;
         width: auto !important;
+        scroll-padding-left: 24px !important; /* Keep slider items indented from screen edges when snapped */
+        scroll-padding-right: 24px !important;
         scrollbar-width: none !important;
         -webkit-overflow-scrolling: touch !important;
         margin-bottom: 10px !important;
