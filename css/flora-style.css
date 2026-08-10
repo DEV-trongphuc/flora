@@ -6070,7 +6070,7 @@ input:focus, select:focus, textarea:focus {
     }
 }
 @media (max-width: 768px) {
-    .cases-tab-panel.mobile-slider {
+    .cases-tab-panel.mobile-slider.active {
         display: flex !important;
         flex-direction: row !important;
         flex-wrap: nowrap !important;
@@ -6086,15 +6086,18 @@ input:focus, select:focus, textarea:focus {
         -webkit-overflow-scrolling: touch !important;
         margin-bottom: 10px !important;
     }
-    .cases-tab-panel.mobile-slider::-webkit-scrollbar {
+    .cases-tab-panel.mobile-slider.active::-webkit-scrollbar {
         display: none !important;
     }
-    .cases-tab-panel.mobile-slider .case-card {
+    .cases-tab-panel.mobile-slider.active .case-card {
         flex: 0 0 88% !important;
         width: 88% !important;
         scroll-snap-align: center !important;
         box-sizing: border-box !important;
         margin: 0 !important;
+    }
+    .cases-tab-panel.mobile-slider:not(.active) {
+        display: none !important;
     }
     .cases-tab-panel:not(.active) + .mobile-slider-dots {
         display: none !important;
