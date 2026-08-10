@@ -3928,6 +3928,7 @@
                 display: flex !important;
                 flex-direction: row !important;
                 flex-wrap: nowrap !important;
+                justify-content: flex-start !important; /* Align scroll items to the left start position */
                 overflow-x: auto !important;
                 scroll-snap-type: x mandatory !important;
                 scroll-behavior: smooth !important;
@@ -6078,6 +6079,7 @@ input:focus, select:focus, textarea:focus {
         display: flex !important;
         flex-direction: row !important;
         flex-wrap: nowrap !important;
+        justify-content: flex-start !important; /* Align scroll items to the left start position */
         overflow-x: auto !important;
         scroll-snap-type: x mandatory !important;
         scroll-behavior: smooth !important;
