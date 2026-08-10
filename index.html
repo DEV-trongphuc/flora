@@ -23,6 +23,91 @@
     <!-- Shared Stylesheet -->
     <link href="css/flora-style.css?v=1.3" rel="stylesheet" />
     <link href="css/decor-animations.css" rel="stylesheet" />
+    
+    <!-- Custom Style for Brand Story Section -->
+    <style>
+        .brand-story-card {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(248, 250, 252, 0.65));
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            border-radius: var(--radius-lg);
+            padding: 45px;
+            box-shadow: 0 10px 30px rgba(0, 51, 163, 0.04), 0 1px 8px rgba(0, 51, 163, 0.02);
+            margin: 0 auto 60px;
+            max-width: 1050px;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+        .brand-story-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--clr-primary), var(--clr-secondary));
+        }
+        .story-left {
+            border-right: 1px solid rgba(226, 232, 240, 0.9);
+            padding-right: 40px;
+        }
+        .story-left h3 {
+            font-family: var(--font-title);
+            font-size: 1.85rem;
+            font-weight: 800;
+            line-height: 1.35;
+            color: var(--clr-navy);
+            margin: 0 0 15px;
+        }
+        .story-left p {
+            font-size: 0.96rem;
+            line-height: 1.6;
+            color: var(--clr-text-muted);
+            margin: 0;
+            font-weight: 500;
+        }
+        .story-right {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .story-right p {
+            margin: 0;
+            font-family: var(--font-body);
+            line-height: 1.7;
+        }
+        .story-right p.lead {
+            font-size: 1.05rem;
+            color: var(--clr-navy);
+            font-weight: 600;
+        }
+        .story-right p.text {
+            font-size: 0.96rem;
+            color: var(--clr-text-muted);
+        }
+        @media (max-width: 768px) {
+            .brand-story-card {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 30px 24px;
+            }
+            .story-left {
+                border-right: none;
+                border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+                padding-right: 0;
+                padding-bottom: 25px;
+            }
+            .story-left h3 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Global SVG Gradient Definitions -->
@@ -284,14 +369,24 @@
                 <h2>Flora - Hành Trình Kiến Tạo <span style="color: var(--clr-secondary);">32.000</span> Nụ Cười</h2>
             </div>
             
-            <!-- Brand Story Paragraphs -->
-            <div class="brand-story-wrapper reveal" style="max-width: 900px; margin: 0 auto 50px; text-align: center; line-height: 1.75; font-size: 1.05rem; color: var(--clr-text-muted);">
-                <p style="margin-bottom: 20px; font-weight: 500; font-family: var(--font-body); color: var(--clr-navy);">
-                    Nha khoa Flora là hệ thống nha khoa êm ái tiêu chuẩn Thụy Sĩ, chuyên sâu về trồng răng Implant, điều trị cười hở lợi, chỉnh nha và phục hình thẩm mỹ. Với hơn 5 năm phát triển và hơn 32.000 ca điều trị ở các nhóm dịch vụ chính: 7.500 ca trồng răng Implant, 6.900 ca điều trị cười hở lợi, 8.800 ca bọc răng sứ thẩm mỹ và 8.900 ca điều trị nha khoa tổng quát. Flora đã trở thành địa chỉ được nhiều khách hàng tin chọn trong hành trình phục hồi sức khỏe răng miệng và kiến tạo nụ cười tự nhiên.
-                </p>
-                <p style="font-family: var(--font-body); font-size: 0.98rem; opacity: 0.95;">
-                    Flora kết hợp đội ngũ bác sĩ giàu kinh nghiệm với hệ thống công nghệ đầy hiện đại như CT Cone Beam 3D, DentalVibe, Penguin RFA, TRIOS, Laser và phần mềm phân tích VCeph 3D. Mỗi khách hàng được thăm khám kỹ lưỡng, chẩn đoán đúng nguyên nhân và xây dựng phác đồ riêng biệt, hướng đến mục tiêu điều trị chuẩn xác, hạn chế xâm lấn, bảo tồn tối đa và mang lại trải nghiệm nhẹ nhàng trong suốt hành trình.
-                </p>
+            <!-- Brand Story Card Redesign -->
+            <div class="brand-story-card reveal">
+                <div class="story-left">
+                    <h3>
+                        Tiêu chuẩn Y khoa <span style="background: linear-gradient(to right, var(--clr-primary), var(--clr-secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Thụy Sĩ</span> & Trải nghiệm Êm ái
+                    </h3>
+                    <p>
+                        Flora được thiết kế từ cốt lõi hướng đến việc tối ưu hóa cảm giác điều trị của khách hàng, đảm bảo tính chuẩn xác và sự an tâm tối đa.
+                    </p>
+                </div>
+                <div class="story-right">
+                    <p class="lead">
+                        Nha khoa Flora là hệ thống nha khoa êm ái tiêu chuẩn Thụy Sĩ, chuyên sâu về trồng răng Implant, điều trị cười hở lợi, chỉnh nha và phục hình thẩm mỹ. Với hơn 5 năm phát triển, chúng tôi tự hào đồng hành cùng hơn 32.000 khách hàng kiến tạo nụ cười tự nhiên.
+                    </p>
+                    <p class="text">
+                        Flora kết hợp đội ngũ bác sĩ giàu kinh nghiệm cùng hệ thống công nghệ hàng đầu như CT Cone Beam 3D, DentalVibe, Penguin RFA, TRIOS và Laser. Mỗi khách hàng đều được lập phác đồ riêng biệt, hướng đến sự chuẩn xác, hạn chế xâm lấn tối đa và mang lại cảm giác nhẹ nhàng, dễ chịu trong suốt hành trình.
+                    </p>
+                </div>
             </div>
 
             <div class="fact-grid mobile-slider reveal reveal-delay-1">
