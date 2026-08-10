@@ -7440,6 +7440,14 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
     .value-image-group {
         height: 230px !important; /* Adjust doctor checkup collage container height on mobile */
     }
+    /* Mobile header logo larger */
+    .logo-img {
+        height: 38px !important;
+    }
+    /* Mobile sidebar menu logo even larger */
+    .drawer-nav .logo-img {
+        height: 48px !important;
+    }
 }
 
 @media (max-width: 576px) {
