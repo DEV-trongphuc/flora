@@ -23,95 +23,6 @@
     <!-- Shared Stylesheet -->
     <link href="css/flora-style.css?v=1.3" rel="stylesheet" />
     <link href="css/decor-animations.css" rel="stylesheet" />
-    
-    <!-- Custom Style for Brand Story Section -->
-    <style>
-        .brand-story-card {
-            display: grid;
-            grid-template-columns: 1fr 1.4fr;
-            gap: 50px;
-            margin: 0 auto 60px;
-            max-width: 1100px;
-            text-align: left;
-            align-items: flex-start;
-        }
-        .story-left {
-            position: sticky;
-            top: 100px;
-        }
-        .story-quote-block {
-            margin-top: 30px;
-            padding: 25px;
-            background: rgba(4, 147, 241, 0.025);
-            border-left: 4px solid var(--clr-primary);
-            border-radius: 0 var(--radius-md) var(--radius-md) 0;
-        }
-        .story-quote-block p {
-            font-family: var(--font-body);
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: var(--clr-navy) !important;
-            font-weight: 600;
-            font-style: italic;
-            margin: 0 !important;
-        }
-        .story-quote-block span {
-            display: block;
-            margin-top: 10px;
-            font-size: 0.85rem;
-            color: var(--clr-text-muted);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .story-feature-list {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-        .story-feature-item {
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
-        }
-        .feature-icon-box {
-            width: 48px;
-            height: 48px;
-            min-width: 48px;
-            border-radius: var(--radius-sm);
-            background: linear-gradient(135deg, rgba(4, 147, 241, 0.08), rgba(0, 51, 163, 0.04));
-            border: 1px solid rgba(4, 147, 241, 0.15);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--clr-primary);
-            font-size: 1.25rem;
-            box-shadow: 0 4px 10px rgba(4, 147, 241, 0.05);
-        }
-        .feature-text-box h4 {
-            font-family: var(--font-title);
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--clr-navy);
-            margin: 0 0 6px;
-        }
-        .feature-text-box p {
-            margin: 0;
-            font-family: var(--font-body);
-            font-size: 0.95rem;
-            line-height: 1.65;
-            color: var(--clr-text-muted);
-        }
-        @media (max-width: 768px) {
-            .brand-story-card {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            .story-left {
-                position: static;
-            }
-        }
-    </style>
 </head>
 <body>
     <!-- Global SVG Gradient Definitions -->
@@ -373,49 +284,14 @@
                 <h2>Flora - Hành Trình Kiến Tạo <span style="color: var(--clr-secondary);">32.000</span> Nụ Cười</h2>
             </div>
             
-            <!-- Editorial Brand Story Layout -->
-            <div class="brand-story-card reveal">
-                <div class="story-left">
-                    <img src="ngayhoi_item/Logo-Flora1.webp" alt="Flora Logo" style="max-height: 48px; width: auto; display: block;" />
-                    <div class="story-quote-block">
-                        <p>“Hành trình kiến tạo hơn 32.000 nụ cười chuẩn xác, an toàn và êm ái tuyệt đối.”</p>
-                        <span>Hệ thống nha khoa Thụy Sĩ</span>
-                    </div>
-                </div>
-                <div class="story-right">
-                    <div class="story-feature-list">
-                        <!-- Feature 1 -->
-                        <div class="story-feature-item">
-                            <div class="feature-icon-box">
-                                <i class="fa-solid fa-house-medical-shield"></i>
-                            </div>
-                            <div class="feature-text-box">
-                                <h4>Hệ Thống Chuyên Sâu Chuẩn Thụy Sĩ</h4>
-                                <p>Nha khoa Flora chuyên sâu cấy ghép Implant Thụy Sĩ, điều trị cười hở lợi, niềng răng và răng sứ thẩm mỹ. Trải qua hơn 5 năm đồng hành, mang đến dịch vụ êm ái tiêu chuẩn quốc tế cho nụ cười Việt.</p>
-                            </div>
-                        </div>
-                        <!-- Feature 2 -->
-                        <div class="story-feature-item">
-                            <div class="feature-icon-box">
-                                <i class="fa-solid fa-user-doctor"></i>
-                            </div>
-                            <div class="feature-text-box">
-                                <h4>Bác Sĩ Chuyên Gia & Phác Đồ Cá Nhân</h4>
-                                <p>Đội ngũ bác sĩ lâm sàng giàu kinh nghiệm trực tiếp thăm khám kỹ lưỡng, tìm đúng nguyên nhân và thiết kế phác đồ điều trị riêng biệt cho từng khách hàng, bảo tồn tối đa răng gốc và hạn chế tối đa xâm lấn.</p>
-                            </div>
-                        </div>
-                        <!-- Feature 3 -->
-                        <div class="story-feature-item">
-                            <div class="feature-icon-box">
-                                <i class="fa-solid fa-microscope"></i>
-                            </div>
-                            <div class="feature-text-box">
-                                <h4>Trang Thiết Bị Hiện Đại Hàng Đầu</h4>
-                                <p>Sở hữu công nghệ chẩn đoán và điều trị tiên tiến nhất hiện nay: CT Cone Beam 3D, Thiết bị kiểm soát đau DentalVibe, Máy đo tích hợp xương Penguin RFA, Máy quét TRIOS 3D kỹ thuật số và công nghệ Laser.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <!-- Brand Story Paragraphs -->
+            <div class="brand-story-wrapper reveal" style="max-width: 900px; margin: 0 auto 50px; text-align: center; line-height: 1.75; font-size: 1.05rem; color: var(--clr-text-muted);">
+                <p style="margin-bottom: 20px; font-weight: 500; font-family: var(--font-body); color: var(--clr-navy);">
+                    Nha khoa Flora là hệ thống nha khoa êm ái tiêu chuẩn Thụy Sĩ, chuyên sâu về trồng răng Implant, điều trị cười hở lợi, chỉnh nha và phục hình thẩm mỹ. Với hơn 5 năm phát triển và hơn 32.000 ca điều trị ở các nhóm dịch vụ chính: 7.500 ca trồng răng Implant, 6.900 ca điều trị cười hở lợi, 8.800 ca bọc răng sứ thẩm mỹ và 8.900 ca điều trị nha khoa tổng quát. Flora đã trở thành địa chỉ được nhiều khách hàng tin chọn trong hành trình phục hồi sức khỏe răng miệng và kiến tạo nụ cười tự nhiên.
+                </p>
+                <p style="font-family: var(--font-body); font-size: 0.98rem; opacity: 0.95;">
+                    Flora kết hợp đội ngũ bác sĩ giàu kinh nghiệm với hệ thống công nghệ đầy hiện đại như CT Cone Beam 3D, DentalVibe, Penguin RFA, TRIOS, Laser và phần mềm phân tích VCeph 3D. Mỗi khách hàng được thăm khám kỹ lưỡng, chẩn đoán đúng nguyên nhân và xây dựng phác đồ riêng biệt, hướng đến mục tiêu điều trị chuẩn xác, hạn chế xâm lấn, bảo tồn tối đa và mang lại trải nghiệm nhẹ nhàng trong suốt hành trình.
+                </p>
             </div>
 
             <div class="fact-grid mobile-slider reveal reveal-delay-1">
