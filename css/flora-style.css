@@ -6378,6 +6378,9 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
 
 /* Safe padding margins for mobile footer grids */
 @media (max-width: 768px) {
+    .footer {
+        padding: 40px 16px 20px 16px !important;
+    }
     .footer-col {
         margin-bottom: 30px !important;
         padding: 0 10px !important;
@@ -6728,7 +6731,7 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
     flex: 1;
     max-width: 600px;
     width: 100%;
-    height: 520px;
+    height: 550px;
     position: relative;
 }
 
@@ -6762,26 +6765,26 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
 
 /* Positions matching screenshot */
 .collage-card-container .card-1 {
-    width: 140px;
-    height: 105px;
-    top: 50px;
-    left: 20px;
+    width: 170px;
+    height: 128px;
+    top: 30px;
+    left: 10px;
     z-index: 1;
     transform: rotate(-6deg);
 }
 
 .collage-card-container .card-2 {
-    width: 160px;
-    height: 120px;
-    top: 15px;
-    right: 20px;
+    width: 190px;
+    height: 143px;
+    top: -10px;
+    right: 10px;
     z-index: 1;
     transform: rotate(5deg);
 }
 
 .collage-card-container .card-3 {
-    width: 250px;
-    height: 250px;
+    width: 290px;
+    height: 290px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(-2deg);
@@ -6792,29 +6795,29 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
 }
 
 .collage-card-container .card-4 {
-    width: 150px;
-    height: 112px;
-    bottom: 30px;
-    left: 25px;
+    width: 180px;
+    height: 135px;
+    bottom: 10px;
+    left: 15px;
     z-index: 2;
     transform: rotate(4deg);
 }
 
 .collage-card-container .card-5 {
-    width: 150px;
-    height: 112px;
-    bottom: 15px;
-    right: 25px;
+    width: 180px;
+    height: 135px;
+    bottom: 0px;
+    right: 15px;
     z-index: 2;
     transform: rotate(-5deg);
 }
 
 /* Small extra photo to fill space if needed */
 .collage-card-container .card-6 {
-    width: 120px;
-    height: 90px;
-    top: 140px;
-    right: -10px;
+    width: 140px;
+    height: 105px;
+    top: 130px;
+    right: -20px;
     z-index: 1;
     transform: rotate(10deg);
 }
@@ -6872,14 +6875,20 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
 
 /* Responsive configurations */
 @media (max-width: 992px) {
-    .subpage-hero-wrapper {
-        padding-top: 110px;
-        padding-bottom: 50px;
+    .hero-wrapper.subpage-hero-wrapper {
+        min-height: auto !important;
+        height: auto !important;
+        padding-top: 50px !important; /* Reduced offset even more */
+        padding-bottom: 20px !important;
+    }
+    .subpage-hero-wrapper .hero-section {
+        padding-top: 5px !important;
+        padding-bottom: 5px !important;
     }
     .hero-split-container {
         flex-direction: column;
         text-align: center;
-        gap: 30px;
+        gap: 12px;
     }
     .hero-left-content {
         align-items: center;
@@ -6888,50 +6897,122 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
     }
     .hero-left-content .hero-title {
         text-align: center;
+        font-size: 1.7rem !important; /* Smaller size to save vertical space */
+        margin-bottom: 8px !important;
     }
     .hero-left-content .hero-description {
         text-align: center;
-    }
-    .hero-left-content .hero-actions {
-        justify-content: center;
+        font-size: 0.85rem !important;
+        line-height: 1.45 !important;
+        margin-bottom: 12px !important;
     }
     .hero-left-content .hero-info-pills {
-        justify-content: center;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        margin-bottom: 12px !important;
+        width: auto !important;
     }
+    .hero-left-content .hero-pill {
+        padding: 6px 12px !important;
+        font-size: 0.72rem !important;
+        white-space: nowrap !important;
+    }
+    .hero-left-content .hero-actions {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        margin-bottom: 5px !important;
+        width: 100% !important;
+        max-width: 320px !important; /* Restrict width so buttons stay compact */
+    }
+    .hero-left-content .hero-actions .btn {
+        width: auto !important;
+        flex: 1 !important;
+        padding: 8px 12px !important; /* Smaller padding */
+        font-size: 0.8rem !important; /* Smaller text */
+        white-space: nowrap !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    .btn-text-desktop {
+        display: none !important;
+    }
+    
+    /* Transform overlapping collage into a smooth horizontal single-row slide on mobile */
     .hero-right-collage {
-        height: 420px;
-        max-width: 480px;
+        height: auto !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        margin-top: 15px !important;
+        overflow: visible !important;
     }
-    .collage-card-container .card-3 {
-        width: 200px;
-        height: 200px;
+    .collage-card-container {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        -webkit-overflow-scrolling: touch !important;
+        gap: 12px !important;
+        padding: 5px 20px 15px 20px !important;
+        margin-left: -20px !important;
+        margin-right: -20px !important;
+        width: calc(100% + 40px) !important;
+        scrollbar-width: none !important;
     }
-    .collage-card-container .card-1 {
-        width: 110px;
-        height: 82px;
-        top: 40px;
+    .collage-card-container::-webkit-scrollbar {
+        display: none !important;
     }
-    .collage-card-container .card-2 {
-        width: 120px;
-        height: 90px;
-        top: 15px;
+    .collage-card-container .collage-card-item {
+        position: relative !important;
+        flex: 0 0 170px !important;
+        width: 170px !important;
+        height: 128px !important;
+        transform: none !important;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: auto !important;
+        border-radius: 12px !important;
+        border: 3px solid #ffffff !important;
+        box-shadow: 0 6px 15px rgba(0, 51, 163, 0.06) !important;
+        scroll-snap-align: start !important;
     }
-    .collage-card-container .card-4 {
-        width: 120px;
-        height: 90px;
-        bottom: 30px;
-    }
-    .collage-card-container .card-5 {
-        width: 120px;
-        height: 90px;
-        bottom: 15px;
-    }
-    .collage-card-container .card-6 {
-        display: none;
-    }
+    
+    /* Hide floating badge and decorative elements inside collage to clean up layout */
     .collage-floating-badge {
-        bottom: 90px;
-        left: 10px;
+        display: none !important;
+    }
+    .collage-card-container img[src*="icon-trụ-implant"],
+    .collage-card-container img[src*="Tru"] {
+        display: none !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .pricing-card {
+        padding: 15px !important;
+    }
+    .pricing-card-subtitle {
+        font-size: 0.95rem !important;
+    }
+    .responsive-table-wrapper {
+        border: none !important;
+        margin-bottom: 20px !important;
+    }
+    .responsive-table-wrapper table {
+        min-width: 100% !important;
+    }
+    .premium-price-table th, 
+    .premium-price-table td {
+        padding: 10px 8px !important;
+        font-size: 0.8rem !important;
     }
 }
 
