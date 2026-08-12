@@ -1581,3 +1581,136 @@ function initCasesTabs() {
 }
 document.addEventListener('DOMContentLoaded', initCasesTabs);
 
+
+// ─── IMPLANT MATERIALS SLIDER & TABS SYNCHRONIZATION ───
+function initMaterialsSlider() {
+    const track = document.querySelector('.materials-slider-track');
+    const tabs = document.querySelectorAll('.materials-tab-btn');
+    const dotsContainer = document.querySelector('.materials-dots');
+    const prevBtn = document.querySelector('.materials-nav-btn.prev');
+    const nextBtn = document.querySelector('.materials-nav-btn.next');
+
+    if (!track) return;
+
+    const slides = Array.from(track.children);
+    let currentIdx = 0;
+
+    // Create dots if container is present and empty
+    if (dotsContainer && dotsContainer.children.length === 0) {
+        slides.forEach((_, idx) => {
+            const dot = document.createElement('button');
+            dot.className = 'materials-dot' + (idx === 0 ? ' active' : '');
+            dot.setAttribute('aria-label', `Slide ${idx + 1}`);
+            dot.addEventListener('click', () => {
+                moveToSlide(idx);
+            });
+            dotsContainer.appendChild(dot);
+        });
+    }
+
+    const dots = dotsContainer ? Array.from(dotsContainer.children) : [];
+
+    const moveToSlide = (idx) => {
+        if (idx < 0 || idx >= slides.length) return;
+        
+        // Shift track container
+        track.style.transform = `translateX(-${idx * 33.3333}%)`;
+        
+        // Update top tabs active status
+        tabs.forEach((tab, tIdx) => {
+            if (tIdx === idx) {
+                tab.classList.add('active');
+            } else {
+                tab.classList.remove('active');
+            }
+        });
+
+        // Update bottom slide dots
+        if (dots.length > 0) {
+            dots.forEach((dot, dIdx) => {
+                if (dIdx === idx) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        currentIdx = idx;
+    };
+
+    // Bind tab clicks
+    tabs.forEach((tab, idx) => {
+        tab.addEventListener('click', () => {
+            moveToSlide(idx);
+        });
+    });
+
+    // Bind arrow navigators
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            let prevIndex = (currentIdx - 1 + slides.length) % slides.length;
+            moveToSlide(prevIndex);
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            let nextIndex = (currentIdx + 1) % slides.length;
+            moveToSlide(nextIndex);
+        });
+    }
+
+    // Bind touch gestures for mobile swiping
+    let startX = 0;
+    let endX = 0;
+    const wrapper = document.querySelector('.materials-slider-track-wrapper');
+
+    if (wrapper) {
+        wrapper.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        }, { passive: true });
+
+        wrapper.addEventListener('touchend', (e) => {
+            endX = e.changedTouches[0].clientX;
+            const threshold = 50;
+            if (startX - endX > threshold) {
+                let nextIndex = (currentIdx + 1) % slides.length;
+                moveToSlide(nextIndex);
+            } else if (endX - startX > threshold) {
+                let prevIndex = (currentIdx - 1 + slides.length) % slides.length;
+                moveToSlide(prevIndex);
+            }
+        }, { passive: true });
+    }
+}
+document.addEventListener('DOMContentLoaded', initMaterialsSlider);
+
+
+// ─── FINANCE ACCORDIONS TAB TOGGLE ───
+function initFinanceTabs() {
+    const tabs = document.querySelectorAll('.finance-tab-btn');
+    const boxes = document.querySelectorAll('.finance-content-box');
+    if (tabs.length === 0 || boxes.length === 0) return;
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const target = tab.getAttribute('data-target');
+
+            // Select active tab
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            // Select active content body
+            boxes.forEach(box => {
+                box.classList.remove('active');
+                if (box.id === target) {
+                    box.classList.add('active');
+                }
+            });
+        });
+    });
+}
+document.addEventListener('DOMContentLoaded', initFinanceTabs);
+
+

@@ -6655,7 +6655,7 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 40px;
+    gap: clamp(50px, 6vw, 90px);
     position: relative;
     z-index: 2;
 }
@@ -6687,7 +6687,7 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
 
 .hero-left-content .hero-actions {
     display: flex;
-    gap: 16px;
+    gap: 20px;
     margin-bottom: 30px;
     flex-wrap: wrap;
     width: 100%;
@@ -6698,6 +6698,7 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
     gap: 12px;
     flex-wrap: wrap;
     width: 100%;
+    margin-bottom: 24px;
 }
 
 .hero-left-content .hero-pill {
@@ -6904,21 +6905,23 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
         text-align: center;
         font-size: 0.85rem !important;
         line-height: 1.45 !important;
-        margin-bottom: 12px !important;
+        margin-bottom: 22px !important;
     }
     .hero-left-content .hero-info-pills {
         display: flex !important;
-        flex-direction: row !important;
-        flex-wrap: nowrap !important;
-        justify-content: center !important;
+        flex-direction: column !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
         gap: 8px !important;
-        margin-bottom: 12px !important;
-        width: auto !important;
+        margin-bottom: 24px !important;
+        width: 100% !important;
     }
     .hero-left-content .hero-pill {
         padding: 6px 12px !important;
         font-size: 0.72rem !important;
-        white-space: nowrap !important;
+        white-space: normal !important;
+        text-align: center !important;
+        max-width: 100% !important;
     }
     .hero-left-content .hero-actions {
         display: flex !important;
@@ -6926,7 +6929,7 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
         flex-wrap: nowrap !important;
         justify-content: center !important;
         gap: 8px !important;
-        margin-bottom: 5px !important;
+        margin-bottom: 25px !important;
         width: 100% !important;
         max-width: 320px !important; /* Restrict width so buttons stay compact */
     }
@@ -7545,4 +7548,487 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
         padding: 12px 18px !important;
     }
 }
+
+/* ==========================================================================
+   IMPLANT PAGE UPDATES & DYNAMIC COMPONENTS
+   ========================================================================== */
+
+/* ─── HERO GALLERY GRID ─── */
+.hero-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 170px);
+    gap: 12px;
+    width: 100%;
+    max-width: 580px;
+    margin: 0 auto;
+}
+.hero-gallery-item {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-premium);
+    transition: var(--transition);
+}
+.hero-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: var(--transition);
+}
+.hero-gallery-item:hover img {
+    transform: scale(1.06);
+}
+.hero-gallery-item.tall {
+    grid-row: span 2;
+    height: 100%;
+}
+.hero-gallery-item.wide {
+    grid-column: span 2;
+}
+@media (max-width: 768px) {
+    .hero-gallery-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        grid-template-rows: repeat(3, 130px) !important;
+        gap: 8px !important;
+        max-width: 100% !important;
+        padding: 10px 0 !important;
+    }
+    .hero-gallery-item.tall {
+        grid-row: span 1 !important;
+    }
+    .hero-gallery-item.wide {
+        grid-column: span 1 !important;
+    }
+    /* Let the 4th, 5th, 6th show nicely in grid on mobile */
+}
+
+/* ─── IMPLANT STRUCTURE SECTION ─── */
+.implant-structure-section {
+    background-color: var(--clr-white);
+    position: relative;
+    border-top: 1px solid var(--clr-border);
+    border-bottom: 1px solid var(--clr-border);
+}
+.structure-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+@media (max-width: 992px) {
+    .structure-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+}
+.structure-text h3 {
+    font-family: var(--font-title);
+    font-size: clamp(1.5rem, 3.5vw, 1.85rem);
+    font-weight: 700;
+    color: var(--clr-navy);
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+.structure-text p {
+    font-size: 0.95rem;
+    color: var(--clr-text-muted);
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+.structure-img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    background: var(--clr-bg-light);
+    border: 1px solid var(--clr-border);
+    transition: var(--transition);
+}
+.structure-img-wrapper:hover {
+    box-shadow: var(--shadow-premium);
+    border-color: rgba(4, 147, 241, 0.2);
+}
+.structure-img-wrapper img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+    filter: drop-shadow(0 10px 25px rgba(0,0,0,0.06));
+}
+
+/* ─── 5C PROGRESS FLOW STEPS ─── */
+.progress-steps-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 45px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.progress-step-card {
+    background: var(--clr-white);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-md);
+    padding: 30px 40px;
+    position: relative;
+    transition: var(--transition);
+    box-shadow: 0 4px 20px rgba(0, 51, 163, 0.015);
+    display: grid;
+    grid-template-columns: 48px 1fr 240px;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+        "num title img"
+        "num desc img";
+    gap: 12px 30px;
+    align-items: center;
+    box-sizing: border-box;
+}
+.progress-step-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--clr-secondary);
+    box-shadow: var(--shadow-premium);
+}
+.progress-step-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--clr-primary), var(--clr-secondary));
+    opacity: 0;
+    transition: var(--transition);
+    border-top-left-radius: var(--radius-md);
+    border-bottom-left-radius: var(--radius-md);
+}
+.progress-step-card:hover::before {
+    opacity: 1;
+}
+.progress-step-number {
+    grid-area: num;
+    width: 48px;
+    height: 48px;
+    background: rgba(4, 147, 241, 0.08);
+    color: var(--clr-secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-title);
+    font-weight: 800;
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+.progress-step-card:hover .progress-step-number {
+    background: var(--clr-secondary);
+    color: var(--clr-white);
+}
+.progress-step-card h3 {
+    grid-area: title;
+    font-family: var(--font-title);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--clr-navy);
+    margin: 0;
+    align-self: end;
+}
+.progress-step-card p {
+    grid-area: desc;
+    font-size: 0.92rem;
+    color: var(--clr-text-muted);
+    line-height: 1.6;
+    margin: 0;
+    align-self: start;
+}
+.progress-step-thumb {
+    grid-area: img;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    height: 130px;
+    border: 1px solid var(--clr-border);
+    width: 100%;
+}
+.progress-step-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+.progress-step-card:hover .progress-step-thumb img {
+    transform: scale(1.06);
+}
+
+@media (max-width: 768px) {
+    .progress-step-card {
+        grid-template-columns: 44px 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas: 
+            "num title"
+            "desc desc"
+            "img img";
+        gap: 12px;
+        padding: 24px 20px;
+    }
+    .progress-step-card::before {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        border-top-left-radius: var(--radius-md);
+        border-top-right-radius: var(--radius-md);
+        border-bottom-left-radius: 0;
+    }
+    .progress-step-number {
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
+    }
+    .progress-step-card h3 {
+        font-size: 1.1rem;
+        align-self: center;
+    }
+    .progress-step-card p {
+        font-size: 0.88rem;
+    }
+    .progress-step-thumb {
+        height: 160px;
+    }
+}
+
+/* ─── IMPLANT MATERIALS SLIDER ─── */
+.materials-slider-container {
+    position: relative;
+    width: 100%;
+    margin-top: 40px;
+    box-sizing: border-box;
+}
+.materials-tab-nav {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+.materials-tab-btn {
+    background: var(--clr-white);
+    border: 1.5px solid var(--clr-border);
+    color: var(--clr-navy);
+    padding: 10px 22px;
+    border-radius: 99px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-family: var(--font-title);
+    transition: var(--transition);
+}
+.materials-tab-btn:hover {
+    border-color: var(--clr-primary);
+    color: var(--clr-primary);
+}
+.materials-tab-btn.active {
+    background: var(--clr-primary);
+    border-color: var(--clr-primary);
+    color: var(--clr-white);
+    box-shadow: 0 8px 18px rgba(0, 51, 163, 0.12);
+}
+.materials-slider-track-wrapper {
+    overflow: hidden;
+    width: 100%;
+    border-radius: var(--radius-lg);
+}
+.materials-slider-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    width: 300%; /* 3 slides */
+}
+.materials-slide {
+    width: 33.3333%;
+    flex-shrink: 0;
+    padding: 5px;
+    box-sizing: border-box;
+}
+.materials-nav-btn {
+    position: absolute;
+    top: 55%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--clr-white);
+    border: 1px solid var(--clr-border);
+    color: var(--clr-navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: var(--shadow-premium);
+    transition: var(--transition);
+}
+.materials-nav-btn:hover {
+    background: var(--clr-primary);
+    color: var(--clr-white);
+    border-color: var(--clr-primary);
+}
+.materials-nav-btn.prev {
+    left: -22px;
+}
+.materials-nav-btn.next {
+    right: -22px;
+}
+@media (max-width: 1160px) {
+    .materials-nav-btn {
+        display: none !important;
+    }
+}
+.materials-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 25px;
+}
+.materials-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--clr-border);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    padding: 0;
+}
+.materials-dot.active {
+    background: var(--clr-secondary);
+    width: 24px;
+    border-radius: 99px;
+}
+
+@media (max-width: 576px) {
+    .materials-tab-nav {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        gap: 6px !important;
+        width: 100% !important;
+        justify-content: space-between !important;
+        margin-bottom: 20px !important;
+    }
+    .materials-tab-btn {
+        flex: 1 !important;
+        padding: 8px 4px !important;
+        font-size: 0.7rem !important;
+        text-align: center !important;
+        white-space: nowrap !important;
+        letter-spacing: -0.03em !important;
+    }
+}
+
+/* ─── FINANCE ACCORDIONS & INTERACTION ─── */
+.finance-tabs-container {
+    max-width: 900px;
+    margin: 40px auto 0;
+}
+.finance-tabs {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+@media (max-width: 576px) {
+    .finance-tabs {
+        flex-direction: row !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        width: 100% !important;
+    }
+    .finance-tab-btn {
+        flex: 1 !important;
+        max-width: 50% !important;
+        padding: 10px 8px !important;
+        font-size: 0.78rem !important;
+        white-space: nowrap !important;
+        letter-spacing: -0.02em !important;
+    }
+}
+.finance-tab-btn {
+    flex: 1;
+    max-width: 250px;
+    background: var(--clr-white);
+    border: 1.5px solid var(--clr-border);
+    color: var(--clr-navy);
+    padding: 14px 20px;
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-family: var(--font-title);
+    text-align: center;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(0, 51, 163, 0.02);
+}
+.finance-tab-btn:hover {
+    border-color: var(--clr-secondary);
+    color: var(--clr-secondary);
+}
+.finance-tab-btn.active {
+    background: var(--clr-secondary);
+    color: var(--clr-white);
+    border-color: var(--clr-secondary);
+    box-shadow: 0 8px 18px rgba(4, 147, 241, 0.2);
+}
+.finance-content-box {
+    background: var(--clr-white);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-lg);
+    padding: 35px 40px;
+    box-shadow: var(--shadow-premium);
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+.finance-content-box.active {
+    display: block;
+}
+.finance-content-box h4 {
+    font-family: var(--font-title);
+    font-size: 1.2rem;
+    color: var(--clr-navy);
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--clr-secondary);
+    padding-left: 12px;
+}
+.finance-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px 30px;
+}
+@media (max-width: 768px) {
+    .finance-list {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    .finance-content-box {
+        padding: 25px;
+    }
+}
+.finance-list li {
+    font-size: 0.92rem;
+    color: var(--clr-text);
+    line-height: 1.5;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+.finance-list li i {
+    color: var(--clr-secondary);
+    margin-top: 3px;
+    font-size: 0.95rem;
+}
+
 
