@@ -86,43 +86,151 @@
         <a href="#dang-ky" class="btn btn-primary btn-booking" style="margin-top: 15px;">Đăng Ký Đặt Hẹn</a>
     </nav>
 
-            <!-- SUBPAGE HEADER BANNER -->
-            <!-- SUBPAGE FULL-WIDTH HERO BANNER -->
-    <div class="subpage-hero-banner">
-        <img src="https://placehold.co/1920x600/0a1931/ffffff?text=Hero+Banner+Nieng+Rang+1920x600" alt="Hero Banner" />
-    </div>
-    </div>
-    </div>
+    <!-- Global SVG Gradient Definitions -->
+    <svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="sparkleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0493f1" />
+                <stop offset="100%" stop-color="#0033a3" />
+            </linearGradient>
+            <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#0493f1" />
+                <stop offset="100%" stop-color="#0033a3" />
+            </linearGradient>
+            <linearGradient id="swissGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#e20613" />
+                <stop offset="100%" stop-color="#9f040d" />
+            </linearGradient>
+            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ffd700" />
+                <stop offset="100%" stop-color="#ffa500" />
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <!-- ─── SUBPAGE HERO SECTION (SPLIT HERO) ─── -->
+    <div class="hero-wrapper subpage-hero-wrapper">
+        <!-- Floating Sparkles -->
+        <div class="hero-sparkle hero-sparkle-1">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z" fill="url(#sparkleGrad)"/></svg>
+        </div>
+        <div class="hero-sparkle hero-sparkle-2">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z" fill="url(#sparkleGrad)"/></svg>
+        </div>
+        
+        <section class="hero-section split-hero" id="banner">
+            <div class="container hero-split-container">
+                <!-- Left Content -->
+                <div class="hero-left-content reveal">
+                    <span class="curved-badge">Chỉnh nha kỹ thuật số tiêu chuẩn quốc tế</span>
+                    <h1 class="hero-title">
+                        <span class="hero-title-line">Niềng Răng Thẩm Mỹ</span>
+                        <span class="highlight-text-container hero-title-line">
+                            <span style="background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-secondary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Êm Ái & Chuẩn Khớp Cắn</span>
+                            <svg class="heading-underline-svg" viewBox="0 0 300 20" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12 C 100 2, 200 18, 295 10" stroke="url(#accentGrad)" stroke-width="4" stroke-linecap="round" />
+                            </svg>
+                        </span>
+                    </h1>
+                    
+                    <p class="hero-description">
+                        Kiến tạo nụ cười hoàn mỹ với khay niềng trong suốt Invisalign và mắc cài số hóa thế hệ mới. Phác đồ 3D cá nhân hóa, bảo tồn tối đa răng thật và rút ngắn thời gian dịch chuyển răng.
+                    </p>
+                    
+                    <div class="hero-info-pills">
+                        <div class="hero-pill">
+                            <i class="fa-solid fa-clock"></i> 08:00 - 20:00 (T2-CN)
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=326+Nguy%E1%BB%85n+Tr%C3%A3i,+Ph%C6%B0%E1%BB%9Dng+8,+Qu%E1%BA%ADn+5,+TP.HCM" target="_blank" class="hero-pill clickable">
+                            <i class="fa-solid fa-location-dot"></i> 326 Nguyễn Trãi, Phường 8, Quận 5, TP.HCM
+                        </a>
+                    </div>
+
+                    <div class="hero-actions">
+                        <a href="#dang-ky" class="btn btn-primary"><span class="btn-text-desktop">Đăng Ký </span>Đặt Hẹn <i class="fa-solid fa-calendar-check" style="margin-left: 6px;"></i></a>
+                        <a href="#pricing-tables" class="btn btn-outline"><span class="btn-text-desktop">Xem </span>Bảng Giá<span class="btn-text-desktop"> Trọn Gói</span></a>
+                    </div>
+                </div>
+                
+                <!-- Right Content: Hero Grid Gallery -->
+                <div class="hero-right-collage reveal reveal-delay-1" style="display: flex; align-items: center; justify-content: center;">
+                    <div class="hero-gallery-grid">
+                        <div class="hero-gallery-item tall">
+                            <img src="assets/nieng-rang/hero_customer_smile.webp" alt="Nụ cười tự tin rạng rỡ sau chỉnh nha" loading="lazy" />
+                        </div>
+                        <div class="hero-gallery-item wide">
+                            <img src="assets/nieng-rang/hero_invisalign_smile.webp" alt="Phân tích và mô phỏng chỉnh nha 3D" loading="lazy" />
+                        </div>
+                        <div class="hero-gallery-item">
+                            <img src="assets/nieng-rang/hero_invisalign_case.webp" alt="Khay niềng trong suốt Invisalign và hộp bảo quản" loading="lazy" />
+                        </div>
+                        <div class="hero-gallery-item">
+                            <img src="assets/nieng-rang/section5/trios-treatment-simulator.webp" alt="Mô phỏng 3D TRIOS Treatment Simulator" loading="lazy" />
+                        </div>
+                        <div class="hero-gallery-item wide">
+                            <img src="assets/nieng-rang/hero_braces_smile.webp" alt="Nụ cười rạng rỡ của khách hàng niềng răng" loading="lazy" />
+                        </div>
+                        <div class="hero-gallery-item">
+                            <img src="assets/homepage/services/nieng_rang_2.webp" alt="Chỉnh nha mắc cài sứ thẩm mỹ" loading="lazy" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
-    <!-- ─── CHỈ ĐỊNH ĐIỀU TRỊ (FACT SECTION) ─── -->
+    <!-- ─── CHỈ ĐỊNH ĐIỀU TRỊ (SECTION 3 - KHI NÀO BẠN NÊN NIỀNG RĂNG) ─── -->
     <section class="section-padding fact-section" id="fact">
         <div class="container">
             <div class="section-header center reveal">
-                <span class="curved-badge">Các tình trạng chỉ định</span>
-                <h2>Khắc Phục Mọi Khuyết Điểm Nụ Cười</h2>
+                <span class="curved-badge">Chỉ định điều trị</span>
+                <h2>Khi Nào Bạn Nên Niềng Răng?</h2>
+                <p style="max-width: 680px; margin: 12px auto 0; font-size: 0.95rem; color: var(--clr-text-muted);">
+                    Nhận biết 6 tình trạng sai lệch răng và khớp cắn phổ biến cần được can thiệp chỉnh nha sớm để bảo vệ sức khỏe hệ thống nhai và tái tạo nụ cười hoàn mỹ.
+                </p>
             </div>
             
-            <div class="fact-grid reveal reveal-delay-1" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 40px;">
-                <div class="fact-card text-center" style="padding: 24px 15px;">
-                    <img src="https://placehold.co/400x300/f4f7fa/0a1931?text=R%C4%83ng+H%C3%B4+400x300" alt="Răng Hô" style="border-radius: 8px; margin-bottom: 15px; width: 100%;" />
-                    <span class="stat-num" style="font-size: 1.5rem; margin-bottom: 5px;">Răng Hô Vẩu</span>
-                    <p style="margin-top: 10px; font-size: 0.85rem; color: var(--clr-text-muted);">Răng cửa nhô ra phía trước, môi khó khép tự nhiên, mặt nghiêng thiếu cân đối.</p>
+            <div class="fact-grid grid-3-cols reveal reveal-delay-1" style="margin-bottom: 40px;">
+                <!-- Card 1: Răng hô, chìa -->
+                <div class="fact-card text-center">
+                    <img src="assets/nieng-rang/section3/rang-ho-chia.webp" alt="Răng hô, chìa" class="fact-card-img" width="400" height="300" loading="lazy" />
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 8px;">Răng hô, chìa</h3>
+                    <p style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.55;">Răng cửa nhô ra phía trước, môi khó khép tự nhiên hoặc khuôn mặt thiếu cân đối khi nhìn nghiêng.</p>
                 </div>
-                <div class="fact-card text-center" style="padding: 24px 15px;">
-                    <img src="https://placehold.co/400x300/f4f7fa/0a1931?text=R%C4%83ng+M%C3%B3m+400x300" alt="Răng Móm" style="border-radius: 8px; margin-bottom: 15px; width: 100%;" />
-                    <span class="stat-num" style="font-size: 1.5rem; margin-bottom: 5px;">Răng Móm</span>
-                    <p style="margin-top: 10px; font-size: 0.85rem; color: var(--clr-text-muted);">Khớp cắn ngược, răng hàm dưới phủ ra ngoài hàm trên, ảnh hưởng ăn nhai.</p>
+
+                <!-- Card 2: Răng móm, khớp cắn ngược -->
+                <div class="fact-card text-center">
+                    <img src="assets/nieng-rang/section3/rang-mom-khop-can-nguoc.webp" alt="Răng móm, khớp cắn ngược" class="fact-card-img" width="400" height="300" loading="lazy" />
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 8px;">Răng móm, khớp cắn ngược</h3>
+                    <p style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.55;">Răng hàm dưới phủ ra ngoài răng hàm trên, có thể ảnh hưởng đến khả năng cắn, nhai và thẩm mỹ khuôn mặt.</p>
                 </div>
-                <div class="fact-card text-center" style="padding: 24px 15px;">
-                    <img src="https://placehold.co/400x300/f4f7fa/0a1931?text=Kh%E1%BA%A5p+Kh%E1%BB%83nh+400x300" alt="Khấp khểnh" style="border-radius: 8px; margin-bottom: 15px; width: 100%;" />
-                    <span class="stat-num" style="font-size: 1.5rem; margin-bottom: 5px;">Khấp Khểnh</span>
-                    <p style="margin-top: 10px; font-size: 0.85rem; color: var(--clr-text-muted);">Răng chen chúc, mọc lệch lạc xoay nghiêng hoặc chồng lên nhau.</p>
+
+                <!-- Card 3: Răng khấp khểnh, chen chúc -->
+                <div class="fact-card text-center">
+                    <img src="assets/nieng-rang/section3/rang-khap-khenh-chen-chuc.webp" alt="Răng khấp khểnh, chen chúc" class="fact-card-img" width="400" height="300" loading="lazy" />
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 8px;">Răng khấp khểnh, chen chúc</h3>
+                    <p style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.55;">Răng mọc không đủ khoảng, xoay lệch hoặc chồng lên nhau, gây khó khăn khi vệ sinh.</p>
                 </div>
-                <div class="fact-card text-center" style="padding: 24px 15px;">
-                    <img src="https://placehold.co/400x300/f4f7fa/0a1931?text=Kh%E1%BB%9Bp+C%E1%BA%AFn+S%C3%A2u+400x300" alt="Khớp cắn hở" style="border-radius: 8px; margin-bottom: 15px; width: 100%;" />
-                    <span class="stat-num" style="font-size: 1.5rem; margin-bottom: 5px;">Cắn Sâu / Cắn Hở</span>
-                    <p style="margin-top: 10px; font-size: 0.85rem; color: var(--clr-text-muted);">Hai hàm không tiếp xúc đúng vị trí, ảnh hưởng lớn đến hiệu suất nhai nghiền.</p>
+
+                <!-- Card 4: Răng thưa, hở kẽ -->
+                <div class="fact-card text-center">
+                    <img src="assets/nieng-rang/section3/rang-thua-ho-ke.webp" alt="Răng thưa, hở kẽ" class="fact-card-img" width="400" height="300" loading="lazy" />
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 8px;">Răng thưa, hở kẽ</h3>
+                    <p style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.55;">Khoảng cách giữa các răng lớn, dễ mắc thức ăn và làm nụ cười thiếu cân đối.</p>
+                </div>
+
+                <!-- Card 5: Khớp cắn sâu hoặc cắn hở -->
+                <div class="fact-card text-center">
+                    <img src="assets/nieng-rang/section3/khop-can-sau-can-ho.webp" alt="Khớp cắn sâu hoặc cắn hở" class="fact-card-img" width="400" height="300" loading="lazy" />
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 8px;">Khớp cắn sâu hoặc cắn hở</h3>
+                    <p style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.55;">Hai hàm không tiếp xúc đúng vị trí, ảnh hưởng đến khả năng cắn thức ăn và sự ổn định của hệ thống nhai.</p>
+                </div>
+
+                <!-- Card 6: Khớp cắn chéo hoặc cung hàm hẹp -->
+                <div class="fact-card text-center">
+                    <img src="assets/nieng-rang/section3/khop-can-cheo-cung-ham-hep.webp" alt="Khớp cắn chéo hoặc cung hàm hẹp" class="fact-card-img" width="400" height="300" loading="lazy" />
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 8px;">Khớp cắn chéo hoặc cung hàm hẹp</h3>
+                    <p style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.55;">Một hoặc nhiều răng hàm trên nằm phía trong răng hàm dưới, cần được đánh giá sớm để lựa chọn phương án phù hợp.</p>
                 </div>
             </div>
 
@@ -132,75 +240,137 @@
         </div>
     </section>
 
-    <!-- ─── SO SÁNH GIẢI PHÁP (VALUE SECTION) ─── -->
+    <!-- ─── SO SÁNH GIẢI PHÁP (SECTION 4 - NÊN CHỌN INVISALIGN HAY MẮC CÀI) ─── -->
     <section class="section-padding value-section" id="value">
         <div class="container">
             <div class="section-header center reveal">
-                <span class="curved-badge">So sánh phương pháp</span>
-                <h2>Khay Niềng Trong Suốt Invisalign & Mắc Cài</h2>
+                <span class="curved-badge">So sánh giải pháp</span>
+                <h2>Nên Chọn Niềng Răng Invisalign Hay Mắc Cài?</h2>
+                <p style="max-width: 720px; margin: 12px auto 0; font-size: 0.95rem; color: var(--clr-text-muted);">
+                    Phân tích chi tiết 2 phương pháp chỉnh nha hàng đầu hiện nay giúp bạn dễ dàng lựa chọn giải pháp tối ưu nhất cho thẩm mỹ nụ cười, phong cách sống và ngân sách điều trị.
+                </p>
             </div>
-            <div class="value-layout">
-                <div class="value-cards-grid reveal reveal-delay-1">
-                    <div class="value-card">
-                        <div class="value-num">01</div>
-                        <div class="value-info">
-                            <h3>Thẩm mỹ tuyệt đối (Invisalign)</h3>
-                            <p>Khay niềng gần như vô hình, ôm sát cung răng giúp tự tin giao tiếp, phù hợp người hướng ngoại.</p>
-                        </div>
+
+            <div class="method-compare-grid reveal reveal-delay-1">
+                <!-- Option 1: Niềng Răng Trong Suốt Invisalign -->
+                <div class="method-compare-card card-invis">
+                    <div class="compare-badge badge-invis">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> Thẩm Mỹ Vô Hình • Chuẩn Mỹ
                     </div>
-                    <div class="value-card">
-                        <div class="value-num">02</div>
-                        <div class="value-info">
-                            <h3>Tháo lắp vệ sinh dễ dàng</h3>
-                            <p>Dễ dàng tháo khay khi ăn uống, chải răng hoặc vệ sinh máng niềng, không bị giắt thức ăn.</p>
-                        </div>
+                    <h3 class="compare-title">Niềng Răng Trong Suốt Invisalign</h3>
+                    <div class="compare-img-box">
+                        <img src="assets/nieng-rang/section4/nieng-rang-invisalign.webp" alt="Niềng răng trong suốt Invisalign" width="1000" height="1000" loading="lazy" />
                     </div>
-                    <div class="value-card">
-                        <div class="value-num">03</div>
-                        <div class="value-info">
-                            <h3>Kiểm soát lực hiệu quả (Mắc cài)</h3>
-                            <p>Phù hợp tối ưu chi phí đầu tư và kiểm soát lực kéo phức tạp cho những ca mọc lệch rất nặng.</p>
-                        </div>
-                    </div>
-                    <div class="value-card">
-                        <div class="value-num">04</div>
-                        <div class="value-info">
-                            <h3>Rút ngắn số lần tái khám</h3>
-                            <p>Mỗi khách hàng được nhận bộ khay đeo tại nhà, giãn thời gian tái khám định kỳ xuống 6 - 8 tuần/lần.</p>
-                        </div>
+                    <ul class="compare-feature-list">
+                        <li class="compare-feature-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div><strong>Thẩm mỹ gần như tuyệt đối:</strong> Khay nhựa SmartTrack trong suốt, ôm sát khít cung răng, tự tin cười giao tiếp mọi lúc mọi nơi.</div>
+                        </li>
+                        <li class="compare-feature-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div><strong>Tháo lắp linh hoạt, tiện lợi:</strong> Dễ dàng tháo máng khi ăn uống hoặc vệ sinh răng miệng, không lo mắc thức ăn.</div>
+                        </li>
+                        <li class="compare-feature-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div><strong>Xem trước nụ cười tương lai:</strong> Phần mềm ClinCheck 3D mô phỏng chính xác tiến trình dịch chuyển của từng chiếc răng.</div>
+                        </li>
+                        <li class="compare-feature-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div><strong>Giãn cách tái khám thoải mái:</strong> Nhận bộ khay đeo tại nhà, giãn thời gian tái khám định kỳ xuống 6 - 8 tuần/lần.</div>
+                        </li>
+                    </ul>
+                    <div class="compare-target-box">
+                        <i class="fa-solid fa-user-check" style="color: var(--clr-secondary); margin-right: 6px;"></i>
+                        <strong>Phù hợp nhất:</strong> Người làm công việc giao tiếp nhiều, doanh nhân, kiều bào, hoặc người ưu tiên thẩm mỹ tối đa.
                     </div>
                 </div>
-                <div class="value-image-group reveal reveal-delay-2">
-                    <img src="https://placehold.co/500x500/0033a3/ffffff?text=M%C3%A1ng+Invisalign+500x500" alt="Invisalign Tray" class="value-float-img img-1" style="object-fit: cover;" />
-                    <img src="https://placehold.co/500x500/0493f1/ffffff?text=M%E1%BA%AFc+C%C3%A0i+S%E1%BB%A9+500x500" alt="Braces treatment" class="value-float-img img-2" style="object-fit: cover;" />
-                    <img src="https://placehold.co/500x500/0a1931/ffffff?text=Minh+H%E1%BB%8Da+Kh%E1%BB%9Bp+C%E1%BA%AFn+500x500" alt="Flora Patient Braces" class="value-float-img img-3" style="object-fit: cover;" />
+
+                <!-- Option 2: Niềng Răng Mắc Cài Số Hóa -->
+                <div class="method-compare-card card-braces">
+                    <div class="compare-badge badge-braces">
+                        <i class="fa-solid fa-teeth-open"></i> Lực Kéo Mạnh Mẽ • Tối Ưu Chi Phí
+                    </div>
+                    <h3 class="compare-title">Niềng Răng Mắc Cài Số Hóa</h3>
+                    <div class="compare-img-box">
+                        <img src="assets/nieng-rang/section4/nieng-rang-mac-cai.webp" alt="Niềng răng mắc cài và công cụ dụng cụ chỉnh nha" width="1000" height="1000" loading="lazy" />
+                    </div>
+                    <ul class="compare-feature-list">
+                        <li class="compare-feature-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div><strong>Kiểm soát lực kéo vượt trội:</strong> Xử lý hiệu quả cả những ca sai lệch khớp cắn phức tạp, răng hô móm và lệch lạc rất nặng.</div>
+                        </li>
+                        <li class="compare-feature-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div><strong>Đa dạng vật liệu mắc cài:</strong> Tùy chọn linh hoạt mắc cài kim loại chuẩn, mắc cài sứ thẩm mỹ hoặc mắc cài tự buộc thông minh.</div>
+                        </li>
+                        <li class="compare-feature-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div><strong>Tác động nắn chỉnh liên tục 24/7:</strong> Hệ thống mắc cài và khí cụ chuyên dụng duy trì lực kéo ổn định, không phụ thuộc việc quên đeo máng.</div>
+                        </li>
+                        <li class="compare-feature-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div><strong>Chi phí tối ưu & trả góp 0%:</strong> Mức đầu tư ban đầu hợp lý, hỗ trợ chính sách trả góp linh hoạt chỉ từ ~2.9 triệu/tháng.</div>
+                        </li>
+                    </ul>
+                    <div class="compare-target-box" style="border-left-color: var(--clr-primary);">
+                        <i class="fa-solid fa-user-check" style="color: var(--clr-primary); margin-right: 6px;"></i>
+                        <strong>Phù hợp nhất:</strong> Học sinh, sinh viên, người có ca sai lệch khớp cắn nặng hoặc mong muốn tối ưu chi phí đầu tư.
+                    </div>
                 </div>
+            </div>
+
+            <div class="text-center reveal reveal-delay-2">
+                <a href="#dang-ky" class="btn btn-primary btn-booking">Nhận Tư Vấn Phương Pháp Phù Hợp Với Bạn</a>
             </div>
         </div>
     </section>
 
-    <!-- ─── CÔNG NGHỆ CHỈNH NHA (AUDIENCE SECTION - REPURPOSED FOR BRACES TECHNOLOGY) ─── -->
+    <!-- ─── CHỈNH NHA KỸ THUẬT SỐ (SECTION 5) ─── -->
     <section class="section-padding audience-section" id="braces-tech">
         <div class="container">
             <div class="section-header center reveal">
                 <span class="curved-badge">Công nghệ y khoa</span>
-                <h2>Chỉnh Nha Số Hóa Toàn Diện Tại Flora</h2>
+                <h2>Chỉnh Nha Kỹ Thuật Số Chuẩn Quốc Tế</h2>
+                <p style="max-width: 720px; margin: 12px auto 0; font-size: 0.95rem; color: var(--clr-text-muted);">
+                    Hệ thống trang thiết bị số hóa và phần mềm 3D hiện đại hàng đầu, mang lại trải nghiệm chỉnh nha chính xác, nhẹ nhàng và cá nhân hóa phác đồ điều trị.
+                </p>
             </div>
-            <div class="audience-grid reveal reveal-delay-1" style="grid-template-columns: repeat(3, 1fr); gap: 30px;">
-                <div class="audience-card" style="flex-direction: column; align-items: flex-start; gap: 15px; background: var(--clr-white); border: 1px solid var(--clr-border); padding: 30px;">
-                    <img src="https://placehold.co/400x250/f4f7fa/0a1931?text=Scan+TRIOS+3D+400x250" alt="Scan TRIOS" style="border-radius: 8px; width: 100%;" />
-                    <h3>Máy Quét Hàm TRIOS 3D</h3>
-                    <p style="font-size: 0.88rem; color: var(--clr-text-muted);">Quét nhanh cung răng chỉ trong 60 giây, cho hình ảnh màu sắc chân thực thay vì lấy dấu silicon truyền thống.</p>
+
+            <div class="tech-digital-grid reveal reveal-delay-1">
+                <!-- Card 1: Scan răng kỹ thuật số TRIOS -->
+                <div class="tech-digital-card">
+                    <div class="tech-digital-img-box">
+                        <img src="assets/nieng-rang/section5/scan-trios-3d.webp" alt="Scan răng kỹ thuật số TRIOS" width="1000" height="1000" loading="lazy" />
+                    </div>
+                    <h3>Scan Răng Kỹ Thuật Số TRIOS</h3>
+                    <p>Ghi nhận hình dạng răng và cung hàm bằng dữ liệu 3D, hạn chế cảm giác khó chịu so với một số phương pháp lấy dấu truyền thống.</p>
                 </div>
-                <div class="audience-card" style="flex-direction: column; align-items: flex-start; gap: 15px; background: var(--clr-white); border: 1px solid var(--clr-border); padding: 30px;">
-                    <img src="https://placehold.co/400x250/f4f7fa/0a1931?text=TRIOS+Simulator+400x250" alt="TRIOS Simulator" style="border-radius: 8px; width: 100%;" />
+
+                <!-- Card 2: TRIOS Treatment Simulator -->
+                <div class="tech-digital-card">
+                    <div class="tech-digital-img-box">
+                        <img src="assets/nieng-rang/section5/trios-treatment-simulator.webp" alt="TRIOS Treatment Simulator" width="1000" height="1000" loading="lazy" />
+                    </div>
                     <h3>TRIOS Treatment Simulator</h3>
-                    <p style="font-size: 0.88rem; color: var(--clr-text-muted);">Mô phỏng tức thì tiềm năng thay đổi của hàm răng, giúp bệnh nhân hình dung trực quan định hướng.</p>
+                    <p>Hỗ trợ mô phỏng tiềm năng thay đổi của hàm răng, giúp khách hàng dễ hình dung định hướng điều trị. Hình ảnh mô phỏng không phải cam kết kết quả cuối cùng.</p>
                 </div>
-                <div class="audience-card" style="flex-direction: column; align-items: flex-start; gap: 15px; background: var(--clr-white); border: 1px solid var(--clr-border); padding: 30px;">
-                    <img src="https://placehold.co/400x250/f4f7fa/0a1931?text=Ph%E1%BA%A7n+M%E1%BB%81m+ClinCheck+400x250" alt="ClinCheck" style="border-radius: 8px; width: 100%;" />
-                    <h3>Phần Mềm ClinCheck</h3>
-                    <p style="font-size: 0.88rem; color: var(--clr-text-muted);">Thể hiện kế hoạch dịch chuyển dự kiến của răng qua từng giai đoạn bằng phần mềm 3D do bác sĩ phê duyệt.</p>
+
+                <!-- Card 3: Phim Panorex, Cephalometric hoặc CT Cone Beam -->
+                <div class="tech-digital-card">
+                    <div class="tech-digital-img-box">
+                        <img src="assets/nieng-rang/section5/phim-ct-cone-beam.webp" alt="Phim Panorex, Cephalometric hoặc CT Cone Beam" width="1000" height="1000" loading="lazy" />
+                    </div>
+                    <h3>Phim Panorex, Cephalometric hoặc CT Cone Beam</h3>
+                    <p>Được bác sĩ chỉ định theo nhu cầu chẩn đoán nhằm đánh giá chân răng, xương hàm, khớp cắn và tương quan sọ mặt.</p>
+                </div>
+
+                <!-- Card 4: ClinCheck dành cho Invisalign -->
+                <div class="tech-digital-card">
+                    <div class="tech-digital-img-box">
+                        <img src="assets/nieng-rang/section5/clincheck-invisalign.webp" alt="ClinCheck dành cho Invisalign" width="1000" height="1000" loading="lazy" />
+                    </div>
+                    <h3>ClinCheck Dành Cho Invisalign</h3>
+                    <p>Thể hiện kế hoạch dịch chuyển dự kiến của răng qua từng giai đoạn. Bác sĩ trực tiếp kiểm tra, điều chỉnh và phê duyệt kế hoạch trước khi sản xuất khay.</p>
                 </div>
             </div>
         </div>
@@ -342,7 +512,7 @@
                 <!-- Step 4 -->
                 <div class="step-card reveal reveal-delay-3">
                     <div class="step-card-icon"><i class="fa-solid fa-box-open"></i></div>
-                    <span class="step-badge">BƯROW 4</span>
+                    <span class="step-badge">BƯỚC 4</span>
                     <h3>BẮT ĐẦU ĐIỀU TRỊ</h3>
                     <p>Tiến hành gắn hệ thống mắc cài hoặc bàn giao đợt khay Invisalign đầu tiên sau khi thử độ khít sát.</p>
                 </div>
