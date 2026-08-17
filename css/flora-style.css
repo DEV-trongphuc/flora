@@ -1288,6 +1288,26 @@
             grid-template-columns: repeat(3, 1fr);
         }
 
+        .fact-grid.grid-5-items {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 24px;
+        }
+
+        .fact-grid.grid-5-items .fact-card:nth-child(1),
+        .fact-grid.grid-5-items .fact-card:nth-child(2),
+        .fact-grid.grid-5-items .fact-card:nth-child(3) {
+            grid-column: span 2;
+        }
+
+        .fact-grid.grid-5-items .fact-card:nth-child(4) {
+            grid-column: 2 / span 2;
+        }
+
+        .fact-grid.grid-5-items .fact-card:nth-child(5) {
+            grid-column: 4 / span 2;
+        }
+
         @media (max-width: 1200px) {
             .fact-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -1300,12 +1320,37 @@
                 grid-template-columns: repeat(2, 1fr);
                 gap: 20px;
             }
+
+            .fact-grid.grid-5-items {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+            }
+
+            .fact-grid.grid-5-items .fact-card:nth-child(1),
+            .fact-grid.grid-5-items .fact-card:nth-child(2),
+            .fact-grid.grid-5-items .fact-card:nth-child(3),
+            .fact-grid.grid-5-items .fact-card:nth-child(4) {
+                grid-column: span 2;
+            }
+
+            .fact-grid.grid-5-items .fact-card:nth-child(5) {
+                grid-column: 2 / span 2;
+            }
         }
 
         @media (max-width: 768px) {
             .fact-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
+            }
+
+            .fact-grid.grid-5-items {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .fact-grid.grid-5-items .fact-card {
+                grid-column: auto !important;
             }
         }
 

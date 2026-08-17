@@ -13,7 +13,7 @@
     <meta content="index, follow" name="robots" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Quicksand:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-    <link href="css/flora-style.css?v=1.3" rel="stylesheet" />
+    <link href="css/flora-style.css?v=1.4" rel="stylesheet" />
     <link href="css/decor-animations.css" rel="stylesheet" />
 </head>
 <body class="subpage-body">
@@ -86,56 +86,172 @@
         <a href="#dang-ky" class="btn btn-primary btn-booking" style="margin-top: 15px;">Đăng Ký Đặt Hẹn</a>
     </nav>
 
-            <!-- SUBPAGE HEADER BANNER -->
-            <!-- SUBPAGE FULL-WIDTH HERO BANNER -->
-    <div class="subpage-hero-banner">
-        <img src="https://placehold.co/1920x600/0a1931/ffffff?text=Hero+Banner+Cuoi+Ho+Loi+1920x600" alt="Hero Banner" />
-    </div>
-    </div>
-    </div>
+    <!-- Global SVG Gradient Definitions -->
+    <svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="sparkleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0493f1" />
+                <stop offset="100%" stop-color="#0033a3" />
+            </linearGradient>
+            <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#0493f1" />
+                <stop offset="100%" stop-color="#0033a3" />
+            </linearGradient>
+            <linearGradient id="swissGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#e20613" />
+                <stop offset="100%" stop-color="#9f040d" />
+            </linearGradient>
+            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ffd700" />
+                <stop offset="100%" stop-color="#ffa500" />
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <!-- ─── SUBPAGE HERO SECTION (SPLIT HERO) ─── -->
+    <div class="hero-wrapper subpage-hero-wrapper">
+        <!-- Floating Sparkles -->
+        <div class="hero-sparkle hero-sparkle-1">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z" fill="url(#sparkleGrad)"/></svg>
+        </div>
+        <div class="hero-sparkle hero-sparkle-2">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z" fill="url(#sparkleGrad)"/></svg>
+        </div>
+        
+        <section class="hero-section split-hero" id="banner">
+            <div class="container hero-split-container">
+                <!-- Left Content -->
+                <div class="hero-left-content reveal">
+                    <span class="curved-badge">Tiêu chuẩn thẩm mỹ nụ cười Thụy Sĩ</span>
+                    <h1 class="hero-title">
+                        <span class="hero-title-line">Điều Trị Cười Hở Lợi</span>
+                        <span class="highlight-text-container hero-title-line">
+                            <span style="background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-secondary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Chuẩn Tỷ Lệ Vàng</span>
+                            <svg class="heading-underline-svg" viewBox="0 0 300 20" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12 C 100 2, 200 18, 295 10" stroke="url(#accentGrad)" stroke-width="4" stroke-linecap="round" />
+                            </svg>
+                        </span>
+                    </h1>
+                    
+                    <p class="hero-description">
+                        Không chỉ cắt bớt nướu – Flora thiết kế lại sự hài hòa tự nhiên giữa răng, nướu, môi và tổng thể khuôn mặt. Định hình viền nướu nhẹ nhàng bằng công nghệ Laser & phẫu thuật êm ái chỉ trong 45 phút.
+                    </p>
+                    
+                    <div class="hero-info-pills">
+                        <div class="hero-pill">
+                            <i class="fa-solid fa-clock"></i> 08:00 - 20:00 (T2-CN)
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=326+Nguy%E1%BB%85n+Th%E1%BB%8B+Minh+Khai,+Ph%C6%B0%E1%BB%9Dng+B%C3%A0n+C%E1%BB%9D,+Qu%E1%BA%ADn+3,+TP.HCM" target="_blank" class="hero-pill clickable">
+                            <i class="fa-solid fa-location-dot"></i> 326 Nguyễn Thị Minh Khai, Phường Bàn Cờ, Quận 3, TP.HCM
+                        </a>
+                    </div>
+
+                    <div class="hero-actions">
+                        <a href="#dang-ky" class="btn btn-primary"><span class="btn-text-desktop">Đăng Ký </span>Đặt Hẹn <i class="fa-solid fa-calendar-check" style="margin-left: 6px;"></i></a>
+                        <a href="#pricing-tables" class="btn btn-outline"><span class="btn-text-desktop">Xem </span>Bảng Giá<span class="btn-text-desktop"> Trọn Gói</span></a>
+                    </div>
+                </div>
+                
+                <!-- Right Content: Hero Grid Gallery -->
+                <div class="hero-right-collage reveal reveal-delay-1" style="display: flex; align-items: center; justify-content: center;">
+                    <div class="hero-gallery-grid">
+                        <div class="hero-gallery-item tall">
+                            <img src="assets/homepage/services/ho_loi_1.webp" alt="Điều trị cười hở lợi thẩm mỹ" loading="lazy" />
+                        </div>
+                        <div class="hero-gallery-item wide">
+                            <img src="assets/homepage/cases/ho_loi_after_img_5396.webp" alt="Nụ cười hoàn mỹ sau điều trị hở lợi" loading="lazy" />
+                        </div>
+                        <div class="hero-gallery-item">
+                            <img src="ngayhoi_item/icon_va_avtar/DR. Đắc Minh.webp" alt="Bác sĩ Nguyễn Đắc Minh" loading="lazy" />
+                        </div>
+                        <div class="hero-gallery-item">
+                            <img src="assets/homepage/technology/tia_laser.webp" alt="Công nghệ Laser cắt nướu không đau" loading="lazy" />
+                        </div>
+                        <div class="hero-gallery-item wide">
+                            <img src="assets/homepage/cases/ho_loi_after_img_5402.webp" alt="Kết quả nụ cười cân đối tự nhiên" loading="lazy" />
+                        </div>
+                        <div class="hero-gallery-item">
+                            <img src="assets/homepage/services/ho_loi_2.webp" alt="Tạo hình nướu thẩm mỹ Flora" loading="lazy" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
-    <!-- ─── NGUYÊN NHÂN CƯỜI HỞ LỢI (FACT SECTION) ─── -->
+    <!-- ─── NGUYÊN NHÂN CƯỜI HỞ LỢI (SECTION 3 - FACT SECTION) ─── -->
     <section class="section-padding fact-section" id="fact">
         <div class="container">
             <div class="section-header center reveal">
                 <span class="curved-badge">Nguyên nhân y khoa</span>
-                <h2>Bạn Bị Cười Hở Lợi Do Đâu?</h2>
+                <h2>
+                    Bạn Đang Gặp Tình Trạng<br/>
+                    <span style="color: var(--clr-secondary);">Cười Hở Lợi Do Đâu?</span>
+                </h2>
+                <p style="max-width: 680px; margin: 12px auto 0; font-size: 0.95rem; color: var(--clr-text-muted);">
+                    Nhận diện chính xác 5 nguyên nhân từ nướu, răng, khớp cắn, cơ môi và xương hàm để áp dụng phác đồ điều trị chuẩn xác, bảo tồn tối đa và ngăn ngừa tái phát.
+                </p>
             </div>
-            <div class="fact-grid reveal reveal-delay-1" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 40px;">
-                <div class="fact-card text-center" style="padding: 24px 15px;">
-                    <img src="https://placehold.co/400x300/f4f7fa/0a1931?text=H%E1%BB%9F+L%E1%BB%A3i+Do+N%C6%B0%E1%BB%9Bi+400x300" alt="Do nướu" style="border-radius: 8px; margin-bottom: 15px; width: 100%;" />
-                    <span class="stat-num" style="font-size: 1.5rem; margin-bottom: 5px;">Do Mô Nướu</span>
-                    <p style="margin-top: 10px; font-size: 0.85rem; color: var(--clr-text-muted);">Nướu phì đại hoặc bám thấp che phủ nhiều thân răng, làm răng trông ngắn và vuông.</p>
+            
+            <div class="fact-grid grid-5-items mobile-slider reveal reveal-delay-1" style="margin-bottom: 35px;">
+                <!-- Card 1: Do nướu (răng ngắn) -->
+                <div class="fact-card text-center">
+                    <img src="assets/ho-loi/section3/ho-loi-do-nuou-rang-cua-ngan.webp" alt="Cười hở lợi do nướu (răng ngắn)" class="fact-card-img" width="400" height="300" loading="lazy" />
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 8px;">Cười hở lợi do nướu</h3>
+                    <p style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.55;">Phần nướu che phủ nhiều khiến thân răng trông ngắn, vuông hoặc không cân đối dù vị trí môi và xương hàm bình thường.</p>
                 </div>
-                <div class="fact-card text-center" style="padding: 24px 15px;">
-                    <img src="https://placehold.co/400x300/f4f7fa/0a1931?text=H%E1%BB%9F+L%E1%BB%A3i+Do+R%C4%83ng+400x300" alt="Do răng" style="border-radius: 8px; margin-bottom: 15px; width: 100%;" />
-                    <span class="stat-num" style="font-size: 1.5rem; margin-bottom: 5px;">Răng & Khớp Cắn</span>
-                    <p style="margin-top: 10px; font-size: 0.85rem; color: var(--clr-text-muted);">Răng cửa mọc trồi, khớp cắn sâu làm đường cười bị hạ thấp và lộ nhiều nướu.</p>
+
+                <!-- Card 2: Khớp cắn sâu & răng mọc trồi -->
+                <div class="fact-card text-center">
+                    <img src="assets/ho-loi/section3/ho-loi-khop-can-sau.webp" alt="Khớp cắn sâu, nụ cười hở lợi" class="fact-card-img" width="400" height="300" loading="lazy" />
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 8px;">Khớp cắn sâu & răng trồi</h3>
+                    <p style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.55;">Răng cửa mọc trồi, khớp cắn sâu làm đường cười bị hạ thấp và lộ nhiều mô nướu khi giao tiếp hoặc cười lớn.</p>
                 </div>
-                <div class="fact-card text-center" style="padding: 24px 15px;">
-                    <img src="https://placehold.co/400x300/f4f7fa/0a1931?text=H%E1%BB%9F+L%E1%BB%A3i+Do+M%C3%B4i+400x300" alt="Do cơ nâng môi" style="border-radius: 8px; margin-bottom: 15px; width: 100%;" />
-                    <span class="stat-num" style="font-size: 1.5rem; margin-bottom: 5px;">Cơ Môi Hoạt Động</span>
-                    <p style="margin-top: 10px; font-size: 0.85rem; color: var(--clr-text-muted);">Cơ nâng môi trên kéo môi lên quá cao khi cười, dù răng nướu bình thường.</p>
+
+                <!-- Card 3: Do nâng môi trên -->
+                <div class="fact-card text-center">
+                    <img src="assets/ho-loi/section3/ho-loi-do-nang-moi-tren.webp" alt="Cười hở lợi do nâng môi trên" class="fact-card-img" width="400" height="300" loading="lazy" />
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 8px;">Do cơ nâng môi trên</h3>
+                    <p style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.55;">Cơ nâng môi trên hoạt động quá mức kéo môi lên rất cao khi cười, dù kích thước răng và viền nướu bình thường.</p>
                 </div>
-                <div class="fact-card text-center" style="padding: 24px 15px;">
-                    <img src="https://placehold.co/400x300/f4f7fa/0a1931?text=H%E1%BB%9F+L%E1%BB%A3i+Do+X%C6%B0%C6%A1ng+400x300" alt="Do xương hàm" style="border-radius: 8px; margin-bottom: 15px; width: 100%;" />
-                    <span class="stat-num" style="font-size: 1.5rem; margin-bottom: 5px;">Xương Hàm Trên</span>
-                    <p style="margin-top: 10px; font-size: 0.85rem; color: var(--clr-text-muted);">Xương hàm trên phát triển quá mức theo chiều dọc, đẩy cả răng và lợi lộ rõ rệt.</p>
+
+                <!-- Card 4: Do xương hàm trên dài -->
+                <div class="fact-card text-center">
+                    <img src="assets/ho-loi/section3/ho-loi-do-xuong-ham-tren-dai.webp" alt="Nụ cười lộ lợi do hàm trên dài" class="fact-card-img" width="400" height="300" loading="lazy" />
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 8px;">Xương hàm trên phát triển</h3>
+                    <p style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.55;">Xương hàm trên phát triển quá mức theo chiều dọc khiến cả cung răng và mô nướu lộ rõ khi nhìn trực diện.</p>
+                </div>
+
+                <!-- Card 5: Cười hở lợi đa yếu tố -->
+                <div class="fact-card text-center">
+                    <img src="assets/ho-loi/section3/ho-loi-da-yeu-to.webp" alt="Nụ cười hở lợi đa yếu tố" class="fact-card-img" width="400" height="300" loading="lazy" />
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 8px;">Hở lợi do đa yếu tố kết hợp</h3>
+                    <p style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.55;">Sự kết hợp đồng thời giữa thân răng ngắn, cơ môi nâng cao và sai khớp cắn, cần được lập phác đồ đa phương pháp.</p>
                 </div>
             </div>
-            <div style="text-align: center; font-size: 0.88rem; color: var(--clr-text-muted);">
-                <p><i class="fa-solid fa-circle-info" style="margin-right: 6px;"></i> Nhiều ca cười hở lợi do kết hợp nhiều nguyên nhân. Bác sĩ sẽ lập phác đồ đa phương pháp phối hợp.</p>
+            
+            <div style="text-align: center; font-size: 0.88rem; color: var(--clr-text-muted); max-width: 700px; margin: 0 auto 25px;">
+                <p><i class="fa-solid fa-circle-info" style="margin-right: 6px; color: var(--clr-secondary);"></i> Đúng nguyên nhân – Đúng phương pháp – Đúng tỷ lệ nụ cười chuẩn tỷ lệ vàng.</p>
+            </div>
+            
+            <div class="text-center">
+                <a href="#dang-ky" class="btn btn-primary btn-booking">Kiểm tra nguyên nhân hở lợi của tôi</a>
             </div>
         </div>
     </section>
 
-    <!-- ─── PHƯƠNG PHÁP ĐIỀU TRỊ (VALUE SECTION) ─── -->
+    <!-- ─── PHƯƠNG PHÁP ĐIỀU TRỊ (SECTION 4 - VALUE SECTION) ─── -->
     <section class="section-padding value-section" id="value">
         <div class="container">
             <div class="section-header center reveal">
                 <span class="curved-badge">Phương pháp can thiệp</span>
-                <h2>Giải Pháp Điều Trị Hở Lợi Tại Flora</h2>
+                <h2>
+                    Giải Pháp Điều Trị Hở Lợi<br/>
+                    <span style="color: var(--clr-secondary);">Toàn Diện Tại Flora</span>
+                </h2>
+                <p style="max-width: 720px; margin: 12px auto 0; font-size: 0.95rem; color: var(--clr-text-muted);">
+                    Mỗi phương pháp được cá nhân hóa chính xác theo nguyên nhân gốc rễ, mang lại nụ cười tự nhiên, cân đối và kết quả ổn định dài lâu.
+                </p>
             </div>
             <div class="value-layout">
                 <div class="value-cards-grid reveal reveal-delay-1">
@@ -143,36 +259,85 @@
                         <div class="value-num">01</div>
                         <div class="value-info">
                             <h3>Tạo hình nướu laser</h3>
-                            <p>Sử dụng bước sóng laser tạo hình đường viền nướu nhẹ nhàng, không sưng đau, hồi phục cực nhanh.</p>
+                            <p>Sử dụng bước sóng laser tạo hình đường viền nướu nhẹ nhàng, không chảy máu, không sưng đau và hồi phục cực nhanh.</p>
                         </div>
                     </div>
                     <div class="value-card">
                         <div class="value-num">02</div>
                         <div class="value-info">
                             <h3>Làm dài thân răng + Mài xương ổ</h3>
-                            <p>Cắt nướu kết hợp mài sinh lý bờ xương ổ răng, tái lập tương quan nướu-răng-xương, nướu bám ổn định.</p>
+                            <p>Cắt nướu kết hợp mài sinh lý bờ xương ổ răng bằng máy siêu âm Piezotome, tái lập khoảng sinh học, nướu bám ổn định vĩnh viễn.</p>
                         </div>
                     </div>
                     <div class="value-card">
                         <div class="value-num">03</div>
                         <div class="value-info">
                             <h3>Phẫu thuật định vị môi trên</h3>
-                            <p>Can thiệp điều chỉnh cơ nâng môi trên, kiểm soát biên độ co kéo môi khi cười một cách tự nhiên.</p>
+                            <p>Can thiệp điều chỉnh cơ nâng môi trên, kiểm soát biên độ co kéo môi khi cười lớn một cách hoàn toàn tự nhiên.</p>
                         </div>
                     </div>
                     <div class="value-card">
                         <div class="value-num">04</div>
                         <div class="value-info">
                             <h3>Chỉnh nha hoặc phẫu thuật hàm</h3>
-                            <p>Áp dụng đánh lún răng bằng minivis hoặc hội chẩn phẫu thuật xương hàm đối với các ca do xương ổ nặng.</p>
+                            <p>Áp dụng đánh lún răng bằng minivis hoặc hội chẩn phẫu thuật xương hàm đối với các ca do cấu trúc xương ổ phức tạp.</p>
                         </div>
                     </div>
                 </div>
                 <div class="value-image-group reveal reveal-delay-2">
-                    <!-- Illustrative placeholder images (Page 41) -->
-                    <img src="https://placehold.co/500x500/0033a3/ffffff?text=Minh+H%E1%BB%8Da+Laser+C%E1%BA%AFt+N%C6%B0%E1%BB%9Bi+500x500" alt="Gummy Smile Treatment" class="value-float-img img-1" style="object-fit: cover;" />
-                    <img src="https://placehold.co/500x500/0493f1/ffffff?text=M%C3%A0i+X%C6%B0%C6%A1ng+%E1%BB%94+R%C4%83ng+500x500" alt="Flora Patient" class="value-float-img img-2" style="object-fit: cover;" />
-                    <img src="https://placehold.co/500x500/0a1931/ffffff?text=Minh+H%E1%BB%8Da+%C4%90%E1%BB%8Bnh+V%E1%BB%8B+M%C3%B4i+500x500" alt="Flora Smile" class="value-float-img img-3" style="object-fit: cover;" />
+                    <img src="assets/homepage/technology/tia_laser.webp" alt="Công nghệ Laser cắt nướu" class="value-float-img img-1" style="object-fit: cover;" />
+                    <img src="assets/homepage/services/ho_loi_1.webp" alt="Tạo hình viền nướu thẩm mỹ" class="value-float-img img-2" style="object-fit: cover;" />
+                    <img src="assets/homepage/services/ho_loi_2.webp" alt="Nụ cười hoàn mỹ chuẩn tỷ lệ vàng" class="value-float-img img-3" style="object-fit: cover;" />
+                </div>
+            </div>
+
+            <!-- Bảng ma trận phương pháp điều trị theo nguyên nhân (từ MD) -->
+            <div class="reveal reveal-delay-2" style="max-width: 960px; margin: 50px auto 0;">
+                <h3 style="text-align: center; margin-bottom: 20px; color: var(--clr-navy); font-size: 1.25rem;"><i class="fa-solid fa-table-list" style="margin-right: 8px; color: var(--clr-secondary);"></i> Ma Trận Phương Pháp Can Thiệp Chuẩn Y Khoa</h3>
+                <div style="background: var(--clr-white); border-radius: var(--radius-md); overflow-x: auto; box-shadow: var(--shadow-sm); border: 1px solid var(--clr-border);">
+                    <div class="responsive-table-wrapper">
+                        <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem;">
+                            <thead>
+                                <tr style="background: var(--clr-navy); color: var(--clr-white);">
+                                    <th style="padding: 15px 20px;">Nguyên Nhân Chính</th>
+                                    <th style="padding: 15px 20px;">Phương Pháp Có Thể Áp Dụng</th>
+                                    <th style="padding: 15px 20px;">Đặc Điểm & Hiệu Quả</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid var(--clr-border);">
+                                    <td style="padding: 15px 20px; font-weight: 700; color: var(--clr-navy);">Nướu che phủ thân răng</td>
+                                    <td style="padding: 15px 20px;">Tạo hình nướu bằng laser hoặc dụng cụ nha chu</td>
+                                    <td style="padding: 15px 20px; color: var(--clr-text-muted);">Điều chỉnh mô mềm, giúp thân răng trông dài và cân đối hơn</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--clr-border);">
+                                    <td style="padding: 15px 20px; font-weight: 700; color: var(--clr-navy);">Xương ổ răng nằm gần viền nướu</td>
+                                    <td style="padding: 15px 20px;">Làm dài thân răng kết hợp điều chỉnh xương ổ</td>
+                                    <td style="padding: 15px 20px; color: var(--clr-text-muted);">Tái lập tương quan phù hợp giữa nướu, răng và xương</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--clr-border);">
+                                    <td style="padding: 15px 20px; font-weight: 700; color: var(--clr-navy);">Cơ nâng môi hoạt động mạnh</td>
+                                    <td style="padding: 15px 20px;">Botulinum toxin hoặc phẫu thuật định vị lại môi</td>
+                                    <td style="padding: 15px 20px; color: var(--clr-text-muted);">Kiểm soát biên độ nâng mép môi trên khi cười</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--clr-border);">
+                                    <td style="padding: 15px 20px; font-weight: 700; color: var(--clr-navy);">Răng mọc trồi hoặc khớp cắn sâu</td>
+                                    <td style="padding: 15px 20px;">Chỉnh nha, minivis hoặc điều trị phối hợp</td>
+                                    <td style="padding: 15px 20px; color: var(--clr-text-muted);">Điều chỉnh vị trí răng và nâng đường cười cân đối</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--clr-border);">
+                                    <td style="padding: 15px 20px; font-weight: 700; color: var(--clr-navy);">Xương hàm trên phát triển quá mức</td>
+                                    <td style="padding: 15px 20px;">Hội chẩn chỉnh nha – phẫu thuật hàm</td>
+                                    <td style="padding: 15px 20px; color: var(--clr-text-muted);">Áp dụng cho trường hợp xương mức độ rõ rệt</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 15px 20px; font-weight: 700; color: var(--clr-navy);">Nhiều nguyên nhân kết hợp</td>
+                                    <td style="padding: 15px 20px;">Phác đồ đa phương pháp cá nhân hóa</td>
+                                    <td style="padding: 15px 20px; color: var(--clr-text-muted);">Xử lý đồng thời các yếu tố gây mất cân đối nụ cười</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -183,7 +348,13 @@
         <div class="container">
             <div class="section-header center reveal">
                 <span class="curved-badge">Chi phí hợp lý</span>
-                <h2>Bảng Giá Điều Trị Cười Hở Lợi</h2>
+                <h2>
+                    Bảng Giá Chi Phí<br/>
+                    <span style="color: var(--clr-secondary);">Điều Trị Cười Hở Lợi</span>
+                </h2>
+                <p style="max-width: 680px; margin: 12px auto 0; font-size: 0.95rem; color: var(--clr-text-muted);">
+                    Minh bạch chi phí trọn gói trước điều trị, cam kết không phát sinh chi phí phụ.
+                </p>
             </div>
             
             <div class="reveal reveal-delay-1" style="max-width: 900px; margin: 0 auto 50px;">
@@ -269,7 +440,7 @@
 
             <div class="reveal reveal-delay-3" style="max-width: 900px; margin: 30px auto 0; text-align: center; background: rgba(245, 158, 11, 0.08); padding: 20px; border-radius: var(--radius-md); border: 1px dashed rgba(245, 158, 11, 0.4);">
                 <p>
-                    <i class="fa-solid fa-credit-card"></i> Trả góp lãi suất 0% hỗ trợ tài chính cho nụ cười rạng rỡ của bạn.
+                    <i class="fa-solid fa-credit-card"></i> <strong>Chính sách trả góp 0%:</strong> Hỗ trợ chia nhỏ chi phí thanh toán linh hoạt qua ngân hàng liên kết, không lãi suất.
                 </p>
             </div>
         </div>
@@ -280,7 +451,13 @@
         <div class="container">
             <div class="section-header center reveal">
                 <span class="curved-badge">Quy trình y khoa</span>
-                <h2>6 Bước Cắt Nướu Điều Trị Gummy Smile</h2>
+                <h2>
+                    6 Bước Cắt Nướu<br/>
+                    <span style="color: var(--clr-secondary);">Điều Trị Gummy Smile</span>
+                </h2>
+                <p style="max-width: 680px; margin: 12px auto 0; font-size: 0.95rem; color: var(--clr-text-muted);">
+                    Quy trình vô trùng khép kín tiêu chuẩn Thụy Sĩ, nhẹ nhàng, an toàn và chính xác tuyệt đối.
+                </p>
             </div>
             
             <div class="steps-grid steps-6 mobile-slider">
@@ -296,7 +473,7 @@
                     <div class="step-card-icon"><i class="fa-solid fa-stethoscope"></i></div>
                     <span class="step-badge">BƯỚC 2</span>
                     <h3>ĐO ĐẠC XÁC ĐỊNH NGUYÊN NHÂN</h3>
-                    <p>Đo độ dày mô nướu, chụp phim khi cần thiết để đánh giá bờ xương ổ răng sinh lý dưới viền nướu.</p>
+                    <p>Đo độ dày mô nướu, chụp phim CT 3D khi cần thiết để đánh giá bờ xương ổ răng sinh lý dưới viền nướu.</p>
                 </div>
                 <!-- Step 3 -->
                 <div class="step-card reveal reveal-delay-2">
@@ -316,8 +493,8 @@
                 <div class="step-card reveal reveal-delay-4">
                     <div class="step-card-icon"><i class="fa-solid fa-scissors"></i></div>
                     <span class="step-badge">BƯỚC 5</span>
-                    <h3>TIẾN HÀNH PHẪU THUẬT ÊM ÁI</h3>
-                    <p>Tiến hành cắt nướu thẩm mỹ, mài xương ổ răng hoặc định vị môi dưới gây tê DentalVibe không đau nhức.</p>
+                    <h3>TIẾN HÀNH ĐIỀU TRỊ ÊM ÁI</h3>
+                    <p>Tiến hành tạo hình nướu laser, mài xương ổ răng hoặc định vị môi dưới công nghệ gây tê DentalVibe không đau.</p>
                 </div>
                 <!-- Step 6 -->
                 <div class="step-card reveal reveal-delay-5">
@@ -331,55 +508,133 @@
     </section>
 
     <!-- ─── CA ĐIỀU TRỊ THỰC TẾ (CLINICAL CASES) ─── -->
-    <section class="section-padding" id="cases" style="background: var(--clr-white);">
+    <section class="section-padding cases-gallery-section" id="cases" style="background-color: var(--clr-bg-light);">
         <div class="container">
             <div class="section-header center reveal">
                 <span class="curved-badge">Kết quả thực tế</span>
-                <h2>Hình Ảnh Ca Điều Trị Cười Hở Lợi Thành Công</h2>
-                <p>Mỗi ca điều trị đều thể hiện: Nguyên nhân ban đầu, phương pháp can thiệp, số răng điều chỉnh và trạng thái lành thương.</p>
+                <h2>
+                    Hình Ảnh Ca Điều Trị<br/>
+                    <span style="color: var(--clr-secondary);">Cười Hở Lợi Thành Công</span>
+                </h2>
+                <p>Khách hàng thực tế tại Flora: Minh bạch nguyên nhân, phương pháp thực hiện và kết quả nụ cười tự nhiên.</p>
             </div>
             
-            <div class="case-grid mobile-slider" style="margin-top: 40px;">
-                <!-- Case 1 -->
-                <div class="case-card reveal-scale" style="padding: 0; overflow: hidden; border: 1px solid var(--clr-border);">
-                    <div style="display: flex;">
-                        <!-- Placeholders (Page 46) -->
-                        <div style="width: 50%;">
-                            <img src="https://placehold.co/500x500/0033a3/ffffff?text=Tr%C6%B0%E1%BB%9Bc+500x500" alt="Hở lợi do nướu trước" style="width: 100%; display: block;" />
+            <div class="cases-content-wrapper reveal reveal-delay-1" style="margin-top: 40px;">
+                <div class="cases-tab-panel mobile-slider active" id="cases-ho-loi">
+                    <!-- Case 1: Chị Thanh Thư -->
+                    <div class="case-card">
+                        <div class="case-img-split">
+                            <div class="case-img-half before">
+                                <img src="ngayhoi_item/bf_at/thanh_thu_bf.webp" alt="Chị Thanh Thư Trước" loading="lazy" />
+                                <span class="case-img-label">Trước</span>
+                            </div>
+                            <div class="case-img-half after">
+                                <img src="ngayhoi_item/bf_at/thanh_thu_at.webp" alt="Chị Thanh Thư Sau" loading="lazy" />
+                                <span class="case-img-label">Sau</span>
+                            </div>
                         </div>
-                        <div style="width: 50%;">
-                            <img src="https://placehold.co/500x500/10b981/ffffff?text=Sau+500x500" alt="Hở lợi do nướu sau" style="width: 100%; display: block;" />
+                        <div class="case-card-body">
+                            <h4>Chị Thanh Thư (28 tuổi)</h4>
+                            <div class="case-detail-row">
+                                <strong>Tình trạng ban đầu:</strong>
+                                <span>Cười lộ nướu nhiều > 4mm, thân răng ngắn, viền nướu không đều màu.</span>
+                            </div>
+                            <div class="case-detail-row">
+                                <strong>Phương pháp điều trị:</strong>
+                                <span>Phẫu thuật tạo hình viền nướu thẩm mỹ bằng Laser không đau.</span>
+                            </div>
+                            <div class="case-detail-row">
+                                <strong>Thời gian thực hiện:</strong>
+                                <span>45 phút (Lành thương sau 3 ngày).</span>
+                            </div>
                         </div>
                     </div>
-                    <div style="padding: 20px;">
-                        <h4 style="font-family: var(--font-title); font-weight: 700; color: var(--clr-navy); margin-bottom: 10px;">Điều trị cười hở lợi do mô nướu bám thấp</h4>
-                        <ul style="list-style: none; font-size: 0.82rem; color: var(--clr-text-muted); display: flex; flex-direction: column; gap: 4px;">
-                            <li><i class="fa-solid fa-angle-right" style="color: var(--clr-secondary);"></i> <strong>Nguyên nhân:</strong> Nướu che phủ thân răng, răng ngắn</li>
-                            <li><i class="fa-solid fa-angle-right" style="color: var(--clr-secondary);"></i> <strong>Phương pháp:</strong> Cắt nướu laser thẩm mỹ</li>
-                            <li><i class="fa-solid fa-angle-right" style="color: var(--clr-secondary);"></i> <strong>Quy mô:</strong> Điều chỉnh 8 răng cửa hàm trên</li>
-                            <li><i class="fa-solid fa-angle-right" style="color: var(--clr-secondary);"></i> <strong>Lành thương:</strong> Ăn uống bình thường sau 3 ngày</li>
-                        </ul>
-                    </div>
-                </div>
 
-                <!-- Case 2 -->
-                <div class="case-card reveal-scale" style="padding: 0; overflow: hidden; border: 1px solid var(--clr-border);">
-                    <div style="display: flex;">
-                        <div style="width: 50%;">
-                            <img src="https://placehold.co/500x500/0033a3/ffffff?text=Tr%C6%B0%E1%BB%9Bc+500x500" alt="Hở lợi xương ổ trước" style="width: 100%; display: block;" />
+                    <!-- Case 2: Anh Huy Cường -->
+                    <div class="case-card">
+                        <div class="case-img-split">
+                            <div class="case-img-half before">
+                                <img src="ngayhoi_item/bf_at/huy_cuong_bf.webp" alt="Anh Huy Cường Trước" loading="lazy" />
+                                <span class="case-img-label">Trước</span>
+                            </div>
+                            <div class="case-img-half after">
+                                <img src="ngayhoi_item/bf_at/huy_cuong_at.webp" alt="Anh Huy Cường Sau" loading="lazy" />
+                                <span class="case-img-label">Sau</span>
+                            </div>
                         </div>
-                        <div style="width: 50%;">
-                            <img src="https://placehold.co/500x500/10b981/ffffff?text=Sau+500x500" alt="Hở lợi xương ổ sau" style="width: 100%; display: block;" />
+                        <div class="case-card-body">
+                            <h4>Anh Huy Cường (33 tuổi)</h4>
+                            <div class="case-detail-row">
+                                <strong>Tình trạng ban đầu:</strong>
+                                <span>Cười hở lợi nặng do cơ nâng môi trên hoạt động quá mức, lộ nướu sẫm màu.</span>
+                            </div>
+                            <div class="case-detail-row">
+                                <strong>Phương pháp điều trị:</strong>
+                                <span>Phẫu thuật định vị lại môi trên kết hợp tạo hình viền nướu.</span>
+                            </div>
+                            <div class="case-detail-row">
+                                <strong>Thời gian thực hiện:</strong>
+                                <span>60 phút (Kết quả tự nhiên trọn đời).</span>
+                            </div>
                         </div>
                     </div>
-                    <div style="padding: 20px;">
-                        <h4 style="font-family: var(--font-title); font-weight: 700; color: var(--clr-navy); margin-bottom: 10px;">Hở lợi do xương ổ răng dày sát viền nướu</h4>
-                        <ul style="list-style: none; font-size: 0.82rem; color: var(--clr-text-muted); display: flex; flex-direction: column; gap: 4px;">
-                            <li><i class="fa-solid fa-angle-right" style="color: var(--clr-secondary);"></i> <strong>Nguyên nhân:</strong> Bờ xương ổ nằm quá gần viền nướu</li>
-                            <li><i class="fa-solid fa-angle-right" style="color: var(--clr-secondary);"></i> <strong>Phương pháp:</strong> Cắt nướu + Mài thấp xương ổ</li>
-                            <li><i class="fa-solid fa-angle-right" style="color: var(--clr-secondary);"></i> <strong>Quy mô:</strong> Điều chỉnh 6 răng phân vùng răng cửa</li>
-                            <li><i class="fa-solid fa-angle-right" style="color: var(--clr-secondary);"></i> <strong>Lành thương:</strong> Ổn định hoàn toàn sau 7 ngày</li>
-                        </ul>
+
+                    <!-- Case 3: Chị Hồng Vân -->
+                    <div class="case-card">
+                        <div class="case-img-split">
+                            <div class="case-img-half before">
+                                <img src="ngayhoi_item/bf_at/hong_van_bf.webp" alt="Chị Hồng Vân Trước" loading="lazy" />
+                                <span class="case-img-label">Trước</span>
+                            </div>
+                            <div class="case-img-half after">
+                                <img src="ngayhoi_item/bf_at/hong_van_at.webp" alt="Chị Hồng Vân Sau" loading="lazy" />
+                                <span class="case-img-label">Sau</span>
+                            </div>
+                        </div>
+                        <div class="case-card-body">
+                            <h4>Chị Hồng Vân (34 tuổi)</h4>
+                            <div class="case-detail-row">
+                                <strong>Tình trạng ban đầu:</strong>
+                                <span>Thân răng ngắn do nướu bao phủ sâu kèm gồ xương ổ răng hàm trên.</span>
+                            </div>
+                            <div class="case-detail-row">
+                                <strong>Phương pháp điều trị:</strong>
+                                <span>Tạo hình nướu + Mài gồ xương ổ răng bằng máy siêu âm Piezotome.</span>
+                            </div>
+                            <div class="case-detail-row">
+                                <strong>Thời gian thực hiện:</strong>
+                                <span>45 phút (Nướu bám ổn định không bò lại).</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Case 4: Chị Mộng Tuyền -->
+                    <div class="case-card">
+                        <div class="case-img-split">
+                            <div class="case-img-half before">
+                                <img src="ngayhoi_item/bf_at/mong_tuyen_bf.webp" alt="Chị Mộng Tuyền Trước" loading="lazy" />
+                                <span class="case-img-label">Trước</span>
+                            </div>
+                            <div class="case-img-half after">
+                                <img src="ngayhoi_item/bf_at/mong_tuyen_at.webp" alt="Chị Mộng Tuyền Sau" loading="lazy" />
+                                <span class="case-img-label">Sau</span>
+                            </div>
+                        </div>
+                        <div class="case-card-body">
+                            <h4>Chị Mộng Tuyền (31 tuổi)</h4>
+                            <div class="case-detail-row">
+                                <strong>Tình trạng ban đầu:</strong>
+                                <span>Răng xỉn màu vàng ố, viền nướu phì đại không cân xứng trục cung cười.</span>
+                            </div>
+                            <div class="case-detail-row">
+                                <strong>Phương pháp điều trị:</strong>
+                                <span>Tạo hình viền nướu bằng laser kết hợp tẩy trắng răng công nghệ cao.</span>
+                            </div>
+                            <div class="case-detail-row">
+                                <strong>Thời gian thực hiện:</strong>
+                                <span>45 phút (Răng trắng sáng, viền nướu hồng hào).</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -391,30 +646,35 @@
         <div class="container">
             <div class="section-header center reveal">
                 <span class="curved-badge">Đội ngũ y bác sĩ</span>
-                <h2>Bác Sĩ Nguyễn Đắc Minh - Trực Tiếp Điều Trị</h2>
+                <h2>
+                    <span style="color: var(--clr-secondary);">Bác Sĩ Nguyễn Đắc Minh</span><br/>
+                    Trực Tiếp Điều Trị Cười Hở Lợi
+                </h2>
             </div>
-            <div class="expert-grid reveal reveal-delay-1">
-                <div class="expert-card">
-                    <div class="expert-header">
-                        <!-- Profile Image Placeholder (Page 42) -->
-                        <img src="assets/bs_rhm.webp" alt="Bác sĩ Nguyễn Đắc Minh" class="expert-img" />
-                        <div class="expert-title" style="margin-top: 15px;">
-                            <h3>Bác sĩ Nguyễn Đắc Minh</h3>
-                            <p>Chuyên khoa Cắt nướu & Tạo hình cung cười</p>
-                        </div>
+            <div class="expert-grid reveal reveal-delay-1" style="max-width: 980px; margin: 0 auto;">
+                <!-- Left Column: Framed portrait image -->
+                <div class="reveal-left expert-portrait-frame">
+                    <div class="expert-badge-top">CHUYÊN GIA TRƯỞNG</div>
+                    <img src="assets/bs_rhm.webp" alt="Bác sĩ Nguyễn Đắc Minh" class="expert-portrait-img" loading="lazy" width="480" height="580" onerror="this.src='ngayhoi_item/DSC00090.webp'" />
+                    <div class="expert-name-badge">
+                        <h3>Bác sĩ Nguyễn Đắc Minh</h3>
+                        <p>Chuyên khoa Cắt nướu & Phục hình Thẩm mỹ</p>
                     </div>
-                    <ul class="expert-list">
-                        <li><i class="fa-solid fa-circle-check"></i> Hơn 10 năm kinh nghiệm điều trị cười hở lợi lâm sàng.</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Đã thực hiện thành công hơn 950 ca phẫu thuật tạo dáng nướu.</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Bác sĩ thành viên Hiệp hội Implant quốc tế ICOI và ITI Thụy Sĩ.</li>
-                    </ul>
                 </div>
-                <div class="expert-card" style="display: flex; flex-direction: column; justify-content: center; gap: 20px;">
-                    <h3 style="font-size: 1.4rem; color: var(--clr-navy);">Can thiệp tối thiểu - Không tái phát</h3>
-                    <p style="color: var(--clr-text-muted); font-size: 0.95rem; line-height: 1.7;">
-                        "Nguyên tắc điều trị cười hở lợi của chúng tôi là không chỉ cắt bỏ phần nướu thừa nhìn thấy, mà còn phải đánh giá đồng thời cấu trúc mô nha chu, xương ổ răng, vận động của môi và hình thể của răng để lập phác đồ thích hợp nhất, cam kết không can thiệp sâu không cần thiết và giữ viền nướu ổn định trọn đời."
+                <div class="expert-card" style="display: flex; flex-direction: column; justify-content: center; gap: 18px;">
+                    <h3 style="font-size: 1.35rem; color: var(--clr-navy); font-weight: 700; line-height: 1.4; margin: 0;">Bác sĩ Nguyễn Đắc Minh – Hơn 10 năm kinh nghiệm tạo hình nụ cười</h3>
+                    <p style="color: var(--clr-text-muted); font-size: 0.92rem; line-height: 1.7; margin: 0;">
+                        Bác sĩ Nguyễn Đắc Minh có hơn 10 năm kinh nghiệm chuyên sâu trong lĩnh vực Răng Hàm Mặt và đã thực hiện thành công khoảng 950 trường hợp điều trị cười hở lợi thẩm mỹ.
                     </p>
-                    <a href="#dang-ky" class="btn btn-primary btn-booking" style="align-self: flex-start;">Đặt lịch hội chẩn cùng bác sĩ Minh</a>
+                    <p style="color: var(--clr-text-muted); font-size: 0.92rem; line-height: 1.7; margin: 0;">
+                        Điểm nổi bật trong phương pháp điều trị của bác sĩ Minh là không chỉ tập trung vào phần nướu nhìn thấy, mà đánh giá đồng thời cấu trúc mô mềm, xương ổ răng, hình thể răng, vận động cơ môi và tổng thể khuôn mặt để lập phác đồ thích hợp nhất.
+                    </p>
+                    <ul class="expert-list" style="margin: 5px 0;">
+                        <li><i class="fa-solid fa-circle-check"></i> Giảm mức độ lộ nướu khi cười về chuẩn tỷ lệ vàng.</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Tạo tỷ lệ răng – nướu – môi tự nhiên, hài hòa.</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Hạn chế can thiệp không cần thiết và giữ viền nướu ổn định dài lâu.</li>
+                    </ul>
+                    <a href="#dang-ky" class="btn btn-primary btn-booking" style="align-self: flex-start; margin-top: 5px;">Đặt lịch hội chẩn cùng bác sĩ Minh</a>
                 </div>
             </div>
         </div>
@@ -429,30 +689,54 @@
                     <div>
                         <span class="curved-badge" style="margin-bottom: 12px; display: inline-block;">Giải đáp chuyên khoa</span>
                         <h3 style="font-family: var(--font-title); font-size: 1.6rem; font-weight: 700; color: var(--clr-navy); margin: 0 0 10px 0;">Câu Hỏi Thường Gặp</h3>
-                        <p style="font-size: 0.9rem; color: var(--clr-text-muted); margin: 0 0 20px 0; line-height: 1.6;">Những băn khoăn phổ biến của khách hàng khi tìm hiểu dịch vụ tại Nha khoa Flora.</p>
+                        <p style="font-size: 0.9rem; color: var(--clr-text-muted); margin: 0 0 20px 0; line-height: 1.6;">Những băn khoăn phổ biến của khách hàng khi điều trị cười hở lợi tại Nha khoa Flora.</p>
                     </div>
                     <div class="faq-list" style="margin-top: 0;">
                         <div class="faq-item active">
-                            <button class="faq-question">Phẫu thuật cười hở lợi có đau không? <i class="fa-solid fa-chevron-down"></i></button>
+                            <button class="faq-question">1. Có phải cười hở lợi nào cũng cần cắt nướu không? <i class="fa-solid fa-chevron-down"></i></button>
                             <div class="faq-answer">
                                 <div class="faq-answer-content">
-                                    Trước khi thực hiện phẫu thuật, bác sĩ sẽ gây tê cục bộ vùng điều trị nên bạn sẽ không cảm thấy đau đớn. Sau phẫu thuật, thuốc giảm đau sẽ giúp bạn hoàn toàn dễ chịu và ăn uống nhẹ nhàng bình thường.
+                                    Không. Nếu nguyên nhân nằm ở cơ môi hoạt động quá mức, sai khớp cắn hoặc do xương hàm trên phát triển theo chiều dọc, cắt lợi đơn thuần sẽ không giải quyết được vấn đề chính. Bác sĩ Flora sẽ khám và tư vấn phương pháp can thiệp đúng nguyên nhân gốc rễ.
                                 </div>
                             </div>
                         </div>
                         <div class="faq-item">
-                            <button class="faq-question">Điều trị cười hở lợi có bị tái phát không? <i class="fa-solid fa-chevron-down"></i></button>
+                            <button class="faq-question">2. Cắt lợi bằng Laser có tốt hơn các phương pháp khác? <i class="fa-solid fa-chevron-down"></i></button>
                             <div class="faq-answer">
                                 <div class="faq-answer-content">
-                                    Tại Nha khoa Flora, phẫu thuật cắt nướu kết hợp mài xương ổ răng (nếu cần) được thực hiện theo tiêu chuẩn y khoa nghiêm ngặt, đảm bảo kết quả ổn định vĩnh viễn và không bị bò nướu tái phát.
+                                    Laser rất hữu ích trong trường hợp điều chỉnh mô mềm, giúp cầm máu tức thì và không sưng đau. Tuy nhiên, nếu cần điều chỉnh khoảng sinh học bờ xương ổ răng, bác sĩ sẽ kết hợp máy siêu âm Piezotome để đạt kết quả bền vững nhất.
                                 </div>
                             </div>
                         </div>
                         <div class="faq-item">
-                            <button class="faq-question">Thời gian lành thương sau phẫu thuật là bao lâu? <i class="fa-solid fa-chevron-down"></i></button>
+                            <button class="faq-question">3. Điều trị cười hở lợi xong nướu có bị bò lại không? <i class="fa-solid fa-chevron-down"></i></button>
                             <div class="faq-answer">
                                 <div class="faq-answer-content">
-                                    Vết thương nướu sẽ bắt đầu lành và đẹp tự nhiên sau 7 - 10 ngày. Bạn có thể sinh hoạt và đi làm bình thường ngay sau phẫu thuật mà không cần nghỉ dưỡng dài ngày.
+                                    Mức độ ổn định phụ thuộc vào tương quan giữa nướu và xương sinh lý. Tại Flora, bác sĩ luôn đánh giá khoảng sinh học trước khi thực hiện. Khi được lập phác đồ chuẩn xác và tái lập đúng bờ xương ổ, viền nướu sẽ ổn định vĩnh viễn và không bị bò lại.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">4. Botulinum toxin có điều trị hở lợi vĩnh viễn không? <i class="fa-solid fa-chevron-down"></i></button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    Không. Hiệu quả của Botulinum toxin mang tính tạm thời (khoảng 4 - 6 tháng) và cần tiêm nhắc lại. Đối với khách hàng muốn kết quả ổn định vĩnh viễn do cơ môi, phẫu thuật định vị môi trên là giải pháp tối ưu.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">5. Cần điều chỉnh bao nhiêu răng khi cắt nướu? <i class="fa-solid fa-chevron-down"></i></button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    Thông thường bác sĩ sẽ đánh giá toàn bộ các răng nằm trong vùng cung cười (khoảng 6 đến 8 răng cửa hàm trên) thay vì chỉ một răng riêng lẻ, nhằm đảm bảo đường cười đối xứng và tỷ lệ nụ cười hoàn mỹ nhất.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">6. Thời gian điều trị và lành thương là bao lâu? <i class="fa-solid fa-chevron-down"></i></button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    Quá trình tạo hình viền nướu diễn ra êm ái trong khoảng 45 - 60 phút dưới gây tê không đau DentalVibe. Bạn có thể ăn uống và sinh hoạt bình thường ngay sau phẫu thuật; mô nướu lành thương đẹp tự nhiên sau 3 - 7 ngày.
                                 </div>
                             </div>
                         </div>
@@ -462,7 +746,7 @@
                 <!-- Right Column: Registration Form -->
                 <div class="cta-form reveal reveal-delay-2" style="background: #ffffff; border: 1px solid var(--clr-border); padding: 40px; border-radius: var(--radius-md); box-shadow: var(--shadow-premium);">
                     <h3 style="color: var(--clr-navy); font-size: 1.4rem; margin-bottom: 8px; text-align: center;">Đăng Ký Khám & Tư Vấn Miễn Phí</h3>
-                    <p style="font-size: 0.88rem; color: var(--clr-text-muted); text-align: center; margin-bottom: 24px;">Miễn phí chụp phim CT 3D & Chẩn đoán y khoa cùng Bác sĩ Cấp Cao</p>
+                    <p style="font-size: 0.88rem; color: var(--clr-text-muted); text-align: center; margin-bottom: 24px;">Miễn phí chụp phim CT 3D & Phân tích đường cười cùng Bác sĩ Cấp Cao</p>
                     
                     <form id="floraRegistrationForm" class="modal-form" style="display: flex; flex-direction: column; gap: 15px;">
                         <input type="hidden" id="note" name="note" value="" />
@@ -490,9 +774,9 @@
                         </div>
                         <div class="form-group">
                             <select class="form-select" name="service" required style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);">
-<option value="Trồng răng Implant">Trồng răng Implant Thụy Sĩ</option>
-                                <option value="Niềng răng chỉnh nha">Niềng răng Invisalign / Mắc cài</option>
                                 <option value="Điều trị cười hở lợi" selected>Điều trị cười hở lợi</option>
+                                <option value="Trồng răng Implant">Trồng răng Implant Thụy Sĩ</option>
+                                <option value="Niềng răng chỉnh nha">Niềng răng Invisalign / Mắc cài</option>
                                 <option value="Dán sứ thẩm mỹ Veneer">Dán sứ Veneer E.max</option>
                                 <option value="Bọc răng sứ">Bọc răng sứ thẩm mỹ</option>
                                 <option value="Nha khoa tổng quát">Khám răng tổng quát / Lấy cao răng</option>
@@ -513,8 +797,7 @@
         </div>
     </section>
 
-        <!-- ─── FOOTER ─── -->
-        <!-- ─── FOOTER ─── -->
+    <!-- ─── FOOTER ─── -->
     <footer class="footer">
         <!-- Animated Background Elements -->
         <div class="footer-dot-grid"></div>
@@ -545,7 +828,7 @@
                     <li><a href="nieng-rang.html">Niềng Răng Mắc Cài Số Hóa</a></li>
                     <li><a href="ho-loi.html">Điều Trị Cười Hở Lợi</a></li>
                     <li><a href="veneer.html">Dán Sứ Veneer E.max (Đức)</a></li>
-                    <li><a href="veneer.html">Răng Sứ Thẩm Mỹ Cercon</a></li>
+                    <li><a href="boc-rang-su.html">Răng Sứ Thẩm Mỹ Cercon</a></li>
                 </ul>
             </div>
             <!-- Col 3: About clinic -->
@@ -555,9 +838,9 @@
                     <li><a href="index.html">Trang Chủ Flora</a></li>
                     <li><a href="bac-si.html">Đội Ngũ Bác Sĩ Chuyên Gia</a></li>
                     <li><a href="bac-si.html#certifications">Chứng Nhận & Thành Tựu</a></li>
-                    <li><a href="implant.html#pricing">Báo Giá Dịch Vụ Trọn Gói</a></li>
+                    <li><a href="bang-gia.html">Báo Giá Dịch Vụ Trọn Gói</a></li>
                     <li><a href="bac-si.html#certifications">Chính Sách Bảo Hành</a></li>
-                    <li><a href="https://nhakhoaflora.com">Tin Tức & Cẩm Nang Y Khoa</a></li>
+                    <li><a href="goc-suc-khoe.html">Tin Tức & Cẩm Nang Y Khoa</a></li>
                 </ul>
             </div>
             <!-- Col 4: Contact details -->
@@ -565,7 +848,7 @@
                 <h4>Liên Hệ Flora</h4>
                 <div class="footer-contact-item">
                     <i class="fa-solid fa-location-dot"></i>
-                    <span>326 Nguyễn Trãi, Phường 8, Quận 5, TP.HCM</span>
+                    <span>326 Nguyễn Thị Minh Khai, Phường Bàn Cờ, Quận 3, TP.HCM</span>
                 </div>
                 <div class="footer-contact-item">
                     <i class="fa-solid fa-phone"></i>
