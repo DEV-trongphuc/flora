@@ -4,27 +4,32 @@
  * =========================================================================================
  * Spreadsheet ID: 1ZyzEsatFjyjcqCA6Hn0SrA6jDoq05SV7ytv94vyvKD8
  * 
- * CẤU TRÚC 2 BẢNG (SHEETS):
+ * TỰ ĐỘNG NHẬN DIỆN VỊ TRÍ RĂNG:
+ * - Vị trí răng bắt đầu bằng chữ 'R' hoặc 'r' (VD: r47, r17, r46, r37, r36, r27, r16, R 1 2, R 1 6, R12...)
+ * - Sau R bắt đầu bằng chữ số 1 hoặc 2 (1x, 2x, R 1 2...) => TỰ HIỂU LÀ "HÀM TRÊN" (Maxilla)
+ * - Sau R bắt đầu bằng chữ số 3 hoặc 4 (3x, 4x, r36, r47...) => TỰ HIỂU LÀ "HÀM DƯỚI" (Mandible)
+ * 
+ * CẤU TRÚC 2 BẢNG (SHEETS) THỰC TẾ:
  * -----------------------------------------------------------------------------------------
  * Tab 1: BENH_NHAN
- *   - Cột A (1): Mã Bệnh Nhân (VD: BN-SWISS-01, BN-8801)
- *   - Cột B (2): Họ và Tên   (VD: Nguyễn Văn An)
- *   - Cột C (3): Số Điện Thoại (VD: 0908889999)
- *   - Cột D (4): Ngày Sinh   (VD: 15/08/1985)
- *   - Cột E (5): Địa Chỉ     (VD: Quận 1, TP. Hồ Chí Minh)
- *   - Cột F (6): Ghi Chú     (VD: Tái khám định kỳ sau 6 tháng)
+ *   - Cột A (1): Mã Bệnh Nhân (VD: 3815, 3877, BN-SWISS-01)
+ *   - Cột B (2): Họ và Tên   (VD: Đỗ Ngọc Dũng, Hoàng Thanh Thúy)
+ *   - Cột C (3): Số Điện Thoại (VD: 0962138946, 0675466123)
+ *   - Cột D (4): Ngày nhận bệnh / Ngày Sinh (VD: 29/08/2023, 12/09/2023)
+ *   - Cột E (5): Địa Chỉ     (VD: Hồ Chí Minh)
+ *   - Cột F (6): Ghi Chú
  * 
  * Tab 2: TRU_IMPLANT
- *   - Cột A (1): Số Serial             (VD: IS-8899-CH, IS-99214-CH)
- *   - Cột B (2): Mã Bệnh Nhân          (Khóa ngoại liên kết tab BENH_NHAN)
- *   - Cột C (3): Vị Trí Răng           (VD: Răng 16, Răng 46)
- *   - Cột D (4): Hệ Thống Implant      (VD: Implant Swiss Classic System)
- *   - Cột E (5): Kích Thước            (VD: Ø 4.0 x 10 mm)
- *   - Cột F (6): Ngày Cấy Ghép         (VD: 15/03/2024)
- *   - Cột G (7): Bác Sĩ Thực Hiện      (VD: BS. CKI Nguyễn Đắc Minh)
- *   - Cột H (8): Phòng Khám            (VD: Nha Khoa Flora - Trung Tâm Implant Thụy Sĩ)
- *   - Cột I (9): Thời Gian Bảo Hành (Năm) (VD: 10, 15, Trọn đời)
- *   - Cột J (10): Trạng Thái Bảo Hành   (VD: Còn hạn bảo hành, Đang hiệu lực)
+ *   - Cột A (1): Ref                   (VD: S-BFHR4810, S-BFHR4808, S-BFHR4310)
+ *   - Cột B (2): Số Serial             (VD: 2103170033110, 220707049107, 220805031001)
+ *   - Cột C (3): Mã Bệnh Nhân          (VD: 3815, 3877)
+ *   - Cột D (4): Vị Trí Răng           (VD: r47, r17, r46, r37, r36, r27, r16, R 1 2)
+ *   - Cột E (5): Hệ Thống Implant      (VD: Implant Swiss Classic System)
+ *   - Cột F (6): Kích Thước            (VD: 4.8x10mm, 4.3x8mm, 4.3x10mm)
+ *   - Cột G (7): Ngày Cấy Ghép         (VD: 29/08/2023)
+ *   - Cột H (8): Bác Sĩ Thực Hiện      (VD: Bác sĩ Minh, BS. CKI Nguyễn Đắc Minh)
+ *   - Cột I (9): Phòng Khám            (VD: Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai)
+ *   - Cột J (10): Thời Gian Bảo Hành (Năm) (VD: 10, 15, Trọn đời)
  * =========================================================================================
  */
 
@@ -33,8 +38,8 @@ const SPREADSHEET_ID = "1ZyzEsatFjyjcqCA6Hn0SrA6jDoq05SV7ytv94vyvKD8";
 const SHEET_BENH_NHAN = "BENH_NHAN";
 const SHEET_TRU_IMPLANT = "TRU_IMPLANT";
 
-// Cấu hình OTP / Zalo ZNS (Dành cho mở rộng sau này)
-const MOCK_OTP_DEFAULT = "123456"; // Mã PIN demo mặc định khi chưa tích hợp Zalo ZNS API
+// Cấu hình OTP / Zalo ZNS
+const MOCK_OTP_DEFAULT = "123456";
 
 /**
  * =========================================================================================
@@ -68,22 +73,23 @@ function handleRequest(e) {
         break;
 
       case "sendOtp":
-        // API chuẩn bị gửi mã OTP qua Zalo ZNS / SMS
         result = handleSendOtp(params.phone || query);
         break;
 
       case "verifyOtp":
-        // Xác thực mã OTP để mở khóa dữ liệu đầy đủ
         result = handleVerifyOtp(query, otp);
         break;
 
       case "initSample":
-        // Tạo dữ liệu mẫu nếu Sheet trống
         result = initSampleData();
         break;
 
       case "ping":
-        result = { success: true, message: "Implant Swiss Warranty API is online!", timestamp: new Date().toISOString() };
+        result = { 
+          success: true, 
+          message: "Implant Swiss Warranty API is online & ready!", 
+          timestamp: new Date().toISOString() 
+        };
         break;
 
       default:
@@ -102,9 +108,6 @@ function handleRequest(e) {
   }
 }
 
-/**
- * Tạo phản hồi JSON chuẩn CORS
- */
 function createJsonResponse(data) {
   return ContentService.createTextOutput(JSON.stringify(data))
     .setMimeType(ContentService.MimeType.JSON);
@@ -112,7 +115,180 @@ function createJsonResponse(data) {
 
 /**
  * =========================================================================================
- * 3. HÀM TRA CỨU DỮ LIỆU BẢO HÀNH 2 CHIỀU (SERIAL / SĐT / MÃ BỆNH NHÂN)
+ * 3. HÀM TỰ ĐỘNG NHẬN DIỆN VỊ TRÍ RĂNG & HÀM (HÀM TRÊN / HÀM DƯỚI)
+ * =========================================================================================
+ * Quy tắc:
+ * - Chuỗi đầu vào: 'r47', 'r17', 'r46', 'r37', 'r36', 'r27', 'r16', 'R 1 2', 'R12', 'R 1 6'...
+ * - Tách các chữ số sau tiền tố R
+ * - Chữ số đầu tiên là 1 hoặc 2 => HÀM TRÊN
+ * - Chữ số đầu tiên là 3 hoặc 4 (hoặc khác) => HÀM DƯỚI
+ */
+function parseSingleTooth(token) {
+  if (!token) return null;
+  const raw = String(token).trim();
+  if (!raw) return null;
+
+  const clean = raw.toLowerCase().replace(/răng|rang/g, "").trim();
+  const digitsOnly = clean.replace(/[^0-9]/g, "");
+  if (!digitsOnly) return null;
+
+  let jaw = "Hàm dưới";
+  let jawKey = "lower";
+  let quadrant = "Hàm dưới";
+  let quadrantNum = 4;
+  let toothNum = digitsOnly;
+  let toothIndexInQuad = 0;
+
+  const firstDigit = digitsOnly.charAt(0);
+  const secondDigit = digitsOnly.length > 1 ? digitsOnly.charAt(1) : "";
+  toothIndexInQuad = secondDigit ? parseInt(secondDigit, 10) : parseInt(firstDigit, 10);
+
+  // QUY TẮC: Chữ số đầu tiên là 1 hoặc 2 => HÀM TRÊN
+  if (firstDigit === "1" || firstDigit === "2") {
+    jaw = "Hàm trên";
+    jawKey = "upper";
+    if (firstDigit === "1") {
+      quadrant = "Hàm trên Phải (Cung 1)";
+      quadrantNum = 1;
+    } else {
+      quadrant = "Hàm trên Trái (Cung 2)";
+      quadrantNum = 2;
+    }
+  } 
+  // QUY TẮC: Chữ số đầu tiên là 3 hoặc 4 => HÀM DƯỚI
+  else {
+    jaw = "Hàm dưới";
+    jawKey = "lower";
+    if (firstDigit === "4") {
+      quadrant = "Hàm dưới Phải (Cung 4)";
+      quadrantNum = 4;
+    } else {
+      quadrant = "Hàm dưới Trái (Cung 3)";
+      quadrantNum = 3;
+    }
+  }
+
+  const toothNamesFDI = {
+    1: "Răng cửa giữa",
+    2: "Răng cửa bên",
+    3: "Răng nanh",
+    4: "Răng cối nhỏ thứ nhất (tiền hàm 1)",
+    5: "Răng cối nhỏ thứ hai (tiền hàm 2)",
+    6: "Răng cối lớn thứ nhất (răng số 6)",
+    7: "Răng cối lớn thứ hai (răng số 7)",
+    8: "Răng khôn (răng số 8)"
+  };
+
+  const anatomicalName = toothNamesFDI[toothIndexInQuad] || "Răng " + toothNum;
+  const formattedCode = "R" + toothNum;
+
+  return {
+    raw: raw,
+    toothNumber: toothNum,
+    toothNum: toothNum,
+    formattedCode: formattedCode,
+    jaw: jaw,
+    jawKey: jawKey,
+    quadrant: quadrant,
+    quadrantNum: quadrantNum,
+    toothIndex: toothIndexInQuad,
+    anatomicalName: anatomicalName,
+    displayName: `Răng ${toothNum} (${jaw})`
+  };
+}
+
+function parseToothPosition(rawStr) {
+  if (!rawStr) {
+    return {
+      raw: "",
+      teeth: [],
+      toothNumbers: [],
+      toothNumber: "",
+      formattedCode: "N/A",
+      jaw: "Không xác định",
+      jawKey: "unknown",
+      quadrant: "",
+      quadrantNum: 0,
+      anatomicalName: "Vị trí chưa xác định",
+      displayName: "Chưa rõ vị trí"
+    };
+  }
+
+  const raw = String(rawStr).trim();
+  const parts = raw.split(/[,;+]/).map(p => p.trim()).filter(Boolean);
+  const parsedTeeth = [];
+
+  parts.forEach(p => {
+    const single = parseSingleTooth(p);
+    if (single) parsedTeeth.push(single);
+  });
+
+  if (parsedTeeth.length === 0) {
+    const fallback = parseSingleTooth(raw);
+    if (fallback) parsedTeeth.push(fallback);
+  }
+
+  if (parsedTeeth.length === 0) {
+    return {
+      raw: raw,
+      teeth: [],
+      toothNumbers: [],
+      toothNumber: raw,
+      formattedCode: "R" + raw,
+      jaw: "Hàm dưới",
+      jawKey: "lower",
+      quadrant: "Hàm dưới",
+      quadrantNum: 4,
+      anatomicalName: "Răng " + raw,
+      displayName: "Răng " + raw
+    };
+  }
+
+  if (parsedTeeth.length === 1) {
+    const t0 = parsedTeeth[0];
+    return {
+      ...t0,
+      teeth: parsedTeeth,
+      toothNumbers: [t0.toothNumber]
+    };
+  }
+
+  const formattedCodes = parsedTeeth.map(t => t.formattedCode).join(", ");
+  const toothNumbers = parsedTeeth.map(t => t.toothNumber);
+  const hasUpper = parsedTeeth.some(t => t.jawKey === "upper");
+  const hasLower = parsedTeeth.some(t => t.jawKey === "lower");
+
+  let overallJaw = "Hàm trên";
+  let overallJawKey = "upper";
+  if (hasUpper && hasLower) {
+    overallJaw = "Cả 2 Hàm (Trên & Dưới)";
+    overallJawKey = "both";
+  } else if (hasLower) {
+    overallJaw = "Hàm dưới";
+    overallJawKey = "lower";
+  }
+
+  const anatomicalNames = parsedTeeth.map(t => t.anatomicalName).join(", ");
+  const quadrants = Array.from(new Set(parsedTeeth.map(t => t.quadrant))).join(", ");
+
+  return {
+    raw: raw,
+    teeth: parsedTeeth,
+    toothNumbers: toothNumbers,
+    toothNumber: toothNumbers[0],
+    formattedCode: formattedCodes, // Thống nhất phân cách dấu phẩy: "R47, R46"
+    jaw: overallJaw,
+    jawKey: overallJawKey,
+    quadrant: quadrants,
+    quadrantNum: parsedTeeth[0].quadrantNum,
+    anatomicalName: anatomicalNames,
+    displayName: `Răng ${toothNumbers.join(", ")} (${overallJaw})`
+  };
+}
+
+/**
+ * =========================================================================================
+ * 4. HÀM TRA CỨU DỮ LIỆU BẢO HÀNH THÔNG MINH
  * =========================================================================================
  */
 function searchWarrantyData(rawQuery, returnFullInfo) {
@@ -140,9 +316,33 @@ function searchWarrantyData(rawQuery, returnFullInfo) {
   if (patientData.length <= 1 && implantData.length <= 1) {
     return {
       success: false,
-      message: "Chưa có dữ liệu trong hệ thống. Vui lòng liên hệ nha khoa hoặc cập nhật bảng tính!"
+      message: "Chưa có dữ liệu trong hệ thống Google Sheets. Vui lòng cập nhật bảng tính!"
     };
   }
+
+  // Tự động phân tích chỉ mục cột theo tiêu đề Header (Tương thích 100% mọi cấu trúc)
+  const patientHeaderMap = buildHeaderMap(patientData[0], {
+    id: ["mã bệnh nhân", "ma benh nhan", "mã bn", "ma bn", "id", "patient id"],
+    name: ["họ và tên", "ho va ten", "họ tên", "ho ten", "tên", "name"],
+    phone: ["số điện thoại", "so dien thoai", "sđt", "sdt", "phone", "mobile"],
+    dob: ["ngày nhận bệnh", "ngay nhan benh", "ngày sinh", "ngay sinh", "dob", "date"],
+    address: ["địa chỉ", "dia chi", "address"],
+    notes: ["ghi chú", "ghi chu", "note", "notes"]
+  });
+
+  const implantHeaderMap = buildHeaderMap(implantData[0], {
+    ref: ["ref", "mã ref", "ma ref", "reference"],
+    serial: ["số serial", "so serial", "serial", "mã serial", "ma serial", "seri"],
+    patientId: ["mã bệnh nhân", "ma benh nhan", "mã bn", "ma bn", "patient id"],
+    tooth: ["vị trí răng", "vi tri rang", "răng", "rang", "tooth", "vị trí", "vi tri"],
+    system: ["hệ thống implant", "he thong implant", "hệ thống", "system", "loại implant"],
+    size: ["kích thước", "kich thuoc", "size", "dimension"],
+    date: ["ngày cấy ghép", "ngay cay ghep", "ngày cấy", "ngay cay", "date"],
+    doctor: ["bác sĩ thực hiện", "bac si thuc hien", "bác sĩ", "bac si", "doctor"],
+    clinic: ["phòng khám", "phong kham", "nha khoa", "clinic", "chi nhánh", "chi nhanh"],
+    warranty: ["thời gian bảo hành (năm)", "thời gian bảo hành", "thoi gian bao hanh", "bảo hành", "bao hanh", "warranty"],
+    status: ["trạng thái bảo hành", "trang thai bao hanh", "trạng thái", "status"]
+  });
 
   const queryClean = cleanString(rawQuery);
   const queryPhone = normalizePhone(rawQuery);
@@ -151,53 +351,57 @@ function searchWarrantyData(rawQuery, returnFullInfo) {
   let matchedImplants = [];
   let searchedSerialItem = null;
 
-  // 1. Kiểm tra xem query có khớp với Số Serial ở tab TRU_IMPLANT không
+  // 1. Tìm theo Số Serial ở tab TRU_IMPLANT
+  const serialColIdx = implantHeaderMap.serial !== -1 ? implantHeaderMap.serial : (implantHeaderMap.ref !== -1 ? 1 : 0);
+  const pIdColIdxInImplant = implantHeaderMap.patientId !== -1 ? implantHeaderMap.patientId : 2;
+
   for (let i = 1; i < implantData.length; i++) {
     const row = implantData[i];
-    const serial = String(row[0] || "").trim();
+    const serial = String(row[serialColIdx] || "").trim();
     if (cleanString(serial) === queryClean) {
-      searchedSerialItem = mapImplantRow(row);
-      const patientId = String(row[1] || "").trim();
-      
-      // Tìm bệnh nhân tương ứng ở tab BENH_NHAN
-      matchedPatient = findPatientById(patientData, patientId);
+      searchedSerialItem = mapImplantRow(row, implantHeaderMap);
+      const patientId = String(row[pIdColIdxInImplant] || "").trim();
+      matchedPatient = findPatientById(patientData, patientId, patientHeaderMap);
       break;
     }
   }
 
-  // 2. Nếu tìm thấy qua Serial -> Lấy tất cả các trụ của bệnh nhân đó
+  // 2. Nếu tìm thấy qua Serial -> Lấy toàn bộ các trụ của bệnh nhân đó
   if (matchedPatient) {
     const patientId = matchedPatient.maBenhNhan;
-    matchedImplants = findAllImplantsByPatientId(implantData, patientId);
+    matchedImplants = findAllImplantsByPatientId(implantData, patientId, implantHeaderMap);
   } else {
-    // 3. Nếu chưa tìm thấy qua Serial, kiểm tra tìm theo Mã Bệnh Nhân hoặc Số Điện Thoại
+    // 3. Nếu chưa thấy, tìm theo Mã Bệnh Nhân hoặc Số Điện Thoại ở tab BENH_NHAN
+    const pIdColIdx = patientHeaderMap.id !== -1 ? patientHeaderMap.id : 0;
+    const pPhoneColIdx = patientHeaderMap.phone !== -1 ? patientHeaderMap.phone : 2;
+
     for (let i = 1; i < patientData.length; i++) {
       const row = patientData[i];
-      const pId = String(row[0] || "").trim();
-      const pPhone = String(row[2] || "").trim();
+      const pId = String(row[pIdColIdx] || "").trim();
+      const pPhone = String(row[pPhoneColIdx] || "").trim();
 
       const isMatchId = cleanString(pId) === queryClean;
       const isMatchPhone = queryPhone && (normalizePhone(pPhone) === queryPhone || cleanString(pPhone).includes(queryClean));
 
       if (isMatchId || isMatchPhone) {
-        matchedPatient = mapPatientRow(row);
-        matchedImplants = findAllImplantsByPatientId(implantData, matchedPatient.maBenhNhan);
+        matchedPatient = mapPatientRow(row, patientHeaderMap);
+        matchedImplants = findAllImplantsByPatientId(implantData, matchedPatient.maBenhNhan, implantHeaderMap);
         break;
       }
     }
   }
 
-  // 4. Nếu vẫn không thấy, thử tìm kiếm mờ (Partial match theo tên hoặc Serial)
+  // 4. Tìm kiếm tương đối nếu người dùng nhập một phần Serial
   if (!matchedPatient && !searchedSerialItem) {
     for (let i = 1; i < implantData.length; i++) {
       const row = implantData[i];
-      const serial = String(row[0] || "").trim();
-      if (serial && cleanString(serial).includes(queryClean)) {
-        searchedSerialItem = mapImplantRow(row);
-        const patientId = String(row[1] || "").trim();
-        matchedPatient = findPatientById(patientData, patientId);
+      const serial = String(row[serialColIdx] || "").trim();
+      if (serial && cleanString(serial).includes(queryClean) && queryClean.length >= 4) {
+        searchedSerialItem = mapImplantRow(row, implantHeaderMap);
+        const patientId = String(row[pIdColIdxInImplant] || "").trim();
+        matchedPatient = findPatientById(patientData, patientId, patientHeaderMap);
         if (matchedPatient) {
-          matchedImplants = findAllImplantsByPatientId(implantData, patientId);
+          matchedImplants = findAllImplantsByPatientId(implantData, patientId, implantHeaderMap);
           break;
         }
       }
@@ -210,18 +414,30 @@ function searchWarrantyData(rawQuery, returnFullInfo) {
       success: false,
       notFound: true,
       query: rawQuery,
-      message: `Không tìm thấy thông tin bảo hành với từ khóa: "${rawQuery}". Vui lòng kiểm tra lại Số Serial hoặc Số điện thoại!`
+      message: `Không tìm thấy thông tin bảo hành với từ khóa: "${rawQuery}". Vui lòng kiểm tra lại Số Serial, Số điện thoại hoặc Mã bệnh nhân!`
     };
   }
 
-  // Chuẩn bị dữ liệu hiển thị (Áp dụng mask **** bảo mật nếu chưa xác thực OTP)
+  // Phân loại hàm trên / hàm dưới cho từng trụ
+  const finalImplants = (matchedImplants.length > 0 ? matchedImplants : (searchedSerialItem ? [searchedSerialItem] : []));
+  let countUpper = 0;
+  let countLower = 0;
+  
+  finalImplants.forEach(imp => {
+    if (imp.toothInfo && imp.toothInfo.jawKey === "upper") {
+      countUpper++;
+    } else {
+      countLower++;
+    }
+  });
+
   const isMasked = !returnFullInfo;
   const processedPatient = matchedPatient ? {
     maBenhNhan: matchedPatient.maBenhNhan,
     hoTen: isMasked ? maskName(matchedPatient.hoTen) : matchedPatient.hoTen,
     rawName: matchedPatient.hoTen,
     soDienThoai: isMasked ? maskPhone(matchedPatient.soDienThoai) : matchedPatient.soDienThoai,
-    rawPhone: matchedPatient.soDienThoai, // để frontend biết SĐT gửi OTP
+    rawPhone: matchedPatient.soDienThoai,
     ngaySinh: isMasked ? maskBirthDate(matchedPatient.ngaySinh) : matchedPatient.ngaySinh,
     diaChi: isMasked ? maskAddress(matchedPatient.diaChi) : matchedPatient.diaChi,
     ghiChu: matchedPatient.ghiChu || "Tái khám định kỳ theo chỉ định của bác sĩ",
@@ -230,6 +446,7 @@ function searchWarrantyData(rawQuery, returnFullInfo) {
     maBenhNhan: searchedSerialItem ? searchedSerialItem.maBenhNhan : "N/A",
     hoTen: "Khách hàng Implant Swiss",
     soDienThoai: "N/A",
+    rawPhone: "0900000000",
     ngaySinh: "N/A",
     diaChi: "N/A",
     ghiChu: "Thông tin trụ chính hãng đã được xác thực",
@@ -244,8 +461,10 @@ function searchWarrantyData(rawQuery, returnFullInfo) {
     verifiedTime: Utilities.formatDate(new Date(), "Asia/Ho_Chi_Minh", "dd/MM/yyyy HH:mm:ss"),
     brand: "Implant Swiss (Switzerland)",
     patient: processedPatient,
-    implants: matchedImplants.length > 0 ? matchedImplants : (searchedSerialItem ? [searchedSerialItem] : []),
-    totalImplants: matchedImplants.length > 0 ? matchedImplants.length : (searchedSerialItem ? 1 : 0),
+    implants: finalImplants,
+    totalImplants: finalImplants.length,
+    countUpper: countUpper,
+    countLower: countLower,
     searchedSerial: searchedSerialItem ? searchedSerialItem.soSerial : null,
     message: "Xác thực bảo hành chính hãng Implant Swiss thành công!"
   };
@@ -253,7 +472,7 @@ function searchWarrantyData(rawQuery, returnFullInfo) {
 
 /**
  * =========================================================================================
- * 4. XỬ LÝ OTP (ZALO ZNS / SMS MỞ KHÓA THÔNG TIN CHI TIẾT)
+ * 5. CÁC HÀM XỬ LÝ OTP ZALO / SMS
  * =========================================================================================
  */
 function handleSendOtp(phone) {
@@ -262,13 +481,11 @@ function handleSendOtp(phone) {
     return { success: false, message: "Số điện thoại không hợp lệ để nhận mã OTP!" };
   }
 
-  // TẠI ĐÂY: Có thể kết nối API Zalo Business Solution (ZBS) / Zalo ZNS Endpoint
-  // Hiện tại trả về mô phỏng thành công để trải nghiệm mượt mà
   return {
     success: true,
     phoneMasked: maskPhone(phone),
-    message: `Mã PIN/OTP xác thực đã được gửi đến Zalo/SMS của số điện thoại ${maskPhone(phone)}. (Demo PIN: ${MOCK_OTP_DEFAULT})`,
-    expiresIn: 300 // 5 phút
+    message: `Mã PIN/OTP xác thực đã được chuẩn bị gửi tới số điện thoại ${maskPhone(phone)}. (Demo PIN: ${MOCK_OTP_DEFAULT})`,
+    expiresIn: 300
   };
 }
 
@@ -277,9 +494,7 @@ function handleVerifyOtp(query, otp) {
     return { success: false, message: "Vui lòng nhập mã PIN/OTP xác thực!" };
   }
 
-  // Kiểm tra mã PIN (Chấp nhận mã MOCK_OTP_DEFAULT hoặc 6 số bất kỳ nếu đang cấu hình test)
   if (otp === MOCK_OTP_DEFAULT || otp === "6688" || otp === "9999" || otp.length === 6) {
-    // Trả về dữ liệu đầy đủ không bị che (unmasked)
     const result = searchWarrantyData(query, true);
     result.unlocked = true;
     result.message = "Xác thực danh tính thành công qua Zalo/SMS! Toàn bộ thông tin chi tiết đã được hiển thị.";
@@ -294,34 +509,78 @@ function handleVerifyOtp(query, otp) {
 
 /**
  * =========================================================================================
- * 5. CÁC HÀM HỖ TRỢ MAP & MASK DỮ LIỆU BẢO MẬT (****)
+ * 6. CÁC HÀM HELPER PARSER & MAP DỮ LIỆU
  * =========================================================================================
  */
-function mapPatientRow(row) {
+function buildHeaderMap(headerRow, fieldDefinitions) {
+  const map = {};
+  if (!headerRow || headerRow.length === 0) return map;
+
+  const normalizedHeaders = headerRow.map(h => cleanString(String(h)));
+
+  for (const field in fieldDefinitions) {
+    map[field] = -1;
+    const aliases = fieldDefinitions[field];
+    for (const alias of aliases) {
+      const aliasClean = cleanString(alias);
+      const idx = normalizedHeaders.findIndex(h => h === aliasClean || h.includes(aliasClean));
+      if (idx !== -1) {
+        map[field] = idx;
+        break;
+      }
+    }
+  }
+  return map;
+}
+
+function mapPatientRow(row, map) {
+  const idIdx = (map && map.id !== -1) ? map.id : 0;
+  const nameIdx = (map && map.name !== -1) ? map.name : 1;
+  const phoneIdx = (map && map.phone !== -1) ? map.phone : 2;
+  const dobIdx = (map && map.dob !== -1) ? map.dob : 3;
+  const addressIdx = (map && map.address !== -1) ? map.address : 4;
+  const notesIdx = (map && map.notes !== -1) ? map.notes : 5;
+
   return {
-    maBenhNhan: String(row[0] || "").trim(),
-    hoTen: String(row[1] || "").trim(),
-    soDienThoai: String(row[2] || "").trim(),
-    ngaySinh: formatDateValue(row[3]),
-    diaChi: String(row[4] || "").trim(),
-    ghiChu: String(row[5] || "").trim()
+    maBenhNhan: String(row[idIdx] || "").trim(),
+    hoTen: String(row[nameIdx] || "").trim(),
+    soDienThoai: String(row[phoneIdx] || "").trim(),
+    ngaySinh: formatDateValue(row[dobIdx]),
+    diaChi: String(row[addressIdx] || "").trim(),
+    ghiChu: String(row[notesIdx] || "").trim()
   };
 }
 
-function mapImplantRow(row) {
-  const surgeryDateStr = formatDateValue(row[5]);
-  const warrantyYears = String(row[8] || "10").trim();
-  const statusStr = String(row[9] || "Còn hạn bảo hành").trim();
+function mapImplantRow(row, map) {
+  const refIdx = (map && map.ref !== -1) ? map.ref : 0;
+  const serialIdx = (map && map.serial !== -1) ? map.serial : (refIdx === 0 ? 1 : 0);
+  const pIdIdx = (map && map.patientId !== -1) ? map.patientId : 2;
+  const toothIdx = (map && map.tooth !== -1) ? map.tooth : 3;
+  const sysIdx = (map && map.system !== -1) ? map.system : 4;
+  const sizeIdx = (map && map.size !== -1) ? map.size : 5;
+  const dateIdx = (map && map.date !== -1) ? map.date : 6;
+  const docIdx = (map && map.doctor !== -1) ? map.doctor : 7;
+  const clinicIdx = (map && map.clinic !== -1) ? map.clinic : 8;
+  const warIdx = (map && map.warranty !== -1) ? map.warranty : 9;
+  const statusIdx = (map && map.status !== -1) ? map.status : 10;
+
+  const rawTooth = String(row[toothIdx] || "").trim();
+  const parsedTooth = parseToothPosition(rawTooth);
+  const surgeryDateStr = formatDateValue(row[dateIdx]);
+  const warrantyYears = String(row[warIdx] || "10").trim();
+  const statusStr = String(row[statusIdx] || "Còn hạn bảo hành").trim();
 
   return {
-    soSerial: String(row[0] || "").trim(),
-    maBenhNhan: String(row[1] || "").trim(),
-    viTriRang: String(row[2] || "").trim(),
-    heThongImplant: String(row[3] || "Implant Swiss Classic System").trim(),
-    kichThuoc: String(row[4] || "Ø 4.0 x 10 mm").trim(),
+    ref: String(row[refIdx] || "").trim(),
+    soSerial: String(row[serialIdx] || "").trim(),
+    maBenhNhan: String(row[pIdIdx] || "").trim(),
+    viTriRang: rawTooth,
+    toothInfo: parsedTooth, // Thông tin tự động nhận diện Hàm Trên / Hàm Dưới
+    heThongImplant: String(row[sysIdx] || "Implant Swiss Classic System").trim(),
+    kichThuoc: String(row[sizeIdx] || "Ø 4.0 x 10 mm").trim(),
     ngayCayGhep: surgeryDateStr,
-    bacSiThucHien: String(row[6] || "BS. Chuyên Khoa Implant").trim(),
-    phongKham: String(row[7] || "Nha Khoa Flora").trim(),
+    bacSiThucHien: String(row[docIdx] || "BS. Chuyên Khoa Implant").trim(),
+    phongKham: String(row[clinicIdx] || "Nha Khoa Flora").trim(),
     thoiGianBaoHanh: warrantyYears,
     trangThaiBaoHanh: statusStr,
     isGenuine: true,
@@ -330,66 +589,62 @@ function mapImplantRow(row) {
   };
 }
 
-function findPatientById(patientData, patientId) {
+function findPatientById(patientData, patientId, map) {
   const pIdClean = cleanString(patientId);
+  const idIdx = (map && map.id !== -1) ? map.id : 0;
   for (let i = 1; i < patientData.length; i++) {
     const row = patientData[i];
-    if (cleanString(String(row[0])) === pIdClean) {
-      return mapPatientRow(row);
+    if (cleanString(String(row[idIdx])) === pIdClean) {
+      return mapPatientRow(row, map);
     }
   }
   return null;
 }
 
-function findAllImplantsByPatientId(implantData, patientId) {
+function findAllImplantsByPatientId(implantData, patientId, map) {
   const pIdClean = cleanString(patientId);
+  const pIdIdx = (map && map.patientId !== -1) ? map.patientId : 2;
   const list = [];
   for (let i = 1; i < implantData.length; i++) {
     const row = implantData[i];
-    if (cleanString(String(row[1])) === pIdClean) {
-      list.push(mapImplantRow(row));
+    if (cleanString(String(row[pIdIdx])) === pIdClean) {
+      list.push(mapImplantRow(row, map));
     }
   }
   return list;
 }
 
-// Che tên: "Nguyễn Văn An" -> "Ng*** V** An"
+// Che tên: "Đỗ Ngọc Dũng" -> "Đỗ N*** Dũng"
 function maskName(name) {
   if (!name) return "****";
   const parts = name.trim().split(/\s+/);
-  if (parts.length === 1) {
-    return parts[0].charAt(0) + "***";
-  }
-  return parts.map((part, index) => {
-    if (index === 0 || index === parts.length - 1) {
-      return part.length > 2 ? part.charAt(0) + "*".repeat(part.length - 2) + part.charAt(part.length - 1) : part.charAt(0) + "*";
-    }
-    return "*".repeat(part.length || 3);
+  if (parts.length === 1) return parts[0].slice(0, 2) + "***";
+  return parts.map((p, idx) => {
+    if (idx === 0 || idx === parts.length - 1) return p;
+    return p.charAt(0) + "***";
   }).join(" ");
 }
 
-// Che SĐT: "0908889999" -> "0908****99"
+// Che SĐT: "0962138946" -> "0962 **** 46"
 function maskPhone(phone) {
   if (!phone) return "****";
   const clean = String(phone).replace(/\s+/g, "");
-  if (clean.length <= 6) return clean.slice(0, 2) + "****";
-  return clean.slice(0, 4) + "****" + clean.slice(-2);
+  if (clean.length <= 6) return clean.slice(0, 2) + " ****";
+  return clean.slice(0, 4) + " •••• " + clean.slice(-2);
 }
 
-// Che ngày sinh: "15/08/1985" -> "**/**/1985"
 function maskBirthDate(dateStr) {
-  if (!dateStr) return "**/**/****";
+  if (!dateStr) return "••/••/••••";
   const str = String(dateStr);
   const parts = str.split(/[\/\-]/);
   if (parts.length === 3) {
-    return `**/**/${parts[2]}`;
+    return `••/••/${parts[2]}`;
   }
-  return "**/**/****";
+  return "••/••/••••";
 }
 
-// Che địa chỉ: "Quận 1, TP. Hồ Chí Minh" -> "Quận *, TP.***"
 function maskAddress(addr) {
-  if (!addr) return "****";
+  if (!addr) return "••••";
   const parts = addr.split(",");
   if (parts.length > 1) {
     return parts[0].slice(0, 4) + "***, " + parts[parts.length - 1].trim();
@@ -437,9 +692,8 @@ function getSpreadsheet() {
 
 /**
  * =========================================================================================
- * 6. HÀM TỰ ĐỘNG ĐIỀN DỮ LIỆU MẪU (INIT SAMPLE DATA)
+ * 7. HÀM TỰ ĐỘNG ĐIỀN DỮ LIỆU MẪU CHUẨN THỰC TẾ
  * =========================================================================================
- * Chạy hàm này trong Google Apps Script Editor để tạo mẫu dữ liệu chuẩn ngay lập tức!
  */
 function initSampleData() {
   const ss = getSpreadsheet();
@@ -452,14 +706,11 @@ function initSampleData() {
   sheetBN.clear();
   
   const headerBN = [
-    ["Mã Bệnh Nhân", "Họ và Tên", "Số Điện Thoại", "Ngày Sinh", "Địa Chỉ", "Ghi Chú"]
+    ["Mã Bệnh Nhân", "Họ và Tên", "Số Điện Thoại", "Ngày nhận bệnh", "Địa Chỉ", "Ghi Chú"]
   ];
   const sampleBN = [
-    ["BN-SWISS-01", "Nguyễn Văn An", "0908889999", "15/08/1985", "Quận 1, TP. Hồ Chí Minh", "Cấy ghép tức thì sau nhổ răng, lành thương rất tốt"],
-    ["BN-SWISS-02", "Trần Thị Mai Hương", "0912345678", "22/11/1990", "Quận 3, TP. Hồ Chí Minh", "Phục hình toàn sứ trên Implant Swiss Classic"],
-    ["BN-SWISS-03", "Lê Hoàng Quân", "0987654321", "05/04/1978", "TP. Thủ Đức, TP. Hồ Chí Minh", "Cấy 2 trụ Implant Swiss nâng xoang hàm trên"],
-    ["BN-SWISS-04", "Phạm Bích Ngọc", "0933557799", "18/09/1992", "Quận Bình Thạnh, TP. Hồ Chí Minh", "Tái khám định kỳ 6 tháng/lần"],
-    ["BN-SWISS-05", "Đặng Quốc Hùng", "0977112233", "30/01/1980", "Quận 7, TP. Hồ Chí Minh", "Bảo hành chính hãng 15 năm"]
+    ["3815", "Đỗ Ngọc Dũng", "0962138946", "29/08/2023", "Hồ Chí Minh", "Cấy 7 trụ Implant Swiss toàn hàm, lành thương hoàn hảo"],
+    ["3877", "Hoàng Thanh Thúy", "0675466123", "12/09/2023", "Hồ Chí Minh", "Phục hình toàn sứ trên Implant Swiss"]
   ];
   sheetBN.getRange(1, 1, 1, 6).setValues(headerBN).setBackground("#e30613").setFontColor("#ffffff").setFontWeight("bold");
   sheetBN.getRange(2, 1, sampleBN.length, 6).setValues(sampleBN);
@@ -473,16 +724,16 @@ function initSampleData() {
   sheetTRU.clear();
 
   const headerTRU = [
-    ["Số Serial", "Mã Bệnh Nhân", "Vị Trí Răng", "Hệ Thống Implant", "Kích Thước", "Ngày Cấy Ghép", "Bác Sĩ Thực Hiện", "Phòng Khám", "Thời Gian Bảo Hành (Năm)", "Trạng Thái Bảo Hành"]
+    ["Ref", "Số Serial", "Mã Bệnh Nhân", "Vị Trí Răng", "Hệ Thống Implant", "Kích Thước", "Ngày Cấy Ghép", "Bác Sĩ Thực Hiện", "Phòng Khám", "Thời Gian Bảo Hành (Năm)"]
   ];
   const sampleTRU = [
-    ["IS-8899-CH", "BN-SWISS-01", "Răng 16 (Hàm trên phải)", "Implant Swiss Classic System", "Ø 4.0 x 10 mm", "15/03/2024", "BS. CKI Nguyễn Đắc Minh", "Nha Khoa Flora - Trung Tâm Implant", "15", "Còn hạn bảo hành"],
-    ["IS-8899-CH2", "BN-SWISS-01", "Răng 17 (Hàm trên phải)", "Implant Swiss Classic System", "Ø 4.5 x 10 mm", "15/03/2024", "BS. CKI Nguyễn Đắc Minh", "Nha Khoa Flora - Trung Tâm Implant", "15", "Còn hạn bảo hành"],
-    ["IS-9921-CH", "BN-SWISS-02", "Răng 26 (Hàm trên trái)", "Implant Swiss Bone Level", "Ø 3.7 x 12 mm", "10/01/2024", "BS. CKI Nguyễn Đắc Minh", "Nha Khoa Flora - Trung Tâm Implant", "10", "Còn hạn bảo hành"],
-    ["IS-7744-CH", "BN-SWISS-03", "Răng 46 (Hàm dưới phải)", "Implant Swiss Classic System", "Ø 4.0 x 11.5 mm", "20/06/2023", "BS. Chuyên Khoa Implant", "Nha Khoa Flora - Trung Tâm Implant", "15", "Còn hạn bảo hành"],
-    ["IS-7745-CH", "BN-SWISS-03", "Răng 47 (Hàm dưới phải)", "Implant Swiss Classic System", "Ø 4.5 x 10 mm", "20/06/2023", "BS. Chuyên Khoa Implant", "Nha Khoa Flora - Trung Tâm Implant", "15", "Còn hạn bảo hành"],
-    ["IS-5522-CH", "BN-SWISS-04", "Răng 36 (Hàm dưới trái)", "Implant Swiss Tissue Level", "Ø 4.0 x 10 mm", "05/09/2023", "BS. CKI Nguyễn Đắc Minh", "Nha Khoa Flora - Trung Tâm Implant", "10", "Còn hạn bảo hành"],
-    ["IS-6633-CH", "BN-SWISS-05", "Răng 11 (Răng cửa hàm trên)", "Implant Swiss Classic System", "Ø 3.3 x 12 mm", "12/02/2024", "BS. CKI Nguyễn Đắc Minh", "Nha Khoa Flora - Trung Tâm Implant", "15", "Còn hạn bảo hành"]
+    ["S-BFHR4810", "2103170033110", "3815", "r47", "Implant Swiss Classic System", "4.8x10mm", "29/08/2023", "Bác sĩ Minh", "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai", "10"],
+    ["S-BFHR4808", "220707049107", "3815", "r17", "Implant Swiss Classic System", "4.3x8mm", "29/08/2023", "Bác sĩ Minh", "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai", "10"],
+    ["S-BFHR4310", "220805031001", "3815", "r46", "Implant Swiss Classic System", "4.3x10mm", "29/08/2023", "Bác sĩ Minh", "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai", "10"],
+    ["S-BFHR4310", "2208113012045", "3815", "r37", "Implant Swiss Classic System", "4.3x10mm", "29/08/2023", "Bác sĩ Minh", "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai", "10"],
+    ["S-BFHR4310", "220804050139", "3815", "r36", "Implant Swiss Classic System", "4.3x10mm", "29/08/2023", "Bác sĩ Minh", "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai", "10"],
+    ["S-BFHR4808", "220616060138", "3815", "r27", "Implant Swiss Classic System", "4.8x8mm", "29/08/2023", "Bác sĩ Minh", "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai", "10"],
+    ["S-BFHR4308", "220707049094", "3815", "r16", "Implant Swiss Classic System", "4.3x8mm", "29/08/2023", "Bác sĩ Minh", "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai", "10"]
   ];
   sheetTRU.getRange(1, 1, 1, 10).setValues(headerTRU).setBackground("#1e293b").setFontColor("#ffffff").setFontWeight("bold");
   sheetTRU.getRange(2, 1, sampleTRU.length, 10).setValues(sampleTRU);
@@ -490,6 +741,6 @@ function initSampleData() {
 
   return {
     success: true,
-    message: "Đã khởi tạo dữ liệu mẫu thành công cho cả 2 tab BENH_NHAN và TRU_IMPLANT!"
+    message: "Đã khởi tạo dữ liệu mẫu chuẩn thực tế cho cả 2 tab BENH_NHAN và TRU_IMPLANT!"
   };
 }
