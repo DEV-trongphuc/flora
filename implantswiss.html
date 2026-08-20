@@ -427,6 +427,14 @@
             flex-wrap: wrap;
         }
 
+        .demo-chips-grid {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
         .chip-caption {
             font-size: 0.78rem;
             color: var(--text-muted);
@@ -1387,15 +1395,53 @@
                 height: 48px;
                 justify-content: center;
             }
-            .cert-header, .cert-body {
+            .demo-chips-line {
+                flex-direction: column;
+                gap: 8px;
+            }
+            .demo-chips-grid {
+                gap: 6px;
+            }
+            .chip-caption {
+                font-size: 0.74rem;
+                text-align: center;
+            }
+            .sample-chip {
+                padding: 4px 8px;
+                font-size: 0.72rem;
+            }
+            .cert-body {
                 padding: 18px 16px;
             }
             .cert-header {
+                padding: 22px 16px 18px;
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: center;
+                text-align: center;
+                gap: 12px;
+            }
+            .cert-brand-group {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 8px;
+            }
+            .cert-logo {
+                height: 30px;
+            }
+            .cert-titles h3 {
+                font-size: 0.96rem;
+                letter-spacing: 0.5px;
+            }
+            .cert-titles p {
+                font-size: 0.68rem;
+                letter-spacing: 0.3px;
+                margin-top: 2px;
             }
             .cert-badge-genuine {
-                align-self: flex-start;
+                align-self: center;
+                font-size: 0.74rem;
+                padding: 5px 14px;
             }
             .patient-profile-strip {
                 grid-template-columns: 1fr;
@@ -1566,19 +1612,21 @@
 
                 <!-- Demo Chips -->
                 <div class="demo-chips-line">
-                    <span class="chip-caption"><i class="fa-solid fa-bolt" style="color:var(--brand-red);"></i> Tra cứu nhanh dữ liệu mẫu:</span>
-                    <button type="button" class="sample-chip" onclick="clickSample('IS-8899-CH')">
-                        <i class="fa-solid fa-barcode"></i> IS-8899-CH
-                    </button>
-                    <button type="button" class="sample-chip" onclick="clickSample('0908889999')">
-                        <i class="fa-solid fa-phone"></i> 0908889999
-                    </button>
-                    <button type="button" class="sample-chip" onclick="clickSample('BN-SWISS-01')">
-                        <i class="fa-solid fa-user"></i> BN-SWISS-01
-                    </button>
-                    <button type="button" class="sample-chip" onclick="clickSample('IS-9921-CH')">
-                        <i class="fa-solid fa-barcode"></i> IS-9921-CH
-                    </button>
+                    <span class="chip-caption"><i class="fa-solid fa-bolt" style="color:var(--brand-red);"></i> Dữ liệu tra cứu mẫu:</span>
+                    <div class="demo-chips-grid">
+                        <button type="button" class="sample-chip" onclick="clickSample('IS-8899-CH')">
+                            <i class="fa-solid fa-barcode"></i> IS-8899-CH
+                        </button>
+                        <button type="button" class="sample-chip" onclick="clickSample('0908889999')">
+                            <i class="fa-solid fa-phone"></i> 0908889999
+                        </button>
+                        <button type="button" class="sample-chip" onclick="clickSample('BN-SWISS-01')">
+                            <i class="fa-solid fa-user"></i> BN-SWISS-01
+                        </button>
+                        <button type="button" class="sample-chip" onclick="clickSample('IS-9921-CH')">
+                            <i class="fa-solid fa-barcode"></i> IS-9921-CH
+                        </button>
+                    </div>
                 </div>
 
             </div>
