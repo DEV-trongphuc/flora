@@ -131,25 +131,24 @@
             color: var(--brand-red);
         }
 
-        .btn-connect-sheet {
-            background: #f8fafc;
-            color: #475569;
-            border: 1px solid #e2e8f0;
-            padding: 7px 16px;
+        .btn-header-hotline {
+            background: var(--brand-red);
+            color: #ffffff;
+            padding: 8px 18px;
             border-radius: var(--radius-full);
-            font-size: 0.78rem;
-            font-weight: 600;
-            cursor: pointer;
+            font-size: 0.84rem;
+            font-weight: 700;
+            text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             transition: var(--transition);
+            box-shadow: 0 4px 14px rgba(227, 6, 19, 0.25);
         }
 
-        .btn-connect-sheet:hover {
-            background: #0f172a;
-            color: #ffffff;
-            border-color: #0f172a;
+        .btn-header-hotline:hover {
+            background: var(--brand-red-dark);
+            transform: translateY(-1px);
         }
 
         /* ==========================================================================
@@ -1432,9 +1431,9 @@
             </ul>
 
             <div class="header-btn-group">
-                <button class="btn-connect-sheet" onclick="openApiModal()">
-                    <i class="fa-solid fa-database"></i> <span>Cấu Hình Sheet API</span>
-                </button>
+                <a href="tel:0911088870" class="btn-header-hotline">
+                    <i class="fa-solid fa-phone-volume"></i> <span>0911 088 870</span>
+                </a>
             </div>
         </div>
     </header>
@@ -1798,28 +1797,7 @@
         </div>
     </div>
 
-    <!-- 8. MODAL CẤU HÌNH API GOOGLE APPS SCRIPT -->
-    <div class="modal-overlay" id="apiModal">
-        <div class="modal-box" style="max-width:500px;">
-            <div class="modal-box-head">
-                <span style="font-weight:700; font-size:0.95rem;"><i class="fa-solid fa-database" style="color:#38bdf8; margin-right:6px;"></i> Cấu Hình Google Apps Script API</span>
-                <button onclick="closeApiModal()" style="background:none; border:none; color:#fff; font-size:1.2rem; cursor:pointer;">&times;</button>
-            </div>
-            <div class="modal-box-body" style="text-align:left;">
-                <p style="font-size:0.84rem; color:#475569; margin-bottom:12px;">
-                    Google Sheets ID: <br>
-                    <code style="background:#f1f5f9; padding:4px 8px; border-radius:4px; font-size:0.78rem; word-break:break-all;">1ZyzEsatFjyjcqCA6Hn0SrA6jDoq05SV7ytv94vyvKD8</code>
-                </p>
-                <label style="font-size:0.82rem; font-weight:700; color:#0f172a; margin-bottom:6px; display:block;">Web App URL sau khi Triển khai (Deploy):</label>
-                <input type="url" id="apiInput" style="width:100%; padding:9px 12px; border:1px solid #cbd5e1; border-radius:var(--radius-sm); font-size:0.85rem; margin-bottom:16px;" placeholder="https://script.google.com/macros/s/.../exec">
 
-                <div style="display:flex; justify-content:flex-end; gap:8px;">
-                    <button class="btn-cert-action" onclick="resetMockData()">Dùng Data Mẫu</button>
-                    <button class="btn-do-search" onclick="saveApiUrl()" style="height:40px; padding:0 16px; font-size:0.85rem;">Lưu Kết Nối</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- 9. OFFICIAL IMPLANTSWISS BLACK FOOTER -->
     <footer class="official-footer">
@@ -2365,32 +2343,6 @@
                 err.style.display = "block";
                 err.innerText = "Mã PIN không chính xác (Thử mã: 123456)";
             }
-        }
-
-        // API MODAL
-        function openApiModal() {
-            document.getElementById("apiModal").classList.add("active");
-            document.getElementById("apiInput").value = LIVE_API_URL;
-        }
-
-        function closeApiModal() {
-            document.getElementById("apiModal").classList.remove("active");
-        }
-
-        function saveApiUrl() {
-            const val = document.getElementById("apiInput").value.trim();
-            LIVE_API_URL = val;
-            localStorage.setItem("IMPLANTSWISS_API_URL", val);
-            closeApiModal();
-            alert("Đã lưu kết nối API Google Apps Script!");
-        }
-
-        function resetMockData() {
-            LIVE_API_URL = "";
-            localStorage.removeItem("IMPLANTSWISS_API_URL");
-            document.getElementById("apiInput").value = "";
-            closeApiModal();
-            alert("Đã chuyển về dùng Dữ liệu Mẫu (Mock Data).");
         }
 
         function shareCertLink() {
