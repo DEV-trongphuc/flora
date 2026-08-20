@@ -733,7 +733,9 @@ function initSampleData() {
     ["S-BFHR4310", "2208113012045", "3815", "r37", "Implant Swiss Classic System", "4.3x10mm", "29/08/2023", "Bác sĩ Minh", "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai", "10"],
     ["S-BFHR4310", "220804050139", "3815", "r36", "Implant Swiss Classic System", "4.3x10mm", "29/08/2023", "Bác sĩ Minh", "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai", "10"],
     ["S-BFHR4808", "220616060138", "3815", "r27", "Implant Swiss Classic System", "4.8x8mm", "29/08/2023", "Bác sĩ Minh", "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai", "10"],
-    ["S-BFHR4308", "220707049094", "3815", "r16", "Implant Swiss Classic System", "4.3x8mm", "29/08/2023", "Bác sĩ Minh", "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai", "10"]
+    ["S-BFHR4308", "220707049094", "3815", "r16", "Implant Swiss Classic System", "4.3x8mm", "29/08/2023", "Bác sĩ Minh", "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai", "10"],
+    ["S-BFHR4308", "220707049072", "3877", "r36", "Implant Swiss Classic System", "4.3x8mm", "12/09/2023", "Bác sĩ Minh", "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai", "10"],
+    ["S-BMFSR4806", "201006036073", "3877", "r37", "Implant Swiss Classic System", "4.8x6mm", "12/09/2023", "Bác sĩ Minh", "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai", "10"]
   ];
   sheetTRU.getRange(1, 1, 1, 10).setValues(headerTRU).setBackground("#1e293b").setFontColor("#ffffff").setFontWeight("bold");
   sheetTRU.getRange(2, 1, sampleTRU.length, 10).setValues(sampleTRU);
