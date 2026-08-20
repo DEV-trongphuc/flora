@@ -1353,13 +1353,21 @@
                 padding: 18px 14px;
             }
             .search-tabs-row {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
                 gap: 6px;
+                margin-bottom: 14px;
             }
             .tab-btn {
-                padding: 6px 10px;
-                font-size: 0.75rem;
-                flex: 1 1 auto;
+                padding: 8px 4px;
+                font-size: 0.72rem;
                 justify-content: center;
+                gap: 5px;
+                white-space: nowrap;
+                border-radius: var(--radius-md);
+            }
+            .tab-btn i {
+                font-size: 0.75rem;
             }
             .input-action-row {
                 flex-direction: column;
