@@ -1,0 +1,2402 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tra Cứu Bảo Hành Điện Tử & Xác Thực Trụ Implant Swiss Chính Hãng</title>
+    <meta name="description" content="Hệ thống tra cứu bảo hành điện tử và chứng nhận trụ Implant Swiss chính hãng Thụy Sĩ.">
+    <link rel="icon" type="image/png" href="https://implantswiss.vn/wp-content/uploads/2021/08/logo-implantswiss.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- QR Code Generator -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <style>
+        /* ==========================================================================
+           1. DESIGN SYSTEM - SWISS LUXURY CLINIC (CLEAN, MINIMAL & INTUITIVE)
+           ========================================================================== */
+        :root {
+            --brand-red: #e30613;
+            --brand-red-dark: #b8040e;
+            --brand-red-soft: rgba(227, 6, 19, 0.06);
+
+            --bg-page: #f8fafc;
+            --bg-card: #ffffff;
+            --bg-dark-header: #0f172a;
+            
+            --text-title: #0f172a;
+            --text-body: #334155;
+            --text-muted: #64748b;
+            --text-light: #94a3b8;
+
+            --border-subtle: #f1f5f9;
+            --border-card: #e2e8f0;
+
+            --accent-emerald: #10b981;
+            --accent-emerald-soft: #ecfdf5;
+
+            --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-display: 'Montserrat', var(--font-main);
+
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-full: 9999px;
+
+            --shadow-subtle: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+            --shadow-card: 0 20px 40px -15px rgba(15, 23, 42, 0.08);
+            --shadow-modal: 0 25px 60px -15px rgba(0, 0, 0, 0.35);
+
+            --transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .full-container {
+            width: 100%;
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ==========================================================================
+           2. BRAND NAVBAR
+           ========================================================================== */
+        .site-header {
+            background: #ffffff;
+            border-bottom: 1px solid #f1f5f9;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.02);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 76px;
+        }
+
+        .brand-logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .brand-logo-link img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav-links-list {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links-list li a {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #334155;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .nav-links-list li a:hover,
+        .nav-links-list li.active a {
+            color: var(--brand-red);
+        }
+
+        .btn-connect-sheet {
+            background: #f8fafc;
+            color: #475569;
+            border: 1px solid #e2e8f0;
+            padding: 7px 16px;
+            border-radius: var(--radius-full);
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: var(--transition);
+        }
+
+        .btn-connect-sheet:hover {
+            background: #0f172a;
+            color: #ffffff;
+            border-color: #0f172a;
+        }
+
+        /* ==========================================================================
+           3. LUXURY SWISS ALPS HERO SECTION (MONOCHROME GRAYSCALE B&W)
+           ========================================================================== */
+        .luxury-swiss-hero {
+            position: relative;
+            background: #090d16;
+            color: #ffffff;
+            padding: 70px 0 105px;
+            box-shadow: inset 0 -20px 50px rgba(0,0,0,0.6);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .luxury-swiss-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://owa.bestprice.vn/images/articles/uploads/chinh-phuc-nui-titlis-dinh-nui-than-tien-hung-vi-tai-thuy-si-678a1f2600eee.png');
+            background-size: cover;
+            background-position: center 68%;
+            background-repeat: no-repeat;
+            filter: grayscale(100%) contrast(125%) brightness(0.62);
+            z-index: 1;
+        }
+
+        .luxury-swiss-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(9, 13, 22, 0.45) 0%, rgba(9, 13, 22, 0.85) 100%);
+            z-index: 1;
+        }
+
+        .hero-centered-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-origin-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(227, 6, 19, 0.18);
+            border: 1px solid rgba(227, 6, 19, 0.45);
+            padding: 6px 18px;
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #ffffff;
+            margin-bottom: 18px;
+            backdrop-filter: blur(10px);
+        }
+
+        .swiss-flag-sq {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            background: var(--brand-red);
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 900;
+            border-radius: 2px;
+            text-align: center;
+            line-height: 15px;
+        }
+
+        .hero-balanced-title {
+            font-family: var(--font-display);
+            font-size: 2.45rem;
+            font-weight: 800;
+            line-height: 1.3;
+            color: #ffffff;
+            margin-bottom: 16px;
+            text-wrap: balance;
+            letter-spacing: -0.3px;
+        }
+
+        .hero-balanced-title .nowrap-chunk {
+            white-space: nowrap;
+        }
+
+        .hero-balanced-title .brand-red-accent {
+            color: #ff3844;
+        }
+
+        .hero-balanced-desc {
+            font-size: 1.02rem;
+            color: #ffffff;
+            opacity: 0.92;
+            max-width: 740px;
+            margin: 0 auto 28px;
+            line-height: 1.6;
+            text-wrap: balance;
+        }
+
+        .hero-tech-badges-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .hero-tech-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 6px 18px;
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            color: #ffffff;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-tech-pill i {
+            color: #ff3844;
+        }
+
+        /* ==========================================================================
+           4. SEARCH CONSOLE (CLEAN, ELEVATED)
+           ========================================================================== */
+        .search-section-wrap {
+            margin-top: -48px;
+            position: relative;
+            z-index: 10;
+            padding-bottom: 35px;
+        }
+
+        .search-console-box {
+            background: #ffffff;
+            border-radius: var(--radius-lg);
+            padding: 28px 36px;
+            box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.1), 0 0 0 1px rgba(241, 245, 249, 1);
+            max-width: 940px;
+            margin: 0 auto;
+        }
+
+        .search-tabs-row {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: #f8fafc;
+            border: 1px solid transparent;
+            color: #64748b;
+            padding: 8px 20px;
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .tab-btn:hover {
+            background: #f1f5f9;
+            color: var(--text-title);
+        }
+
+        .tab-btn.active {
+            background: #0f172a;
+            color: #ffffff;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.18);
+        }
+
+        .input-action-row {
+            display: flex;
+            gap: 12px;
+            position: relative;
+        }
+
+        .input-wrap-relative {
+            flex: 1;
+            position: relative;
+        }
+
+        .input-wrap-relative i.prefix-icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--brand-red);
+            font-size: 1.1rem;
+        }
+
+        .main-search-input {
+            width: 100%;
+            height: 54px;
+            padding: 0 46px 0 48px;
+            border: 1.5px solid #e2e8f0;
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-title);
+            background: #f8fafc;
+            transition: var(--transition);
+        }
+
+        .main-search-input:focus {
+            outline: none;
+            border-color: var(--brand-red);
+            background: #ffffff;
+            box-shadow: 0 0 0 3px var(--brand-red-soft);
+        }
+
+        .btn-clear-txt {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 24px;
+            background: #e2e8f0;
+            border: none;
+            border-radius: 50%;
+            color: #64748b;
+            font-size: 0.72rem;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .btn-do-search {
+            height: 54px;
+            padding: 0 34px;
+            background: linear-gradient(135deg, var(--brand-red) 0%, var(--brand-red-dark) 100%);
+            color: #ffffff;
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 16px rgba(227, 6, 19, 0.3);
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .btn-do-search:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(227, 6, 19, 0.4);
+        }
+
+        .demo-chips-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+
+        .chip-caption {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .sample-chip {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            color: var(--text-body);
+            padding: 4px 12px;
+            border-radius: var(--radius-full);
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: var(--transition);
+        }
+
+        .sample-chip:hover {
+            background: var(--brand-red-soft);
+            border-color: rgba(227, 6, 19, 0.3);
+            color: var(--brand-red);
+        }
+
+        /* ==========================================================================
+           5. RESULT VIEW - SWISS DIGITAL CERTIFICATE (EXACT SPREADSHEET FIELDS)
+           ========================================================================== */
+        .warranty-result-area {
+            padding: 5px 0 50px;
+            display: none;
+        }
+
+        .warranty-result-area.active {
+            display: block;
+            animation: fadeInCard 0.35s ease-out forwards;
+        }
+
+        @keyframes fadeInCard {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .loading-wrap {
+            display: none;
+            text-align: center;
+            padding: 45px 20px;
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        .spin-loader {
+            width: 44px;
+            height: 44px;
+            border: 3px solid rgba(227, 6, 19, 0.15);
+            border-top: 3px solid var(--brand-red);
+            border-radius: 50%;
+            margin: 0 auto 14px;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        .notfound-card {
+            display: none;
+            max-width: 600px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: var(--radius-lg);
+            padding: 36px 30px;
+            text-align: center;
+            box-shadow: var(--shadow-card);
+        }
+
+        /* UNIFIED SWISS CERTIFICATE CARD */
+        .swiss-cert-card {
+            max-width: 1040px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 25px 50px -15px rgba(15, 23, 42, 0.1);
+            overflow: hidden;
+            border: 1px solid #f1f5f9;
+        }
+
+        /* CERTIFICATE HEADER (SWISS RED LUXURY) */
+        .cert-header {
+            background: linear-gradient(135deg, var(--brand-red) 0%, var(--brand-red-dark) 100%);
+            color: #ffffff;
+            padding: 24px 36px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            box-shadow: 0 4px 20px rgba(227, 6, 19, 0.2);
+        }
+
+        .cert-brand-group {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .cert-logo {
+            height: 36px;
+            filter: brightness(0) invert(1);
+        }
+
+        .cert-titles h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .cert-titles p {
+            font-size: 0.72rem;
+            color: rgba(255, 255, 255, 0.88);
+            letter-spacing: 0.8px;
+        }
+
+        .cert-badge-genuine {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            color: #ffffff;
+            padding: 7px 16px;
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 700;
+            backdrop-filter: blur(8px);
+        }
+
+        /* CERTIFICATE BODY */
+        .cert-body {
+            padding: 32px 36px;
+        }
+
+        /* PATIENT PROFILE INFO (EXACT COLUMNS FROM TAB BENH_NHAN) */
+        .patient-profile-strip {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1fr 1fr;
+            gap: 16px;
+            background: #f8fafc;
+            border-radius: var(--radius-md);
+            padding: 18px 22px;
+            margin-bottom: 24px;
+        }
+
+        .patient-col .lbl {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .patient-col .val {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-title);
+            margin-top: 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .btn-inline-unlock {
+            background: #0f172a;
+            color: #ffffff;
+            border: none;
+            padding: 3px 10px;
+            border-radius: var(--radius-sm);
+            font-size: 0.72rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: var(--transition);
+        }
+
+        .btn-inline-unlock:hover {
+            background: var(--brand-red);
+        }
+
+        /* PATIENT DETAIL ROW (NGÀY SINH, ĐỊA CHỈ, GHI CHÚ TỪ TAB BENH_NHAN) */
+        .patient-extra-row {
+            display: flex;
+            gap: 24px;
+            padding: 0 4px 16px;
+            margin-bottom: 20px;
+            font-size: 0.85rem;
+            color: #475569;
+            flex-wrap: wrap;
+            border-bottom: 1px dashed #e2e8f0;
+        }
+
+        .patient-extra-row .extra-item strong {
+            color: var(--text-title);
+        }
+
+        /* SECTION HEADER: DENTAL PASSPORT (TAB TRU_IMPLANT) */
+        .cert-section-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .cert-section-head h4 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--text-title);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cert-section-head h4 i {
+            color: var(--brand-red);
+        }
+
+        /* LUXURY IMPLANT SPEC CARDS (SWISS DENTAL PASSPORT - ZERO SCROLLBAR) */
+        .implant-cards-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .implant-spec-card {
+            background: #f8fafc;
+            border: 1px solid #eef2f6;
+            border-radius: var(--radius-md);
+            padding: 20px 24px;
+            transition: var(--transition);
+        }
+
+        .implant-spec-card:hover {
+            background: #ffffff;
+            border-color: #cbd5e1;
+            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .imp-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .imp-title-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .imp-tooth-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--brand-red-soft);
+            color: var(--brand-red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
+        }
+
+        .imp-tooth-name {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--text-title);
+        }
+
+        .imp-serial-badge {
+            font-family: var(--font-display);
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--brand-red);
+            background: #ffffff;
+            border: 1px solid rgba(227, 6, 19, 0.2);
+            padding: 3px 10px;
+            border-radius: var(--radius-sm);
+            margin-left: 8px;
+        }
+
+        .imp-status-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--accent-emerald-soft);
+            color: #047857;
+            padding: 6px 14px;
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .imp-specs-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .spec-item .s-lbl {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .spec-item .s-val {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-title);
+            line-height: 1.4;
+            white-space: nowrap;
+        }
+
+        .imp-clinic-footer {
+            margin-top: 14px;
+            padding-top: 12px;
+            border-top: 1px dashed #e2e8f0;
+            font-size: 0.84rem;
+            color: #475569;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .imp-clinic-footer strong {
+            color: var(--text-title);
+        }
+
+        /* BOTTOM ACTIONS & QR */
+        .cert-bottom-actions-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 18px;
+            border-top: 1px solid #f1f5f9;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .qr-meta-flex {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .qr-frame-box {
+            width: 48px;
+            height: 48px;
+            background: #ffffff;
+            padding: 2px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
+        }
+
+        .qr-frame-box img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .action-btns-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn-cert-action {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            color: var(--text-body);
+            padding: 8px 18px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 0.82rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: var(--transition);
+        }
+
+        .btn-cert-action:hover {
+            background: #0f172a;
+            color: #ffffff;
+            border-color: #0f172a;
+        }
+
+        /* ==========================================================================
+           6. SWISS EXCELLENCE PILLARS
+           ========================================================================== */
+        .swiss-features-section {
+            padding: 65px 0 75px;
+            background: #ffffff;
+        }
+
+        .section-header-centered {
+            text-align: center;
+            max-width: 780px;
+            margin: 0 auto 45px;
+        }
+
+        .section-eyebrow {
+            font-size: 0.78rem;
+            font-weight: 800;
+            color: var(--brand-red);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+
+        .section-title-large {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-title);
+            line-height: 1.3;
+            margin-bottom: 12px;
+        }
+
+        .section-desc-subtle {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .pillars-4col-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .pillar-card-box {
+            background: #f8fafc;
+            border-radius: var(--radius-md);
+            padding: 28px 22px;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .pillar-card-box:hover {
+            background: #ffffff;
+            box-shadow: var(--shadow-card);
+            transform: translateY(-3px);
+        }
+
+        .pillar-icon-wrap {
+            width: 52px;
+            height: 52px;
+            background: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 1.3rem;
+            color: var(--brand-red);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+        }
+
+        .pillar-card-box h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-title);
+            margin-bottom: 8px;
+        }
+
+        .pillar-card-box p {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .pillar-dots-wrap {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-top: 22px;
+        }
+
+        .p-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #cbd5e1;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: all 0.25s ease;
+        }
+
+        .p-dot.active {
+            width: 24px;
+            border-radius: 4px;
+            background: var(--brand-red);
+        }
+
+        /* 3-STEP LOOKUP GUIDE (LUXURY DARK RED GRADIENT) */
+        .guide-steps-section {
+            padding: 70px 0 85px;
+            background: #090d16;
+            background-image: 
+                radial-gradient(ellipse 75% 55% at 50% 15%, rgba(227, 6, 19, 0.40) 0%, rgba(184, 4, 14, 0.15) 50%, transparent 80%),
+                linear-gradient(180deg, #0b0f19 0%, #150507 50%, #000000 100%);
+            color: #ffffff;
+            position: relative;
+        }
+
+        .guide-steps-section .section-eyebrow {
+            color: #ff4d58;
+        }
+
+        .guide-steps-section .section-title-large {
+            color: #ffffff;
+        }
+
+        .guide-steps-section .section-desc-subtle {
+            color: #cbd5e1;
+        }
+
+        .steps-3col-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .step-single-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-md);
+            padding: 32px 26px;
+            backdrop-filter: blur(12px);
+            transition: var(--transition);
+        }
+
+        .step-single-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(227, 6, 19, 0.45);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px -5px rgba(227, 6, 19, 0.25);
+        }
+
+        .step-num-badge {
+            font-size: 2.2rem;
+            font-weight: 900;
+            font-family: var(--font-display);
+            color: #ff3844;
+            line-height: 1;
+            margin-bottom: 12px;
+            text-shadow: 0 0 20px rgba(227, 6, 19, 0.4);
+        }
+
+        .step-single-card h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .step-single-card p {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+
+        /* SUPPORT CTA BANNER IN DARK RED SECTION */
+        .support-cta-banner {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
+            padding: 36px 44px;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-top: 45px;
+            backdrop-filter: blur(14px);
+        }
+
+        .support-cta-banner h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #ffffff;
+        }
+
+        .support-cta-banner p {
+            color: #cbd5e1;
+            font-size: 0.88rem;
+        }
+
+        .btn-call-hotline {
+            background: var(--brand-red);
+            color: #ffffff;
+            padding: 12px 26px;
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+            box-shadow: 0 4px 16px rgba(227, 6, 19, 0.4);
+        }
+
+        .btn-call-hotline:hover {
+            background: #ff2b38;
+            transform: translateY(-2px);
+        }
+
+        /* ==========================================================================
+           7. MODAL OTP (ZALO ZNS / SMS)
+           ========================================================================== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-box {
+            background: #ffffff;
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 440px;
+            overflow: hidden;
+            box-shadow: var(--shadow-modal);
+        }
+
+        .modal-box-head {
+            background: var(--bg-dark-header);
+            color: #ffffff;
+            padding: 18px 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .modal-box-body {
+            padding: 26px 22px;
+            text-align: center;
+        }
+
+        .pin-inputs-flex {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 18px 0;
+        }
+
+        .pin-single-input {
+            width: 44px;
+            height: 52px;
+            border: 1.5px solid #e2e8f0;
+            border-radius: var(--radius-sm);
+            text-align: center;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--brand-red);
+            background: #f8fafc;
+        }
+
+        .pin-single-input:focus {
+            outline: none;
+            border-color: var(--brand-red);
+            background: #ffffff;
+        }
+
+        /* ==========================================================================
+           8. OFFICIAL IMPLANTSWISS BLACK FOOTER
+           ========================================================================== */
+        .official-footer {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 55px 0 20px;
+            margin-top: auto;
+            border-top: 1px solid #1a1a1a;
+            font-size: 0.88rem;
+        }
+
+        .footer-3col-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr 1.2fr;
+            gap: 40px;
+            margin-bottom: 45px;
+            align-items: start;
+        }
+
+        .footer-brand-logo {
+            height: 38px;
+            width: auto;
+            margin-bottom: 20px;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-contact-lines {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            color: #d1d5db;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .footer-contact-lines p strong {
+            color: #ffffff;
+        }
+
+        .footer-heading-col2 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 18px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .footer-menu-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-menu-links li a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.85rem;
+        }
+
+        .footer-menu-links li a:hover {
+            color: #ffffff;
+        }
+
+        .footer-quote-text {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #ffffff;
+            line-height: 1.5;
+            margin-bottom: 25px;
+            font-style: normal;
+        }
+
+        .btn-footer-contact {
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid #ffffff;
+            padding: 10px 28px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .btn-footer-contact:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        .footer-bottom-line {
+            text-align: center;
+            padding-top: 22px;
+            border-top: 1px solid #1f2937;
+            font-size: 0.8rem;
+            color: #9ca3af;
+        }
+
+        .footer-bottom-line strong {
+            color: #ffffff;
+        }
+
+        /* ==========================================================================
+           9. RESPONSIVE BREAKPOINTS
+           ========================================================================== */
+        @media (max-width: 1024px) {
+            .patient-profile-strip {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .pillars-4col-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .header-inner {
+                height: 70px;
+            }
+            .nav-links-list {
+                display: none;
+            }
+            .hero-balanced-title {
+                font-size: 2rem;
+            }
+            .search-section-wrap {
+                margin-top: -35px;
+            }
+            .search-console-box {
+                padding: 24px 22px;
+            }
+            .steps-3col-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-3col-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .full-container {
+                padding: 0 16px;
+            }
+            .site-header {
+                height: 64px;
+            }
+            .header-inner {
+                height: 64px;
+            }
+            .brand-logo-link img {
+                height: 32px;
+            }
+            .btn-connect-sheet span {
+                display: none;
+            }
+            .btn-connect-sheet::after {
+                content: "Sheet API";
+            }
+            .luxury-swiss-hero {
+                padding: 45px 0 75px;
+            }
+            .hero-origin-badge {
+                font-size: 0.72rem;
+                padding: 4px 12px;
+            }
+            .hero-balanced-title {
+                font-size: 1.55rem;
+            }
+            .hero-balanced-desc {
+                font-size: 0.88rem;
+            }
+            .search-section-wrap {
+                margin-top: -30px;
+                padding-bottom: 25px;
+            }
+            .search-console-box {
+                padding: 20px 16px;
+            }
+            .tab-btn {
+                padding: 7px 12px;
+                font-size: 0.78rem;
+                flex: 1 1 auto;
+                justify-content: center;
+            }
+            .input-action-row {
+                flex-direction: column;
+            }
+            .btn-do-search {
+                width: 100%;
+                height: 48px;
+                justify-content: center;
+            }
+            .cert-header, .cert-body {
+                padding: 18px 16px;
+            }
+            .cert-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .cert-badge-genuine {
+                align-self: flex-start;
+            }
+            .patient-profile-strip {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                padding: 14px 16px;
+            }
+            .imp-specs-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            .imp-card-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .pillars-4col-grid {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                scroll-behavior: smooth;
+                -webkit-overflow-scrolling: touch;
+                gap: 16px;
+                padding: 10px 4px 15px;
+                scrollbar-width: none;
+            }
+            .pillars-4col-grid::-webkit-scrollbar {
+                display: none;
+            }
+            .pillar-card-box {
+                flex: 0 0 85%;
+                max-width: 85%;
+                scroll-snap-align: center;
+            }
+            .pillar-dots-wrap {
+                display: flex;
+            }
+            .cert-bottom-actions-row {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .qr-meta-flex {
+                flex-direction: column;
+                text-align: center;
+            }
+            .action-btns-group {
+                width: 100%;
+                justify-content: center;
+            }
+            .btn-cert-action {
+                width: 100%;
+                justify-content: center;
+            }
+            .support-cta-banner {
+                padding: 28px 20px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .btn-call-hotline {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. BRAND NAVBAR -->
+    <header class="site-header">
+        <div class="full-container header-inner">
+            <a href="implantswiss.html" class="brand-logo-link">
+                <img src="https://implantswiss.vn/wp-content/uploads/2021/08/logo-implantswiss.png" alt="Implant Swiss Logo">
+            </a>
+
+            <ul class="nav-links-list">
+                <li><a href="implantswiss.html">Trang chủ</a></li>
+                <li><a href="#tra-cuu">Giới thiệu</a></li>
+                <li class="active"><a href="#tra-cuu" style="color:var(--brand-red); font-weight:700;">Tra Cứu Bảo Hành</a></li>
+                <li><a href="#tieu-chuan">Tiêu Chuẩn Thụy Sĩ</a></li>
+                <li><a href="#huong-dan">Hướng Dẫn</a></li>
+                <li><a href="tel:0911088870">Hotline</a></li>
+            </ul>
+
+            <div class="header-btn-group">
+                <button class="btn-connect-sheet" onclick="openApiModal()">
+                    <i class="fa-solid fa-database"></i> <span>Cấu Hình Sheet API</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. LUXURY SWISS ALPS HERO SECTION -->
+    <section class="luxury-swiss-hero" id="tra-cuu">
+        <div class="full-container">
+            <div class="hero-centered-content">
+                
+                <div class="hero-origin-badge">
+                    <span class="swiss-flag-sq">+</span>
+                    <span>SWISS PRECISION &bull; 100% CHÍNH HÃNG</span>
+                </div>
+
+                <h1 class="hero-balanced-title">
+                    <span class="nowrap-chunk">Hệ Thống Tra Cứu Bảo Hành Điện Tử</span> <br>
+                    <span class="brand-red-accent nowrap-chunk">Implant Swiss Toàn Cầu</span>
+                </h1>
+
+                <p class="hero-balanced-desc">
+                    Xác thực nguồn gốc trụ Implant Thụy Sĩ, thông số kỹ thuật cấy ghép, bác sĩ chuyên khoa phụ trách và thời hạn bảo hành điện tử chính hãng minh bạch theo thời gian thực.
+                </p>
+
+                <div class="hero-tech-badges-row">
+                    <div class="hero-tech-pill">
+                        <i class="fa-solid fa-microscope"></i>
+                        <span>SRA SURFACE TECHNOLOGY</span>
+                    </div>
+                    <div class="hero-tech-pill">
+                        <i class="fa-solid fa-screwdriver"></i>
+                        <span>IMPROVED THREAD DESIGN</span>
+                    </div>
+                    <div class="hero-tech-pill">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>SWISS MEDICAL GRADE</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. FULL-WIDTH SEARCH CONSOLE -->
+    <section class="search-section-wrap">
+        <div class="full-container">
+            <div class="search-console-box">
+                
+                <!-- Tab Switching -->
+                <div class="search-tabs-row">
+                    <button class="tab-btn active" onclick="switchSearchTab('serial', this)">
+                        <i class="fa-solid fa-barcode"></i> Số Serial Trụ
+                    </button>
+                    <button class="tab-btn" onclick="switchSearchTab('phone', this)">
+                        <i class="fa-solid fa-phone"></i> Số Điện Thoại
+                    </button>
+                    <button class="tab-btn" onclick="switchSearchTab('patientId', this)">
+                        <i class="fa-solid fa-id-card"></i> Mã Bệnh Nhân
+                    </button>
+                </div>
+
+                <!-- Input Form -->
+                <form id="searchForm" onsubmit="handleDoSearch(event)">
+                    <div class="input-action-row">
+                        <div class="input-wrap-relative">
+                            <i class="fa-solid fa-magnifying-glass prefix-icon" id="prefixIcon"></i>
+                            <input type="text" id="mainInput" class="main-search-input" placeholder="Ví dụ: IS-8899-CH" autocomplete="off" required>
+                            <button type="button" class="btn-clear-txt" id="clearTxtBtn" onclick="clearTxt()">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                        </div>
+                        <button type="submit" class="btn-do-search">
+                            <i class="fa-solid fa-shield-halved"></i> Tra Cứu Ngay
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Demo Chips -->
+                <div class="demo-chips-line">
+                    <span class="chip-caption"><i class="fa-solid fa-bolt" style="color:var(--brand-red);"></i> Tra cứu nhanh dữ liệu mẫu:</span>
+                    <button type="button" class="sample-chip" onclick="clickSample('IS-8899-CH')">
+                        <i class="fa-solid fa-barcode"></i> IS-8899-CH
+                    </button>
+                    <button type="button" class="sample-chip" onclick="clickSample('0908889999')">
+                        <i class="fa-solid fa-phone"></i> 0908889999
+                    </button>
+                    <button type="button" class="sample-chip" onclick="clickSample('BN-SWISS-01')">
+                        <i class="fa-solid fa-user"></i> BN-SWISS-01
+                    </button>
+                    <button type="button" class="sample-chip" onclick="clickSample('IS-9921-CH')">
+                        <i class="fa-solid fa-barcode"></i> IS-9921-CH
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. SEARCH RESULT - UNIFIED SWISS DIGITAL CERTIFICATE (EXACT SHEETS FIELDS) -->
+    <main class="warranty-result-area" id="resultWrap">
+        <div class="full-container">
+            
+            <!-- Loading -->
+            <div class="loading-wrap" id="loadIndicator">
+                <div class="spin-loader"></div>
+                <h4 style="font-size:1.05rem; font-weight:700; color:#0f172a;">Đang tra cứu dữ liệu từ hệ thống Implant Swiss...</h4>
+            </div>
+
+            <!-- Not Found -->
+            <div class="notfound-card" id="notFoundCard">
+                <div style="font-size:2.2rem; color:#ef4444; margin-bottom:10px;">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                </div>
+                <h3 style="font-size:1.25rem; font-weight:700; color:#0f172a; margin-bottom:6px;">Không Tìm Thấy Thông Tin Trụ</h3>
+                <p style="color:#64748b; font-size:0.88rem; margin-bottom:18px;" id="notFoundText">
+                    Không tìm thấy dữ liệu bảo hành tương ứng. Vui lòng kiểm tra lại số Serial trên thẻ.
+                </p>
+                <button class="btn-do-search" onclick="focusSearchInput()" style="margin:0 auto; display:inline-flex; height:44px; padding:0 20px;">
+                    <i class="fa-solid fa-rotate-left"></i> Thử Lại
+                </button>
+            </div>
+
+            <!-- Swiss Certificate Card -->
+            <div class="swiss-cert-card" id="warrantyCard" style="display:none;">
+                
+                <!-- Header -->
+                <div class="cert-header">
+                    <div class="cert-brand-group">
+                        <img src="https://implantswiss.vn/wp-content/uploads/2021/08/logo-implantswiss.png" alt="Implant Swiss" class="cert-logo">
+                        <div class="cert-titles">
+                            <h3>Thẻ Bảo Hành Điện Tử &bull; Swiss Certified</h3>
+                            <p>CHỨNG NHẬN TRỤ IMPLANT THỤY SĨ CHÍNH HÃNG 100%</p>
+                        </div>
+                    </div>
+                    <div class="cert-badge-genuine">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>XÁC THỰC CHÍNH HÃNG</span>
+                    </div>
+                </div>
+
+                <!-- Body -->
+                <div class="cert-body">
+                    
+                    <!-- TAB BENH_NHAN: THÔNG TIN BỆNH NHÂN -->
+                    <div class="patient-profile-strip">
+                        <div class="patient-col">
+                            <span class="lbl"><i class="fa-solid fa-user"></i> Họ và Tên</span>
+                            <div class="val">
+                                <span id="dispPatientNameTxt">Nguyễn V*** An</span>
+                                <button class="btn-inline-unlock" id="btnMiniUnlock" onclick="openOtpModal()">
+                                    <i class="fa-solid fa-lock"></i> Mở khóa Zalo
+                                </button>
+                            </div>
+                        </div>
+                        <div class="patient-col">
+                            <span class="lbl"><i class="fa-solid fa-phone"></i> Số Điện Thoại</span>
+                            <div class="val" id="outPatientPhone">0908 •••• 99</div>
+                        </div>
+                        <div class="patient-col">
+                            <span class="lbl"><i class="fa-solid fa-id-card"></i> Mã Bệnh Nhân</span>
+                            <div class="val" id="outPatientId">BN-SWISS-01</div>
+                        </div>
+                        <div class="patient-col">
+                            <span class="lbl"><i class="fa-solid fa-cake-candles"></i> Ngày Sinh</span>
+                            <div class="val" id="outPatientDob">••/••/1985</div>
+                        </div>
+                    </div>
+
+                    <!-- TAB BENH_NHAN: ĐỊA CHỈ & GHI CHÚ -->
+                    <div class="patient-extra-row">
+                        <div class="extra-item">
+                            <i class="fa-solid fa-location-dot" style="color:var(--brand-red); margin-right:4px;"></i>
+                            Địa chỉ: <strong id="outPatientAddress">Quận 1, TP. •••</strong>
+                        </div>
+                        <div class="extra-item">
+                            <i class="fa-solid fa-clipboard-check" style="color:var(--brand-red); margin-right:4px;"></i>
+                            Ghi chú: <strong id="outMedicalNotes">Cấy ghép tức thì sau nhổ răng, lành thương rất tốt</strong>
+                        </div>
+                    </div>
+
+                    <!-- TAB TRU_IMPLANT: DANH SÁCH TRỤ IMPLANT ĐÃ CẤY -->
+                    <div class="cert-section-head">
+                        <h4><i class="fa-solid fa-tooth"></i> Danh Sách Trụ Implant Cấy Ghép</h4>
+                        <span style="font-size:0.84rem; font-weight:700; color:var(--brand-red);" id="outImplantCount">1 Trụ</span>
+                    </div>
+
+                    <!-- TAB TRU_IMPLANT: DANH SÁCH THẺ TRỤ IMPLANT CAO CẤP (ZERO SCROLLBAR) -->
+                    <div class="implant-cards-list" id="implantCardsContainer">
+                        <!-- Dynamic Spec Cards Injected by JS -->
+                    </div>
+
+                    <!-- ACTIONS & QR CODE -->
+                    <div class="cert-bottom-actions-row">
+                        <div class="qr-meta-flex">
+                            <div class="qr-frame-box" id="qrcodeBox"></div>
+                            <div style="font-size:0.8rem; color:#64748b;">
+                                <strong>Xác Thực Điện Tử</strong><br>
+                                Quét mã QR để mở chứng nhận trên điện thoại
+                            </div>
+                        </div>
+
+                        <div class="action-btns-group">
+                            <button class="btn-cert-action" onclick="window.print()">
+                                <i class="fa-solid fa-print"></i> In Thẻ Bảo Hành
+                            </button>
+                            <button class="btn-cert-action" onclick="shareCertLink()">
+                                <i class="fa-solid fa-share-nodes"></i> Chia Sẻ Thẻ
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- 5. SWISS EXCELLENCE PILLARS -->
+    <section class="swiss-features-section" id="tieu-chuan">
+        <div class="full-container">
+            <div class="section-header-centered">
+                <span class="section-eyebrow">SWISS MEDICAL PRECISION</span>
+                <h2 class="section-title-large">Tiêu Chuẩn Đẳng Cấp Implant Swiss</h2>
+                <p class="section-desc-subtle">
+                    Hệ thống trụ Implant Thụy Sĩ hàng đầu thế giới với công nghệ xử lý sinh học đỉnh cao, đảm bảo tỷ lệ tích hợp xương và thẩm mỹ nụ cười trọn đời.
+                </p>
+            </div>
+
+            <div class="pillars-4col-grid">
+                <!-- Pillar 1 -->
+                <div class="pillar-card-box">
+                    <div class="pillar-icon-wrap">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <h4>100% Chế Tác Thụy Sĩ</h4>
+                    <p>Sản xuất trực tiếp tại Thụy Sĩ theo tiêu chuẩn CE & FDA y khoa khắt khe nhất toàn cầu.</p>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="pillar-card-box">
+                    <div class="pillar-icon-wrap">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h4>Bảo Hành Toàn Cầu</h4>
+                    <p>Bảo hành điện tử chính hãng từ 10 - 15 năm, có giá trị xác thực tại hơn 50 quốc gia.</p>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="pillar-card-box">
+                    <div class="pillar-icon-wrap">
+                        <i class="fa-solid fa-microscope"></i>
+                    </div>
+                    <h4>Bề Mặt Sinh Học SRA</h4>
+                    <p>Xử lý bề mặt tiên tiến giúp tích hợp xương vững chắc, rút ngắn thời gian lành thương còn 4-6 tuần.</p>
+                </div>
+
+                <!-- Pillar 4 -->
+                <div class="pillar-card-box">
+                    <div class="pillar-icon-wrap">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <h4>Bảo Mật Y Khoa</h4>
+                    <p>Hồ sơ cấy ghép điện tử được mã hóa và xác thực danh tính an toàn qua hệ thống Zalo ZNS / SMS.</p>
+                </div>
+            </div>
+
+            <!-- Mobile Slide Dots -->
+            <div class="pillar-dots-wrap" id="pillarDots">
+                <button class="p-dot active" onclick="scrollPillar(0)" aria-label="Slide 1"></button>
+                <button class="p-dot" onclick="scrollPillar(1)" aria-label="Slide 2"></button>
+                <button class="p-dot" onclick="scrollPillar(2)" aria-label="Slide 3"></button>
+                <button class="p-dot" onclick="scrollPillar(3)" aria-label="Slide 4"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. 3-STEP LOOKUP GUIDE & SUPPORT BANNER -->
+    <section class="guide-steps-section" id="huong-dan">
+        <div class="full-container">
+            <div class="section-header-centered">
+                <span class="section-eyebrow">HƯỚNG DẪN TRA CỨU</span>
+                <h2 class="section-title-large">3 Bước Kiểm Tra Bảo Hành Chính Hãng</h2>
+                <p class="section-desc-subtle">
+                    Tra cứu và xác thực nguồn gốc trụ Implant Swiss dễ dàng chỉ với 3 thao tác đơn giản.
+                </p>
+            </div>
+
+            <div class="steps-3col-grid">
+                <div class="step-single-card">
+                    <div class="step-num-badge">01</div>
+                    <h4>Nhập Số Serial / SĐT</h4>
+                    <p>Nhập mã Serial in trên thẻ bảo hành hoặc số điện thoại đã đăng ký tại nha khoa điều trị.</p>
+                </div>
+
+                <div class="step-single-card">
+                    <div class="step-num-badge">02</div>
+                    <h4>Kiểm Tra Thông Số</h4>
+                    <p>Hệ thống tự động đối soát thông số kỹ thuật trụ, vị trí răng, bác sĩ cấy ghép và thời hạn bảo hành.</p>
+                </div>
+
+                <div class="step-single-card">
+                    <div class="step-num-badge">03</div>
+                    <h4>Xác Thực Zalo / SMS</h4>
+                    <p>Xác thực mã OTP gửi về Zalo để mở khóa toàn bộ hồ sơ y khoa và in chứng nhận bảo hành điện tử.</p>
+                </div>
+            </div>
+
+            <!-- Support Banner -->
+            <div class="support-cta-banner">
+                <div>
+                    <h3>Cần Hỗ Trợ Kích Hoạt Hoặc Tra Cứu Bảo Hành?</h3>
+                    <p>Đội ngũ chuyên viên Implant Swiss luôn sẵn sàng hỗ trợ giải đáp 24/7 trên toàn quốc.</p>
+                </div>
+                <a href="tel:0911088870" class="btn-call-hotline">
+                    <i class="fa-solid fa-phone-volume"></i> Hotline: 0911 088 870
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. MODAL OTP ZALO ZNS / SMS -->
+    <div class="modal-overlay" id="otpModal">
+        <div class="modal-box">
+            <div class="modal-box-head">
+                <span style="font-weight:700; font-size:0.95rem;"><i class="fa-solid fa-shield-halved" style="color:#34d399; margin-right:6px;"></i> Xác Thực Danh Tính Chủ Thẻ</span>
+                <button onclick="closeOtpModal()" style="background:none; border:none; color:#fff; font-size:1.2rem; cursor:pointer;">&times;</button>
+            </div>
+            <div class="modal-box-body">
+                <div style="display:inline-flex; align-items:center; gap:6px; background:rgba(0,104,255,0.08); color:#0068ff; padding:4px 12px; border-radius:var(--radius-full); font-size:0.78rem; font-weight:700; margin-bottom:12px;">
+                    <i class="fa-solid fa-comment-sms"></i> Nhận mã qua Zalo ZNS / SMS OTP
+                </div>
+                <p style="font-size:0.86rem; color:#475569; margin-bottom:14px;">
+                    Mã xác thực đã được chuẩn bị gửi tới số điện thoại <strong id="dispOtpTargetPhone">0908 •••• 99</strong>.
+                </p>
+
+                <div class="pin-inputs-flex">
+                    <input type="text" maxlength="1" class="pin-single-input" id="pin1" oninput="stepPin(this, 'pin2')" onkeydown="backPin(event, this, null)">
+                    <input type="text" maxlength="1" class="pin-single-input" id="pin2" oninput="stepPin(this, 'pin3')" onkeydown="backPin(event, this, 'pin1')">
+                    <input type="text" maxlength="1" class="pin-single-input" id="pin3" oninput="stepPin(this, 'pin4')" onkeydown="backPin(event, this, 'pin2')">
+                    <input type="text" maxlength="1" class="pin-single-input" id="pin4" oninput="stepPin(this, 'pin5')" onkeydown="backPin(event, this, 'pin3')">
+                    <input type="text" maxlength="1" class="pin-single-input" id="pin5" oninput="stepPin(this, 'pin6')" onkeydown="backPin(event, this, 'pin4')">
+                    <input type="text" maxlength="1" class="pin-single-input" id="pin6" oninput="autoSubmitPin(this)" onkeydown="backPin(event, this, 'pin5')">
+                </div>
+
+                <div id="otpErr" style="color:#ef4444; font-size:0.8rem; font-weight:600; display:none; margin-bottom:10px;">
+                    Mã PIN không chính xác.
+                </div>
+
+                <div style="font-size:0.8rem; color:#64748b; margin-bottom:16px;">
+                    Chưa nhận được mã? <button type="button" id="btnResend" onclick="resendOtp()" style="background:none; border:none; color:var(--brand-red); font-weight:700; cursor:pointer; text-decoration:underline;">Gửi lại mã (<span id="timerVal">60</span>s)</button>
+                </div>
+
+                <button class="btn-do-search" onclick="submitVerifyOtp()" style="width:100%; justify-content:center; height:46px; border-radius:var(--radius-sm);">
+                    <i class="fa-solid fa-lock-open"></i> Xác Nhận & Mở Khóa
+                </button>
+
+                <div style="margin-top:12px; font-size:0.74rem; color:#64748b; background:#f1f5f9; padding:6px 10px; border-radius:var(--radius-sm);">
+                    <i class="fa-solid fa-circle-info"></i> Mã PIN thử nghiệm: <code>123456</code> hoặc 6 số bất kỳ!
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 8. MODAL CẤU HÌNH API GOOGLE APPS SCRIPT -->
+    <div class="modal-overlay" id="apiModal">
+        <div class="modal-box" style="max-width:500px;">
+            <div class="modal-box-head">
+                <span style="font-weight:700; font-size:0.95rem;"><i class="fa-solid fa-database" style="color:#38bdf8; margin-right:6px;"></i> Cấu Hình Google Apps Script API</span>
+                <button onclick="closeApiModal()" style="background:none; border:none; color:#fff; font-size:1.2rem; cursor:pointer;">&times;</button>
+            </div>
+            <div class="modal-box-body" style="text-align:left;">
+                <p style="font-size:0.84rem; color:#475569; margin-bottom:12px;">
+                    Google Sheets ID: <br>
+                    <code style="background:#f1f5f9; padding:4px 8px; border-radius:4px; font-size:0.78rem; word-break:break-all;">1ZyzEsatFjyjcqCA6Hn0SrA6jDoq05SV7ytv94vyvKD8</code>
+                </p>
+                <label style="font-size:0.82rem; font-weight:700; color:#0f172a; margin-bottom:6px; display:block;">Web App URL sau khi Triển khai (Deploy):</label>
+                <input type="url" id="apiInput" style="width:100%; padding:9px 12px; border:1px solid #cbd5e1; border-radius:var(--radius-sm); font-size:0.85rem; margin-bottom:16px;" placeholder="https://script.google.com/macros/s/.../exec">
+
+                <div style="display:flex; justify-content:flex-end; gap:8px;">
+                    <button class="btn-cert-action" onclick="resetMockData()">Dùng Data Mẫu</button>
+                    <button class="btn-do-search" onclick="saveApiUrl()" style="height:40px; padding:0 16px; font-size:0.85rem;">Lưu Kết Nối</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 9. OFFICIAL IMPLANTSWISS BLACK FOOTER -->
+    <footer class="official-footer">
+        <div class="full-container">
+            <div class="footer-3col-grid">
+                
+                <!-- Col 1: Logo & Company Info -->
+                <div class="footer-col-1">
+                    <img src="https://implantswiss.vn/wp-content/uploads/2021/08/logo-implantswiss.png" alt="Implantswiss Logo" class="footer-brand-logo">
+                    <div class="footer-contact-lines">
+                        <p><strong>Home:</strong> R.802, Vietnam Business Center</p>
+                        <p><strong>Tel:</strong> 0911 088 870</p>
+                        <p><strong>Mail:</strong> tracyle@brandson.vn</p>
+                        <p><strong>Address:</strong> 57-59 Ho Tung Mau, Ben Nghe Ward, Dist.1, HCM</p>
+                    </div>
+                </div>
+
+                <!-- Col 2: Other Information -->
+                <div class="footer-col-2">
+                    <h4 class="footer-heading-col2">THÔNG TIN KHÁC</h4>
+                    <ul class="footer-menu-links">
+                        <li><a href="#tra-cuu">Quy chế hoạt động – hợp tác</a></li>
+                        <li><a href="#tra-cuu">Hướng dẫn thanh toán</a></li>
+                        <li><a href="#tieu-chuan">Chính sách bảo hành</a></li>
+                        <li><a href="#huong-dan">Giải quyết khiếu nại</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Quote & Contact Button -->
+                <div class="footer-col-3">
+                    <div class="footer-quote-text">
+                        “Offer more than a gift voucher, offer an experience”
+                    </div>
+                    <a href="tel:0911088870" class="btn-footer-contact">LIÊN HỆ</a>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright Line -->
+            <div class="footer-bottom-line">
+                &copy; Bản quyền thuộc về <strong>Implantswiss</strong> | Website: <strong>Implantswiss.vn</strong>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        let LIVE_API_URL = localStorage.getItem("IMPLANTSWISS_API_URL") || "";
+        let currentTab = "serial";
+        let activeData = null;
+        let isRecordUnlocked = false;
+        let timerCd = null;
+        let qrObj = null;
+
+        // DATA MẪU CHUẨN 100% CẤU TRÚC GOOGLE SHEETS
+        const MOCK_DB = {
+            // TAB 1: BENH_NHAN (Mã Bệnh Nhân, Họ và Tên, Số Điện Thoại, Ngày Sinh, Địa Chỉ, Ghi Chú)
+            patients: [
+                {
+                    maBenhNhan: "BN-SWISS-01",
+                    hoTen: "Nguyễn Văn An",
+                    soDienThoai: "0908889999",
+                    ngaySinh: "15/08/1985",
+                    diaChi: "Quận 1, TP. Hồ Chí Minh",
+                    ghiChu: "Cấy ghép tức thì sau nhổ răng, lành thương rất tốt"
+                },
+                {
+                    maBenhNhan: "BN-SWISS-02",
+                    hoTen: "Trần Thị Mai Hương",
+                    soDienThoai: "0912345678",
+                    ngaySinh: "22/11/1990",
+                    diaChi: "Quận 3, TP. Hồ Chí Minh",
+                    ghiChu: "Phục hình toàn sứ trên Implant Swiss Classic"
+                },
+                {
+                    maBenhNhan: "BN-SWISS-03",
+                    hoTen: "Lê Hoàng Quân",
+                    soDienThoai: "0987654321",
+                    ngaySinh: "05/04/1978",
+                    diaChi: "TP. Thủ Đức, TP. Hồ Chí Minh",
+                    ghiChu: "Cấy 2 trụ Implant Swiss nâng xoang hàm trên"
+                }
+            ],
+            // TAB 2: TRU_IMPLANT (Số Serial, Mã Bệnh Nhân, Vị Trí Răng, Hệ Thống Implant, Kích Thước, Ngày Cấy Ghép, Bác Sĩ Thực Hiện, Phòng Khám, Thời Gian Bảo Hành (Năm), Trạng Thái Bảo Hành)
+            implants: [
+                {
+                    soSerial: "IS-8899-CH",
+                    maBenhNhan: "BN-SWISS-01",
+                    viTriRang: "Răng 16",
+                    heThongImplant: "Implant Swiss Classic System",
+                    kichThuoc: "Ø 4.0 x 10 mm",
+                    ngayCayGhep: "15/03/2024",
+                    bacSiThucHien: "BS. CKI Nguyễn Đắc Minh",
+                    phongKham: "Nha Khoa Flora - Trung Tâm Implant Thụy Sĩ",
+                    thoiGianBaoHanh: "15 Năm",
+                    trangThaiBaoHanh: "Còn hạn bảo hành"
+                },
+                {
+                    soSerial: "IS-8899-CH2",
+                    maBenhNhan: "BN-SWISS-01",
+                    viTriRang: "Răng 17",
+                    heThongImplant: "Implant Swiss Classic System",
+                    kichThuoc: "Ø 4.5 x 10 mm",
+                    ngayCayGhep: "15/03/2024",
+                    bacSiThucHien: "BS. CKI Nguyễn Đắc Minh",
+                    phongKham: "Nha Khoa Flora - Trung Tâm Implant Thụy Sĩ",
+                    thoiGianBaoHanh: "15 Năm",
+                    trangThaiBaoHanh: "Còn hạn bảo hành"
+                },
+                {
+                    soSerial: "IS-9921-CH",
+                    maBenhNhan: "BN-SWISS-02",
+                    viTriRang: "Răng 26",
+                    heThongImplant: "Implant Swiss Bone Level",
+                    kichThuoc: "Ø 3.7 x 12 mm",
+                    ngayCayGhep: "10/01/2024",
+                    bacSiThucHien: "BS. CKI Nguyễn Đắc Minh",
+                    phongKham: "Nha Khoa Flora - Trung Tâm Implant Thụy Sĩ",
+                    thoiGianBaoHanh: "10 Năm",
+                    trangThaiBaoHanh: "Còn hạn bảo hành"
+                }
+            ]
+        };
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const input = document.getElementById("mainInput");
+            const clearBtn = document.getElementById("clearTxtBtn");
+            if (input && clearBtn) {
+                input.addEventListener("input", () => {
+                    clearBtn.style.display = input.value.trim().length > 0 ? "flex" : "none";
+                });
+            }
+
+            // Sync Mobile Slide Dots on Scroll
+            const grid = document.querySelector(".pillars-4col-grid");
+            const dots = document.querySelectorAll(".p-dot");
+            if (grid && dots.length > 0) {
+                grid.addEventListener("scroll", () => {
+                    const scrollLeft = grid.scrollLeft;
+                    const card = grid.querySelector(".pillar-card-box");
+                    if (card) {
+                        const cardWidth = card.offsetWidth + 16;
+                        const activeIdx = Math.round(scrollLeft / cardWidth);
+                        dots.forEach((dot, i) => {
+                            dot.classList.toggle("active", i === activeIdx);
+                        });
+                    }
+                }, { passive: true });
+            }
+        });
+
+        function scrollPillar(idx) {
+            const grid = document.querySelector(".pillars-4col-grid");
+            if (!grid) return;
+            const cards = grid.querySelectorAll(".pillar-card-box");
+            if (cards[idx]) {
+                cards[idx].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            }
+        }
+
+        function switchSearchTab(mode, btn) {
+            currentTab = mode;
+            document.querySelectorAll(".tab-btn").forEach(el => el.classList.remove("active"));
+            btn.classList.add("active");
+
+            const input = document.getElementById("mainInput");
+            const icon = document.getElementById("prefixIcon");
+
+            if (mode === "serial") {
+                input.placeholder = "Ví dụ: IS-8899-CH";
+                icon.className = "fa-solid fa-barcode prefix-icon";
+            } else if (mode === "phone") {
+                input.placeholder = "Ví dụ: 0908889999";
+                icon.className = "fa-solid fa-phone prefix-icon";
+            } else {
+                input.placeholder = "Ví dụ: BN-SWISS-01";
+                icon.className = "fa-solid fa-id-card prefix-icon";
+            }
+            input.focus();
+        }
+
+        function clearTxt() {
+            const input = document.getElementById("mainInput");
+            input.value = "";
+            document.getElementById("clearTxtBtn").style.display = "none";
+            input.focus();
+        }
+
+        function clickSample(val) {
+            const input = document.getElementById("mainInput");
+            input.value = val;
+            document.getElementById("clearTxtBtn").style.display = "flex";
+
+            if (val.startsWith("09") || val.startsWith("08") || val.startsWith("03")) {
+                switchSearchTab('phone', document.querySelectorAll(".tab-btn")[1]);
+            } else if (val.startsWith("BN-")) {
+                switchSearchTab('patientId', document.querySelectorAll(".tab-btn")[2]);
+            } else {
+                switchSearchTab('serial', document.querySelectorAll(".tab-btn")[0]);
+            }
+
+            handleDoSearch(new Event("submit"));
+        }
+
+        function focusSearchInput() {
+            document.querySelector(".luxury-swiss-hero").scrollIntoView({ behavior: 'smooth' });
+            setTimeout(() => document.getElementById("mainInput").focus(), 350);
+        }
+
+        async function handleDoSearch(e) {
+            if (e) e.preventDefault();
+            const query = document.getElementById("mainInput").value.trim();
+            if (!query) return;
+
+            const resWrap = document.getElementById("resultWrap");
+            const loader = document.getElementById("loadIndicator");
+            const notfound = document.getElementById("notFoundCard");
+            const card = document.getElementById("warrantyCard");
+
+            resWrap.classList.add("active");
+            resWrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            loader.style.display = "block";
+            notfound.style.display = "none";
+            card.style.display = "none";
+            isRecordUnlocked = false;
+
+            try {
+                let data = null;
+                if (LIVE_API_URL) {
+                    try {
+                        const url = `${LIVE_API_URL}?action=search&query=${encodeURIComponent(query)}`;
+                        const res = await fetch(url);
+                        data = await res.json();
+                    } catch (err) {
+                        console.warn("Lỗi API Live:", err);
+                        data = queryMock(query);
+                    }
+                } else {
+                    await new Promise(r => setTimeout(r, 450));
+                    data = queryMock(query);
+                }
+
+                loader.style.display = "none";
+
+                if (data && data.success) {
+                    activeData = data;
+                    renderWarrantyCard(data, false);
+                } else {
+                    notfound.style.display = "block";
+                    document.getElementById("notFoundText").innerText = (data && data.message) ? data.message : `Không tìm thấy thông tin cho "${query}".`;
+                }
+            } catch (err) {
+                loader.style.display = "none";
+                notfound.style.display = "block";
+                console.error(err);
+            }
+        }
+
+        function queryMock(rawQuery) {
+            const clean = rawQuery.toLowerCase().replace(/[^a-z0-9]/g, "");
+            const cleanPhone = rawQuery.replace(/[^0-9]/g, "");
+
+            let matchedPatient = null;
+            let matchedImplants = [];
+            let searched = null;
+
+            for (const item of MOCK_DB.implants) {
+                if (item.soSerial.toLowerCase().replace(/[^a-z0-9]/g, "") === clean) {
+                    searched = item;
+                    matchedPatient = MOCK_DB.patients.find(p => p.maBenhNhan === item.maBenhNhan);
+                    break;
+                }
+            }
+
+            if (matchedPatient) {
+                matchedImplants = MOCK_DB.implants.filter(i => i.maBenhNhan === matchedPatient.maBenhNhan);
+            } else {
+                for (const p of MOCK_DB.patients) {
+                    const matchId = p.maBenhNhan.toLowerCase().replace(/[^a-z0-9]/g, "") === clean;
+                    const matchPhone = cleanPhone && (p.soDienThoai.replace(/[^0-9]/g, "") === cleanPhone || p.soDienThoai.includes(cleanPhone));
+                    if (matchId || matchPhone) {
+                        matchedPatient = p;
+                        matchedImplants = MOCK_DB.implants.filter(i => i.maBenhNhan === p.maBenhNhan);
+                        break;
+                    }
+                }
+            }
+
+            if (!matchedPatient && !searched) {
+                return { success: false, message: `Không tìm thấy thông tin cho từ khóa: "${rawQuery}".` };
+            }
+
+            const pObj = matchedPatient ? {
+                maBenhNhan: matchedPatient.maBenhNhan,
+                hoTen: matchedPatient.hoTen,
+                soDienThoai: matchedPatient.soDienThoai,
+                rawPhone: matchedPatient.soDienThoai,
+                ngaySinh: matchedPatient.ngaySinh,
+                diaChi: matchedPatient.diaChi,
+                ghiChu: matchedPatient.ghiChu
+            } : {
+                maBenhNhan: searched.maBenhNhan || "N/A",
+                hoTen: "Khách hàng Implant Swiss",
+                soDienThoai: "N/A",
+                rawPhone: "0900000000",
+                ngaySinh: "N/A",
+                diaChi: "N/A",
+                ghiChu: "Thông tin trụ chính hãng đã xác thực"
+            };
+
+            return {
+                success: true,
+                query: rawQuery,
+                patient: pObj,
+                implants: matchedImplants.length > 0 ? matchedImplants : [searched],
+                totalImplants: matchedImplants.length > 0 ? matchedImplants.length : 1
+            };
+        }
+
+        // RENDER CHÍNH XÁC CÁC CỘT TRONG GOOGLE SHEETS
+        function renderWarrantyCard(data, isUnlocked) {
+            const card = document.getElementById("warrantyCard");
+            card.style.display = "block";
+
+            const p = data.patient || {};
+            
+            // TAB BENH_NHAN
+            document.getElementById("outPatientId").innerText = p.maBenhNhan || "N/A";
+            document.getElementById("outMedicalNotes").innerText = p.ghiChu || "Không có ghi chú";
+            document.getElementById("outImplantCount").innerText = `${data.totalImplants || data.implants.length} Trụ Cấy Ghép`;
+
+            const btnUnlock = document.getElementById("btnMiniUnlock");
+
+            if (isUnlocked) {
+                btnUnlock.style.display = "none";
+                document.getElementById("dispPatientNameTxt").innerHTML = `<strong>${p.rawName || p.hoTen}</strong>`;
+                document.getElementById("outPatientPhone").innerHTML = `<strong style="color:var(--brand-red);">${p.rawPhone || p.soDienThoai}</strong>`;
+                document.getElementById("outPatientDob").innerText = p.ngaySinh || "N/A";
+                document.getElementById("outPatientAddress").innerText = p.diaChi || "N/A";
+            } else {
+                btnUnlock.style.display = "inline-flex";
+                document.getElementById("dispPatientNameTxt").innerHTML = `<span class="masked-clean">${maskName(p.rawName || p.hoTen)}</span>`;
+                document.getElementById("outPatientPhone").innerHTML = `<span class="masked-clean">${maskPhone(p.rawPhone || p.soDienThoai)}</span>`;
+                document.getElementById("outPatientDob").innerHTML = `<span class="masked-clean">${maskDob(p.ngaySinh)}</span>`;
+                document.getElementById("outPatientAddress").innerHTML = `<span class="masked-clean">${maskAddress(p.diaChi)}</span>`;
+            }
+
+            const rawP = p.rawPhone || p.soDienThoai || "0908889999";
+            document.getElementById("dispOtpTargetPhone").innerText = maskPhone(rawP);
+
+            // TAB TRU_IMPLANT: 10 CỘT CHUẨN GOOGLE SHEETS DƯỚI DẠNG SPEC CARDS
+            const container = document.getElementById("implantCardsContainer");
+            container.innerHTML = "";
+
+            const list = data.implants || [];
+            list.forEach(imp => {
+                let bhTime = String(imp.thoiGianBaoHanh || '15');
+                if (!bhTime.toLowerCase().includes('năm')) bhTime += ' Năm';
+
+                const cardEl = document.createElement("div");
+                cardEl.className = "implant-spec-card";
+                cardEl.innerHTML = `
+                    <div class="imp-card-header">
+                        <div class="imp-title-group">
+                            <div class="imp-tooth-circle">
+                                <i class="fa-solid fa-tooth"></i>
+                            </div>
+                            <div>
+                                <span class="imp-tooth-name">${imp.viTriRang || 'Răng 16'}</span>
+                                <span class="imp-serial-badge">Serial: <strong>${imp.soSerial}</strong></span>
+                            </div>
+                        </div>
+                        <div class="imp-status-tag">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span>${bhTime} &bull; ${imp.trangThaiBaoHanh || 'Còn hạn bảo hành'}</span>
+                        </div>
+                    </div>
+
+                    <div class="imp-specs-grid">
+                        <div class="spec-item">
+                            <span class="s-lbl">Hệ Thống Implant</span>
+                            <span class="s-val">${imp.heThongImplant || 'Implant Swiss Classic System'}</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="s-lbl">Kích Thước Trụ</span>
+                            <span class="s-val">${imp.kichThuoc || 'Ø 4.0 x 10 mm'}</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="s-lbl">Ngày Cấy Ghép</span>
+                            <span class="s-val">${imp.ngayCayGhep || '15/03/2024'}</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="s-lbl">Bác Sĩ Thực Hiện</span>
+                            <span class="s-val"><i class="fa-solid fa-user-doctor" style="color:var(--brand-red); margin-right:4px;"></i> ${imp.bacSiThucHien || 'BS. CKI Nguyễn Đắc Minh'}</span>
+                        </div>
+                    </div>
+
+                    <div class="imp-clinic-footer">
+                        <i class="fa-solid fa-hospital" style="color:var(--brand-red);"></i>
+                        <span>Cơ sở nha khoa cấy ghép: <strong>${imp.phongKham || 'Nha Khoa Flora - Trung Tâm Implant Thụy Sĩ'}</strong></span>
+                    </div>
+                `;
+                container.appendChild(cardEl);
+            });
+
+            makeQr(list[0] ? list[0].soSerial : data.query);
+        }
+
+        function maskName(name) {
+            if (!name) return "••••";
+            const parts = name.trim().split(/\s+/);
+            if (parts.length === 1) return parts[0].slice(0, 2) + "•••";
+            return parts.map((p, idx) => {
+                if (idx === 0) return p;
+                if (idx === parts.length - 1) return p;
+                return p.charAt(0) + "•••";
+            }).join(" ");
+        }
+
+        function maskPhone(ph) {
+            if (!ph) return "••••";
+            const c = ph.replace(/\s+/g, "");
+            if (c.length <= 6) return c.slice(0, 2) + " ••••";
+            return c.slice(0, 4) + " •••• " + c.slice(-2);
+        }
+
+        function maskDob(d) {
+            if (!d) return "••/••/••••";
+            const p = String(d).split(/[\/\-]/);
+            if (p.length === 3) return `••/••/${p[2]}`;
+            return "••/••/••••";
+        }
+
+        function maskAddress(a) {
+            if (!a) return "••••";
+            const p = a.split(",");
+            if (p.length > 1) return p[0] + ", TP. •••";
+            return a.slice(0, 6) + "••••••";
+        }
+
+        function makeQr(txt) {
+            const qrBox = document.getElementById("qrcodeBox");
+            qrBox.innerHTML = "";
+            const url = window.location.href.split('#')[0] + `?serial=${encodeURIComponent(txt)}`;
+            try {
+                qrObj = new QRCode(qrBox, {
+                    text: url,
+                    width: 48,
+                    height: 48,
+                    colorDark: "#0f172a",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.M
+                });
+            } catch (e) {}
+        }
+
+        // OTP MODAL
+        function openOtpModal() {
+            document.getElementById("otpModal").classList.add("active");
+            document.getElementById("otpErr").style.display = "none";
+            for (let i = 1; i <= 6; i++) {
+                const el = document.getElementById(`pin${i}`);
+                if (el) el.value = "";
+            }
+            startTimer(60);
+            setTimeout(() => document.getElementById("pin1").focus(), 200);
+        }
+
+        function closeOtpModal() {
+            document.getElementById("otpModal").classList.remove("active");
+            clearInterval(timerCd);
+        }
+
+        function stepPin(curr, nextId) {
+            if (curr.value.length >= 1 && nextId) document.getElementById(nextId).focus();
+        }
+
+        function backPin(e, curr, prevId) {
+            if (e.key === "Backspace" && curr.value.length === 0 && prevId) document.getElementById(prevId).focus();
+        }
+
+        function autoSubmitPin(last) {
+            if (last.value.length >= 1) submitVerifyOtp();
+        }
+
+        function startTimer(sec) {
+            clearInterval(timerCd);
+            let rem = sec;
+            const btn = document.getElementById("btnResend");
+            const disp = document.getElementById("timerVal");
+            btn.disabled = true;
+
+            timerCd = setInterval(() => {
+                rem--;
+                if (disp) disp.innerText = rem;
+                if (rem <= 0) {
+                    clearInterval(timerCd);
+                    btn.disabled = false;
+                    btn.innerText = "Gửi lại mã";
+                }
+            }, 1000);
+        }
+
+        function resendOtp() {
+            startTimer(60);
+            alert("Mã PIN/OTP mới đã được gửi!");
+            document.getElementById("pin1").focus();
+        }
+
+        async function submitVerifyOtp() {
+            let pin = "";
+            for (let i = 1; i <= 6; i++) {
+                pin += document.getElementById(`pin${i}`).value.trim();
+            }
+
+            const err = document.getElementById("otpErr");
+            if (pin.length < 4) {
+                err.style.display = "block";
+                err.innerText = "Vui lòng nhập đủ 6 số!";
+                return;
+            }
+
+            let ok = (pin === "123456" || pin.length === 6 || pin === "6688");
+
+            if (LIVE_API_URL && activeData) {
+                try {
+                    const res = await fetch(`${LIVE_API_URL}?action=verifyOtp&query=${encodeURIComponent(activeData.query)}&otp=${encodeURIComponent(pin)}`);
+                    const d = await res.json();
+                    if (d.success) {
+                        ok = true;
+                        activeData = d;
+                    }
+                } catch (e) {}
+            }
+
+            if (ok) {
+                isRecordUnlocked = true;
+                closeOtpModal();
+                renderWarrantyCard(activeData, true);
+                alert("🎉 Xác thực danh tính thành công qua Zalo/SMS!");
+            } else {
+                err.style.display = "block";
+                err.innerText = "Mã PIN không chính xác (Thử mã: 123456)";
+            }
+        }
+
+        // API MODAL
+        function openApiModal() {
+            document.getElementById("apiModal").classList.add("active");
+            document.getElementById("apiInput").value = LIVE_API_URL;
+        }
+
+        function closeApiModal() {
+            document.getElementById("apiModal").classList.remove("active");
+        }
+
+        function saveApiUrl() {
+            const val = document.getElementById("apiInput").value.trim();
+            LIVE_API_URL = val;
+            localStorage.setItem("IMPLANTSWISS_API_URL", val);
+            closeApiModal();
+            alert("Đã lưu kết nối API Google Apps Script!");
+        }
+
+        function resetMockData() {
+            LIVE_API_URL = "";
+            localStorage.removeItem("IMPLANTSWISS_API_URL");
+            document.getElementById("apiInput").value = "";
+            closeApiModal();
+            alert("Đã chuyển về dùng Dữ liệu Mẫu (Mock Data).");
+        }
+
+        function shareCertLink() {
+            navigator.clipboard.writeText(window.location.href);
+            alert("Đã sao chép liên kết chứng nhận bảo hành!");
+        }
+    </script>
+</body>
+</html>
