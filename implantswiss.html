@@ -1488,12 +1488,21 @@
                 text-align: center;
             }
             .action-btns-group {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
                 width: 100%;
-                justify-content: center;
             }
             .btn-cert-action {
                 width: 100%;
                 justify-content: center;
+                padding: 9px 6px;
+                font-size: 0.76rem;
+                white-space: nowrap;
+                gap: 5px;
+            }
+            .btn-cert-action i {
+                font-size: 0.8rem;
             }
             .support-cta-banner {
                 padding: 28px 20px;
