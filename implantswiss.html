@@ -2302,149 +2302,6 @@
             q3: ["31", "32", "33", "34", "35", "36", "37", "38"]  // Hàm dưới Trái
         };
 
-        // DATA MẪU CHUẨN 100% TỪ GOOGLE SHEETS THỰC TẾ
-        const MOCK_DB = {
-            // TAB 1: BENH_NHAN (Mã Bệnh Nhân, Họ và Tên, Số Điện Thoại, Ngày nhận bệnh, Địa Chỉ, Ghi Chú)
-            patients: [
-                {
-                    maBenhNhan: "3815",
-                    hoTen: "Đỗ Ngọc Dũng",
-                    soDienThoai: "0962138946",
-                    ngaySinh: "29/08/2023",
-                    diaChi: "Hồ Chí Minh",
-                    ghiChu: "Cấy 7 trụ Implant Swiss toàn hàm, lành thương hoàn hảo"
-                },
-                {
-                    maBenhNhan: "3877",
-                    hoTen: "Hoàng Thanh Thúy",
-                    soDienThoai: "0675466123",
-                    ngaySinh: "12/09/2023",
-                    diaChi: "Hồ Chí Minh",
-                    ghiChu: "Phục hình toàn sứ trên Implant Swiss"
-                }
-            ],
-            // TAB 2: TRU_IMPLANT (Ref, Số Serial, Mã Bệnh Nhân, Vị Trí Răng, Hệ Thống Implant, Kích Thước, Ngày Cấy Ghép, Bác Sĩ Thực Hiện, Phòng Khám, Thời Gian Bảo Hành)
-            implants: [
-                {
-                    ref: "S-BFHR4810",
-                    soSerial: "2103170033110",
-                    maBenhNhan: "3815",
-                    viTriRang: "r47",
-                    heThongImplant: "Implant Swiss Classic System",
-                    kichThuoc: "4.8x10mm",
-                    ngayCayGhep: "29/08/2023",
-                    bacSiThucHien: "Bác sĩ Minh",
-                    phongKham: "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai",
-                    thoiGianBaoHanh: "10",
-                    trangThaiBaoHanh: "Còn hạn bảo hành"
-                },
-                {
-                    ref: "S-BFHR4808",
-                    soSerial: "220707049107",
-                    maBenhNhan: "3815",
-                    viTriRang: "r17",
-                    heThongImplant: "Implant Swiss Classic System",
-                    kichThuoc: "4.3x8mm",
-                    ngayCayGhep: "29/08/2023",
-                    bacSiThucHien: "Bác sĩ Minh",
-                    phongKham: "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai",
-                    thoiGianBaoHanh: "10",
-                    trangThaiBaoHanh: "Còn hạn bảo hành"
-                },
-                {
-                    ref: "S-BFHR4310",
-                    soSerial: "220805031001",
-                    maBenhNhan: "3815",
-                    viTriRang: "r46",
-                    heThongImplant: "Implant Swiss Classic System",
-                    kichThuoc: "4.3x10mm",
-                    ngayCayGhep: "29/08/2023",
-                    bacSiThucHien: "Bác sĩ Minh",
-                    phongKham: "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai",
-                    thoiGianBaoHanh: "10",
-                    trangThaiBaoHanh: "Còn hạn bảo hành"
-                },
-                {
-                    ref: "S-BFHR4310",
-                    soSerial: "2208113012045",
-                    maBenhNhan: "3815",
-                    viTriRang: "r37",
-                    heThongImplant: "Implant Swiss Classic System",
-                    kichThuoc: "4.3x10mm",
-                    ngayCayGhep: "29/08/2023",
-                    bacSiThucHien: "Bác sĩ Minh",
-                    phongKham: "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai",
-                    thoiGianBaoHanh: "10",
-                    trangThaiBaoHanh: "Còn hạn bảo hành"
-                },
-                {
-                    ref: "S-BFHR4310",
-                    soSerial: "220804050139",
-                    maBenhNhan: "3815",
-                    viTriRang: "r36",
-                    heThongImplant: "Implant Swiss Classic System",
-                    kichThuoc: "4.3x10mm",
-                    ngayCayGhep: "29/08/2023",
-                    bacSiThucHien: "Bác sĩ Minh",
-                    phongKham: "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai",
-                    thoiGianBaoHanh: "10",
-                    trangThaiBaoHanh: "Còn hạn bảo hành"
-                },
-                {
-                    ref: "S-BFHR4808",
-                    soSerial: "220616060138",
-                    maBenhNhan: "3815",
-                    viTriRang: "r27",
-                    heThongImplant: "Implant Swiss Classic System",
-                    kichThuoc: "4.8x8mm",
-                    ngayCayGhep: "29/08/2023",
-                    bacSiThucHien: "Bác sĩ Minh",
-                    phongKham: "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai",
-                    thoiGianBaoHanh: "10",
-                    trangThaiBaoHanh: "Còn hạn bảo hành"
-                },
-                {
-                    ref: "S-BFHR4308",
-                    soSerial: "220707049094",
-                    maBenhNhan: "3815",
-                    viTriRang: "r16",
-                    heThongImplant: "Implant Swiss Classic System",
-                    kichThuoc: "4.3x8mm",
-                    ngayCayGhep: "29/08/2023",
-                    bacSiThucHien: "Bác sĩ Minh",
-                    phongKham: "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai",
-                    thoiGianBaoHanh: "10",
-                    trangThaiBaoHanh: "Còn hạn bảo hành"
-                },
-                {
-                    ref: "S-BFHR4308",
-                    soSerial: "220707049072",
-                    maBenhNhan: "3877",
-                    viTriRang: "r36",
-                    heThongImplant: "Implant Swiss Classic System",
-                    kichThuoc: "4.3x8mm",
-                    ngayCayGhep: "12/09/2023",
-                    bacSiThucHien: "Bác sĩ Minh",
-                    phongKham: "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai",
-                    thoiGianBaoHanh: "10",
-                    trangThaiBaoHanh: "Còn hạn bảo hành"
-                },
-                {
-                    ref: "S-BMFSR4806",
-                    soSerial: "201006036073",
-                    maBenhNhan: "3877",
-                    viTriRang: "r37",
-                    heThongImplant: "Implant Swiss Classic System",
-                    kichThuoc: "4.8x6mm",
-                    ngayCayGhep: "12/09/2023",
-                    bacSiThucHien: "Bác sĩ Minh",
-                    phongKham: "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai",
-                    thoiGianBaoHanh: "10",
-                    trangThaiBaoHanh: "Còn hạn bảo hành"
-                }
-            ]
-        };
-
         /**
          * =========================================================================
          * LOGIC TỰ ĐỘNG NHẬN DIỆN VỊ TRÍ RĂNG & HÀM (ĐƠN LẺ & NHIỀU RĂNG PHÂN CÁCH BẰNG DẤU PHẨY)
@@ -2722,21 +2579,22 @@
             card.style.display = "none";
             isRecordUnlocked = false;
 
+            const cleanCheck = query.toLowerCase().replace(/[^a-z0-9]/g, "");
+            if (cleanCheck.length < 3) {
+                loader.style.display = "none";
+                notfound.style.display = "block";
+                document.getElementById("notFoundText").innerText = `Vui lòng nhập tối thiểu 3 ký tự để tra cứu (Số Serial, Số điện thoại hoặc Mã bệnh nhân).`;
+                return;
+            }
+
             try {
-                let data = null;
-                if (LIVE_API_URL) {
-                    try {
-                        const url = `${LIVE_API_URL}?action=search&query=${encodeURIComponent(query)}`;
-                        const res = await fetch(url);
-                        data = await res.json();
-                    } catch (err) {
-                        console.warn("Lỗi API Live, chuyển sang truy vấn dữ liệu cục bộ:", err);
-                        data = queryMock(query);
-                    }
-                } else {
-                    await new Promise(r => setTimeout(r, 400));
-                    data = queryMock(query);
+                if (!LIVE_API_URL) {
+                    throw new Error("Chưa cấu hình đường dẫn máy chủ tra cứu API.");
                 }
+
+                const url = `${LIVE_API_URL}?action=search&query=${encodeURIComponent(query)}`;
+                const res = await fetch(url);
+                const data = await res.json();
 
                 loader.style.display = "none";
 
@@ -2745,115 +2603,14 @@
                     renderWarrantyCard(data, false);
                 } else {
                     notfound.style.display = "block";
-                    document.getElementById("notFoundText").innerText = (data && data.message) ? data.message : `Không tìm thấy thông tin cho "${query}".`;
+                    document.getElementById("notFoundText").innerText = (data && data.message) ? data.message : `Không tìm thấy thông tin bảo hành cho "${query}".`;
                 }
             } catch (err) {
                 loader.style.display = "none";
                 notfound.style.display = "block";
-                console.error(err);
+                document.getElementById("notFoundText").innerText = `Không thể kết nối đến máy chủ tra cứu hoặc không tìm thấy dữ liệu cho "${query}". Vui lòng thử lại sau!`;
+                console.error("API Error:", err);
             }
-        }
-
-        function queryMock(rawQuery) {
-            const clean = rawQuery.toLowerCase().replace(/[^a-z0-9]/g, "");
-            const cleanDigits = rawQuery.replace(/[^0-9]/g, "");
-
-            if (!clean || clean.length < 3) {
-                return { success: false, message: `Vui lòng nhập tối thiểu 3 ký tự để tra cứu (Số Serial, Mã bệnh nhân hoặc Số điện thoại)!` };
-            }
-
-            let matchedPatient = null;
-            let matchedImplants = [];
-            let searched = null;
-
-            // 1. Khớp chính xác Số Serial
-            for (const item of MOCK_DB.implants) {
-                if (item.soSerial.toLowerCase().replace(/[^a-z0-9]/g, "") === clean) {
-                    searched = item;
-                    matchedPatient = MOCK_DB.patients.find(p => p.maBenhNhan === item.maBenhNhan);
-                    break;
-                }
-            }
-
-            // 2. Nếu tìm thấy qua Serial -> Lấy toàn bộ trụ của bệnh nhân đó
-            if (matchedPatient) {
-                matchedImplants = MOCK_DB.implants.filter(i => i.maBenhNhan === matchedPatient.maBenhNhan);
-            } else {
-                // 3. Khớp chính xác Mã Bệnh Nhân hoặc Số Điện Thoại (chỉ đối chiếu khi SĐT có tối thiểu 9 chữ số)
-                for (const p of MOCK_DB.patients) {
-                    const matchId = p.maBenhNhan.toLowerCase().replace(/[^a-z0-9]/g, "") === clean;
-                    const pPhoneClean = p.soDienThoai.replace(/[^0-9]/g, "");
-                    const matchPhone = cleanDigits.length >= 9 && (pPhoneClean === cleanDigits || pPhoneClean.endsWith(cleanDigits) || cleanDigits.endsWith(pPhoneClean));
-                    if (matchId || matchPhone) {
-                        matchedPatient = p;
-                        matchedImplants = MOCK_DB.implants.filter(i => i.maBenhNhan === p.maBenhNhan);
-                        break;
-                    }
-                }
-            }
-
-            // 4. Khớp một phần Serial (chỉ áp dụng khi nhập từ 6 ký tự trở lên)
-            if (!matchedPatient && !searched && clean.length >= 6) {
-                for (const item of MOCK_DB.implants) {
-                    if (item.soSerial.toLowerCase().replace(/[^a-z0-9]/g, "").includes(clean)) {
-                        searched = item;
-                        matchedPatient = MOCK_DB.patients.find(p => p.maBenhNhan === item.maBenhNhan);
-                        if (matchedPatient) {
-                            matchedImplants = MOCK_DB.implants.filter(i => i.maBenhNhan === matchedPatient.maBenhNhan);
-                        }
-                        break;
-                    }
-                }
-            }
-
-            if (!matchedPatient && !searched) {
-                return { success: false, message: `Không tìm thấy thông tin cho từ khóa: "${rawQuery}".` };
-            }
-
-            const pObj = matchedPatient ? {
-                maBenhNhan: matchedPatient.maBenhNhan,
-                hoTen: matchedPatient.hoTen,
-                soDienThoai: matchedPatient.soDienThoai,
-                rawPhone: matchedPatient.soDienThoai,
-                ngaySinh: matchedPatient.ngaySinh,
-                diaChi: matchedPatient.diaChi,
-                ghiChu: matchedPatient.ghiChu
-            } : {
-                maBenhNhan: searched.maBenhNhan || "N/A",
-                hoTen: "Khách hàng Implant Swiss",
-                soDienThoai: "N/A",
-                rawPhone: "0900000000",
-                ngaySinh: "N/A",
-                diaChi: "N/A",
-                ghiChu: "Thông tin trụ chính hãng đã xác thực"
-            };
-
-            const finalImps = matchedImplants.length > 0 ? matchedImplants : [searched];
-            
-            // Map parsed tooth info
-            const processedImps = finalImps.map(imp => {
-                return {
-                    ...imp,
-                    toothInfo: parseToothPosition(imp.viTriRang)
-                };
-            });
-
-            let cUpper = 0;
-            let cLower = 0;
-            processedImps.forEach(i => {
-                if (i.toothInfo.jawKey === "upper") cUpper++;
-                else cLower++;
-            });
-
-            return {
-                success: true,
-                query: rawQuery,
-                patient: pObj,
-                implants: processedImps,
-                totalImplants: processedImps.length,
-                countUpper: cUpper,
-                countLower: cLower
-            };
         }
 
         // RENDER GIAO DIỆN & SƠ ĐỒ CUNG RĂNG
@@ -3135,31 +2892,32 @@
             const err = document.getElementById("otpErr");
             if (pin.length < 4) {
                 err.style.display = "block";
-                err.innerText = "Vui lòng nhập đủ 6 số!";
+                err.innerText = "Vui lòng nhập đủ mã số xác thực!";
                 return;
             }
 
-            let ok = (pin === "123456" || pin.length === 6 || pin === "6688");
-
-            if (LIVE_API_URL && activeData) {
-                try {
-                    const res = await fetch(`${LIVE_API_URL}?action=verifyOtp&query=${encodeURIComponent(activeData.query)}&otp=${encodeURIComponent(pin)}`);
-                    const d = await res.json();
-                    if (d.success) {
-                        ok = true;
-                        activeData = d;
-                    }
-                } catch (e) {}
+            if (!activeData || !activeData.query) {
+                err.style.display = "block";
+                err.innerText = "Không tìm thấy dữ liệu phiên tra cứu hiện tại!";
+                return;
             }
 
-            if (ok) {
-                isRecordUnlocked = true;
-                closeOtpModal();
-                renderWarrantyCard(activeData, true);
-                alert("🎉 Xác thực danh tính thành công qua Zalo/SMS!");
-            } else {
+            try {
+                const res = await fetch(`${LIVE_API_URL}?action=verifyOtp&query=${encodeURIComponent(activeData.query)}&otp=${encodeURIComponent(pin)}`);
+                const d = await res.json();
+                if (d && d.success) {
+                    isRecordUnlocked = true;
+                    activeData = d;
+                    closeOtpModal();
+                    renderWarrantyCard(activeData, true);
+                    alert("🎉 Xác thực danh tính thành công qua Zalo/SMS!");
+                } else {
+                    err.style.display = "block";
+                    err.innerText = (d && d.message) ? d.message : "Mã OTP/PIN không chính xác!";
+                }
+            } catch (e) {
                 err.style.display = "block";
-                err.innerText = "Mã PIN không chính xác (Thử mã: 123456)";
+                err.innerText = "Không thể kết nối máy chủ xác thực OTP. Vui lòng thử lại!";
             }
         }
 
