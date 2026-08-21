@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tra Cứu & Xác Nhận Trụ Implantswiss Chính Hãng - Novodent SA (Switzerland)</title>
-    <meta name="description" content="Hệ thống tra cứu số Serial và xác nhận nguồn gốc trụ Implantswiss chính ngạch trực tiếp từ nhà sản xuất Novodent SA (Thụy Sĩ).">
+    <title>Xác Nhận Trụ Implantswiss Chính Hãng - Novodent SA (Switzerland)</title>
+    <meta name="description" content="Hệ thống tra cứu số Serial và xác nhận nguồn gốc xuất xứ trụ Implantswiss chính hãng trực tiếp từ nhà sản xuất Novodent SA (Thụy Sĩ).">
     <link rel="icon" type="image/png" href="assets/implantswiss-logo-gray.webp">
 
     <!-- Google Fonts -->
@@ -39,19 +39,17 @@
             --accent-emerald: #10b981;
             --accent-emerald-soft: #ecfdf5;
             --accent-blue: #0284c7;
-            --accent-blue-soft: #f0f9ff;
 
             --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             --font-display: 'Montserrat', var(--font-main);
 
             --radius-sm: 6px;
             --radius-md: 12px;
-            --radius-lg: 20px;
+            --radius-lg: 18px;
             --radius-full: 9999px;
 
             --shadow-subtle: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
             --shadow-card: 0 20px 40px -15px rgba(15, 23, 42, 0.08);
-            --shadow-modal: 0 25px 60px -15px rgba(0, 0, 0, 0.35);
 
             --transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -235,7 +233,7 @@
             color: var(--brand-red);
         }
 
-        /* 3. SEARCH CONSOLE (SINGLE SERIAL INPUT) */
+        /* 3. SEARCH CONSOLE (SINGLE SERIAL INPUT WITH QUICK SAMPLES) */
         .search-section-wrap {
             margin-top: -45px;
             position: relative;
@@ -249,25 +247,40 @@
             padding: 28px 32px;
             box-shadow: var(--shadow-card);
             border: 1px solid #e2e8f0;
-            max-width: 820px;
+            max-width: 840px;
             margin: 0 auto;
         }
 
         .search-field-label {
             display: flex;
             align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .search-field-label-text {
+            display: flex;
+            align-items: center;
             gap: 8px;
             font-size: 0.86rem;
             font-weight: 800;
             color: var(--text-title);
-            margin-bottom: 14px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
-        .search-field-label i {
+        .search-field-label-text i {
             color: var(--brand-red);
             font-size: 1.05rem;
+        }
+
+        .search-hint-badge {
+            font-size: 0.74rem;
+            color: var(--text-muted);
+            background: #f1f5f9;
+            padding: 3px 10px;
+            border-radius: var(--radius-full);
+            font-weight: 600;
         }
 
         .input-action-row {
@@ -356,6 +369,36 @@
             transform: translateY(-1px);
         }
 
+        /* QUICK SAMPLE TAGS */
+        .quick-samples-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 14px;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            flex-wrap: wrap;
+        }
+
+        .quick-tag-btn {
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            color: var(--text-body);
+            padding: 3px 10px;
+            border-radius: var(--radius-full);
+            font-size: 0.74rem;
+            font-weight: 600;
+            font-family: monospace;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .quick-tag-btn:hover {
+            background: var(--brand-red-soft);
+            border-color: var(--brand-red);
+            color: var(--brand-red);
+        }
+
         /* 4. RESULT AREA */
         .warranty-result-area {
             display: none;
@@ -407,18 +450,33 @@
             box-shadow: 0 25px 50px -15px rgba(15, 23, 42, 0.1);
             overflow: hidden;
             border: 1px solid #e2e8f0;
+            position: relative;
         }
 
         .cert-header {
-            background: linear-gradient(135deg, var(--brand-red) 0%, var(--brand-red-dark) 100%);
+            background: linear-gradient(135deg, #b8040e 0%, #0f172a 100%);
             color: #ffffff;
-            padding: 24px 36px;
+            padding: 26px 36px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 16px;
-            box-shadow: 0 4px 20px rgba(227, 6, 19, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cert-header::before {
+            content: "+";
+            position: absolute;
+            right: 250px;
+            top: -20px;
+            font-size: 160px;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.04);
+            pointer-events: none;
+            line-height: 1;
         }
 
         .cert-brand-group {
@@ -428,50 +486,53 @@
         }
 
         .cert-logo {
-            height: 36px;
+            height: 38px;
             filter: brightness(0) invert(1);
         }
 
         .cert-titles h3 {
-            font-size: 1.05rem;
-            font-weight: 700;
+            font-size: 1.1rem;
+            font-weight: 800;
             color: #ffffff;
             letter-spacing: 0.5px;
             text-transform: uppercase;
         }
 
         .cert-titles p {
-            font-size: 0.72rem;
-            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.74rem;
+            color: rgba(255, 255, 255, 0.88);
             letter-spacing: 0.8px;
+            margin-top: 2px;
         }
 
         .cert-badge-genuine {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(255, 255, 255, 0.18);
-            border: 1px solid rgba(255, 255, 255, 0.35);
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid #10b981;
             color: #ffffff;
-            padding: 7px 16px;
+            padding: 8px 18px;
             border-radius: var(--radius-full);
             font-size: 0.8rem;
-            font-weight: 700;
+            font-weight: 800;
             backdrop-filter: blur(8px);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .cert-body {
-            padding: 32px 36px;
+            padding: 34px 38px;
         }
 
         /* 5 CORE COLUMNS GRID */
         .core-specs-strip {
             display: grid;
-            grid-template-columns: 1.4fr 1fr 1fr 1.2fr 1fr;
+            grid-template-columns: 1.4fr 1fr 1fr 1.3fr 1fr;
             gap: 14px;
             background: #f8fafc;
             border-radius: var(--radius-md);
-            padding: 20px 22px;
+            padding: 22px 24px;
             margin-bottom: 24px;
             border: 1px solid #edf2f7;
         }
@@ -488,32 +549,33 @@
         }
 
         .core-col .val {
-            font-size: 0.98rem;
+            font-size: 1rem;
             font-weight: 800;
             color: var(--text-title);
-            margin-top: 5px;
+            margin-top: 6px;
             word-break: break-word;
         }
 
         .core-col .val.code-highlight {
             color: var(--brand-red);
             font-family: monospace;
-            font-size: 1.02rem;
+            font-size: 1.05rem;
             letter-spacing: 0.5px;
         }
 
-        /* NOVODENT SA STATEMENT BANNER */
+        /* NOVODENT SA OFFICIAL STATEMENT CARD */
         .novodent-statement-card {
             background: #ffffff;
             border: 1px solid #cbd5e1;
             border-left: 4px solid var(--brand-red);
             border-radius: var(--radius-md);
-            padding: 18px 22px;
+            padding: 20px 24px;
             margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
         }
 
         .novodent-statement-card h4 {
-            font-size: 0.95rem;
+            font-size: 0.98rem;
             font-weight: 800;
             color: var(--text-title);
             margin-bottom: 6px;
@@ -523,58 +585,12 @@
         }
 
         .novodent-statement-card p {
-            font-size: 0.86rem;
+            font-size: 0.88rem;
             color: var(--text-body);
-            line-height: 1.55;
+            line-height: 1.6;
         }
 
-        /* MEDICAL PRECISION SPECS 4-BOX GRID */
-        .medical-specs-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            margin-bottom: 26px;
-        }
-
-        .spec-box-card {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: var(--radius-md);
-            padding: 16px 20px;
-            display: flex;
-            align-items: flex-start;
-            gap: 14px;
-        }
-
-        .spec-box-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: var(--radius-md);
-            background: var(--brand-red-soft);
-            color: var(--brand-red);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            flex-shrink: 0;
-        }
-
-        .spec-box-content h5 {
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-
-        .spec-box-content p {
-            font-size: 0.92rem;
-            color: var(--text-title);
-            font-weight: 700;
-            line-height: 1.4;
-        }
-
-        /* WARRANTY HIGHLIGHT BANNER */
+        /* LIFETIME WARRANTY BANNER */
         .warranty-lifetime-banner {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: #ffffff;
@@ -599,13 +615,13 @@
         }
 
         .warranty-banner-left h4 {
-            font-size: 0.96rem;
+            font-size: 0.98rem;
             font-weight: 700;
             margin-bottom: 3px;
         }
 
         .warranty-banner-left p {
-            font-size: 0.8rem;
+            font-size: 0.82rem;
             color: #94a3b8;
         }
 
@@ -621,12 +637,67 @@
             white-space: nowrap;
         }
 
+        /* MEDICAL SPECIFICATIONS GRID */
+        .medical-specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 26px;
+        }
+
+        .spec-box-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius-md);
+            padding: 16px 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .spec-box-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: var(--radius-md);
+            background: var(--brand-red-soft);
+            color: var(--brand-red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
+            flex-shrink: 0;
+        }
+
+        .spec-box-content h5 {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .spec-box-content p {
+            font-size: 0.94rem;
+            color: var(--text-title);
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        /* MULTIPLE MATCHES IF SEARCHED BY REF */
+        .multi-match-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius-md);
+            padding: 18px 20px;
+            margin-bottom: 24px;
+        }
+
         /* BOTTOM ACTIONS & QR */
         .cert-bottom-actions-row {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding-top: 20px;
+            padding-top: 22px;
             border-top: 1px solid #f1f5f9;
             gap: 20px;
             flex-wrap: wrap;
@@ -953,6 +1024,32 @@
             color: #ffffff;
         }
 
+        /* PRINT STYLES (A4 CERTIFICATE READY) */
+        @media print {
+            .site-header, .luxury-swiss-hero, .search-section-wrap, .swiss-features-section, .guide-steps-section, .official-footer, .action-btns-group {
+                display: none !important;
+            }
+            body {
+                background: #ffffff !important;
+            }
+            .warranty-result-area {
+                display: block !important;
+                padding: 0 !important;
+            }
+            .swiss-cert-card {
+                box-shadow: none !important;
+                border: 2px solid #0f172a !important;
+                border-radius: 0 !important;
+                max-width: 100% !important;
+            }
+            .cert-header {
+                background: #0f172a !important;
+                color: #ffffff !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+
         /* RESPONSIVE */
         @media (max-width: 1024px) {
             .core-specs-strip {
@@ -1037,7 +1134,7 @@
                 
                 <div class="hero-origin-badge">
                     <span class="swiss-flag-sq">+</span>
-                    <span>NOVODENT SA &bull; SWISS PRECISION &bull; 100% CHÍNH HÃNG</span>
+                    <span>NOVODENT SA &bull; SWISS PRECISION &bull; 100% GENUINE</span>
                 </div>
 
                 <h1 class="hero-balanced-title">
@@ -1046,7 +1143,7 @@
                 </h1>
 
                 <p class="hero-balanced-desc">
-                    Xác nhận nguồn gốc xuất xứ trụ Implantswiss chính ngạch trực tiếp từ nhà sản xuất Novodent SA (Thụy Sĩ). Tra cứu nhanh chóng theo số Serial in trên tem sản phẩm.
+                    Xác nhận nguồn gốc xuất xứ trụ Implantswiss chính hãng trực tiếp từ nhà sản xuất Novodent SA (Thụy Sĩ). Tra cứu nhanh chóng và chính xác theo số Serial in trên tem sản phẩm.
                 </p>
 
                 <div class="hero-tech-badges-row">
@@ -1074,7 +1171,10 @@
             <div class="search-console-box">
                 
                 <div class="search-field-label">
-                    <i class="fa-solid fa-barcode"></i> Nhập Số Serial / Mã CODE Trụ Để Tra Cứu
+                    <div class="search-field-label-text">
+                        <i class="fa-solid fa-barcode"></i> Nhập Số Serial / Mã CODE Trụ Để Tra Cứu
+                    </div>
+                    <span class="search-hint-badge"><i class="fa-solid fa-check"></i> Xác nhận bởi Novodent SA</span>
                 </div>
 
                 <!-- Input Form -->
@@ -1092,6 +1192,15 @@
                         </button>
                     </div>
                 </form>
+
+                <!-- Quick Samples -->
+                <div class="quick-samples-row">
+                    <span>Mẫu tra cứu nhanh:</span>
+                    <button type="button" class="quick-tag-btn" onclick="fillAndSearch('730080810250326033')">CODE: 730080810250326033</button>
+                    <button type="button" class="quick-tag-btn" onclick="fillAndSearch('730060410250509018')">CODE: 730060410250509018</button>
+                    <button type="button" class="quick-tag-btn" onclick="fillAndSearch('S-BFHR4808')">REF: S-BFHR4808</button>
+                    <button type="button" class="quick-tag-btn" onclick="fillAndSearch('250326033000')">LOT: 250326033000</button>
+                </div>
 
             </div>
         </div>
@@ -1130,7 +1239,7 @@
                     <div class="cert-brand-group">
                         <img src="assets/implantswiss-logo-gray.webp" alt="Implantswiss" class="cert-logo">
                         <div class="cert-titles">
-                            <h3>Xác Nhận Trụ Chính Hãng &bull; Novodent SA</h3>
+                            <h3>Giấy Xác Nhận Trụ Chính Hãng &bull; Novodent SA</h3>
                             <p>CHỨNG NHẬN TRỤ IMPLANTSWISS 100% CHÍNH NGẠCH THỤY SĨ</p>
                         </div>
                     </div>
@@ -1170,7 +1279,7 @@
                     <!-- NOVODENT SA STATEMENT -->
                     <div class="novodent-statement-card">
                         <h4><i class="fa-solid fa-building-circle-check" style="color:var(--brand-red);"></i> Thông Tin Xác Nhận Từ Nhà Sản Xuất Novodent SA:</h4>
-                        <p>Trụ Implant có số Serial trên được sản xuất chính hãng bởi <strong>Novodent SA (Avenue des Sciences 11, Y-Parc Technopôle, CH-1400 Yverdon-les-Bains, Switzerland)</strong>, hoàn toàn tuân thủ các tiêu chuẩn y khoa khắt khe của Thụy Sĩ và quốc tế.</p>
+                        <p>Trụ Implant có số Serial trên được sản xuất chính ngạch bởi <strong>Novodent SA (Avenue des Sciences 11, Y-Parc Technopôle, CH-1400 Yverdon-les-Bains, Switzerland)</strong>, hoàn toàn tuân thủ các tiêu chuẩn phẫu thuật cấy ghép y khoa khắt khe của Thụy Sĩ và quốc tế.</p>
                     </div>
 
                     <!-- LIFETIME WARRANTY BANNER -->
@@ -1179,7 +1288,7 @@
                             <i class="fa-solid fa-shield-halved"></i>
                             <div>
                                 <h4>Chính Sách Bảo Hành 1 Đổi 1 Trọn Đời (Lifetime Warranty)</h4>
-                                <p>Áp dụng chính sách 1-to-1 replacement warranty toàn cầu của Novodent trong trường hợp trụ không tích hợp xương.</p>
+                                <p>Áp dụng chính sách 1-to-1 replacement warranty toàn cầu của Novodent trong trường hợp trụ không tích hợp xương sinh học.</p>
                             </div>
                         </div>
                         <div class="warranty-badge-pill">
@@ -1223,7 +1332,7 @@
                     </div>
 
                     <!-- MULTIPLE MATCHES IF SEARCHED BY REF -->
-                    <div id="multiItemsWrap" style="display:none; margin-bottom:24px;">
+                    <div id="multiItemsWrap" class="multi-match-card" style="display:none;">
                         <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-title); margin-bottom:12px;">
                             <i class="fa-solid fa-list-check" style="color:var(--brand-red);"></i> Các Quy Cách Khác Cùng Mã REF:
                         </h4>
@@ -1407,6 +1516,14 @@
             }
         });
 
+        function fillAndSearch(val) {
+            const input = document.getElementById("mainInput");
+            input.value = val;
+            const clearBtn = document.getElementById("clearTxtBtn");
+            if (clearBtn) clearBtn.style.display = "flex";
+            handleDoSearch(new Event("submit"));
+        }
+
         function clearTxt() {
             const input = document.getElementById("mainInput");
             input.value = "";
@@ -1495,7 +1612,7 @@
                 multiList.innerHTML = "";
                 data.implants.slice(1).forEach(item => {
                     const row = document.createElement("div");
-                    row.style.cssText = "background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:10px 14px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; font-size:0.84rem;";
+                    row.style.cssText = "background:#ffffff; border:1px solid #e2e8f0; border-radius:6px; padding:10px 14px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; font-size:0.84rem;";
                     row.innerHTML = `
                         <div>
                             <strong>${item.productName}</strong> &bull; Size: <strong style="color:var(--brand-red);">${item.size}</strong> &bull; LOT: <code>${item.lot}</code>
