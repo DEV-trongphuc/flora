@@ -1948,35 +1948,76 @@
                 <!-- Body -->
                 <div class="cert-body">
                     
-                    <!-- TAB BENH_NHAN: 5 THÔNG SỐ CỐT LÕI TRỤ CHUẨN TỪ SHEET -->
-                    <div class="patient-profile-strip" style="grid-template-columns: 1.3fr 1fr 1fr 1.2fr 1fr;">
-                        <div class="patient-col">
-                            <span class="lbl"><i class="fa-solid fa-tooth"></i> Tên Sản Phẩm</span>
-                            <div class="val" id="outProdName">Bone Level Fixture Hybrid</div>
+                    <!-- 1. HÀNG THÔNG SỐ CƠ BẢN (3 CỘT RỘNG RÃI) -->
+                    <div style="display:grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 14px; margin-bottom: 16px;">
+                        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:16px 18px;">
+                            <div style="font-size:0.75rem; font-weight:700; color:#64748b; text-transform:uppercase; display:flex; align-items:center; gap:6px;">
+                                <i class="fa-solid fa-tooth" style="color:var(--brand-red);"></i> Tên Sản Phẩm (Product Name)
+                            </div>
+                            <div id="outProdName" style="font-size:1.05rem; font-weight:800; color:#0f172a; margin-top:6px;">Bone Level Fixture Hybrid</div>
                         </div>
-                        <div class="patient-col">
-                            <span class="lbl"><i class="fa-solid fa-tag"></i> Mã REF</span>
-                            <div class="val" id="outRef">S-BFHR4808</div>
+
+                        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:16px 18px;">
+                            <div style="font-size:0.75rem; font-weight:700; color:#64748b; text-transform:uppercase; display:flex; align-items:center; gap:6px;">
+                                <i class="fa-solid fa-tag" style="color:var(--brand-red);"></i> Mã REF
+                            </div>
+                            <div id="outRef" style="font-size:1.05rem; font-weight:800; color:#0f172a; margin-top:6px;">S-BFHR4308</div>
                         </div>
-                        <div class="patient-col">
-                            <span class="lbl"><i class="fa-solid fa-ruler-combined"></i> Kích Thước (Size)</span>
-                            <div class="val" id="outSize">4.8X08 mm</div>
-                        </div>
-                        <div class="patient-col">
-                            <span class="lbl"><i class="fa-solid fa-barcode"></i> Số Serial / CODE</span>
-                            <div class="val" id="outCode" style="color:var(--brand-red); font-family:monospace;">730080810250326033</div>
-                        </div>
-                        <div class="patient-col">
-                            <span class="lbl"><i class="fa-solid fa-boxes-stacked"></i> Số LOT</span>
-                            <div class="val" id="outLot">250326033000</div>
+
+                        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:16px 18px;">
+                            <div style="font-size:0.75rem; font-weight:700; color:#64748b; text-transform:uppercase; display:flex; align-items:center; gap:6px;">
+                                <i class="fa-solid fa-ruler-combined" style="color:var(--brand-red);"></i> Kích Thước (Size)
+                            </div>
+                            <div id="outSize" style="font-size:1.05rem; font-weight:800; color:#0f172a; margin-top:6px;">4.3X08 mm</div>
                         </div>
                     </div>
 
-                    <!-- THÔNG TIN XÁC NHẬN TỪ NHÀ SẢN XUẤT NOVODENT SA -->
-                    <div class="patient-extra-row" style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:var(--radius-md); padding:16px 20px; margin-bottom:20px;">
-                        <div class="extra-item" style="width:100%; line-height:1.6;">
-                            <i class="fa-solid fa-shield-halved" style="color:var(--brand-red); font-size:1.15rem; margin-right:8px;"></i>
-                            <strong>Xác nhận từ Novodent SA (Thụy Sĩ):</strong> Trụ Implant chính ngạch được chế tác tại <strong>Novodent SA (Avenue des Sciences 11, CH-1400 Yverdon-les-Bains, Switzerland)</strong>, đạt chuẩn y tế CE 1984 & ISO 13485, áp dụng <strong>chính sách bảo hành 1 đổi 1 trọn đời (Lifetime 1-to-1 Replacement Warranty)</strong>.
+                    <!-- 2. HÀNG MÃ ĐỊNH DANH TRỤ & SỐ LÔ (2 CỘT RỘNG THOÁNG, KHÔNG BỊ CO CỤM MÃ DÀI) -->
+                    <div style="display:grid; grid-template-columns: 2fr 1fr; gap: 14px; margin-bottom: 20px;">
+                        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:16px 18px;">
+                            <div style="font-size:0.75rem; font-weight:700; color:#64748b; text-transform:uppercase; display:flex; align-items:center; gap:6px;">
+                                <i class="fa-solid fa-barcode" style="color:var(--brand-red);"></i> Số Serial / Mã CODE Trụ
+                            </div>
+                            <div id="outCode" style="font-family:monospace; font-size:0.95rem; font-weight:700; color:var(--brand-red); margin-top:6px; word-break:break-all; letter-spacing:0.5px; line-height:1.4;">
+                                0107640168180096173006041025050901800021250509018078
+                            </div>
+                        </div>
+
+                        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:16px 18px;">
+                            <div style="font-size:0.75rem; font-weight:700; color:#64748b; text-transform:uppercase; display:flex; align-items:center; gap:6px;">
+                                <i class="fa-solid fa-boxes-stacked" style="color:var(--brand-red);"></i> Số Lô Sản Xuất (LOT)
+                            </div>
+                            <div id="outLot" style="font-size:1.05rem; font-weight:800; color:#0f172a; margin-top:6px;">250509018000</div>
+                        </div>
+                    </div>
+
+                    <!-- 3. KHUNG XÁC NHẬN NGUỒN GỐC TỪ NOVODENT SA & BẢO HÀNH TRỌN ĐỜI -->
+                    <div style="background:#ffffff; border:1px solid #cbd5e1; border-left:4px solid var(--brand-red); border-radius:10px; padding:18px 22px; margin-bottom:18px; box-shadow:0 2px 8px rgba(0,0,0,0.02);">
+                        <div style="font-size:0.92rem; font-weight:800; color:#0f172a; margin-bottom:6px; display:flex; align-items:center; gap:8px;">
+                            <i class="fa-solid fa-shield-halved" style="color:var(--brand-red); font-size:1.1rem;"></i> Xác Nhận Nguồn Gốc Từ Nhà Sản Xuất Novodent SA (Thụy Sĩ)
+                        </div>
+                        <div style="font-size:0.86rem; color:#334155; line-height:1.65;">
+                            Trụ Implant chính ngạch được chế tác tại nhà máy <strong>Novodent SA (Avenue des Sciences 11, Y-Parc Technopôle, CH-1400 Yverdon-les-Bains, Switzerland)</strong>. Sản phẩm đạt tiêu chuẩn y khoa khắt khe <strong>CE 1984 & ISO 13485</strong>, áp dụng <strong>chính sách bảo hành 1 đổi 1 trọn đời (Lifetime 1-to-1 Replacement Warranty)</strong> nếu trụ không tích hợp xương sinh học.
+                        </div>
+                    </div>
+
+                    <!-- 4. 4 TIÊU CHUẨN KỸ THUẬT Y KHOA NỔI BẬT -->
+                    <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 20px;">
+                        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:10px 12px; text-align:center;">
+                            <div style="font-size:0.7rem; color:#64748b; font-weight:700; text-transform:uppercase;">Vật Liệu</div>
+                            <div style="font-size:0.84rem; font-weight:700; color:#0f172a; margin-top:2px;">Titanium G4 Thuần Khiết</div>
+                        </div>
+                        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:10px 12px; text-align:center;">
+                            <div style="font-size:0.7rem; color:#64748b; font-weight:700; text-transform:uppercase;">Bề Mặt Sinh Học</div>
+                            <div style="font-size:0.84rem; font-weight:700; color:#0f172a; margin-top:2px;">Công Nghệ SRA Surface</div>
+                        </div>
+                        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:10px 12px; text-align:center;">
+                            <div style="font-size:0.7rem; color:#64748b; font-weight:700; text-transform:uppercase;">Tiêu Chuẩn Y Tế</div>
+                            <div style="font-size:0.84rem; font-weight:700; color:#0f172a; margin-top:2px;">CE 1984 & ISO 13485</div>
+                        </div>
+                        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:10px 12px; text-align:center;">
+                            <div style="font-size:0.7rem; color:#64748b; font-weight:700; text-transform:uppercase;">Xuất Xứ Chế Tác</div>
+                            <div style="font-size:0.84rem; font-weight:700; color:#0f172a; margin-top:2px;">100% Thụy Sĩ (Swiss Made)</div>
                         </div>
                     </div>
 
