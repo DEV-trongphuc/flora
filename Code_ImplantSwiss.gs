@@ -1,6 +1,6 @@
 /**
  * =========================================================================================
- * GOOGLE APPS SCRIPT - HỆ THỐNG TRA CỨU BẢO HÀNH IMPLANT SWISS CHÍNH HÃNG (SWISS PRECISION)
+ * GOOGLE APPS SCRIPT - HỆ THỐNG TRA CỨU BẢO HÀNH IMPLANTSWISS CHÍNH HÃNG (SWISS PRECISION)
  * =========================================================================================
  * Spreadsheet ID: 1ZyzEsatFjyjcqCA6Hn0SrA6jDoq05SV7ytv94vyvKD8
  * Web App URL: https://script.google.com/macros/s/AKfycbxdooZ9kbQaMjC9qFjoDLLd_zst4tfoP_qxFk6P9Zt2wI5r162VananHRYMB2H1JffjbA/exec
@@ -25,7 +25,7 @@
  *   - Cột B (2): Số Serial             (VD: 2103170033110, 220707049107, 220805031001)
  *   - Cột C (3): Mã Bệnh Nhân          (VD: 3815, 3877)
  *   - Cột D (4): Vị Trí Răng           (VD: r47, r17, r46, r37, r36, r27, r16, R 1 2)
- *   - Cột E (5): Hệ Thống Implant      (VD: Implant Swiss Classic System)
+ *   - Cột E (5): Hệ Thống Implant      (VD: Implantswiss Classic System)
  *   - Cột F (6): Kích Thước            (VD: 4.8x10mm, 4.3x8mm, 4.3x10mm)
  *   - Cột G (7): Ngày Cấy Ghép         (VD: 29/08/2023)
  *   - Cột H (8): Bác Sĩ Thực Hiện      (VD: Bác sĩ Minh, BS. CKI Nguyễn Đắc Minh)
@@ -88,7 +88,7 @@ function handleRequest(e) {
       case "ping":
         result = { 
           success: true, 
-          message: "Implant Swiss Warranty API is online & ready!", 
+          message: "Implantswiss Warranty API is online & ready!", 
           timestamp: new Date().toISOString() 
         };
         break;
@@ -456,7 +456,7 @@ function searchWarrantyData(rawQuery, returnFullInfo) {
     isMasked: isMasked
   } : {
     maBenhNhan: searchedSerialItem ? searchedSerialItem.maBenhNhan : "N/A",
-    hoTen: "Khách hàng Implant Swiss",
+    hoTen: "Khách hàng Implantswiss",
     soDienThoai: "N/A",
     rawPhone: "0900000000",
     ngaySinh: "N/A",
@@ -471,14 +471,14 @@ function searchWarrantyData(rawQuery, returnFullInfo) {
     isMasked: isMasked,
     verificationCode: "SWISS-AUTH-" + Math.abs(hashCode(rawQuery + (matchedPatient ? matchedPatient.maBenhNhan : ""))).toString().padStart(6, "0"),
     verifiedTime: Utilities.formatDate(new Date(), "Asia/Ho_Chi_Minh", "dd/MM/yyyy HH:mm:ss"),
-    brand: "Implant Swiss (Switzerland)",
+    brand: "Implantswiss (Switzerland)",
     patient: processedPatient,
     implants: finalImplants,
     totalImplants: finalImplants.length,
     countUpper: countUpper,
     countLower: countLower,
     searchedSerial: searchedSerialItem ? searchedSerialItem.soSerial : null,
-    message: "Xác thực bảo hành chính hãng Implant Swiss thành công!"
+    message: "Xác thực bảo hành chính hãng Implantswiss thành công!"
   };
 }
 
@@ -588,7 +588,7 @@ function mapImplantRow(row, map) {
     maBenhNhan: String(row[pIdIdx] || "").trim(),
     viTriRang: rawTooth,
     toothInfo: parsedTooth, // Thông tin tự động nhận diện Hàm Trên / Hàm Dưới
-    heThongImplant: String(row[sysIdx] || "Implant Swiss Classic System").trim(),
+    heThongImplant: String(row[sysIdx] || "Implantswiss Classic System").trim(),
     kichThuoc: String(row[sizeIdx] || "Ø 4.0 x 10 mm").trim(),
     ngayCayGhep: surgeryDateStr,
     bacSiThucHien: String(row[docIdx] || "BS. Chuyên Khoa Implant").trim(),
@@ -721,8 +721,8 @@ function initSampleData() {
     ["Mã Bệnh Nhân", "Họ và Tên", "Số Điện Thoại", "Ngày nhận bệnh", "Địa Chỉ", "Ghi Chú"]
   ];
   const sampleBN = [
-    ["3815", "Đỗ Ngọc Dũng", "0962138946", "29/08/2023", "Hồ Chí Minh", "Cấy 7 trụ Implant Swiss toàn hàm, lành thương hoàn hảo"],
-    ["3877", "Hoàng Thanh Thúy", "0675466123", "12/09/2023", "Hồ Chí Minh", "Phục hình toàn sứ trên Implant Swiss"]
+    ["3815", "Đỗ Ngọc Dũng", "0962138946", "29/08/2023", "Hồ Chí Minh", "Cấy 7 trụ Implantswiss toàn hàm, lành thương hoàn hảo"],
+    ["3877", "Hoàng Thanh Thúy", "0675466123", "12/09/2023", "Hồ Chí Minh", "Phục hình toàn sứ trên Implantswiss"]
   ];
   sheetBN.getRange(1, 1, 1, 6).setValues(headerBN).setBackground("#e30613").setFontColor("#ffffff").setFontWeight("bold");
   sheetBN.getRange(2, 1, sampleBN.length, 6).setValues(sampleBN);
@@ -739,15 +739,15 @@ function initSampleData() {
     ["Ref", "Số Serial", "Mã Bệnh Nhân", "Vị Trí Răng", "Hệ Thống Implant", "Kích Thước", "Ngày Cấy Ghép", "Bác Sĩ Thực Hiện", "Phòng Khám", "Thời Gian Bảo Hành (Năm)"]
   ];
   const sampleTRU = [
-    ["S-BFHR4810", "2103170033110", "3815", "r47", "Implant Swiss Classic System", "4.8x10mm", "29/08/2023", "Bác sĩ Minh", "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai", "10"],
-    ["S-BFHR4808", "220707049107", "3815", "r17", "Implant Swiss Classic System", "4.3x8mm", "29/08/2023", "Bác sĩ Minh", "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai", "10"],
-    ["S-BFHR4310", "220805031001", "3815", "r46", "Implant Swiss Classic System", "4.3x10mm", "29/08/2023", "Bác sĩ Minh", "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai", "10"],
-    ["S-BFHR4310", "2208113012045", "3815", "r37", "Implant Swiss Classic System", "4.3x10mm", "29/08/2023", "Bác sĩ Minh", "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai", "10"],
-    ["S-BFHR4310", "220804050139", "3815", "r36", "Implant Swiss Classic System", "4.3x10mm", "29/08/2023", "Bác sĩ Minh", "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai", "10"],
-    ["S-BFHR4808", "220616060138", "3815", "r27", "Implant Swiss Classic System", "4.8x8mm", "29/08/2023", "Bác sĩ Minh", "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai", "10"],
-    ["S-BFHR4308", "220707049094", "3815", "r16", "Implant Swiss Classic System", "4.3x8mm", "29/08/2023", "Bác sĩ Minh", "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai", "10"],
-    ["S-BFHR4308", "220707049072", "3877", "r36", "Implant Swiss Classic System", "4.3x8mm", "12/09/2023", "Bác sĩ Minh", "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai", "10"],
-    ["S-BMFSR4806", "201006036073", "3877", "r37", "Implant Swiss Classic System", "4.8x6mm", "12/09/2023", "Bác sĩ Minh", "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai", "10"]
+    ["S-BFHR4810", "2103170033110", "3815", "r47", "Implantswiss Classic System", "4.8x10mm", "29/08/2023", "Bác sĩ Minh", "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai", "10"],
+    ["S-BFHR4808", "220707049107", "3815", "r17", "Implantswiss Classic System", "4.3x8mm", "29/08/2023", "Bác sĩ Minh", "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai", "10"],
+    ["S-BFHR4310", "220805031001", "3815", "r46", "Implantswiss Classic System", "4.3x10mm", "29/08/2023", "Bác sĩ Minh", "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai", "10"],
+    ["S-BFHR4310", "2208113012045", "3815", "r37", "Implantswiss Classic System", "4.3x10mm", "29/08/2023", "Bác sĩ Minh", "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai", "10"],
+    ["S-BFHR4310", "220804050139", "3815", "r36", "Implantswiss Classic System", "4.3x10mm", "29/08/2023", "Bác sĩ Minh", "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai", "10"],
+    ["S-BFHR4808", "220616060138", "3815", "r27", "Implantswiss Classic System", "4.8x8mm", "29/08/2023", "Bác sĩ Minh", "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai", "10"],
+    ["S-BFHR4308", "220707049094", "3815", "r16", "Implantswiss Classic System", "4.3x8mm", "29/08/2023", "Bác sĩ Minh", "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai", "10"],
+    ["S-BFHR4308", "220707049072", "3877", "r36", "Implantswiss Classic System", "4.3x8mm", "12/09/2023", "Bác sĩ Minh", "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai", "10"],
+    ["S-BMFSR4806", "201006036073", "3877", "r37", "Implantswiss Classic System", "4.8x6mm", "12/09/2023", "Bác sĩ Minh", "Nha Khoa Flora - Chi nhánh 326 Nguyễn Thị Minh Khai", "10"]
   ];
   sheetTRU.getRange(1, 1, 1, 10).setValues(headerTRU).setBackground("#1e293b").setFontColor("#ffffff").setFontWeight("bold");
   sheetTRU.getRange(2, 1, sampleTRU.length, 10).setValues(sampleTRU);
