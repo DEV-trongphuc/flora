@@ -180,18 +180,19 @@ function searchImplantData(rawQuery) {
   const primaryItem = matchedList[0];
   const now = new Date();
   const timeStr = Utilities.formatDate(now, "Asia/Ho_Chi_Minh", "dd/MM/yyyy HH:mm:ss");
-  const authCode = "SWISS-AUTH-" + Math.abs(hashCode(primaryItem.code + primaryItem.lot + primaryItem.ref));
+  const authCode = "NOVODENT-SWISS-" + Math.abs(hashCode(primaryItem.code + primaryItem.lot + primaryItem.ref));
 
   return {
     success: true,
     query: rawQuery,
     verificationCode: authCode,
     verifiedTime: timeStr,
-    brand: "Implantswiss (Switzerland)",
+    manufacturer: "Novodent SA (Switzerland)",
+    brand: "Implantswiss",
     totalItems: matchedList.length,
     implant: primaryItem,
     implants: matchedList,
-    message: "Xác thực trụ Implantswiss chính hãng Thụy Sĩ thành công!"
+    message: "Xác nhận trụ Implantswiss chính hãng từ Novodent SA (Thụy Sĩ) thành công!"
   };
 }
 
