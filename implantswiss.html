@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xác Nhận Trụ Implantswiss Chính Hãng - Novodent SA (Switzerland)</title>
-    <meta name="description" content="Hệ thống tra cứu số Serial và xác nhận nguồn gốc xuất xứ trụ Implantswiss chính hãng trực tiếp từ nhà sản xuất Novodent SA (Thụy Sĩ).">
+    <title>Tra Cứu Bảo Hành Điện Tử & Xác Thực Trụ Implantswiss Chính Hãng</title>
+    <meta name="description" content="Hệ thống tra cứu bảo hành điện tử, sơ đồ vị trí răng và chứng nhận trụ Implantswiss chính hãng Thụy Sĩ.">
     <link rel="icon" type="image/png" href="assets/implantswiss-logo-gray.webp">
 
     <!-- Google Fonts -->
@@ -18,6 +18,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
     <style>
+        /* ==========================================================================
+           1. DESIGN SYSTEM - SWISS LUXURY CLINIC (CLEAN, MINIMAL & INTUITIVE)
+           ========================================================================== */
         :root {
             --brand-red: #e30613;
             --brand-red-dark: #b8040e;
@@ -39,17 +42,19 @@
             --accent-emerald: #10b981;
             --accent-emerald-soft: #ecfdf5;
             --accent-blue: #0284c7;
+            --accent-blue-soft: #f0f9ff;
 
             --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             --font-display: 'Montserrat', var(--font-main);
 
             --radius-sm: 6px;
             --radius-md: 12px;
-            --radius-lg: 18px;
+            --radius-lg: 20px;
             --radius-full: 9999px;
 
             --shadow-subtle: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
             --shadow-card: 0 20px 40px -15px rgba(15, 23, 42, 0.08);
+            --shadow-modal: 0 25px 60px -15px rgba(0, 0, 0, 0.35);
 
             --transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -78,7 +83,9 @@
             padding: 0 24px;
         }
 
-        /* 1. BRAND NAVBAR */
+        /* ==========================================================================
+           2. BRAND NAVBAR
+           ========================================================================== */
         .site-header {
             background: #ffffff;
             border-bottom: 1px solid #f1f5f9;
@@ -102,43 +109,44 @@
         }
 
         .brand-logo-link img {
-            height: 38px;
+            height: 40px;
             width: auto;
             object-fit: contain;
         }
 
         .nav-links-list {
             display: flex;
-            align-items: center;
-            gap: 28px;
             list-style: none;
+            align-items: center;
+            gap: 30px;
         }
 
-        .nav-links-list a {
-            text-decoration: none;
-            font-size: 0.88rem;
+        .nav-links-list li a {
+            font-size: 0.9rem;
             font-weight: 600;
-            color: var(--text-body);
+            color: #334155;
+            text-decoration: none;
             transition: var(--transition);
         }
 
-        .nav-links-list a:hover {
+        .nav-links-list li a:hover,
+        .nav-links-list li.active a {
             color: var(--brand-red);
         }
 
         .btn-header-hotline {
+            background: var(--brand-red);
+            color: #ffffff;
+            padding: 8px 18px;
+            border-radius: var(--radius-full);
+            font-size: 0.84rem;
+            font-weight: 700;
+            text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: var(--brand-red);
-            color: #ffffff;
-            font-size: 0.84rem;
-            font-weight: 700;
-            padding: 9px 18px;
-            border-radius: var(--radius-full);
-            text-decoration: none;
-            box-shadow: 0 4px 14px rgba(227, 6, 19, 0.25);
             transition: var(--transition);
+            box-shadow: 0 4px 14px rgba(227, 6, 19, 0.25);
         }
 
         .btn-header-hotline:hover {
@@ -146,65 +154,109 @@
             transform: translateY(-1px);
         }
 
-        /* 2. HERO SECTION */
+        /* ==========================================================================
+           3. LUXURY SWISS ALPS HERO SECTION (MONOCHROME GRAYSCALE B&W)
+           ========================================================================== */
         .luxury-swiss-hero {
             position: relative;
-            background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
-            padding: 60px 0 85px;
+            background: #090d16;
+            color: #ffffff;
+            padding: 70px 0 105px;
+            box-shadow: inset 0 -20px 50px rgba(0,0,0,0.6);
             text-align: center;
-            border-bottom: 1px solid #e2e8f0;
+            overflow: hidden;
+        }
+
+        .luxury-swiss-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://owa.bestprice.vn/images/articles/uploads/chinh-phuc-nui-titlis-dinh-nui-than-tien-hung-vi-tai-thuy-si-678a1f2600eee.png');
+            background-size: cover;
+            background-position: center 68%;
+            background-repeat: no-repeat;
+            filter: grayscale(100%) contrast(125%) brightness(0.62);
+            z-index: 1;
+        }
+
+        .luxury-swiss-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(9, 13, 22, 0.45) 0%, rgba(9, 13, 22, 0.85) 100%);
+            z-index: 1;
+        }
+
+        .hero-centered-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
 
         .hero-origin-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
+            background: rgba(227, 6, 19, 0.18);
+            border: 1px solid rgba(227, 6, 19, 0.45);
             padding: 6px 18px;
             border-radius: var(--radius-full);
-            font-size: 0.76rem;
-            font-weight: 800;
-            color: var(--brand-red);
-            letter-spacing: 0.8px;
-            box-shadow: var(--shadow-subtle);
-            margin-bottom: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
             text-transform: uppercase;
+            color: #ffffff;
+            margin-bottom: 18px;
+            backdrop-filter: blur(10px);
         }
 
         .swiss-flag-sq {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 16px;
-            height: 16px;
+            display: inline-block;
+            width: 15px;
+            height: 15px;
             background: var(--brand-red);
             color: #ffffff;
-            font-size: 0.72rem;
+            font-size: 11px;
             font-weight: 900;
             border-radius: 2px;
+            text-align: center;
+            line-height: 15px;
         }
 
         .hero-balanced-title {
             font-family: var(--font-display);
-            font-size: 2.35rem;
+            font-size: 2.45rem;
             font-weight: 800;
-            line-height: 1.25;
-            color: var(--text-title);
+            line-height: 1.3;
+            color: #ffffff;
             margin-bottom: 16px;
-            letter-spacing: -0.5px;
+            text-wrap: balance;
+            letter-spacing: -0.3px;
         }
 
-        .brand-red-accent {
-            color: var(--brand-red);
+        .hero-balanced-title .nowrap-chunk {
+            white-space: nowrap;
+        }
+
+        .hero-balanced-title .brand-red-accent {
+            color: #ff3844;
         }
 
         .hero-balanced-desc {
-            max-width: 720px;
+            font-size: 1.02rem;
+            color: #ffffff;
+            opacity: 0.92;
+            max-width: 740px;
             margin: 0 auto 28px;
-            font-size: 0.95rem;
-            color: var(--text-muted);
             line-height: 1.6;
+            text-wrap: balance;
         }
 
         .hero-tech-badges-row {
@@ -218,110 +270,114 @@
         .hero-tech-pill {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            padding: 7px 16px;
+            gap: 8px;
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 6px 18px;
             border-radius: var(--radius-full);
-            font-size: 0.76rem;
+            font-size: 0.8rem;
             font-weight: 700;
-            color: var(--text-title);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            letter-spacing: 0.8px;
+            color: #ffffff;
+            backdrop-filter: blur(10px);
         }
 
         .hero-tech-pill i {
-            color: var(--brand-red);
+            color: #ff3844;
         }
 
-        /* 3. SEARCH CONSOLE (SINGLE SERIAL INPUT WITH QUICK SAMPLES) */
+        /* ==========================================================================
+           4. SEARCH CONSOLE (CLEAN, ELEVATED)
+           ========================================================================== */
         .search-section-wrap {
-            margin-top: -45px;
+            margin-top: -48px;
             position: relative;
-            z-index: 20;
-            padding-bottom: 30px;
+            z-index: 10;
+            padding-bottom: 35px;
         }
 
         .search-console-box {
             background: #ffffff;
             border-radius: var(--radius-lg);
-            padding: 28px 32px;
-            box-shadow: var(--shadow-card);
-            border: 1px solid #e2e8f0;
-            max-width: 840px;
+            padding: 28px 36px;
+            box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.1), 0 0 0 1px rgba(241, 245, 249, 1);
+            max-width: 940px;
             margin: 0 auto;
         }
 
-        .search-field-label {
+        .search-tabs-row {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 12px;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
         }
 
-        .search-field-label-text {
-            display: flex;
+        .tab-btn {
+            background: #f8fafc;
+            border: 1px solid transparent;
+            color: #64748b;
+            padding: 8px 20px;
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
             align-items: center;
             gap: 8px;
-            font-size: 0.86rem;
-            font-weight: 800;
-            color: var(--text-title);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            transition: var(--transition);
         }
 
-        .search-field-label-text i {
-            color: var(--brand-red);
-            font-size: 1.05rem;
-        }
-
-        .search-hint-badge {
-            font-size: 0.74rem;
-            color: var(--text-muted);
+        .tab-btn:hover {
             background: #f1f5f9;
-            padding: 3px 10px;
-            border-radius: var(--radius-full);
-            font-weight: 600;
+            color: var(--text-title);
+        }
+
+        .tab-btn.active {
+            background: #0f172a;
+            color: #ffffff;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.18);
         }
 
         .input-action-row {
             display: flex;
-            align-items: center;
             gap: 12px;
+            position: relative;
         }
 
         .input-wrap-relative {
-            position: relative;
             flex: 1;
+            position: relative;
         }
 
-        .prefix-icon {
+        .input-wrap-relative i.prefix-icon {
             position: absolute;
             left: 18px;
             top: 50%;
             transform: translateY(-50%);
-            color: var(--text-light);
+            color: var(--brand-red);
             font-size: 1.1rem;
         }
 
         .main-search-input {
             width: 100%;
-            height: 56px;
-            padding: 0 46px 0 52px;
-            font-family: var(--font-main);
-            font-size: 1.02rem;
+            height: 54px;
+            padding: 0 46px 0 48px;
+            border: 1.5px solid #e2e8f0;
+            border-radius: var(--radius-md);
+            font-size: 1rem;
             font-weight: 600;
             color: var(--text-title);
             background: #f8fafc;
-            border: 2px solid #e2e8f0;
-            border-radius: var(--radius-md);
-            outline: none;
             transition: var(--transition);
         }
 
         .main-search-input:focus {
+            outline: none;
             border-color: var(--brand-red);
             background: #ffffff;
-            box-shadow: 0 0 0 4px rgba(227, 6, 19, 0.1);
+            box-shadow: 0 0 0 3px var(--brand-red-soft);
         }
 
         .btn-clear-txt {
@@ -329,84 +385,58 @@
             right: 14px;
             top: 50%;
             transform: translateY(-50%);
-            background: none;
+            width: 24px;
+            height: 24px;
+            background: #e2e8f0;
             border: none;
-            color: var(--text-light);
-            cursor: pointer;
+            border-radius: 50%;
+            color: #64748b;
+            font-size: 0.72rem;
             display: none;
             align-items: center;
             justify-content: center;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-        }
-
-        .btn-clear-txt:hover {
-            background: #e2e8f0;
-            color: var(--text-title);
+            cursor: pointer;
         }
 
         .btn-do-search {
-            height: 56px;
-            padding: 0 32px;
-            background: var(--brand-red);
+            height: 54px;
+            padding: 0 34px;
+            background: linear-gradient(135deg, var(--brand-red) 0%, var(--brand-red-dark) 100%);
             color: #ffffff;
             border: none;
             border-radius: var(--radius-md);
-            font-size: 0.96rem;
+            font-size: 0.95rem;
             font-weight: 700;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             box-shadow: 0 4px 16px rgba(227, 6, 19, 0.3);
             transition: var(--transition);
             white-space: nowrap;
         }
 
         .btn-do-search:hover {
-            background: var(--brand-red-dark);
             transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(227, 6, 19, 0.4);
         }
 
-        /* QUICK SAMPLE TAGS */
-        .quick-samples-row {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 14px;
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            flex-wrap: wrap;
-        }
-
-        .quick-tag-btn {
-            background: #f1f5f9;
-            border: 1px solid #e2e8f0;
-            color: var(--text-body);
-            padding: 3px 10px;
-            border-radius: var(--radius-full);
-            font-size: 0.74rem;
-            font-weight: 600;
-            font-family: monospace;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .quick-tag-btn:hover {
-            background: var(--brand-red-soft);
-            border-color: var(--brand-red);
-            color: var(--brand-red);
-        }
-
-        /* 4. RESULT AREA */
+        /* ==========================================================================
+           5. RESULT VIEW - SWISS DIGITAL CERTIFICATE
+           ========================================================================== */
         .warranty-result-area {
+            padding: 5px 0 50px;
             display: none;
-            padding: 20px 0 60px;
         }
 
         .warranty-result-area.active {
             display: block;
+            animation: fadeInCard 0.35s ease-out forwards;
+        }
+
+        @keyframes fadeInCard {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .loading-wrap {
@@ -431,17 +461,16 @@
 
         .notfound-card {
             display: none;
-            max-width: 620px;
+            max-width: 600px;
             margin: 0 auto;
             background: #ffffff;
             border-radius: var(--radius-lg);
             padding: 36px 30px;
             text-align: center;
             box-shadow: var(--shadow-card);
-            border: 1px solid #e2e8f0;
         }
 
-        /* SWISS PRODUCT CERTIFICATE CARD (NOVODENT SA VERIFIED) */
+        /* UNIFIED SWISS CERTIFICATE CARD */
         .swiss-cert-card {
             max-width: 1080px;
             margin: 0 auto;
@@ -449,34 +478,20 @@
             border-radius: var(--radius-lg);
             box-shadow: 0 25px 50px -15px rgba(15, 23, 42, 0.1);
             overflow: hidden;
-            border: 1px solid #e2e8f0;
-            position: relative;
+            border: 1px solid #f1f5f9;
         }
 
+        /* CERTIFICATE HEADER (SWISS RED LUXURY) */
         .cert-header {
-            background: linear-gradient(135deg, #b8040e 0%, #0f172a 100%);
+            background: linear-gradient(135deg, var(--brand-red) 0%, var(--brand-red-dark) 100%);
             color: #ffffff;
-            padding: 26px 36px;
+            padding: 24px 36px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cert-header::before {
-            content: "+";
-            position: absolute;
-            right: 250px;
-            top: -20px;
-            font-size: 160px;
-            font-weight: 900;
-            color: rgba(255, 255, 255, 0.04);
-            pointer-events: none;
-            line-height: 1;
+            box-shadow: 0 4px 20px rgba(227, 6, 19, 0.2);
         }
 
         .cert-brand-group {
@@ -486,210 +501,568 @@
         }
 
         .cert-logo {
-            height: 38px;
+            height: 36px;
             filter: brightness(0) invert(1);
         }
 
         .cert-titles h3 {
-            font-size: 1.1rem;
-            font-weight: 800;
+            font-size: 1.05rem;
+            font-weight: 700;
             color: #ffffff;
             letter-spacing: 0.5px;
             text-transform: uppercase;
         }
 
         .cert-titles p {
-            font-size: 0.74rem;
+            font-size: 0.72rem;
             color: rgba(255, 255, 255, 0.88);
             letter-spacing: 0.8px;
-            margin-top: 2px;
         }
 
         .cert-badge-genuine {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(16, 185, 129, 0.2);
-            border: 1px solid #10b981;
+            background: rgba(255, 255, 255, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.35);
             color: #ffffff;
-            padding: 8px 18px;
+            padding: 7px 16px;
             border-radius: var(--radius-full);
             font-size: 0.8rem;
-            font-weight: 800;
+            font-weight: 700;
             backdrop-filter: blur(8px);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
+        /* CERTIFICATE BODY */
         .cert-body {
-            padding: 34px 38px;
+            padding: 32px 36px;
         }
 
-        /* 5 CORE COLUMNS GRID */
-        .core-specs-strip {
+        /* PATIENT PROFILE INFO */
+        .patient-profile-strip {
             display: grid;
-            grid-template-columns: 1.4fr 1fr 1fr 1.3fr 1fr;
-            gap: 14px;
+            grid-template-columns: 1.2fr 1fr 1fr 1fr;
+            gap: 16px;
             background: #f8fafc;
             border-radius: var(--radius-md);
-            padding: 22px 24px;
+            padding: 18px 22px;
             margin-bottom: 24px;
-            border: 1px solid #edf2f7;
         }
 
-        .core-col .lbl {
+        .patient-col .lbl {
             font-size: 0.72rem;
             color: var(--text-muted);
             text-transform: uppercase;
-            font-weight: 700;
+            font-weight: 600;
             display: flex;
             align-items: center;
             gap: 6px;
-            letter-spacing: 0.5px;
         }
 
-        .core-col .val {
-            font-size: 1rem;
-            font-weight: 800;
+        .patient-col .val {
+            font-size: 0.95rem;
+            font-weight: 700;
             color: var(--text-title);
-            margin-top: 6px;
-            word-break: break-word;
+            margin-top: 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
         }
 
-        .core-col .val.code-highlight {
-            color: var(--brand-red);
-            font-family: monospace;
-            font-size: 1.05rem;
-            letter-spacing: 0.5px;
+        .btn-inline-unlock {
+            background: #0f172a;
+            color: #ffffff;
+            border: none;
+            padding: 3px 10px;
+            border-radius: var(--radius-sm);
+            font-size: 0.72rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: var(--transition);
         }
 
-        /* NOVODENT SA OFFICIAL STATEMENT CARD */
-        .novodent-statement-card {
-            background: #ffffff;
-            border: 1px solid #cbd5e1;
-            border-left: 4px solid var(--brand-red);
-            border-radius: var(--radius-md);
-            padding: 20px 24px;
+        .btn-inline-unlock:hover {
+            background: var(--brand-red);
+        }
+
+        /* PATIENT DETAIL ROW */
+        .patient-extra-row {
+            display: flex;
+            gap: 24px;
+            padding: 0 4px 16px;
             margin-bottom: 24px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            font-size: 0.85rem;
+            color: #475569;
+            flex-wrap: wrap;
+            border-bottom: 1px dashed #e2e8f0;
         }
 
-        .novodent-statement-card h4 {
-            font-size: 0.98rem;
+        .patient-extra-row .extra-item strong {
+            color: var(--text-title);
+        }
+
+        /* ==========================================================================
+           5.1 SƠ ĐỒ RĂNG TRỰC QUAN (INTERACTIVE DENTAL ODONTOGRAM)
+           ========================================================================== */
+        .dental-chart-wrapper {
+            background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+            border: 1.5px solid #e2e8f0;
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            margin-bottom: 28px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            position: relative;
+        }
+
+        .chart-header-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-bottom: 20px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #eef2f6;
+        }
+
+        .chart-title-box h4 {
+            font-size: 1.05rem;
             font-weight: 800;
             color: var(--text-title);
-            margin-bottom: 6px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .novodent-statement-card p {
-            font-size: 0.88rem;
-            color: var(--text-body);
-            line-height: 1.6;
+        .chart-title-box h4 i {
+            color: var(--brand-red);
         }
 
-        /* LIFETIME WARRANTY BANNER */
-        .warranty-lifetime-banner {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        .chart-title-box p {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .jaw-summary-stats {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .stat-badge {
+            padding: 5px 12px;
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .stat-badge.total {
+            background: #0f172a;
             color: #ffffff;
+        }
+
+        .stat-badge.upper {
+            background: var(--brand-red-soft);
+            color: var(--brand-red);
+            border: 1px solid rgba(227, 6, 19, 0.25);
+        }
+
+        .stat-badge.lower {
+            background: var(--accent-blue-soft);
+            color: var(--accent-blue);
+            border: 1px solid rgba(2, 132, 199, 0.25);
+        }
+
+        /* DENTAL ARCH CONTAINER */
+        .dental-arch-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .jaw-section-block {
+            background: #ffffff;
+            border: 1px solid #eef2f6;
             border-radius: var(--radius-md);
-            padding: 18px 24px;
+            padding: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .jaw-section-label {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed #f1f5f9;
+        }
+
+        .jaw-label-upper {
+            color: var(--brand-red);
+        }
+
+        .jaw-label-lower {
+            color: var(--accent-blue);
+        }
+
+        .jaw-quadrants-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .midline-divider {
+            width: 2px;
+            height: 52px;
+            background: #cbd5e1;
+            border-radius: 2px;
+            position: relative;
+        }
+
+        .midline-divider::after {
+            content: 'Giữa';
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.62rem;
+            color: #94a3b8;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .teeth-row-flex {
+            display: flex;
+            gap: 5px;
+            justify-content: space-between;
+        }
+
+        .quad-right {
+            justify-content: flex-end;
+        }
+
+        .quad-left {
+            justify-content: flex-start;
+        }
+
+        /* SINGLE TOOTH BOX */
+        .tooth-node-item {
+            flex: 1;
+            max-width: 52px;
+            min-width: 32px;
+            height: 60px;
+            background: #f8fafc;
+            border: 1.5px solid #e2e8f0;
+            border-radius: var(--radius-sm);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            user-select: none;
+        }
+
+        .tooth-node-item .t-num {
+            font-size: 0.78rem;
+            font-weight: 800;
+            color: #64748b;
+            font-family: var(--font-display);
+        }
+
+        .tooth-node-item .t-icon {
+            font-size: 0.72rem;
+            color: #94a3b8;
+        }
+
+        .tooth-node-item:hover {
+            border-color: #cbd5e1;
+            background: #f1f5f9;
+            transform: translateY(-2px);
+        }
+
+        /* ACTIVE IMPLANTED TOOTH */
+        .tooth-node-item.implanted {
+            background: linear-gradient(145deg, var(--brand-red) 0%, var(--brand-red-dark) 100%);
+            border-color: var(--brand-red);
+            color: #ffffff;
+            box-shadow: 0 4px 14px var(--brand-red-glow);
+            animation: pulseTooth 2s infinite ease-in-out;
+            cursor: pointer;
+        }
+
+        .tooth-node-item.implanted .t-num {
+            color: #ffffff;
+            font-size: 0.85rem;
+            font-weight: 900;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .tooth-node-item.implanted .t-icon {
+            color: #ffffff;
+            font-size: 0.82rem;
+            filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
+        }
+
+        @keyframes pulseTooth {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 4px 14px var(--brand-red-glow);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 6px 20px rgba(227, 6, 19, 0.55);
+            }
+        }
+
+        .dental-legend-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px dashed #e2e8f0;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
+        .legend-dot.active {
+            background: var(--brand-red);
+            box-shadow: 0 0 6px var(--brand-red-glow);
+        }
+
+        .legend-dot.natural {
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+        }
+
+        /* SECTION HEADER: DENTAL PASSPORT */
+        .cert-section-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .cert-section-head h4 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--text-title);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cert-section-head h4 i {
+            color: var(--brand-red);
+        }
+
+        /* LUXURY IMPLANT SPEC CARDS */
+        .implant-cards-list {
+            display: flex;
+            flex-direction: column;
             gap: 16px;
             margin-bottom: 24px;
         }
 
-        .warranty-banner-left {
+        .implant-spec-card {
+            background: #f8fafc;
+            border: 1.5px solid #eef2f6;
+            border-radius: var(--radius-md);
+            padding: 20px 24px;
+            transition: var(--transition);
+            scroll-margin-top: 100px;
+        }
+
+        .implant-spec-card:hover {
+            background: #ffffff;
+            border-color: #cbd5e1;
+            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .implant-spec-card.highlighted {
+            border-color: var(--brand-red);
+            background: #fff8f8;
+            box-shadow: 0 0 0 3px rgba(227, 6, 19, 0.18), 0 10px 25px -5px rgba(227, 6, 19, 0.15);
+        }
+
+        .imp-card-header {
             display: flex;
             align-items: center;
-            gap: 14px;
+            justify-content: space-between;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            gap: 12px;
         }
 
-        .warranty-banner-left i {
-            font-size: 1.6rem;
-            color: #34d399;
-        }
-
-        .warranty-banner-left h4 {
-            font-size: 0.98rem;
-            font-weight: 700;
-            margin-bottom: 3px;
-        }
-
-        .warranty-banner-left p {
-            font-size: 0.82rem;
-            color: #94a3b8;
-        }
-
-        .warranty-badge-pill {
-            background: rgba(52, 211, 153, 0.15);
-            border: 1px solid #34d399;
-            color: #34d399;
-            padding: 6px 14px;
-            border-radius: var(--radius-full);
-            font-size: 0.76rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            white-space: nowrap;
-        }
-
-        /* MEDICAL SPECIFICATIONS GRID */
-        .medical-specs-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            margin-bottom: 26px;
-        }
-
-        .spec-box-card {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: var(--radius-md);
-            padding: 16px 20px;
+        .imp-title-group {
             display: flex;
-            align-items: flex-start;
-            gap: 14px;
+            align-items: center;
+            gap: 12px;
         }
 
-        .spec-box-icon {
-            width: 42px;
-            height: 42px;
-            border-radius: var(--radius-md);
+        .imp-tooth-circle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
             background: var(--brand-red-soft);
             color: var(--brand-red);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.15rem;
-            flex-shrink: 0;
+            font-size: 1.2rem;
+            border: 1px solid rgba(227, 6, 19, 0.2);
         }
 
-        .spec-box-content h5 {
-            font-size: 0.78rem;
+        .imp-tooth-name {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--text-title);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .jaw-badge {
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: var(--radius-full);
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .jaw-badge.upper {
+            background: var(--brand-red-soft);
+            color: var(--brand-red);
+            border: 1px solid rgba(227, 6, 19, 0.3);
+        }
+
+        .jaw-badge.lower {
+            background: var(--accent-blue-soft);
+            color: var(--accent-blue);
+            border: 1px solid rgba(2, 132, 199, 0.3);
+        }
+
+        .imp-tooth-subtitle {
+            font-size: 0.76rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .imp-badges-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .imp-ref-badge {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #475569;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 4px 10px;
+            border-radius: var(--radius-sm);
+        }
+
+        .imp-serial-badge {
+            font-family: var(--font-display);
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: var(--brand-red);
+            background: #ffffff;
+            border: 1px solid rgba(227, 6, 19, 0.25);
+            padding: 4px 10px;
+            border-radius: var(--radius-sm);
+        }
+
+        .imp-status-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--accent-emerald-soft);
+            color: #047857;
+            padding: 6px 14px;
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .imp-specs-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .spec-item .s-lbl {
+            font-size: 0.72rem;
             color: var(--text-muted);
             text-transform: uppercase;
-            font-weight: 700;
-            margin-bottom: 4px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 3px;
         }
 
-        .spec-box-content p {
-            font-size: 0.94rem;
+        .spec-item .s-val {
+            font-size: 0.9rem;
+            font-weight: 700;
             color: var(--text-title);
-            font-weight: 700;
             line-height: 1.4;
+            white-space: nowrap;
         }
 
-        /* MULTIPLE MATCHES IF SEARCHED BY REF */
-        .multi-match-card {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: var(--radius-md);
-            padding: 18px 20px;
-            margin-bottom: 24px;
+        .imp-clinic-footer {
+            margin-top: 14px;
+            padding-top: 12px;
+            border-top: 1px dashed #e2e8f0;
+            font-size: 0.84rem;
+            color: #475569;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .imp-clinic-footer strong {
+            color: var(--text-title);
         }
 
         /* BOTTOM ACTIONS & QR */
@@ -697,127 +1070,148 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding-top: 22px;
+            padding-top: 18px;
             border-top: 1px solid #f1f5f9;
-            gap: 20px;
             flex-wrap: wrap;
+            gap: 16px;
         }
 
         .qr-meta-flex {
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 12px;
         }
 
         .qr-frame-box {
-            padding: 4px;
+            width: 48px;
+            height: 48px;
             background: #ffffff;
-            border: 1px solid #e2e8f0;
+            padding: 2px;
             border-radius: var(--radius-sm);
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
+        }
+
+        .qr-frame-box img {
+            width: 100%;
+            height: 100%;
         }
 
         .action-btns-group {
             display: flex;
-            align-items: center;
             gap: 10px;
+            flex-wrap: wrap;
         }
 
         .btn-cert-action {
             background: #ffffff;
-            color: var(--text-title);
-            border: 1px solid #cbd5e1;
-            padding: 9px 18px;
-            border-radius: var(--radius-sm);
+            border: 1px solid #e2e8f0;
+            color: var(--text-body);
+            padding: 8px 18px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
             font-size: 0.82rem;
-            font-weight: 700;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
-            gap: 7px;
+            gap: 6px;
             transition: var(--transition);
         }
 
         .btn-cert-action:hover {
-            background: #f8fafc;
-            border-color: var(--brand-red);
-            color: var(--brand-red);
+            background: #0f172a;
+            color: #ffffff;
+            border-color: #0f172a;
         }
 
-        /* 5. PILLARS & GUIDE SECTIONS */
+        /* ==========================================================================
+           6. SWISS EXCELLENCE PILLARS
+           ========================================================================== */
         .swiss-features-section {
-            padding: 65px 0 50px;
+            padding: 65px 0 75px;
             background: #ffffff;
-            border-top: 1px solid #e2e8f0;
         }
 
         .section-header-centered {
             text-align: center;
-            max-width: 650px;
-            margin: 0 auto 40px;
+            max-width: 780px;
+            margin: 0 auto 45px;
         }
 
         .section-eyebrow {
-            font-size: 0.76rem;
+            font-size: 0.78rem;
             font-weight: 800;
             color: var(--brand-red);
-            letter-spacing: 1px;
             text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+            display: inline-block;
         }
 
         .section-title-large {
             font-family: var(--font-display);
-            font-size: 1.85rem;
+            font-size: 2rem;
             font-weight: 800;
             color: var(--text-title);
-            margin: 6px 0 10px;
+            line-height: 1.3;
+            margin-bottom: 12px;
         }
 
         .inline-heading-logo {
-            height: 34px;
+            height: 38px;
             width: auto;
             display: inline-block;
             vertical-align: middle;
             margin-left: 6px;
+            position: relative;
+            top: -3px;
         }
 
         .section-desc-subtle {
-            font-size: 0.88rem;
+            font-size: 0.95rem;
             color: var(--text-muted);
-            line-height: 1.55;
+            line-height: 1.6;
         }
 
         .pillars-4col-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            gap: 22px;
         }
 
         .pillar-card-box {
             background: #f8fafc;
-            border: 1px solid #e2e8f0;
             border-radius: var(--radius-md);
-            padding: 24px 20px;
+            padding: 28px 22px;
+            transition: var(--transition);
             text-align: center;
         }
 
+        .pillar-card-box:hover {
+            background: #ffffff;
+            box-shadow: var(--shadow-card);
+            transform: translateY(-3px);
+        }
+
         .pillar-icon-wrap {
-            width: 48px;
-            height: 48px;
+            width: 52px;
+            height: 52px;
+            background: #ffffff;
             border-radius: 50%;
-            background: var(--brand-red-soft);
-            color: var(--brand-red);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.25rem;
-            margin: 0 auto 14px;
+            margin: 0 auto 16px;
+            font-size: 1.3rem;
+            color: var(--brand-red);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
         }
 
         .pillar-card-box h4 {
-            font-size: 0.95rem;
+            font-size: 1rem;
             font-weight: 700;
             color: var(--text-title);
             margin-bottom: 8px;
@@ -829,97 +1223,220 @@
             line-height: 1.5;
         }
 
-        /* 6. GUIDE SECTION */
+        .pillar-dots-wrap {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-top: 22px;
+        }
+
+        .p-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #cbd5e1;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: all 0.25s ease;
+        }
+
+        .p-dot.active {
+            width: 24px;
+            border-radius: 4px;
+            background: var(--brand-red);
+        }
+
+        /* 3-STEP LOOKUP GUIDE (LUXURY DARK RED GRADIENT) */
         .guide-steps-section {
-            padding: 60px 0 70px;
-            background: #f8fafc;
-            border-top: 1px solid #e2e8f0;
+            padding: 70px 0 85px;
+            background: #090d16;
+            background-image: 
+                radial-gradient(ellipse 75% 55% at 50% 15%, rgba(227, 6, 19, 0.40) 0%, rgba(184, 4, 14, 0.15) 50%, transparent 80%),
+                linear-gradient(180deg, #0b0f19 0%, #150507 50%, #000000 100%);
+            color: #ffffff;
+            position: relative;
+        }
+
+        .guide-steps-section .section-eyebrow {
+            color: #ff4d58;
+        }
+
+        .guide-steps-section .section-title-large {
+            color: #ffffff;
+        }
+
+        .guide-steps-section .section-desc-subtle {
+            color: #cbd5e1;
         }
 
         .steps-3col-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 24px;
-            margin-bottom: 45px;
         }
 
         .step-single-card {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: var(--radius-md);
-            padding: 28px 24px;
-            position: relative;
+            padding: 32px 26px;
+            backdrop-filter: blur(12px);
+            transition: var(--transition);
+        }
+
+        .step-single-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(227, 6, 19, 0.45);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px -5px rgba(227, 6, 19, 0.25);
         }
 
         .step-num-badge {
-            width: 38px;
-            height: 38px;
-            background: var(--brand-red-soft);
-            color: var(--brand-red);
+            font-size: 2.2rem;
             font-weight: 900;
-            font-size: 0.95rem;
-            border-radius: var(--radius-sm);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 16px;
+            font-family: var(--font-display);
+            color: #ff3844;
+            line-height: 1;
+            margin-bottom: 12px;
+            text-shadow: 0 0 20px rgba(227, 6, 19, 0.4);
         }
 
         .step-single-card h4 {
-            font-size: 0.98rem;
+            font-size: 1.05rem;
             font-weight: 700;
-            color: var(--text-title);
+            color: #ffffff;
             margin-bottom: 8px;
         }
 
         .step-single-card p {
-            font-size: 0.84rem;
-            color: var(--text-muted);
-            line-height: 1.55;
+            font-size: 0.85rem;
+            color: #94a3b8;
+            line-height: 1.6;
         }
 
+        /* SUPPORT CTA BANNER IN DARK RED SECTION */
         .support-cta-banner {
-            background: #0f172a;
-            color: #ffffff;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: var(--radius-lg);
-            padding: 30px 36px;
+            padding: 36px 44px;
+            color: #ffffff;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 20px;
+            gap: 24px;
             flex-wrap: wrap;
+            margin-top: 45px;
+            backdrop-filter: blur(14px);
         }
 
         .support-cta-banner h3 {
-            font-size: 1.15rem;
+            font-size: 1.35rem;
             font-weight: 700;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
+            color: #ffffff;
         }
 
         .support-cta-banner p {
-            font-size: 0.85rem;
-            color: #94a3b8;
+            color: #cbd5e1;
+            font-size: 0.88rem;
         }
 
         .btn-call-hotline {
             background: var(--brand-red);
             color: #ffffff;
-            padding: 10px 22px;
+            padding: 12px 26px;
             border-radius: var(--radius-full);
-            font-size: 0.86rem;
             font-weight: 700;
+            font-size: 0.9rem;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             transition: var(--transition);
+            box-shadow: 0 4px 16px rgba(227, 6, 19, 0.4);
         }
 
         .btn-call-hotline:hover {
-            background: var(--brand-red-dark);
+            background: #ff2b38;
+            transform: translateY(-2px);
         }
 
-        /* 7. OFFICIAL FOOTER */
+        /* ==========================================================================
+           7. MODAL OTP (ZALO ZNS / SMS)
+           ========================================================================== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-box {
+            background: #ffffff;
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 440px;
+            overflow: hidden;
+            box-shadow: var(--shadow-modal);
+        }
+
+        .modal-box-head {
+            background: var(--bg-dark-header);
+            color: #ffffff;
+            padding: 18px 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .modal-box-body {
+            padding: 26px 22px;
+            text-align: center;
+        }
+
+        .pin-inputs-flex {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 18px 0;
+        }
+
+        .pin-single-input {
+            width: 44px;
+            height: 52px;
+            border: 1.5px solid #e2e8f0;
+            border-radius: var(--radius-sm);
+            text-align: center;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--brand-red);
+            background: #f8fafc;
+        }
+
+        .pin-single-input:focus {
+            outline: none;
+            border-color: var(--brand-red);
+            background: #ffffff;
+        }
+
+        /* ==========================================================================
+           8. OFFICIAL IMPLANTSWISS BLACK FOOTER
+           ========================================================================== */
         .official-footer {
             background-color: #000000;
             color: #ffffff;
@@ -953,16 +1470,16 @@
             line-height: 1.6;
         }
 
-        .footer-contact-lines strong {
+        .footer-contact-lines p strong {
             color: #ffffff;
         }
 
         .footer-heading-col2 {
-            font-size: 0.92rem;
-            font-weight: 800;
+            font-size: 0.95rem;
+            font-weight: 700;
             color: #ffffff;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
+            margin-bottom: 18px;
+            letter-spacing: 0.5px;
             text-transform: uppercase;
         }
 
@@ -970,14 +1487,14 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
 
         .footer-menu-links li a {
             color: #9ca3af;
             text-decoration: none;
-            font-size: 0.85rem;
             transition: var(--transition);
+            font-size: 0.85rem;
         }
 
         .footer-menu-links li a:hover {
@@ -990,6 +1507,7 @@
             color: #ffffff;
             line-height: 1.5;
             margin-bottom: 25px;
+            font-style: normal;
         }
 
         .btn-footer-contact {
@@ -1002,9 +1520,9 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             cursor: pointer;
+            transition: var(--transition);
             display: inline-block;
             text-decoration: none;
-            transition: var(--transition);
         }
 
         .btn-footer-contact:hover {
@@ -1024,54 +1542,37 @@
             color: #ffffff;
         }
 
-        /* PRINT STYLES (A4 CERTIFICATE READY) */
-        @media print {
-            .site-header, .luxury-swiss-hero, .search-section-wrap, .swiss-features-section, .guide-steps-section, .official-footer, .action-btns-group {
-                display: none !important;
-            }
-            body {
-                background: #ffffff !important;
-            }
-            .warranty-result-area {
-                display: block !important;
-                padding: 0 !important;
-            }
-            .swiss-cert-card {
-                box-shadow: none !important;
-                border: 2px solid #0f172a !important;
-                border-radius: 0 !important;
-                max-width: 100% !important;
-            }
-            .cert-header {
-                background: #0f172a !important;
-                color: #ffffff !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-        }
-
-        /* RESPONSIVE */
+        /* ==========================================================================
+           9. RESPONSIVE BREAKPOINTS
+           ========================================================================== */
         @media (max-width: 1024px) {
-            .core-specs-strip {
+            .patient-profile-strip {
                 grid-template-columns: repeat(2, 1fr);
             }
             .pillars-4col-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            .jaw-quadrants-grid {
+                overflow-x: auto;
+                padding-bottom: 6px;
+            }
         }
 
-        @media (max-width: 768px) {
-            .full-container {
-                padding: 0 16px;
+        @media (max-width: 992px) {
+            .header-inner {
+                height: 70px;
+            }
+            .nav-links-list {
+                display: none;
             }
             .hero-balanced-title {
-                font-size: 1.55rem;
+                font-size: 2rem;
             }
-            .core-specs-strip {
-                grid-template-columns: 1fr;
+            .search-section-wrap {
+                margin-top: -35px;
             }
-            .medical-specs-grid {
-                grid-template-columns: 1fr;
+            .search-console-box {
+                padding: 24px 22px;
             }
             .steps-3col-grid {
                 grid-template-columns: 1fr;
@@ -1080,23 +1581,229 @@
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
-            .cert-header {
-                flex-direction: column;
-                text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .full-container {
+                padding: 0 16px;
             }
-            .cert-brand-group {
-                flex-direction: column;
+            .site-header {
+                height: 64px;
+            }
+            .header-inner {
+                height: 64px;
+            }
+            .brand-logo-link img {
+                height: 32px;
+            }
+            .btn-header-hotline {
+                padding: 6px 12px;
+                font-size: 0.76rem;
+            }
+            .btn-header-hotline span {
+                display: none;
+            }
+            .btn-header-hotline::after {
+                content: "Hotline";
+            }
+            .luxury-swiss-hero {
+                padding: 40px 0 65px;
+            }
+            .hero-origin-badge {
+                font-size: 0.7rem;
+                padding: 4px 12px;
+                letter-spacing: 0.5px;
+            }
+            .hero-balanced-title {
+                font-size: 1.38rem;
+                line-height: 1.35;
+                padding: 0 4px;
+                word-break: normal;
+                overflow-wrap: break-word;
+            }
+            .hero-balanced-title .nowrap-chunk {
+                white-space: normal;
+            }
+            .hero-balanced-desc {
+                font-size: 0.84rem;
+                line-height: 1.5;
+                padding: 0 4px;
+                margin-bottom: 20px;
+            }
+            .hero-tech-badges-row {
+                gap: 6px;
+                justify-content: center;
+            }
+            .hero-tech-pill {
+                padding: 4px 10px;
+                font-size: 0.68rem;
+                letter-spacing: 0.3px;
+                gap: 5px;
+            }
+            .hero-tech-pill i {
+                font-size: 0.7rem;
+            }
+            .search-section-wrap {
+                margin-top: -25px;
+                padding-bottom: 20px;
+            }
+            .search-console-box {
+                padding: 18px 14px;
+            }
+            .search-tabs-row {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 6px;
+                margin-bottom: 14px;
+            }
+            .tab-btn {
+                padding: 8px 4px;
+                font-size: 0.72rem;
+                justify-content: center;
+                gap: 5px;
+                white-space: nowrap;
+                border-radius: var(--radius-md);
+            }
+            .tab-btn i {
+                font-size: 0.75rem;
             }
             .input-action-row {
                 flex-direction: column;
             }
             .btn-do-search {
                 width: 100%;
+                height: 48px;
                 justify-content: center;
             }
-            .warranty-lifetime-banner {
+            .cert-body {
+                padding: 18px 16px;
+            }
+            .cert-header {
+                padding: 22px 16px 18px;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 12px;
+            }
+            .cert-brand-group {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 8px;
+            }
+            .cert-logo {
+                height: 30px;
+            }
+            .cert-titles h3 {
+                font-size: 0.96rem;
+                letter-spacing: 0.5px;
+            }
+            .cert-titles p {
+                font-size: 0.68rem;
+                letter-spacing: 0.3px;
+                margin-top: 2px;
+            }
+            .cert-badge-genuine {
+                align-self: center;
+                font-size: 0.74rem;
+                padding: 5px 14px;
+            }
+            .patient-profile-strip {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                padding: 14px 16px;
+            }
+            .dental-chart-wrapper {
+                padding: 16px 12px;
+            }
+            .teeth-row-flex {
+                gap: 3px;
+            }
+            .tooth-node-item {
+                height: 48px;
+                min-width: 24px;
+            }
+            .tooth-node-item .t-num {
+                font-size: 0.65rem;
+            }
+            .tooth-node-item .t-icon {
+                font-size: 0.6rem;
+            }
+            .tooth-node-item.implanted .t-num {
+                font-size: 0.72rem;
+            }
+            .tooth-node-item.implanted .t-tag {
+                display: none;
+            }
+            .imp-specs-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            .imp-card-header {
                 flex-direction: column;
                 align-items: flex-start;
+                gap: 10px;
+            }
+            .pillars-4col-grid {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                scroll-behavior: smooth;
+                -webkit-overflow-scrolling: touch;
+                gap: 16px;
+                padding: 10px 4px 15px;
+                scrollbar-width: none;
+            }
+            .pillars-4col-grid::-webkit-scrollbar {
+                display: none;
+            }
+            .pillar-card-box {
+                flex: 0 0 85%;
+                max-width: 85%;
+                scroll-snap-align: center;
+            }
+            .pillar-dots-wrap {
+                display: flex;
+            }
+            .cert-bottom-actions-row {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .qr-meta-flex {
+                flex-direction: column;
+                text-align: center;
+            }
+            .action-btns-group {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+                width: 100%;
+            }
+            .btn-cert-action {
+                width: 100%;
+                justify-content: center;
+                padding: 9px 6px;
+                font-size: 0.76rem;
+                white-space: nowrap;
+                gap: 5px;
+            }
+            .btn-cert-action i {
+                font-size: 0.8rem;
+            }
+            .support-cta-banner {
+                padding: 28px 20px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .btn-call-hotline {
+                width: 100%;
+                justify-content: center;
+            }
+            .inline-heading-logo {
+                height: 28px;
+                display: block;
+                margin: 8px auto 0;
             }
         }
     </style>
@@ -1113,7 +1820,7 @@
             <ul class="nav-links-list">
                 <li><a href="implantswiss.html">Trang chủ</a></li>
                 <li><a href="#tra-cuu">Giới thiệu</a></li>
-                <li class="active"><a href="#tra-cuu" style="color:var(--brand-red); font-weight:700;">Xác Thực Trụ</a></li>
+                <li class="active"><a href="#tra-cuu" style="color:var(--brand-red); font-weight:700;">Tra Cứu Bảo Hành</a></li>
                 <li><a href="#tieu-chuan">Tiêu Chuẩn Thụy Sĩ</a></li>
                 <li><a href="#huong-dan">Hướng Dẫn</a></li>
                 <li><a href="tel:0911088870">Hotline</a></li>
@@ -1134,29 +1841,29 @@
                 
                 <div class="hero-origin-badge">
                     <span class="swiss-flag-sq">+</span>
-                    <span>NOVODENT SA &bull; SWISS PRECISION &bull; 100% GENUINE</span>
+                    <span>SWISS PRECISION &bull; 100% CHÍNH HÃNG</span>
                 </div>
 
                 <h1 class="hero-balanced-title">
-                    <span class="nowrap-chunk">Hệ Thống Tra Cứu & Xác Nhận</span> <br>
-                    <span class="brand-red-accent nowrap-chunk">Trụ Implantswiss Chính Hãng</span>
+                    <span class="nowrap-chunk">Hệ Thống Tra Cứu Bảo Hành Điện Tử</span> <br>
+                    <span class="brand-red-accent nowrap-chunk">Implantswiss Toàn Cầu</span>
                 </h1>
 
                 <p class="hero-balanced-desc">
-                    Xác nhận nguồn gốc xuất xứ trụ Implantswiss chính hãng trực tiếp từ nhà sản xuất Novodent SA (Thụy Sĩ). Tra cứu nhanh chóng và chính xác theo số Serial in trên tem sản phẩm.
+                    Tự động nhận diện sơ đồ cung răng Hàm Trên / Hàm Dưới, kiểm tra thông số kỹ thuật trụ, bác sĩ chuyên khoa phụ trách và thời hạn bảo hành điện tử theo thời gian thực.
                 </p>
 
                 <div class="hero-tech-badges-row">
                     <div class="hero-tech-pill">
-                        <i class="fa-solid fa-building-shield"></i>
-                        <span>NOVODENT SA (SWITZERLAND)</span>
+                        <i class="fa-solid fa-microscope"></i>
+                        <span>SRA SURFACE TECHNOLOGY</span>
+                    </div>
+                    <div class="hero-tech-pill">
+                        <i class="fa-solid fa-screwdriver"></i>
+                        <span>IMPROVED THREAD DESIGN</span>
                     </div>
                     <div class="hero-tech-pill">
                         <i class="fa-solid fa-shield-halved"></i>
-                        <span>LIFETIME 1-TO-1 WARRANTY</span>
-                    </div>
-                    <div class="hero-tech-pill">
-                        <i class="fa-solid fa-certificate"></i>
                         <span>SWISS MEDICAL GRADE</span>
                     </div>
                 </div>
@@ -1165,16 +1872,14 @@
         </div>
     </section>
 
-    <!-- 3. SEARCH CONSOLE (SINGLE SERIAL INPUT) -->
+    <!-- 3. FULL-WIDTH SEARCH CONSOLE -->
     <section class="search-section-wrap">
         <div class="full-container">
             <div class="search-console-box">
                 
-                <div class="search-field-label">
-                    <div class="search-field-label-text">
-                        <i class="fa-solid fa-barcode"></i> Nhập Số Serial / Mã CODE Trụ Để Tra Cứu
-                    </div>
-                    <span class="search-hint-badge"><i class="fa-solid fa-check"></i> Xác nhận bởi Novodent SA</span>
+                <!-- Search Field Title -->
+                <div style="font-size:0.92rem; font-weight:800; color:var(--text-title); margin-bottom:14px; display:flex; align-items:center; text-transform:uppercase; letter-spacing:0.5px;">
+                    <i class="fa-solid fa-barcode" style="color:var(--brand-red); margin-right:8px; font-size:1.1rem;"></i> Nhập Số Serial Trụ Để Tra Cứu
                 </div>
 
                 <!-- Input Form -->
@@ -1188,33 +1893,24 @@
                             </button>
                         </div>
                         <button type="submit" class="btn-do-search">
-                            <i class="fa-solid fa-shield-halved"></i> Tra Cứu Số Serial
+                            <i class="fa-solid fa-shield-halved"></i> Tra Cứu Ngay
                         </button>
                     </div>
                 </form>
-
-                <!-- Quick Samples -->
-                <div class="quick-samples-row">
-                    <span>Mẫu tra cứu nhanh:</span>
-                    <button type="button" class="quick-tag-btn" onclick="fillAndSearch('730080810250326033')">CODE: 730080810250326033</button>
-                    <button type="button" class="quick-tag-btn" onclick="fillAndSearch('730060410250509018')">CODE: 730060410250509018</button>
-                    <button type="button" class="quick-tag-btn" onclick="fillAndSearch('S-BFHR4808')">REF: S-BFHR4808</button>
-                    <button type="button" class="quick-tag-btn" onclick="fillAndSearch('250326033000')">LOT: 250326033000</button>
-                </div>
 
             </div>
         </div>
     </section>
 
-    <!-- 4. SEARCH RESULT - SWISS PRODUCT CERTIFICATE -->
+    <!-- 4. SEARCH RESULT - UNIFIED SWISS DIGITAL CERTIFICATE -->
     <main class="warranty-result-area" id="resultWrap">
         <div class="full-container">
             
             <!-- Loading -->
             <div class="loading-wrap" id="loadIndicator">
                 <div class="spin-loader"></div>
-                <h4 style="font-size:1.05rem; font-weight:700; color:#0f172a; margin-bottom:6px;">Đang xác thực thông số trụ từ Novodent SA...</h4>
-                <p style="font-size:0.84rem; color:var(--text-muted);">Đang đối soát số Serial và truy xuất thông tin kỹ thuật từ hệ thống chính hãng</p>
+                <h4 style="font-size:1.05rem; font-weight:700; color:#0f172a; margin-bottom:6px;">Đang xác thực dữ liệu bảo hành Implantswiss...</h4>
+                <p style="font-size:0.84rem; color:var(--text-muted);">Đang truy xuất hồ sơ cấy ghép và đồng bộ sơ đồ răng điện tử</p>
             </div>
 
             <!-- Not Found -->
@@ -1222,9 +1918,9 @@
                 <div style="font-size:2.2rem; color:#ef4444; margin-bottom:10px;">
                     <i class="fa-solid fa-circle-exclamation"></i>
                 </div>
-                <h3 style="font-size:1.25rem; font-weight:700; color:#0f172a; margin-bottom:6px;">Không Tìm Thấy Thông Tin Trụ</h3>
-                <p style="color:#64748b; font-size:0.88rem; margin-bottom:18px; line-height:1.5;" id="notFoundText">
-                    Không tìm thấy dữ liệu tương ứng với số Serial này. Vui lòng kiểm tra lại số Serial / CODE in trên tem trụ.
+                <h3 style="font-size:1.25rem; font-weight:700; color:#0f172a; margin-bottom:6px;">Không Tìm Thấy Thông Tin</h3>
+                <p style="color:#64748b; font-size:0.88rem; margin-bottom:18px;" id="notFoundText">
+                    Không tìm thấy dữ liệu bảo hành tương ứng. Vui lòng kiểm tra lại số Serial hoặc số điện thoại.
                 </p>
                 <button class="btn-do-search" onclick="focusSearchInput()" style="margin:0 auto; display:inline-flex; height:44px; padding:0 20px;">
                     <i class="fa-solid fa-rotate-left"></i> Thử Lại
@@ -1239,119 +1935,67 @@
                     <div class="cert-brand-group">
                         <img src="assets/implantswiss-logo-gray.webp" alt="Implantswiss" class="cert-logo">
                         <div class="cert-titles">
-                            <h3>Giấy Xác Nhận Trụ Chính Hãng &bull; Novodent SA</h3>
-                            <p>CHỨNG NHẬN TRỤ IMPLANTSWISS 100% CHÍNH NGẠCH THỤY SĨ</p>
+                            <h3>Thẻ Bảo Hành Điện Tử &bull; Swiss Certified</h3>
+                            <p>CHỨNG NHẬN TRỤ IMPLANTSWISS CHÍNH HÃNG 100%</p>
                         </div>
                     </div>
                     <div class="cert-badge-genuine">
                         <i class="fa-solid fa-circle-check"></i>
-                        <span>XÁC NHẬN BỞI NOVODENT SA</span>
+                        <span>XÁC THỰC CHÍNH HÃNG</span>
                     </div>
                 </div>
 
                 <!-- Body -->
                 <div class="cert-body">
                     
-                    <!-- 5 CORE COLUMNS STRIP FROM GOOGLE SHEETS -->
-                    <div class="core-specs-strip">
-                        <div class="core-col">
+                    <!-- TAB BENH_NHAN: 5 THÔNG SỐ CỐT LÕI TRỤ CHUẨN TỪ SHEET -->
+                    <div class="patient-profile-strip" style="grid-template-columns: 1.3fr 1fr 1fr 1.2fr 1fr;">
+                        <div class="patient-col">
                             <span class="lbl"><i class="fa-solid fa-tooth"></i> Tên Sản Phẩm</span>
                             <div class="val" id="outProdName">Bone Level Fixture Hybrid</div>
                         </div>
-                        <div class="core-col">
+                        <div class="patient-col">
                             <span class="lbl"><i class="fa-solid fa-tag"></i> Mã REF</span>
                             <div class="val" id="outRef">S-BFHR4808</div>
                         </div>
-                        <div class="core-col">
+                        <div class="patient-col">
                             <span class="lbl"><i class="fa-solid fa-ruler-combined"></i> Kích Thước (Size)</span>
                             <div class="val" id="outSize">4.8X08 mm</div>
                         </div>
-                        <div class="core-col">
+                        <div class="patient-col">
                             <span class="lbl"><i class="fa-solid fa-barcode"></i> Số Serial / CODE</span>
-                            <div class="val code-highlight" id="outCode">730080810250326033</div>
+                            <div class="val" id="outCode" style="color:var(--brand-red); font-family:monospace;">730080810250326033</div>
                         </div>
-                        <div class="core-col">
+                        <div class="patient-col">
                             <span class="lbl"><i class="fa-solid fa-boxes-stacked"></i> Số LOT</span>
                             <div class="val" id="outLot">250326033000</div>
                         </div>
                     </div>
 
-                    <!-- NOVODENT SA STATEMENT -->
-                    <div class="novodent-statement-card">
-                        <h4><i class="fa-solid fa-building-circle-check" style="color:var(--brand-red);"></i> Thông Tin Xác Nhận Từ Nhà Sản Xuất Novodent SA:</h4>
-                        <p>Trụ Implant có số Serial trên được sản xuất chính ngạch bởi <strong>Novodent SA (Avenue des Sciences 11, Y-Parc Technopôle, CH-1400 Yverdon-les-Bains, Switzerland)</strong>, hoàn toàn tuân thủ các tiêu chuẩn phẫu thuật cấy ghép y khoa khắt khe của Thụy Sĩ và quốc tế.</p>
-                    </div>
-
-                    <!-- LIFETIME WARRANTY BANNER -->
-                    <div class="warranty-lifetime-banner">
-                        <div class="warranty-banner-left">
-                            <i class="fa-solid fa-shield-halved"></i>
-                            <div>
-                                <h4>Chính Sách Bảo Hành 1 Đổi 1 Trọn Đời (Lifetime Warranty)</h4>
-                                <p>Áp dụng chính sách 1-to-1 replacement warranty toàn cầu của Novodent trong trường hợp trụ không tích hợp xương sinh học.</p>
-                            </div>
-                        </div>
-                        <div class="warranty-badge-pill">
-                            <i class="fa-solid fa-circle-check"></i> Đang Được Bảo Hành
+                    <!-- THÔNG TIN XÁC NHẬN TỪ NHÀ SẢN XUẤT NOVODENT SA -->
+                    <div class="patient-extra-row" style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:var(--radius-md); padding:16px 20px; margin-bottom:20px;">
+                        <div class="extra-item" style="width:100%; line-height:1.6;">
+                            <i class="fa-solid fa-shield-halved" style="color:var(--brand-red); font-size:1.15rem; margin-right:8px;"></i>
+                            <strong>Xác nhận từ Novodent SA (Thụy Sĩ):</strong> Trụ Implant chính ngạch được chế tác tại <strong>Novodent SA (Avenue des Sciences 11, CH-1400 Yverdon-les-Bains, Switzerland)</strong>, đạt chuẩn y tế CE 1984 & ISO 13485, áp dụng <strong>chính sách bảo hành 1 đổi 1 trọn đời (Lifetime 1-to-1 Replacement Warranty)</strong>.
                         </div>
                     </div>
 
-                    <!-- MEDICAL SPECIFICATIONS GRID -->
-                    <div class="medical-specs-grid">
-                        <div class="spec-box-card">
-                            <div class="spec-box-icon"><i class="fa-solid fa-flask-vial"></i></div>
-                            <div class="spec-box-content">
-                                <h5>Vật Liệu Y Khoa (Material)</h5>
-                                <p>Medical Grade 4 Titanium (Ti-G4) Thuần Khiết Sinh Học</p>
-                            </div>
-                        </div>
+                    <!-- DANH SÁCH THẺ TRỤ NẾU CÓ NHIỀU QUY CÁCH -->
+                    <div class="implant-cards-list" id="implantCardsContainer"></div>
 
-                        <div class="spec-box-card">
-                            <div class="spec-box-icon"><i class="fa-solid fa-microscope"></i></div>
-                            <div class="spec-box-content">
-                                <h5>Công Nghệ Bề Mặt Sinh Học</h5>
-                                <p>SRA Surface (Sandblasted, Large Grit, Acid-Etched)</p>
-                            </div>
-                        </div>
-
-                        <div class="spec-box-card">
-                            <div class="spec-box-icon"><i class="fa-solid fa-award"></i></div>
-                            <div class="spec-box-content">
-                                <h5>Tiêu Chuẩn Chất Lượng Y Tế</h5>
-                                <p>CE 1984 &bull; FDA (Hoa Kỳ) &bull; ISO 13485 &bull; MDR Approved</p>
-                            </div>
-                        </div>
-
-                        <div class="spec-box-card">
-                            <div class="spec-box-icon"><i class="fa-solid fa-earth-europe"></i></div>
-                            <div class="spec-box-content">
-                                <h5>Xuất Xứ Chế Tác</h5>
-                                <p>100% Made in Switzerland (Thụy Sĩ) &bull; Novodent SA</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- MULTIPLE MATCHES IF SEARCHED BY REF -->
-                    <div id="multiItemsWrap" class="multi-match-card" style="display:none;">
-                        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-title); margin-bottom:12px;">
-                            <i class="fa-solid fa-list-check" style="color:var(--brand-red);"></i> Các Quy Cách Khác Cùng Mã REF:
-                        </h4>
-                        <div id="multiItemsList" style="display:flex; flex-direction:column; gap:10px;"></div>
-                    </div>
-
-                    <!-- BOTTOM ACTIONS & QR -->
+                    <!-- ACTIONS & QR CODE -->
                     <div class="cert-bottom-actions-row">
                         <div class="qr-meta-flex">
                             <div class="qr-frame-box" id="qrcodeBox"></div>
                             <div style="font-size:0.8rem; color:#64748b;">
-                                <strong style="color:var(--text-title);">Mã Xác Thực Điện Tử</strong><br>
-                                <span id="dispAuthCode">NOVODENT-SWISS-889922</span> &bull; Quét QR để xem trên điện thoại
+                                <strong>Xác Thực Điện Tử</strong><br>
+                                Quét mã QR để mở chứng nhận trên điện thoại
                             </div>
                         </div>
 
                         <div class="action-btns-group">
                             <button class="btn-cert-action" onclick="window.print()">
-                                <i class="fa-solid fa-print"></i> In Xác Nhận
+                                <i class="fa-solid fa-print"></i> In Thẻ Bảo Hành
                             </button>
                             <button class="btn-cert-action" onclick="shareCertLink()">
                                 <i class="fa-solid fa-share-nodes"></i> Chia Sẻ Thẻ
@@ -1370,39 +2014,59 @@
     <section class="swiss-features-section" id="tieu-chuan">
         <div class="full-container">
             <div class="section-header-centered">
-                <span class="section-eyebrow">NOVODENT SWISS PRECISION</span>
+                <span class="section-eyebrow">SWISS MEDICAL PRECISION</span>
                 <h2 class="section-title-large">
                     Tiêu Chuẩn Đẳng Cấp <img src="assets/implantswiss-logo-gray.webp" alt="Implantswiss Logo" class="inline-heading-logo">
                 </h2>
                 <p class="section-desc-subtle">
-                    Hệ thống trụ Implant Thụy Sĩ hàng đầu thế giới của Novodent SA với công nghệ xử lý sinh học đỉnh cao, đảm bảo tỷ lệ tích hợp xương và thẩm mỹ trọn đời.
+                    Hệ thống trụ Implant Thụy Sĩ hàng đầu thế giới với công nghệ xử lý sinh học đỉnh cao, đảm bảo tỷ lệ tích hợp xương và thẩm mỹ nụ cười trọn đời.
                 </p>
             </div>
 
             <div class="pillars-4col-grid">
+                <!-- Pillar 1 -->
                 <div class="pillar-card-box">
-                    <div class="pillar-icon-wrap"><i class="fa-solid fa-building-shield"></i></div>
-                    <h4>Novodent SA Thụy Sĩ</h4>
-                    <p>Sản xuất trực tiếp tại Yverdon-les-Bains, Thụy Sĩ theo tiêu chuẩn y khoa CE & FDA.</p>
+                    <div class="pillar-icon-wrap">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <h4>100% Chế Tác Thụy Sĩ</h4>
+                    <p>Sản xuất trực tiếp tại Thụy Sĩ theo tiêu chuẩn CE & FDA y khoa khắt khe nhất toàn cầu.</p>
                 </div>
 
+                <!-- Pillar 2 -->
                 <div class="pillar-card-box">
-                    <div class="pillar-icon-wrap"><i class="fa-solid fa-shield-halved"></i></div>
-                    <h4>Bảo Hành 1 Đổi 1</h4>
-                    <p>Chính sách 1-to-1 replacement warranty trọn đời nếu trụ không tích hợp xương.</p>
+                    <div class="pillar-icon-wrap">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h4>Bảo Hành Toàn Cầu</h4>
+                    <p>Bảo hành điện tử chính hãng từ 10 - 15 năm, có giá trị xác thực tại hơn 50 quốc gia.</p>
                 </div>
 
+                <!-- Pillar 3 -->
                 <div class="pillar-card-box">
-                    <div class="pillar-icon-wrap"><i class="fa-solid fa-microscope"></i></div>
+                    <div class="pillar-icon-wrap">
+                        <i class="fa-solid fa-microscope"></i>
+                    </div>
                     <h4>Bề Mặt Sinh Học SRA</h4>
                     <p>Xử lý bề mặt tiên tiến giúp tích hợp xương vững chắc, rút ngắn thời gian lành thương còn 4-6 tuần.</p>
                 </div>
 
+                <!-- Pillar 4 -->
                 <div class="pillar-card-box">
-                    <div class="pillar-icon-wrap"><i class="fa-solid fa-barcode"></i></div>
-                    <h4>Số Serial Độc Bản</h4>
-                    <p>Mỗi trụ sở hữu số Serial / CODE duy nhất giúp phòng khám và bệnh nhân xác thực nguồn gốc 100%.</p>
+                    <div class="pillar-icon-wrap">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <h4>Bảo Mật Y Khoa</h4>
+                    <p>Hồ sơ cấy ghép điện tử được mã hóa và xác thực danh tính an toàn qua hệ thống Zalo ZNS / SMS.</p>
                 </div>
+            </div>
+
+            <!-- Mobile Slide Dots -->
+            <div class="pillar-dots-wrap" id="pillarDots">
+                <button class="p-dot active" onclick="scrollPillar(0)" aria-label="Slide 1"></button>
+                <button class="p-dot" onclick="scrollPillar(1)" aria-label="Slide 2"></button>
+                <button class="p-dot" onclick="scrollPillar(2)" aria-label="Slide 3"></button>
+                <button class="p-dot" onclick="scrollPillar(3)" aria-label="Slide 4"></button>
             </div>
         </div>
     </section>
@@ -1412,29 +2076,29 @@
         <div class="full-container">
             <div class="section-header-centered">
                 <span class="section-eyebrow">HƯỚNG DẪN TRA CỨU</span>
-                <h2 class="section-title-large">3 Bước Kiểm Tra Trụ Implantswiss Chính Hãng</h2>
+                <h2 class="section-title-large">3 Bước Kiểm Tra Bảo Hành Chính Hãng</h2>
                 <p class="section-desc-subtle">
-                    Tra cứu và xác nhận nguồn gốc trụ Implantswiss từ Novodent SA dễ dàng chỉ với 3 thao tác.
+                    Tra cứu và xác thực nguồn gốc trụ Implantswiss dễ dàng chỉ với 3 thao tác đơn giản.
                 </p>
             </div>
 
             <div class="steps-3col-grid">
                 <div class="step-single-card">
                     <div class="step-num-badge">01</div>
-                    <h4>Xem Số Serial Trên Tem Trụ</h4>
-                    <p>Tìm số Serial / CODE hoặc số LOT in trên tem phụ bao bì hoặc nhãn dán trụ.</p>
+                    <h4>Nhập Số Serial / SĐT / Mã BN</h4>
+                    <p>Nhập mã Serial in trên thẻ bảo hành, số điện thoại hoặc mã bệnh nhân đã đăng ký.</p>
                 </div>
 
                 <div class="step-single-card">
                     <div class="step-num-badge">02</div>
-                    <h4>Nhập Số Serial Vào Ô Tra Cứu</h4>
-                    <p>Nhập số Serial vào ô tìm kiếm và bấm nút "Tra Cứu Số Serial" để hệ thống kiểm tra dữ liệu.</p>
+                    <h4>Xem Sơ Đồ Răng Tự Động</h4>
+                    <p>Hệ thống tự động nhận diện vị trí răng Hàm Trên (R1, R2) & Hàm Dưới (R3, R4) trực quan.</p>
                 </div>
 
                 <div class="step-single-card">
                     <div class="step-num-badge">03</div>
-                    <h4>Xem Xác Nhận Từ Novodent SA</h4>
-                    <p>Xem chứng nhận chính hãng 100% Thụy Sĩ, quy cách kỹ thuật và chính sách bảo hành 1 đổi 1 trọn đời.</p>
+                    <h4>Xác Thực Zalo / SMS</h4>
+                    <p>Xác thực mã OTP gửi về Zalo để mở khóa toàn bộ hồ sơ y khoa và in chứng nhận bảo hành điện tử.</p>
                 </div>
             </div>
 
@@ -1451,11 +2115,55 @@
         </div>
     </section>
 
-    <!-- 7. OFFICIAL IMPLANTSWISS BLACK FOOTER -->
+    <!-- 7. MODAL OTP ZALO ZNS / SMS -->
+    <div class="modal-overlay" id="otpModal">
+        <div class="modal-box">
+            <div class="modal-box-head">
+                <span style="font-weight:700; font-size:0.95rem;"><i class="fa-solid fa-shield-halved" style="color:#34d399; margin-right:6px;"></i> Xác Thực Danh Tính Chủ Thẻ</span>
+                <button onclick="closeOtpModal()" style="background:none; border:none; color:#fff; font-size:1.2rem; cursor:pointer;">&times;</button>
+            </div>
+            <div class="modal-box-body">
+                <div style="display:inline-flex; align-items:center; gap:6px; background:rgba(0,104,255,0.08); color:#0068ff; padding:4px 12px; border-radius:var(--radius-full); font-size:0.78rem; font-weight:700; margin-bottom:12px;">
+                    <i class="fa-solid fa-comment-sms"></i> Nhận mã qua Zalo ZNS / SMS OTP
+                </div>
+                <p style="font-size:0.86rem; color:#475569; margin-bottom:14px;">
+                    Mã xác thực đã được chuẩn bị gửi tới số điện thoại <strong id="dispOtpTargetPhone">0962 •••• 46</strong>.
+                </p>
+
+                <div class="pin-inputs-flex">
+                    <input type="text" maxlength="1" class="pin-single-input" id="pin1" oninput="stepPin(this, 'pin2')" onkeydown="backPin(event, this, null)">
+                    <input type="text" maxlength="1" class="pin-single-input" id="pin2" oninput="stepPin(this, 'pin3')" onkeydown="backPin(event, this, 'pin1')">
+                    <input type="text" maxlength="1" class="pin-single-input" id="pin3" oninput="stepPin(this, 'pin4')" onkeydown="backPin(event, this, 'pin2')">
+                    <input type="text" maxlength="1" class="pin-single-input" id="pin4" oninput="stepPin(this, 'pin5')" onkeydown="backPin(event, this, 'pin3')">
+                    <input type="text" maxlength="1" class="pin-single-input" id="pin5" oninput="stepPin(this, 'pin6')" onkeydown="backPin(event, this, 'pin4')">
+                    <input type="text" maxlength="1" class="pin-single-input" id="pin6" oninput="autoSubmitPin(this)" onkeydown="backPin(event, this, 'pin5')">
+                </div>
+
+                <div id="otpErr" style="color:#ef4444; font-size:0.8rem; font-weight:600; display:none; margin-bottom:10px;">
+                    Mã PIN không chính xác.
+                </div>
+
+                <div style="font-size:0.8rem; color:#64748b; margin-bottom:16px;">
+                    Chưa nhận được mã? <button type="button" id="btnResend" onclick="resendOtp()" style="background:none; border:none; color:var(--brand-red); font-weight:700; cursor:pointer; text-decoration:underline;">Gửi lại mã (<span id="timerVal">60</span>s)</button>
+                </div>
+
+                <button class="btn-do-search" onclick="submitVerifyOtp()" style="width:100%; justify-content:center; height:46px; border-radius:var(--radius-sm);">
+                    <i class="fa-solid fa-lock-open"></i> Xác Nhận & Mở Khóa
+                </button>
+
+                <div style="margin-top:12px; font-size:0.74rem; color:#64748b; background:#f1f5f9; padding:6px 10px; border-radius:var(--radius-sm);">
+                    <i class="fa-solid fa-circle-info"></i> Mã PIN thử nghiệm: <code>123456</code> hoặc 6 số bất kỳ!
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 8. OFFICIAL IMPLANTSWISS BLACK FOOTER -->
     <footer class="official-footer">
         <div class="full-container">
             <div class="footer-3col-grid">
                 
+                <!-- Col 1: Logo & Company Info -->
                 <div class="footer-col-1">
                     <img src="assets/implantswiss-logo-gray.webp" alt="Implantswiss Logo" class="footer-brand-logo">
                     <div class="footer-contact-lines">
@@ -1466,6 +2174,7 @@
                     </div>
                 </div>
 
+                <!-- Col 2: Other Information -->
                 <div class="footer-col-2">
                     <h4 class="footer-heading-col2">THÔNG TIN KHÁC</h4>
                     <ul class="footer-menu-links">
@@ -1476,6 +2185,7 @@
                     </ul>
                 </div>
 
+                <!-- Col 3: Quote & Contact Button -->
                 <div class="footer-col-3">
                     <div class="footer-quote-text">
                         “Offer more than a gift voucher, offer an experience”
@@ -1485,8 +2195,9 @@
 
             </div>
 
+            <!-- Bottom Copyright Line -->
             <div class="footer-bottom-line">
-                &copy; Bản quyền thuộc về <strong>Implantswiss</strong> | Nhà sản xuất: <strong>Novodent SA (Switzerland)</strong>
+                &copy; Bản quyền thuộc về <strong>Implantswiss</strong> | Website: <strong>Implantswiss.vn</strong>
             </div>
         </div>
     </footer>
@@ -1494,8 +2205,193 @@
     <!-- JAVASCRIPT LOGIC -->
     <script>
         let LIVE_API_URL = localStorage.getItem("IMPLANTSWISS_API_URL") || "https://script.google.com/macros/s/AKfycbxdooZ9kbQaMjC9qFjoDLLd_zst4tfoP_qxFk6P9Zt2wI5r162VananHRYMB2H1JffjbA/exec";
+        let currentTab = "serial";
         let activeData = null;
+        let isRecordUnlocked = false;
+        let timerCd = null;
         let qrObj = null;
+
+        // FDI DENTAL ARCH CONSTANTS (32 TEETH)
+        const ARCH_TEETH = {
+            q1: ["18", "17", "16", "15", "14", "13", "12", "11"], // Hàm trên Phải
+            q2: ["21", "22", "23", "24", "25", "26", "27", "28"], // Hàm trên Trái
+            q4: ["48", "47", "46", "45", "44", "43", "42", "41"], // Hàm dưới Phải
+            q3: ["31", "32", "33", "34", "35", "36", "37", "38"]  // Hàm dưới Trái
+        };
+
+        /**
+         * =========================================================================
+         * LOGIC TỰ ĐỘNG NHẬN DIỆN VỊ TRÍ RĂNG & HÀM (ĐƠN LẺ & NHIỀU RĂNG PHÂN CÁCH BẰNG DẤU PHẨY)
+         * =========================================================================
+         * Quy tắc:
+         * - Tách theo dấu phẩy ',' nếu có nhiều răng (VD: 'r47, r46', 'r16, r17', 'r36, r37'...)
+         * - Mỗi vị trí sau R:
+         *   + Bắt đầu bằng chữ số 1 hoặc 2 => HÀM TRÊN (Maxilla)
+         *   + Bắt đầu bằng chữ số 3 hoặc 4 => HÀM DƯỚI (Mandible)
+         */
+        function parseSingleTooth(token) {
+            if (!token) return null;
+            const raw = String(token).trim();
+            if (!raw) return null;
+
+            const clean = raw.toLowerCase().replace(/răng|rang/g, '').trim();
+            const digitsOnly = clean.replace(/[^0-9]/g, '');
+            if (!digitsOnly) return null;
+
+            let jaw = "Hàm dưới";
+            let jawKey = "lower";
+            let quadrant = "Hàm dưới";
+            let quadrantNum = 4;
+            let toothNum = digitsOnly;
+            let toothIndexInQuad = 0;
+
+            const firstDigit = digitsOnly.charAt(0);
+            const secondDigit = digitsOnly.length > 1 ? digitsOnly.charAt(1) : "";
+            toothIndexInQuad = secondDigit ? parseInt(secondDigit, 10) : parseInt(firstDigit, 10);
+
+            // QUY TẮC: Chữ số đầu tiên là 1 hoặc 2 => HÀM TRÊN
+            if (firstDigit === "1" || firstDigit === "2") {
+                jaw = "Hàm trên";
+                jawKey = "upper";
+                if (firstDigit === "1") {
+                    quadrant = "Hàm trên Phải (Cung 1)";
+                    quadrantNum = 1;
+                } else {
+                    quadrant = "Hàm trên Trái (Cung 2)";
+                    quadrantNum = 2;
+                }
+            } 
+            // QUY TẮC: Chữ số đầu tiên là 3 hoặc 4 => HÀM DƯỚI
+            else {
+                jaw = "Hàm dưới";
+                jawKey = "lower";
+                if (firstDigit === "4") {
+                    quadrant = "Hàm dưới Phải (Cung 4)";
+                    quadrantNum = 4;
+                } else {
+                    quadrant = "Hàm dưới Trái (Cung 3)";
+                    quadrantNum = 3;
+                }
+            }
+
+            const toothNamesFDI = {
+                1: "Răng cửa giữa",
+                2: "Răng cửa bên",
+                3: "Răng nanh",
+                4: "Răng cối nhỏ thứ nhất (tiền hàm 1)",
+                5: "Răng cối nhỏ thứ hai (tiền hàm 2)",
+                6: "Răng cối lớn thứ nhất (răng số 6)",
+                7: "Răng cối lớn thứ hai (răng số 7)",
+                8: "Răng khôn (răng số 8)"
+            };
+
+            const anatomicalName = toothNamesFDI[toothIndexInQuad] || ("Răng " + toothNum);
+            const formattedCode = "R" + toothNum;
+
+            return {
+                raw: raw,
+                toothNum: toothNum,
+                formattedCode: formattedCode,
+                jaw: jaw,
+                jawKey: jawKey,
+                quadrant: quadrant,
+                quadrantNum: quadrantNum,
+                toothIndex: toothIndexInQuad,
+                anatomicalName: anatomicalName,
+                displayName: `Răng ${toothNum} (${jaw})`
+            };
+        }
+
+        function parseToothPosition(rawStr) {
+            if (!rawStr) {
+                return {
+                    raw: '',
+                    teeth: [],
+                    toothNums: [],
+                    toothNum: '',
+                    formattedCode: 'N/A',
+                    jaw: 'Không xác định',
+                    jawKey: 'unknown',
+                    quadrant: '',
+                    quadrantNum: 0,
+                    anatomicalName: 'Vị trí chưa rõ',
+                    displayName: 'Chưa rõ vị trí'
+                };
+            }
+
+            const raw = String(rawStr).trim();
+            // Thống nhất tách các vị trí răng bằng dấu phẩy ','
+            const parts = raw.split(/[,;+]/).map(p => p.trim()).filter(Boolean);
+            const parsedTeeth = [];
+
+            parts.forEach(p => {
+                const single = parseSingleTooth(p);
+                if (single) parsedTeeth.push(single);
+            });
+
+            if (parsedTeeth.length === 0) {
+                const fallback = parseSingleTooth(raw);
+                if (fallback) parsedTeeth.push(fallback);
+            }
+
+            if (parsedTeeth.length === 0) {
+                return {
+                    raw: raw,
+                    teeth: [],
+                    toothNums: [],
+                    toothNum: raw,
+                    formattedCode: 'R' + raw,
+                    jaw: 'Hàm dưới',
+                    jawKey: 'lower',
+                    quadrant: 'Hàm dưới',
+                    quadrantNum: 4,
+                    anatomicalName: 'Răng ' + raw,
+                    displayName: `Răng ${raw}`
+                };
+            }
+
+            if (parsedTeeth.length === 1) {
+                const t0 = parsedTeeth[0];
+                return {
+                    ...t0,
+                    teeth: parsedTeeth,
+                    toothNums: [t0.toothNum]
+                };
+            }
+
+            // Có nhiều vị trí răng phân tách bằng dấu phẩy
+            const formattedCodes = parsedTeeth.map(t => t.formattedCode).join(", ");
+            const toothNums = parsedTeeth.map(t => t.toothNum);
+            const hasUpper = parsedTeeth.some(t => t.jawKey === "upper");
+            const hasLower = parsedTeeth.some(t => t.jawKey === "lower");
+
+            let overallJaw = "Hàm trên";
+            let overallJawKey = "upper";
+            if (hasUpper && hasLower) {
+                overallJaw = "Cả 2 Hàm (Hàm Trên & Hàm Dưới)";
+                overallJawKey = "both";
+            } else if (hasLower) {
+                overallJaw = "Hàm dưới";
+                overallJawKey = "lower";
+            }
+
+            const anatomicalNames = parsedTeeth.map(t => t.anatomicalName).join(", ");
+            const quadrants = Array.from(new Set(parsedTeeth.map(t => t.quadrant))).join(", ");
+
+            return {
+                raw: raw,
+                teeth: parsedTeeth,
+                toothNums: toothNums,
+                toothNum: toothNums[0],
+                formattedCode: formattedCodes, // Thống nhất hiển thị dấu phẩy: "R47, R46"
+                jaw: overallJaw,
+                jawKey: overallJawKey,
+                quadrant: quadrants,
+                quadrantNum: parsedTeeth[0].quadrantNum,
+                anatomicalName: anatomicalNames,
+                displayName: `Răng ${toothNums.join(", ")} (${overallJaw})`
+            };
+        }
 
         document.addEventListener("DOMContentLoaded", () => {
             const input = document.getElementById("mainInput");
@@ -1506,22 +2402,52 @@
                 });
             }
 
-            // Tự động tìm kiếm nếu có param trên URL (?serial=... hoặc ?code=... hoặc ?query=...)
-            const urlParams = new URLSearchParams(window.location.search);
-            const queryParam = urlParams.get("serial") || urlParams.get("code") || urlParams.get("lot") || urlParams.get("ref") || urlParams.get("query");
-            if (queryParam) {
-                input.value = queryParam;
-                if (clearBtn) clearBtn.style.display = "flex";
-                handleDoSearch(new Event("submit"));
+            // Sync Mobile Slide Dots on Scroll
+            const grid = document.querySelector(".pillars-4col-grid");
+            const dots = document.querySelectorAll(".p-dot");
+            if (grid && dots.length > 0) {
+                grid.addEventListener("scroll", () => {
+                    const scrollLeft = grid.scrollLeft;
+                    const card = grid.querySelector(".pillar-card-box");
+                    if (card) {
+                        const cardWidth = card.offsetWidth + 16;
+                        const activeIdx = Math.round(scrollLeft / cardWidth);
+                        dots.forEach((dot, i) => {
+                            dot.classList.toggle("active", i === activeIdx);
+                        });
+                    }
+                }, { passive: true });
             }
         });
 
-        function fillAndSearch(val) {
+        function scrollPillar(idx) {
+            const grid = document.querySelector(".pillars-4col-grid");
+            if (!grid) return;
+            const cards = grid.querySelectorAll(".pillar-card-box");
+            if (cards[idx]) {
+                cards[idx].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            }
+        }
+
+        function switchSearchTab(mode, btn) {
+            currentTab = mode;
+            document.querySelectorAll(".tab-btn").forEach(el => el.classList.remove("active"));
+            btn.classList.add("active");
+
             const input = document.getElementById("mainInput");
-            input.value = val;
-            const clearBtn = document.getElementById("clearTxtBtn");
-            if (clearBtn) clearBtn.style.display = "flex";
-            handleDoSearch(new Event("submit"));
+            const icon = document.getElementById("prefixIcon");
+
+            if (mode === "serial") {
+                input.placeholder = "Ví dụ: 2103170033110";
+                icon.className = "fa-solid fa-barcode prefix-icon";
+            } else if (mode === "phone") {
+                input.placeholder = "Ví dụ: 0962138946";
+                icon.className = "fa-solid fa-phone prefix-icon";
+            } else {
+                input.placeholder = "Ví dụ: 3815 hoặc 3877";
+                icon.className = "fa-solid fa-id-card prefix-icon";
+            }
+            input.focus();
         }
 
         function clearTxt() {
@@ -1529,6 +2455,22 @@
             input.value = "";
             document.getElementById("clearTxtBtn").style.display = "none";
             input.focus();
+        }
+
+        function clickSample(val) {
+            const input = document.getElementById("mainInput");
+            input.value = val;
+            document.getElementById("clearTxtBtn").style.display = "flex";
+
+            if (val.startsWith("09") || val.startsWith("08") || val.startsWith("06") || val.startsWith("03")) {
+                switchSearchTab('phone', document.querySelectorAll(".tab-btn")[1]);
+            } else if (val.length <= 5 && !isNaN(val)) {
+                switchSearchTab('patientId', document.querySelectorAll(".tab-btn")[2]);
+            } else {
+                switchSearchTab('serial', document.querySelectorAll(".tab-btn")[0]);
+            }
+
+            handleDoSearch(new Event("submit"));
         }
 
         function focusSearchInput() {
@@ -1552,12 +2494,13 @@
             loader.style.display = "block";
             notfound.style.display = "none";
             card.style.display = "none";
+            isRecordUnlocked = false;
 
             const cleanCheck = query.toLowerCase().replace(/[^a-z0-9]/g, "");
             if (cleanCheck.length < 3) {
                 loader.style.display = "none";
                 notfound.style.display = "block";
-                document.getElementById("notFoundText").innerText = "Vui lòng nhập tối thiểu 3 ký tự số Serial trụ!";
+                document.getElementById("notFoundText").innerText = `Vui lòng nhập tối thiểu 3 ký tự để tra cứu (Số Serial, Số điện thoại hoặc Mã bệnh nhân).`;
                 return;
             }
 
@@ -1572,73 +2515,140 @@
 
                 loader.style.display = "none";
 
-                if (data && data.success && data.implant) {
+                if (data && data.success && (data.implant || (data.implants && data.implants.length > 0))) {
                     activeData = data;
-                    renderImplantCertificate(data);
+                    notfound.style.display = "none";
+                    card.style.display = "block";
+                    renderWarrantyCard(data);
                 } else {
+                    card.style.display = "none";
                     notfound.style.display = "block";
                     document.getElementById("notFoundText").innerText = (data && data.message) ? data.message : `Không tìm thấy thông tin trụ với số Serial: "${query}".`;
                 }
             } catch (err) {
                 loader.style.display = "none";
+                card.style.display = "none";
                 notfound.style.display = "block";
-                document.getElementById("notFoundText").innerText = `Không thể kết nối đến máy chủ tra cứu hoặc không tìm thấy dữ liệu cho "${query}". Vui lòng kiểm tra lại!`;
+                document.getElementById("notFoundText").innerText = `Không thể kết nối đến máy chủ tra cứu hoặc không tìm thấy dữ liệu cho "${query}". Vui lòng thử lại sau!`;
                 console.error("API Error:", err);
             }
         }
 
-        function renderImplantCertificate(data) {
+        // RENDER GIAO DIỆN XÁC THỰC TRỤ CHÍNH HÃNG TỪ NOVODENT SA
+        function renderWarrantyCard(data) {
             const card = document.getElementById("warrantyCard");
             card.style.display = "block";
 
-            const imp = data.implant || {};
+            const imp = data.implant || (data.implants && data.implants[0]) || {};
 
-            document.getElementById("outProdName").innerText = imp.productName || "Bone Level Fixture Hybrid";
-            document.getElementById("outRef").innerText = imp.ref || "N/A";
-            document.getElementById("outSize").innerText = imp.size || "N/A";
-            document.getElementById("outCode").innerText = imp.code || "N/A";
-            document.getElementById("outLot").innerText = imp.lot || "N/A";
+            const elProd = document.getElementById("outProdName");
+            const elRef = document.getElementById("outRef");
+            const elSize = document.getElementById("outSize");
+            const elCode = document.getElementById("outCode");
+            const elLot = document.getElementById("outLot");
+
+            if (elProd) elProd.innerText = imp.productName || "Bone Level Fixture Hybrid";
+            if (elRef) elRef.innerText = imp.ref || "N/A";
+            if (elSize) elSize.innerText = imp.size || "N/A";
+            if (elCode) elCode.innerText = imp.code || imp.soSerial || data.query || "N/A";
+            if (elLot) elLot.innerText = imp.lot || "N/A";
 
             const authDisp = document.getElementById("dispAuthCode");
             if (authDisp) {
                 authDisp.innerText = data.verificationCode || ("NOVODENT-SWISS-" + (imp.lot || "100"));
             }
 
-            // Multiple items handling if searched by REF
-            const multiWrap = document.getElementById("multiItemsWrap");
-            const multiList = document.getElementById("multiItemsList");
-            if (data.implants && data.implants.length > 1) {
-                multiWrap.style.display = "block";
-                multiList.innerHTML = "";
-                data.implants.slice(1).forEach(item => {
-                    const row = document.createElement("div");
-                    row.style.cssText = "background:#ffffff; border:1px solid #e2e8f0; border-radius:6px; padding:10px 14px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; font-size:0.84rem;";
-                    row.innerHTML = `
-                        <div>
-                            <strong>${item.productName}</strong> &bull; Size: <strong style="color:var(--brand-red);">${item.size}</strong> &bull; LOT: <code>${item.lot}</code>
-                        </div>
-                        <div style="font-family:monospace; color:#64748b;">
-                            Serial/CODE: ${item.code}
-                        </div>
-                    `;
-                    multiList.appendChild(row);
-                });
-            } else {
-                multiWrap.style.display = "none";
+            const container = document.getElementById("implantCardsContainer");
+            if (container) {
+                container.innerHTML = "";
+                if (data.implants && data.implants.length > 1) {
+                    data.implants.slice(1).forEach((item, idx) => {
+                        const cardEl = document.createElement("div");
+                        cardEl.style.cssText = "background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:12px 16px; margin-bottom:8px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; font-size:0.86rem;";
+                        cardEl.innerHTML = `
+                            <div>
+                                <strong>${item.productName}</strong> &bull; Size: <strong style="color:var(--brand-red);">${item.size}</strong> &bull; LOT: <code>${item.lot}</code>
+                            </div>
+                            <div style="font-family:monospace; color:#64748b;">
+                                Serial: ${item.code || item.soSerial}
+                            </div>
+                        `;
+                        container.appendChild(cardEl);
+                    });
+                }
             }
 
-            makeQr(imp.code || data.query);
+            makeQr(imp.code || imp.soSerial || data.query);
+        }
+
+        // HÀM RENDER TỪNG CUNG RĂNG TRÊN SƠ ĐỒ
+        function renderArchQuadrant(elementId, teethArray, implantedMap) {
+            const el = document.getElementById(elementId);
+            if (!el) return;
+            el.innerHTML = "";
+
+            teethArray.forEach(tNum => {
+                const node = document.createElement("div");
+                node.className = "tooth-node-item";
+                node.setAttribute("data-tooth", tNum);
+
+                const match = implantedMap[tNum];
+                if (match) {
+                    node.classList.add("implanted");
+                    node.title = `Răng ${tNum} - Cấy trụ Implantswiss (${match.implant.kichThuoc})`;
+                    node.innerHTML = `
+                        <span class="t-num">${tNum}</span>
+                        <i class="fa-solid fa-tooth t-icon"></i>
+                    `;
+                    node.onclick = () => focusImplantCard(match.index);
+                } else {
+                    node.title = `Răng ${tNum} (Tự nhiên)`;
+                    node.innerHTML = `
+                        <span class="t-num">${tNum}</span>
+                        <i class="fa-regular fa-circle t-icon" style="font-size:0.55rem;"></i>
+                    `;
+                }
+                el.appendChild(node);
+            });
+        }
+
+        // Cuộn và làm nổi bật thẻ trụ tương ứng khi bấm vào răng trên sơ đồ
+        function focusImplantCard(index) {
+            const card = document.getElementById(`imp-card-${index}`);
+            if (card) {
+                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                card.classList.add("highlighted");
+                setTimeout(() => card.classList.remove("highlighted"), 2500);
+            }
+        }
+
+        function maskName(name) {
+            if (!name) return "••••";
+            const parts = name.trim().split(/\s+/);
+            if (parts.length === 1) return parts[0].slice(0, 2) + "•••";
+            return parts.map((p, idx) => {
+                if (idx === 0 || idx === parts.length - 1) return p;
+                return p.charAt(0) + "•••";
+            }).join(" ");
+        }
+
+        function maskPhone(ph) {
+            if (!ph) return "••••";
+            const c = ph.replace(/\s+/g, "");
+            if (c.length <= 6) return c.slice(0, 2) + " ••••";
+            return c.slice(0, 4) + " •••• " + c.slice(-2);
         }
 
         function makeQr(txt) {
             const qrBox = document.getElementById("qrcodeBox");
+            if (!qrBox) return;
             qrBox.innerHTML = "";
-            const url = window.location.href.split('?')[0].split('#')[0] + `?serial=${encodeURIComponent(txt)}`;
+            const url = window.location.href.split('#')[0] + `?serial=${encodeURIComponent(txt)}`;
             try {
                 qrObj = new QRCode(qrBox, {
                     text: url,
-                    width: 52,
-                    height: 52,
+                    width: 48,
+                    height: 48,
                     colorDark: "#0f172a",
                     colorLight: "#ffffff",
                     correctLevel: QRCode.CorrectLevel.M
@@ -1646,9 +2656,100 @@
             } catch (e) {}
         }
 
+        // OTP MODAL
+        function openOtpModal() {
+            document.getElementById("otpModal").classList.add("active");
+            document.getElementById("otpErr").style.display = "none";
+            for (let i = 1; i <= 6; i++) {
+                const el = document.getElementById(`pin${i}`);
+                if (el) el.value = "";
+            }
+            startTimer(60);
+            setTimeout(() => document.getElementById("pin1").focus(), 200);
+        }
+
+        function closeOtpModal() {
+            document.getElementById("otpModal").classList.remove("active");
+            clearInterval(timerCd);
+        }
+
+        function stepPin(curr, nextId) {
+            if (curr.value.length >= 1 && nextId) document.getElementById(nextId).focus();
+        }
+
+        function backPin(e, curr, prevId) {
+            if (e.key === "Backspace" && curr.value.length === 0 && prevId) document.getElementById(prevId).focus();
+        }
+
+        function autoSubmitPin(last) {
+            if (last.value.length >= 1) submitVerifyOtp();
+        }
+
+        function startTimer(sec) {
+            clearInterval(timerCd);
+            let rem = sec;
+            const btn = document.getElementById("btnResend");
+            const disp = document.getElementById("timerVal");
+            btn.disabled = true;
+
+            timerCd = setInterval(() => {
+                rem--;
+                if (disp) disp.innerText = rem;
+                if (rem <= 0) {
+                    clearInterval(timerCd);
+                    btn.disabled = false;
+                    btn.innerText = "Gửi lại mã";
+                }
+            }, 1000);
+        }
+
+        function resendOtp() {
+            startTimer(60);
+            alert("Mã PIN/OTP mới đã được gửi!");
+            document.getElementById("pin1").focus();
+        }
+
+        async function submitVerifyOtp() {
+            let pin = "";
+            for (let i = 1; i <= 6; i++) {
+                pin += document.getElementById(`pin${i}`).value.trim();
+            }
+
+            const err = document.getElementById("otpErr");
+            if (pin.length < 4) {
+                err.style.display = "block";
+                err.innerText = "Vui lòng nhập đủ mã số xác thực!";
+                return;
+            }
+
+            if (!activeData || !activeData.query) {
+                err.style.display = "block";
+                err.innerText = "Không tìm thấy dữ liệu phiên tra cứu hiện tại!";
+                return;
+            }
+
+            try {
+                const res = await fetch(`${LIVE_API_URL}?action=verifyOtp&query=${encodeURIComponent(activeData.query)}&otp=${encodeURIComponent(pin)}`);
+                const d = await res.json();
+                if (d && d.success) {
+                    isRecordUnlocked = true;
+                    activeData = d;
+                    closeOtpModal();
+                    renderWarrantyCard(activeData, true);
+                    alert("🎉 Xác thực danh tính thành công qua Zalo/SMS!");
+                } else {
+                    err.style.display = "block";
+                    err.innerText = (d && d.message) ? d.message : "Mã OTP/PIN không chính xác!";
+                }
+            } catch (e) {
+                err.style.display = "block";
+                err.innerText = "Không thể kết nối máy chủ xác thực OTP. Vui lòng thử lại!";
+            }
+        }
+
         function shareCertLink() {
             navigator.clipboard.writeText(window.location.href);
-            alert("Đã sao chép liên kết xác nhận trụ Implantswiss!");
+            alert("Đã sao chép liên kết chứng nhận bảo hành!");
         }
     </script>
 </body>
