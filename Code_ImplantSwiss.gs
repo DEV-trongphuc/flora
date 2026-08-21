@@ -3,6 +3,7 @@
  * GOOGLE APPS SCRIPT - HỆ THỐNG TRA CỨU BẢO HÀNH IMPLANT SWISS CHÍNH HÃNG (SWISS PRECISION)
  * =========================================================================================
  * Spreadsheet ID: 1ZyzEsatFjyjcqCA6Hn0SrA6jDoq05SV7ytv94vyvKD8
+ * Web App URL: https://script.google.com/macros/s/AKfycbxdooZ9kbQaMjC9qFjoDLLd_zst4tfoP_qxFk6P9Zt2wI5r162VananHRYMB2H1JffjbA/exec
  * 
  * TỰ ĐỘNG NHẬN DIỆN VỊ TRÍ RĂNG:
  * - Vị trí răng bắt đầu bằng chữ 'R' hoặc 'r' (VD: r47, r17, r46, r37, r36, r27, r16, R 1 2, R 1 6, R12...)
