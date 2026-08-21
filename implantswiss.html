@@ -2756,12 +2756,17 @@
 
         function queryMock(rawQuery) {
             const clean = rawQuery.toLowerCase().replace(/[^a-z0-9]/g, "");
-            const cleanPhone = rawQuery.replace(/[^0-9]/g, "");
+            const cleanDigits = rawQuery.replace(/[^0-9]/g, "");
+
+            if (!clean || clean.length < 3) {
+                return { success: false, message: `Vui lòng nhập tối thiểu 3 ký tự để tra cứu (Số Serial, Mã bệnh nhân hoặc Số điện thoại)!` };
+            }
 
             let matchedPatient = null;
             let matchedImplants = [];
             let searched = null;
 
+            // 1. Khớp chính xác Số Serial
             for (const item of MOCK_DB.implants) {
                 if (item.soSerial.toLowerCase().replace(/[^a-z0-9]/g, "") === clean) {
                     searched = item;
@@ -2770,15 +2775,32 @@
                 }
             }
 
+            // 2. Nếu tìm thấy qua Serial -> Lấy toàn bộ trụ của bệnh nhân đó
             if (matchedPatient) {
                 matchedImplants = MOCK_DB.implants.filter(i => i.maBenhNhan === matchedPatient.maBenhNhan);
             } else {
+                // 3. Khớp chính xác Mã Bệnh Nhân hoặc Số Điện Thoại (chỉ đối chiếu khi SĐT có tối thiểu 9 chữ số)
                 for (const p of MOCK_DB.patients) {
                     const matchId = p.maBenhNhan.toLowerCase().replace(/[^a-z0-9]/g, "") === clean;
-                    const matchPhone = cleanPhone && (p.soDienThoai.replace(/[^0-9]/g, "") === cleanPhone || p.soDienThoai.includes(cleanPhone));
+                    const pPhoneClean = p.soDienThoai.replace(/[^0-9]/g, "");
+                    const matchPhone = cleanDigits.length >= 9 && (pPhoneClean === cleanDigits || pPhoneClean.endsWith(cleanDigits) || cleanDigits.endsWith(pPhoneClean));
                     if (matchId || matchPhone) {
                         matchedPatient = p;
                         matchedImplants = MOCK_DB.implants.filter(i => i.maBenhNhan === p.maBenhNhan);
+                        break;
+                    }
+                }
+            }
+
+            // 4. Khớp một phần Serial (chỉ áp dụng khi nhập từ 6 ký tự trở lên)
+            if (!matchedPatient && !searched && clean.length >= 6) {
+                for (const item of MOCK_DB.implants) {
+                    if (item.soSerial.toLowerCase().replace(/[^a-z0-9]/g, "").includes(clean)) {
+                        searched = item;
+                        matchedPatient = MOCK_DB.patients.find(p => p.maBenhNhan === item.maBenhNhan);
+                        if (matchedPatient) {
+                            matchedImplants = MOCK_DB.implants.filter(i => i.maBenhNhan === matchedPatient.maBenhNhan);
+                        }
                         break;
                     }
                 }

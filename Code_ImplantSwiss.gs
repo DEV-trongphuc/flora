@@ -348,18 +348,28 @@ function searchWarrantyData(rawQuery, returnFullInfo) {
   const queryClean = cleanString(rawQuery);
   const queryPhone = normalizePhone(rawQuery);
 
+  // Validate minimum query length to avoid false positives on random characters
+  if (!queryClean || queryClean.length < 3) {
+    return {
+      success: false,
+      notFound: true,
+      query: rawQuery,
+      message: `Vui lòng nhập tối thiểu 3 ký tự để tra cứu (Số Serial, Mã bệnh nhân hoặc Số điện thoại)!`
+    };
+  }
+
   let matchedPatient = null;
   let matchedImplants = [];
   let searchedSerialItem = null;
 
-  // 1. Tìm theo Số Serial ở tab TRU_IMPLANT
+  // 1. Tìm theo Số Serial ở tab TRU_IMPLANT (Khớp chính xác)
   const serialColIdx = implantHeaderMap.serial !== -1 ? implantHeaderMap.serial : (implantHeaderMap.ref !== -1 ? 1 : 0);
   const pIdColIdxInImplant = implantHeaderMap.patientId !== -1 ? implantHeaderMap.patientId : 2;
 
   for (let i = 1; i < implantData.length; i++) {
     const row = implantData[i];
     const serial = String(row[serialColIdx] || "").trim();
-    if (cleanString(serial) === queryClean) {
+    if (serial && cleanString(serial) === queryClean) {
       searchedSerialItem = mapImplantRow(row, implantHeaderMap);
       const patientId = String(row[pIdColIdxInImplant] || "").trim();
       matchedPatient = findPatientById(patientData, patientId, patientHeaderMap);
@@ -372,7 +382,7 @@ function searchWarrantyData(rawQuery, returnFullInfo) {
     const patientId = matchedPatient.maBenhNhan;
     matchedImplants = findAllImplantsByPatientId(implantData, patientId, implantHeaderMap);
   } else {
-    // 3. Nếu chưa thấy, tìm theo Mã Bệnh Nhân hoặc Số Điện Thoại ở tab BENH_NHAN
+    // 3. Tìm theo Mã Bệnh Nhân (Khớp chính xác) hoặc Số Điện Thoại (Tối thiểu 9 số)
     const pIdColIdx = patientHeaderMap.id !== -1 ? patientHeaderMap.id : 0;
     const pPhoneColIdx = patientHeaderMap.phone !== -1 ? patientHeaderMap.phone : 2;
 
@@ -381,8 +391,9 @@ function searchWarrantyData(rawQuery, returnFullInfo) {
       const pId = String(row[pIdColIdx] || "").trim();
       const pPhone = String(row[pPhoneColIdx] || "").trim();
 
-      const isMatchId = cleanString(pId) === queryClean;
-      const isMatchPhone = queryPhone && (normalizePhone(pPhone) === queryPhone || cleanString(pPhone).includes(queryClean));
+      const isMatchId = pId && cleanString(pId) === queryClean;
+      const cleanPPhone = normalizePhone(pPhone);
+      const isMatchPhone = (queryPhone.length >= 9) && cleanPPhone && (cleanPPhone === queryPhone || cleanPPhone.endsWith(queryPhone) || queryPhone.endsWith(cleanPPhone));
 
       if (isMatchId || isMatchPhone) {
         matchedPatient = mapPatientRow(row, patientHeaderMap);
@@ -392,12 +403,12 @@ function searchWarrantyData(rawQuery, returnFullInfo) {
     }
   }
 
-  // 4. Tìm kiếm tương đối nếu người dùng nhập một phần Serial
-  if (!matchedPatient && !searchedSerialItem) {
+  // 4. Tìm kiếm một phần Serial (Chỉ khi người dùng nhập từ 6 ký tự trở lên)
+  if (!matchedPatient && !searchedSerialItem && queryClean.length >= 6) {
     for (let i = 1; i < implantData.length; i++) {
       const row = implantData[i];
       const serial = String(row[serialColIdx] || "").trim();
-      if (serial && cleanString(serial).includes(queryClean) && queryClean.length >= 4) {
+      if (serial && cleanString(serial).includes(queryClean)) {
         searchedSerialItem = mapImplantRow(row, implantHeaderMap);
         const patientId = String(row[pIdColIdxInImplant] || "").trim();
         matchedPatient = findPatientById(patientData, patientId, patientHeaderMap);
