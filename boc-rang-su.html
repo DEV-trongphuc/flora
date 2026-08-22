@@ -193,24 +193,45 @@
         </div>
     </section>
 
-    <!-- ─── BÁC SĨ PHỤ TRÁCH ─── -->
-    <section class="section-padding expert-section" style="background-color: var(--clr-bg-light);">
+    <!-- ─── BÁC SĨ PHỤ TRÁCH (EXPERT SECTION) ─── -->
+    <section class="section-padding expert-section" id="expert" style="background-color: var(--clr-bg-light);">
         <div class="container">
-            <div class="expert-wrapper" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
-                <div class="expert-img-side reveal">
-                    <img src="assets/bs_rhm.webp" alt="Bác sĩ Nguyễn Đắc Minh" style="width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-premium);" />
+            <div class="section-header center reveal">
+                <span class="curved-badge">Bác sĩ phụ trách chuyên môn</span>
+                <h2>Bác Sĩ Trực Tiếp Điều Trị Tại Flora</h2>
+            </div>
+            <div class="expert-grid reveal" style="margin-top: 50px; display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; align-items: stretch; background: var(--clr-white); padding: 40px 40px 40px 20px; border-radius: var(--radius-md); box-shadow: var(--shadow-premium); border: 1px solid var(--clr-border);">
+                <!-- Left Column: Premium Framed portrait image -->
+                <div class="reveal-left expert-portrait-frame">
+                    <div class="expert-badge-top">CHUYÊN GIA TRƯỞNG</div>
+                    <img src="assets/bs_rhm.webp" alt="Bác sĩ Nguyễn Đắc Minh" class="expert-portrait-img" loading="lazy" width="480" height="580" onerror="this.src='ngayhoi_item/DSC00090.webp'" />
+                    <div class="expert-name-badge">
+                        <h3>Bác sĩ Nguyễn Đắc Minh</h3>
+                        <p>Chuyên sâu Cấy ghép Implant & Phục hình Thẩm mỹ</p>
+                    </div>
                 </div>
-                <div class="expert-info-side reveal reveal-delay-1">
-                    <span class="curved-badge">Bác sĩ phụ trách</span>
-                    <h2 style="font-size: 2.2rem; color: var(--clr-navy); margin: 15px 0;">Bác sĩ Nguyễn Đắc Minh</h2>
-                    <p style="font-size: 1.1rem; font-weight: bold; color: var(--clr-secondary); margin-bottom: 20px;">Bác sĩ chuyên khoa Răng Hàm Mặt</p>
-                    <p style="line-height: 1.7; color: var(--clr-text-muted); margin-bottom: 20px;">
-                        Bác sĩ chuyên sâu về Implant và phục hình thẩm mỹ với hơn 10 năm kinh nghiệm lâm sàng và đã thực hiện trên 1.200 ca răng sứ thẩm mỹ thành công. 
-                    </p>
-                    <p style="line-height: 1.7; color: var(--clr-text-muted); margin-bottom: 20px;">
-                        Triết lý điều trị của bác sĩ Minh là sự cân bằng tuyệt đối giữa phục hồi chức năng ăn nhai chắc chắn và vẻ đẹp nụ cười tự nhiên, đặc biệt chú trọng trải nghiệm êm ái, nhẹ nhàng cho khách hàng.
-                    </p>
-                    <a href="#dang-ky" class="btn btn-primary">Đặt Hẹn Khám Với Bác Sĩ</a>
+                
+                <!-- Right Column: Biography & Achievements -->
+                <div class="reveal-right" style="display: flex; flex-direction: column; gap: 20px;">
+                    <div>
+                        <span class="curved-badge" style="margin-bottom: 10px; display: inline-block;">Bác sĩ chính phụ trách</span>
+                        <h3 style="font-family: var(--font-title); font-size: 1.5rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 12px;">Bác Sĩ Chuyên Khoa RHM Nguyễn Đắc Minh</h3>
+                        <p style="font-size: 0.98rem; color: var(--clr-text-muted); line-height: 1.7; margin-bottom: 10px;">Bác sĩ Nguyễn Đắc Minh là bác sĩ chính phụ trách các ca điều trị chuyên sâu và phức tạp tại Nha khoa Flora với hơn 10 năm kinh nghiệm lâm sàng.</p>
+                        <p style="font-size: 0.98rem; color: var(--clr-text-muted); line-height: 1.7; margin-bottom: 0;"><strong>Hồ sơ điều trị nổi bật:</strong> Hơn 3.000 ca cấy ghép và phục hình Implant, hơn 1.200 ca phục hình răng sứ thẩm mỹ và hơn 950 ca điều trị cười hở lợi thành công.</p>
+                    </div>
+                    
+                    <div style="border-top: 1px solid var(--clr-border); border-bottom: 1px solid var(--clr-border); padding: 20px 0; margin: 5px 0;">
+                        <ul style="list-style: none; font-size: 0.9rem; color: var(--clr-text); display: flex; flex-direction: column; gap: 10px; padding: 0;">
+                            <li style="display: flex; align-items: flex-start; gap: 10px; margin: 0;"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary); margin-top: 3px;"></i> <span><strong>Bằng cấp:</strong> Tốt nghiệp chính quy Bác sĩ chuyên khoa Răng Hàm Mặt, nhận chứng chỉ Cấy ghép nha khoa (Bệnh viện RHM Trung ương) và Chỉnh nha nâng cao (Bệnh viện Trung ương Huế).</span></li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px; margin: 0;"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary); margin-top: 3px;"></i> <span><strong>Hiệp hội:</strong> Thành viên chính thức Hiệp hội Implant Thế giới ICOI và Hiệp hội Implant Quốc tế ITI.</span></li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px; margin: 0;"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary); margin-top: 3px;"></i> <span><strong>Dấu ấn:</strong> Đài Phát thanh & Truyền hình Vĩnh Long phỏng vấn về công nghệ cấy ghép Implant (2023); trao đổi chuyên môn cùng GS. Gilles P. Chaumanet.</span></li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px; margin: 0;"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary); margin-top: 3px;"></i> <span><strong>Quan niệm:</strong> "Nha sĩ là sự kết hợp giữa bác sĩ, kỹ sư và nghệ sĩ", cam kết mang lại trải nghiệm êm ái, chỉ định thận trọng và theo dõi sát sao sau điều trị.</span></li>
+                        </ul>
+                    </div>
+                    
+                    <div style="text-align: left;">
+                        <a href="#dang-ky" class="btn btn-primary btn-booking" style="display: inline-block;">Đặt lịch tư vấn cùng Bác sĩ Minh <i class="fa-solid fa-calendar-check" style="margin-left: 8px;"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
