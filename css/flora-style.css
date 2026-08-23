@@ -703,7 +703,26 @@
         }
 
         .hero-features-single-card {
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: nowrap !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            gap: 16px !important;
+            width: 100% !important;
+            max-width: 880px !important;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+
+        .hero-features-single-card .hero-feature-item {
+            flex: 1 1 0 !important;
+            min-width: 0 !important;
+            width: auto !important;
+            max-width: none !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 10px !important;
+            text-align: left !important;
         }
 
         .hero-features-single-card:hover {
@@ -718,9 +737,12 @@
             }
             .hero-features-single-card {
                 flex-direction: column !important;
-                gap: 20px !important;
-                padding: 20px !important;
+                gap: 16px !important;
+                padding: 16px 20px !important;
                 align-items: flex-start !important;
+            }
+            .hero-features-single-card .hero-feature-item {
+                width: 100% !important;
             }
             .hero-info-card-frameless > div {
                 flex-direction: column !important;
@@ -8396,5 +8418,211 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
     margin-top: 3px;
     font-size: 0.95rem;
 }
+
+/* ─── NHA KHOA TONG QUAT CUSTOM STYLES ─── */
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 35px;
+}
+.philosophy-card {
+    background: var(--clr-white);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+.philosophy-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-premium);
+    border-color: var(--clr-secondary);
+}
+.philosophy-card-img-wrap {
+    position: relative;
+    width: 100%;
+    height: 190px;
+    overflow: hidden;
+}
+.philosophy-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: var(--transition);
+}
+.philosophy-card:hover .philosophy-card-img {
+    transform: scale(1.06);
+}
+.philosophy-card-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(10, 25, 49, 0.85);
+    backdrop-filter: blur(8px);
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.philosophy-card-body {
+    padding: 22px 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.philosophy-card-body h3 {
+    font-family: var(--font-title);
+    font-size: 1.15rem;
+    color: var(--clr-navy);
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+.philosophy-card-body p {
+    font-size: 0.9rem;
+    color: var(--clr-text-muted);
+    line-height: 1.55;
+    margin: 0;
+}
+@media (max-width: 991px) {
+    .philosophy-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+    .philosophy-card-img-wrap {
+        height: 180px;
+    }
+}
+
+/* Service split card with activity image */
+.service-split-card {
+    background: var(--clr-bg-light);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-md);
+    padding: 28px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+.service-split-card:hover {
+    box-shadow: var(--shadow-premium);
+    border-color: rgba(4, 147, 241, 0.4);
+}
+.service-split-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 26px;
+    align-items: center;
+    margin-top: 18px;
+}
+.service-img-wrap {
+    position: relative;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    height: 100%;
+    min-height: 220px;
+    border: 1px solid var(--clr-border);
+}
+.service-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: var(--transition);
+}
+.service-split-card:hover .service-img-wrap img {
+    transform: scale(1.05);
+}
+.service-img-badge {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    background: rgba(10, 25, 49, 0.85);
+    backdrop-filter: blur(6px);
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    justify-content: center;
+    text-align: center;
+}
+@media (max-width: 991px) {
+    .service-split-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+    .service-img-wrap {
+        height: 200px;
+        min-height: auto;
+    }
+}
+
+/* Doctor Activity Gallery */
+.doctor-activity-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--clr-border);
+}
+.doctor-activity-item {
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    position: relative;
+    box-shadow: var(--shadow-sm);
+    height: 110px;
+    border: 1px solid var(--clr-border);
+    transition: var(--transition);
+}
+.doctor-activity-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: var(--transition);
+}
+.doctor-activity-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+.doctor-activity-item:hover img {
+    transform: scale(1.08);
+}
+.doctor-activity-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(0deg, rgba(10, 25, 49, 0.9) 0%, transparent 100%);
+    color: #ffffff;
+    font-size: 0.72rem;
+    padding: 6px 8px 4px;
+    text-align: center;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+@media (max-width: 768px) {
+    .doctor-activity-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+}
+
 
 
