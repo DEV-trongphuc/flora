@@ -3,11 +3,15 @@
  * GOOGLE APPS SCRIPT - HỆ THỐNG TRA CỨU BẢO HÀNH & XÁC THỰC TRỤ IMPLANTSWISS CHÍNH HÃNG
  * =========================================================================================
  * Cấu trúc bảng Google Sheets (1 Sheet duy nhất):
- *   - Cột A (1): REF          (VD: S-BFHR4808, S-BFHR4308, S-BWFHR5508, S-BFHR4310)
+ *   - Cột A (1): REF          (VD: S-BFHR4808, S-BFHR4308, S-BWFHR5508, S-BFHR4310) -> Mã quy cách/catalog
  *   - Cột B (2): Product name (VD: Bone Level Fixture Hybrid, Bone Level Wide Fixture Hybrid)
  *   - Cột C (3): Size         (VD: 4.8X08 mm, 4.3X08 mm, 5.5X08 mm, 4.3X10 mm)
- *   - Cột D (4): CODE         (VD: 730080810250326033, 730060410250509018, 729061410240318007)
+ *   - Cột D (4): SN / CODE    (VD: 730080810250326033, 730060410250509018, 729061410240318007) -> MÃ ĐỊNH DANH DUY NHẤT
  *   - Cột E (5): LOT          (VD: 250326033000, 250509018000, 240318007000, 241023059000)
+ * 
+ * LƯU Ý QUAN TRỌNG:
+ * Hệ thống tra cứu ĐƯỢC THIẾT LẬP CHỈ TRA CỨU BẰNG MÃ SN (Serial Number / CODE duy nhất).
+ * KHÔNG tra cứu bằng mã REF vì mã REF có thể giống nhau giữa nhiều trụ cùng model/kích thước.
  * =========================================================================================
  */
 
@@ -32,7 +36,7 @@ function handleRequest(e) {
   try {
     const params = (e && e.parameter) ? e.parameter : {};
     const action = params.action || "search";
-    const query = (params.query || params.search || params.code || params.lot || params.ref || "").trim();
+    const query = (params.query || params.sn || params.serial || params.code || params.search || "").trim();
 
     let result = {};
 
@@ -75,14 +79,14 @@ function createJsonResponse(data) {
 }
 
 /**
- * 3. HÀM TRA CỨU DỮ LIỆU TRỤ IMPLANT TỪ GOOGLE SHEET (1 SHEET DUY NHẤT)
+ * 3. HÀM TRA CỨU DỮ LIỆU TRỤ IMPLANT TỪ GOOGLE SHEET (CHỈ THEO MÃ SN)
  */
 function searchImplantData(rawQuery) {
   if (!rawQuery) {
     return {
       success: false,
       notFound: true,
-      message: "Vui lòng nhập Mã CODE, Số LOT hoặc Mã REF để tra cứu thông số trụ Implantswiss!"
+      message: "Vui lòng nhập Mã SN (Serial Number) để tra cứu thông số trụ Implantswiss chính hãng!"
     };
   }
 
@@ -93,7 +97,7 @@ function searchImplantData(rawQuery) {
       success: false,
       notFound: true,
       query: rawQuery,
-      message: "Vui lòng nhập tối thiểu 3 ký tự (Mã CODE, Số LOT hoặc Mã REF)!"
+      message: "Vui lòng nhập tối thiểu 3 ký tự của Mã SN (Serial Number)!"
     };
   }
 
@@ -120,7 +124,7 @@ function searchImplantData(rawQuery) {
     ref: ["ref", "mã ref", "ma ref", "reference", "mã sản phẩm", "ma san pham"],
     productName: ["product name", "product_name", "tên sản phẩm", "ten san pham", "tên trụ", "ten tru", "product", "sản phẩm", "san pham"],
     size: ["size", "kích thước", "kich thuoc", "dimension", "quy cách", "quy cach"],
-    code: ["code", "mã code", "ma code", "barcode", "mã vạch", "ma vach", "udi", "serial"],
+    code: ["sn", "mã sn", "ma sn", "serial", "số serial", "so serial", "serial number", "code", "mã code", "ma code", "barcode", "mã vạch", "ma vach", "udi"],
     lot: ["lot", "số lot", "so lot", "mã lot", "ma lot", "batch", "lô"]
   });
 
@@ -140,22 +144,24 @@ function searchImplantData(rawQuery) {
     const rowCode = String(row[codeIdx] || "").trim();
     const rowLot = String(row[lotIdx] || "").trim();
 
-    if (!rowRef && !rowCode && !rowLot) continue;
+    if (!rowCode) continue;
 
-    const cleanRef = cleanString(rowRef);
     const cleanCode = cleanString(rowCode);
-    const cleanLot = cleanString(rowLot);
 
-    const matchCode = cleanCode && (cleanCode === queryClean || cleanCode.includes(queryClean) || (queryClean.length >= 8 && queryClean.includes(cleanCode)));
-    const matchLot = cleanLot && (cleanLot === queryClean || (queryClean.length >= 6 && cleanLot.includes(queryClean)));
-    const matchRef = cleanRef && (cleanRef === queryClean || (queryClean.length >= 5 && cleanRef.includes(queryClean)));
+    // CHỈ SO KHỚP VỚI MÃ SN (Serial Number / CODE) - KHÔNG MATCH REF VÌ REF CÓ THỂ GIỐNG NHAU GIỮA CÁC TRỤ
+    const matchCode = cleanCode && (
+      cleanCode === queryClean || 
+      cleanCode.includes(queryClean) || 
+      (queryClean.length >= 6 && queryClean.includes(cleanCode))
+    );
 
-    if (matchCode || matchLot || matchRef) {
+    if (matchCode) {
       matchedList.push({
         ref: rowRef || "N/A",
         productName: rowProd || "Bone Level Fixture Hybrid",
         size: rowSize || "N/A",
         code: rowCode || "N/A",
+        sn: rowCode || "N/A",
         lot: rowLot || "N/A",
         material: "Medical Grade 4 Titanium (Ti-G4)",
         origin: "Made in Switzerland (Thụy Sĩ)",
@@ -173,7 +179,7 @@ function searchImplantData(rawQuery) {
       success: false,
       notFound: true,
       query: rawQuery,
-      message: `Không tìm thấy thông tin trụ Implantswiss với từ khóa: "${rawQuery}". Vui lòng kiểm tra lại Mã CODE, Số LOT hoặc Mã REF!`
+      message: `Không tìm thấy thông tin trụ Implantswiss với Mã SN: "${rawQuery}". Vui lòng kiểm tra lại Mã SN (Serial Number) in trên nhãn hoặc thẻ bảo hành!`
     };
   }
 
@@ -237,7 +243,7 @@ function getSpreadsheet() {
 }
 
 /**
- * 5. HÀM TỰ ĐỘNG ĐIỀN DỮ LIỆU MẪU THEO ĐÚNG CẤU TRÚC 1 SHEET (REF, Product name, Size, CODE, LOT)
+ * 5. HÀM TỰ ĐỘNG ĐIỀN DỮ LIỆU MẪU THEO ĐÚNG CẤU TRÚC 1 SHEET (REF, Product name, Size, SN / CODE, LOT)
  */
 function initSampleData() {
   const ss = getSpreadsheet();
@@ -245,7 +251,7 @@ function initSampleData() {
   const sheet = sheets[0];
   sheet.clear();
 
-  const headers = [["REF", "Product name", "Size", "CODE", "LOT"]];
+  const headers = [["REF", "Product name", "Size", "SN / CODE", "LOT"]];
   const rows = [
     ["S-BFHR4808", "Bone Level Fixture Hybrid", "4.8X08 mm", "730080810250326033", "250326033000"],
     ["S-BFHR4308", "Bone Level Fixture Hybrid", "4.3X08 mm", "730060410250509018", "250509018000"],
@@ -259,7 +265,7 @@ function initSampleData() {
 
   return {
     success: true,
-    message: "Đã khởi tạo bảng dữ liệu chuẩn 5 cột (REF, Product name, Size, CODE, LOT) thành công!"
+    message: "Đã khởi tạo bảng dữ liệu chuẩn 5 cột (REF, Product name, Size, SN / CODE, LOT) thành công!"
   };
 }
 
