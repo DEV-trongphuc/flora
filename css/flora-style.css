@@ -6451,6 +6451,20 @@ input:focus, select:focus, textarea:focus {
     max-width: 540px !important;
     box-sizing: border-box;
 }
+
+/* 2x2 Grid for 4-case layouts */
+.case-grid.case-grid-2x2 {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 32px !important;
+    max-width: 1060px !important;
+    margin: 40px auto 0 !important;
+}
+.case-grid.case-grid-2x2 .case-card {
+    flex: none !important;
+    max-width: 100% !important;
+    width: 100% !important;
+}
 @media (max-width: 991px) {
     .case-grid {
         gap: 20px !important;
