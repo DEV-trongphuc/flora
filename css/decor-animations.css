@@ -861,11 +861,26 @@ html, body {
     scroll-behavior: auto !important;
 }
 
-/* ─── 16. EXPERT PORTRAIT FRAME REDESIGN ─── */
+/* ─── 16. EXPERT PORTRAIT FRAME & RECOVERY GRID RESPONSIVE STYLES ─── */
+.expert-grid {
+    display: grid;
+    grid-template-columns: minmax(320px, 440px) 1fr;
+    gap: 40px;
+    align-items: stretch;
+    background: var(--clr-white);
+    padding: 40px;
+    border-radius: var(--radius-md, 24px);
+    box-shadow: var(--shadow-premium);
+    border: 1px solid var(--clr-border);
+    margin-top: 50px;
+    position: relative;
+    z-index: 1;
+}
+
 .expert-portrait-frame {
     position: relative;
     background: var(--clr-white);
-    padding: 12px;
+    padding: 10px;
     border-radius: 24px;
     border: 1px solid rgba(4, 147, 241, 0.18);
     box-shadow: var(--shadow-premium);
@@ -876,6 +891,7 @@ html, body {
     display: flex;
     flex-direction: column;
     height: 100%;
+    min-height: 480px;
     box-sizing: border-box;
 }
 
@@ -891,12 +907,14 @@ html, body {
     display: block;
     border-radius: 16px;
     object-fit: cover;
+    object-position: center 15%;
+    min-height: 440px;
 }
 
 .expert-badge-top {
     position: absolute;
-    top: 24px;
-    right: 24px;
+    top: 22px;
+    right: 22px;
     background: var(--grad-primary);
     color: var(--clr-white);
     padding: 6px 14px;
@@ -904,7 +922,7 @@ html, body {
     font-size: 0.72rem;
     font-weight: 800;
     letter-spacing: 0.05em;
-    box-shadow: 0 4px 10px rgba(0, 51, 163, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 51, 163, 0.25);
     z-index: 5;
 }
 
@@ -913,17 +931,18 @@ html, body {
     bottom: -15px;
     left: 50%;
     transform: translateX(-50%);
-    width: 88%;
-    background: rgba(10, 25, 49, 0.92);
+    width: 90%;
+    background: rgba(10, 25, 49, 0.94);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 18px;
-    padding: 16px 20px;
+    padding: 14px 18px;
     text-align: center;
-    box-shadow: 0 15px 35px rgba(10, 25, 49, 0.25);
+    box-shadow: 0 15px 35px rgba(10, 25, 49, 0.3);
     z-index: 5;
     transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    box-sizing: border-box;
 }
 
 .expert-portrait-frame:hover .expert-name-badge {
@@ -948,6 +967,111 @@ html, body {
     text-transform: uppercase;
     letter-spacing: 0.03em;
     margin: 0;
+}
+
+/* ─── RECOVERY GRID & SECTION STYLES ─── */
+.recovery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    gap: 45px;
+    align-items: center;
+}
+
+.recovery-media-card {
+    position: relative;
+    border-radius: var(--radius-lg, 16px);
+    overflow: hidden;
+    box-shadow: var(--shadow-premium);
+    background: var(--clr-bg-light);
+    border: 1px solid var(--clr-border);
+    height: 100%;
+    min-height: 340px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.recovery-media-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.recovery-media-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(10, 25, 49, 0.92) 0%, rgba(10, 25, 49, 0.6) 60%, transparent 100%);
+    padding: 22px;
+    color: #ffffff;
+}
+
+/* Mobile & Tablet Responsiveness for Expert & Recovery Sections */
+@media (max-width: 991px) {
+    .expert-grid {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+        padding: 24px 16px !important;
+        margin-top: 30px !important;
+    }
+    .expert-portrait-frame {
+        max-width: 100%;
+        min-height: auto;
+        height: auto;
+        padding: 8px;
+        margin-bottom: 18px;
+    }
+    .expert-portrait-img {
+        min-height: 360px;
+        height: 360px;
+        aspect-ratio: 4 / 4.8;
+        object-position: center 12%;
+    }
+    .expert-badge-top {
+        top: 16px;
+        right: 16px;
+        padding: 5px 12px;
+        font-size: 0.68rem;
+    }
+    .expert-name-badge {
+        bottom: -10px;
+        width: 92%;
+        padding: 10px 14px;
+        border-radius: 14px;
+    }
+    .expert-name-badge h3 {
+        font-size: 1.08rem;
+        margin-bottom: 2px;
+    }
+    .expert-name-badge p {
+        font-size: 0.72rem;
+    }
+    .recovery-grid {
+        grid-template-columns: 1fr !important;
+        gap: 28px !important;
+    }
+    .recovery-media-card {
+        min-height: 240px;
+        max-height: 280px;
+    }
+    .recovery-media-overlay {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .expert-portrait-img {
+        min-height: 320px;
+        height: 320px;
+    }
+    .expert-name-badge h3 {
+        font-size: 1rem;
+    }
+    .expert-name-badge p {
+        font-size: 0.68rem;
+    }
 }
 
 /* ─── 17. PERFORMANCE OPTIMIZATIONS (GPU & LAZY RENDERING) ─── */
