@@ -6429,14 +6429,118 @@ input:focus, select:focus, textarea:focus {
     width: 100% !important;
     overflow-x: auto !important;
     -webkit-overflow-scrolling: touch !important;
-    margin-bottom: 30px !important;
+    margin-bottom: 24px !important;
     border-radius: var(--radius-sm) !important;
     border: 1px solid var(--clr-border) !important;
+    position: relative;
 }
 .responsive-table-wrapper table {
-    min-width: 580px !important; /* Protect columns on mobile screen widths */
+    min-width: 500px !important; /* Protect columns on mobile screen widths */
     width: 100% !important;
     margin-bottom: 0 !important;
+    border-collapse: collapse;
+}
+
+/* Scrollbar styling for tables on mobile/touch */
+.responsive-table-wrapper::-webkit-scrollbar {
+    height: 5px;
+}
+.responsive-table-wrapper::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+.responsive-table-wrapper::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+.responsive-table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: var(--clr-secondary);
+}
+
+/* ─── FLORA PRICE TABLE DESIGN SYSTEM ─── */
+.flora-price-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    text-align: left !important;
+    font-size: 0.95rem !important;
+}
+
+.flora-price-table thead tr {
+    background: var(--clr-bg-light) !important;
+    border-bottom: 2px solid var(--clr-border) !important;
+}
+
+.flora-price-table th {
+    padding: 14px 18px !important;
+    font-weight: 700 !important;
+    color: var(--clr-navy) !important;
+    letter-spacing: 0.2px;
+}
+
+.flora-price-table th.col-service,
+.flora-price-table td.col-service {
+    width: 54% !important;
+}
+
+.flora-price-table th.col-unit,
+.flora-price-table td.col-unit {
+    width: 20% !important;
+    white-space: nowrap !important;
+}
+
+.flora-price-table th.col-price,
+.flora-price-table td.col-price {
+    width: 26% !important;
+    text-align: right !important;
+    white-space: nowrap !important;
+}
+
+.flora-price-table tbody tr {
+    border-bottom: 1px solid var(--clr-border) !important;
+    transition: background 0.2s ease;
+}
+
+.flora-price-table tbody tr:last-child {
+    border-bottom: none !important;
+}
+
+.flora-price-table tbody tr:hover {
+    background: rgba(4, 147, 241, 0.03) !important;
+}
+
+.flora-price-table td {
+    padding: 14px 18px !important;
+    vertical-align: middle !important;
+}
+
+.flora-price-table td.col-service {
+    font-weight: 600 !important;
+    color: var(--clr-text) !important;
+    line-height: 1.45 !important;
+}
+
+.flora-price-table td.col-unit {
+    color: var(--clr-text-muted) !important;
+}
+
+.flora-price-table td.col-price {
+    font-weight: 700 !important;
+    color: var(--clr-primary) !important;
+}
+
+.flora-price-table td.col-price.free {
+    color: #10b981 !important; /* Green for free items */
+}
+
+.flora-price-table td.col-price.highlight {
+    color: var(--clr-secondary) !important;
+}
+
+@media (max-width: 768px) {
+    .flora-price-table th,
+    .flora-price-table td {
+        padding: 11px 12px !important;
+        font-size: 0.88rem !important;
+    }
 }
 
 /* ─── CASE GRID RESPONSIVE STYLING (TABLET & MOBILE SLIDER) ─── */
@@ -7415,11 +7519,10 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
         font-size: 0.95rem !important;
     }
     .responsive-table-wrapper {
-        border: none !important;
         margin-bottom: 20px !important;
     }
     .responsive-table-wrapper table {
-        min-width: 100% !important;
+        min-width: 500px !important;
     }
     .premium-price-table th, 
     .premium-price-table td {
@@ -7437,6 +7540,8 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
     box-shadow: 0 10px 30px rgba(0, 51, 163, 0.03);
     margin-bottom: 30px;
     transition: var(--transition);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 .pricing-card:hover {
     box-shadow: 0 15px 40px rgba(0, 51, 163, 0.06);
@@ -7460,6 +7565,7 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
 }
 .premium-price-table {
     width: 100%;
+    min-width: 460px;
     border-collapse: separate;
     border-spacing: 0;
     text-align: left;
