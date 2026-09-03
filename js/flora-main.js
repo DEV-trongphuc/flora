@@ -1528,43 +1528,64 @@ function initAICostProposal() {
 }
 document.addEventListener('DOMContentLoaded', initAICostProposal);
 
-// Lenis Smooth Scroll Initialization
+// Lenis Smooth Scroll Initialization (with native fallback)
 function initLenis() {
-    if (typeof Lenis === 'undefined') return;
-    
-    const lenis = new Lenis({
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        direction: 'vertical',
-        gestureDirection: 'vertical',
-        smooth: true,
-        mouseMultiplier: 1,
-        smoothTouch: false,
-        touchMultiplier: 2,
-        infinite: false,
-    });
-
-    function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-    
-    // Connect anchor links to Lenis scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            const targetEl = document.querySelector(targetId);
-            if (targetEl) {
-                e.preventDefault();
-                lenis.scrollTo(targetEl, {
-                    offset: -70 // offset header
-                });
-            }
+    if (typeof Lenis !== 'undefined') {
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            mouseMultiplier: 1,
+            smoothTouch: false,
+            touchMultiplier: 2,
+            infinite: false,
         });
-    });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+
+        requestAnimationFrame(raf);
+        
+        // Connect anchor links to Lenis scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetEl = document.querySelector(targetId);
+                if (targetEl) {
+                    e.preventDefault();
+                    lenis.scrollTo(targetEl, {
+                        offset: -70 // offset header
+                    });
+                }
+            });
+        });
+    } else {
+        // Native smooth scroll for anchor links with header offset
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#' || targetId === '') return;
+                try {
+                    const targetEl = document.querySelector(targetId);
+                    if (targetEl) {
+                        e.preventDefault();
+                        const headerOffset = 70;
+                        const elementPosition = targetEl.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                } catch (err) {}
+            });
+        });
+    }
 }
 document.addEventListener('DOMContentLoaded', initLenis);
 
