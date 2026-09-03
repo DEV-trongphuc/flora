@@ -1099,6 +1099,7 @@ function initCostCalculator() {
             opt.value = t.id;
             opt.textContent = t.name;
             opt.setAttribute('data-price', t.price);
+            if (t.id === 'implantswiss') opt.selected = true;
             subTypeSel.appendChild(opt);
         });
 
@@ -1137,20 +1138,22 @@ function initCostCalculator() {
             qtyVal.textContent = qty;
         }
 
-        let total = basePrice * qty;
-
-        // Add extras if visible and checked
-        if (data.extra) {
-            const boneGraft = document.getElementById('calc-bone-graft');
-            const sedation = document.getElementById('calc-sedation');
-            
-            if (boneGraft && boneGraft.checked) {
-                total += 5000000 * qty; // 5M per tooth
-            }
-            if (sedation && sedation.checked) {
-                total += 3000000; // 3M flat rate
-            }
+        const originalPrice = basePrice * qty;
+        let crownDiscount = 0;
+        if (service === 'implant') {
+            crownDiscount = 2500000 * qty; // Tặng mão răng sứ 2.5tr/răng
         }
+        const voucherDiscount = Math.round(originalPrice * 0.15); // 15% voucher
+        let total = Math.max(originalPrice - crownDiscount - voucherDiscount, 0);
+
+        // Update Shopee breakdown elements if present in DOM
+        const origPriceEl = document.getElementById('calc-original-price');
+        const crownDiscEl = document.getElementById('calc-crown-discount');
+        const voucherDiscEl = document.getElementById('calc-voucher-discount');
+
+        if (origPriceEl) origPriceEl.textContent = originalPrice.toLocaleString('vi-VN') + 'đ';
+        if (crownDiscEl) crownDiscEl.textContent = '-' + crownDiscount.toLocaleString('vi-VN') + 'đ';
+        if (voucherDiscEl) voucherDiscEl.textContent = '-' + voucherDiscount.toLocaleString('vi-VN') + 'đ';
 
         // Render values with smooth counting animation
         const startVal = parseFloat(totalPriceEl.getAttribute('data-price')) || 0;
@@ -1172,7 +1175,7 @@ function initCostCalculator() {
             
             totalPriceEl.textContent = current.toLocaleString('vi-VN') + 'đ';
             const installment = Math.round(current / 12);
-            installmentPriceEl.textContent = `Trả góp 0%: chỉ từ ${installment.toLocaleString('vi-VN')}đ / tháng`;
+            installmentPriceEl.textContent = `Trả góp 0%: chỉ từ ~${installment.toLocaleString('vi-VN')}đ / tháng`;
             
             if (progress < 1) {
                 const animId = requestAnimationFrame(updateNumber);
@@ -1180,7 +1183,7 @@ function initCostCalculator() {
             } else {
                 totalPriceEl.textContent = total.toLocaleString('vi-VN') + 'đ';
                 const finalInstallment = Math.round(total / 12);
-                installmentPriceEl.textContent = `Trả góp 0%: chỉ từ ${finalInstallment.toLocaleString('vi-VN')}đ / tháng`;
+                installmentPriceEl.textContent = `Trả góp 0%: chỉ từ ~${finalInstallment.toLocaleString('vi-VN')}đ / tháng`;
                 totalPriceEl.removeAttribute('data-anim-id');
             }
         }
@@ -1477,12 +1480,23 @@ function initAICostProposal() {
             }
 
             aiFeedback.style.display = 'block';
-            aiFeedback.style.color = 'var(--clr-secondary)';
-            aiFeedback.innerHTML = `🤖 AI Đề xuất: <strong>${feedbackText}</strong> (Số lượng: ${detectedQty}). Bộ dự toán chi phí đã được cập nhật tự động!`;
+            aiFeedback.style.color = 'var(--clr-navy)';
+            
+            if (detectedService === 'implant' && (text.includes('năm') || text.includes('tháng') || text.includes('lâu') || text.includes('mất'))) {
+                aiFeedback.innerHTML = `
+                    <div style="background: rgba(4, 147, 241, 0.08); border-left: 3.5px solid var(--clr-secondary); padding: 12px 15px; border-radius: 8px; margin-top: 5px;">
+                        <p style="margin: 0 0 6px; font-weight: 700; color: var(--clr-navy); font-size: 0.88rem;">🤖 Đánh giá sơ bộ từ Trợ Lý AI Flora:</p>
+                        <p style="margin: 0 0 8px; font-size: 0.86rem; line-height: 1.55; color: #334155;">Bạn đã mất răng trên 1 năm. Khi răng mất lâu ngày, vùng xương có thể thay đổi về thể tích, vì vậy Bác sĩ cần đánh giá nền xương trước khi lựa chọn Implant. Với những trường hợp cần chú trọng độ ổn định và quá trình lành thương, các hệ Implant Thụy Sĩ có thể được cân nhắc tùy tình trạng thực tế.</p>
+                        <span style="font-size: 0.82rem; font-weight: 700; color: var(--clr-secondary); display: inline-block;">✓ Đã tự động chọn gói: ${feedbackText} (${detectedQty} răng) & áp dụng mức giá ưu đãi!</span>
+                    </div>
+                `;
+            } else {
+                aiFeedback.innerHTML = `🤖 AI Đề xuất: <strong>${feedbackText}</strong> (Số lượng: ${detectedQty}). Bộ dự toán chi phí đã được cập nhật tự động!`;
+            }
         } else {
             aiFeedback.style.display = 'block';
             aiFeedback.style.color = '#ef4444';
-            aiFeedback.innerHTML = `🤖 AI chưa nhận diện rõ nhu cầu. Bạn hãy mô tả rõ hơn (ví dụ: 'mất 2 răng', 'niềng răng hô vẩu', 'bị cười hở lợi').`;
+            aiFeedback.innerHTML = `🤖 AI chưa nhận diện rõ nhu cầu. Bạn hãy mô tả rõ hơn (ví dụ: 'Mất 2 răng, 3 năm', 'niềng răng hô vẩu', 'bị cười hở lợi').`;
         }
     };
 

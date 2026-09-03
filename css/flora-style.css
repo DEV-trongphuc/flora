@@ -8821,5 +8821,338 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
     }
 }
 
+/* ─── STORY GALLERY HERO LAYOUT (OPTION 02) ─── */
+.hero-story-gallery {
+    padding-top: 20px;
+    padding-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+}
+.hero-gallery-arc {
+    display: grid;
+    grid-template-columns: 0.82fr 1fr 1.18fr 1.18fr 1fr 0.82fr;
+    align-items: end;
+    gap: 14px;
+    max-width: 1200px;
+    margin: 10px auto 35px;
+    padding: 0 15px;
+}
+.hero-arc-photo {
+    border: 5px solid #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 16px 36px rgba(0, 51, 163, 0.12);
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    background: #eef6ff;
+    transition: all 0.3s ease;
+}
+.hero-arc-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+.hero-arc-photo:hover {
+    transform: translateY(-6px) scale(1.03) !important;
+    box-shadow: 0 22px 45px rgba(0, 51, 163, 0.2);
+    z-index: 5;
+}
+.hero-arc-photo:hover img {
+    transform: scale(1.08);
+}
+.hero-arc-photo-1 { transform: translateY(22px) rotate(-3.5deg); }
+.hero-arc-photo-2 { transform: translateY(8px) rotate(1.8deg); }
+.hero-arc-photo-3 { transform: translateY(-6px) rotate(-1.5deg); }
+.hero-arc-photo-4 { transform: translateY(-6px) rotate(1.5deg); }
+.hero-arc-photo-5 { transform: translateY(8px) rotate(-1.8deg); }
+.hero-arc-photo-6 { transform: translateY(22px) rotate(3.5deg); }
+
+.hero-story-content {
+    max-width: 860px;
+    margin: 0 auto;
+    text-align: center;
+}
+.hero-story-content .hero-title {
+    font-size: clamp(2.2rem, 4.8vw, 3.6rem);
+    margin-bottom: 16px;
+    line-height: 1.25;
+}
+.hero-story-content .hero-description {
+    font-size: clamp(0.92rem, 1.8vw, 1.05rem);
+    color: var(--clr-text-muted);
+    line-height: 1.7;
+    margin: 0 auto 24px;
+    max-width: 780px;
+}
+.hero-story-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 22px;
+}
+
+@media (max-width: 900px) {
+    .hero-gallery-arc {
+        grid-template-columns: none;
+        grid-auto-columns: 44%;
+        grid-auto-flow: column;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding: 10px 15px 20px;
+        margin-bottom: 20px;
+        -webkit-overflow-scrolling: touch;
+    }
+    .hero-arc-photo {
+        scroll-snap-align: center;
+        transform: none !important;
+        border-width: 4px;
+    }
+}
+@media (max-width: 600px) {
+    .hero-gallery-arc {
+        grid-auto-columns: 68%;
+    }
+}
+
+/* ─── FLORA LUXURY VIDEO SHOWCASE FRAME ─── */
+.flora-video-frame-wrapper {
+    max-width: 920px;
+    margin: 35px auto 10px;
+    position: relative;
+    padding: 10px;
+    background: linear-gradient(135deg, rgba(4, 147, 241, 0.25) 0%, rgba(0, 51, 163, 0.35) 100%);
+    border-radius: 26px;
+    box-shadow: 0 25px 60px rgba(0, 51, 163, 0.16);
+}
+.flora-video-frame-inner {
+    border-radius: 20px;
+    overflow: hidden;
+    background: #001238;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.flora-video-ratio-16-9 {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+}
+.flora-video-ratio-16-9 iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+.flora-video-badge-decor {
+    position: absolute;
+    top: 14px;
+    left: 18px;
+    z-index: 10;
+    background: rgba(2, 22, 68, 0.82);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    font-size: 0.76rem;
+    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 99px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    pointer-events: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* ─── HIGHLIGHT BADGES FOR IMPLANTSWISS ─── */
+.badge-highlight-recommend {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, #0493f1 0%, #0033a3 100%);
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 4px 12px;
+    border-radius: 99px;
+    box-shadow: 0 4px 14px rgba(4, 147, 241, 0.4);
+    animation: pulseGlow 2.5s infinite;
+}
+@keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 4px 14px rgba(4, 147, 241, 0.4); }
+    50% { box-shadow: 0 4px 22px rgba(4, 147, 241, 0.75); }
+}
+
+.materials-tab-btn.highlighted-tab {
+    position: relative;
+    border-color: var(--clr-primary);
+}
+.materials-tab-btn.highlighted-tab::after {
+    content: "ĐỀ XUẤT";
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+    color: #fff;
+    font-size: 0.62rem;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: 99px;
+    box-shadow: 0 3px 8px rgba(255, 75, 43, 0.4);
+}
+
+/* ─── SHOPEE-STYLE DISCOUNT BREAKDOWN CARD ─── */
+.shopee-price-breakdown {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1.5px solid rgba(4, 147, 241, 0.25);
+    box-shadow: 0 12px 32px rgba(0, 51, 163, 0.08);
+    padding: 24px;
+    margin-bottom: 24px;
+}
+.shopee-line-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 9px 0;
+    border-bottom: 1px dashed #e2e8f0;
+    font-size: 0.95rem;
+}
+.shopee-line-item:last-of-type {
+    border-bottom: none;
+}
+.shopee-line-item.discount-item {
+    color: #10b981;
+    font-weight: 600;
+}
+.shopee-line-item.discount-item .val {
+    color: #e11d48;
+    font-weight: 700;
+}
+.shopee-total-box {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 2px solid #cbd5e1;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.shopee-total-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--clr-navy);
+}
+.shopee-total-price {
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: #0033a3;
+}
+.shopee-installment-sub {
+    text-align: right;
+    font-size: 0.84rem;
+    color: var(--clr-primary);
+    font-weight: 600;
+    margin-top: 4px;
+}
+
+/* ─── 1:1 RATIO PROGRESS STEP THUMBNAILS ─── */
+.progress-step-card .progress-step-thumb.ratio-square {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 15px;
+    box-shadow: var(--shadow-sm);
+    background: #f1f5f9;
+}
+.progress-step-card .progress-step-thumb.ratio-square img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ─── SHOPEE PRICE BREAKDOWN ENHANCEMENT ─── */
+.shopee-price-breakdown {
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 18px 20px;
+    margin-bottom: 22px;
+}
+.shopee-line-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px dashed #e2e8f0;
+    font-size: 0.92rem;
+}
+.shopee-line-title {
+    color: #475569;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.shopee-line-val {
+    font-weight: 700;
+    color: var(--clr-navy);
+}
+.shopee-line-val.original {
+    text-decoration: line-through;
+    color: #94a3b8;
+    font-weight: 600;
+}
+.shopee-line-item.discount .shopee-line-title {
+    color: #059669;
+}
+.shopee-line-item.discount .shopee-line-val {
+    color: #e11d48;
+}
+.shopee-line-item.free .shopee-line-title {
+    color: #0284c7;
+}
+.shopee-line-item.free .shopee-line-val {
+    color: #059669;
+}
+.shopee-total-box {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 2px solid #cbd5e1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.shopee-total-label {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--clr-navy);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+.shopee-total-num {
+    font-size: 1.9rem;
+    font-weight: 900;
+    color: #0033a3;
+    margin: 4px 0 0;
+    line-height: 1.1;
+}
+.shopee-installment-text {
+    font-size: 0.86rem;
+    color: var(--clr-primary);
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+
 
 

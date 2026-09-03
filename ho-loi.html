@@ -108,8 +108,8 @@
         </defs>
     </svg>
 
-    <!-- ─── SUBPAGE HERO SECTION (SPLIT HERO) ─── -->
-    <div class="hero-wrapper subpage-hero-wrapper">
+    <!-- ─── SUBPAGE HERO SECTION (STORY GALLERY HERO) ─── -->
+    <div class="hero-wrapper subpage-hero-wrapper hero-story-gallery">
         <!-- Floating Sparkles -->
         <div class="hero-sparkle hero-sparkle-1">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z" fill="url(#sparkleGrad)"/></svg>
@@ -118,12 +118,34 @@
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z" fill="url(#sparkleGrad)"/></svg>
         </div>
         
-        <section class="hero-section split-hero" id="banner">
-            <div class="container hero-split-container">
-                <!-- Left Content -->
-                <div class="hero-left-content reveal">
-                    <span class="curved-badge">Tiêu chuẩn thẩm mỹ nụ cười Thụy Sĩ</span>
-                    <h1 class="hero-title">
+        <section class="hero-section" id="banner" style="padding-top: 10px; padding-bottom: 20px;">
+            <div class="container">
+                <!-- Arched Gallery Strip -->
+                <div class="hero-gallery-arc reveal" aria-label="Hình ảnh nụ cười và kết quả điều trị cười hở lợi tại Flora">
+                    <div class="hero-arc-photo hero-arc-photo-1">
+                        <img src="assets/homepage/services/ho_loi_1.webp" alt="Điều trị cười hở lợi thẩm mỹ" loading="lazy" />
+                    </div>
+                    <div class="hero-arc-photo hero-arc-photo-2">
+                        <img src="assets/homepage/cases/ho_loi_after_img_5396.webp" alt="Nụ cười hoàn mỹ sau điều trị hở lợi" loading="lazy" />
+                    </div>
+                    <div class="hero-arc-photo hero-arc-photo-3">
+                        <img src="ngayhoi_item/anh_hoatdong/doc_checkup_1.webp" alt="Bác sĩ thăm khám và đo đạc tỷ lệ cười" loading="lazy" />
+                    </div>
+                    <div class="hero-arc-photo hero-arc-photo-4">
+                        <img src="assets/homepage/technology/tia_laser.webp" alt="Công nghệ Laser cắt nướu không đau" loading="lazy" />
+                    </div>
+                    <div class="hero-arc-photo hero-arc-photo-5">
+                        <img src="assets/homepage/cases/ho_loi_after_img_5402.webp" alt="Kết quả nụ cười cân đối tự nhiên" loading="lazy" />
+                    </div>
+                    <div class="hero-arc-photo hero-arc-photo-6">
+                        <img src="assets/homepage/services/ho_loi_2.webp" alt="Tạo hình nướu thẩm mỹ Flora" loading="lazy" />
+                    </div>
+                </div>
+
+                <!-- Central Content -->
+                <div class="hero-story-content reveal reveal-delay-1">
+                    <span class="curved-badge" style="margin-bottom: 12px; display: inline-block;">Tiêu chuẩn thẩm mỹ nụ cười Thụy Sĩ</span>
+                    <h1 class="hero-title" style="color: var(--clr-navy);">
                         <span class="hero-title-line">Điều Trị Cười Hở Lợi</span>
                         <span class="highlight-text-container hero-title-line">
                             <span style="background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-secondary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Chuẩn Tỷ Lệ Vàng</span>
@@ -137,7 +159,12 @@
                         Không chỉ cắt bớt nướu – Flora thiết kế lại sự hài hòa tự nhiên giữa răng, nướu, môi và tổng thể khuôn mặt. Định hình viền nướu nhẹ nhàng bằng công nghệ Laser & phẫu thuật êm ái chỉ trong 45 phút.
                     </p>
                     
-                    <div class="hero-info-pills">
+                    <div class="hero-story-actions">
+                        <a href="#dang-ky" class="btn btn-primary"><span class="btn-text-desktop">Đăng Ký </span>Đặt Hẹn <i class="fa-solid fa-calendar-check" style="margin-left: 6px;"></i></a>
+                        <a href="#pricing-tables" class="btn btn-outline"><span class="btn-text-desktop">Xem </span>Bảng Giá<span class="btn-text-desktop"> Trọn Gói</span></a>
+                    </div>
+
+                    <div class="hero-info-pills" style="justify-content: center; margin-bottom: 28px;">
                         <div class="hero-pill">
                             <i class="fa-solid fa-clock"></i> 08:00 - 20:00 (T2-CN)
                         </div>
@@ -146,32 +173,33 @@
                         </a>
                     </div>
 
-                    <div class="hero-actions">
-                        <a href="#dang-ky" class="btn btn-primary"><span class="btn-text-desktop">Đăng Ký </span>Đặt Hẹn <i class="fa-solid fa-calendar-check" style="margin-left: 6px;"></i></a>
-                        <a href="#pricing-tables" class="btn btn-outline"><span class="btn-text-desktop">Xem </span>Bảng Giá<span class="btn-text-desktop"> Trọn Gói</span></a>
-                    </div>
-                </div>
-                
-                <!-- Right Content: Hero Grid Gallery -->
-                <div class="hero-right-collage reveal reveal-delay-1" style="display: flex; align-items: center; justify-content: center;">
-                    <div class="hero-gallery-grid">
-                        <div class="hero-gallery-item tall">
-                            <img src="assets/homepage/services/ho_loi_1.webp" alt="Điều trị cười hở lợi thẩm mỹ" loading="lazy" />
+                    <!-- 3 Benefit Cards -->
+                    <div class="hero-features-single-card" style="background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1.5px solid rgba(4, 147, 241, 0.2); padding: 16px 24px; border-radius: 18px; display: flex; justify-content: space-between; align-items: center; gap: 16px; box-shadow: 0 12px 36px rgba(0, 51, 163, 0.08); width: 100%; max-width: 900px; margin: 0 auto; box-sizing: border-box;">
+                        <div class="hero-feature-item" style="flex: 1 1 0; min-width: 0; display: flex; align-items: center; gap: 10px; text-align: left;">
+                            <img src="ngayhoi_item/HERO/sponsorship_icon.webp" alt="Công nghệ Laser" style="width: 42px; height: 42px; flex-shrink: 0;" />
+                            <div class="hero-feature-text" style="display: flex; flex-direction: column;">
+                                <span style="font-size: 0.76rem; color: #475569; white-space: nowrap;">Công nghệ Laser</span>
+                                <strong style="font-size: 1.1rem; font-weight: 800; color: #0033a3; line-height: 1.1; white-space: nowrap;">KHÔNG ĐAU</strong>
+                                <span style="font-size: 0.76rem; color: #475569; white-space: nowrap;">êm ái nhanh chóng</span>
+                            </div>
                         </div>
-                        <div class="hero-gallery-item wide">
-                            <img src="assets/homepage/cases/ho_loi_after_img_5396.webp" alt="Nụ cười hoàn mỹ sau điều trị hở lợi" loading="lazy" />
+                        <div class="feature-card-divider" style="width: 1px; height: 40px; background: rgba(0, 51, 163, 0.12); flex-shrink: 0;"></div>
+                        <div class="hero-feature-item" style="flex: 1 1 0; min-width: 0; display: flex; align-items: center; gap: 10px; text-align: left;">
+                            <img src="ngayhoi_item/HERO/gift_icon.webp" alt="Thời gian" style="width: 42px; height: 42px; flex-shrink: 0;" />
+                            <div class="hero-feature-text" style="display: flex; flex-direction: column;">
+                                <span style="font-size: 0.76rem; color: #475569; white-space: nowrap;">Thời gian thực hiện</span>
+                                <strong style="font-size: 0.95rem; font-weight: 800; color: #0033a3; line-height: 1.2; text-transform: uppercase; white-space: nowrap;">CHỈ 45 PHÚT</strong>
+                                <span style="font-size: 0.76rem; color: #475569; white-space: nowrap;">về ngay trong ngày</span>
+                            </div>
                         </div>
-                        <div class="hero-gallery-item">
-                            <img src="ngayhoi_item/icon_va_avtar/DR. Đắc Minh.webp" alt="Bác sĩ Nguyễn Đắc Minh" loading="lazy" />
-                        </div>
-                        <div class="hero-gallery-item">
-                            <img src="assets/homepage/technology/tia_laser.webp" alt="Công nghệ Laser cắt nướu không đau" loading="lazy" />
-                        </div>
-                        <div class="hero-gallery-item wide">
-                            <img src="assets/homepage/cases/ho_loi_after_img_5402.webp" alt="Kết quả nụ cười cân đối tự nhiên" loading="lazy" />
-                        </div>
-                        <div class="hero-gallery-item">
-                            <img src="assets/homepage/services/ho_loi_2.webp" alt="Tạo hình nướu thẩm mỹ Flora" loading="lazy" />
+                        <div class="feature-card-divider" style="width: 1px; height: 40px; background: rgba(0, 51, 163, 0.12); flex-shrink: 0;"></div>
+                        <div class="hero-feature-item" style="flex: 1 1 0; min-width: 0; display: flex; align-items: center; gap: 10px; text-align: left;">
+                            <img src="ngayhoi_item/HERO/join_icon.webp" alt="Cam kết" style="width: 42px; height: 42px; flex-shrink: 0;" />
+                            <div class="hero-feature-text" style="display: flex; flex-direction: column;">
+                                <span style="font-size: 0.76rem; color: #475569; white-space: nowrap;">Cam kết hiệu quả</span>
+                                <strong style="font-size: 0.95rem; font-weight: 800; color: #0493f1; line-height: 1.2; text-transform: uppercase; white-space: nowrap;">TRỌN ĐỜI</strong>
+                                <span style="font-size: 0.76rem; color: #475569; white-space: nowrap;">nướu không bò lại</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -511,14 +539,15 @@
     <section class="section-padding recovery-section" id="hoi-phuc" style="background: #ffffff; border-top: 1px solid var(--clr-border);">
         <div class="container">
             <div class="recovery-grid reveal reveal-delay-1">
-                <!-- Cột trái: Hình ảnh công nghệ kiểm soát cảm giác -->
-                <div class="recovery-media-card">
-                    <img src="assets/homepage/technology/dental_vibe.webp" alt="Công nghệ kiểm soát cảm giác êm ái DentalVibe tại Nha khoa Flora" loading="lazy" />
-                    <div class="recovery-media-overlay">
-                        <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--clr-secondary); letter-spacing: 0.05em; margin-bottom: 4px; display: flex; align-items: center; gap: 6px;">
-                            <i class="fa-solid fa-shield-heart"></i> Tiêu Chuẩn Thụy Sĩ
+                <!-- Cột trái: Video phương pháp kiểm soát cảm giác êm ái -->
+                <div class="flora-video-frame-wrapper" style="margin: 0; width: 100%; max-width: 100%;">
+                    <div class="flora-video-badge-decor">
+                        <i class="fa-solid fa-play"></i> Video Trải Nghiệm Không Đau
+                    </div>
+                    <div class="flora-video-frame-inner">
+                        <div class="flora-video-ratio-16-9">
+                            <iframe src="https://www.youtube-nocookie.com/embed/68m5G1u-Ewk?rel=0&modestbranding=1&controls=1" title="Phương pháp điều trị không đau tại Nha Khoa Flora" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                         </div>
-                        <div style="font-size: 1.05rem; font-weight: 700; line-height: 1.35;">Trải nghiệm điều trị êm dịu, nhẹ nhàng & hồi phục nhanh</div>
                     </div>
                 </div>
 
@@ -796,8 +825,8 @@
 
                 <!-- Right Column: Registration Form -->
                 <div class="cta-form reveal reveal-delay-2" style="background: #ffffff; border: 1px solid var(--clr-border); padding: 40px; border-radius: var(--radius-md); box-shadow: var(--shadow-premium);">
-                    <h3 style="color: var(--clr-navy); font-size: 1.4rem; margin-bottom: 8px; text-align: center;">Đăng Ký Khám & Tư Vấn Miễn Phí</h3>
-                    <p style="font-size: 0.88rem; color: var(--clr-text-muted); text-align: center; margin-bottom: 24px;">Miễn phí chụp phim CT 3D & Phân tích đường cười cùng Bác sĩ Cấp Cao</p>
+                    <h3 style="color: var(--clr-navy); font-size: 1.35rem; margin-bottom: 8px; text-align: center; font-weight: 800; line-height: 1.3;">ĐĂNG KÝ THĂM KHÁM 1:1 CÙNG BÁC SĨ</h3>
+                    <p style="font-size: 0.92rem; color: var(--clr-secondary); text-align: center; margin-bottom: 24px; font-weight: 700; line-height: 1.4;">Miễn phí chụp phim CT Cone Beam và lập phác đồ điều trị cá nhân</p>
                     
                     <form id="floraRegistrationForm" class="modal-form" style="display: flex; flex-direction: column; gap: 15px;">
                         <input type="hidden" id="note" name="note" value="" />
@@ -809,6 +838,9 @@
                         </div>
                         <div class="form-group">
                             <input class="form-input" name="email" placeholder="Địa chỉ Email" required type="email" style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);" />
+                        </div>
+                        <div class="form-group">
+                            <input class="form-input" name="location" placeholder="Nơi ở (Tỉnh / Thành phố / Quận)" type="text" style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);" />
                         </div>
                         <div class="form-group">
                             <label style="display: block; font-size: 0.85rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 6px; text-align: left;">Giới tính:</label>
@@ -939,6 +971,9 @@
                         </div>
                         <div class="form-group" style="margin-bottom: 12px;">
                             <input class="form-input" name="email" placeholder="Địa chỉ Email" required type="email" style="background: var(--clr-bg-light); border-color: var(--clr-border); color: var(--clr-text);" />
+                        </div>
+                        <div class="form-group" style="margin-bottom: 12px;">
+                            <input class="form-input" name="location" placeholder="Nơi ở (Tỉnh / Thành phố / Quận)" type="text" style="background: var(--clr-bg-light); border-color: var(--clr-border); color: var(--clr-text);" />
                         </div>
                         <div class="form-group" style="margin-bottom: 12px;">
                             <label style="display: block; font-size: 0.85rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 6px; text-align: left;">Giới tính:</label>
