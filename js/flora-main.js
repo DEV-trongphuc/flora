@@ -971,14 +971,14 @@ const calcData = {
         qtyLabel: "Số lượng răng cần cấy ghép Implant:",
         maxQty: 14,
         types: [
-            { id: "osstem", name: "Osstem / Dentium (Hàn Quốc) - 16.000.000đ/răng", price: 16000000 },
-            { id: "biotem", name: "Biotem (Hàn Quốc) - 19.000.000đ/răng", price: 19000000 },
-            { id: "dentium-super", name: "Dentium Superline (Mỹ) - 22.000.000đ/răng", price: 22000000 },
-            { id: "neodent", name: "Neodent (Thụy Sĩ) - 26.000.000đ/răng", price: 26000000 },
-            { id: "implantswiss", name: "Implantswiss (Thụy Sĩ) - 29.000.000đ/răng", price: 29000000 },
-            { id: "straumann-sla", name: "Straumann SLA (Thụy Sĩ) - 32.000.000đ/răng", price: 32000000 },
-            { id: "nobel-biocare", name: "Nobel Biocare (Mỹ/Thụy Điển) - 35.000.000đ/răng", price: 35000000 },
-            { id: "straumann-slactive", name: "Straumann SLActive (Thụy Sĩ) - 39.000.000đ/răng", price: 39000000 }
+            { id: "osstem", name: "Dentium (Hàn Quốc)", price: 16000000 },
+            { id: "biotem", name: "Biotem (Hàn Quốc)", price: 19000000 },
+            { id: "dentium-super", name: "Dentium Superline (Mỹ)", price: 22000000 },
+            { id: "neodent", name: "Neodent (Thụy Sĩ)", price: 26000000 },
+            { id: "implantswiss", name: "Implantswiss (Thụy Sĩ)", price: 29000000 },
+            { id: "straumann-sla", name: "Straumann SLA (Thụy Sĩ)", price: 32000000 },
+            { id: "nobel-biocare", name: "Nobel Biocare (Mỹ/Thụy Điển)", price: 35000000 },
+            { id: "straumann-slactive", name: "Straumann SLActive (Thụy Sĩ)", price: 39000000 }
         ],
         extra: true,
         timeline: [
@@ -1220,6 +1220,26 @@ function initCostCalculator() {
     const sedation = document.getElementById('calc-sedation');
     if (boneGraft) boneGraft.addEventListener('change', calculateCost);
     if (sedation) sedation.addEventListener('change', calculateCost);
+
+    // AI Smart Assistant Handler per Slide 18
+    const aiBtn = document.getElementById('calc-ai-btn');
+    const aiInput = document.getElementById('calc-ai-input');
+    const aiFeedback = document.getElementById('calc-ai-feedback');
+    if (aiBtn && aiInput && aiFeedback) {
+        aiBtn.addEventListener('click', () => {
+            const query = aiInput.value.trim();
+            if (!query) return;
+            aiFeedback.style.display = 'block';
+            aiFeedback.innerHTML = `<i class="fa-solid fa-robot" style="margin-right: 6px; color: var(--clr-primary);"></i><strong>AI Bác Sĩ Flora:</strong> Bạn đã mất răng trên 1 năm. Khi răng mất lâu ngày, vùng xương có thể thay đổi về thể tích, vì vậy Bác sĩ cần đánh giá nền xương trước khi lựa chọn Implant. Với những trường hợp cần chú trọng độ ổn định và quá trình lành thương, các hệ Implant Thụy Sĩ có thể được cân nhắc tùy tình trạng thực tế.`;
+            serviceSel.value = 'implant';
+            updateOptions();
+            subTypeSel.value = 'implantswiss';
+            qtyInput.value = 2;
+            qtyVal.textContent = 2;
+            updateSliderFill();
+            calculateCost();
+        });
+    }
 
     // Initial load
     updateOptions();
