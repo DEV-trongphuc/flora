@@ -785,14 +785,7 @@
 }
 
 /* ─── 14. HERO SECTION MOBILE REFINEMENTS ─── */
-@media (max-width: 768px) {
-    .hero-section {
-        padding: 70px 0 35px !important;
-    }
-    .heading-underline-svg {
-        height: 8px !important;
-        bottom: -3px !important;
-    }
+@media (max-width: 880px) {
     .hero-features-single-card {
         flex-direction: column !important;
         align-items: stretch !important;
@@ -800,6 +793,16 @@
         padding: 18px 20px !important;
         margin: 15px auto 20px !important;
         border-radius: 14px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 70px 0 35px !important;
+    }
+    .heading-underline-svg {
+        height: 8px !important;
+        bottom: -3px !important;
     }
     .hero-feature-item {
         flex-direction: row !important;

@@ -740,26 +740,27 @@
         }
 
         .hero-features-single-card {
-            display: flex !important;
-            flex-direction: row !important;
-            flex-wrap: nowrap !important;
-            justify-content: space-between !important;
-            align-items: center !important;
-            gap: 16px !important;
-            width: 100% !important;
-            max-width: 880px !important;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            width: 100%;
+            max-width: 880px;
+            box-sizing: border-box;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .hero-features-single-card .hero-feature-item {
-            flex: 1 1 0 !important;
-            min-width: 0 !important;
-            width: auto !important;
-            max-width: none !important;
-            display: flex !important;
-            align-items: center !important;
-            gap: 10px !important;
-            text-align: left !important;
+            flex: 1 1 0;
+            min-width: 0;
+            width: auto;
+            max-width: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-align: left;
         }
 
         .hero-features-single-card:hover {
@@ -768,15 +769,15 @@
             border-color: rgba(4, 147, 241, 0.35) !important;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 880px) {
             .feature-card-divider {
                 display: none !important;
             }
             .hero-features-single-card {
                 flex-direction: column !important;
-                gap: 16px !important;
+                gap: 14px !important;
                 padding: 16px 20px !important;
-                align-items: flex-start !important;
+                align-items: stretch !important;
             }
             .hero-features-single-card .hero-feature-item {
                 width: 100% !important;
