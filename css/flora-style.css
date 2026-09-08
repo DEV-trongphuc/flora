@@ -168,6 +168,7 @@
             color: var(--clr-navy);
             line-height: 1.25;
             letter-spacing: -0.01em;
+            text-wrap: balance;
         }
 
         h2 {
@@ -233,6 +234,10 @@
             text-align: center;
             margin-left: auto;
             margin-right: auto;
+        }
+
+        .section-header h2 {
+            text-wrap: balance;
         }
 
         .section-header h2::after {
@@ -4637,7 +4642,7 @@
             }
 
             /* Section headers line breaks & sizing */
-            .section-header h2 br {
+            .section-header h2 br:not(.keep-br) {
                 display: none !important;
             }
 
