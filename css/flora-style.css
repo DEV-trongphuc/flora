@@ -434,17 +434,19 @@
 
         .nav-links {
             display: flex;
-            gap: 24px;
+            gap: clamp(10px, 1.3vw, 18px);
             list-style: none;
+            align-items: center;
         }
 
         .nav-links a {
-            font-size: 0.92rem;
+            font-size: clamp(0.82rem, 0.86vw, 0.88rem);
             font-weight: 600;
             color: var(--clr-navy);
             padding: 6px 0;
             display: inline-flex;
             align-items: center;
+            white-space: nowrap;
         }
 
         .nav-links a:hover {
@@ -7934,6 +7936,14 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
     opacity: 1;
+}
+#cases-nieng-rang.active {
+    grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 991px) {
+    #cases-nieng-rang.active {
+        grid-template-columns: 1fr;
+    }
 }
 
 .case-card {

@@ -63,13 +63,12 @@ document.addEventListener('DOMContentLoaded', () => {
         drawerOverlay.addEventListener('click', toggleDrawer);
 
         // Mobile Accordion Toggle
-        const accordionHeader = drawerNav.querySelector('.drawer-accordion-header');
-        if (accordionHeader) {
-            accordionHeader.addEventListener('click', () => {
-                const accordion = accordionHeader.parentElement;
+        drawerNav.querySelectorAll('.drawer-accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const accordion = header.parentElement;
                 accordion.classList.toggle('active');
             });
-        }
+        });
 
         drawerNav.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
