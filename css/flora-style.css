@@ -9274,22 +9274,23 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
 
 .fact-highlight-tags {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    flex-wrap: nowrap;
+    gap: 8px;
     margin-bottom: 26px;
 }
 
 .fact-tag-item {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     background: rgba(4, 147, 241, 0.07);
     border: 1px solid rgba(4, 147, 241, 0.22);
-    padding: 8px 14px;
+    padding: 5px 10px;
     border-radius: 99px;
-    font-size: 0.84rem;
+    font-size: 0.75rem;
     font-weight: 700;
     color: var(--clr-primary);
+    white-space: nowrap;
     transition: var(--transition);
 }
 
@@ -9300,7 +9301,7 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
 
 .fact-tag-item i {
     color: var(--clr-secondary);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 .fact-showcase-actions {
@@ -9391,6 +9392,8 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
     }
     .fact-highlight-tags {
         justify-content: center;
+        flex-wrap: wrap;
+        gap: 6px;
     }
     .video-floating-stat-badge {
         bottom: -12px;
