@@ -6476,28 +6476,20 @@ input:focus, select:focus, textarea:focus {
     border-color: var(--clr-secondary) !important;
 }
 
-/* 4. Crop Wrapper for Subpage Full-Width Banners */
+/* 4. Responsive Wrapper for Subpage Full-Width Banners */
 .subpage-hero-banner {
     width: 100% !important;
-    height: 350px !important; /* Locked desktop banner height */
+    height: auto !important;
     overflow: hidden !important;
     position: relative !important;
+    background-color: #dceefc !important;
+    border-bottom: 1px solid rgba(0, 51, 163, 0.1) !important;
 }
 .subpage-hero-banner img {
     width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    object-position: center !important;
-}
-@media (max-width: 991px) {
-    .subpage-hero-banner {
-        height: 250px !important; /* Locked tablet height */
-    }
-}
-@media (max-width: 576px) {
-    .subpage-hero-banner {
-        height: 180px !important; /* Locked mobile height */
-    }
+    height: auto !important;
+    display: block !important;
+    object-fit: contain !important;
 }
 
 /* ─── RESPONSIVE SCROLLABLE TABLES ─── */
@@ -6535,21 +6527,34 @@ input:focus, select:focus, textarea:focus {
 /* ─── FLORA PRICE TABLE DESIGN SYSTEM ─── */
 .flora-price-table {
     width: 100% !important;
-    border-collapse: collapse !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
     text-align: left !important;
     font-size: 0.95rem !important;
 }
 
 .flora-price-table thead tr {
-    background: var(--clr-bg-light) !important;
-    border-bottom: 2px solid var(--clr-border) !important;
+    background: linear-gradient(135deg, #0a1931 0%, #0033a3 55%, #0493f1 100%) !important;
 }
 
 .flora-price-table th {
-    padding: 14px 18px !important;
+    background: transparent !important;
+    padding: 16px 20px !important;
     font-weight: 700 !important;
-    color: var(--clr-navy) !important;
-    letter-spacing: 0.2px;
+    color: #ffffff !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+    font-size: 0.92rem !important;
+    border: none !important;
+    border-bottom: 3px solid var(--clr-secondary, #0493f1) !important;
+    vertical-align: middle !important;
+}
+
+.flora-price-table thead tr th:first-child {
+    border-top-left-radius: 12px;
+}
+.flora-price-table thead tr th:last-child {
+    border-top-right-radius: 12px;
 }
 
 .flora-price-table th.col-service,
@@ -8702,7 +8707,7 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
 .philosophy-card-img-wrap {
     position: relative;
     width: 100%;
-    height: 190px;
+    aspect-ratio: 5 / 4;
     overflow: hidden;
 }
 .philosophy-card-img {
@@ -8756,7 +8761,8 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
         gap: 18px;
     }
     .philosophy-card-img-wrap {
-        height: 180px;
+        aspect-ratio: 5 / 4;
+        height: auto;
     }
 }
 
@@ -8775,7 +8781,7 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
 }
 .service-split-grid {
     display: grid;
-    grid-template-columns: 280px 1fr;
+    grid-template-columns: 240px 1fr;
     gap: 26px;
     align-items: center;
     margin-top: 18px;
@@ -8785,13 +8791,15 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
     border-radius: var(--radius-sm);
     overflow: hidden;
     box-shadow: var(--shadow-sm);
-    height: 100%;
-    min-height: 220px;
+    aspect-ratio: 4 / 5;
+    width: 100%;
+    height: auto;
     border: 1px solid var(--clr-border);
 }
 .service-img-wrap img {
     width: 100%;
     height: 100%;
+    aspect-ratio: 4 / 5;
     object-fit: cover;
     display: block;
     transition: var(--transition);
@@ -8823,8 +8831,10 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
         gap: 18px;
     }
     .service-img-wrap {
-        height: 200px;
-        min-height: auto;
+        max-width: 280px;
+        margin: 0 auto;
+        aspect-ratio: 4 / 5;
+        height: auto;
     }
 }
 

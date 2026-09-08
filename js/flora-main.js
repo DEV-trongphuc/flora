@@ -972,7 +972,6 @@ const calcData = {
         maxQty: 14,
         types: [
             { id: "osstem", name: "Dentium (Hàn Quốc)", price: 16000000 },
-            { id: "biotem", name: "Biotem (Hàn Quốc)", price: 19000000 },
             { id: "dentium-super", name: "Dentium Superline (Mỹ)", price: 22000000 },
             { id: "neodent", name: "Neodent (Thụy Sĩ)", price: 26000000 },
             { id: "implantswiss", name: "Implantswiss (Thụy Sĩ)", price: 29000000 },

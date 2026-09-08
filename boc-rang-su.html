@@ -84,7 +84,13 @@
         <a href="#dang-ky" class="btn btn-primary btn-booking" style="margin-top: 15px;">Đăng Ký Đặt Hẹn</a>
     </nav>
 
-
+    <!-- ─── HERO BANNER ─── -->
+    <div class="subpage-hero-banner" id="banner">
+        <picture>
+            <source srcset="assets/banner_boc_rang_su.webp" type="image/webp">
+            <img src="assets/banner_boc_rang_su.png" alt="Flora - Bọc Sứ An Toàn - Trân Trọng Tối Đa Răng Gốc" width="3760" height="1175" loading="eager" fetchpriority="high">
+        </picture>
+    </div>
 
     <!-- ─── CỘT MỐC UY TÍN ─── -->
     <section class="section-padding fact-section" id="fact">
@@ -124,12 +130,12 @@
                 </p>
             </div>
             
-            <div class="table-responsive reveal reveal-delay-1" style="max-width: 900px; margin: 30px auto; background: white; padding: 25px; border-radius: 12px; box-shadow: var(--shadow);">
-                <table style="width: 100%; border-collapse: collapse; text-align: left;">
+            <div class="table-responsive reveal reveal-delay-1" style="max-width: 900px; margin: 30px auto; background: white; border-radius: 14px; overflow: hidden; border: 1px solid var(--clr-border); box-shadow: 0 8px 30px rgba(0, 51, 163, 0.08);">
+                <table style="width: 100%; border-collapse: separate; border-spacing: 0; text-align: left;">
                     <thead>
-                        <tr style="border-bottom: 2px solid var(--clr-border);">
-                            <th style="padding: 12px; font-weight: bold; color: var(--clr-navy);">Tình trạng răng miệng</th>
-                            <th style="padding: 12px; font-weight: bold; color: var(--clr-navy);">Giải pháp được cân nhắc</th>
+                        <tr style="background: linear-gradient(135deg, #0a1931 0%, #0033a3 55%, #0493f1 100%);">
+                            <th style="padding: 16px 20px; font-weight: 700; color: #ffffff; font-size: 0.92rem; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 3px solid var(--clr-secondary);"><i class="fa-solid fa-stethoscope" style="color: #60a5fa; margin-right: 8px;"></i> Tình Trạng Răng Miệng</th>
+                            <th style="padding: 16px 20px; font-weight: 700; color: #ffffff; font-size: 0.92rem; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 3px solid var(--clr-secondary);"><i class="fa-solid fa-circle-check" style="color: #60a5fa; margin-right: 8px;"></i> Giải Pháp Được Cân Nhắc</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -221,8 +227,8 @@
         </div>
     </section>
 
-    <!-- ─── BÁC SĨ PHỤ TRÁCH (EXPERT SECTION) ─── -->
-    <section class="section-padding expert-section" id="expert" style="background-color: var(--clr-bg-light);">
+    <!-- ─── BÁC SĨ PHỤ TRÁCH CHUYÊN MÔN (EXPERT SECTION) ─── -->
+    <section class="section-padding expert-section" id="expert" style="background-color: var(--clr-bg-light); border-top: 1px solid var(--clr-border);">
         <div class="container">
             <div class="section-header center reveal">
                 <span class="curved-badge">Bác sĩ phụ trách chuyên môn</span>
@@ -231,29 +237,56 @@
             <div class="expert-grid reveal">
                 <!-- Left Column: Premium Framed portrait image -->
                 <div class="reveal-left expert-portrait-frame">
-                    <div class="expert-badge-top">CHUYÊN GIA TRƯỞNG</div>
-                    <img src="assets/bs_rhm.webp" alt="Bác sĩ Nguyễn Đắc Minh" class="expert-portrait-img" loading="lazy" width="480" height="580" onerror="this.src='ngayhoi_item/DSC00090.webp'" />
-                    <div class="expert-name-badge">
-                        <h3>Bác sĩ Nguyễn Đắc Minh</h3>
-                        <p>Chuyên sâu Cấy ghép Implant & Phục hình Thẩm mỹ</p>
-                    </div>
+                    <img src="assets/homepage/bs_minh_portrait.webp" alt="BS.CKI Nguyễn Đắc Minh - Bác sĩ phụ trách chuyên môn tại Flora" class="expert-portrait-img" loading="lazy" width="480" height="580" style="object-fit: cover; object-position: 55% 10%; border-radius: 16px;" />
                 </div>
                 
                 <!-- Right Column: Biography & Achievements -->
-                <div class="reveal-right" style="display: flex; flex-direction: column; gap: 20px;">
+                <div class="reveal-right" style="display: flex; flex-direction: column; gap: 18px;">
                     <div>
-                        <span class="curved-badge" style="margin-bottom: 10px; display: inline-block;">Bác sĩ chính phụ trách</span>
-                        <h3 style="font-family: var(--font-title); font-size: 1.5rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 12px;">Bác Sĩ Chuyên Khoa RHM Nguyễn Đắc Minh</h3>
-                        <p style="font-size: 0.98rem; color: var(--clr-text-muted); line-height: 1.7; margin-bottom: 10px;">Bác sĩ Nguyễn Đắc Minh là bác sĩ chính phụ trách các ca điều trị chuyên sâu và phức tạp tại Nha khoa Flora với hơn 10 năm kinh nghiệm lâm sàng.</p>
-                        <p style="font-size: 0.98rem; color: var(--clr-text-muted); line-height: 1.7; margin-bottom: 0;"><strong>Hồ sơ điều trị nổi bật:</strong> Hơn 3.000 ca cấy ghép và phục hình Implant, hơn 1.200 ca phục hình răng sứ thẩm mỹ và hơn 950 ca điều trị cười hở lợi thành công.</p>
+                        <span class="curved-badge" style="margin-bottom: 8px; display: inline-block;">BÁC SĨ PHỤ TRÁCH CHUYÊN MÔN</span>
+                        <h3 style="font-family: var(--font-title); font-size: 1.55rem; font-weight: 800; color: var(--clr-navy); margin-bottom: 4px; line-height: 1.2;">BS.CKI NGUYỄN ĐẮC MINH</h3>
+                        <p style="font-size: 0.95rem; font-weight: 700; color: var(--clr-secondary); margin-bottom: 12px;">Chuyên gia Cấy ghép Implant & Phục hình thẩm mỹ</p>
+                        
+                        <div style="background: var(--clr-bg-light); padding: 14px 18px; border-left: 3.5px solid var(--clr-primary); border-radius: 8px; margin-bottom: 16px;">
+                            <strong style="color: var(--clr-navy); display: block; font-size: 0.92rem; margin-bottom: 4px; letter-spacing: 0.5px;">TRIẾT LÝ ĐIỀU TRỊ:</strong>
+                            <p style="font-size: 0.95rem; font-weight: 700; color: var(--clr-primary); font-style: italic; margin-bottom: 6px;">“Nha khoa là sự giao thoa giữa y khoa, kỹ thuật và thẩm mỹ.”</p>
+                            <p style="font-size: 0.88rem; color: #334155; line-height: 1.6; margin: 0;">Mỗi kế hoạch điều trị được xây dựng trên nền tảng chẩn đoán kỹ lưỡng, chỉ định phù hợp, thao tác có kiểm soát và theo dõi dài hạn, hướng đến sự cân bằng giữa chức năng, thẩm mỹ và trải nghiệm của khách hàng.</p>
+                        </div>
+
+                        <!-- 3 Statistics Box -->
+                        <div style="margin-bottom: 8px;">
+                            <span style="font-size: 0.82rem; font-weight: 700; color: var(--clr-navy); text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 8px;">HỒ SƠ ĐIỀU TRỊ NỔI BẬT</span>
+                            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+                                <div style="background: rgba(4, 147, 241, 0.06); border: 1px solid rgba(4, 147, 241, 0.2); padding: 12px 8px; border-radius: 12px; text-align: center;">
+                                    <strong style="display: block; font-size: 1.35rem; font-weight: 800; color: var(--clr-primary); line-height: 1.1;">5.000+</strong>
+                                    <span style="font-size: 0.76rem; color: var(--clr-navy); font-weight: 600;">ca cấy ghép & phục hình Implant</span>
+                                </div>
+                                <div style="background: rgba(4, 147, 241, 0.06); border: 1px solid rgba(4, 147, 241, 0.2); padding: 12px 8px; border-radius: 12px; text-align: center;">
+                                    <strong style="display: block; font-size: 1.35rem; font-weight: 800; color: var(--clr-primary); line-height: 1.1;">2.200+</strong>
+                                    <span style="font-size: 0.76rem; color: var(--clr-navy); font-weight: 600;">ca phục hình răng sứ thẩm mỹ</span>
+                                </div>
+                                <div style="background: rgba(4, 147, 241, 0.06); border: 1px solid rgba(4, 147, 241, 0.2); padding: 12px 8px; border-radius: 12px; text-align: center;">
+                                    <strong style="display: block; font-size: 1.35rem; font-weight: 800; color: var(--clr-primary); line-height: 1.1;">1.200+</strong>
+                                    <span style="font-size: 0.76rem; color: var(--clr-navy); font-weight: 600;">ca điều trị cười hở lợi</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div style="border-top: 1px solid var(--clr-border); border-bottom: 1px solid var(--clr-border); padding: 20px 0; margin: 5px 0;">
-                        <ul style="list-style: none; font-size: 0.9rem; color: var(--clr-text); display: flex; flex-direction: column; gap: 10px; padding: 0;">
-                            <li style="display: flex; align-items: flex-start; gap: 10px; margin: 0;"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary); margin-top: 3px;"></i> <span><strong>Bằng cấp:</strong> Tốt nghiệp chính quy Bác sĩ chuyên khoa Răng Hàm Mặt, nhận chứng chỉ Cấy ghép nha khoa (Bệnh viện RHM Trung ương) và Chỉnh nha nâng cao (Bệnh viện Trung ương Huế).</span></li>
-                            <li style="display: flex; align-items: flex-start; gap: 10px; margin: 0;"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary); margin-top: 3px;"></i> <span><strong>Hiệp hội:</strong> Thành viên chính thức Hiệp hội Implant Thế giới ICOI và Hiệp hội Implant Quốc tế ITI.</span></li>
-                            <li style="display: flex; align-items: flex-start; gap: 10px; margin: 0;"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary); margin-top: 3px;"></i> <span><strong>Dấu ấn:</strong> Đài Phát thanh & Truyền hình Vĩnh Long phỏng vấn về công nghệ cấy ghép Implant (2023); trao đổi chuyên môn cùng GS. Gilles P. Chaumanet.</span></li>
-                            <li style="display: flex; align-items: flex-start; gap: 10px; margin: 0;"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary); margin-top: 3px;"></i> <span><strong>Quan niệm:</strong> "Nha sĩ là sự kết hợp giữa bác sĩ, kỹ sư và nghệ sĩ", cam kết mang lại trải nghiệm êm ái, chỉ định thận trọng và theo dõi sát sao sau điều trị.</span></li>
+                    <div style="border-top: 1px solid var(--clr-border); border-bottom: 1px solid var(--clr-border); padding: 16px 0; margin: 0;">
+                        <ul style="list-style: none; font-size: 0.88rem; color: var(--clr-text); display: flex; flex-direction: column; gap: 10px; padding: 0; margin: 0;">
+                            <li style="display: flex; align-items: flex-start; gap: 10px; margin: 0;">
+                                <i class="fa-solid fa-circle-check" style="color: var(--clr-secondary); margin-top: 3px;"></i> 
+                                <span><strong>ĐÀO TẠO CHUYÊN MÔN:</strong> Tốt nghiệp chính quy Bác sĩ chuyên khoa Răng Hàm Mặt, nhận chứng chỉ Cấy ghép nha khoa (Bệnh viện RHM Trung ương) và Chỉnh nha nâng cao (Bệnh viện Trung ương Huế).</span>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px; margin: 0;">
+                                <i class="fa-solid fa-circle-check" style="color: var(--clr-secondary); margin-top: 3px;"></i> 
+                                <span><strong>HOẠT ĐỘNG CHUYÊN MÔN QUỐC TẾ:</strong> Thành viên chính thức ICOI (Hiệp hội Implant Thế giới) và ITI (Hiệp hội Implant Quốc tế).</span>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px; margin: 0;">
+                                <i class="fa-solid fa-circle-check" style="color: var(--clr-secondary); margin-top: 3px;"></i> 
+                                <span><strong>TRAO ĐỔI & CHIA SẺ CHUYÊN MÔN:</strong> Đài Phát thanh & Truyền hình Vĩnh Long phỏng vấn về ứng dụng công nghệ trong cấy ghép Implant (2023); trao đổi chuyên môn cùng Dr. Gilles P. Chaumanet.</span>
+                            </li>
                         </ul>
                     </div>
                     
@@ -276,13 +309,13 @@
                 </p>
             </div>
             
-            <div class="table-responsive reveal reveal-delay-1" style="max-width: 900px; margin: 30px auto; background: white; padding: 25px; border-radius: 12px; border: 1px solid var(--clr-border);">
-                <table style="width: 100%; border-collapse: collapse; text-align: left;">
+            <div class="table-responsive reveal reveal-delay-1" style="max-width: 900px; margin: 30px auto; background: white; border-radius: 14px; overflow: hidden; border: 1px solid var(--clr-border); box-shadow: 0 8px 30px rgba(0, 51, 163, 0.08);">
+                <table style="width: 100%; border-collapse: separate; border-spacing: 0; text-align: left;">
                     <thead>
-                        <tr style="border-bottom: 2px solid var(--clr-border);">
-                            <th style="padding: 12px; font-weight: bold; color: var(--clr-navy);">Nhóm vật liệu</th>
-                            <th style="padding: 12px; font-weight: bold; color: var(--clr-navy);">Đặc điểm chính</th>
-                            <th style="padding: 12px; font-weight: bold; color: var(--clr-navy);">Chỉ định thường dùng</th>
+                        <tr style="background: linear-gradient(135deg, #0a1931 0%, #0033a3 55%, #0493f1 100%);">
+                            <th style="padding: 16px 20px; font-weight: 700; color: #ffffff; font-size: 0.92rem; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 3px solid var(--clr-secondary);"><i class="fa-solid fa-gem" style="color: #60a5fa; margin-right: 8px;"></i> Nhóm Vật Liệu</th>
+                            <th style="padding: 16px 20px; font-weight: 700; color: #ffffff; font-size: 0.92rem; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 3px solid var(--clr-secondary);"><i class="fa-solid fa-circle-info" style="color: #60a5fa; margin-right: 8px;"></i> Đặc Điểm Chính</th>
+                            <th style="padding: 16px 20px; font-weight: 700; color: #ffffff; font-size: 0.92rem; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 3px solid var(--clr-secondary);"><i class="fa-solid fa-bullseye" style="color: #60a5fa; margin-right: 8px;"></i> Chỉ Định Thường Dùng</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -382,12 +415,18 @@
             </div>
             
             <div class="responsive-table-wrapper reveal reveal-delay-1" style="max-width: 900px; margin: 30px auto; background: white; border-radius: 14px; overflow: hidden; border: 1px solid var(--clr-border); box-shadow: 0 8px 30px rgba(0, 51, 163, 0.08);">
-                <table class="flora-price-table" style="width: 100%; border-collapse: collapse;">
+                <table class="flora-price-table" style="width: 100%; border-collapse: separate; border-spacing: 0;">
                     <thead>
-                        <tr style="background: linear-gradient(135deg, var(--clr-navy) 0%, var(--clr-primary) 100%); color: #ffffff;">
-                            <th class="col-service" style="padding: 16px 20px; color: #ffffff; font-weight: 700; text-align: left; font-size: 0.95rem;">Dòng răng sứ thẩm mỹ</th>
-                            <th class="col-unit" style="padding: 16px 20px; color: #ffffff; font-weight: 700; text-align: center; font-size: 0.95rem;">Đơn vị</th>
-                            <th class="col-price" style="padding: 16px 20px; color: #ffffff; font-weight: 700; text-align: right; font-size: 0.95rem;">Giá niêm yết</th>
+                        <tr>
+                            <th class="col-service" style="padding: 16px 20px; color: #ffffff; font-weight: 700; text-align: left; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.5px;">
+                                <i class="fa-solid fa-tooth" style="color: #60a5fa; margin-right: 8px;"></i> Dòng Răng Sứ Thẩm Mỹ
+                            </th>
+                            <th class="col-unit" style="padding: 16px 20px; color: #ffffff; font-weight: 700; text-align: center; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.5px;">
+                                <i class="fa-solid fa-layer-group" style="color: #60a5fa; margin-right: 6px;"></i> Đơn Vị
+                            </th>
+                            <th class="col-price" style="padding: 16px 20px; color: #ffffff; font-weight: 700; text-align: right; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.5px;">
+                                <i class="fa-solid fa-tag" style="color: #60a5fa; margin-right: 6px;"></i> Giá Niêm Yết
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
