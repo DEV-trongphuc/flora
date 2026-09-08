@@ -500,7 +500,7 @@ function sendEmailHTML(email, name, phone, condition, details, city, rowNum) {
                     </tr>
                     <tr style="font-size: 14px;">
                       <td style="padding: 6px 0; color: #0033a3; font-weight: bold; vertical-align: top;">📍 Địa điểm:</td>
-                      <td style="padding: 6px 0; color: #0f172a; font-weight: 500; line-height: 1.4;">326 Nguyễn Thị Minh Khai, Phường Bàn Cờ, Thành phố Hồ Chí Minh</td>
+                      <td style="padding: 6px 0; color: #0f172a; font-weight: 500; line-height: 1.4;">326 Nguyễn Thị Minh Khai, Phường Bàn Cờ, TP. Hồ Chí Minh</td>
                     </tr>
                   </table>
                   
@@ -543,7 +543,7 @@ function sendEmailHTML(email, name, phone, condition, details, city, rowNum) {
               <tr>
                 <td style="background-color: #0a1931; color: #cbd5e1; padding: 30px 25px; text-align: center; font-size: 12px;">
                   <strong style="color: #ffffff; font-size: 14px; display: block; margin-bottom: 8px;">NHA KHOA FLORA</strong>
-                  <div>📍 Địa chỉ: 326 Nguyễn Thị Minh Khai, P. Bàn Cờ, Quận 3, TP.HCM</div>
+                  <div>📍 Địa chỉ: 326 Nguyễn Thị Minh Khai, Phường Bàn Cờ, TP. Hồ Chí Minh</div>
                   <div>🌐 Website: nhakhoaflora.com</div>
                 </td>
               </tr>
@@ -607,7 +607,7 @@ function sendRemindEmailHTML(email, name, phone, condition, details, city, rowNu
                   
                   <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: rgba(0, 51, 163, 0.02); border-left: 4px solid #0033a3; padding: 15px; margin-bottom: 22px; font-size: 14px; line-height: 1.5;">
                     <tr><td style="padding: 3px 0;">📅 <strong>Thời gian:</strong> 08:30 – 13:00 | Ngày 25/07/2026</td></tr>
-                    <tr><td style="padding: 3px 0;">📍 <strong>Địa điểm:</strong> 326 Nguyễn Thị Minh Khai, Phường Bàn Cờ, Thành phố Hồ Chí Minh</td></tr>
+                    <tr><td style="padding: 3px 0;">📍 <strong>Địa điểm:</strong> 326 Nguyễn Thị Minh Khai, Phường Bàn Cờ, TP. Hồ Chí Minh</td></tr>
                     <tr><td style="padding: 3px 0;">⏰ <strong>Thời gian check-in:</strong> 08:30 - 09:00</td></tr>
                   </table>
                   
@@ -678,7 +678,7 @@ function sendRemindEmailHTML(email, name, phone, condition, details, city, rowNu
               <tr>
                 <td style="background-color: #0a1931; color: #cbd5e1; padding: 30px 25px; text-align: center; font-size: 12px; line-height: 1.6;">
                   <strong style="color: #ffffff; font-size: 14px; display: block; margin-bottom: 8px;">NHA KHOA FLORA</strong>
-                  <div>📍 Địa chỉ: 326 Nguyễn Thị Minh Khai, P. Bàn Cờ, Quận 3, TP.HCM</div>
+                  <div>📍 Địa chỉ: 326 Nguyễn Thị Minh Khai, Phường Bàn Cờ, TP. Hồ Chí Minh</div>
                   <div>📞 Hotline: 028 7305 8999 - 0902535068 (Zalo)</div>
                   <div>🌐 Website: nhakhoaflora.com</div>
                 </td>
@@ -755,7 +755,7 @@ function sendCountdownEmailHTML(email, name, phone, condition, details, city, ro
                         <div style="font-size: 12px; font-weight: bold; color: #0033a3; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">📍 ĐỊA ĐIỂM TỔ CHỨC</div>
                         <div style="font-size: 15px; font-weight: bold; color: #0a1931; margin-bottom: 5px;">NHA KHOA FLORA</div>
                         <div style="font-size: 13px; color: #334155; margin-bottom: 15px; line-height: 1.4;">
-                          326 Nguyễn Thị Minh Khai, Phường Bàn Cờ, Quận 3, TP.HCM<br>
+                          326 Nguyễn Thị Minh Khai, Phường Bàn Cờ, TP. Hồ Chí Minh<br>
                           <span style="font-size: 11px; color: #64748b; font-style: italic;">(Gần ngã tư Nguyễn Thị Minh Khai - Cao Thắng, có bãi giữ xe máy & xe hơi miễn phí)</span>
                         </div>
                         
@@ -764,7 +764,7 @@ function sendCountdownEmailHTML(email, name, phone, condition, details, city, ro
                           <div style="height: 140px; background-color: #e5e7eb; background-image: radial-gradient(#d1d5db 2px, transparent 2px), linear-gradient(90deg, transparent 40px, #9ca3af 41px, transparent 42px), linear-gradient(0deg, transparent 70px, #9ca3af 71px, transparent 72px); background-size: 12px 12px, 100% 100%, 100% 100%; position: relative; display: flex; align-items: center; justify-content: center;">
                             <div style="background-color: #ffffff; padding: 8px 14px; border-radius: 20px; box-shadow: 0 4px 10px rgba(0,51,163,0.1); display: inline-flex; align-items: center; border: 1.5px solid #0493f1;">
                               <span style="font-size: 14px; margin-right: 4px;">📍</span>
-                              <span style="font-size: 11px; font-weight: 700; color: #0033a3;">Nha Khoa Flora (Quận 3)</span>
+                              <span style="font-size: 11px; font-weight: 700; color: #0033a3;">Nha Khoa Flora</span>
                             </div>
                             <div style="position: absolute; bottom: 5px; right: 5px; background-color: rgba(10, 25, 49, 0.7); color: #ffffff; padding: 2px 5px; border-radius: 3px; font-size: 9px;">Bấm để xem bản đồ</div>
                           </div>
@@ -794,7 +794,7 @@ function sendCountdownEmailHTML(email, name, phone, condition, details, city, ro
               <tr>
                 <td style="background-color: #0a1931; color: #cbd5e1; padding: 30px 25px; text-align: center; font-size: 12px; line-height: 1.6;">
                   <strong style="color: #ffffff; font-size: 14px; display: block; margin-bottom: 8px;">NHA KHOA FLORA</strong>
-                  <div>📍 Địa chỉ: 326 Nguyễn Thị Minh Khai, P. Bàn Cờ, Quận 3, TP.HCM</div>
+                  <div>📍 Địa chỉ: 326 Nguyễn Thị Minh Khai, Phường Bàn Cờ, TP. Hồ Chí Minh</div>
                   <div>📞 Hotline: 028 7305 8999 - 0902535068 (Zalo)</div>
                   <div>🌐 Website: nhakhoaflora.com</div>
                 </td>
