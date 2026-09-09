@@ -759,10 +759,10 @@ document.addEventListener('DOMContentLoaded', initSnowfall);
 const solutionModals = {
     "implant-don-le": {
         title: "Mất một hoặc nhiều răng",
-        badge: "Giải pháp Cấy ghép Implant Swiss",
+        badge: "Giải pháp Cấy ghép Implant",
         desc: "Khôi phục khoảng mất răng, cải thiện khả năng ăn nhai và hạn chế ảnh hưởng đến các răng kế cận.",
         treatments: [
-            "<strong>Trụ Implant Titanium:</strong> Trụ răng đóng vai trò như chân răng thật, tích hợp vĩnh viễn vào xương hàm.",
+            "<strong>Trụ Implant:</strong> Trụ răng đóng vai trò như chân răng thật, tích hợp vĩnh viễn vào xương hàm.",
             "<strong>Mão răng sứ cao cấp:</strong> Gắn cố định trên trụ Implant qua khớp nối Abutment, chịu lực nhai lớn, màu sắc tự nhiên.",
             "<strong>Ăn nhai trọn đời:</strong> Phục hồi 100% khả năng nhai, ngăn ngừa tiêu xương ổ răng hiệu quả."
         ],
@@ -791,8 +791,8 @@ const solutionModals = {
         link: "ho-loi.html"
     },
     "nieng-rang-so": {
-        title: "Răng hô, thưa hoặc lệch lạc",
-        badge: "Niềng răng Invisalign & Mắc cài số hóa",
+        title: "Răng hô, thưa lệch lạc",
+        badge: "Niềng răng Invisalign & Mắc cài",
         desc: "Cải thiện vị trí răng, khớp cắn và sự hài hòa của nụ cười bằng mắc cài hoặc khay trong suốt.",
         treatments: [
             "<strong>Khay niềng trong suốt Invisalign:</strong> Khay niềng vô hình nhập khẩu Hoa Kỳ, tháo lắp linh hoạt, thẩm mỹ tuyệt đối.",
@@ -802,15 +802,26 @@ const solutionModals = {
         link: "nieng-rang.html"
     },
     "tham-my-rang-su": {
-        title: "Muốn cải thiện thẩm mỹ & kiểm tra tình trạng răng miệng",
+        title: "Cải thiện thẩm mỹ nụ cười",
         badge: "Khám phá thẩm mỹ nụ cười",
-        desc: "Kiểm tra chuyên sâu tình trạng răng, đưa ra giải pháp cá nhân hóa cho từng khách hàng.",
+        desc: "Tư vấn giải pháp răng sứ thẩm mỹ, cá nhân hóa theo tình trạng răng và đường cười của từng khách hàng.",
         treatments: [
             "<strong>Mặt dán sứ Veneer E.max:</strong> Độ dày siêu mỏng chỉ từ 0.3mm, bảo tồn tối đa răng gốc và tủy răng.",
             "<strong>Bọc răng sứ toàn sứ cao cấp:</strong> Phục hình răng sứ chịu lực lớn Cercon/Zirconia, bảo hành chính hãng 10-15 năm.",
             "<strong>Thiết kế Smile Design:</strong> Cân đối màu sắc và dáng răng hài hòa theo phong thủy khuôn mặt từng khách hàng."
         ],
         link: "veneer.html"
+    },
+    "kiem-tra-tong-quat": {
+        title: "Muốn chủ động chăm sóc & kiểm tra sức khỏe răng miệng",
+        badge: "KIỂM TRA TỔNG QUÁT",
+        desc: "Khảo sát toàn diện tình trạng răng, nướu và chức năng ăn nhai để phát hiện sớm vấn đề và lựa chọn giải pháp điều trị phù hợp.",
+        treatments: [
+            "<strong>Cạo vôi răng định kỳ:</strong> Làm sạch mảng bám và cao răng, hỗ trợ duy trì nướu khỏe và hạn chế các bệnh lý răng miệng thường gặp.",
+            "<strong>Trám răng bảo tồn:</strong> Phục hồi răng sâu, sứt mẻ hoặc ê buốt, đảm bảo chức năng ăn nhai và tính thẩm mỹ tự nhiên.",
+            "<strong>Điều trị bệnh lý răng miệng:</strong> Bao gồm viêm nướu, nha chu, đau tủy hoặc các chỉ định điều trị khác sau thăm khám thực tế."
+        ],
+        link: "tong-quat.html"
     }
 };
 
@@ -990,12 +1001,12 @@ const calcData = {
         label: "Mức độ thưa lệch răng:",
         qtyLabel: "Chọn mức độ răng hiện tại:",
         maxQty: 4,
-        qtyNames: ["Mức 1 (Lite) - 59M", "Mức 2 (Moderate) - 79M", "Mức 3 - 99M", "Mức 4 (Full) - 120M"],
+        qtyNames: ["Mức 1 (Express) - 59M", "Mức 2 (Lite) - 79M", "Mức 3 (Moderate) - 99M", "Mức 4 (Comprehensive) - 120M"],
         types: [
-            { id: "lite", name: "Invisalign Mức 1 (Lite) - 59.000.000đ", price: 59000000 },
-            { id: "moderate", name: "Invisalign Mức 2 (Moderate) - 79.000.000đ", price: 79000000 },
-            { id: "m3", name: "Invisalign Mức 3 - 99.000.000đ", price: 99000000 },
-            { id: "full", name: "Invisalign Mức 4 (Full) - 120.000.000đ", price: 120000000 }
+            { id: "express", name: "Invisalign Mức 1 (Express) - 59.000.000đ", price: 59000000 },
+            { id: "lite", name: "Invisalign Mức 2 (Lite) - 79.000.000đ", price: 79000000 },
+            { id: "moderate", name: "Invisalign Mức 3 (Moderate) - 99.000.000đ", price: 99000000 },
+            { id: "comprehensive", name: "Invisalign Mức 4 (Comprehensive) - 120.000.000đ", price: 120000000 }
         ],
         extra: false,
         timeline: [
@@ -1766,4 +1777,31 @@ function initFinanceTabs() {
 }
 document.addEventListener('DOMContentLoaded', initFinanceTabs);
 
+// ─── NAV CLICK JUMP TO TOP OF SERVICE PAGE ───
+function initNavScrollTop() {
+    const navLinks = document.querySelectorAll('.dropdown-menu a, .drawer-nav a, .nav-links > li > a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (!href || href.startsWith('javascript') || href.startsWith('tel:') || href.startsWith('mailto:')) return;
+            
+            // Get current page filename
+            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+            const targetUrl = href.split('#')[0].split('/').pop() || 'index.html';
+            const hash = href.includes('#') ? href.substring(href.indexOf('#')) : '';
 
+            // If navigating to the same page without a specific in-page section hash
+            if (targetUrl === currentPath && (!hash || hash === '#' || hash === '#banner' || hash === '#top')) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                // Close drawer if open
+                const drawer = document.getElementById('drawerNav');
+                const overlay = document.getElementById('drawerOverlay');
+                if (drawer) drawer.classList.remove('open');
+                if (overlay) overlay.classList.remove('active');
+            }
+        });
+    });
+}
+document.addEventListener('DOMContentLoaded', initNavScrollTop);
