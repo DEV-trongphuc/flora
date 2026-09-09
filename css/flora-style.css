@@ -402,7 +402,7 @@
         }
 
         .logo-img {
-            height: 66px;
+            height: 52px;
             width: auto;
         }
 
@@ -424,14 +424,14 @@
 
         .nav-links {
             display: flex;
-            gap: clamp(7px, 1vw, 15px);
+            gap: clamp(10px, 1.3vw, 22px);
             list-style: none;
             align-items: center;
-            flex-shrink: 1;
+            flex-shrink: 0;
         }
 
         .nav-links a {
-            font-size: clamp(0.82rem, 0.86vw, 0.88rem);
+            font-size: 0.88rem;
             font-weight: 600;
             color: var(--clr-navy);
             padding: 6px 0;
@@ -475,6 +475,14 @@
             visibility: hidden;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 1001;
+        }
+        .dropdown-menu::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 0;
+            right: 0;
+            height: 15px;
         }
         .nav-link-item.has-dropdown:hover .dropdown-menu {
             opacity: 1;
@@ -536,7 +544,7 @@
             margin-top: 0;
         }
         .drawer-accordion.active .drawer-accordion-body {
-            max-height: 250px;
+            max-height: 350px;
             margin-top: 10px;
         }
         .drawer-accordion-body a {
@@ -546,7 +554,7 @@
             padding-bottom: 0 !important;
         }
 
-        @media (max-width: 1180px) {
+        @media (max-width: 1080px) {
 
             .nav-links,
             .header-action {
@@ -586,7 +594,7 @@
             transform: translateY(-7px) rotate(-45deg);
         }
 
-        @media (max-width: 1180px) {
+        @media (max-width: 1080px) {
             .hamburger-btn {
                 display: flex;
             }
