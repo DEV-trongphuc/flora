@@ -5015,35 +5015,58 @@
     right: 30px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
     z-index: 999;
 }
 
 .widget-btn {
-    width: 55px;
-    height: 55px;
+    width: 54px;
+    height: 54px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #ffffff;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.18);
     font-size: 1.45rem;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     text-decoration: none;
+    overflow: hidden;
 }
 
 .widget-btn:hover {
-    transform: scale(1.1) translateY(-3px);
+    transform: scale(1.08) translateY(-3px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.25);
 }
 
-.widget-zalo { background-color: #0068ff; }
+.widget-messenger { 
+    background: linear-gradient(135deg, #00B2FE 0%, #006AFF 50%, #9B00E8 100%); 
+}
+.widget-messenger:hover {
+    box-shadow: 0 10px 25px rgba(0, 106, 255, 0.45);
+}
+
+.widget-zalo { 
+    background-color: #0068ff; 
+}
+.widget-zalo:hover {
+    box-shadow: 0 10px 25px rgba(0, 104, 255, 0.45);
+}
+.widget-zalo img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    pointer-events: none;
+}
+
 .widget-phone { 
     background-color: #10b981;
     animation: phone-pulse 2s infinite;
 }
-.widget-booking { background: linear-gradient(135deg, #0493f1 0%, #0135a6 100%); }
+.widget-booking { 
+    background: linear-gradient(135deg, #0493f1 0%, #0135a6 100%); 
+}
 
 @keyframes phone-pulse {
     0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); }
@@ -8001,6 +8024,35 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
 }
 .case-img-half.after .case-img-label {
     right: 8px;
+}
+
+.case-img-wrap {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    position: relative;
+    overflow: hidden;
+    background: #f1f5f9;
+}
+.case-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    display: block;
+}
+.case-card:hover .case-img-wrap img {
+    transform: scale(1.035);
+}
+
+@media (min-width: 769px) {
+    #cases-implant.active .case-card:last-child:nth-child(odd),
+    #cases-ho-loi.active .case-card:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        max-width: 580px;
+        margin: 0 auto;
+        width: 100%;
+    }
 }
 
 .case-card-body {
