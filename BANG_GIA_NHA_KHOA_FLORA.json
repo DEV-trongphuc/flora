@@ -1,142 +1,124 @@
 {
   "clinic_name": "Nha Khoa Flora - Flora Dental Care",
-  "version": "2026.09",
-  "last_updated": "2026-09-12",
+  "address": "326 Nguyễn Thị Minh Khai, Phường Bàn Cờ, Quận 3, TP. Hồ Chí Minh",
+  "hotline": "028 7305 8999",
+  "website": "https://nhakhoaflora.com",
   "currency": "VND",
   "categories": [
     {
-      "category_id": "CAT-IMPLANT",
       "category_name": "Cấy Ghép Implant Thụy Sĩ",
       "source_page": "implant.html, bang-gia.html",
       "services": [
         {
-          "code": "IMP-OST-DEN",
           "name": "Implant Osstem / Dentium",
+          "unit": "1 trụ",
           "origin": "Hàn Quốc",
           "warranty": "10 năm",
-          "unit": "1 trụ",
           "price": 16000000
         },
         {
-          "code": "IMP-DEN-SUP",
           "name": "Implant Dentium Superline",
+          "unit": "1 trụ",
           "origin": "Mỹ",
           "warranty": "10 năm",
-          "unit": "1 trụ",
           "price": 22000000
         },
         {
-          "code": "IMP-NEO-SWI",
           "name": "Implant Neodent (Straumann Group)",
+          "unit": "1 trụ",
           "origin": "Thụy Sĩ",
           "warranty": "15 năm",
-          "unit": "1 trụ",
           "price": 26000000
         },
         {
-          "code": "IMP-SWISS-REC",
           "name": "Implantswiss (Khuyên dùng)",
+          "unit": "1 trụ",
           "origin": "Thụy Sĩ",
           "warranty": "Trọn đời",
-          "unit": "1 trụ",
           "price": 29000000
         },
         {
-          "code": "IMP-STR-SLA",
           "name": "Implant Straumann SLA",
+          "unit": "1 trụ",
           "origin": "Thụy Sĩ",
           "warranty": "Trọn đời",
-          "unit": "1 trụ",
           "price": 32000000
         },
         {
-          "code": "IMP-NOB-BIO",
           "name": "Implant Nobel Biocare",
+          "unit": "1 trụ",
           "origin": "Mỹ / Thụy Điển",
           "warranty": "Trọn đời",
-          "unit": "1 trụ",
           "price": 35000000
         },
         {
-          "code": "IMP-STR-SLACT",
           "name": "Implant Straumann SLActive (Màng nước)",
+          "unit": "1 trụ",
           "origin": "Thụy Sĩ",
           "warranty": "Trọn đời",
-          "unit": "1 trụ",
           "price": 39000000
         },
         {
-          "code": "IMP-ALL-DEN-KR-4",
           "name": "Phục hình All-on-4 Dentium Hàn Quốc",
-          "origin": "Hàn Quốc",
           "unit": "Hàm",
+          "origin": "Hàn Quốc",
           "price": 150000000
         },
         {
-          "code": "IMP-ALL-DEN-KR-6",
           "name": "Phục hình All-on-6 Dentium Hàn Quốc",
+          "unit": "Hàm",
           "origin": "Hàn Quốc",
-          "unit": "Hàm",
           "price": 180000000
         },
         {
-          "code": "IMP-ALL-DEN-US-4",
           "name": "Phục hình All-on-4 Dentium USA",
-          "origin": "Mỹ",
           "unit": "Hàm",
+          "origin": "Mỹ",
           "price": 180000000
         },
         {
-          "code": "IMP-ALL-DEN-US-6",
           "name": "Phục hình All-on-6 Dentium USA",
-          "origin": "Mỹ",
           "unit": "Hàm",
+          "origin": "Mỹ",
           "price": 240000000
         },
         {
-          "code": "IMP-ALL-SWISS-4",
           "name": "Phục hình All-on-4 Implantswiss Thụy Sĩ (Đề xuất)",
-          "origin": "Thụy Sĩ",
           "unit": "Hàm",
+          "origin": "Thụy Sĩ",
           "price": 200000000
         },
         {
-          "code": "IMP-ALL-SWISS-6",
           "name": "Phục hình All-on-6 Implantswiss Thụy Sĩ (Đề xuất)",
-          "origin": "Thụy Sĩ",
           "unit": "Hàm",
+          "origin": "Thụy Sĩ",
           "price": 250000000
         },
         {
-          "code": "IMP-ALL-STR-SLA-4",
           "name": "Phục hình All-on-4 Straumann SLA Thụy Sĩ",
-          "origin": "Thụy Sĩ",
           "unit": "Hàm",
+          "origin": "Thụy Sĩ",
           "price": 250000000
         },
         {
-          "code": "IMP-ALL-STR-SLA-6",
           "name": "Phục hình All-on-6 Straumann SLA Thụy Sĩ",
-          "origin": "Thụy Sĩ",
           "unit": "Hàm",
+          "origin": "Thụy Sĩ",
           "price": 290000000
         },
         {
-          "code": "IMP-ALL-STR-ACT-4",
           "name": "Phục hình All-on-4 Straumann SLActive Thụy Sĩ",
-          "origin": "Thụy Sĩ",
           "unit": "Hàm",
+          "origin": "Thụy Sĩ",
           "price": 280000000
         },
         {
-          "code": "IMP-ALL-STR-ACT-6",
           "name": "Phục hình All-on-6 Straumann SLActive Thụy Sĩ",
-          "origin": "Thụy Sĩ",
           "unit": "Hàm",
+          "origin": "Thụy Sĩ",
           "price": 320000000
         },
         {
-          "code": "IMP-SUP-BONE",
           "name": "Ghép xương nhân tạo",
           "unit": "Vùng / CC",
           "price_min": 8000000,
@@ -145,60 +127,50 @@
       ]
     },
     {
-      "category_id": "CAT-GUMLAW",
       "category_name": "Điều Trị Cười Hở Lợi",
       "source_page": "ho-loi.html, bang-gia.html",
       "services": [
         {
-          "code": "GUM-LEN-SMP",
           "name": "Làm dài thân răng đơn giản",
           "unit": "1 răng",
           "price": 1000000
         },
         {
-          "code": "GUM-LEN-BONE",
           "name": "Làm dài thân răng phức tạp (có mài xương ổ)",
           "unit": "1 răng",
           "price": 2000000
         },
         {
-          "code": "GUM-LIP-REPO",
           "name": "Phẫu thuật định vị lại môi trên (Cắt cơ nâng môi)",
           "unit": "Trọn gói",
           "price": 20000000
         },
         {
-          "code": "GUM-GRAFT-CT",
           "name": "Ghép mô liên kết",
           "unit": "1 răng",
           "price": 3000000
         },
         {
-          "code": "GUM-GRAFT-EPI",
           "name": "Ghép mô liên kết kết hợp biểu mô",
           "unit": "1 răng",
           "price": 4000000
         },
         {
-          "code": "GUM-PKG-S6",
           "name": "Gói làm dài thân răng đơn giản (6 răng)",
           "unit": "Gói",
           "price": 6000000
         },
         {
-          "code": "GUM-PKG-S8",
           "name": "Gói làm dài thân răng đơn giản (8 răng)",
           "unit": "Gói",
           "price": 8000000
         },
         {
-          "code": "GUM-PKG-B6",
           "name": "Gói làm dài thân răng có mài xương ổ (6 răng)",
           "unit": "Gói",
           "price": 12000000
         },
         {
-          "code": "GUM-PKG-B8",
           "name": "Gói làm dài thân răng có mài xương ổ (8 răng)",
           "unit": "Gói",
           "price": 16000000
@@ -206,54 +178,45 @@
       ]
     },
     {
-      "category_id": "CAT-ORTHO",
       "category_name": "Chỉnh Nha - Niềng Răng",
       "source_page": "nieng-rang.html, bang-gia.html",
       "services": [
         {
-          "code": "ORT-BRK-MET-REG",
           "name": "Mắc cài kim loại thường",
           "unit": "Trọn gói 2 hàm",
           "price": 35000000
         },
         {
-          "code": "ORT-BRK-MET-SLF",
           "name": "Mắc cài kim loại tự buộc",
           "unit": "Trọn gói 2 hàm",
           "price": 45000000
         },
         {
-          "code": "ORT-BRK-CER-REG",
           "name": "Mắc cài sứ thường",
           "unit": "Trọn gói 2 hàm",
           "price": 50000000
         },
         {
-          "code": "ORT-BRK-CER-SLF",
           "name": "Mắc cài sứ tự buộc",
           "unit": "Trọn gói 2 hàm",
           "price": 60000000
         },
         {
-          "code": "ORT-ALN-INV-EXP",
           "name": "Invisalign Mức 1 (Express - dưới 7 khay)",
           "unit": "Trọn gói 2 hàm",
           "price": 59000000
         },
         {
-          "code": "ORT-ALN-INV-LIT",
           "name": "Invisalign Mức 2 (Lite - tối đa 14 khay)",
           "unit": "Trọn gói 2 hàm",
           "price": 79000000
         },
         {
-          "code": "ORT-ALN-INV-MOD",
           "name": "Invisalign Mức 3 (Moderate - tối đa 26 khay)",
           "unit": "Trọn gói 2 hàm",
           "price": 99000000
         },
         {
-          "code": "ORT-ALN-INV-COM",
           "name": "Invisalign Mức 4 (Comprehensive - toàn diện)",
           "unit": "Trọn gói 2 hàm",
           "price": 120000000
@@ -261,96 +224,82 @@
       ]
     },
     {
-      "category_id": "CAT-PROSTH",
       "category_name": "Phục Hình Răng Sứ Thẩm Mỹ",
       "source_page": "boc-rang-su.html, bang-gia.html",
       "services": [
         {
-          "code": "PRO-CRW-CRCO",
           "name": "Răng sứ kim loại Cr-Co",
-          "warranty": "3 năm",
           "unit": "1 răng",
+          "warranty": "3 năm",
           "price": 1200000
         },
         {
-          "code": "PRO-CRW-TITAN",
           "name": "Răng sứ Titan",
-          "warranty": "5 năm",
           "unit": "1 răng",
+          "warranty": "5 năm",
           "price": 2500000
         },
         {
-          "code": "PRO-CRW-ZIRCO",
           "name": "Răng toàn sứ Zirconia",
-          "warranty": "10 năm",
           "unit": "1 răng",
+          "warranty": "10 năm",
           "price": 5000000
         },
         {
-          "code": "PRO-CRW-CER-EMX",
           "name": "Răng toàn sứ Cercon / E.max ZirCAD",
-          "warranty": "10 năm",
           "unit": "1 răng",
+          "warranty": "10 năm",
           "price": 6000000
         },
         {
-          "code": "PRO-CRW-CERHT",
           "name": "Răng sứ Cercon HT / E.max Press",
-          "warranty": "12 năm",
           "unit": "1 răng",
+          "warranty": "12 năm",
           "price": 7000000
         },
         {
-          "code": "PRO-CRW-LAVA",
           "name": "Răng toàn sứ Lava Plus 3M Mỹ",
-          "warranty": "15 năm",
           "unit": "1 răng",
+          "warranty": "15 năm",
           "price": 8000000
         }
       ]
     },
     {
-      "category_id": "CAT-VENEER",
       "category_name": "Mặt Dán Sứ Veneer",
       "source_page": "veneer.html, bang-gia.html",
       "services": [
         {
-          "code": "VEN-RET-EMAX",
           "name": "Dán sứ Veneer thẩm mỹ E.max CAD",
           "unit": "1 răng",
           "price_min": 7000000,
           "price_max": 8000000
         },
         {
-          "code": "VEN-COMBO-06",
           "name": "Combo Dán Sứ Veneer 6 răng cửa trên",
           "unit": "Combo",
           "price_min": 42000000,
           "price_max": 48000000
         },
         {
-          "code": "VEN-COMBO-08",
           "name": "Combo Dán Sứ Veneer 8 răng cung cười",
           "unit": "Combo",
           "price_min": 56000000,
           "price_max": 64000000
         },
         {
-          "code": "VEN-COMBO-10",
           "name": "Combo Dán Sứ Veneer 10 răng cung cười rộng",
           "unit": "Combo",
           "price_min": 70000000,
           "price_max": 80000000
         },
         {
-          "code": "VEN-COMBO-16",
           "name": "Combo Dán Sứ Veneer 16 răng đầy đủ 2 hàm",
           "unit": "Combo",
           "price_min": 112000000,
           "price_max": 128000000
         },
         {
-          "code": "VEN-COMBO-20",
           "name": "Combo Dán Sứ Veneer 20 răng toàn diện",
           "unit": "Combo",
           "price_min": 140000000,
@@ -359,234 +308,195 @@
       ]
     },
     {
-      "category_id": "CAT-GENERAL",
       "category_name": "Nha Khoa Tổng Quát & Điều Trị Bệnh Lý",
       "source_page": "tong-quat.html, bang-gia.html",
       "services": [
         {
-          "code": "GEN-EXAM-CONS",
           "name": "Khám và tư vấn chuyên sâu cùng bác sĩ",
           "unit": "1 lần",
           "price": 0
         },
         {
-          "code": "GEN-EXAM-XRAY",
           "name": "X-quang quanh chóp kỹ thuật số",
           "unit": "1 răng",
           "price": 0
         },
         {
-          "code": "GEN-CLEAN-POL",
           "name": "Đánh bóng răng",
           "unit": "1 ca",
           "price": 100000
         },
         {
-          "code": "GEN-CLEAN-LV1",
           "name": "Cạo vôi và đánh bóng mức độ 1",
           "unit": "1 ca",
           "price": 300000
         },
         {
-          "code": "GEN-CLEAN-LV2",
           "name": "Cạo vôi và đánh bóng mức độ 2",
           "unit": "1 ca",
           "price": 400000
         },
         {
-          "code": "GEN-CLEAN-LV3",
           "name": "Cạo vôi và đánh bóng mức độ 3",
           "unit": "1 ca",
           "price": 500000
         },
         {
-          "code": "GEN-PERIO-LV1",
           "name": "Điều trị viêm nha chu mức độ 1",
           "unit": "1 ca",
           "price": 3000000
         },
         {
-          "code": "GEN-PERIO-LV2",
           "name": "Điều trị viêm nha chu mức độ 2",
           "unit": "1 ca",
           "price": 4000000
         },
         {
-          "code": "GEN-PERIO-LV3",
           "name": "Điều trị viêm nha chu mức độ 3",
           "unit": "1 ca",
           "price": 5000000
         },
         {
-          "code": "GEN-EXT-FLAP",
           "name": "Xử lý lợi trùm",
           "unit": "1 răng",
           "price": 700000
         },
         {
-          "code": "GEN-EXT-MILK",
           "name": "Nhổ răng sữa trẻ em",
           "unit": "1 răng",
           "price": 100000
         },
         {
-          "code": "GEN-EXT-ROOT1",
           "name": "Nhổ chân răng hoặc răng 1 chân",
           "unit": "1 răng",
           "price": 500000
         },
         {
-          "code": "GEN-EXT-ROOTM",
           "name": "Nhổ chân răng hoặc răng nhiều chân",
           "unit": "1 răng",
           "price": 700000
         },
         {
-          "code": "GEN-EXT-MOLAR",
           "name": "Nhổ răng hàm nhỏ hoặc lớn",
           "unit": "1 răng",
           "price": 1000000
         },
         {
-          "code": "GEN-EXT-WIS-ST",
           "name": "Nhổ răng khôn mọc thẳng",
           "unit": "1 răng",
           "price": 1500000
         },
         {
-          "code": "GEN-EXT-WIS-L1",
           "name": "Nhổ răng khôn mọc lệch mức độ 1",
           "unit": "1 răng",
           "price": 2000000
         },
         {
-          "code": "GEN-EXT-WIS-L2",
           "name": "Nhổ răng khôn mọc lệch mức độ 2",
           "unit": "1 răng",
           "price": 3000000
         },
         {
-          "code": "GEN-EXT-WIS-L3",
           "name": "Nhổ răng khôn mọc ngầm mức độ 3",
           "unit": "1 răng",
           "price": 5000000
         },
         {
-          "code": "GEN-ENDO-POST-MET",
           "name": "Chốt tủy kim loại",
           "unit": "1 răng",
           "price": 500000
         },
         {
-          "code": "GEN-ENDO-POST-NON1",
           "name": "Chốt không kim loại mức độ 1",
           "unit": "1 răng",
           "price": 2000000
         },
         {
-          "code": "GEN-ENDO-POST-NON2",
           "name": "Chốt không kim loại mức độ 2",
           "unit": "1 răng",
           "price": 3000000
         },
         {
-          "code": "GEN-ENDO-ROOT1",
           "name": "Điều trị tủy răng một chân (răng cửa / nanh)",
           "unit": "1 răng",
           "price": 600000
         },
         {
-          "code": "GEN-ENDO-ROOT2",
           "name": "Điều trị tủy răng hai chân (răng hàm nhỏ)",
           "unit": "1 răng",
           "price": 800000
         },
         {
-          "code": "GEN-ENDO-ROOTM",
           "name": "Điều trị tủy răng nhiều chân (răng hàm lớn)",
           "unit": "1 răng",
           "price": 1500000
         },
         {
-          "code": "GEN-ENDO-RE-LV1",
           "name": "Điều trị tủy lại mức độ 1 (nội nha lại)",
           "unit": "1 răng",
           "price": 1500000
         },
         {
-          "code": "GEN-ENDO-RE-LV2",
           "name": "Điều trị tủy lại mức độ 2",
           "unit": "1 răng",
           "price": 2000000
         },
         {
-          "code": "GEN-ENDO-APICO",
           "name": "Phẫu thuật cắt chóp và trám ngược",
           "unit": "1 răng",
           "price": 2000000
         },
         {
-          "code": "GEN-REST-GIC",
           "name": "Trám GIC / Fuji Nhật Bản",
           "unit": "1 răng",
           "price": 250000
         },
         {
-          "code": "GEN-REST-NECK",
           "name": "Trám cổ răng chống ê buốt",
           "unit": "1 răng",
           "price": 400000
         },
         {
-          "code": "GEN-REST-COMP",
           "name": "Trám Composite thẩm mỹ 3M ESPE (Mỹ)",
           "unit": "1 răng",
           "price": 400000
         },
         {
-          "code": "GEN-REST-COSM",
           "name": "Trám răng thẩm mỹ góc cạnh",
           "unit": "1 răng",
           "price": 500000
         },
         {
-          "code": "GEN-REST-TEMP",
           "name": "Trám tạm Eugenate khử khuẩn",
           "unit": "1 răng",
           "price": 700000
         },
         {
-          "code": "GEN-REST-INLAY",
           "name": "Inlay – Onlay sứ chịu lực",
           "unit": "1 răng",
           "price": 5000000
         },
         {
-          "code": "GEN-REST-CROWN-M",
           "name": "Chụp bảo vệ răng sữa",
           "unit": "1 răng",
           "price": 1000000
         },
         {
-          "code": "GEN-WHT-HOME",
           "name": "Tẩy trắng tại nhà (kèm 2 ống thuốc)",
           "unit": "1 ca",
           "price": 1500000
         },
         {
-          "code": "GEN-WHT-CLINIC",
           "name": "Tẩy trắng tại phòng khám Laser",
           "unit": "1 ca",
           "price": 2500000
         },
         {
-          "code": "GEN-WHT-COMBO",
           "name": "Tẩy trắng kết hợp tại nhà và phòng khám",
           "unit": "1 ca",
           "price": 3500000
         },
         {
-          "code": "GEN-WHT-TRAY",
           "name": "Làm máng tẩy trắng (không kèm thuốc)",
           "unit": "2 hàm",
           "price": 1000000
