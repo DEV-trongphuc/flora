@@ -1539,7 +1539,7 @@ function flora_register_orders_admin_menu() {
         'flora-orders',
         'flora_render_orders_admin_page',
         'dashicons-cart',
-        5.1
+        5.3
     );
 
     add_submenu_page(
@@ -1708,63 +1708,113 @@ function flora_render_orders_admin_page() {
     ?>
 
     <style>
-        .flora-order-wrap { margin: 20px 20px 0 2px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-        .flora-order-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; margin-bottom: 20px; padding: 18px 24px; background: #fff; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.04); border: 1px solid #e2e8f0; }
-        .flora-order-header h1 { font-size: 1.45rem; font-weight: 800; color: #0033a3; margin: 0; display: flex; align-items: center; gap: 10px; }
+        .flora-order-wrap { margin: 16px 20px 0 2px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+        .flora-order-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; margin-bottom: 18px; padding: 16px 20px; background: #fff; border-radius: 10px; border: 1px solid #e2e8f0; }
+        .flora-order-header h1 { font-size: 1.25rem; font-weight: 700; color: #0f172a; margin: 0; display: flex; align-items: center; gap: 8px; letter-spacing: -0.2px; }
         
-        .flora-kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr) !important; gap: 16px; margin-bottom: 24px; }
+        /* KPI GRID - Clean, Compact, Refined */
+        .flora-kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr) !important; gap: 14px; margin-bottom: 18px; }
         @media screen and (max-width: 1024px) { .flora-kpi-grid { grid-template-columns: repeat(2, 1fr) !important; } }
         @media screen and (max-width: 640px) { .flora-kpi-grid { grid-template-columns: 1fr !important; } }
         
-        .flora-kpi-card { background: #fff; padding: 18px 20px; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 2px 8px rgba(0,0,0,0.03); display: flex; align-items: center; gap: 16px; }
-        .flora-kpi-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.35rem; }
-        .flora-kpi-num { font-size: 1.55rem; font-weight: 800; line-height: 1.1; margin-bottom: 3px; }
-        .flora-kpi-label { font-size: 0.8rem; color: #64748b; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+        .flora-kpi-card { background: #fff; padding: 14px 18px; border-radius: 10px; border: 1px solid #e2e8f0; display: flex; align-items: center; gap: 14px; }
+        .flora-kpi-icon { width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0; }
+        .flora-kpi-num { font-size: 1.35rem; font-weight: 700; line-height: 1.1; margin-bottom: 2px; color: #0f172a; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+        .flora-kpi-label { font-size: 0.76rem; color: #64748b; font-weight: 600; text-transform: uppercase; letter-spacing: 0.4px; }
 
-        .badge-status { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 9999px; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; }
-        .badge-pending { background: #fef3c7; color: #b45309; border: 1px solid #fde68a; }
-        .badge-paid { background: #dcfce7; color: #15803d; border: 1px solid #86efac; }
-        .badge-cancelled { background: #f1f5f9; color: #64748b; border: 1px solid #cbd5e1; }
-        .badge-failed { background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; }
+        /* FILTER BAR - Modern Segmented Tabs */
+        .flora-filter-bar { background: #fff; padding: 10px 16px; border-radius: 10px; border: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+        .flora-tab-group { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+        .flora-tab-btn { padding: 6px 12px; border-radius: 6px; font-size: 0.82rem; font-weight: 600; text-decoration: none; border: 1px solid #e2e8f0; background: #fff; color: #475569; transition: all 0.15s ease; display: inline-flex; align-items: center; gap: 5px; }
+        .flora-tab-btn:hover { background: #f8fafc; color: #0f172a; border-color: #cbd5e1; }
+        .flora-tab-btn.active { background: #0033a3; color: #fff; border-color: #0033a3; }
+        .flora-tab-count { font-size: 0.75rem; opacity: 0.85; font-weight: 500; }
 
-        .tbl-orders-wrap { background: #fff; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 2px 10px rgba(0,0,0,0.03); overflow-x: auto; margin-top: 16px; }
-        .tbl-orders { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.88rem; }
-        .tbl-orders th { background: #f8fafc; color: #475569; font-weight: 700; padding: 12px 16px; border-bottom: 2px solid #e2e8f0; white-space: nowrap; font-size: 0.82rem; text-transform: uppercase; }
-        .tbl-orders td { padding: 14px 16px; border-bottom: 1px solid #f1f5f9; vertical-align: middle; color: #1e293b; }
-        .tbl-orders tr:hover td { background: #f8fafc; }
+        /* TABLE - Compact, Clean, Professional */
+        .tbl-orders-wrap { background: #fff; border-radius: 10px; border: 1px solid #e2e8f0; overflow-x: auto; margin-top: 14px; }
+        .tbl-orders { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.84rem; }
+        .tbl-orders th { background: #f8fafc; color: #475569; font-weight: 600; padding: 10px 14px; border-bottom: 1px solid #e2e8f0; white-space: nowrap; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.4px; }
+        .tbl-orders td { padding: 10px 14px; border-bottom: 1px solid #f1f5f9; vertical-align: middle; color: #1e293b; }
+        .tbl-orders tr:hover td { background: #fcfdfe; }
 
-        .order-code-badge { font-weight: 800; color: #0033a3; font-family: monospace; font-size: 0.95rem; }
-        .syntax-pill { background: #fffbeb; border: 1px solid #fde68a; color: #b45309; padding: 3px 8px; border-radius: 6px; font-weight: 700; font-family: monospace; font-size: 0.82rem; display: inline-block; }
-        .price-badge { font-weight: 800; color: #0493f1; font-size: 0.95rem; }
-        
-        .action-btn-group { display: flex; gap: 6px; align-items: center; }
-        .btn-act { padding: 6px 12px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; text-decoration: none; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; border: none; }
-        .btn-act-paid { background: #16a34a; color: #fff; }
-        .btn-act-paid:hover { background: #15803d; color: #fff; }
-        .btn-act-reject { background: #ef4444; color: #fff; }
-        .btn-act-reject:hover { background: #dc2626; color: #fff; }
-        .btn-act-del { background: #fee2e2; color: #dc2626; }
-        .btn-act-del:hover { background: #dc2626; color: #fff; }
+        .order-code-badge { font-weight: 700; color: #0f172a; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.86rem; }
+        .order-date-text { font-size: 0.73rem; color: #64748b; margin-top: 2px; }
+        .time-pill-clean { font-size: 0.7rem; color: #64748b; background: #f1f5f9; padding: 1px 6px; border-radius: 4px; display: inline-block; margin-top: 3px; font-weight: 500; }
+        .time-pill-clean.warning { color: #b45309; background: #fef3c7; }
+        .time-pill-clean.expired { color: #b91c1c; background: #fee2e2; }
 
-        /* Modal xem ảnh bill */
-        .proof-thumb { width: 50px; height: 50px; border-radius: 8px; object-fit: cover; border: 1px solid #cbd5e1; cursor: pointer; transition: transform 0.2s; }
+        /* Customer column */
+        .customer-name { font-weight: 600; color: #0f172a; font-size: 0.86rem; }
+        .customer-phone { color: #334155; font-weight: 500; text-decoration: none; font-size: 0.82rem; }
+        .customer-phone:hover { color: #0033a3; text-decoration: underline; }
+        .customer-email { font-size: 0.74rem; color: #64748b; }
+        .badge-consult { font-size: 0.68rem; color: #475569; background: #f1f5f9; border: 1px solid #e2e8f0; padding: 1px 6px; border-radius: 4px; font-weight: 600; display: inline-block; margin-top: 2px; }
+
+        /* Package column */
+        .package-title { font-weight: 600; color: #0f172a; line-height: 1.35; font-size: 0.84rem; }
+        .tag-minimal { font-size: 0.7rem; background: #f8fafc; border: 1px solid #e2e8f0; color: #475569; padding: 1px 6px; border-radius: 4px; font-weight: 500; display: inline-block; margin-top: 3px; }
+        .tag-minimal strong { color: #0f172a; font-weight: 600; }
+
+        /* Price */
+        .price-badge { font-weight: 700; color: #0f172a; font-size: 0.88rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+        .price-old { font-size: 0.72rem; color: #94a3b8; text-decoration: line-through; }
+
+        /* Syntax Pill - Clean Monospace */
+        .syntax-pill { background: #f8fafc; border: 1px solid #e2e8f0; color: #0f172a; padding: 2px 7px; border-radius: 5px; font-weight: 600; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.8rem; display: inline-block; letter-spacing: 0.2px; }
+        .syntax-sub { font-size: 0.7rem; color: #94a3b8; margin-top: 2px; }
+
+        /* Proof Thumbnail */
+        .proof-thumb { width: 38px; height: 38px; border-radius: 6px; object-fit: cover; border: 1px solid #cbd5e1; cursor: pointer; transition: transform 0.15s; vertical-align: middle; }
         .proof-thumb:hover { transform: scale(1.08); border-color: #0033a3; }
+        .proof-none { font-size: 0.76rem; color: #94a3b8; }
+
+        /* Status Pill - Dot + Label, Minimalist */
+        .status-pill { display: inline-flex; align-items: center; gap: 5px; padding: 3px 9px; border-radius: 9999px; font-size: 0.74rem; font-weight: 600; white-space: nowrap; }
+        .status-dot { width: 6px; height: 6px; border-radius: 50%; display: inline-block; }
+        
+        .status-pill.status-paid { background: #f0fdf4; border: 1px solid #dcfce7; color: #166534; }
+        .status-pill.status-paid .status-dot { background: #16a34a; }
+        
+        .status-pill.status-pending { background: #fffbeb; border: 1px solid #fef3c7; color: #92400e; }
+        .status-pill.status-pending .status-dot { background: #d97706; }
+        
+        .status-pill.status-rejected { background: #fef2f2; border: 1px solid #fee2e2; color: #991b1b; }
+        .status-pill.status-rejected .status-dot { background: #dc2626; }
+        
+        .status-pill.status-other { background: #f8fafc; border: 1px solid #e2e8f0; color: #475569; }
+        .status-pill.status-other .status-dot { background: #94a3b8; }
+
+        .status-sub { font-size: 0.7rem; color: #64748b; margin-top: 2px; }
+        .status-sub-reason { font-size: 0.7rem; color: #94a3b8; margin-top: 2px; max-width: 140px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+        /* Actions - Compact, Clean, Sleek */
+        .action-btn-group { display: flex; gap: 5px; align-items: center; }
+        .btn-act { padding: 4px 9px; border-radius: 5px; font-size: 0.76rem; font-weight: 600; text-decoration: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; border: 1px solid transparent; transition: all 0.15s ease; height: 26px; box-sizing: border-box; }
+        
+        .btn-act-paid { background: #f0fdf4; color: #166534; border-color: #bbf7d0; }
+        .btn-act-paid:hover { background: #16a34a; color: #ffffff; border-color: #16a34a; }
+        
+        .btn-act-reject { background: #ffffff; color: #64748b; border-color: #e2e8f0; }
+        .btn-act-reject:hover { background: #fef2f2; color: #b91c1c; border-color: #fca5a5; }
+        
+        .btn-act-del { background: transparent; color: #94a3b8; border: none; width: 26px; height: 26px; padding: 0; border-radius: 5px; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; cursor: pointer; }
+        .btn-act-del:hover { background: #fee2e2; color: #dc2626; }
     </style>
 
     <div class="flora-order-wrap">
         <div class="flora-order-header">
             <div>
-                <h1><i class="dashicons dashicons-cart" style="font-size: 1.7rem; width: auto; height: auto;"></i> QUẢN LÝ ĐƠN HÀNG GÓI DỊCH VỤ</h1>
-                <p style="margin: 4px 0 0; color: #64748b; font-size: 0.88rem;">
+                <h1><i class="dashicons dashicons-cart" style="font-size: 1.4rem; width: auto; height: auto; color: #0033a3;"></i> Quản Lý Đơn Hàng Gói Dịch Vụ</h1>
+                <p style="margin: 3px 0 0; color: #64748b; font-size: 0.84rem;">
                     Xác thực chuyển khoản VietQR Ngân hàng ACB (77779268), đối soát cú pháp SĐT và kích hoạt gói khám tự động.
                 </p>
             </div>
             <div style="display: flex; gap: 10px;">
-                <a href="<?php echo esc_url(admin_url('admin.php?page=flora-payment-settings')); ?>" class="button button-secondary" style="height: 38px; line-height: 36px; padding: 0 16px; font-weight: 600;">
-                    <i class="dashicons dashicons-admin-generic" style="margin-top: 8px;"></i> Cài Đặt ACB & Zalo Bot
+                <a href="<?php echo esc_url(admin_url('admin.php?page=flora-payment-settings')); ?>" class="button button-secondary" style="height: 36px; line-height: 34px; padding: 0 14px; font-weight: 600; font-size: 13px;">
+                    <i class="dashicons dashicons-admin-generic" style="margin-top: 7px;"></i> Cài Đặt ACB & Zalo Bot
                 </a>
-                <a href="<?php echo esc_url($export_url); ?>" class="button button-primary" style="height: 38px; line-height: 36px; padding: 0 16px; font-weight: 600; background: #0033a3; border-color: #0033a3;">
-                    <i class="dashicons dashicons-download" style="margin-top: 8px;"></i> Xuất Excel (CSV)
+                <a href="<?php echo esc_url($export_url); ?>" class="button button-primary" style="height: 36px; line-height: 34px; padding: 0 14px; font-weight: 600; font-size: 13px; background: #0033a3; border-color: #0033a3;">
+                    <i class="dashicons dashicons-download" style="margin-top: 7px;"></i> Xuất Excel (CSV)
                 </a>
             </div>
         </div>
@@ -1774,77 +1824,79 @@ function flora_render_orders_admin_page() {
             <div class="flora-kpi-card">
                 <div class="flora-kpi-icon" style="background: #f1f5f9; color: #334155;"><i class="dashicons dashicons-list-view"></i></div>
                 <div>
-                    <div class="flora-kpi-num" style="color: #0f172a;"><?php echo number_format($total_orders); ?></div>
+                    <div class="flora-kpi-num"><?php echo number_format($total_orders); ?></div>
                     <div class="flora-kpi-label">Tổng Đơn Hàng</div>
                 </div>
             </div>
             <div class="flora-kpi-card">
                 <div class="flora-kpi-icon" style="background: #f0fdf4; color: #16a34a;"><i class="dashicons dashicons-yes-alt"></i></div>
                 <div>
-                    <div class="flora-kpi-num" style="color: #16a34a;"><?php echo number_format($revenue_paid, 0, ',', '.'); ?>đ</div>
+                    <div class="flora-kpi-num" style="color: #166534;"><?php echo number_format($revenue_paid, 0, ',', '.'); ?>đ</div>
                     <div class="flora-kpi-label">Đã Thu (<?php echo $total_paid; ?> đơn)</div>
                 </div>
             </div>
             <div class="flora-kpi-card">
                 <div class="flora-kpi-icon" style="background: #fffbeb; color: #b45309;"><i class="dashicons dashicons-clock"></i></div>
                 <div>
-                    <div class="flora-kpi-num" style="color: #b45309;"><?php echo number_format($total_pending); ?></div>
+                    <div class="flora-kpi-num" style="color: #92400e;"><?php echo number_format($total_pending); ?></div>
                     <div class="flora-kpi-label">Chờ Xác Nhận</div>
                 </div>
             </div>
             <div class="flora-kpi-card">
                 <div class="flora-kpi-icon" style="background: #fef2f2; color: #dc2626;"><i class="dashicons dashicons-dismiss"></i></div>
                 <div>
-                    <div class="flora-kpi-num" style="color: #dc2626;"><?php echo number_format($total_rejected); ?></div>
+                    <div class="flora-kpi-num" style="color: #991b1b;"><?php echo number_format($total_rejected); ?></div>
                     <div class="flora-kpi-label">Từ Chối / Quá 24h</div>
                 </div>
             </div>
         </div>
 
         <!-- FILTER & SEARCH -->
-        <div style="background: #fff; padding: 14px 20px; border-radius: 10px; border: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
-            <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
-                <a href="<?php echo esc_url(admin_url('admin.php?page=flora-orders')); ?>" class="button <?php echo empty($status_filter) ? 'button-primary' : ''; ?>" style="<?php echo empty($status_filter) ? 'background:#0033a3;border-color:#0033a3;' : ''; ?>">Tất cả (<?php echo $total_orders; ?>)</a>
-                <a href="<?php echo esc_url(admin_url('admin.php?page=flora-orders&status_filter=pending_confirmation')); ?>" class="button <?php echo ($status_filter === 'pending_confirmation' || $status_filter === 'pending') ? 'button-primary' : ''; ?>" style="<?php echo ($status_filter === 'pending_confirmation' || $status_filter === 'pending') ? 'background:#b45309;border-color:#b45309;' : ''; ?>">
-                    ⏳ Chờ xác nhận (<?php echo $total_pending; ?>)
+        <div class="flora-filter-bar">
+            <div class="flora-tab-group">
+                <a href="<?php echo esc_url(admin_url('admin.php?page=flora-orders')); ?>" class="flora-tab-btn <?php echo empty($status_filter) ? 'active' : ''; ?>">
+                    Tất cả <span class="flora-tab-count">(<?php echo $total_orders; ?>)</span>
                 </a>
-                <a href="<?php echo esc_url(admin_url('admin.php?page=flora-orders&status_filter=paid')); ?>" class="button <?php echo $status_filter === 'paid' ? 'button-primary' : ''; ?>" style="<?php echo $status_filter === 'paid' ? 'background:#16a34a;border-color:#16a34a;' : ''; ?>">
-                    ✓ Đã thanh toán (<?php echo $total_paid; ?>)
+                <a href="<?php echo esc_url(admin_url('admin.php?page=flora-orders&status_filter=pending_confirmation')); ?>" class="flora-tab-btn <?php echo ($status_filter === 'pending_confirmation' || $status_filter === 'pending') ? 'active' : ''; ?>">
+                    Chờ duyệt <span class="flora-tab-count">(<?php echo $total_pending; ?>)</span>
                 </a>
-                <a href="<?php echo esc_url(admin_url('admin.php?page=flora-orders&status_filter=rejected')); ?>" class="button <?php echo $status_filter === 'rejected' ? 'button-primary' : ''; ?>" style="<?php echo $status_filter === 'rejected' ? 'background:#dc2626;border-color:#dc2626;' : ''; ?>">
-                    ✕ Từ chối / Hết hạn (<?php echo $total_rejected; ?>)
+                <a href="<?php echo esc_url(admin_url('admin.php?page=flora-orders&status_filter=paid')); ?>" class="flora-tab-btn <?php echo $status_filter === 'paid' ? 'active' : ''; ?>">
+                    Đã thanh toán <span class="flora-tab-count">(<?php echo $total_paid; ?>)</span>
+                </a>
+                <a href="<?php echo esc_url(admin_url('admin.php?page=flora-orders&status_filter=rejected')); ?>" class="flora-tab-btn <?php echo $status_filter === 'rejected' ? 'active' : ''; ?>">
+                    Từ chối / Hết hạn <span class="flora-tab-count">(<?php echo $total_rejected; ?>)</span>
                 </a>
             </div>
 
             <form method="get" action="<?php echo esc_url(admin_url('admin.php')); ?>" style="display: flex; gap: 8px;">
                 <input type="hidden" name="page" value="flora-orders" />
                 <?php if (!empty($status_filter)): ?><input type="hidden" name="status_filter" value="<?php echo esc_attr($status_filter); ?>" /><?php endif; ?>
-                <input type="search" name="s" value="<?php echo esc_attr($search_query); ?>" placeholder="Tìm mã đơn, Tên, SĐT..." style="height: 34px; border-radius: 6px; border: 1px solid #cbd5e1; width: 220px;" />
-                <button type="submit" class="button button-secondary" style="height: 34px;">Tìm kiếm</button>
+                <input type="search" name="s" value="<?php echo esc_attr($search_query); ?>" placeholder="Tìm mã đơn, Tên, SĐT..." style="height: 32px; border-radius: 6px; border: 1px solid #cbd5e1; width: 220px; font-size: 13px;" />
+                <button type="submit" class="button button-secondary" style="height: 32px; font-size: 13px;">Tìm kiếm</button>
             </form>
         </div>
 
         <!-- TABLE OF ORDERS -->
         <div class="tbl-orders-wrap">
-            <table class="tbl-orders" style="min-width: 1100px; width: 100%; border-collapse: collapse;">
+            <table class="tbl-orders" style="min-width: 1040px; width: 100%; border-collapse: collapse;">
                 <thead>
                     <tr>
-                        <th>Mã Đơn / Hạn 24h</th>
+                        <th style="white-space: nowrap;">Mã Đơn / Hạn 24h</th>
                         <th>Khách Hàng (SĐT)</th>
                         <th>Gói Dịch Vụ</th>
-                        <th>Số Tiền</th>
-                        <th>Cú Pháp CK (ACB 77779268)</th>
-                        <th>Minh Chứng Bill</th>
-                        <th>Trạng Thái</th>
-                        <th>Thao Tác</th>
+                        <th style="white-space: nowrap;">Số Tiền</th>
+                        <th style="white-space: nowrap;">Cú Pháp CK (ACB 77779268)</th>
+                        <th style="text-align: center; white-space: nowrap;">Minh Chứng Bill</th>
+                        <th style="text-align: center; white-space: nowrap;">Trạng Thái</th>
+                        <th style="text-align: right; white-space: nowrap;">Thao Tác</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php if (empty($orders)): ?>
                         <tr>
-                            <td colspan="8" style="text-align: center; padding: 40px; color: #94a3b8;">
-                                <i class="dashicons dashicons-cart" style="font-size: 3rem; width: auto; height: auto; opacity: 0.4;"></i>
-                                <p style="margin: 10px 0 0; font-size: 1rem;">Chưa có đơn hàng nào trong mục này.</p>
+                            <td colspan="8" style="text-align: center; padding: 36px; color: #94a3b8;">
+                                <i class="dashicons dashicons-cart" style="font-size: 2.5rem; width: auto; height: auto; opacity: 0.35;"></i>
+                                <p style="margin: 8px 0 0; font-size: 0.95rem;">Chưa có đơn hàng nào trong mục này.</p>
                             </td>
                         </tr>
                     <?php else: ?>
@@ -1856,97 +1908,96 @@ function flora_render_orders_admin_page() {
                             $is_pending = in_array($o['payment_status'], array('pending', 'pending_confirmation'));
                             ?>
                             <tr>
-                                <td>
+                                <td style="white-space: nowrap;">
                                     <div class="order-code-badge"><?php echo esc_html($o['order_code']); ?></div>
-                                    <div style="font-size: 0.78rem; color: #64748b; margin-top: 3px;">
+                                    <div class="order-date-text">
                                         <?php echo date('d/m/Y H:i', $created_ts); ?>
                                     </div>
                                     <?php if ($is_pending): ?>
                                         <?php if ($remaining_secs > 0): ?>
-                                            <div style="font-size: 0.72rem; color: #b45309; background: #fef3c7; padding: 2px 6px; border-radius: 4px; display: inline-block; margin-top: 4px; font-weight: 600;">
-                                                ⏳ Hạn: Còn <?php echo ceil($remaining_secs / 3600); ?> giờ
+                                            <div class="time-pill-clean warning">
+                                                Còn <?php echo ceil($remaining_secs / 3600); ?> giờ
                                             </div>
                                         <?php else: ?>
-                                            <div style="font-size: 0.72rem; color: #dc2626; background: #fee2e2; padding: 2px 6px; border-radius: 4px; display: inline-block; margin-top: 4px; font-weight: 700;">
-                                                ⚠️ Đã quá 24h
+                                            <div class="time-pill-clean expired">
+                                                Quá 24 giờ
                                             </div>
                                         <?php endif; ?>
                                     <?php endif; ?>
                                 </td>
                                 <td>
-                                    <div style="font-weight: 700; color: #0f172a;"><?php echo esc_html($o['customer_name']); ?></div>
-                                    <div style="margin-top: 2px;">
-                                        <a href="tel:<?php echo esc_attr($o['customer_phone']); ?>" style="color: #0493f1; font-weight: 700; text-decoration: none;">
-                                            📞 <?php echo esc_html($o['customer_phone']); ?>
+                                    <div class="customer-name"><?php echo esc_html($o['customer_name']); ?></div>
+                                    <div style="margin-top: 1px;">
+                                        <a href="tel:<?php echo esc_attr($o['customer_phone']); ?>" class="customer-phone">
+                                            <?php echo esc_html($o['customer_phone']); ?>
                                         </a>
                                     </div>
                                     <?php if (!empty($o['customer_email'])): ?>
-                                        <div style="font-size: 0.78rem; color: #64748b;">✉️ <?php echo esc_html($o['customer_email']); ?></div>
+                                        <div class="customer-email"><?php echo esc_html($o['customer_email']); ?></div>
                                     <?php endif; ?>
                                     <?php if (!empty($o['need_consult'])): ?>
-                                        <span style="font-size: 0.7rem; color: #ea580c; background: #ffedd5; padding: 1px 6px; border-radius: 4px; font-weight: 600; display: inline-block; margin-top: 3px;">Cần tư vấn</span>
+                                        <span class="badge-consult">Cần tư vấn</span>
                                     <?php endif; ?>
                                 </td>
                                 <td>
-                                    <div style="font-weight: 700; color: #1e293b;"><?php echo esc_html($o['package_name']); ?></div>
+                                    <div class="package-title"><?php echo esc_html($o['package_name']); ?></div>
                                     <?php if (!empty($o['voucher_code'])): ?>
-                                        <span style="font-size: 0.72rem; background: #fef08a; color: #854d0e; padding: 1px 6px; border-radius: 4px; font-weight: 700;">Voucher: <?php echo esc_html($o['voucher_code']); ?></span>
+                                        <span class="tag-minimal">Voucher: <strong><?php echo esc_html($o['voucher_code']); ?></strong></span>
                                     <?php endif; ?>
                                     <?php if (!empty($o['affiliate_code'])): ?>
-                                        <span style="font-size: 0.72rem; background: #e0f2fe; color: #0369a1; padding: 1px 6px; border-radius: 4px; font-weight: 700;">KOL: <?php echo esc_html($o['affiliate_code']); ?></span>
+                                        <span class="tag-minimal">KOL: <strong><?php echo esc_html($o['affiliate_code']); ?></strong></span>
                                     <?php endif; ?>
                                 </td>
-                                <td>
+                                <td style="white-space: nowrap;">
                                     <div class="price-badge"><?php echo number_format($o['final_amount'], 0, ',', '.'); ?>đ</div>
                                     <?php if ($o['discount_amount'] > 0): ?>
-                                        <div style="font-size: 0.74rem; color: #94a3b8; text-decoration: line-through;"><?php echo number_format($o['original_price'], 0, ',', '.'); ?>đ</div>
+                                        <div class="price-old"><?php echo number_format($o['original_price'], 0, ',', '.'); ?>đ</div>
                                     <?php endif; ?>
                                 </td>
-                                <td>
+                                <td style="white-space: nowrap;">
                                     <div class="syntax-pill"><?php echo esc_html($o['transfer_syntax']); ?></div>
-                                    <div style="font-size: 0.72rem; color: #64748b; margin-top: 3px;">ACB: <strong>77779268</strong></div>
+                                    <div class="syntax-sub">ACB: <strong>77779268</strong></div>
                                 </td>
-                                <td style="text-align: center;">
+                                <td style="text-align: center; white-space: nowrap;">
                                     <?php if (!empty($o['proof_image_url'])): ?>
-                                        <a href="<?php echo esc_url($o['proof_image_url']); ?>" target="_blank" title="Bấm xem ảnh kích thước đầy đủ">
+                                        <a href="<?php echo esc_url($o['proof_image_url']); ?>" target="_blank" title="Bấm xem ảnh bill gốc">
                                             <img src="<?php echo esc_url($o['proof_image_url']); ?>" class="proof-thumb" alt="Bill" />
                                         </a>
-                                        <div style="font-size: 0.7rem; color: #16a34a; font-weight: 700; margin-top: 3px;">✓ Đã gửi bill</div>
                                     <?php else: ?>
-                                        <span style="font-size: 0.78rem; color: #94a3b8; font-style: italic;">Chưa gửi</span>
+                                        <span class="proof-none">—</span>
                                     <?php endif; ?>
                                 </td>
-                                <td>
+                                <td style="text-align: center; white-space: nowrap;">
                                     <?php if ($o['payment_status'] === 'paid'): ?>
-                                        <span class="badge-status badge-paid"><i class="dashicons dashicons-yes"></i> Đã duyệt</span>
+                                        <span class="status-pill status-paid"><span class="status-dot"></span>Đã duyệt</span>
                                         <?php if (!empty($o['paid_at'])): ?>
-                                            <div style="font-size: 0.72rem; color: #15803d; margin-top: 3px;"><?php echo date('H:i d/m', strtotime($o['paid_at'])); ?></div>
+                                            <div class="status-sub"><?php echo date('H:i d/m', strtotime($o['paid_at'])); ?></div>
                                         <?php endif; ?>
                                     <?php elseif ($is_pending): ?>
-                                        <span class="badge-status badge-pending"><i class="dashicons dashicons-clock"></i> Chờ duyệt</span>
+                                        <span class="status-pill status-pending"><span class="status-dot"></span>Chờ duyệt</span>
                                     <?php elseif ($o['payment_status'] === 'rejected'): ?>
-                                        <span class="badge-status badge-failed"><i class="dashicons dashicons-dismiss"></i> Từ chối / Hết hạn</span>
+                                        <span class="status-pill status-rejected"><span class="status-dot"></span>Từ chối</span>
                                         <?php if (!empty($o['reject_reason'])): ?>
-                                            <div style="font-size: 0.7rem; color: #b91c1c; margin-top: 3px; max-width: 140px; word-break: break-word;">
+                                            <div class="status-sub-reason" title="<?php echo esc_attr($o['reject_reason']); ?>">
                                                 <?php echo esc_html($o['reject_reason']); ?>
                                             </div>
                                         <?php endif; ?>
                                     <?php else: ?>
-                                        <span class="badge-status badge-cancelled"><?php echo esc_html($o['payment_status']); ?></span>
+                                        <span class="status-pill status-other"><span class="status-dot"></span><?php echo esc_html($o['payment_status']); ?></span>
                                     <?php endif; ?>
                                 </td>
-                                <td>
-                                    <div class="action-btn-group">
+                                <td style="text-align: right; white-space: nowrap;">
+                                    <div class="action-btn-group" style="justify-content: flex-end;">
                                         <?php if ($o['payment_status'] !== 'paid'): ?>
                                             <a href="<?php echo wp_nonce_url(admin_url('admin.php?page=flora-orders&action=change_status&id=' . $o['id'] . '&new_status=paid'), 'flora_order_action'); ?>" class="btn-act btn-act-paid" onclick="return confirm('XÁC NHẬN: Khách hàng đã chuyển khoản thành công đơn #' + '<?php echo esc_js($o['order_code']); ?>' + ' qua ACB 77779268? Hệ thống sẽ gửi email kích hoạt và báo Zalo.');" title="Duyệt đơn & Gửi email">
-                                                <i class="dashicons dashicons-yes" style="font-size:14px;width:14px;height:14px;"></i> Duyệt
+                                                Duyệt
                                             </a>
                                             <button type="button" class="btn-act btn-act-reject" onclick="promptRejectOrder(<?php echo $o['id']; ?>, '<?php echo esc_js($o['order_code']); ?>')" title="Từ chối đơn & Báo khách">
-                                                <i class="dashicons dashicons-no" style="font-size:14px;width:14px;height:14px;"></i> Từ chối
+                                                Từ chối
                                             </button>
                                         <?php endif; ?>
-                                        <a href="<?php echo wp_nonce_url(admin_url('admin.php?page=flora-orders&action=delete&id=' . $o['id']), 'flora_order_delete'); ?>" class="btn-act btn-act-del" onclick="return confirm('CẢNH BÁO: Xóa vĩnh viễn đơn hàng này?');" title="Xóa">
-                                            <i class="dashicons dashicons-trash" style="font-size:14px;width:14px;height:14px;"></i>
+                                        <a href="<?php echo wp_nonce_url(admin_url('admin.php?page=flora-orders&action=delete&id=' . $o['id']), 'flora_order_delete'); ?>" class="btn-act-del" onclick="return confirm('CẢNH BÁO: Xóa vĩnh viễn đơn hàng này?');" title="Xóa">
+                                            <i class="dashicons dashicons-trash" style="font-size:15px;width:15px;height:15px;"></i>
                                         </a>
                                     </div>
                                 </td>

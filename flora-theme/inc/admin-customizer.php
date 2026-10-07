@@ -1078,6 +1078,7 @@ function flora_admin_custom_head_styles() {
         .syntax-pill,
         .badge-status,
         .badge-status-on,
+        .badge-status-pending,
         .badge-status-off,
         .order-code-badge,
         .flora-phone-btn,

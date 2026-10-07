@@ -245,7 +245,7 @@ function flora_register_booking_admin_menu() {
         'flora-bookings',
         'flora_render_bookings_admin_page',
         'dashicons-calendar-alt',
-        5.2
+        5.1
     );
 }
 add_action('admin_menu', 'flora_register_booking_admin_menu');

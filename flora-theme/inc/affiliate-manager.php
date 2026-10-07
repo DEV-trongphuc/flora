@@ -1055,7 +1055,7 @@ function flora_register_affiliates_admin_menu() {
         'flora-affiliates',
         'flora_render_affiliates_admin_page',
         'dashicons-networking',
-        5.3
+        5.2
     );
 
     add_submenu_page(
@@ -3006,6 +3006,22 @@ function flora_render_affiliates_admin_page() {
             font-size: 0.72rem; 
             font-weight: 700; 
             text-transform: uppercase; 
+            white-space: nowrap !important;
+            display: inline-flex !important;
+            align-items: center !important;
+        }
+        .badge-status-pending {
+            background: #fffbeb; 
+            color: #92400e; 
+            border: 1px solid #fde68a; 
+            padding: 3px 10px; 
+            border-radius: 9999px; 
+            font-size: 0.72rem; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            white-space: nowrap !important;
+            display: inline-flex !important;
+            align-items: center !important;
         }
         .badge-status-off { 
             background: #f8fafc; 
@@ -3016,6 +3032,9 @@ function flora_render_affiliates_admin_page() {
             font-size: 0.72rem; 
             font-weight: 700; 
             text-transform: uppercase; 
+            white-space: nowrap !important;
+            display: inline-flex !important;
+            align-items: center !important;
         }
 
         .btn-flora-primary { 
@@ -3173,7 +3192,11 @@ function flora_render_affiliates_admin_page() {
             position: relative; 
             border: 1px solid #e2e8f0;
         }
-        .flora-modal-drawer { max-width: 950px; }
+        .flora-modal-drawer { 
+            max-width: 1200px; 
+            width: 95vw; 
+            box-sizing: border-box; 
+        }
         .flora-modal-close { 
             position: absolute; 
             right: 18px; 
@@ -3653,19 +3676,21 @@ function flora_render_affiliates_admin_page() {
             } else {
                 orders.forEach(o => {
                     const isPaid = (o.payment_status === 'paid');
-                    const badge = isPaid ? '<span class="badge-status-on">ĐÃ THANH TOÁN</span>' : '<span style="background: #fef3c7; color: #b45309; border: 1px solid #fde68a; padding: 3px 8px; border-radius: 9999px; font-size: 0.75rem; font-weight: 700;">CHỜ THANH TOÁN</span>';
+                    const badge = isPaid 
+                        ? '<span class="badge-status-on">ĐÃ THANH TOÁN</span>' 
+                        : '<span class="badge-status-pending">CHỜ THANH TOÁN</span>';
                     const commFmt = parseInt(o.commission_amount).toLocaleString('vi-VN') + 'đ';
                     const amountFmt = parseInt(o.final_amount).toLocaleString('vi-VN') + 'đ';
                     
                     ordersHtml += `
                         <tr>
-                            <td><strong style="color: #0033a3; font-family: monospace;">${o.order_code}</strong></td>
-                            <td><strong>${o.customer_name}</strong><br><span style="color: #64748b; font-size: 0.8rem;">${o.customer_phone}</span></td>
-                            <td>${o.package_name}</td>
-                            <td><strong style="color: #0033a3;">${amountFmt}</strong></td>
-                            <td>${badge}</td>
-                            <td><strong style="color: #16a34a;">+${commFmt}</strong></td>
-                            <td style="color: #64748b; font-size: 0.82rem;">${o.created_at}</td>
+                            <td style="white-space: nowrap;"><strong style="color: #0033a3; font-family: monospace; font-size: 0.88rem;">${o.order_code}</strong></td>
+                            <td style="white-space: nowrap;"><strong>${o.customer_name}</strong><br><span style="color: #64748b; font-size: 0.8rem;">${o.customer_phone}</span></td>
+                            <td style="min-width: 220px; line-height: 1.4;">${o.package_name}</td>
+                            <td style="white-space: nowrap;"><strong style="color: #0f172a; font-family: monospace; font-size: 0.9rem;">${amountFmt}</strong></td>
+                            <td style="white-space: nowrap; text-align: center;">${badge}</td>
+                            <td style="white-space: nowrap;"><strong style="color: #16a34a; font-family: monospace; font-size: 0.9rem;">+${commFmt}</strong></td>
+                            <td style="white-space: nowrap; color: #64748b; font-size: 0.82rem;">${o.created_at}</td>
                         </tr>
                     `;
                 });
@@ -3722,17 +3747,17 @@ function flora_render_affiliates_admin_page() {
                     <div style="font-size: 0.82rem; color: #64748b;">(Chỉ tính hoa hồng thực nhận khi đơn đã thanh toán)</div>
                 </div>
 
-                <div style="border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden;">
-                    <table class="tbl-aff">
+                <div style="border: 1px solid #e2e8f0; border-radius: 10px; overflow-x: auto; background: #fff;">
+                    <table class="tbl-aff" style="width: 100%; min-width: 980px;">
                         <thead>
                             <tr>
-                                <th>Mã Đơn</th>
-                                <th>Khách Hàng</th>
+                                <th style="white-space: nowrap;">Mã Đơn</th>
+                                <th style="white-space: nowrap;">Khách Hàng</th>
                                 <th>Gói Dịch Vụ</th>
-                                <th>Số Tiền</th>
-                                <th>Thanh Toán</th>
-                                <th>Hoa Hồng</th>
-                                <th>Thời Gian</th>
+                                <th style="white-space: nowrap;">Số Tiền</th>
+                                <th style="white-space: nowrap; text-align: center;">Thanh Toán</th>
+                                <th style="white-space: nowrap;">Hoa Hồng</th>
+                                <th style="white-space: nowrap;">Thời Gian</th>
                             </tr>
                         </thead>
                         <tbody>${ordersHtml}</tbody>
