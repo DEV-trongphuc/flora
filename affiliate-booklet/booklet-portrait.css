@@ -1,0 +1,1250 @@
+/* ==========================================================================
+   NHA KHOA FLORA - CẨM NANG VẬN HÀNH HỆ THỐNG ĐỐI TÁC & VOUCHER ƯU ĐÃI
+   ĐỊNH DẠNG: A4 DỌC (PORTRAIT: 1000px x 1414px / 210mm x 297mm)
+   PHONG CÁCH: UI SÁNG, LUXURY BOOKLET CAO CẤP, CHUẨN MỰC NHA KHOA THỤY SĨ
+   BÌA TRƯỚC & SAU: NỀN XANH BRAND GRADIENT KẾT HỢP ẢNH MỜ NHẸ SANG TRỌNG
+   FONT: SANG TRỌNG (Playfair Display) KẾT HỢP ĐƠN GIẢN (Plus Jakarta Sans & Montserrat)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&display=swap');
+
+:root {
+  /* Brand Primary Colors - Flora Identity */
+  --c-blue-primary: #0033a3;
+  --c-blue-secondary: #0493f1;
+  --c-blue-deep: #002270;
+  --c-navy-dark: #0a1931;
+  --c-blue-soft: #eff6ff;
+  --c-blue-light: #e0f2fe;
+  --c-blue-subtle: #f0f7ff;
+
+  /* Basic Luxury Accents */
+  --c-gold-accent: #b45309;
+  --c-gold-light: #fef3c7;
+  --c-gold-border: #fde68a;
+
+  /* Clean Light Theme Backgrounds */
+  --c-bg-page: #ffffff;
+  --c-bg-subtle: #f8fafc;
+  --c-bg-card: #ffffff;
+  --c-bg-card-alt: #f8fafc;
+  --c-bg-neutral: #f1f5f9;
+
+  /* Borders & Dividers - Ultra Clean, No AI Vibecode Glows */
+  --c-border: #e2e8f0;
+  --c-border-subtle: #edf2f7;
+  --c-border-focus: #0033a3;
+
+  /* Typography Colors */
+  --c-text-title: #002270;
+  --c-text-heading: #0a1931;
+  --c-text-body: #1e293b;
+  --c-text-secondary: #475569;
+  --c-text-muted: #64748b;
+  --c-text-light: #94a3b8;
+
+  /* Status Tokens - Clean Typographic, No AI Pills */
+  --c-success: #059669;
+  --c-success-bg: #ecfdf5;
+  --c-warning: #d97706;
+  --c-warning-bg: #fffbeb;
+  --c-info: #0284c7;
+  --c-info-bg: #f0f9ff;
+
+  /* High-end Typography: Plus Jakarta Sans for ALL headings and body to ensure 100% pure Vietnamese rendering without serif fallback */
+  --font-heading: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-number: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'Consolas', 'Monaco', monospace;
+
+  /* Dimensions: Exact A4 Portrait (1 : 1.4142) */
+  --page-width: 1000px;
+  --page-height: 1414px;
+
+  /* Subtle Shadows */
+  --shadow-page: 0 16px 40px rgba(10, 25, 49, 0.08), 0 2px 8px rgba(10, 25, 49, 0.04);
+  --shadow-card: 0 2px 8px rgba(10, 25, 49, 0.04);
+  --shadow-sm: 0 1px 3px rgba(10, 25, 49, 0.05);
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+}
+
+/* Base Resets */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fa, .fas, .far, .fab, .fa-solid, .fa-regular, .fa-brands, [class^="fa-"], [class*=" fa-"], i[class*="fa-"] {
+  font-family: "Font Awesome 6 Free", "FontAwesome" !important;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+}
+.fa-brands, .fab {
+  font-family: "Font Awesome 6 Brands", "FontAwesome" !important;
+}
+
+body {
+  background-color: #e2e8f0;
+  color: var(--c-text-body);
+  font-family: var(--font-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  line-height: 1.65;
+}
+
+/* ==========================================================================
+   NAVIGATION & CONTROLS DOCK (DESKTOP BAR)
+   ========================================================================== */
+.booklet-nav-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 1px solid var(--c-border);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  padding: 10px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-badge {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+}
+
+.brand-badge img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.brand-title-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title-group .name {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--c-blue-primary);
+  text-transform: uppercase;
+}
+
+.brand-title-group .sub {
+  font-size: 11px;
+  letter-spacing: 0.6px;
+  color: var(--c-text-secondary);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.booklet-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ctrl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  background: #ffffff;
+  border: 1px solid var(--c-border);
+  color: var(--c-text-title);
+  font-family: var(--font-main);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+.ctrl-btn:hover {
+  background: var(--c-bg-subtle);
+  border-color: #cbd5e1;
+  color: var(--c-blue-primary);
+}
+
+.ctrl-btn.btn-primary {
+  background: var(--c-blue-primary);
+  border-color: var(--c-blue-primary);
+  color: #ffffff;
+}
+
+.ctrl-btn.btn-primary:hover {
+  background: var(--c-blue-deep);
+}
+
+.page-indicator {
+  font-family: var(--font-number);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--c-text-secondary);
+  background: var(--c-bg-subtle);
+  padding: 7px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--c-border);
+}
+
+.page-indicator span {
+  color: var(--c-blue-primary);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   MAIN BOOKLET VIEWPORT (A4 PORTRAIT SPREADS)
+   ========================================================================== */
+.booklet-viewport {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding: 30px 20px 80px 20px;
+}
+
+/* Base Page Sheet - Soft Fresh Gradient */
+.booklet-page {
+  width: var(--page-width);
+  height: var(--page-height);
+  min-width: var(--page-width);
+  min-height: var(--page-height);
+  max-width: var(--page-width);
+  max-height: var(--page-height);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 50%, #f0f7ff 100%);
+  border: 1px solid #d8e2ec;
+  border-radius: 4px;
+  box-shadow: var(--shadow-page);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 44px 50px 38px 50px;
+}
+
+/* ==========================================================================
+   COVER PAGE & BACK COVER - LUXURY BRAND BLUE GRADIENT WITH SOFT PHOTO BG
+   ========================================================================== */
+.booklet-page.brand-cover {
+  background: linear-gradient(155deg, rgba(0, 24, 75, 0.85) 0%, rgba(0, 48, 145, 0.86) 52%, rgba(2, 110, 185, 0.82) 100%), 
+              url('../assets/banner_landing_page_goi_2.webp') center/cover no-repeat;
+  color: #ffffff;
+  border: none;
+  padding: 56px 54px 44px 54px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.booklet-page.brand-back-cover {
+  background: linear-gradient(155deg, rgba(0, 20, 65, 0.89) 0%, rgba(0, 42, 132, 0.91) 52%, rgba(2, 85, 155, 0.87) 100%), 
+              url('../assets/signing.webp') center/cover no-repeat;
+  color: #ffffff;
+  border: none;
+  padding: 56px 54px 44px 54px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cover-logo-white {
+  height: 125px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1) drop-shadow(0 6px 20px rgba(0, 0, 0, 0.35));
+}
+
+.cover-kicker {
+  font-family: var(--font-display);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fde047;
+  background: rgba(253, 224, 71, 0.16);
+  border: 1px solid rgba(253, 224, 71, 0.45);
+  padding: 6px 20px;
+  border-radius: 999px;
+  display: inline-block;
+  margin-bottom: 18px;
+  backdrop-filter: blur(8px);
+}
+
+.cover-hero-title {
+  font-family: var(--font-heading);
+  font-size: 46px;
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  margin-bottom: 16px;
+  text-shadow: 0 4px 20px rgba(0, 15, 60, 0.45);
+}
+
+.cover-hero-desc {
+  font-family: var(--font-main);
+  font-size: 15px;
+  line-height: 1.72;
+  color: #e0f2fe;
+  max-width: 840px;
+  text-shadow: 0 2px 8px rgba(0, 10, 40, 0.3);
+}
+
+.glass-card-cover {
+  background: rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  padding: 20px 22px;
+  color: #ffffff;
+}
+
+.glass-card-title {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.glass-card-desc {
+  font-size: 13px;
+  color: #bae6fd;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   EDITORIAL MASTHEAD (PAGE HEADER FOR INSIDE PAGES)
+   ========================================================================== */
+.page-masthead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--c-border);
+  margin-bottom: 18px;
+}
+
+.masthead-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.masthead-logo {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+}
+
+.masthead-tag {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--c-blue-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.masthead-divider {
+  width: 1px;
+  height: 14px;
+  background: var(--c-border);
+}
+
+.masthead-section-title {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--c-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.masthead-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Clean Editorial Kicker & Tags (NO AI PILL BADGES) */
+.kicker-tag {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--c-blue-primary);
+  display: inline-block;
+}
+
+.kicker-gold {
+  color: #b45309;
+}
+
+.clean-meta-label {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--c-blue-primary);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+/* Status clean text */
+.status-text {
+  font-size: 12px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.status-text.active { color: #059669; }
+.status-text.pending { color: #d97706; }
+.status-text.blue { color: #0033a3; }
+
+/* ==========================================================================
+   EDITORIAL CANVAS (PAGE CONTENT BODY - NO GAPS!)
+   ========================================================================== */
+.page-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  gap: 18px; /* Tự nhiên, không dùng justify-content: space-between gây hở ruột */
+}
+
+/* Page Titles */
+.page-title-group {
+  margin-bottom: 16px;
+}
+
+.page-title {
+  font-family: var(--font-heading);
+  font-size: 33px;
+  font-weight: 700;
+  color: var(--c-blue-deep);
+  line-height: 1.28;
+  letter-spacing: -0.4px;
+  margin-bottom: 8px;
+}
+
+.page-subtitle {
+  font-family: var(--font-main);
+  font-size: 14.5px;
+  color: var(--c-text-secondary);
+  line-height: 1.68;
+  max-width: 900px;
+}
+
+/* ==========================================================================
+   EDITORIAL FOOTER (PAGE BOTTOM)
+   ========================================================================== */
+.page-footer {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid var(--c-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--c-text-muted);
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.footer-page-num {
+  font-family: var(--font-number);
+  font-weight: 700;
+  color: var(--c-blue-primary);
+  letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   CARDS & GRIDS (LIGHT LUXURY BOOKLET STYLES - TO LÊN & NO COLORED BORDERS)
+   ========================================================================== */
+.card-clean {
+  background: #ffffff;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-md);
+  padding: 22px 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.card-clean.bg-subtle {
+  background: var(--c-bg-subtle);
+}
+
+.card-gradient-blue {
+  background: linear-gradient(145deg, #f0f7ff 0%, #e0f2fe 100%);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-md);
+  padding: 22px 26px;
+}
+
+.card-gradient-gold {
+  background: linear-gradient(145deg, #fffbeb 0%, #fef3c7 100%);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-md);
+  padding: 22px 26px;
+}
+
+.card-gradient-navy {
+  background: linear-gradient(145deg, #001f5c 0%, #0033a3 100%);
+  color: #ffffff;
+  border-radius: var(--radius-md);
+  padding: 26px 30px;
+}
+
+/* Real Photo Showcase Cards from Landing Page (To & Rõ Nét) */
+.card-with-thumb {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+}
+
+.card-thumb-img {
+  width: 130px;
+  height: 105px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid #e2e8f0;
+}
+
+/* Clean Tables (To & Thoáng, Dễ Đọc) */
+.table-clean {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14.5px;
+  margin-top: 4px;
+}
+
+.table-clean th {
+  background: #f1f5f9;
+  color: var(--c-blue-deep);
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-align: left;
+  padding: 14px 18px;
+  border: 1px solid var(--c-border);
+  font-size: 12.5px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.table-clean td {
+  padding: 15px 18px;
+  border: 1px solid var(--c-border);
+  color: var(--c-text-body);
+  vertical-align: middle;
+}
+
+.table-clean tr:nth-child(even) td {
+  background: #fbfcfe;
+}
+
+/* Process Timeline Steps (To & Rõ) */
+.process-step-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.process-step-item {
+  display: flex;
+  gap: 20px;
+  background: #ffffff;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  align-items: flex-start;
+}
+
+.step-num-big {
+  font-family: var(--font-display);
+  font-size: 34px;
+  font-weight: 800;
+  color: var(--c-blue-primary);
+  line-height: 1;
+  min-width: 52px;
+}
+
+.step-content {
+  flex: 1;
+}
+
+.step-title {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--c-blue-deep);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.step-desc {
+  font-size: 14.5px;
+  color: var(--c-text-secondary);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   TOC FULL-WIDTH SPREAD (PHẦN 1 & PHẦN 2 DÀN TRẢI MỖI CÁI 1 HÀNG)
+   ========================================================================== */
+.toc-section-bar {
+  background: #f8fafc;
+  border: 1px solid var(--c-border);
+  border-radius: 8px;
+  padding: 10px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.toc-section-bar .title {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--c-blue-deep);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.toc-section-bar .range {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--c-blue-primary);
+}
+
+.toc-items-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.toc-item-tile {
+  background: #ffffff;
+  border: 1px solid var(--c-border);
+  border-radius: 8px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  transition: all 0.15s ease;
+}
+
+.toc-item-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toc-page-num {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--c-blue-primary);
+  background: #f0f7ff;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.toc-page-name {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--c-text-title);
+  line-height: 1.35;
+}
+
+.toc-page-sub {
+  font-size: 11px;
+  color: var(--c-text-muted);
+}
+
+/* UI Mockup Panels (Email, Zalo, Portal, Verification Hub) */
+.mockup-frame {
+  background: #ffffff;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(10, 25, 49, 0.05);
+}
+
+.mockup-header {
+  background: #f1f5f9;
+  border-bottom: 1px solid var(--c-border);
+  padding: 9px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11.5px;
+  color: var(--c-text-secondary);
+  font-weight: 600;
+}
+
+.mockup-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.mockup-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #cbd5e1;
+}
+
+.mockup-body {
+  padding: 18px;
+}
+
+/* ==========================================================================
+   AUTHENTIC REALISTIC UI MOCKUPS (MATCHING FLORA LIVE WEBSITE & MODALS)
+   ========================================================================== */
+
+/* 1. Realistic VietQR Modal (Page 9) */
+.real-vietqr-modal {
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 16px 36px rgba(0, 34, 112, 0.12);
+  overflow: hidden;
+  font-size: 12px;
+}
+
+.real-vietqr-header {
+  background: #0a1931;
+  color: #ffffff;
+  padding: 12px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.real-vietqr-header .brand-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #93c5fd;
+}
+
+.real-vietqr-header .order-code {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.real-vietqr-body {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 16px;
+  padding: 18px 20px;
+  background: #ffffff;
+}
+
+.real-vietqr-qr-box {
+  background: linear-gradient(180deg, #f0f7ff 0%, #ffffff 100%);
+  border: 1px solid #bfdbfe;
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.real-vietqr-qr-img {
+  width: 170px;
+  height: 170px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: #ffffff;
+  padding: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.real-copy-btn {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 10.5px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.real-copy-btn:hover {
+  background: #e2e8f0;
+}
+
+.real-copy-btn.amber {
+  background: #c2410c;
+  border-color: #c2410c;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* 1. Realistic VietQR Modal (Page 7) matching Flora live screenshot */
+.vietqr-bracket-box {
+  position: relative;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1.5px solid #93c5fd;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 14px rgba(0, 51, 163, 0.06);
+}
+
+.vietqr-bracket-box::before {
+  content: '';
+  position: absolute;
+  top: -2px; left: -2px;
+  width: 16px; height: 16px;
+  border-top: 3px solid #0033a3;
+  border-left: 3px solid #0033a3;
+  border-top-left-radius: 6px;
+}
+
+.vietqr-bracket-box::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; right: -2px;
+  width: 16px; height: 16px;
+  border-bottom: 3px solid #0033a3;
+  border-right: 3px solid #0033a3;
+  border-bottom-right-radius: 6px;
+}
+
+.vietqr-timer-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+.vietqr-open-app-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f0f7ff;
+  border: 1px solid #bae6fd;
+  color: #0369a1;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-top: 6px;
+}
+
+.vietqr-info-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.vietqr-info-table td {
+  padding: 6px 0;
+  vertical-align: middle;
+}
+
+.vietqr-info-table .label {
+  color: #475569;
+  width: 135px;
+}
+
+.vietqr-info-table .value {
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.vietqr-memo-highlight {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin: 10px 0;
+}
+
+/* 2. Realistic Checkout Screen (Page 6) matching Flora live screenshot */
+.real-checkout-container {
+  display: grid;
+  grid-template-columns: 1fr 310px;
+  gap: 16px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 18px 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.checkout-step-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #0a1931;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.step-num-pill {
+  width: 22px;
+  height: 22px;
+  background: #0033a3;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11.5px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.real-pkg-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.real-pkg-card {
+  display: flex;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1.5px solid #e2e8f0;
+  background: #ffffff;
+  position: relative;
+  transition: all 0.15s ease-in-out;
+}
+
+.real-pkg-card.selected {
+  border-color: #0033a3;
+  background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+  box-shadow: 0 0 0 1px #0033a3;
+}
+
+.real-pkg-thumb-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #cbd5e1;
+  flex-shrink: 0;
+}
+
+.real-radio-circle {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #94a3b8;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.real-pkg-card.selected .real-radio-circle {
+  border-color: #0033a3;
+}
+
+.real-pkg-card.selected .real-radio-circle::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #0033a3;
+}
+
+.real-input-group {
+  margin-bottom: 10px;
+}
+
+.real-input-label {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 4px;
+}
+
+.real-input {
+  width: 100%;
+  padding: 7px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #0f172a;
+  background: #ffffff;
+  outline: none;
+}
+
+.real-input.filled {
+  background: #f8fafc;
+  color: #0a1931;
+}
+
+.real-input-hint {
+  font-size: 10px;
+  color: #64748b;
+  margin-top: 3px;
+  line-height: 1.35;
+}
+
+.real-order-summary-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.real-active-pkg-summary {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border: 1px solid #bfdbfe;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+}
+
+.real-coupon-row {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.real-apply-btn {
+  background: #334155;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 0 14px;
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.real-checkout-btn {
+  width: 100%;
+  background: #0033a3;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  letter-spacing: 0.5px;
+  margin-top: 10px;
+}
+
+.real-checkout-btn:hover {
+  background: #002270;
+}
+
+/* 3. Realistic Email Client (Page 5 & Page 7) */
+.real-email-app {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 34, 112, 0.06);
+}
+
+.email-title-bar {
+  background: #f1f5f9;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 9px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11.5px;
+  color: #475569;
+}
+
+.email-meta-header {
+  padding: 14px 20px;
+  background: #f8fafc;
+  border-bottom: 1px solid #edf2f7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.email-avatar-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #0033a3;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.email-inner-body {
+  padding: 22px 26px;
+  background: #ffffff;
+  font-size: 13px;
+  color: #334155;
+  line-height: 1.6;
+}
+
+/* 2-Column, 3-Column, 4-Column Grids */
+.grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.grid-3col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+.grid-4col {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+/* Large KPI Stat Cards */
+.kpi-card {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-sm);
+  padding: 16px 18px;
+}
+
+.kpi-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--c-text-muted);
+  margin-bottom: 4px;
+}
+
+.kpi-val {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--c-blue-deep);
+  line-height: 1.1;
+}
+
+/* ==========================================================================
+   PRINT STYLES FOR CRISP HIGH-RES PDF EXPORT
+   ========================================================================== */
+@media print {
+  body {
+    background: #ffffff !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .booklet-nav-header {
+    display: none !important;
+  }
+
+  .booklet-viewport {
+    padding: 0 !important;
+    gap: 0 !important;
+  }
+
+  .booklet-page {
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    page-break-after: always;
+    page-break-inside: avoid;
+    margin: 0 !important;
+    width: 210mm !important;
+    height: 297mm !important;
+    min-width: 210mm !important;
+    min-height: 297mm !important;
+    max-width: 210mm !important;
+    max-height: 297mm !important;
+    padding: 14mm 16mm 12mm 16mm !important;
+  }
+
+  .booklet-page.brand-cover,
+  .booklet-page.brand-back-cover {
+    padding: 16mm 16mm 14mm 16mm !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}

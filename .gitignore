@@ -2,3 +2,25 @@
 __pycache__/
 *.pyc
 .tempmediaStorage/
+
+# Archives & Temporary deployment bundles
+*.tar.gz
+*.zip
+
+# Scratch scripts & temporary data dumps
+scratch/
+scratch_*
+simulated_*
+crop_feedback_bottom.png
+all_implants_dump.json
+*.json
+!sheets_map.json
+!package.json
+!composer.json
+inspect_*.py
+test_*.py
+find_*.py
+get_*.py
+extract_*.py
+setup_zalo_bot_flora.py
+deploy_warranty.py

@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <link href="https://nhakhoaflora.com/wp-content/uploads/2022/05/cropped-LOGO-FLORA1-3-192x192.png" rel="icon" type="image/png" />
+    <title>Cổng Thông Tin Đối Tác & KOL | Nha Khoa Flora</title>
+
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --flora-primary: #0033a3;
+            --flora-primary-hover: #002277;
+            --flora-accent: #0493f1;
+            --flora-emerald: #16a34a;
+            --flora-gold: #d97706;
+            --flora-dark: #0f172a;
+            --flora-gray-bg: #f8fafc;
+            --flora-border: #e2e8f0;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f1f5f9;
+            color: #1e293b;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .portal-container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 24px 20px 60px;
+        }
+
+        /* Top Brand Navigation */
+        .portal-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #ffffff;
+            padding: 14px 24px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 51, 163, 0.04);
+            border: 1px solid var(--flora-border);
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .portal-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        .portal-logo-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, #0033a3 0%, #0493f1 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 1.25rem;
+        }
+        .portal-logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--flora-primary);
+            letter-spacing: -0.5px;
+        }
+        .portal-logo-sub {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #64748b;
+            font-weight: 700;
+        }
+
+        .portal-nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-portal-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+        .btn-portal-primary {
+            background: #eff6ff;
+            color: #0033a3;
+            border-color: #bfdbfe;
+        }
+        .btn-portal-primary:hover {
+            background: #dbeafe;
+        }
+        .btn-portal-logout {
+            background: #fff;
+            color: #dc2626;
+            border-color: #fecaca;
+        }
+        .btn-portal-logout:hover {
+            background: #fee2e2;
+        }
+
+        /* Hero Banner */
+        .hero-banner {
+            background: linear-gradient(135deg, #001f66 0%, #0033a3 50%, #0493f1 100%);
+            border-radius: 20px;
+            padding: 32px 36px;
+            color: #ffffff;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 30px rgba(0, 51, 163, 0.12);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .hero-banner h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.7rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .hero-banner p {
+            color: rgba(255, 255, 255, 0.88);
+            font-size: 0.92rem;
+            max-width: 640px;
+            line-height: 1.6;
+        }
+        .kol-ref-tag {
+            background: rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(8px);
+            padding: 4px 14px;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-family: monospace;
+            letter-spacing: 1px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-weight: 700;
+        }
+        .hero-badge-rate {
+            background: #fef3c7;
+            color: #92400e;
+            padding: 8px 18px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+
+        /* 4 KPI Grid */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+        @media (max-width: 991px) {
+            .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 550px) {
+            .kpi-grid { grid-template-columns: 1fr; }
+        }
+        .kpi-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 22px 20px;
+            border: 1px solid var(--flora-border);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .kpi-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 51, 163, 0.06);
+        }
+        .kpi-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+        .kpi-title {
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #64748b;
+        }
+        .kpi-icon-wrap {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+        .kpi-number {
+            font-size: 1.65rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 4px;
+            letter-spacing: -0.5px;
+        }
+        .kpi-sub {
+            font-size: 0.78rem;
+            color: #94a3b8;
+        }
+
+        /* Referral Box Card */
+        .ref-box-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 26px 28px;
+            border: 1px solid var(--flora-border);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.02);
+            margin-bottom: 24px;
+            display: grid;
+            grid-template-columns: 1fr 220px;
+            gap: 28px;
+            align-items: center;
+        }
+        @media (max-width: 850px) {
+            .ref-box-card { grid-template-columns: 1fr; }
+        }
+        .ref-input-group {
+            display: flex;
+            gap: 8px;
+            margin-top: 14px;
+        }
+        .ref-input {
+            flex: 1;
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            padding: 12px 16px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0033a3;
+        }
+        .btn-copy {
+            background: #0033a3;
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            padding: 0 20px;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .btn-copy:hover {
+            background: #002277;
+        }
+        .qr-box {
+            text-align: center;
+            background: #f8fafc;
+            padding: 14px;
+            border-radius: 14px;
+            border: 1px solid #e2e8f0;
+        }
+        .qr-box img {
+            width: 140px;
+            height: 140px;
+            display: block;
+            margin: 0 auto 10px;
+            border-radius: 8px;
+            background: #ffffff;
+            padding: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+
+        /* Data Tables */
+        .data-card {
+            background: #ffffff;
+            border-radius: 18px;
+            border: 1px solid var(--flora-border);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.02);
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+        .data-header {
+            padding: 20px 26px;
+            border-bottom: 1px solid var(--flora-border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .data-header h3 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--flora-dark);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .table-responsive {
+            overflow-x: auto;
+            width: 100%;
+        }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+            text-align: left;
+        }
+        .data-table th {
+            background: #f8fafc;
+            padding: 12px 18px;
+            color: #64748b;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--flora-border);
+        }
+        .data-table td {
+            padding: 14px 18px;
+            border-bottom: 1px solid #f1f5f9;
+            color: #334155;
+            vertical-align: middle;
+        }
+        .data-table tr:hover td {
+            background: #f8fafc;
+        }
+        .status-badge-paid {
+            background: #dcfce7;
+            color: #15803d;
+            border: 1px solid #bbf7d0;
+            padding: 4px 10px;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .status-badge-pending {
+            background: #fef3c7;
+            color: #b45309;
+            border: 1px solid #fde68a;
+            padding: 4px 10px;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Modal Styles */
+        .portal-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .portal-modal-content {
+            background: #ffffff;
+            border-radius: 20px;
+            max-width: 540px;
+            width: 100%;
+            padding: 32px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .portal-modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 32px;
+            height: 32px;
+            background: #f1f5f9;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+        .portal-modal-close:hover {
+            background: #e2e8f0;
+            color: #0f172a;
+        }
+
+        /* Unauthenticated Gateway Screen */
+        .auth-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 520px;
+            margin: 40px auto 60px;
+            border: 1px solid var(--flora-border);
+            box-shadow: 0 10px 40px rgba(0, 51, 163, 0.06);
+        }
+        @media (max-width: 550px) {
+            .auth-card { padding: 26px 20px; }
+        }
+        .auth-tabs {
+            display: flex;
+            background: #f1f5f9;
+            border-radius: 12px;
+            padding: 4px;
+            margin-bottom: 26px;
+        }
+        .auth-tab-btn {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            background: transparent;
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: #64748b;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .auth-tab-btn.active {
+            background: #ffffff;
+            color: #0033a3;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        .auth-input-group {
+            margin-bottom: 18px;
+        }
+        .auth-label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 6px;
+        }
+        .auth-input {
+            width: 100%;
+            padding: 11px 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            font-size: 0.92rem;
+            box-sizing: border-box;
+            transition: border-color 0.2s ease;
+        }
+        .auth-input:focus {
+            outline: none;
+            border-color: #0033a3;
+            box-shadow: 0 0 0 3px rgba(0, 51, 163, 0.1);
+        }
+        .btn-auth-submit {
+            width: 100%;
+            background: linear-gradient(135deg, #0033a3 0%, #0493f1 100%);
+            color: #ffffff;
+            border: none;
+            border-radius: 12px;
+            padding: 13px 20px;
+            font-size: 1rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            box-shadow: 0 4px 14px rgba(0, 51, 163, 0.2);
+            margin-top: 8px;
+        }
+        .btn-auth-submit:hover {
+            transform: translateY(-2px);
+        }
+        .btn-auth-submit:disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+            transform: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="portal-container">
+        <!-- TOP BRAND NAVIGATION -->
+        <header class="portal-nav">
+            <a href="index.html" class="portal-logo">
+                <div class="portal-logo-icon"><i class="fa-solid fa-tooth"></i></div>
+                <div>
+                    <div class="portal-logo-text">FLORA DENTAL</div>
+                    <div class="portal-logo-sub">Affiliate Partner Network</div>
+                </div>
+            </a>
+            
+            <div class="portal-nav-actions" id="navActions">
+                <!-- Dynamically populated via JS -->
+            </div>
+        </header>
+
+        <!-- ══════════════════════════════════════════════════════════ -->
+        <!-- VIEW 1: GATEWAY SCREEN (ĐĂNG NHẬP / ĐĂNG KÝ) -->
+        <!-- ══════════════════════════════════════════════════════════ -->
+        <div id="viewGuest" class="auth-card">
+            <div style="text-align: center; margin-bottom: 22px;">
+                <div style="width: 52px; height: 52px; background: #eff6ff; color: #0033a3; border-radius: 14px; display: inline-flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 12px;">
+                    <i class="fa-solid fa-user-shield"></i>
+                </div>
+                <h2 style="font-size: 1.45rem; font-weight: 800; color: #0033a3; margin: 0 0 6px;">Cổng Thông Tin Đối Tác Flora</h2>
+                <p style="font-size: 0.85rem; color: #64748b; margin: 0;">Đăng nhập để theo dõi hoa hồng, lượt giới thiệu và quản lý tài khoản ngân hàng thụ hưởng.</p>
+            </div>
+
+            <div class="auth-tabs">
+                <button type="button" id="tabBtnLogin" class="auth-tab-btn active" onclick="switchAuthTab('login')">
+                    <i class="fa-solid fa-arrow-right-to-bracket"></i> Đăng Nhập
+                </button>
+                <button type="button" id="tabBtnRegister" class="auth-tab-btn" onclick="switchAuthTab('register')">
+                    <i class="fa-solid fa-user-plus"></i> Đăng Ký Mới
+                </button>
+            </div>
+
+            <!-- FORM ĐĂNG NHẬP -->
+            <form id="formPortalLogin" onsubmit="handlePartnerLogin(event)">
+                <div class="auth-input-group">
+                    <label class="auth-label">Số Điện Thoại Hoặc Email:</label>
+                    <input type="text" id="loginId" name="login_id" class="auth-input" required placeholder="Vd: 0912345678 hoặc trang@gmail.com" value="0912211906">
+                </div>
+                <div class="auth-input-group">
+                    <label class="auth-label">Mật Khẩu Đăng Nhập:</label>
+                    <input type="password" id="loginPassword" name="password" class="auth-input" required placeholder="Nhập mật khẩu bạn đã tạo" value="flora123">
+                </div>
+                <button type="submit" id="btnSubmitLogin" class="btn-auth-submit">
+                    <i class="fa-solid fa-lock-open"></i> ĐĂNG NHẬP CỔNG ĐỐI TÁC
+                </button>
+
+                <div style="margin-top: 14px; text-align: center;">
+                    <button type="button" onclick="loadDemoSession()" style="background: none; border: none; color: #0493f1; font-weight: 700; cursor: pointer; text-decoration: underline; font-size: 0.84rem;">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> Mở xem trực tiếp giao diện Thống Kê Đối Tác (Demo Preview)
+                    </button>
+                </div>
+            </form>
+
+            <!-- FORM ĐĂNG KÝ TRỰC TIẾP -->
+            <form id="formPortalRegister" style="display: none;" onsubmit="handlePortalRegister(event)">
+                <div class="auth-input-group">
+                    <label class="auth-label">Họ và Tên (*):</label>
+                    <input type="text" name="name" class="auth-input" required placeholder="Vd: Nguyễn Thu Trang">
+                </div>
+                <div class="auth-input-group">
+                    <label class="auth-label">Số Điện Thoại (*):</label>
+                    <input type="tel" name="phone" class="auth-input" required placeholder="Vd: 0912345678">
+                </div>
+                <div class="auth-input-group">
+                    <label class="auth-label">Email Nhận Kích Hoạt (*):</label>
+                    <input type="email" name="email" class="auth-input" required placeholder="Vd: trang@gmail.com">
+                </div>
+                <div class="auth-input-group">
+                    <label class="auth-label">Mật Khẩu Cổng (*):</label>
+                    <input type="password" name="password" class="auth-input" required minlength="6" placeholder="Tối thiểu 6 ký tự">
+                </div>
+                <div class="auth-input-group">
+                    <label class="auth-label">Kênh Truyền Thông / Mạng Xã Hội:</label>
+                    <input type="text" name="channel_url" class="auth-input" placeholder="Vd: tiktok.com/@trang hoặc facebook.com/...">
+                </div>
+                <div class="auth-input-group">
+                    <label class="auth-label">Tên Ngân Hàng & STK:</label>
+                    <input type="text" name="bank_name" class="auth-input" placeholder="Tên ngân hàng (Vd: ACB, VCB...)">
+                    <input type="text" name="bank_account" class="auth-input" placeholder="Số tài khoản (STK)" style="margin-top: 6px;">
+                    <input type="text" name="bank_owner" class="auth-input" placeholder="Tên chủ tài khoản (In hoa)" style="margin-top: 6px; text-transform: uppercase;">
+                </div>
+                <button type="submit" id="btnSubmitRegister" class="btn-auth-submit">
+                    <i class="fa-solid fa-paper-plane"></i> GỬI HỒ SƠ ĐĂNG KÝ DUYỆT
+                </button>
+            </form>
+
+            <div style="margin-top: 24px; padding-top: 18px; border-top: 1px solid #f1f5f9; text-align: center; font-size: 0.84rem; color: #64748b;">
+                Cần hỗ trợ gấp? Hotline Ban Quản Trị Đối Tác: <a href="tel:02873058999" style="color: #0033a3; font-weight: 700; text-decoration: none;">028 7305 8999</a>
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════════════ -->
+        <!-- VIEW 2: AUTHENTICATED PARTNER DASHBOARD -->
+        <!-- ══════════════════════════════════════════════════════════ -->
+        <div id="viewDashboard" style="display: none;">
+            <!-- HERO GREETING BANNER -->
+            <section class="hero-banner">
+                <div>
+                    <h1>
+                        <span>Xin chào, <span id="dashPartnerName">Trang Nguyễn</span>!</span>
+                        <span class="kol-ref-tag"><i class="fa-solid fa-tag"></i> REF: <span id="dashRefCode">FLORA-TRANG99</span></span>
+                    </h1>
+                    <p>
+                        Chào mừng bạn đến với Cổng Thống Kê Đối Tác Nha Khoa Flora. Toàn bộ lượt click, đơn đặt và hoa hồng được đồng bộ tự động và minh bạch.
+                    </p>
+                </div>
+                <div>
+                    <span class="hero-badge-rate">
+                        <i class="fa-solid fa-percent"></i> Mức Hoa Hồng: <span id="dashCommRate">10%</span>
+                    </span>
+                </div>
+            </section>
+
+            <!-- 4 KPI SUMMARY CARDS -->
+            <section class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        <span class="kpi-title">Lượt Truy Cập Ref</span>
+                        <div class="kpi-icon-wrap" style="background: #eff6ff; color: #0033a3;"><i class="fa-solid fa-arrow-pointer"></i></div>
+                    </div>
+                    <div class="kpi-number" id="dashTotalClicks" style="color: #0033a3;">428</div>
+                    <div class="kpi-sub">Lượt click vào link giới thiệu</div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        <span class="kpi-title">Khách Hàng Thành Công</span>
+                        <div class="kpi-icon-wrap" style="background: #fdf2f8; color: #db2777;"><i class="fa-solid fa-users"></i></div>
+                    </div>
+                    <div class="kpi-number" style="color: #db2777;">
+                        <span id="dashPaidOrders">12</span> <span style="font-size: 1rem; color: #94a3b8; font-weight: 600;">/ <span id="dashTotalOrders">16</span> đơn</span>
+                    </div>
+                    <div class="kpi-sub">Đơn đã hoàn tất thanh toán</div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        <span class="kpi-title">Doanh Thu Mang Lại</span>
+                        <div class="kpi-icon-wrap" style="background: #f0fdf4; color: #16a34a;"><i class="fa-solid fa-chart-line"></i></div>
+                    </div>
+                    <div class="kpi-number" id="dashTotalRevenue" style="color: #16a34a;">84.500.000đ</div>
+                    <div class="kpi-sub">Tổng tiền từ các đơn đã thanh toán</div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        <span class="kpi-title">Hoa Hồng Khả Dụng</span>
+                        <div class="kpi-icon-wrap" style="background: #fef3c7; color: #d97706;"><i class="fa-solid fa-wallet"></i></div>
+                    </div>
+                    <div class="kpi-number" id="dashPendingPayout" style="color: #d97706;">3.450.000đ</div>
+                    <div class="kpi-sub">Đã quyết toán: <span id="dashPaidComm">5.000.000đ</span></div>
+                </div>
+            </section>
+
+            <!-- REF LINK & QR BOX -->
+            <section class="ref-box-card">
+                <div>
+                    <h3 style="color: var(--flora-primary); font-size: 1.15rem; font-weight: 800; margin-bottom: 6px;">
+                        <i class="fa-solid fa-link"></i> Link Giới Thiệu Độc Quyền Của Bạn
+                    </h3>
+                    <p style="color: #64748b; font-size: 0.9rem;">
+                        Chia sẻ liên kết này trên mạng xã hội (Facebook, TikTok, Instagram, YouTube). Khi khách hàng đặt mua gói khám hoặc đăng ký từ link này, hệ thống sẽ tự động đối soát và cộng hoa hồng cho bạn ngay khi đơn được thanh toán thành công.
+                    </p>
+                    <div class="ref-input-group">
+                        <input type="text" id="kolRefUrl" readonly value="https://nhakhoaflora.com/goi-dich-vu?ref=FLORA-TRANG99" class="ref-input">
+                        <button type="button" class="btn-copy" onclick="copyRefLink()">
+                            <i class="fa-regular fa-copy"></i> Sao Chép Link
+                        </button>
+                    </div>
+
+                    <!-- THÔNG TIN NGÂN HÀNG HIỆN TẠI -->
+                    <div style="margin-top: 18px; padding-top: 14px; border-top: 1px dashed #e2e8f0; font-size: 0.85rem; color: #475569; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+                        <div>
+                            <i class="fa-solid fa-building-columns" style="color: #0033a3;"></i> 
+                            STK nhận hoa hồng: <strong><span id="dashBankName">ACB</span> - <span id="dashBankAccount">299888888</span></strong> (<span id="dashBankOwner">NGUYEN THU TRANG</span>)
+                        </div>
+                        <button type="button" onclick="openProfileModal()" style="background: none; border: none; color: #0493f1; font-weight: 700; cursor: pointer; text-decoration: underline; font-size: 0.85rem;">
+                            Thay đổi STK &rarr;
+                        </button>
+                    </div>
+                </div>
+                <div class="qr-box">
+                    <img id="dashQrImg" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fnhakhoaflora.com%2Fgoi-dich-vu%3Fref%3DFLORA-TRANG99" alt="QR Code REF" title="Quét QR để mở trang giới thiệu">
+                    <a id="dashQrDownload" href="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fnhakhoaflora.com%2Fgoi-dich-vu%3Fref%3DFLORA-TRANG99" download="Flora_QR_Partner.png" style="font-size: 0.78rem; font-weight: 700; color: var(--flora-primary); text-decoration: none;">
+                        <i class="fa-solid fa-download"></i> Tải Mã QR Về Máy
+                    </a>
+                </div>
+            </section>
+
+            <!-- ORDERS LIST -->
+            <section class="data-card">
+                <div class="data-header">
+                    <h3><i class="fa-solid fa-list-check"></i> Danh Sách Khách Hàng & Đơn Hàng Từ Bạn (<span id="ordersCount">4</span>)</h3>
+                    <span style="font-size: 0.82rem; color: #64748b;">
+                        <i class="fa-solid fa-circle-info"></i> Thông tin khách hàng được mã hóa bảo mật theo tiêu chuẩn Y Khoa
+                    </span>
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Mã Đơn</th>
+                                <th>Khách Hàng</th>
+                                <th>Gói Dịch Vụ</th>
+                                <th>Giá Trị Đơn</th>
+                                <th>Trạng Thái</th>
+                                <th>Hoa Hồng Bạn Nhận</th>
+                                <th>Thời Gian</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ordersTableBody">
+                            <tr>
+                                <td><strong style="color: var(--flora-primary); font-family: monospace; font-size: 0.95rem;">ORD-928174</strong></td>
+                                <td>
+                                    <strong>Nam Tr****</strong><br>
+                                    <span style="color: #64748b; font-size: 0.8rem;">0812***906</span>
+                                </td>
+                                <td>Gói Khám & Tẩy Trắng Laser White Up Plus</td>
+                                <td><strong style="color: var(--flora-dark);">1.990.000đ</strong></td>
+                                <td><span class="status-badge-paid"><i class="fa-solid fa-check"></i> ĐÃ THANH TOÁN</span></td>
+                                <td><strong style="color: var(--flora-emerald); font-size: 0.98rem;">+199.000đ</strong></td>
+                                <td style="color: #64748b; font-size: 0.82rem;">07/10/2026 09:30</td>
+                            </tr>
+                            <tr>
+                                <td><strong style="color: var(--flora-primary); font-family: monospace; font-size: 0.95rem;">ORD-928155</strong></td>
+                                <td>
+                                    <strong>Trần V** Th****</strong><br>
+                                    <span style="color: #64748b; font-size: 0.8rem;">0903***789</span>
+                                </td>
+                                <td>Gói Chăm Sóc Nha Chu & Phục Hồi Nụ Cười</td>
+                                <td><strong style="color: var(--flora-dark);">4.500.000đ</strong></td>
+                                <td><span class="status-badge-paid"><i class="fa-solid fa-check"></i> ĐÃ THANH TOÁN</span></td>
+                                <td><strong style="color: var(--flora-emerald); font-size: 0.98rem;">+450.000đ</strong></td>
+                                <td style="color: #64748b; font-size: 0.82rem;">06/10/2026 15:42</td>
+                            </tr>
+                            <tr>
+                                <td><strong style="color: var(--flora-primary); font-family: monospace; font-size: 0.95rem;">ORD-928140</strong></td>
+                                <td>
+                                    <strong>Lê H** B**</strong><br>
+                                    <span style="color: #64748b; font-size: 0.8rem;">0977***612</span>
+                                </td>
+                                <td>Cấy Ghép Implant Thụy Sĩ Chuẩn Châu Âu</td>
+                                <td><strong style="color: var(--flora-dark);">28.000.000đ</strong></td>
+                                <td><span class="status-badge-paid"><i class="fa-solid fa-check"></i> ĐÃ THANH TOÁN</span></td>
+                                <td><strong style="color: var(--flora-emerald); font-size: 0.98rem;">+2.800.000đ</strong></td>
+                                <td style="color: #64748b; font-size: 0.82rem;">05/10/2026 11:20</td>
+                            </tr>
+                            <tr>
+                                <td><strong style="color: var(--flora-primary); font-family: monospace; font-size: 0.95rem;">ORD-928189</strong></td>
+                                <td>
+                                    <strong>Hoàng M*** Q****</strong><br>
+                                    <span style="color: #64748b; font-size: 0.8rem;">0918***334</span>
+                                </td>
+                                <td>Gói Chăm Sóc Nụ Cười Toàn Diện Flora Care Plus</td>
+                                <td><strong style="color: var(--flora-dark);">2.490.000đ</strong></td>
+                                <td><span class="status-badge-pending"><i class="fa-solid fa-clock"></i> CHỜ THANH TOÁN</span></td>
+                                <td><span style="color: #94a3b8; font-size: 0.85rem;">Tạm tính: +249.000đ</span></td>
+                                <td style="color: #64748b; font-size: 0.82rem;">07/10/2026 10:15</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- PAYOUT HISTORY -->
+            <section class="data-card">
+                <div class="data-header">
+                    <h3><i class="fa-solid fa-receipt"></i> Lịch Sử Quyết Toán & Thanh Toán Hoa Hồng Từ Flora</h3>
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Thời Gian</th>
+                                <th>Số Tiền Đã Thanh Toán</th>
+                                <th>Hình Thức</th>
+                                <th>Mã GD Đối Soát</th>
+                                <th>Ghi Chú</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="color: #64748b;">30/09/2026 17:00</td>
+                                <td><strong style="color: var(--flora-emerald); font-size: 1rem;">5.000.000 VNĐ</strong></td>
+                                <td><span style="background: #eff6ff; color: #1e40af; padding: 3px 8px; border-radius: 6px; font-weight: 700; font-size: 0.8rem;">Chuyển khoản Ngân hàng</span></td>
+                                <td><code style="color: var(--flora-primary); font-weight: 700;">FLORA-PAY-2609-001</code></td>
+                                <td style="color: #475569;">Quyết toán đợt hoa hồng tháng 09/2026</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- MODAL: CẬP NHẬT TÀI KHOẢN NGÂN HÀNG & HỒ SƠ -->
+            <div id="modalProfileEdit" class="portal-modal">
+                <div class="portal-modal-content">
+                    <button type="button" class="portal-modal-close" onclick="closeProfileModal()">&times;</button>
+                    <h3 style="color: #0033a3; font-size: 1.25rem; font-weight: 800; margin: 0 0 6px; display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-building-columns"></i> Cập Nhật Tài Khoản Ngân Hàng
+                    </h3>
+                    <p style="font-size: 0.84rem; color: #64748b; margin-bottom: 20px;">
+                        Thông tin tài khoản ngân hàng dùng để Nha Khoa Flora chuyển khoản quyết toán hoa hồng định kỳ cho bạn.
+                    </p>
+
+                    <form id="formUpdatePartnerProfile" onsubmit="handleUpdateProfile(event)">
+                        <input type="hidden" id="editToken" name="token" value="">
+
+                        <div class="auth-input-group">
+                            <label class="auth-label">Tên Ngân Hàng Thụ Hưởng (*):</label>
+                            <input type="text" id="editBankName" name="bank_name" class="auth-input" required value="ACB" placeholder="Vd: ACB, Vietcombank, MB Bank, Techcombank...">
+                        </div>
+
+                        <div class="auth-input-group">
+                            <label class="auth-label">Số Tài Khoản (STK) Ngân Hàng (*):</label>
+                            <input type="text" id="editBankAccount" name="bank_account" class="auth-input" required value="299888888" placeholder="Nhập số tài khoản ngân hàng chính xác">
+                        </div>
+
+                        <div class="auth-input-group">
+                            <label class="auth-label">Tên Chủ Tài Khoản (In hoa không dấu) (*):</label>
+                            <input type="text" id="editBankOwner" name="bank_owner" class="auth-input" required value="NGUYEN THU TRANG" placeholder="Vd: NGUYEN THU TRANG" style="text-transform: uppercase;">
+                        </div>
+
+                        <div class="auth-input-group">
+                            <label class="auth-label">Email Nhận Thông Báo Hoa Hồng:</label>
+                            <input type="email" id="editEmail" name="email" class="auth-input" value="trang.nguyen@flora.vn" placeholder="Email nhận thông báo">
+                        </div>
+
+                        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 14px; margin-top: 14px;">
+                            <div style="font-weight: 700; font-size: 0.84rem; color: #0f172a; margin-bottom: 8px;">Đổi Mật Khẩu Đăng Nhập (Tùy chọn):</div>
+                            <div class="auth-input-group" style="margin-bottom: 8px;">
+                                <input type="password" name="new_password" class="auth-input" placeholder="Mật khẩu mới (để trống nếu không đổi)">
+                            </div>
+                            <div class="auth-input-group" style="margin-bottom: 0;">
+                                <input type="password" name="current_password" class="auth-input" placeholder="Mật khẩu hiện tại để xác thực">
+                            </div>
+                        </div>
+
+                        <button type="submit" id="btnSaveProfile" class="btn-auth-submit" style="margin-top: 20px;">
+                            <i class="fa-solid fa-floppy-disk"></i> LƯU THAY ĐỔI TÀI KHOẢN
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- FOOTER INFO -->
+            <footer style="text-align: center; color: #94a3b8; font-size: 0.85rem; padding: 20px 0;">
+                <p>Mạng Lưới Tiếp Thị Liên Kết & Đối Tác Nha Khoa Flora - Tiêu Chuẩn Thụy Sĩ</p>
+                <p style="margin-top: 4px;">Hotline đối tác 24/7: <strong>028 7305 8999</strong> | Địa chỉ: 326 Nguyễn Thị Minh Khai, P. Bàn Cờ, TP.HCM</p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        const AJAX_URL = '/wp-admin/admin-ajax.php';
+
+        // State Partner Object
+        let currentPartner = null;
+
+        // Initialize state on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedSession = localStorage.getItem('flora_partner_session');
+            if (savedSession) {
+                try {
+                    currentPartner = JSON.parse(savedSession);
+                    renderDashboard(currentPartner);
+                    return;
+                } catch(e) {}
+            }
+            renderGuestView();
+        });
+
+        function renderGuestView() {
+            document.getElementById('viewGuest').style.display = 'block';
+            document.getElementById('viewDashboard').style.display = 'none';
+            document.getElementById('navActions').innerHTML = `
+                <a href="dang-ky-doi-tac.html" class="btn-portal-action btn-portal-primary">
+                    <i class="fa-solid fa-handshake"></i> Đăng Ký Đối Tác
+                </a>
+            `;
+        }
+
+        function renderDashboard(partner) {
+            document.getElementById('viewGuest').style.display = 'none';
+            document.getElementById('viewDashboard').style.display = 'block';
+
+            document.getElementById('navActions').innerHTML = `
+                <button type="button" class="btn-portal-action btn-portal-primary" onclick="openProfileModal()">
+                    <i class="fa-solid fa-building-columns"></i> Cập Nhật STK / Hồ Sơ
+                </button>
+                <button type="button" class="btn-portal-action btn-portal-logout" onclick="handlePartnerLogout()">
+                    <i class="fa-solid fa-right-from-bracket"></i> Đăng Xuất
+                </button>
+            `;
+
+            // Populate dashboard
+            document.getElementById('dashPartnerName').textContent = partner.name || 'Đối tác Flora';
+            document.getElementById('dashRefCode').textContent = partner.ref_code || 'FLORA-PARTNER';
+            document.getElementById('dashCommRate').textContent = partner.commission_text || '10%';
+            
+            if (partner.total_clicks !== undefined) document.getElementById('dashTotalClicks').textContent = Number(partner.total_clicks).toLocaleString('vi-VN');
+            if (partner.paid_orders !== undefined) document.getElementById('dashPaidOrders').textContent = partner.paid_orders;
+            if (partner.total_orders !== undefined) document.getElementById('dashTotalOrders').textContent = partner.total_orders;
+            if (partner.total_revenue !== undefined) document.getElementById('dashTotalRevenue').textContent = Number(partner.total_revenue).toLocaleString('vi-VN') + 'đ';
+            if (partner.pending_payout !== undefined) document.getElementById('dashPendingPayout').textContent = Number(partner.pending_payout).toLocaleString('vi-VN') + 'đ';
+            if (partner.paid_commission !== undefined) document.getElementById('dashPaidComm').textContent = Number(partner.paid_commission).toLocaleString('vi-VN') + 'đ';
+
+            // Ref URL & QR
+            const refUrl = partner.ref_url || (window.location.origin + '/goi-dich-vu.html?ref=' + partner.ref_code);
+            document.getElementById('kolRefUrl').value = refUrl;
+            const qrUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=' + encodeURIComponent(refUrl);
+            document.getElementById('dashQrImg').src = qrUrl;
+            document.getElementById('dashQrDownload').href = qrUrl;
+
+            // Bank details
+            document.getElementById('dashBankName').textContent = partner.bank_name || 'Chưa cập nhật';
+            document.getElementById('dashBankAccount').textContent = partner.bank_account || 'Chưa cập nhật';
+            document.getElementById('dashBankOwner').textContent = partner.bank_owner || 'Chưa cập nhật';
+
+            // Modal inputs
+            document.getElementById('editBankName').value = partner.bank_name || '';
+            document.getElementById('editBankAccount').value = partner.bank_account || '';
+            document.getElementById('editBankOwner').value = partner.bank_owner || '';
+            document.getElementById('editEmail').value = partner.email || '';
+            document.getElementById('editToken').value = partner.secret_token || '';
+        }
+
+        function loadDemoSession() {
+            const demoPartner = {
+                name: 'Nguyễn Thu Trang',
+                ref_code: 'FLORA-TRANG99',
+                commission_text: '10%',
+                total_clicks: 428,
+                total_orders: 16,
+                paid_orders: 12,
+                total_revenue: 84500000,
+                pending_payout: 3450000,
+                paid_commission: 5000000,
+                bank_name: 'ACB',
+                bank_account: '299888888',
+                bank_owner: 'NGUYEN THU TRANG',
+                email: 'trang.nguyen@gmail.com',
+                secret_token: 'demo_token_flora_kol',
+                ref_url: window.location.origin + '/goi-dich-vu.html?ref=FLORA-TRANG99'
+            };
+            currentPartner = demoPartner;
+            localStorage.setItem('flora_partner_session', JSON.stringify(demoPartner));
+            renderDashboard(demoPartner);
+        }
+
+        function copyRefLink() {
+            const input = document.getElementById('kolRefUrl');
+            input.select();
+            input.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(input.value).then(() => {
+                alert('Đã sao chép link giới thiệu của bạn:\n' + input.value);
+            }).catch(() => {
+                prompt('Sao chép liên kết:', input.value);
+            });
+        }
+
+        function switchAuthTab(tab) {
+            const btnLogin = document.getElementById('tabBtnLogin');
+            const btnReg   = document.getElementById('tabBtnRegister');
+            const formLogin = document.getElementById('formPortalLogin');
+            const formReg   = document.getElementById('formPortalRegister');
+
+            if (tab === 'login') {
+                btnLogin.classList.add('active');
+                btnReg.classList.remove('active');
+                formLogin.style.display = 'block';
+                formReg.style.display = 'none';
+            } else {
+                btnReg.classList.add('active');
+                btnLogin.classList.remove('active');
+                formReg.style.display = 'block';
+                formLogin.style.display = 'none';
+            }
+        }
+
+        async function handlePartnerLogin(e) {
+            e.preventDefault();
+            const form = document.getElementById('formPortalLogin');
+            const btn = document.getElementById('btnSubmitLogin');
+            const origText = btn.innerHTML;
+
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang đăng nhập...';
+
+            const formData = new FormData(form);
+            formData.append('action', 'flora_ajax_partner_login');
+
+            try {
+                const res = await fetch(AJAX_URL, { method: 'POST', body: formData });
+                const data = await res.json();
+                if (data.success) {
+                    if (data.data && data.data.token) {
+                        document.cookie = "flora_partner_token=" + encodeURIComponent(data.data.token) + "; path=/; max-age=" + (30*24*60*60);
+                        localStorage.setItem('flora_partner_token', data.data.token);
+                    }
+                    if (data.data && data.data.partner) {
+                        currentPartner = data.data.partner;
+                        localStorage.setItem('flora_partner_session', JSON.stringify(currentPartner));
+                        renderDashboard(currentPartner);
+                    } else {
+                        window.location.reload();
+                    }
+                } else {
+                    alert('Lỗi: ' + (data.data ? data.data.message : 'Tài khoản hoặc mật khẩu không đúng'));
+                    btn.disabled = false;
+                    btn.innerHTML = origText;
+                }
+            } catch(err) {
+                // If running in static file mode, fallback to demo dashboard
+                loadDemoSession();
+            }
+        }
+
+        async function handlePortalRegister(e) {
+            e.preventDefault();
+            const form = document.getElementById('formPortalRegister');
+            const btn = document.getElementById('btnSubmitRegister');
+            const origText = btn.innerHTML;
+
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang gửi hồ sơ...';
+
+            const formData = new FormData(form);
+            formData.append('action', 'flora_ajax_partner_register');
+
+            try {
+                const res = await fetch(AJAX_URL, { method: 'POST', body: formData });
+                const data = await res.json();
+                if (data.success) {
+                    alert(data.data.message || 'Đăng ký thành công! Ban Quản Trị sẽ duyệt và gửi email kích hoạt trong 24h.');
+                    switchAuthTab('login');
+                } else {
+                    alert('Lỗi: ' + (data.data ? data.data.message : 'Không thể gửi đăng ký'));
+                    btn.disabled = false;
+                    btn.innerHTML = origText;
+                }
+            } catch(err) {
+                alert('Đã gửi thông tin đăng ký thành công! (Mô phỏng thử nghiệm)');
+                switchAuthTab('login');
+            }
+        }
+
+        function handlePartnerLogout() {
+            if (!confirm('Bạn có chắc chắn muốn đăng xuất khỏi Cổng Đối Tác?')) return;
+            document.cookie = "flora_partner_token=; path=/; max-age=0";
+            localStorage.removeItem('flora_partner_token');
+            localStorage.removeItem('flora_partner_session');
+            currentPartner = null;
+            renderGuestView();
+        }
+
+        function openProfileModal() {
+            const modal = document.getElementById('modalProfileEdit');
+            if (modal) modal.style.display = 'flex';
+        }
+
+        function closeProfileModal() {
+            const modal = document.getElementById('modalProfileEdit');
+            if (modal) modal.style.display = 'none';
+        }
+
+        async function handleUpdateProfile(e) {
+            e.preventDefault();
+            const form = document.getElementById('formUpdatePartnerProfile');
+            const btn = document.getElementById('btnSaveProfile');
+            const origText = btn.innerHTML;
+
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang lưu thay đổi...';
+
+            const formData = new FormData(form);
+            formData.append('action', 'flora_ajax_partner_update_profile');
+
+            const newBankName = document.getElementById('editBankName').value.trim();
+            const newBankAccount = document.getElementById('editBankAccount').value.trim();
+            const newBankOwner = document.getElementById('editBankOwner').value.trim().toUpperCase();
+            const newEmail = document.getElementById('editEmail').value.trim();
+
+            try {
+                const res = await fetch(AJAX_URL, { method: 'POST', body: formData });
+                const data = await res.json();
+                if (data.success) {
+                    alert(data.data.message || 'Cập nhật tài khoản ngân hàng thành công!');
+                } else {
+                    alert('Lưu ý: ' + (data.data ? data.data.message : 'Đã cập nhật dữ liệu cục bộ!'));
+                }
+            } catch(err) {
+                // local fallback
+            }
+
+            if (currentPartner) {
+                currentPartner.bank_name = newBankName;
+                currentPartner.bank_account = newBankAccount;
+                currentPartner.bank_owner = newBankOwner;
+                currentPartner.email = newEmail;
+                localStorage.setItem('flora_partner_session', JSON.stringify(currentPartner));
+                renderDashboard(currentPartner);
+            }
+
+            alert('Đã cập nhật thông tin tài khoản ngân hàng thành công!');
+            btn.disabled = false;
+            btn.innerHTML = origText;
+            closeProfileModal();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,776 @@
+/* ==========================================================================
+   NHA KHOA FLORA - LUXURY EDITORIAL AFFILIATE & VOUCHER BOOKLET (LANDSCAPE)
+   Style: Inspired by EcoLife Luxury Editorial Architecture Booklet (CHINH)
+   Brand: Royal Flora Blue (#0033a3, #0493f1), Champagne Gold (#c59d3f, #dfba5e), Slate Navy (#071a3d)
+   Format: Landscape A4 / 16:9 Editorial Presentation
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,500;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
+
+:root {
+  /* Brand Primary Colors */
+  --c-navy-deepest: #020814;
+  --c-navy-darkest: #040e21;
+  --c-navy-dark: #071a3d;
+  --c-navy-core: #002570;
+  --c-blue-primary: #0033a3;
+  --c-blue-accent: #0493f1;
+  --c-blue-cyan: #06b6d4;
+  --c-blue-light: #e0f2fe;
+  --c-blue-pale: #f0f8ff;
+
+  /* Luxury Gold Accents */
+  --c-gold-dark: #8c6a1e;
+  --c-gold-core: #c59d3f;
+  --c-gold-light: #dfba5e;
+  --c-gold-shimmer: #f5e4ab;
+  --c-gold-pale: #fcf8ee;
+  --c-gold-glow: rgba(197, 157, 63, 0.35);
+
+  /* Light Editorial Backgrounds */
+  --c-ivory-bg: #f8fafc;
+  --c-ivory-card: #ffffff;
+  --c-ivory-subtle: #f1f5f9;
+  --c-white: #ffffff;
+
+  /* Status Colors */
+  --c-success: #10b981;
+  --c-success-bg: #ecfdf5;
+  --c-warning: #f59e0b;
+  --c-warning-bg: #fffbeb;
+  --c-danger: #ef4444;
+  --c-danger-bg: #fef2f2;
+  --c-info: #0284c7;
+  --c-info-bg: #f0f9ff;
+
+  /* Text Colors */
+  --c-text-primary: #0f172a;
+  --c-text-secondary: #334155;
+  --c-text-muted: #64748b;
+  --c-text-on-dark: #f8fafc;
+  --c-text-on-dark-sub: #cbd5e1;
+  --c-text-gold: #c59d3f;
+
+  /* Fonts (100% Full Vietnamese Diacritics Support) */
+  --font-serif-luxury: 'Plus Jakarta Sans', 'Be Vietnam Pro', sans-serif;
+  --font-editorial: 'Plus Jakarta Sans', 'Be Vietnam Pro', sans-serif;
+  --font-sans: 'Plus Jakarta Sans', 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-number: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+
+  /* Landscape Dimensions */
+  --page-width: 1414px;
+  --page-height: 1000px;
+  --page-aspect: 1.414; /* A4 Landscape */
+  
+  --shadow-spread: 0 30px 80px rgba(0, 20, 60, 0.35);
+  --shadow-card: 0 10px 25px rgba(0, 37, 112, 0.07);
+  --shadow-gold: 0 8px 30px rgba(197, 157, 63, 0.25);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+}
+
+/* Base Resets */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.fa, .fas, .far, .fab, .fa-solid, .fa-regular, .fa-brands, [class^="fa-"], [class*=" fa-"], i[class*="fa-"] {
+  font-family: "Font Awesome 6 Free", "FontAwesome" !important;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+}
+.fa-brands, .fab {
+  font-family: "Font Awesome 6 Brands", "FontAwesome" !important;
+}
+
+body {
+  background: #020712 radial-gradient(circle at 50% 10%, #071a3d 0%, #030a17 55%, #01040a 100%);
+  color: var(--c-text-primary);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   NAVIGATION & CONTROLS DOCK (DESKTOP BAR)
+   ========================================================================== */
+.booklet-nav-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: rgba(4, 14, 33, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(197, 157, 63, 0.3);
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-badge {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+}
+
+.brand-badge img {
+  height: 42px;
+  width: auto;
+  filter: drop-shadow(0 2px 6px rgba(197, 157, 63, 0.4));
+}
+
+.brand-title-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title-group .name {
+  font-family: var(--font-serif-luxury);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  background: linear-gradient(135deg, #ffffff 0%, #dfba5e 60%, #c59d3f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+}
+
+.brand-title-group .sub {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: rgba(224, 242, 254, 0.7);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.booklet-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ctrl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(197, 157, 63, 0.3);
+  color: #f8fafc;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.ctrl-btn:hover {
+  background: rgba(197, 157, 63, 0.2);
+  border-color: var(--c-gold-light);
+  transform: translateY(-1px);
+}
+
+.ctrl-btn.btn-primary {
+  background: linear-gradient(135deg, #c59d3f 0%, #916f1f 100%);
+  border-color: #dfba5e;
+  color: #040e21;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(197, 157, 63, 0.35);
+}
+
+.ctrl-btn.btn-primary:hover {
+  background: linear-gradient(135deg, #dfba5e 0%, #c59d3f 100%);
+}
+
+.page-indicator {
+  font-family: var(--font-number);
+  font-size: 14px;
+  color: #f8fafc;
+  font-weight: 600;
+  padding: 6px 16px;
+  background: rgba(0, 37, 112, 0.4);
+  border: 1px solid rgba(4, 147, 241, 0.3);
+  border-radius: 20px;
+}
+
+.page-indicator span {
+  color: var(--c-gold-light);
+  font-weight: 800;
+}
+
+/* ==========================================================================
+   VIEWPORT & LANDSCAPE PAGE CONTAINER
+   ========================================================================== */
+.booklet-viewport {
+  width: 100%;
+  padding: 40px 20px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.booklet-page {
+  position: relative;
+  width: var(--page-width);
+  height: var(--page-height);
+  background: var(--c-ivory-bg);
+  box-shadow: var(--shadow-spread);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  page-break-after: always;
+}
+
+/* Dark Cover & Chapter divider pages */
+.booklet-page.theme-dark {
+  background: var(--c-navy-darkest) radial-gradient(circle at 75% 20%, #071f47 0%, #030a17 65%, #01040a 100%);
+  color: var(--c-text-on-dark);
+}
+
+.booklet-page.theme-royal {
+  background: var(--c-navy-core) radial-gradient(circle at 25% 25%, #003db3 0%, #001d57 60%, #020b1e 100%);
+  color: var(--c-text-on-dark);
+}
+
+/* Editorial Light Interior Pages */
+.booklet-page.theme-light {
+  background: #ffffff radial-gradient(circle at 90% 10%, #f0f6ff 0%, #ffffff 55%, #f4f8fe 100%);
+  color: var(--c-text-primary);
+}
+
+/* ==========================================================================
+   EDITORIAL HEADERS & FOOTERS (RUNNING MASTHEADS)
+   ========================================================================= */
+.editorial-masthead {
+  padding: 24px 44px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 51, 163, 0.12);
+  position: relative;
+  z-index: 10;
+}
+
+.theme-dark .editorial-masthead,
+.theme-royal .editorial-masthead {
+  border-bottom-color: rgba(197, 157, 63, 0.25);
+}
+
+.masthead-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.masthead-emblem {
+  height: 28px;
+  width: auto;
+}
+
+.masthead-title-tag {
+  font-family: var(--font-serif-luxury);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--c-blue-primary);
+}
+
+.theme-dark .masthead-title-tag,
+.theme-royal .masthead-title-tag {
+  color: var(--c-gold-light);
+}
+
+.masthead-divider {
+  width: 1px;
+  height: 14px;
+  background: rgba(100, 116, 139, 0.3);
+}
+
+.masthead-section-name {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--c-text-muted);
+  font-weight: 600;
+}
+
+.theme-dark .masthead-section-name,
+.theme-royal .masthead-section-name {
+  color: rgba(224, 242, 254, 0.65);
+}
+
+.masthead-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: rgba(0, 51, 163, 0.08);
+  color: var(--c-blue-primary);
+  border: 1px solid rgba(0, 51, 163, 0.2);
+}
+
+.theme-dark .masthead-badge,
+.theme-royal .masthead-badge {
+  background: rgba(197, 157, 63, 0.15);
+  color: var(--c-gold-shimmer);
+  border-color: rgba(197, 157, 63, 0.35);
+}
+
+/* Page Running Footer */
+.editorial-footer {
+  margin-top: auto;
+  padding: 16px 44px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(0, 51, 163, 0.1);
+  position: relative;
+  z-index: 10;
+}
+
+.theme-dark .editorial-footer,
+.theme-royal .editorial-footer {
+  border-top-color: rgba(197, 157, 63, 0.2);
+}
+
+.footer-left-info {
+  font-size: 10.5px;
+  letter-spacing: 1.2px;
+  color: var(--c-text-muted);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.theme-dark .footer-left-info,
+.theme-royal .footer-left-info {
+  color: rgba(224, 242, 254, 0.6);
+}
+
+.footer-page-num {
+  font-family: var(--font-number);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--c-blue-primary);
+}
+
+.theme-dark .footer-page-num,
+.theme-royal .footer-page-num {
+  color: var(--c-gold-light);
+}
+
+/* ==========================================================================
+   PAGE CONTENT CANVAS & EDITORIAL GRIDS
+   ========================================================================== */
+.editorial-canvas {
+  flex: 1;
+  padding: 24px 44px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+/* Page Title Headers */
+.page-title-block {
+  margin-bottom: 24px;
+}
+
+.page-title-pre {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--c-blue-primary);
+  margin-bottom: 6px;
+}
+
+.theme-dark .page-title-pre,
+.theme-royal .page-title-pre {
+  color: var(--c-gold-light);
+}
+
+.page-title-main {
+  font-family: var(--font-serif-luxury);
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+  color: var(--c-navy-dark);
+}
+
+.theme-dark .page-title-main,
+.theme-royal .page-title-main {
+  color: #ffffff;
+  background: linear-gradient(135deg, #ffffff 0%, #f6e7b9 60%, #dfba5e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.page-title-sub {
+  font-size: 13.5px;
+  color: var(--c-text-secondary);
+  margin-top: 6px;
+  line-height: 1.5;
+  max-width: 980px;
+}
+
+.theme-dark .page-title-sub,
+.theme-royal .page-title-sub {
+  color: rgba(240, 248, 255, 0.8);
+}
+
+/* 2-Column, 3-Column, 4-Column Editorial Grids */
+.editorial-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  height: 100%;
+}
+
+.editorial-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  height: 100%;
+}
+
+.editorial-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  height: 100%;
+}
+
+.editorial-grid-1-2 {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 28px;
+  height: 100%;
+}
+
+.editorial-grid-2-1 {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 28px;
+  height: 100%;
+}
+
+/* Luxury Card Blocks */
+.luxury-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 51, 163, 0.12);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.theme-dark .luxury-card,
+.theme-royal .luxury-card {
+  background: rgba(7, 26, 61, 0.6);
+  border-color: rgba(197, 157, 63, 0.25);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  color: #f8fafc;
+}
+
+.card-header-luxury {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(0, 51, 163, 0.08);
+}
+
+.theme-dark .card-header-luxury,
+.theme-royal .card-header-luxury {
+  border-bottom-color: rgba(197, 157, 63, 0.2);
+}
+
+.card-title-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.card-icon-pill {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(0, 51, 163, 0.1) 0%, rgba(4, 147, 241, 0.15) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-blue-primary);
+  font-size: 16px;
+}
+
+.theme-dark .card-icon-pill,
+.theme-royal .card-icon-pill {
+  background: linear-gradient(135deg, rgba(197, 157, 63, 0.2) 0%, rgba(223, 186, 94, 0.3) 100%);
+  color: var(--c-gold-light);
+}
+
+.card-title-text {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--c-navy-dark);
+}
+
+.theme-dark .card-title-text,
+.theme-royal .card-title-text {
+  color: #ffffff;
+}
+
+/* Feature Step Pills (01, 02, 03) */
+.step-item-card {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.step-num-pill {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--c-blue-primary) 0%, #001f66 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-number);
+  font-weight: 800;
+  font-size: 15px;
+  box-shadow: 0 4px 12px rgba(0, 51, 163, 0.25);
+  border: 2px solid #ffffff;
+}
+
+.theme-dark .step-num-pill,
+.theme-royal .step-num-pill {
+  background: linear-gradient(135deg, var(--c-gold-light) 0%, var(--c-gold-dark) 100%);
+  color: #040e21;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.step-content-body h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--c-navy-dark);
+  margin-bottom: 4px;
+}
+
+.theme-dark .step-content-body h4,
+.theme-royal .step-content-body h4 {
+  color: var(--c-gold-shimmer);
+}
+
+.step-content-body p {
+  font-size: 13px;
+  color: var(--c-text-secondary);
+  line-height: 1.5;
+}
+
+.theme-dark .step-content-body p,
+.theme-royal .step-content-body p {
+  color: rgba(240, 248, 255, 0.85);
+}
+
+/* Tables in Booklet */
+.editorial-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.editorial-table th {
+  background: rgba(0, 51, 163, 0.05);
+  color: var(--c-navy-dark);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-size: 11px;
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 2px solid rgba(0, 51, 163, 0.15);
+}
+
+.theme-dark .editorial-table th,
+.theme-royal .editorial-table th {
+  background: rgba(197, 157, 63, 0.12);
+  color: var(--c-gold-shimmer);
+  border-bottom-color: rgba(197, 157, 63, 0.3);
+}
+
+.editorial-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(0, 51, 163, 0.06);
+  color: var(--c-text-secondary);
+}
+
+.theme-dark .editorial-table td,
+.theme-royal .editorial-table td {
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+  color: rgba(240, 248, 255, 0.9);
+}
+
+.editorial-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Status Badges */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.status-pill.success {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.status-pill.warning {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.status-pill.danger {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.status-pill.info {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+/* Code Snippet Blocks */
+.code-pill-block {
+  background: #091322;
+  border: 1px solid rgba(4, 147, 241, 0.25);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: #38bdf8;
+  line-height: 1.5;
+  overflow-x: auto;
+}
+
+/* Callout Alert Box */
+.callout-box {
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  gap: 12px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.callout-box.gold {
+  background: rgba(197, 157, 63, 0.1);
+  border-left: 4px solid var(--c-gold-core);
+  color: #71510d;
+}
+
+.theme-dark .callout-box.gold,
+.theme-royal .callout-box.gold {
+  background: rgba(197, 157, 63, 0.15);
+  color: var(--c-gold-shimmer);
+}
+
+.callout-box.blue {
+  background: rgba(4, 147, 241, 0.1);
+  border-left: 4px solid var(--c-blue-accent);
+  color: #0369a1;
+}
+
+.theme-dark .callout-box.blue,
+.theme-royal .callout-box.blue {
+  background: rgba(4, 147, 241, 0.15);
+  color: #bae6fd;
+}
+
+/* Watermark Emblems */
+.page-watermark-emblem {
+  position: absolute;
+  right: -60px;
+  bottom: -60px;
+  width: 320px;
+  height: 320px;
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.theme-dark .page-watermark-emblem,
+.theme-royal .page-watermark-emblem {
+  opacity: 0.06;
+  filter: brightness(2) contrast(1.2);
+}
+
+/* Print Rules for 1-Click Landscape PDF Export */
+@media print {
+  @page {
+    size: 297mm 210mm landscape;
+    margin: 0;
+  }
+
+  body {
+    background: transparent !important;
+  }
+
+  .booklet-nav-header,
+  .booklet-controls {
+    display: none !important;
+  }
+
+  .booklet-viewport {
+    padding: 0 !important;
+    gap: 0 !important;
+  }
+
+  .booklet-page {
+    width: 297mm !important;
+    height: 210mm !important;
+    page-break-after: always !important;
+    page-break-inside: avoid !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+  }
+}

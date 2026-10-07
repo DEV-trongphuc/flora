@@ -1,0 +1,684 @@
+<?php
+/**
+ * Template Name: Trang Bọc Răng Sứ
+ */
+
+get_header();
+?>
+
+<!-- ─── HERO BANNER ─── -->
+    <div class="subpage-hero-banner" id="banner">
+        <picture>
+            <source srcset="<?php echo flora_asset('assets/banner_boc_rang_su.webp'); ?>" type="image/webp">
+            <img src="<?php echo flora_asset('assets/banner_boc_rang_su.png'); ?>" alt="Flora - Bọc Sứ An Toàn - Trân Trọng Tối Đa Răng Gốc" width="3760" height="1175" loading="eager" fetchpriority="high">
+        </picture>
+    </div>
+
+    <!-- ─── CỘT MỐC UY TÍN ─── -->
+    <section class="section-padding fact-section" id="fact">
+        <div class="container">
+            <div class="section-header center reveal">
+                <h2>Những Con Số Tạo Nên Kinh Nghiệm Phục Hình Tại Flora</h2>
+            </div>
+            <div class="fact-grid mobile-slider reveal reveal-delay-1" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 40px;">
+                <div class="fact-card text-center" style="padding: 24px 15px;">
+                    <span class="stat-num" style="font-size: 2.5rem; color: var(--clr-primary); margin-bottom: 5px;">1.200+</span>
+                    <h3 style="font-size: 1.2rem; margin: 10px 0;">Ca bọc sứ thành công</h3>
+                    <p style="font-size: 0.85rem; color: var(--clr-text-muted);">Phục hình phục hồi ăn nhai bền vững và mang lại vẻ đẹp tự nhiên.</p>
+                </div>
+                <div class="fact-card text-center" style="padding: 24px 15px;">
+                    <span class="stat-num" style="font-size: 2.5rem; color: var(--clr-primary); margin-bottom: 5px;">100%</span>
+                    <h3 style="font-size: 1.2rem; margin: 10px 0;">Sứ chính hãng nhập khẩu</h3>
+                    <p style="font-size: 0.85rem; color: var(--clr-text-muted);">Các dòng gốm tinh chất cao cấp Cercon, E.max, Lava Plus có thẻ bảo hành.</p>
+                </div>
+                <div class="fact-card text-center" style="padding: 24px 15px;">
+                    <span class="stat-num" style="font-size: 2.5rem; color: var(--clr-primary); margin-bottom: 5px;">5C</span>
+                    <h3 style="font-size: 1.2rem; margin: 10px 0;">Quy trình kiểm soát</h3>
+                    <p style="font-size: 0.85rem; color: var(--clr-text-muted);">Kiểm soát khít sát khớp cắn, phòng ngừa viêm lợi, ê buốt tối đa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── CHỈ ĐỊNH ĐIỀU TRỊ ─── -->
+    <section class="section-padding audience-section" id="audience" style="background-color: var(--clr-bg-light);">
+        <div class="container">
+            <div class="section-header center reveal">
+                <h2 style="text-wrap: balance; max-width: 680px; margin-left: auto; margin-right: auto;">Không Phải Trường Hợp Nào Cũng Nên Bọc&nbsp;Sứ</h2>
+                <p style="max-width: 700px; margin: 15px auto 0; font-size: 0.95rem; color: var(--clr-text-muted);">
+                    Bọc răng sứ cần được chỉ định đúng dựa trên tình trạng lâm sàng để đảm bảo bảo tồn răng tối đa.
+                </p>
+            </div>
+            
+            <div class="table-responsive reveal reveal-delay-1" style="max-width: 900px; margin: 30px auto; background: white; border-radius: 14px; overflow: hidden; border: 1px solid var(--clr-border); box-shadow: 0 8px 30px rgba(0, 51, 163, 0.08);">
+                <table style="width: 100%; border-collapse: separate; border-spacing: 0; text-align: left;">
+                    <thead>
+                        <tr style="background: linear-gradient(135deg, #0a1931 0%, #0033a3 55%, #0493f1 100%);">
+                            <th style="padding: 16px 20px; font-weight: 700; color: #ffffff; font-size: 0.92rem; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 3px solid var(--clr-secondary);"><i class="fa-solid fa-stethoscope" style="color: #60a5fa; margin-right: 8px;"></i> Tình Trạng Răng Miệng</th>
+                            <th style="padding: 16px 20px; font-weight: 700; color: #ffffff; font-size: 0.92rem; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 3px solid var(--clr-secondary);"><i class="fa-solid fa-circle-check" style="color: #60a5fa; margin-right: 8px;"></i> Giải Pháp Được Cân Nhắc</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid var(--clr-border);">
+                            <td style="padding: 14px 12px; font-weight: 600;">Răng thưa nhẹ, hình thể và khớp cắn phù hợp</td>
+                            <td style="padding: 14px 12px; color: var(--clr-text-muted);">Cân nhắc dán Veneer siêu mỏng không mài răng để bảo tồn men gốc.</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--clr-border);">
+                            <td style="padding: 14px 12px; font-weight: 600;">Răng sâu lớn, vỡ mẻ nhiều hoặc sau chữa tủy</td>
+                            <td style="padding: 14px 12px; color: var(--clr-text-muted);">Cân nhắc mão sứ để bảo vệ cấu trúc răng và hỗ trợ phục hồi chức năng ăn nhai.</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--clr-border);">
+                            <td style="padding: 14px 12px; font-weight: 600;">Răng khấp khểnh, hô móm hoặc lệch khớp cắn rõ</td>
+                            <td style="padding: 14px 12px; color: var(--clr-text-muted);">Ưu tiên phương pháp chỉnh nha thay vì mài răng để bọc sứ.</td>
+                        </tr>
+                        <tr style="background: rgba(0, 51, 163, 0.05); border-left: 4px solid var(--clr-primary); border-radius: 4px;">
+                            <td style="padding: 16px 12px; font-weight: 700; color: var(--clr-navy);">
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <i class="fa-solid fa-triangle-exclamation" style="color: var(--clr-primary);"></i>
+                                    <span>Răng lung lay hoặc mất 1 răng</span>
+                                </div>
+                            </td>
+                            <td style="padding: 16px 12px; color: var(--clr-text); font-weight: 500;">
+                                Cầu răng hoặc phương án phục hình Implant để bảo vệ các răng xung quanh.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── TRIẾT LÝ 3PERFECT MAKEOVER (SECTION 3) ─── -->
+    <section class="section-padding value-section" id="perfect-makeover">
+        <div class="container">
+            <div class="section-header center reveal">
+                <h2>Triết Lý Phục Hình 3Perfect Khác Biệt</h2>
+                <p style="max-width: 700px; margin: 15px auto 0; font-size: 0.95rem; color: var(--clr-text-muted);">
+                    Hệ tiêu chuẩn phục hình răng sứ toàn diện tại Nha khoa Flora đảm bảo tính thẩm mỹ tự nhiên, tỷ lệ giải phẫu hài hòa và độ bền khít sát tuyệt đối.
+                </p>
+            </div>
+            <div class="fact-grid mobile-slider reveal reveal-delay-1" style="grid-template-columns: repeat(3, 1fr); margin-top: 35px; gap: 25px;">
+                <!-- P1: PERFECT NATURAL -->
+                <div class="fact-card" style="padding: 0; background: #fff; border: 1px solid var(--clr-border); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); display: flex; flex-direction: column;">
+                    <div style="width: 100%; height: 210px; overflow: hidden; background: #f1f5f9; position: relative;">
+                        <img src="<?php echo flora_asset('assets/boc-su/perfect_natural.webp'); ?>" alt="P1 - PERFECT NATURAL - Màu sắc tự nhiên & chân thật" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" />
+                        <span style="position: absolute; top: 12px; left: 12px; background: var(--clr-primary); color: #fff; font-size: 0.72rem; font-weight: 700; padding: 4px 10px; border-radius: 20px; text-transform: uppercase;">P1</span>
+                    </div>
+                    <div style="padding: 24px 20px; display: flex; flex-direction: column; flex-grow: 1;">
+                        <h3 style="font-size: 1.15rem; margin-bottom: 10px; color: var(--clr-navy); font-family: var(--font-title); font-weight: 700;">PERFECT NATURAL</h3>
+                        <div style="color: var(--clr-secondary); font-size: 0.88rem; font-weight: 600; margin-bottom: 8px;">Màu sắc tự nhiên & chân thật</div>
+                        <p style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.6; margin: 0;">
+                            Tái tạo sắc độ chuyển màu tự nhiên từ cổ răng đến rìa cắn, độ trong mờ sinh học và vân răng tinh xảo tương thích hoàn hảo với răng thật theo bảng màu quốc tế.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- P2: PERFECT FORM -->
+                <div class="fact-card" style="padding: 0; background: #fff; border: 1px solid var(--clr-border); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); display: flex; flex-direction: column;">
+                    <div style="width: 100%; height: 210px; overflow: hidden; background: #f1f5f9; position: relative;">
+                        <img src="<?php echo flora_asset('assets/boc-su/perfect_form.webp'); ?>" alt="P2 - PERFECT FORM - Thiết kế form răng hài hoà, khít sát" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" />
+                        <span style="position: absolute; top: 12px; left: 12px; background: var(--clr-primary); color: #fff; font-size: 0.72rem; font-weight: 700; padding: 4px 10px; border-radius: 20px; text-transform: uppercase;">P2</span>
+                    </div>
+                    <div style="padding: 24px 20px; display: flex; flex-direction: column; flex-grow: 1;">
+                        <h3 style="font-size: 1.15rem; margin-bottom: 10px; color: var(--clr-navy); font-family: var(--font-title); font-weight: 700;">PERFECT FORM</h3>
+                        <div style="color: var(--clr-secondary); font-size: 0.88rem; font-weight: 600; margin-bottom: 8px;">Thiết kế form răng hài hoà, khít sát</div>
+                        <p style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.6; margin: 0;">
+                            Cá nhân hóa dáng răng chuẩn tỷ lệ vàng (1.618 - 1.0 - 0.618), cung cười ôm khít đường viền môi, cân đối nhân trắc học khuôn mặt và viền nướu khỏe mạnh.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- P3: PERFECT CRAFT -->
+                <div class="fact-card" style="padding: 0; background: #fff; border: 1px solid var(--clr-border); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); display: flex; flex-direction: column;">
+                    <div style="width: 100%; height: 210px; overflow: hidden; background: #f1f5f9; position: relative;">
+                        <img src="<?php echo flora_asset('assets/boc-su/perfect_craft.webp'); ?>" alt="P3 - PERFECT CRAFT - Chuẩn xác & chất lượng" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: center 25%; transition: transform 0.5s ease;" />
+                        <span style="position: absolute; top: 12px; left: 12px; background: var(--clr-primary); color: #fff; font-size: 0.72rem; font-weight: 700; padding: 4px 10px; border-radius: 20px; text-transform: uppercase;">P3</span>
+                    </div>
+                    <div style="padding: 24px 20px; display: flex; flex-direction: column; flex-grow: 1;">
+                        <h3 style="font-size: 1.15rem; margin-bottom: 10px; color: var(--clr-navy); font-family: var(--font-title); font-weight: 700;">PERFECT CRAFT</h3>
+                        <div style="color: var(--clr-secondary); font-size: 0.88rem; font-weight: 600; margin-bottom: 8px;">Chuẩn xác & chất lượng</div>
+                        <p style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.6; margin: 0;">
+                            Chế tác bằng công nghệ CAD/CAM Thụy Sĩ/Đức độ chính xác tính bằng micron, đường viền hoàn tất ôm khít tuyệt đối, không kênh cộm, không đọng thức ăn và bền vững theo thời gian.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── BÁC SĨ PHỤ TRÁCH CHUYÊN MÔN (EXPERT SECTION) ─── -->
+    <section class="section-padding expert-section" id="expert" style="background-color: var(--clr-bg-light); border-top: 1px solid var(--clr-border);">
+        <div class="container">
+            <div class="section-header center reveal">
+                <h2>Bác Sĩ Trực Tiếp Điều Trị Tại Flora</h2>
+            </div>
+            <div class="expert-grid reveal">
+                <!-- Left Column: Premium Framed portrait image -->
+                <div class="reveal-left expert-portrait-frame">
+                    <img src="<?php echo flora_asset('assets/homepage/bs_minh_portrait.webp'); ?>" alt="BS.CKI Nguyễn Đắc Minh - Bác sĩ phụ trách chuyên môn tại Flora" class="expert-portrait-img" loading="lazy" width="480" height="580" style="object-fit: cover; object-position: 55% 10%; border-radius: 16px;" />
+                </div>
+                
+                <!-- Right Column: Biography & Achievements -->
+                <div class="reveal-right" style="display: flex; flex-direction: column; gap: 18px;">
+                    <div>
+                        <h3 style="font-family: var(--font-title); font-size: 1.55rem; font-weight: 800; color: var(--clr-navy); margin-bottom: 4px; line-height: 1.2;">BS.CKI NGUYỄN ĐẮC MINH</h3>
+                        <p style="font-size: 0.95rem; font-weight: 700; color: var(--clr-secondary); margin-bottom: 12px;">Chuyên gia Cấy ghép Implant & Phục hình thẩm mỹ</p>
+                        
+                        <div style="background: var(--clr-bg-light); padding: 14px 18px; border-left: 3.5px solid var(--clr-primary); border-radius: 8px; margin-bottom: 16px;">
+                            <strong style="color: var(--clr-navy); display: block; font-size: 0.92rem; margin-bottom: 4px; letter-spacing: 0.5px;">TRIẾT LÝ ĐIỀU TRỊ:</strong>
+                            <p style="font-size: 0.95rem; font-weight: 700; color: var(--clr-primary); font-style: italic; margin-bottom: 6px;">“Nha khoa là sự giao thoa giữa y khoa, kỹ thuật và thẩm mỹ.”</p>
+                            <p style="font-size: 0.88rem; color: #334155; line-height: 1.6; margin: 0;">Mỗi kế hoạch điều trị được xây dựng trên nền tảng chẩn đoán kỹ lưỡng, chỉ định phù hợp, thao tác có kiểm soát và theo dõi dài hạn, hướng đến sự cân bằng giữa chức năng, thẩm mỹ và trải nghiệm của khách hàng.</p>
+                        </div>
+
+                        <!-- 3 Statistics Box -->
+                        <div style="margin-bottom: 8px;">
+                            <span style="font-size: 0.82rem; font-weight: 700; color: var(--clr-navy); text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 8px;">HỒ SƠ ĐIỀU TRỊ NỔI BẬT</span>
+                            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+                                <div style="background: rgba(4, 147, 241, 0.06); border: 1px solid rgba(4, 147, 241, 0.2); padding: 12px 8px; border-radius: 12px; text-align: center;">
+                                    <strong style="display: block; font-size: 1.35rem; font-weight: 800; color: var(--clr-primary); line-height: 1.1;">5.000+</strong>
+                                    <span style="font-size: 0.76rem; color: var(--clr-navy); font-weight: 600;">ca cấy ghép & phục hình Implant</span>
+                                </div>
+                                <div style="background: rgba(4, 147, 241, 0.06); border: 1px solid rgba(4, 147, 241, 0.2); padding: 12px 8px; border-radius: 12px; text-align: center;">
+                                    <strong style="display: block; font-size: 1.35rem; font-weight: 800; color: var(--clr-primary); line-height: 1.1;">2.200+</strong>
+                                    <span style="font-size: 0.76rem; color: var(--clr-navy); font-weight: 600;">ca phục hình răng sứ thẩm mỹ</span>
+                                </div>
+                                <div style="background: rgba(4, 147, 241, 0.06); border: 1px solid rgba(4, 147, 241, 0.2); padding: 12px 8px; border-radius: 12px; text-align: center;">
+                                    <strong style="display: block; font-size: 1.35rem; font-weight: 800; color: var(--clr-primary); line-height: 1.1;">1.200+</strong>
+                                    <span style="font-size: 0.76rem; color: var(--clr-navy); font-weight: 600;">ca điều trị cười hở lợi</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="border-top: 1px solid var(--clr-border); border-bottom: 1px solid var(--clr-border); padding: 16px 0; margin: 0;">
+                        <ul style="list-style: none; font-size: 0.88rem; color: var(--clr-text); display: flex; flex-direction: column; gap: 10px; padding: 0; margin: 0;">
+                            <li style="display: flex; align-items: flex-start; gap: 10px; margin: 0;">
+                                <i class="fa-solid fa-circle-check" style="color: var(--clr-secondary); margin-top: 3px;"></i> 
+                                <span><strong>ĐÀO TẠO CHUYÊN MÔN:</strong> Tốt nghiệp chính quy Bác sĩ chuyên khoa Răng Hàm Mặt, nhận chứng chỉ Cấy ghép nha khoa (Bệnh viện RHM Trung ương) và Chỉnh nha nâng cao (Bệnh viện Trung ương Huế).</span>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px; margin: 0;">
+                                <i class="fa-solid fa-circle-check" style="color: var(--clr-secondary); margin-top: 3px;"></i> 
+                                <span><strong>HOẠT ĐỘNG CHUYÊN MÔN QUỐC TẾ:</strong> Thành viên chính thức ICOI (Hiệp hội Implant Thế giới) và ITI (Hiệp hội Implant Quốc tế).</span>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px; margin: 0;">
+                                <i class="fa-solid fa-circle-check" style="color: var(--clr-secondary); margin-top: 3px;"></i> 
+                                <span><strong>TRAO ĐỔI & CHIA SẺ CHUYÊN MÔN:</strong> Đài Phát thanh & Truyền hình Vĩnh Long phỏng vấn về ứng dụng công nghệ trong cấy ghép Implant (2023); trao đổi chuyên môn cùng Dr. Gilles P. Chaumanet.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div style="text-align: left;">
+                        <a href="#dang-ky" class="btn btn-primary btn-booking" style="display: inline-block;">Đặt lịch tư vấn cùng Bác sĩ Minh <i class="fa-solid fa-calendar-check" style="margin-left: 8px;"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── LỰA CHỌN VẬT LIỆU ─── -->
+    <section class="section-padding audience-section">
+        <div class="container">
+            <div class="section-header center reveal">
+                <h2>Lựa Chọn Vật Liệu Sứ Theo Vị Trí & Nhu Cầu</h2>
+                <p style="max-width: 700px; margin: 15px auto 0; font-size: 0.95rem; color: var(--clr-text-muted);">
+                    Sứ cao cấp chính hãng nhập khẩu có độ bền vượt trội và tính thẩm mỹ cao.
+                </p>
+            </div>
+            
+            <div class="table-responsive reveal reveal-delay-1" style="max-width: 900px; margin: 30px auto; background: white; border-radius: 14px; overflow: hidden; border: 1px solid var(--clr-border); box-shadow: 0 8px 30px rgba(0, 51, 163, 0.08);">
+                <table style="width: 100%; border-collapse: separate; border-spacing: 0; text-align: left;">
+                    <thead>
+                        <tr style="background: linear-gradient(135deg, #0a1931 0%, #0033a3 55%, #0493f1 100%);">
+                            <th style="padding: 16px 20px; font-weight: 700; color: #ffffff; font-size: 0.92rem; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 3px solid var(--clr-secondary);"><i class="fa-solid fa-gem" style="color: #60a5fa; margin-right: 8px;"></i> Nhóm Vật Liệu</th>
+                            <th style="padding: 16px 20px; font-weight: 700; color: #ffffff; font-size: 0.92rem; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 3px solid var(--clr-secondary);"><i class="fa-solid fa-circle-info" style="color: #60a5fa; margin-right: 8px;"></i> Đặc Điểm Chính</th>
+                            <th style="padding: 16px 20px; font-weight: 700; color: #ffffff; font-size: 0.92rem; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 3px solid var(--clr-secondary);"><i class="fa-solid fa-bullseye" style="color: #60a5fa; margin-right: 8px;"></i> Chỉ Định Thường Dùng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid var(--clr-border);">
+                            <td style="padding: 12px; font-weight: 600;">Sứ kim loại Cr-Co / Titan</td>
+                            <td style="padding: 12px; color: var(--clr-text-muted);">Chi phí tiết kiệm, độ bền cơ học tốt, có khung kim loại bên trong.</td>
+                            <td style="padding: 12px; color: var(--clr-text-muted);">Vùng răng hàm nhai phía sau, ưu tiên ngân sách.</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--clr-border);">
+                            <td style="padding: 12px; font-weight: 600;">Sứ Zirconia / Cercon HT</td>
+                            <td style="padding: 12px; color: var(--clr-text-muted);">Sứ không kim loại, độ cứng lực nhai cao, không bị đen viền lợi.</td>
+                            <td style="padding: 12px; color: var(--clr-text-muted);">Thích hợp cho cả răng trước và răng sau.</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--clr-border);">
+                            <td style="padding: 12px; font-weight: 600;">Gốm gốm thủy tinh E.max Press</td>
+                            <td style="padding: 12px; color: var(--clr-text-muted);">Độ trong mờ sinh học tuyệt vời, khả năng truyền sáng như răng tự nhiên.</td>
+                            <td style="padding: 12px; color: var(--clr-text-muted);">Đặc biệt thích hợp cho vùng răng cửa thẩm mỹ.</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--clr-border);">
+                            <td style="padding: 12px; font-weight: 600;">Lava Plus Mỹ / E.max ZirCAD</td>
+                            <td style="padding: 12px; color: var(--clr-text-muted);">Zirconia cao cấp kết hợp hoàn hảo giữa độ bền uốn cực cao và thẩm mỹ tối đa.</td>
+                            <td style="padding: 12px; color: var(--clr-text-muted);">Phục hình răng thẩm mỹ toàn hàm, yêu cầu cao cấp nhất.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── QUY TRÌNH BỌC SỨ ─── -->
+    <section class="section-padding timeline-section" style="background-color: var(--clr-bg-light);">
+        <div class="container">
+            <div class="section-header center reveal">
+                <h2>Các Bước Điều Trị Bọc Răng Sứ</h2>
+            </div>
+            
+            <div class="timeline-wrapper reveal reveal-delay-1" style="max-width: 800px; margin: 40px auto; position: relative;">
+                <!-- Step 1 -->
+                <div style="display: flex; margin-bottom: 30px; position: relative;">
+                    <div style="min-width: 50px; height: 50px; background: var(--clr-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; z-index: 2;">1</div>
+                    <div style="margin-left: 20px; background: white; padding: 20px; border-radius: 8px; width: 100%; box-shadow: var(--shadow);">
+                        <h4 style="color: var(--clr-navy); margin-bottom: 8px;">Bước 1: Thăm khám & Lập kế hoạch điều trị</h4>
+                        <p style="font-size: 0.9rem; color: var(--clr-text-muted); line-height: 1.5;">Bác sĩ kiểm tra răng, nướu, khớp cắn và chụp phim khi cần để tư vấn phương án phục hình phù hợp.</p>
+                    </div>
+                </div>
+                <!-- Step 2 -->
+                <div style="display: flex; margin-bottom: 30px; position: relative;">
+                    <div style="min-width: 50px; height: 50px; background: var(--clr-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; z-index: 2;">2</div>
+                    <div style="margin-left: 20px; background: white; padding: 20px; border-radius: 8px; width: 100%; box-shadow: var(--shadow);">
+                        <h4 style="color: var(--clr-navy); margin-bottom: 8px;">Bước 2: Vệ sinh & Điều trị bệnh lý răng miệng</h4>
+                        <p style="font-size: 0.9rem; color: var(--clr-text-muted); line-height: 1.5;">Làm sạch răng miệng và xử lý sâu răng, viêm nướu hoặc bệnh lý tủy nếu có trước khi phục hình.</p>
+                    </div>
+                </div>
+                <!-- Step 3 -->
+                <div style="display: flex; margin-bottom: 30px; position: relative;">
+                    <div style="min-width: 50px; height: 50px; background: var(--clr-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; z-index: 2;">3</div>
+                    <div style="margin-left: 20px; background: white; padding: 20px; border-radius: 8px; width: 100%; box-shadow: var(--shadow);">
+                        <h4 style="color: var(--clr-navy); margin-bottom: 8px;">Bước 3: Gây tê & Mài cùi răng</h4>
+                        <p style="font-size: 0.9rem; color: var(--clr-text-muted); line-height: 1.5;">Sau khi gây tê, bác sĩ mài mô răng trong giới hạn cần thiết để tạo cùi nâng đỡ mão sứ.</p>
+                    </div>
+                </div>
+                <!-- Step 4 -->
+                <div style="display: flex; margin-bottom: 30px; position: relative;">
+                    <div style="min-width: 50px; height: 50px; background: var(--clr-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; z-index: 2;">4</div>
+                    <div style="margin-left: 20px; background: white; padding: 20px; border-radius: 8px; width: 100%; box-shadow: var(--shadow);">
+                        <h4 style="color: var(--clr-navy); margin-bottom: 8px;">Bước 4: Ghi nhận dữ liệu & Gắn răng tạm</h4>
+                        <p style="font-size: 0.9rem; color: var(--clr-text-muted); line-height: 1.5;">Bác sĩ so màu, lấy dấu hoặc quét cùi răng, ghi nhận khớp cắn và gắn răng tạm trong thời gian chờ phục hình.</p>
+                    </div>
+                </div>
+                <!-- Step 5 -->
+                <div style="display: flex; margin-bottom: 30px; position: relative;">
+                    <div style="min-width: 50px; height: 50px; background: var(--clr-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; z-index: 2;">5</div>
+                    <div style="margin-left: 20px; background: white; padding: 20px; border-radius: 8px; width: 100%; box-shadow: var(--shadow);">
+                        <h4 style="color: var(--clr-navy); margin-bottom: 8px;">Bước 5: Chế tác, Thử sứ & Điều chỉnh</h4>
+                        <p style="font-size: 0.9rem; color: var(--clr-text-muted); line-height: 1.5;">Mão sứ được thiết kế và chế tác tại labo. Bác sĩ kiểm tra độ khít sát, hình thể, màu sắc và khớp cắn, sau đó điều chỉnh khớp cắn.</p>
+                    </div>
+                </div>
+                <!-- Step 6 -->
+                <div style="display: flex; position: relative;">
+                    <div style="min-width: 50px; height: 50px; background: var(--clr-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; z-index: 2;">6</div>
+                    <div style="margin-left: 20px; background: white; padding: 20px; border-radius: 8px; width: 100%; box-shadow: var(--shadow);">
+                        <h4 style="color: var(--clr-navy); margin-bottom: 8px;">Bước 6: Gắn hoàn tất & Tái khám</h4>
+                        <p style="font-size: 0.9rem; color: var(--clr-text-muted); line-height: 1.5;">Mão sứ được gắn cố định sau khi đáp ứng các tiêu chí phục hình. Khách hàng được hướng dẫn chăm sóc và hẹn tái khám định kỳ theo tình trạng răng miệng.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── BẢNG GIÁ & TRẢ GÓP 0% ─── -->
+    <section class="section-padding pricing-section" id="pricing">
+        <div class="container">
+            <div class="section-header center reveal">
+                <h2>Bảng Giá Dịch Vụ Bọc Răng Sứ</h2>
+            </div>
+            
+            <div class="responsive-table-wrapper reveal reveal-delay-1" style="max-width: 900px; margin: 30px auto; background: white; border-radius: 14px; overflow: hidden; border: 1px solid var(--clr-border); box-shadow: 0 8px 30px rgba(0, 51, 163, 0.08);">
+                <table class="flora-price-table" style="width: 100%; border-collapse: separate; border-spacing: 0;">
+                    <thead>
+                        <tr>
+                            <th class="col-service" style="padding: 16px 20px; color: #ffffff; font-weight: 700; text-align: left; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.5px;">
+                                <i class="fa-solid fa-tooth" style="color: #60a5fa; margin-right: 8px;"></i> Dòng Răng Sứ Thẩm Mỹ
+                            </th>
+                            <th class="col-unit" style="padding: 16px 20px; color: #ffffff; font-weight: 700; text-align: center; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.5px;">
+                                <i class="fa-solid fa-layer-group" style="color: #60a5fa; margin-right: 6px;"></i> Đơn Vị
+                            </th>
+                            <th class="col-price" style="padding: 16px 20px; color: #ffffff; font-weight: 700; text-align: right; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.5px;">
+                                <i class="fa-solid fa-tag" style="color: #60a5fa; margin-right: 6px;"></i> Giá Niêm Yết
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid var(--clr-border);">
+                            <td class="col-service" style="padding: 14px 20px;">Răng sứ kim loại Cr-Co</td>
+                            <td class="col-unit" style="padding: 14px 20px; text-align: center; color: var(--clr-text-muted);">1 răng</td>
+                            <td class="col-price" style="padding: 14px 20px; text-align: right; font-weight: 700; color: var(--clr-navy);">1.200.000đ</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--clr-border);">
+                            <td class="col-service" style="padding: 14px 20px;">Răng sứ Titan</td>
+                            <td class="col-unit" style="padding: 14px 20px; text-align: center; color: var(--clr-text-muted);">1 răng</td>
+                            <td class="col-price" style="padding: 14px 20px; text-align: right; font-weight: 700; color: var(--clr-navy);">2.500.000đ</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--clr-border);">
+                            <td class="col-service" style="padding: 14px 20px;">Răng toàn sứ Zirconia</td>
+                            <td class="col-unit" style="padding: 14px 20px; text-align: center; color: var(--clr-text-muted);">1 răng</td>
+                            <td class="col-price" style="padding: 14px 20px; text-align: right; font-weight: 700; color: var(--clr-navy);">5.000.000đ</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--clr-border);">
+                            <td class="col-service" style="padding: 14px 20px;">Răng sứ Cercon / E.max ZirCAD</td>
+                            <td class="col-unit" style="padding: 14px 20px; text-align: center; color: var(--clr-text-muted);">1 răng</td>
+                            <td class="col-price" style="padding: 14px 20px; text-align: right; font-weight: 700; color: var(--clr-navy);">6.000.000đ</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--clr-border);">
+                            <td class="col-service" style="padding: 14px 20px;">Răng sứ Cercon HT / E.max Press</td>
+                            <td class="col-unit" style="padding: 14px 20px; text-align: center; color: var(--clr-text-muted);">1 răng</td>
+                            <td class="col-price highlight" style="padding: 14px 20px; text-align: right; font-weight: 700; color: var(--clr-primary);">7.000.000đ</td>
+                        </tr>
+                        <tr style="background: rgba(4, 147, 241, 0.08); border-left: 4px solid var(--clr-primary);">
+                            <td class="col-service" style="padding: 16px 20px;">
+                                <div style="display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                                    <i class="fa-solid fa-star" style="color: #f59e0b; font-size: 1rem;"></i>
+                                    <strong style="color: var(--clr-navy); font-size: 1rem;">Răng sứ Lava Plus 3M Mỹ</strong>
+                                    <span style="background: linear-gradient(135deg, #0033a3, #0493f1); color: #fff; font-size: 0.72rem; padding: 3px 10px; border-radius: 12px; font-weight: 700;">Được ưa chuộng nhất</span>
+                                </div>
+                            </td>
+                            <td class="col-unit" style="padding: 16px 20px; text-align: center; font-weight: 600; color: var(--clr-navy);">1 răng</td>
+                            <td class="col-price highlight" style="padding: 16px 20px; text-align: right; font-weight: 800; font-size: 1.15rem; color: var(--clr-primary);">8.000.000đ</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Installment info card -->
+            <div class="reveal reveal-delay-2" style="max-width: 900px; margin: 30px auto; background: linear-gradient(135deg, #0033a3 0%, #0493f1 100%); color: #ffffff; padding: 25px 30px; border-radius: 14px; display: flex; align-items: center; gap: 22px; box-shadow: 0 10px 25px rgba(0, 51, 163, 0.15);">
+                <div style="font-size: 2.8rem; color: #ffffff; flex-shrink: 0;"><i class="fa-solid fa-credit-card"></i></div>
+                <div>
+                    <h3 style="margin-bottom: 6px; font-size: 1.25rem; font-weight: 700; color: #ffffff;">Chương trình trả góp lãi suất 0%</h3>
+                    <p style="font-size: 0.92rem; line-height: 1.6; color: #ffffff !important; opacity: 0.95; margin: 0;">
+                        Flora hỗ trợ trả góp lãi suất 0% thông qua các ngân hàng liên kết, giảm bớt gánh nặng tài chính ban đầu cho các ca bọc răng sứ thẩm mỹ toàn hàm. Tư vấn miễn phí và chi tiết kế hoạch trả góp ngay khi thăm khám.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── CA ĐIỀU TRỊ THỰC TẾ (SECTION 12: CLINICAL CASES) ─── -->
+    <section class="section-padding" id="cases" style="background: var(--clr-white);">
+        <div class="container">
+            <div class="section-header center reveal">
+                <h2>Hình Ảnh Khách Hàng Điều Trị Bọc Răng Sứ Thành Công</h2>
+                <p style="max-width: 680px; margin: 12px auto 0; font-size: 0.95rem; color: var(--clr-text-muted);">
+                    Hình ảnh trước và sau phục hình bọc răng sứ thực tế tại Nha khoa Flora – Khôi phục hoàn hảo lực nhai và nụ cười rạng rỡ.
+                </p>
+            </div>
+            
+            <div class="case-grid mobile-slider" style="margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px;">
+                <!-- Case 1: Hoàng Như Anh -->
+                <div class="case-card reveal-scale" style="padding: 0; overflow: hidden; border: 1px solid var(--clr-border); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); display: flex; flex-direction: column;">
+                    <div class="case-img-split">
+                        <div class="case-img-half before">
+                            <img src="<?php echo flora_asset('ngayhoi_item/bf_at/boc_su_nhu_anh_bf.webp'); ?>" alt="Chị Hoàng Như Anh Trước Khi Bọc Răng Sứ" loading="lazy" width="1000" height="1000" />
+                            <span class="case-img-label">Trước</span>
+                        </div>
+                        <div class="case-img-half after">
+                            <img src="<?php echo flora_asset('ngayhoi_item/bf_at/boc_su_nhu_anh_at.webp'); ?>" alt="Chị Hoàng Như Anh Sau Khi Bọc Răng Sứ" loading="lazy" width="1000" height="1000" />
+                            <span class="case-img-label">Sau</span>
+                        </div>
+                    </div>
+                    <div class="case-card-body" style="padding: 22px 20px;">
+                        <h4 style="font-family: var(--font-title); font-size: 1.1rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--clr-border);">Chị Hoàng Như Anh</h4>
+                        <div class="case-detail-row" style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.5; margin-bottom: 6px;">
+                            <strong style="color: var(--clr-text);">Tình trạng ban đầu:</strong> Răng khấp khểnh, lệch lạc nặng, chen chúc lộn xộn ở cả 2 hàm.
+                        </div>
+                        <div class="case-detail-row" style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.5; margin-bottom: 6px;">
+                            <strong style="color: var(--clr-text);">Phương pháp điều trị:</strong> Bọc răng sứ thẩm mỹ toàn sứ Cercon HT nắn chỉnh trục răng.
+                        </div>
+                        <div class="case-detail-row" style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.5; margin-bottom: 6px;">
+                            <strong style="color: var(--clr-text);">Số lượng & Kỹ thuật:</strong> Phục hình toàn sứ vùng thẩm mỹ – Can thiệp an toàn, bảo tồn tủy sống.
+                        </div>
+                        <div class="case-detail-row" style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.5;">
+                            <strong style="color: var(--clr-text);">Kết quả:</strong> Cung răng đều đặn thẳng tắp, khớp cắn chuẩn xác, nụ cười hài hòa tự tin.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 2: Lau Kok Weng -->
+                <div class="case-card reveal-scale" style="padding: 0; overflow: hidden; border: 1px solid var(--clr-border); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); display: flex; flex-direction: column;">
+                    <div class="case-img-split">
+                        <div class="case-img-half before">
+                            <img src="<?php echo flora_asset('ngayhoi_item/bf_at/boc_su_lau_kok_weng_bf.webp'); ?>" alt="Chú Lau Kok Weng Trước Khi Bọc Răng Sứ" loading="lazy" width="1000" height="1000" />
+                            <span class="case-img-label">Trước</span>
+                        </div>
+                        <div class="case-img-half after">
+                            <img src="<?php echo flora_asset('ngayhoi_item/bf_at/boc_su_lau_kok_weng_at.webp'); ?>" alt="Chú Lau Kok Weng Sau Khi Bọc Răng Sứ" loading="lazy" width="1000" height="1000" />
+                            <span class="case-img-label">Sau</span>
+                        </div>
+                    </div>
+                    <div class="case-card-body" style="padding: 22px 20px;">
+                        <h4 style="font-family: var(--font-title); font-size: 1.1rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--clr-border);">Chú Lau Kok Weng (56 tuổi, Việt kiều)</h4>
+                        <div class="case-detail-row" style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.5; margin-bottom: 6px;">
+                            <strong style="color: var(--clr-text);">Tình trạng ban đầu:</strong> Răng cũ xỉn màu, mòn men và cổ chân răng, form răng ngắn không đều.
+                        </div>
+                        <div class="case-detail-row" style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.5; margin-bottom: 6px;">
+                            <strong style="color: var(--clr-text);">Phương pháp điều trị:</strong> Bọc răng toàn sứ cao cấp Lava Plus 3M (Mỹ) toàn hàm.
+                        </div>
+                        <div class="case-detail-row" style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.5; margin-bottom: 6px;">
+                            <strong style="color: var(--clr-text);">Số lượng & Kỹ thuật:</strong> Phục hình 2 cung hàm toàn diện – Tái lập khớp cắn và nâng khớp ăn nhai.
+                        </div>
+                        <div class="case-detail-row" style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.5;">
+                            <strong style="color: var(--clr-text);">Kết quả:</strong> Khôi phục hoàn hảo lực nhai chắc khỏe, nụ cười sáng khỏe, trẻ hóa diện mạo.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 3: Mai Lê Hồng Diễm -->
+                <div class="case-card reveal-scale" style="padding: 0; overflow: hidden; border: 1px solid var(--clr-border); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); display: flex; flex-direction: column;">
+                    <div class="case-img-split">
+                        <div class="case-img-half before">
+                            <img src="<?php echo flora_asset('ngayhoi_item/bf_at/boc_su_hong_diem_bf.webp?v=2'); ?>" alt="Chị Mai Lê Hồng Diễm Trước Khi Bọc Răng Sứ" loading="lazy" width="1000" height="1000" />
+                            <span class="case-img-label">Trước</span>
+                        </div>
+                        <div class="case-img-half after">
+                            <img src="<?php echo flora_asset('ngayhoi_item/bf_at/boc_su_hong_diem_at.webp?v=2'); ?>" alt="Chị Mai Lê Hồng Diễm Sau Khi Bọc Răng Sứ" loading="lazy" width="1000" height="1000" />
+                            <span class="case-img-label">Sau</span>
+                        </div>
+                    </div>
+                    <div class="case-card-body" style="padding: 22px 20px;">
+                        <h4 style="font-family: var(--font-title); font-size: 1.1rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--clr-border);">Chị Mai Lê Hồng Diễm</h4>
+                        <div class="case-detail-row" style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.5; margin-bottom: 6px;">
+                            <strong style="color: var(--clr-text);">Tình trạng ban đầu:</strong> Mất răng hàm, các răng còn lại ngả màu ố vàng, khớp cắn lệch.
+                        </div>
+                        <div class="case-detail-row" style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.5; margin-bottom: 6px;">
+                            <strong style="color: var(--clr-text);">Phương pháp điều trị:</strong> Kết hợp cấy ghép 1 trụ Implant Swiss (Thụy Sĩ) & Bọc 21 răng sứ Cercon HT.
+                        </div>
+                        <div class="case-detail-row" style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.5; margin-bottom: 6px;">
+                            <strong style="color: var(--clr-text);">Số lượng & Kỹ thuật:</strong> Bọc 21 răng toàn sứ + Cấy 1 trụ Implant tức thì chuẩn Thụy Sĩ.
+                        </div>
+                        <div class="case-detail-row" style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.5;">
+                            <strong style="color: var(--clr-text);">Kết quả:</strong> Phục hồi trọn vẹn chức năng ăn nhai và kiến tạo nụ cười rạng rỡ, trắng sáng hoàn mỹ.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 4: Nguyễn Thị Liên -->
+                <div class="case-card reveal-scale" style="padding: 0; overflow: hidden; border: 1px solid var(--clr-border); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); display: flex; flex-direction: column;">
+                    <div class="case-img-split">
+                        <div class="case-img-half before">
+                            <img src="<?php echo flora_asset('ngayhoi_item/bf_at/boc_su_nguyen_lien_bf.webp'); ?>" alt="Cô Nguyễn Thị Liên Trước Khi Bọc Răng Sứ" loading="lazy" width="1000" height="1000" />
+                            <span class="case-img-label">Trước</span>
+                        </div>
+                        <div class="case-img-half after">
+                            <img src="<?php echo flora_asset('ngayhoi_item/bf_at/boc_su_nguyen_lien_at.webp'); ?>" alt="Cô Nguyễn Thị Liên Sau Khi Bọc Răng Sứ" loading="lazy" width="1000" height="1000" />
+                            <span class="case-img-label">Sau</span>
+                        </div>
+                    </div>
+                    <div class="case-card-body" style="padding: 22px 20px;">
+                        <h4 style="font-family: var(--font-title); font-size: 1.1rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--clr-border);">Cô Nguyễn Thị Liên (54 tuổi)</h4>
+                        <div class="case-detail-row" style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.5; margin-bottom: 6px;">
+                            <strong style="color: var(--clr-text);">Tình trạng ban đầu:</strong> Răng cũ sứt mẻ, mòn men, nhiễm màu xỉn vàng và khớp cắn không đều.
+                        </div>
+                        <div class="case-detail-row" style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.5; margin-bottom: 6px;">
+                            <strong style="color: var(--clr-text);">Phương pháp điều trị:</strong> Bọc răng toàn sứ thẩm mỹ Cercon HT phục hình cung cười.
+                        </div>
+                        <div class="case-detail-row" style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.5; margin-bottom: 6px;">
+                            <strong style="color: var(--clr-text);">Số lượng & Kỹ thuật:</strong> Phục hình toàn sứ thẩm mỹ – Kiểm soát khít sát đường hoàn tất viền nướu.
+                        </div>
+                        <div class="case-detail-row" style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.5;">
+                            <strong style="color: var(--clr-text);">Kết quả:</strong> Trẻ hóa nụ cười, sắc sứ trắng trong tự nhiên, cải thiện phát âm và thẩm mỹ tối đa.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 5: Phan Bá Lương -->
+                <div class="case-card reveal-scale" style="padding: 0; overflow: hidden; border: 1px solid var(--clr-border); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); display: flex; flex-direction: column;">
+                    <div class="case-img-split">
+                        <div class="case-img-half before">
+                            <img src="<?php echo flora_asset('ngayhoi_item/bf_at/boc_su_ba_luong_bf.webp?v=2'); ?>" alt="Chú Phan Bá Lương Trước Khi Bọc Răng Sứ" loading="lazy" width="1000" height="1000" />
+                            <span class="case-img-label">Trước</span>
+                        </div>
+                        <div class="case-img-half after">
+                            <img src="<?php echo flora_asset('ngayhoi_item/bf_at/boc_su_ba_luong_at.webp?v=2'); ?>" alt="Chú Phan Bá Lương Sau Khi Bọc Răng Sứ" loading="lazy" width="1000" height="1000" />
+                            <span class="case-img-label">Sau</span>
+                        </div>
+                    </div>
+                    <div class="case-card-body" style="padding: 22px 20px;">
+                        <h4 style="font-family: var(--font-title); font-size: 1.1rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--clr-border);">Chú Phan Bá Lương</h4>
+                        <div class="case-detail-row" style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.5; margin-bottom: 6px;">
+                            <strong style="color: var(--clr-text);">Tình trạng ban đầu:</strong> Răng ố vàng, mòn mặt nhai nặng, răng sâu tổn thương mô men răng.
+                        </div>
+                        <div class="case-detail-row" style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.5; margin-bottom: 6px;">
+                            <strong style="color: var(--clr-text);">Phương pháp điều trị:</strong> Bọc răng toàn sứ Zirconia/Cercon chịu lực cao bảo vệ tủy răng.
+                        </div>
+                        <div class="case-detail-row" style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.5; margin-bottom: 6px;">
+                            <strong style="color: var(--clr-text);">Số lượng & Kỹ thuật:</strong> Phục hồi cung răng ăn nhai – Gia cố độ cứng chắc gấp 5 lần răng thật.
+                        </div>
+                        <div class="case-detail-row" style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.5;">
+                            <strong style="color: var(--clr-text);">Kết quả:</strong> Ăn nhai ngon miệng, răng khít sát chuẩn khớp cắn, không lo ê buốt.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 6: Phạm Oanh -->
+                <div class="case-card reveal-scale" style="padding: 0; overflow: hidden; border: 1px solid var(--clr-border); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); display: flex; flex-direction: column;">
+                    <div class="case-img-split">
+                        <div class="case-img-half before">
+                            <img src="<?php echo flora_asset('ngayhoi_item/bf_at/boc_su_pham_oanh_bf.webp'); ?>" alt="Chị Phạm Oanh Trước Khi Bọc Răng Sứ" loading="lazy" width="1000" height="1000" />
+                            <span class="case-img-label">Trước</span>
+                        </div>
+                        <div class="case-img-half after">
+                            <img src="<?php echo flora_asset('ngayhoi_item/bf_at/boc_su_pham_oanh_at.webp'); ?>" alt="Chị Phạm Oanh Sau Khi Bọc Răng Sứ" loading="lazy" width="1000" height="1000" />
+                            <span class="case-img-label">Sau</span>
+                        </div>
+                    </div>
+                    <div class="case-card-body" style="padding: 22px 20px;">
+                        <h4 style="font-family: var(--font-title); font-size: 1.1rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--clr-border);">Chị Phạm Oanh</h4>
+                        <div class="case-detail-row" style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.5; margin-bottom: 6px;">
+                            <strong style="color: var(--clr-text);">Tình trạng ban đầu:</strong> Răng khểnh chen chúc, lệch khớp cắn nhẹ, nụ cười kém cân đối.
+                        </div>
+                        <div class="case-detail-row" style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.5; margin-bottom: 6px;">
+                            <strong style="color: var(--clr-text);">Phương pháp điều trị:</strong> Bọc răng toàn sứ thẩm mỹ E.max ZirCAD cao cấp.
+                        </div>
+                        <div class="case-detail-row" style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.5; margin-bottom: 6px;">
+                            <strong style="color: var(--clr-text);">Số lượng & Kỹ thuật:</strong> Bọc sứ nhóm răng thẩm mỹ – Cân chỉnh trục răng thẳng đều, đường cười chuẩn.
+                        </div>
+                        <div class="case-detail-row" style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.5;">
+                            <strong style="color: var(--clr-text);">Kết quả:</strong> Cung cười tròn đều, hài hòa tuyệt đối với đường viền môi và khuôn mặt.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── FAQ ─── -->
+    <!-- ─── REGISTRATION SECTION (FAQ + FORM SPLIT) ─── -->
+    <section class="section-padding registration-section" id="dang-ky">
+        <div class="container">
+            <div class="reg-split-container">
+                <!-- Left Column: FAQ Accordion -->
+                <div class="reveal" style="display: flex; flex-direction: column; justify-content: flex-start; gap: 20px;">
+                    <div>
+                        <h3 style="font-family: var(--font-title); font-size: 1.6rem; font-weight: 700; color: var(--clr-navy); margin: 0 0 10px 0;">Câu Hỏi Thường Gặp</h3>
+                        <p style="font-size: 0.9rem; color: var(--clr-text-muted); margin: 0 0 20px 0; line-height: 1.6;">Những băn khoăn phổ biến của khách hàng khi tìm hiểu dịch vụ tại Nha khoa Flora.</p>
+                    </div>
+                    <div class="faq-list" style="margin-top: 0;">
+                        <div class="faq-item active">
+                            <button class="faq-question">Bọc răng sứ có bị đau buốt hay ê răng không? <i class="fa-solid fa-chevron-down"></i></button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    Quá trình mài răng được thực hiện nhẹ nhàng dưới sự hỗ trợ của thuốc tê cao cấp. Sau khi gắn sứ, khớp cắn được cân chỉnh chuẩn xác nên răng sứ sẽ hoàn toàn êm ái, ăn nhai tự nhiên như răng thật.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">Nên chọn răng toàn sứ hay răng sứ kim loại? <i class="fa-solid fa-chevron-down"></i></button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    Bạn nên ưu tiên chọn răng toàn sứ (như Zirconia, Cercon, E.max) vì có tính thẩm mỹ cao, không bị đen viền nướu sau một thời gian sử dụng và hoàn toàn lành tính với cơ thể so với răng sứ kim loại.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">Tuổi thọ của răng bọc sứ kéo dài bao lâu? <i class="fa-solid fa-chevron-down"></i></button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    Răng toàn sứ chính hãng có độ bền dao động từ 10 - 15 năm, thậm chí trọn đời nếu được chăm sóc răng miệng tốt và tái khám định kỳ mỗi 6 tháng tại nha khoa.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Registration Form -->
+                <div class="cta-form reveal reveal-delay-2" style="background: #ffffff; border: 1px solid var(--clr-border); padding: 40px; border-radius: var(--radius-md); box-shadow: var(--shadow-premium);">
+                    <h3 style="color: var(--clr-navy); font-size: 1.4rem; margin-bottom: 8px; text-align: center;">Đăng Ký Khám & Tư Vấn Miễn Phí</h3>
+                    <p style="font-size: 0.88rem; color: var(--clr-text-muted); text-align: center; margin-bottom: 24px;">Miễn phí chụp phim CT 3D & Chẩn đoán y khoa cùng Bác sĩ Cấp Cao</p>
+                    
+                    <form id="floraRegistrationForm" class="modal-form" style="display: flex; flex-direction: column; gap: 15px;">
+                        <input type="hidden" id="note" name="note" value="" />
+                        <div class="form-group">
+                            <input class="form-input" name="name" placeholder="Họ và tên của bạn" required type="text" style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);" />
+                        </div>
+                        <div class="form-group">
+                            <input class="form-input" name="phone" placeholder="Số điện thoại liên hệ" required type="tel" style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);" />
+                        </div>
+                        <div class="form-group">
+                            <input class="form-input" name="email" placeholder="Địa chỉ Email" required type="email" style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);" />
+                        </div>
+                        <div class="form-group">
+                            <label style="display: block; font-size: 0.85rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 6px; text-align: left;">Giới tính:</label>
+                            <div style="display: flex; gap: 10px;">
+                                <label style="flex: 1; text-align: center; border: 1px solid var(--clr-border); padding: 10px; border-radius: var(--radius-sm); background: var(--clr-white); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 600; font-size: 0.9rem; transition: var(--transition);">
+                                    <input type="radio" name="gender" value="Nam" checked style="display: none;" />
+                                    <i class="fa-solid fa-mars" style="color: #0084ff;"></i> Nam
+                                </label>
+                                <label style="flex: 1; text-align: center; border: 1px solid var(--clr-border); padding: 10px; border-radius: var(--radius-sm); background: var(--clr-white); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 600; font-size: 0.9rem; transition: var(--transition);">
+                                    <input type="radio" name="gender" value="Nữ" style="display: none;" />
+                                    <i class="fa-solid fa-venus" style="color: #ff007f;"></i> Nữ
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-select" name="service" required style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);">
+<option value="Trồng răng Implant">Trồng răng Implant Thụy Sĩ</option>
+                                <option value="Niềng răng chỉnh nha">Niềng răng Invisalign / Mắc cài</option>
+                                <option value="Điều trị cười hở lợi">Điều trị cười hở lợi</option>
+                                <option value="Dán sứ thẩm mỹ Veneer">Dán sứ Veneer E.max</option>
+                                <option value="Bọc răng sứ" selected>Bọc răng sứ thẩm mỹ</option>
+                                <option value="Nha khoa tổng quát">Khám răng tổng quát / Lấy cao răng</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-select" name="preferredTime" required style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);">
+                                <option value="" disabled selected>Thời gian muốn được liên hệ</option>
+                                <option value="Sáng (8h00 - 12h00)">Sáng (8h00 - 12h00)</option>
+                                <option value="Chiều (13h30 - 17h30)">Chiều (13h30 - 17h30)</option>
+                                <option value="Tối (18h00 - 20h00)">Tối (18h00 - 20h00)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="padding: 14px; margin-top: 10px; font-size: 1rem; font-weight: bold; width: 100%;">Gửi Đăng Ký Đặt Lịch</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+
+<?php
+get_footer();

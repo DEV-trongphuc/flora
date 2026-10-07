@@ -16,7 +16,7 @@
  */
 
 // 1. CẤU HÌNH HỆ THỐNG
-const SPREADSHEET_ID = "1ZyzEsatFjyjcqCA6Hn0SrA6jDoq05SV7ytv94vyvKD8";
+const SPREADSHEET_ID = "1Pvd5AxuTdAesPsHOl4dkWPsYdh83gUuqvPV3Htrz0x4";
 
 /**
  * 2. XỬ LÝ REQUEST HTTP (doGet & doPost) HỖ TRỢ CORS
@@ -45,8 +45,19 @@ function handleRequest(e) {
         result = searchImplantData(query);
         break;
 
-      case "initSample":
-        result = initSampleData();
+      case "getTabs":
+        const allSheets = getSpreadsheet().getSheets();
+        const tabList = [];
+        for (let i = 0; i < allSheets.length; i++) {
+          const sName = allSheets[i].getName();
+          if (sName.trim().toUpperCase() !== "TEST") {
+            tabList.push({
+              gid: String(allSheets[i].getSheetId()),
+              name: sName
+            });
+          }
+        }
+        result = { success: true, tabs: tabList };
         break;
 
       case "ping":
@@ -79,27 +90,64 @@ function createJsonResponse(data) {
 }
 
 /**
- * 3. HÀM TRA CỨU DỮ LIỆU TRỤ IMPLANT TỪ GOOGLE SHEET (CHỈ THEO MÃ SN)
+ * BẢNG ÁNH XẠ GTIN CHUẨN QUỐC TẾ CỦA HÃNG NOVODENT IMPLANTSWISS
+ */
+const GTIN_MAP = {
+  "07640168180058": { ref: "S-BFHR3708", prod: "Bone Level Fixture Hybrid", size: "3.7X08 mm" },
+  "07640168180065": { ref: "S-BFHR3710", prod: "Bone Level Fixture Hybrid", size: "3.7X10 mm" },
+  "07640168180072": { ref: "S-BFHR3712", prod: "Bone Level Fixture Hybrid", size: "3.7X12 mm" },
+  "07640168180089": { ref: "S-BFHR3714", prod: "Bone Level Fixture Hybrid", size: "3.7X14 mm" },
+  "07640168180096": { ref: "S-BFHR4308", prod: "Bone Level Fixture Hybrid", size: "4.3X08 mm" },
+  "07640168180102": { ref: "S-BFHR4310", prod: "Bone Level Fixture Hybrid", size: "4.3X10 mm" },
+  "07640168180119": { ref: "S-BFHR4312", prod: "Bone Level Fixture Hybrid", size: "4.3X12 mm" },
+  "07640168180126": { ref: "S-BFHR4314", prod: "Bone Level Fixture Hybrid", size: "4.3X14 mm" },
+  "07640168180133": { ref: "S-BFHR4808", prod: "Bone Level Fixture Hybrid", size: "4.8X08 mm" },
+  "07640168180140": { ref: "S-BFHR4810", prod: "Bone Level Fixture Hybrid", size: "4.8X10 mm" },
+  "07640168180157": { ref: "S-BFHR4812", prod: "Bone Level Fixture Hybrid", size: "4.8X12 mm" },
+  "07640168180164": { ref: "S-BFHR4814", prod: "Bone Level Fixture Hybrid", size: "4.8X14 mm" },
+  "07640168180171": { ref: "S-BWFHR5508", prod: "Bone Level Wide Fixture Hybrid", size: "5.5X08 mm" },
+  "07640168180188": { ref: "S-BWFHR5510", prod: "Bone Level Wide Fixture Hybrid", size: "5.5X10 mm" },
+  "07640168180195": { ref: "S-BWFHR5512", prod: "Bone Level Wide Fixture Hybrid", size: "5.5X12 mm" },
+  "07640168180010": { ref: "S-BMFSR3308", prod: "Bone Level Mini Fixture Straight", size: "3.3X08 mm" },
+  "07640168180027": { ref: "S-BMFSR3310", prod: "Bone Level Mini Fixture Straight", size: "3.3X10 mm" },
+  "07640168180034": { ref: "S-BMFSR3312", prod: "Bone Level Mini Fixture Straight", size: "3.3X12 mm" },
+  "07640168180041": { ref: "S-BMFSR3314", prod: "Bone Level Mini Fixture Straight", size: "3.3X14 mm" },
+  "07640168184384": { ref: "S-BMFSR4305", prod: "Bone Level Mini Fixture Straight", size: "4.3X05 mm" },
+  "07640168184391": { ref: "S-BMFSR4306", prod: "Bone Level Mini Fixture Straight", size: "4.3X06 mm" },
+  "07640168184407": { ref: "S-BMFSR4805", prod: "Bone Level Mini Fixture Straight", size: "4.8X05 mm" },
+  "07640168184414": { ref: "S-BMFSR4806", prod: "Bone Level Mini Fixture Straight", size: "4.8X06 mm" },
+  "07640168184421": { ref: "S-BMFSR5505", prod: "Bone Level Mini Fixture Straight", size: "5.5X05 mm" },
+  "07640168184438": { ref: "S-BMFSR5506", prod: "Bone Level Mini Fixture Straight", size: "5.5X06 mm" },
+  "07630188202670": { ref: "S-BNFHR2910", prod: "Bone Level Narrow Hybrid Fixture", size: "2.9X10 mm" },
+  "07630188202687": { ref: "S-BNFHR2912", prod: "Bone Level Narrow Hybrid Fixture", size: "2.9X12 mm" },
+  "07630188202694": { ref: "S-BNFHR2914", prod: "Bone Level Narrow Hybrid Fixture", size: "2.9X14 mm" }
+};
+
+/**
+ * 3. HÀM TRA CỨU DỮ LIỆU TRỤ IMPLANT TỪ GOOGLE SHEET (TÌM KIẾM TRÊN TẤT CẢ CÁC TAB NHA KHOA)
  */
 function searchImplantData(rawQuery) {
   if (!rawQuery) {
     return {
       success: false,
       notFound: true,
-      message: "Vui lòng nhập Mã SN (Serial Number) để tra cứu thông số trụ Implantswiss chính hãng!"
+      message: "Vui lòng nhập Mã SN (12 chữ số cuối của mã vạch) để tra cứu thông số trụ Implantswiss chính hãng!"
     };
   }
 
   const queryClean = cleanString(rawQuery);
 
-  if (!queryClean || queryClean.length < 3) {
+  if (!queryClean || queryClean.length < 12) {
     return {
       success: false,
       notFound: true,
       query: rawQuery,
-      message: "Vui lòng nhập tối thiểu 3 ký tự của Mã SN (Serial Number)!"
+      message: "Vui lòng nhập đủ 12 chữ số của mã SN hoặc quét toàn bộ mã vạch để tra cứu!"
     };
   }
+
+  // Chuẩn hóa SN cần tìm: Nếu người dùng nhập mã barcode dài (>= 12 ký tự), trích xuất 12 số cuối
+  const querySN = queryClean.length >= 12 ? queryClean.slice(-12) : queryClean;
 
   const ss = getSpreadsheet();
   const sheets = ss.getSheets();
@@ -110,67 +158,110 @@ function searchImplantData(rawQuery) {
     };
   }
 
-  const sheet = sheets[0];
-  const data = sheet.getDataRange().getValues();
-
-  if (data.length <= 1) {
-    return {
-      success: false,
-      message: "Bảng tính hiện chưa có dữ liệu trụ Implant. Vui lòng cập nhật dữ liệu!"
-    };
-  }
-
-  const headerMap = buildHeaderMap(data[0], {
-    ref: ["ref", "mã ref", "ma ref", "reference", "mã sản phẩm", "ma san pham"],
-    productName: ["product name", "product_name", "tên sản phẩm", "ten san pham", "tên trụ", "ten tru", "product", "sản phẩm", "san pham"],
-    size: ["size", "kích thước", "kich thuoc", "dimension", "quy cách", "quy cach"],
-    code: ["sn", "mã sn", "ma sn", "serial", "số serial", "so serial", "serial number", "code", "mã code", "ma code", "barcode", "mã vạch", "ma vach", "udi"],
-    lot: ["lot", "số lot", "so lot", "mã lot", "ma lot", "batch", "lô"]
-  });
-
-  const refIdx = headerMap.ref !== -1 ? headerMap.ref : 0;
-  const prodIdx = headerMap.productName !== -1 ? headerMap.productName : 1;
-  const sizeIdx = headerMap.size !== -1 ? headerMap.size : 2;
-  const codeIdx = headerMap.code !== -1 ? headerMap.code : 3;
-  const lotIdx = headerMap.lot !== -1 ? headerMap.lot : 4;
-
   const matchedList = [];
 
-  for (let i = 1; i < data.length; i++) {
-    const row = data[i];
-    const rowRef = String(row[refIdx] || "").trim();
-    const rowProd = String(row[prodIdx] || "").trim();
-    const rowSize = String(row[sizeIdx] || "").trim();
-    const rowCode = String(row[codeIdx] || "").trim();
-    const rowLot = String(row[lotIdx] || "").trim();
+  // LẶP QUA TẤT CẢ CÁC TAB TRONG GOOGLE SPREADSHEET (BỎ QUA TAB DEMO 'TEST')
+  for (let s = 0; s < sheets.length; s++) {
+    const sheet = sheets[s];
+    const sheetName = sheet.getName();
+    if (sheetName.trim().toUpperCase() === "TEST") continue; // Loại bỏ tab mẫu/demo
 
-    if (!rowCode) continue;
+    const data = sheet.getDataRange().getValues();
+    if (!data || data.length === 0) continue;
 
-    const cleanCode = cleanString(rowCode);
+    const firstRowStr = (data[0] || []).join(" ").toUpperCase();
+    const hasHeader = /REF|CODE|SẢN PHẨM|PRODUCT|MÃ|SERIAL/i.test(firstRowStr);
+    const startIdx = hasHeader ? 1 : 0;
 
-    // CHỈ SO KHỚP VỚI MÃ SN (Serial Number / CODE) - KHÔNG MATCH REF VÌ REF CÓ THỂ GIỐNG NHAU GIỮA CÁC TRỤ
-    const matchCode = cleanCode && (
-      cleanCode === queryClean || 
-      cleanCode.includes(queryClean) || 
-      (queryClean.length >= 6 && queryClean.includes(cleanCode))
-    );
+    const headerMap = hasHeader ? buildHeaderMap(data[0], {
+      ref: ["mã sản phẩm (ref)", "mã ref", "ma ref", "reference", "ref"],
+      productName: ["tên sản phẩm (product name)", "tên sản phẩm", "ten san pham", "product name", "product_name", "tên trụ", "ten tru"],
+      size: ["size", "kích thước", "kich thuoc", "dimension", "quy cách", "quy cach"],
+      code: ["code", "sn / code", "sn", "mã sn", "ma sn", "serial", "số serial", "so serial", "serial number", "mã code", "ma code", "barcode", "mã vạch", "ma vach", "udi"],
+      lot: ["lot", "số lot", "so lot", "mã lot", "ma lot", "batch", "lô"],
+      mfg: ["date of manufacture", "ngày sản xuất", "ngay san xuat", "mfg", "mfg date", "nsx"],
+      exp: ["expiration date", "expiiration date", "hạn sử dụng", "han su dung", "hsd", "exp", "exp date"]
+    }) : { ref: 0, productName: 1, size: 2, code: 3, lot: 4, mfg: -1, exp: -1 };
 
-    if (matchCode) {
-      matchedList.push({
-        ref: rowRef || "N/A",
-        productName: rowProd || "Bone Level Fixture Hybrid",
-        size: rowSize || "N/A",
-        code: rowCode || "N/A",
-        sn: rowCode || "N/A",
-        lot: rowLot || "N/A",
-        material: "Medical Grade 4 Titanium (Ti-G4)",
-        origin: "Made in Switzerland (Thụy Sĩ)",
-        warranty: "Lifetime 1-to-1 replacement warranty (Bảo hành 1 đổi 1 trọn đời)",
-        technology: "SRA Surface - Sandblasted, Large Grit, Acid-Etched",
-        standards: "CE 1984 / FDA / ISO 13485 Medical Grade",
-        isGenuine: true,
-        status: "Chính hãng - Đang lưu hành & được bảo hành toàn cầu"
-      });
+    const refIdx = headerMap.ref !== -1 ? headerMap.ref : 0;
+    const prodIdx = headerMap.productName !== -1 ? headerMap.productName : 1;
+    const sizeIdx = headerMap.size !== -1 ? headerMap.size : 2;
+    const codeIdx = headerMap.code !== -1 ? headerMap.code : 3;
+    const lotIdx = headerMap.lot !== -1 ? headerMap.lot : 4;
+    const mfgIdx = headerMap.mfg;
+    const expIdx = headerMap.exp;
+
+    let lastRef = "";
+    let lastProd = "";
+    let lastSize = "";
+
+    for (let i = startIdx; i < data.length; i++) {
+      const row = data[i];
+      let rowRef = String(row[refIdx] || "").trim();
+      let rowProd = String(row[prodIdx] || "").trim();
+      let rowSize = String(row[sizeIdx] || "").trim();
+      const rowCode = String(row[codeIdx] || "").trim();
+      const rowLot = String(row[lotIdx] || "").trim().replace(/\.0+$/, "");
+      const rowMfg = mfgIdx !== -1 ? String(row[mfgIdx] || "").trim() : "";
+      const rowExp = expIdx !== -1 ? String(row[expIdx] || "").trim() : "";
+
+      if (!rowCode && !rowRef && !rowLot) continue;
+
+      // Xử lý ô bị gộp (Merged cells fill-down)
+      if (rowRef) lastRef = rowRef;
+      else rowRef = lastRef;
+
+      if (rowProd) lastProd = rowProd;
+      else rowProd = lastProd;
+
+      if (rowSize) lastSize = rowSize;
+      else rowSize = lastSize;
+
+      // Tự động phân giải qua GTIN nếu ref/size còn trống
+      const gtinMatch = rowCode.match(/^01(\d{14})/);
+      if (gtinMatch && GTIN_MAP[gtinMatch[1]]) {
+        const cat = GTIN_MAP[gtinMatch[1]];
+        if (!rowRef || rowRef === "N/A") rowRef = cat.ref;
+        if (!rowProd || rowProd === "N/A" || rowProd === rowRef) rowProd = cat.prod;
+        if (!rowSize || rowSize === "N/A") rowSize = cat.size;
+      }
+
+      if (!rowProd || rowProd === rowRef) {
+        rowProd = "Bone Level Fixture Hybrid";
+      }
+
+      const cleanCode = cleanString(rowCode);
+      const sn12 = cleanCode.length >= 12 ? cleanCode.slice(-12) : cleanCode;
+
+      // QUY TẮC: CHỈ TRA CỨU CHÍNH XÁC BẰNG MÃ SN (12 SỐ CUỐI) HOẶC TOÀN BỘ MÃ BARCODE
+      let isMatch = false;
+      if (queryClean.length >= 12) {
+        isMatch = (sn12 === querySN) || (cleanCode === queryClean);
+      }
+
+      if (isMatch) {
+        const dates = parseDatesFromGS1(rowCode, rowLot, rowMfg, rowExp);
+
+        matchedList.push({
+          ref: rowRef || "N/A",
+          productName: rowProd,
+          size: rowSize || "N/A",
+          code: rowCode || "N/A",
+          sn: sn12 || rowCode || "N/A",
+          sn_12: sn12,
+          lot: rowLot || dates.lot || "N/A",
+          clinic: sheetName,
+          dateOfManufacture: dates.mfgDate,
+          expirationDate: dates.expDate,
+          material: "Medical Grade 4 Titanium (Ti-G4)",
+          origin: "Made in Switzerland (Novodent SA)",
+          warranty: "Lifetime 1-to-1 replacement warranty (Bảo hành 1 đổi 1 trọn đời)",
+          technology: "SRA Surface - Sandblasted, Large Grit, Acid-Etched",
+          standards: "CE 1984 / FDA / ISO 13485 Medical Grade",
+          isGenuine: true,
+          status: "Chính hãng - Đang lưu hành & được bảo hành toàn cầu"
+        });
+      }
     }
   }
 
@@ -179,14 +270,15 @@ function searchImplantData(rawQuery) {
       success: false,
       notFound: true,
       query: rawQuery,
-      message: `Không tìm thấy thông tin trụ Implantswiss với Mã SN: "${rawQuery}". Vui lòng kiểm tra lại Mã SN (Serial Number) in trên nhãn hoặc thẻ bảo hành!`
+      message: `Không tìm thấy thông tin trụ Implantswiss với mã: "${rawQuery}". Lưu ý: Hệ thống tra cứu chỉ định danh chuẩn xác bằng Mã SN (12 chữ số cuối của mã vạch). Mã REF hoặc Số LOT không được dùng để định danh duy nhất từng trụ!`
     };
   }
 
   const primaryItem = matchedList[0];
   const now = new Date();
   const timeStr = Utilities.formatDate(now, "Asia/Ho_Chi_Minh", "dd/MM/yyyy HH:mm:ss");
-  const authCode = "NOVODENT-SWISS-" + Math.abs(hashCode(primaryItem.code + primaryItem.lot + primaryItem.ref));
+  const snVal = primaryItem.sn || (primaryItem.code && primaryItem.code.length >= 12 ? primaryItem.code.slice(-12) : primaryItem.code) || rawQuery;
+  const authCode = snVal;
 
   return {
     success: true,
@@ -199,6 +291,53 @@ function searchImplantData(rawQuery) {
     implant: primaryItem,
     implants: matchedList,
     message: "Xác nhận trụ Implantswiss chính hãng từ Novodent SA (Thụy Sĩ) thành công!"
+  };
+}
+
+/**
+ * Trích xuất ngày sản xuất và hạn sử dụng từ GS1-128 / LOT
+ */
+function parseDatesFromGS1(codeStr, lotStr, explicitMfg, explicitExp) {
+  let mfg = explicitMfg || "";
+  let exp = explicitExp || "";
+  const code = String(codeStr || "").trim();
+  const lot = String(lotStr || "").trim();
+
+  if (!exp && code) {
+    const matchExp = code.match(/^01\d{14}17(\d{2})(\d{2})(\d{2})/) || code.match(/(?:^|\D|01\d{14})17(\d{2})(\d{2})(\d{2})(?:10|21|\D|$)/);
+    if (matchExp) {
+      const yy = matchExp[1];
+      const mm = matchExp[2];
+      const dd = matchExp[3];
+      const fullYear = parseInt(yy, 10) > 50 ? "19" + yy : "20" + yy;
+      exp = `${dd}/${mm}/${fullYear}`;
+    }
+  }
+
+  if (!mfg && lot && lot.length >= 6) {
+    const yy = lot.substring(0, 2);
+    const mm = lot.substring(2, 4);
+    const dd = lot.substring(4, 6);
+    const mNum = parseInt(mm, 10);
+    const dNum = parseInt(dd, 10);
+    if (mNum >= 1 && mNum <= 12 && dNum >= 1 && dNum <= 31) {
+      const fullYear = parseInt(yy, 10) > 50 ? "19" + yy : "20" + yy;
+      mfg = `${dd}/${mm}/${fullYear}`;
+    }
+  }
+
+  if (mfg && !exp) {
+    const p = mfg.split(/[\/\-\.]/);
+    if (p.length === 3) exp = `${p[0]}/${p[1]}/${parseInt(p[2], 10) + 5}`;
+  }
+  if (exp && !mfg) {
+    const p = exp.split(/[\/\-\.]/);
+    if (p.length === 3) mfg = `${p[0]}/${p[1]}/${parseInt(p[2], 10) - 5}`;
+  }
+
+  return {
+    mfgDate: mfg || "Theo lô sản xuất",
+    expDate: exp || "5 năm kể từ NSX"
   };
 }
 
@@ -240,32 +379,5 @@ function getSpreadsheet() {
     return SpreadsheetApp.openById(SPREADSHEET_ID);
   }
   return SpreadsheetApp.getActiveSpreadsheet();
-}
-
-/**
- * 5. HÀM TỰ ĐỘNG ĐIỀN DỮ LIỆU MẪU THEO ĐÚNG CẤU TRÚC 1 SHEET (REF, Product name, Size, SN / CODE, LOT)
- */
-function initSampleData() {
-  const ss = getSpreadsheet();
-  const sheets = ss.getSheets();
-  const sheet = sheets[0];
-  sheet.clear();
-
-  const headers = [["REF", "Product name", "Size", "SN / CODE", "LOT"]];
-  const rows = [
-    ["S-BFHR4808", "Bone Level Fixture Hybrid", "4.8X08 mm", "730080810250326033", "250326033000"],
-    ["S-BFHR4308", "Bone Level Fixture Hybrid", "4.3X08 mm", "730060410250509018", "250509018000"],
-    ["S-BWFHR5508", "Bone Level Wide Fixture Hybrid", "5.5X08 mm", "729061410240318007", "240318007000"],
-    ["S-BFHR4310", "Bone Level Fixture Hybrid", "4.3X10 mm", "0107640168180102173006041024102305900021241023059037", "241023059000"]
-  ];
-
-  sheet.getRange(1, 1, 1, 5).setValues(headers).setBackground("#1e293b").setFontColor("#ffffff").setFontWeight("bold");
-  sheet.getRange(2, 1, rows.length, 5).setValues(rows);
-  sheet.autoResizeColumns(1, 5);
-
-  return {
-    success: true,
-    message: "Đã khởi tạo bảng dữ liệu chuẩn 5 cột (REF, Product name, Size, SN / CODE, LOT) thành công!"
-  };
 }
 

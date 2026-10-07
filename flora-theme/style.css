@@ -1,0 +1,20 @@
+/*
+Theme Name: Flora Dental Clinic
+Theme URI: https://nhakhoaflora.com
+Author: Nha Khoa Flora Dev Team
+Author URI: https://nhakhoaflora.com
+Description: Giao diện chuyên sâu Nha Khoa Flora tiêu chuẩn Thụy Sĩ. Tối ưu SEO, Rank Math Pro, tốc độ cao với OpenLiteSpeed, bảo toàn hệ thống bài viết và liên kết y khoa.
+Version: 2.0.0
+Tested up to: 6.7
+Requires PHP: 7.4
+Text Domain: flora
+Tags: medical, dental, clinic, seo-optimized, custom-header, custom-menu, featured-images
+*/
+
+/* Reset & Base Integration */
+:root {
+    --flora-primary: #0033a3;
+    --flora-secondary: #0493f1;
+    --flora-accent: #e20613;
+    --flora-gold: #ffd700;
+}

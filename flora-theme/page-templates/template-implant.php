@@ -1,0 +1,993 @@
+<?php
+/**
+ * Template Name: Trang Cấy Ghép Implant
+ */
+
+get_header();
+?>
+
+<!-- ─── SUBPAGE HERO SECTION (STORY GALLERY HERO) ─── -->
+    <div class="hero-wrapper subpage-hero-wrapper hero-story-gallery">
+        <!-- Floating Sparkles -->
+        <div class="hero-sparkle hero-sparkle-1">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z" fill="url(#sparkleGrad)"/></svg>
+        </div>
+        <div class="hero-sparkle hero-sparkle-2">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z" fill="url(#sparkleGrad)"/></svg>
+        </div>
+        
+        <section class="hero-section" id="banner" style="padding-top: 10px; padding-bottom: 20px;">
+            <div class="container">
+                <!-- Arched Gallery Strip (5 old customer/clinic photos + 1 real implant box photo) -->
+                <div class="hero-gallery-arc reveal" aria-label="Hình ảnh trải nghiệm cấy ghép Implant thực tế tại Flora">
+                    <div class="hero-arc-photo hero-arc-photo-1">
+                        <img src="<?php echo flora_asset('assets/implant/retouch/1.webp'); ?>" alt="Bác sĩ thăm khám và kiểm tra nụ cười" loading="lazy" />
+                    </div>
+                    <div class="hero-arc-photo hero-arc-photo-2">
+                        <img src="<?php echo flora_asset('assets/implant/retouch/2.webp'); ?>" alt="Khảo sát cấu trúc xương hàm 3D CT Cone Beam" loading="lazy" />
+                    </div>
+                    <div class="hero-arc-photo hero-arc-photo-3">
+                        <img src="<?php echo flora_asset('assets/implant/retouch/3.webp'); ?>" alt="Phẫu thuật cấy ghép phòng vô trùng chuẩn Thụy Sĩ" loading="lazy" />
+                    </div>
+                    <div class="hero-arc-photo hero-arc-photo-4">
+                        <img src="<?php echo flora_asset('assets/implant/retouch/4.webp'); ?>" alt="Điều trị cấy ghép êm ái trên ghế nha khoa hiện đại" loading="lazy" />
+                    </div>
+                    <div class="hero-arc-photo hero-arc-photo-5">
+                        <img src="<?php echo flora_asset('assets/implant/retouch/5.webp'); ?>" alt="Tư vấn kế hoạch điều trị tận tâm tại phòng khám Flora" loading="lazy" />
+                    </div>
+                    <div class="hero-arc-photo hero-arc-photo-6">
+                        <img src="<?php echo flora_asset('assets/implant/retouch/6.webp'); ?>" alt="Tư vấn chuyên sâu trụ Implant chính hãng Thụy Sĩ" loading="lazy" />
+                    </div>
+                </div>
+
+                <!-- Central Content -->
+                <div class="hero-story-content reveal reveal-delay-1">
+                    <h1 class="hero-title" style="color: var(--clr-navy);">
+                        Cấy Ghép Implant<br/>
+                        <span class="highlight-text-container">
+                            <span style="background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-secondary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Êm Ái & Bền Vững</span>
+                            <svg class="heading-underline-svg" viewBox="0 0 300 20" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12 C 100 2, 200 18, 295 10" stroke="url(#accentGrad)" stroke-width="4" stroke-linecap="round" />
+                            </svg>
+                        </span>
+                    </h1>
+                    
+                    <p class="hero-description">
+                        Khôi phục răng mất bằng Implant với hệ thống Pro-Implant công nghệ cao, hỗ trợ kiểm soát tốc độ và lực xoắn trong quá trình đặt trụ, kết hợp hệ thống kiểm soát cơn đau DentalVibe và TRIOS phục hình kỹ thuật số để tối ưu trải nghiệm cho quá trình cấy ghép.
+                    </p>
+                    
+                    <div class="hero-story-actions">
+                        <a href="#dang-ky" class="btn btn-primary"><span class="btn-text-desktop">Đăng Ký </span>Đặt Hẹn <i class="fa-solid fa-calendar-check" style="margin-left: 6px;"></i></a>
+                        <a href="#pricing-tables" class="btn btn-outline"><span class="btn-text-desktop">Xem </span>Bảng Giá<span class="btn-text-desktop"> Trọn Gói</span></a>
+                        <a href="<?php echo esc_url(home_url('/warranty/')); ?>" class="btn btn-check-auth" style="padding: 14px 22px; font-size: 0.95rem; border-radius: 30px;"><i class="fa-solid fa-shield-halved"></i> Check Trụ Chính Hãng</a>
+                    </div>
+
+                    <!-- Date & Location (Capsule Pills) -->
+                    <div class="hero-info-pills">
+                        <div class="hero-pill">
+                            <i class="fa-solid fa-clock"></i>
+                            <span class="pill-time">8h30 - 18h30</span>
+                            <span class="pill-days">(T2 - CN)</span>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=326+Nguy%E1%BB%85n+Th%E1%BB%8B+Minh+Khai,+Ph%C6%B0%E1%BB%9Dng+B%C3%A0n+C%E1%BB%9D,+Qu%E1%BA%ADn+3,+TP.HCM" target="_blank" class="hero-pill clickable">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span class="pill-label">ĐỊA ĐIỂM:</span>
+                            <span class="pill-address">326 Nguyễn Thị Minh Khai, Phường Bàn Cờ, TP. Hồ Chí Minh</span>
+                        </a>
+                    </div>
+
+                    <!-- 3 Benefit Cards -->
+                    <div class="hero-features-single-card" style="background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1.5px solid rgba(4, 147, 241, 0.2); padding: 16px 20px; border-radius: 18px; display: flex; justify-content: space-between; align-items: center; gap: 16px; box-shadow: 0 12px 36px rgba(0, 51, 163, 0.08); width: 100%; max-width: 880px; margin: 0 auto; box-sizing: border-box;">
+                        <div class="hero-feature-item" style="flex: 1 1 0; min-width: 0; display: flex; align-items: center; gap: 10px; text-align: left;">
+                            <img src="<?php echo flora_asset('ngayhoi_item/HERO/sponsorship_icon.webp'); ?>" alt="Tài trợ" style="width: 44px; height: 44px; flex-shrink: 0;" />
+                            <div class="hero-feature-text" style="display: flex; flex-direction: column;">
+                                <span style="font-size: 0.76rem; color: #475569; white-space: nowrap;">Hỗ trợ trả góp</span>
+                                <strong style="font-size: 0.98rem; font-weight: 800; color: #0033a3; line-height: 1.2; text-transform: uppercase; white-space: nowrap;">LÃI SUẤT 0%</strong>
+                            </div>
+                        </div>
+                        <div class="feature-card-divider" style="width: 1px; height: 40px; background: rgba(0, 51, 163, 0.12); flex-shrink: 0;"></div>
+                        <div class="hero-feature-item" style="flex: 1 1 0; min-width: 0; display: flex; align-items: center; gap: 10px; text-align: left;">
+                            <img src="<?php echo flora_asset('ngayhoi_item/HERO/gift_icon.webp'); ?>" alt="Quà tặng" style="width: 44px; height: 44px; flex-shrink: 0;" />
+                            <div class="hero-feature-text" style="display: flex; flex-direction: column;">
+                                <span style="font-size: 0.76rem; color: #475569; white-space: nowrap;">Thăm khám - Chụp phim</span>
+                                <strong style="font-size: 0.95rem; font-weight: 800; color: #0033a3; line-height: 1.2; text-transform: uppercase; white-space: nowrap;">CT CONE BEAM</strong>
+                                <span style="font-size: 0.76rem; color: #475569; white-space: nowrap;">Miễn phí</span>
+                            </div>
+                        </div>
+                        <div class="feature-card-divider" style="width: 1px; height: 40px; background: rgba(0, 51, 163, 0.12); flex-shrink: 0;"></div>
+                        <div class="hero-feature-item" style="flex: 1 1 0; min-width: 0; display: flex; align-items: center; gap: 10px; text-align: left;">
+                            <img src="<?php echo flora_asset('ngayhoi_item/HERO/join_icon.webp'); ?>" alt="Tham gia" style="width: 44px; height: 44px; flex-shrink: 0;" />
+                            <div class="hero-feature-text" style="display: flex; flex-direction: column;">
+                                <span style="font-size: 0.76rem; color: #475569; white-space: nowrap;">Cam kết chính hãng</span>
+                                <strong style="font-size: 0.92rem; font-weight: 800; color: #0493f1; line-height: 1.2; text-transform: uppercase; white-space: nowrap;">BẢO HÀNH TRỌN ĐỜI</strong>
+                                <span style="font-size: 0.76rem; color: #475569; white-space: nowrap;">an tâm dài lâu</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ─── PHÂN LOẠI MẤT RĂNG (FACT SECTION) ─── -->
+    <section class="section-padding fact-section" id="fact">
+        <img src="<?php echo flora_asset('ngayhoi_item/Tru-1.webp'); ?>" alt="Trụ Implant Thụy Sĩ" class="decor-implant-img decor-fact-tru1 float-anim-1" />
+        <img src="<?php echo flora_asset('ngayhoi_item/element-2.webp'); ?>" alt="Trang trí implant" class="decor-implant-img decor-fact-elem2 float-anim-2" />
+        <div class="container">
+            <div class="section-header center reveal">
+                <h2>Mức Độ Mất Răng & Kế Hoạch Phục Hồi</h2>
+            </div>
+            
+            <div class="fact-grid reveal reveal-delay-1" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 40px;">
+                <div class="fact-card text-center" style="padding: 24px 15px;">
+                    <img src="<?php echo flora_asset('assets/implant/section3/mat-1-rang.webp'); ?>" alt="Mất 1 Răng" loading="lazy" style="border-radius: 8px; margin-bottom: 15px; width: 100%;" />
+                    <span class="stat-num" style="font-size: 1.5rem; margin-bottom: 5px;">Mất 1 Răng</span>
+                    <p style="margin-top: 10px; font-size: 0.85rem; color: var(--clr-text-muted);">Cấy một trụ độc lập tại vị trí mất răng, bảo tồn nguyên vẹn các răng thật kế cận.</p>
+                </div>
+                <div class="fact-card text-center" style="padding: 24px 15px;">
+                    <img src="<?php echo flora_asset('assets/implant/section3/mat-nhieu-rang.webp'); ?>" alt="Mất nhiều răng" loading="lazy" style="border-radius: 8px; margin-bottom: 15px; width: 100%;" />
+                    <span class="stat-num" style="font-size: 1.5rem; margin-bottom: 5px;">Mất Nhiều Răng</span>
+                    <p style="margin-top: 10px; font-size: 0.85rem; color: var(--clr-text-muted);">Tính toán số lượng Implant phù hợp để nâng đỡ phục hình cầu răng, tối ưu hiệu quả điều trị và chi phí tổng thể.</p>
+                </div>
+                <div class="fact-card text-center" style="padding: 24px 15px;">
+                    <img src="<?php echo flora_asset('assets/implant/section3/mat-toan-ham.webp'); ?>" alt="Mất toàn hàm" loading="lazy" style="border-radius: 8px; margin-bottom: 15px; width: 100%;" />
+                    <span class="stat-num" style="font-size: 1.5rem; margin-bottom: 5px;">Mất Toàn Hàm</span>
+                    <p style="margin-top: 10px; font-size: 0.85rem; color: var(--clr-text-muted);">Phục hồi All-on-4 / All-on-6 cố định chắc chắn, cải thiện lực ăn nhai tối đa.</p>
+                </div>
+                <div class="fact-card text-center" style="padding: 24px 15px;">
+                    <img src="<?php echo flora_asset('assets/implant/section3/tieu-xuong-ham.webp'); ?>" alt="Tiêu xương hàm" loading="lazy" style="border-radius: 8px; margin-bottom: 15px; width: 100%;" />
+                    <span class="stat-num" style="font-size: 1.5rem; margin-bottom: 5px;">Tiêu Xương Hàm</span>
+                    <p style="margin-top: 10px; font-size: 0.85rem; color: var(--clr-text-muted);">Đánh giá thể tích xương và khoảng xoang bằng CT Cone Beam 3D để xây dựng kế hoạch ghép xương, nâng xoang hoặc đặt Implant an toàn.</p>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="#dang-ky" class="btn btn-primary btn-booking">Kiểm tra tình trạng mất răng của tôi</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── CẤU TẠO IMPLANT (STRUCTURE SECTION) ─── -->
+    <section class="section-padding implant-structure-section" id="structure">
+        <div class="container">
+            <div class="structure-grid reveal">
+                <!-- Left: Text content -->
+                <div class="structure-text">
+                    <h3>Một ca Implant hoàn chỉnh gồm những gì?</h3>
+                    <p>
+                        Một ca trồng răng Implant hoàn chỉnh không chỉ có trụ Implant cấy vào xương hàm mà còn gồm khớp nối Abutment và răng sứ phía trên. Ba bộ phận này kết hợp với nhau để tạo thành một chiếc răng hoàn chỉnh, bảo đảm khả năng ăn nhai và tính thẩm mỹ.
+                    </p>
+                    <p>
+                        Vì vậy, khi tham khảo hoặc so sánh giá Implant giữa các nha khoa, khách hàng cần kiểm tra kỹ mức giá được báo đã bao gồm khớp nối và răng sứ hay chưa, tránh phát sinh thêm chi phí sau khi điều trị.
+                    </p>
+                    <p>
+                        Tại Nha khoa Flora, báo giá trồng răng Implant đã bao gồm đầy đủ trụ Implant, khớp nối và răng sứ tiêu chuẩn. Nếu khách hàng muốn sử dụng dòng răng sứ cao cấp hơn để nâng cao tính thẩm mỹ, độ bền hoặc thời gian bảo hành, có thể lựa chọn nâng cấp và thanh toán phần chi phí chênh lệch.
+                    </p>
+                </div>
+                <!-- Right: Structure Illustration -->
+                <div class="structure-img-wrapper">
+                    <img src="<?php echo flora_asset('assets/implant/cau-tao-implant.webp'); ?>" alt="Cấu tạo của một răng trồng Implant" loading="lazy" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── HỆ THỐNG IMPLANT 5C (VALUE SECTION) ─── -->
+    <section class="section-padding value-section" id="value" style="background-color: var(--clr-bg-light);">
+        <img src="<?php echo flora_asset('ngayhoi_item/Tru-2.webp'); ?>" alt="Trụ Implant Thụy Sĩ" class="decor-implant-img decor-val-tru2 float-anim-1" />
+        <img src="<?php echo flora_asset('ngayhoi_item/Element.webp'); ?>" alt="Trang trí implant" class="decor-implant-img decor-val-elem1 float-anim-2" />
+        <div class="container">
+            <div class="section-header center reveal">
+                <h2>Hệ Thống Implant 5C – Kiểm Soát Toàn Bộ Hành Trình Cấy Ghép</h2>
+                <p style="max-width: 800px; margin: 15px auto 0; font-size: 0.95rem; color: var(--clr-text-muted); line-height: 1.6;">
+                    Một ca Implant thành công không chỉ phụ thuộc vào thương hiệu trụ. Kết quả còn được quyết định bởi chẩn đoán, kinh nghiệm bác sĩ, vị trí đặt trụ, độ ổn định, phục hình trên Implant và quá trình chăm sóc sau điều trị.
+                </p>
+            </div>
+            
+            <div class="progress-steps-flow reveal reveal-delay-1">
+                <!-- Step 1 -->
+                <div class="progress-step-card">
+                    <div class="progress-step-number">01</div>
+                    <h3>Chẩn đoán chính xác</h3>
+                    <p>CT Cone Beam 3D giúp bác sĩ khảo sát cấu trúc xương hàm, vị trí dây thần kinh, xoang hàm và khoảng phục hình trước khi lên kế hoạch cấy ghép.</p>
+                    <div class="progress-step-thumb ratio-square" style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px;">
+                        <img src="<?php echo flora_asset('assets/implant/5c/1_chan_doan_chinh_xac.webp'); ?>" alt="Bác sĩ thăm khám chẩn đoán cùng bệnh nhân trên màn hình CT 3D" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" />
+                    </div>
+                </div>
+                <!-- Step 2 -->
+                <div class="progress-step-card">
+                    <div class="progress-step-number">02</div>
+                    <h3>Cá nhân hóa phác đồ</h3>
+                    <p>Loại trụ, kích thước, vị trí, hướng đặt và thời điểm phục hình được lựa chọn dựa trên tình trạng cụ thể, không dựa đơn thuần vào giá thành.</p>
+                    <div class="progress-step-thumb ratio-square" style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px;">
+                        <img src="<?php echo flora_asset('assets/implant/5c/2_ca_nhan_hoa_phac_do.webp'); ?>" alt="Bác sĩ cá nhân hóa phác đồ điều trị cùng bệnh nhân" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" />
+                    </div>
+                </div>
+                <!-- Step 3 -->
+                <div class="progress-step-card">
+                    <div class="progress-step-number">03</div>
+                    <h3>Cấy ghép êm ái</h3>
+                    <p>Flora kết hợp thao tác nhẹ nhàng của bác sĩ với công nghệ Pro-Implant và DentalVibe, hỗ trợ giảm lo lắng và cảm giác khó chịu trong quá trình gây tê, phẫu thuật.</p>
+                    <div class="progress-step-thumb ratio-square" style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px;">
+                        <img src="<?php echo flora_asset('assets/implant/5c/3_cay_ghep_em_ai.webp'); ?>" alt="Bác sĩ Minh cùng ekip phẫu thuật cấy ghép êm ái phòng mổ vô trùng" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" />
+                    </div>
+                </div>
+                <!-- Step 4 -->
+                <div class="progress-step-card">
+                    <div class="progress-step-number">04</div>
+                    <h3>Chứng thực bằng dữ liệu</h3>
+                    <p>Penguin RFA hỗ trợ đo độ ổn định của trụ Implant bằng chỉ số ISQ, giúp bác sĩ có thêm dữ liệu để đánh giá quá trình tích hợp trước khi phục hình.</p>
+                    <div class="progress-step-thumb ratio-square" style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px;">
+                        <img src="<?php echo flora_asset('assets/implant/5c/4_chung_thuc_du_lieu.webp'); ?>" alt="Bác sĩ cùng bệnh nhân kiểm tra và chứng thực kết quả phục hình" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" />
+                    </div>
+                </div>
+                <!-- Step 5 -->
+                <div class="progress-step-card">
+                    <div class="progress-step-number">05</div>
+                    <h3>Chăm sóc dài hạn</h3>
+                    <p>Khách hàng được hướng dẫn chăm sóc tại nhà, theo dõi lành thương và tái khám theo lịch nhằm duy trì sức khỏe mô nướu, xương và răng Implant lâu dài.</p>
+                    <div class="progress-step-thumb ratio-square" style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px;">
+                        <img src="<?php echo flora_asset('assets/implant/5c/5_cham_soc_dai_han.webp'); ?>" alt="Bác sĩ Minh cùng phụ tá chăm sóc và tái khám cho bệnh nhân trên ghế nha khoa" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── DÒNG TRỤ IMPLANT (MATERIALS CAROUSEL SECTION) ─── -->
+    <section class="section-padding audience-section" id="implant-types">
+        <div class="container">
+            <div class="section-header center reveal">
+                <h2>FLORA SỬ DỤNG CÁC DÒNG TRỤ IMPLANT ĐẠT CHUẨN QUỐC TẾ</h2>
+                <p style="max-width: 880px; margin: 15px auto 0; font-size: 0.95rem; color: var(--clr-text-muted); line-height: 1.65;">
+                    Tại Flora, hệ Implant được lựa chọn dựa trên tình trạng xương, vị trí mất răng, yêu cầu phục hình và kế hoạch điều trị của từng khách hàng. Flora sử dụng nhiều dòng Implant để đáp ứng các tình trạng xương hàm và nhu cầu điều trị khác nhau. Trong đó, Implantswiss và Straumann là hai giải pháp Thụy Sĩ nổi bật.<br style="margin-bottom: 6px;"/>
+                    Dịch vụ cấy ghép implant tại Nha Khoa Flora sử dụng vật liệu Implantswiss (Thụy Sĩ), Straumann (Thụy Sĩ), Dentium (Hàn Quốc)... – những thương hiệu hàng đầu thế giới.
+                </p>
+            </div>
+
+            <!-- Tabbed Selector -->
+            <div class="materials-tab-nav reveal reveal-delay-1">
+                <button class="materials-tab-btn active highlighted-tab"><i class="fa-solid fa-star" style="color: #ffb703; margin-right: 5px;"></i> Implantswiss Thụy Sĩ</button>
+                <button class="materials-tab-btn">Dentium Hàn Quốc</button>
+                <button class="materials-tab-btn">Straumann SLActive Thụy Sĩ</button>
+            </div>
+
+            <!-- Materials Slider Wrapper -->
+            <div class="materials-slider-container reveal reveal-delay-2">
+                <div class="materials-slider-track-wrapper">
+                    <div class="materials-slider-track">
+                        <!-- Slide 1: Implantswiss (First & Highlighted) -->
+                        <div class="materials-slide">
+                            <div class="swiss-quality-card" style="border: 2px solid rgba(4, 147, 241, 0.4); box-shadow: 0 16px 40px rgba(0, 51, 163, 0.12);">
+                                <div class="swiss-card-split">
+                                    <div class="swiss-left-col">
+                                        <div style="margin-bottom: 10px;">
+                                            <span class="badge-highlight-recommend"><i class="fa-solid fa-certificate"></i> Dòng Trụ Đề Xuất Cho Khách</span>
+                                        </div>
+                                        <div class="swiss-product-image-container">
+                                            <img src="<?php echo flora_asset('assets/implant/section6/implantswiss.webp'); ?>" alt="Trụ Implant Implantswiss Thụy Sĩ" />
+                                        </div>
+                                        <div class="swiss-product-name">Implantswiss Thụy Sĩ</div>
+                                        <div class="swiss-product-sub" style="color: #0493f1; font-weight: 800;">CHÍNH HÃNG THỤY SĨ • ĐỀ XUẤT TỐI ƯU</div>
+                                    </div>
+                                    <div class="swiss-col-divider"></div>
+                                    <div class="swiss-right-col">
+                                        <blockquote class="swiss-quote">Implantswiss – Giải pháp Implant Thụy Sĩ cân bằng</blockquote>
+                                        <p class="swiss-desc">Lựa chọn phù hợp cho khách hàng muốn cân bằng giữa chất lượng, khả năng phục hồi và chi phí điều trị.</p>
+                                        
+                                        <div class="swiss-features-grid">
+                                            <div class="swiss-feature-item">
+                                                <div class="swiss-feature-icon"><i class="fa-solid fa-microscope"></i></div>
+                                                <div class="swiss-feature-text">
+                                                    <h4>Bề mặt SRA</h4>
+                                                    <p>Tạo độ nhám giúp tăng diện tích tiếp xúc và hỗ trợ quá trình tích hợp xương.</p>
+                                                </div>
+                                            </div>
+                                            <div class="swiss-feature-item">
+                                                <div class="swiss-feature-icon"><i class="fa-solid fa-bolt"></i></div>
+                                                <div class="swiss-feature-text">
+                                                    <h4>Thiết kế Hybrid, ren tự cắt</h4>
+                                                    <p>Hỗ trợ trụ đạt độ ổn định ban đầu và kiểm soát lực tác động lên xương.</p>
+                                                </div>
+                                            </div>
+                                            <div class="swiss-feature-item">
+                                                <div class="swiss-feature-icon"><i class="fa-solid fa-lock"></i></div>
+                                                <div class="swiss-feature-text">
+                                                    <h4>Platform Switching</h4>
+                                                    <p>Hỗ trợ bảo tồn vùng xương và mô mềm quanh cổ Implant.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p style="margin-top: 25px; font-weight: 700; color: var(--clr-primary); font-size: 0.92rem; line-height: 1.6; background: rgba(4, 147, 241, 0.08); padding: 12px 16px; border-radius: 8px; border-left: 4px solid var(--clr-primary);">
+                                            Lợi thế nổi bật: Hệ Implant có nhiều kích thước và lựa chọn phục hình, phù hợp từ mất một răng đến nhiều răng và các kế hoạch phục hồi toàn hàm theo chỉ định và chi phí hợp lý so với các dòng Thụy Sĩ khác.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2: Dentium -->
+                        <div class="materials-slide">
+                            <div class="swiss-quality-card">
+                                <div class="swiss-card-split">
+                                    <div class="swiss-left-col">
+                                        <div class="swiss-product-image-container">
+                                            <img src="<?php echo flora_asset('assets/implant/section6/dentium.webp'); ?>" alt="Trụ Implant Dentium Hàn Quốc" />
+                                        </div>
+                                        <div class="swiss-product-name">Dentium Hàn Quốc</div>
+                                        <div class="swiss-product-sub">TỐI ƯU CHI PHÍ</div>
+                                    </div>
+                                    <div class="swiss-col-divider"></div>
+                                    <div class="swiss-right-col">
+                                        <blockquote class="swiss-quote">Dentium – Giải pháp Implant Hàn Quốc tối ưu chi phí</blockquote>
+                                        <p class="swiss-desc">Dentium là lựa chọn phù hợp cho khách hàng muốn phục hồi răng bằng hệ thống Implant có chất lượng ổn định, thiết kế linh hoạt và mức chi phí dễ tiếp cận.</p>
+                                        
+                                        <div class="swiss-features-grid">
+                                            <div class="swiss-feature-item">
+                                                <div class="swiss-feature-icon"><i class="fa-solid fa-microscope"></i></div>
+                                                <div class="swiss-feature-text">
+                                                    <h4>Titanium tinh khiết Grade 4</h4>
+                                                    <p>Có độ bền và khả năng tương thích sinh học phù hợp để sử dụng trong cấy ghép nha khoa.</p>
+                                                </div>
+                                            </div>
+                                            <div class="swiss-feature-item">
+                                                <div class="swiss-feature-icon"><i class="fa-solid fa-bolt"></i></div>
+                                                <div class="swiss-feature-text">
+                                                    <h4>Bề mặt SLA</h4>
+                                                    <p>Được xử lý bằng công nghệ phun cát hạt lớn kết hợp khắc axit, tạo độ nhám hỗ trợ tế bào xương bám và tích hợp quanh trụ.</p>
+                                                </div>
+                                            </div>
+                                            <div class="swiss-feature-item">
+                                                <div class="swiss-feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                                                <div class="swiss-feature-text">
+                                                    <h4>Thân trụ thuôn và ren kép</h4>
+                                                    <p>Hỗ trợ quá trình đặt trụ thuận lợi, đồng thời tăng khả năng đạt độ ổn định ban đầu.</p>
+                                                </div>
+                                            </div>
+                                            <div class="swiss-feature-item">
+                                                <div class="swiss-feature-icon"><i class="fa-solid fa-lock"></i></div>
+                                                <div class="swiss-feature-text">
+                                                    <h4>Platform Switching và kết nối côn</h4>
+                                                    <p>Hỗ trợ duy trì vùng xương quanh cổ Implant và tạo sự ổn định giữa trụ với khớp nối phục hình.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p style="margin-top: 25px; font-weight: 700; color: var(--clr-primary); font-size: 0.92rem; line-height: 1.6; background: rgba(4, 147, 241, 0.08); padding: 12px 16px; border-radius: 8px; border-left: 4px solid var(--clr-primary);">
+                                            Lợi thế nổi bật: Hệ thống phục hình đa dạng, nhiều kích thước lựa chọn và mức chi phí phù hợp với nhiều kế hoạch điều trị.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3: Straumann SLActive -->
+                        <div class="materials-slide">
+                            <div class="swiss-quality-card">
+                                <div class="swiss-card-split">
+                                    <div class="swiss-left-col">
+                                        <div class="swiss-product-image-container">
+                                            <img src="<?php echo flora_asset('assets/implant/section6/hop-implant-straumann.webp'); ?>" alt="Trụ Implant Straumann SLActive" />
+                                        </div>
+                                        <div class="swiss-product-name">Straumann SLActive</div>
+                                        <div class="swiss-product-sub">PHÂN KHÚC CAO CẤP</div>
+                                    </div>
+                                    <div class="swiss-col-divider"></div>
+                                    <div class="swiss-right-col">
+                                        <blockquote class="swiss-quote">Straumann SLActive – Hỗ trợ tích hợp xương sớm</blockquote>
+                                        <p class="swiss-desc">Giải pháp Implant cao cấp dành cho những trường hợp cần tối ưu quá trình lành thương hoặc cân nhắc phục hình sớm.</p>
+                                        
+                                        <div class="swiss-features-grid">
+                                            <div class="swiss-feature-item">
+                                                <div class="swiss-feature-icon"><i class="fa-solid fa-microscope"></i></div>
+                                                <div class="swiss-feature-text">
+                                                    <h4>Bề mặt ưa nước SLActive</h4>
+                                                    <p>Giúp máu nhanh chóng tiếp xúc với bề mặt trụ, hỗ trợ những phản ứng sinh học đầu tiên của quá trình tích hợp xương.</p>
+                                                </div>
+                                            </div>
+                                            <div class="swiss-feature-item">
+                                                <div class="swiss-feature-icon"><i class="fa-solid fa-bolt"></i></div>
+                                                <div class="swiss-feature-text">
+                                                    <h4>Hỗ trợ lành thương sớm</h4>
+                                                    <p>Có thể rút ngắn giai đoạn tích hợp xương từ khoảng 6–8 tuần xuống 3–4 tuần trong điều kiện phù hợp.</p>
+                                                </div>
+                                            </div>
+                                            <div class="swiss-feature-item">
+                                                <div class="swiss-feature-icon"><i class="fa-solid fa-lock"></i></div>
+                                                <div class="swiss-feature-text">
+                                                    <h4>Mở rộng lựa chọn phục hình</h4>
+                                                    <p>Hỗ trợ bác sĩ cân nhắc phục hình sớm hoặc chịu lực sớm khi trụ đạt đủ độ ổn định.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p style="margin-top: 25px; font-weight: 700; color: var(--clr-primary); font-size: 0.92rem; line-height: 1.6; background: rgba(4, 147, 241, 0.08); padding: 12px 16px; border-radius: 8px; border-left: 4px solid var(--clr-primary);">
+                                            Lợi thế nổi bật: Tối ưu giai đoạn lành thương, phù hợp với các kế hoạch điều trị cần chú trọng đến tiến trình lành thương và thời điểm phục hình.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation arrows -->
+                <button class="materials-nav-btn prev" aria-label="Slide trước"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="materials-nav-btn next" aria-label="Slide sau"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+
+            <!-- Slide Dots -->
+            <div class="materials-dots"></div>
+
+            <div style="margin-top: 30px; text-align: center;">
+                <p style="font-size: 0.88rem; color: var(--clr-text-muted);"><i class="fa-solid fa-box" style="margin-right: 6px;"></i> Ảnh hộp trụ nguyên seal, thẻ bảo hành và mã lô sẽ được cung cấp đầy đủ khi điều trị.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── BẢNG GIÁ ĐIỀU TRỊ CHUYÊN SÂU ─── -->
+    <section class="section-padding" id="pricing" style="background-color: var(--clr-bg-light);">
+        <div id="pricing-tables" style="position: relative; top: -80px; visibility: hidden;"></div>
+        <div class="container">
+            <div class="section-header center reveal">
+                <h2>Chi Phí Trồng Răng Implant Flora</h2>
+            </div>
+            
+            <?php 
+            $pricing_all = flora_get_pricing_data();
+            $implant_data = $pricing_all['implant'] ?? array();
+            $single_rows = $implant_data['tables']['single']['rows'] ?? array();
+            $allonx_rows = $implant_data['tables']['allonx']['rows'] ?? array();
+            ?>
+            <div class="reveal reveal-delay-1 pricing-card" style="max-width: 900px; margin: 0 auto 40px;">
+                <h4 class="pricing-card-subtitle" style="margin-top: 0; font-size: 1.15rem; display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-tooth" style="color: var(--clr-secondary);"></i> <?php echo esc_html($implant_data['tables']['single']['title'] ?? 'Báo Giá Trồng Răng Đơn Lẻ (Trọn gói trụ + mão răng)'); ?></h4>
+                <div class="responsive-table-wrapper" style="margin-bottom: 30px;">
+                    <table class="premium-price-table">
+                        <thead>
+                            <tr>
+                                <th>Dòng Trụ Implant</th>
+                                <th>Xuất Xứ</th>
+                                <th style="text-align: right;">Đơn Giá Trọn Gói</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($single_rows as $row): 
+                                $is_hl = !empty($row['highlight']);
+                            ?>
+                            <tr <?php if ($is_hl) echo 'style="background: rgba(4, 147, 241, 0.08); font-weight: 700;"'; ?>>
+                                <td class="service-name" <?php if ($is_hl) echo 'style="color: #0033a3;"'; ?>>
+                                    <?php if ($is_hl): ?><span class="badge-highlight-recommend" style="font-size: 0.65rem; padding: 2px 8px; margin-right: 6px;">KHUYÊN DÙNG</span><?php endif; ?>
+                                    <?php echo esc_html($row['name']); ?>
+                                </td>
+                                <td><?php echo esc_html($row['origin'] ?? ''); ?></td>
+                                <td class="service-price <?php echo $is_hl ? 'highlight' : ''; ?>" <?php if ($is_hl) echo 'style="color: #0033a3; font-weight: 800;"'; ?>><?php echo esc_html($row['price']); ?></td>
+                            </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4 class="pricing-card-subtitle" style="font-size: 1.15rem; display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-circle-nodes" style="color: var(--clr-secondary);"></i> <?php echo esc_html($implant_data['tables']['allonx']['title'] ?? 'Báo Giá Phục Hình Toàn Hàm All-on-4 / All-on-6'); ?></h4>
+                <div class="responsive-table-wrapper">
+                    <table class="premium-price-table">
+                        <thead>
+                            <tr>
+                                <th>Phương Án Trồng Răng</th>
+                                <th style="text-align: center;">All-on-4 (4 trụ)</th>
+                                <th style="text-align: center;">All-on-6 (6 trụ)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($allonx_rows as $row): 
+                                $is_hl = !empty($row['highlight']);
+                            ?>
+                            <tr <?php if ($is_hl) echo 'style="background: rgba(4, 147, 241, 0.08); font-weight: 700;"'; ?>>
+                                <td class="service-name" <?php if ($is_hl) echo 'style="color: #0033a3;"'; ?>>
+                                    <?php if ($is_hl): ?><span class="badge-highlight-recommend" style="font-size: 0.65rem; padding: 2px 8px; margin-right: 6px;">ĐỀ XUẤT</span><?php endif; ?>
+                                    <?php echo esc_html($row['name']); ?>
+                                </td>
+                                <td class="service-price <?php echo $is_hl ? 'highlight' : ''; ?>" style="text-align: center; <?php if ($is_hl) echo 'color: #0033a3; font-weight: 800;'; ?>"><?php echo esc_html($row['price_4']); ?></td>
+                                <td class="service-price <?php echo $is_hl ? 'highlight' : ''; ?>" style="text-align: center; <?php if ($is_hl) echo 'color: #0033a3; font-weight: 800;'; ?>"><?php echo esc_html($row['price_6']); ?></td>
+                            </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Interactive Accordion Tabs for Finance -->
+            <div class="finance-tabs-container reveal reveal-delay-3">
+                <div class="finance-tabs">
+                    <button class="finance-tab-btn active" data-target="phi-phat-sinh">Chi phí phát sinh</button>
+                    <button class="finance-tab-btn" data-target="tra-gop-thanh-toan">Trả góp & thanh toán</button>
+                </div>
+                
+                <!-- Content Box 1: Chi phí phát sinh -->
+                <div class="finance-content-box active" id="phi-phat-sinh">
+                    <h4>Bảng kê các chi phí hỗ trợ điều trị (nếu có phát sinh)</h4>
+                    <ul class="finance-list">
+                        <li>
+                            <i class="fa-solid fa-circle-chevron-right"></i>
+                            <div><strong>Ghép xương:</strong> hiện công bố từ 8–11 triệu đồng.</div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-circle-chevron-right"></i>
+                            <div><strong>Nhổ răng, điều trị viêm nha chu hoặc bệnh lý khác:</strong> báo giá sau thăm khám.</div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Content Box 2: Trả góp và thanh toán -->
+                <div class="finance-content-box" id="tra-gop-thanh-toan">
+                    <h4>Chính sách trả góp lãi suất 0% & thanh toán linh hoạt</h4>
+                    <ul class="finance-list">
+                        <li>
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div><strong>Kỳ hạn trả góp:</strong> Hỗ trợ các kỳ hạn linh hoạt 3, 6, 9 hay 12 tháng.</div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div><strong>Điều kiện áp dụng:</strong> Áp dụng cho các chủ thẻ tín dụng liên kết hợp lệ.</div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div><strong>Ngân hàng áp dụng:</strong> Liên kết thanh toán với hơn 25 ngân hàng uy tín toàn quốc.</div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div><strong>Phí chuyển đổi:</strong> Phí chuyển đổi giao dịch trả góp cực thấp (nếu có).</div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div><strong>Hạng mục áp dụng:</strong> Áp dụng cho hầu hết các gói cấy ghép và phục hình.</div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div><strong>Cộng dồn ưu đãi:</strong> Giải đáp chính xác chương trình ưu đãi hiện hành khi tư vấn trực tiếp.</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── QUY TRÌNH ĐIỀU TRỊ (TIMELINE SECTION) ─── -->
+    <section class="section-padding timeline-section" id="subpage-journey">
+        <img src="<?php echo flora_asset('ngayhoi_item/Tru-3.webp'); ?>" alt="Trụ Implant Thụy Sĩ" class="decor-implant-img decor-stage-tru3 float-anim-1" />
+        <div class="container">
+            <div class="section-header center reveal">
+                <h2>5 Bước Trồng Răng Implant Chuẩn Thụy Sĩ</h2>
+            </div>
+            
+            <div class="steps-grid steps-5 mobile-slider">
+                <!-- Step 1 -->
+                <div class="step-card reveal">
+                    <div class="step-card-icon"><i class="fa-solid fa-x-ray"></i></div>
+                    <span class="step-badge">BƯỚC 1</span>
+                    <h3>THĂM KHÁM & CHỤP PHIM</h3>
+                    <p>Kiểm tra tình trạng mất răng, sức khỏe mô nướu, khảo sát thể tích xương bằng hệ thống phim CT Cone Beam 3D hoàn toàn miễn phí.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="step-card reveal reveal-delay-1">
+                    <div class="step-card-icon"><i class="fa-solid fa-file-medical"></i></div>
+                    <span class="step-badge">BƯỚC 2</span>
+                    <h3>LẬP PHÁC ĐỒ & BÁO GIÁ</h3>
+                    <p>Bác sĩ phân tích phim, giải thích phương án cấy ghép, chọn loại trụ phù hợp và ký cam kết chi phí trọn gói minh bạch.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="step-card reveal reveal-delay-2">
+                    <div class="step-card-icon"><i class="fa-solid fa-kit-medical"></i></div>
+                    <span class="step-badge">BƯỚC 3</span>
+                    <h3>CẤY TRỤ IMPLANT</h3>
+                    <p>Đặt trụ Implant vào xương hàm trong điều kiện vô trùng tuyệt đối, sử dụng công nghệ kiểm soát sưng đau DentalVibe.</p>
+                </div>
+                <!-- Step 4 -->
+                <div class="step-card reveal reveal-delay-3">
+                    <div class="step-card-icon"><i class="fa-solid fa-wave-square"></i></div>
+                    <span class="step-badge">BƯỚC 4</span>
+                    <h3>THEO DÕI TÍCH HỢP</h3>
+                    <p>Sử dụng thiết bị Penguin RFA đo chỉ số ISQ để theo dõi tiến trình tích hợp vững chắc của trụ vào xương hàm.</p>
+                </div>
+                <!-- Step 5 -->
+                <div class="step-card reveal reveal-delay-4">
+                    <div class="step-card-icon"><i class="fa-solid fa-tooth"></i></div>
+                    <span class="step-badge">BƯỚC 5</span>
+                    <h3>GẮN RĂNG SỨ & HOÀN THIỆN</h3>
+                    <p>Quét dấu hàm kỹ thuật số bằng TRIOS, chế tác mão răng sứ chính xác tại Labo và tiến hành lắp cố định răng sứ hoàn tất ăn nhai.</p>
+                </div>
+            </div>
+
+            <!-- Video Thực Tế 5 Bước Chuẩn Thụy Sĩ -->
+            <div class="flora-video-frame-wrapper reveal reveal-delay-2">
+                <div class="flora-video-badge-decor">
+                    <i class="fa-solid fa-play"></i> Video Trực Quan Quy Trình Cấy Ghép
+                </div>
+                <div class="flora-video-frame-inner">
+                    <div class="flora-video-ratio-16-9">
+                        <iframe src="https://www.youtube-nocookie.com/embed/K6SIGsYsiRQ?rel=0&modestbranding=1&controls=1" title="5 Bước Trồng Răng Implant Chuẩn Thụy Sĩ tại Nha Khoa Flora" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── CA ĐIỀU TRỊ THỰC TẾ (CLINICAL CASES) ─── -->
+    <section class="section-padding" id="cases" style="background: var(--clr-white);">
+        <div class="container">
+            <div class="section-header center reveal">
+                <h2>Ca Điều Trị Implant Thực Tế Tại Flora</h2>
+                <p>Thông tin ca lâm sàng minh bạch bao gồm: dòng trụ sử dụng, phim CT và hình ảnh kết quả ăn nhai sau điều trị.</p>
+            </div>
+            
+            <div class="cases-content-wrapper reveal reveal-delay-1" style="margin-top: 40px;">
+                <div class="cases-tab-panel mobile-slider active" id="cases-implant">
+                    <!-- Case 1 -->
+                    <div class="case-card">
+                        <div class="case-img-wrap">
+                            <img src="<?php echo flora_asset('ngayhoi_item/bf_at/case_implant_ah_sen.webp'); ?>" alt="Khách hàng Chú Ah Sen - Phục hình Implant Thụy Sĩ" loading="lazy" />
+                        </div>
+                        <div class="case-card-body">
+                            <h4>Chú Ah Sen (55 tuổi)</h4>
+                            <div class="case-detail-row">
+                                <strong>Tình trạng ban đầu:</strong>
+                                <span>Mất nhiều răng cả 2 hàm, tiêu xương nặng gây ăn nhai kém. Mất thẩm mỹ.</span>
+                            </div>
+                            <div class="case-detail-row">
+                                <strong>Phương pháp điều trị:</strong>
+                                <span>Ghép xương 0.5cc, cấy ghép 4 trụ Implant hàm trên, 5 trụ hàm dưới.</span>
+                            </div>
+                            <div class="case-detail-row">
+                                <strong>Thời gian thực hiện:</strong>
+                                <span>20 tuần.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Case 2 -->
+                    <div class="case-card">
+                        <div class="case-img-wrap">
+                            <img src="<?php echo flora_asset('ngayhoi_item/bf_at/case_implant_ba_phuoc.webp'); ?>" alt="Khách hàng Chú Bá Phước - Phục hình Implant Thụy Sĩ" loading="lazy" />
+                        </div>
+                        <div class="case-card-body">
+                            <h4>Chú Bá Phước (61 tuổi)</h4>
+                            <div class="case-detail-row">
+                                <strong>Tình trạng ban đầu:</strong>
+                                <span>Mất hầu hết răng hàm trên, ghép xương trước 2 tháng rồi phục hình Implant.</span>
+                            </div>
+                            <div class="case-detail-row">
+                                <strong>Phương pháp điều trị:</strong>
+                                <span>Ghép xương, phục hình tức thì All-on-4 trụ Implant Thụy Sĩ.</span>
+                            </div>
+                            <div class="case-detail-row">
+                                <strong>Thời gian thực hiện:</strong>
+                                <span>16 tháng.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Case 3 -->
+                    <div class="case-card">
+                        <div class="case-img-wrap">
+                            <img src="<?php echo flora_asset('ngayhoi_item/bf_at/case_implant_co_cuc.webp'); ?>" alt="Khách hàng Cô Cúc - Phục hình Implant Thụy Sĩ" loading="lazy" />
+                        </div>
+                        <div class="case-card-body">
+                            <h4>Cô Cúc (58 tuổi)</h4>
+                            <div class="case-detail-row">
+                                <strong>Tình trạng ban đầu:</strong>
+                                <span>Mất 3 răng hàm trên, mất 3 răng hàm dưới.</span>
+                            </div>
+                            <div class="case-detail-row">
+                                <strong>Phương pháp điều trị:</strong>
+                                <span>Cấy ghép 2 trụ Implant Thụy Sĩ và bắc cầu 3 răng sứ phục hình thẩm mỹ cho hàm trên; Cấy ghép 3 trụ Implant Thụy Sĩ cho hàm dưới.</span>
+                            </div>
+                            <div class="case-detail-row">
+                                <strong>Thời gian thực hiện:</strong>
+                                <span>16 tuần.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Case 4 -->
+                    <div class="case-card">
+                        <div class="case-img-wrap">
+                            <img src="<?php echo flora_asset('ngayhoi_item/bf_at/case_implant_chu_dung.webp'); ?>" alt="Khách hàng Chú Dũng - Phục hình Implant Thụy Sĩ" loading="lazy" />
+                        </div>
+                        <div class="case-card-body">
+                            <h4>Chú Dũng (52 tuổi)</h4>
+                            <div class="case-detail-row">
+                                <strong>Tình trạng ban đầu:</strong>
+                                <span>Hàm trên răng cối lớn sâu hỏng vỡ lớn chân răng, lung lay đau nhức khó ăn nhai, viêm nha chu nặng. Mất hết răng hàm dưới.</span>
+                            </div>
+                            <div class="case-detail-row">
+                                <strong>Phương pháp điều trị:</strong>
+                                <span>Nhổ răng 16, 31, 42; bọc sứ Zirconia cao cấp các răng còn lại để bảo vệ; cấy ghép 7 trụ Implant Thụy Sĩ đơn lẻ (hàm trên 3 trụ, hàm dưới 4 trụ).</span>
+                            </div>
+                            <div class="case-detail-row">
+                                <strong>Thời gian thực hiện:</strong>
+                                <span>24 tuần.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Case 5 -->
+                    <div class="case-card">
+                        <div class="case-img-wrap">
+                            <img src="<?php echo flora_asset('ngayhoi_item/bf_at/case_implant_co_hoa.webp'); ?>" alt="Khách hàng Cô Hoa - Phục hình Implant Thụy Sĩ kết hợp Răng Sứ" loading="lazy" />
+                        </div>
+                        <div class="case-card-body">
+                            <h4>Cô Hoa (56 tuổi)</h4>
+                            <div class="case-detail-row">
+                                <strong>Tình trạng ban đầu:</strong>
+                                <span>Mất nhiều răng hàm ở hàm trên và hàm dưới; mô mềm săn chắc, đủ khoảng và xương để cấy ghép Implant.</span>
+                            </div>
+                            <div class="case-detail-row">
+                                <strong>Phương pháp điều trị:</strong>
+                                <span>Cấy ghép 9 trụ Implant Thụy Sĩ đơn lẻ, 12 răng sứ Zirconia trên Implant. Phục hình bằng phương pháp Scan kỹ thuật số.</span>
+                            </div>
+                            <div class="case-detail-row">
+                                <strong>Thời gian thực hiện:</strong>
+                                <span>24 tháng.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Case 6 -->
+                    <div class="case-card">
+                        <div class="case-img-wrap">
+                            <img src="<?php echo flora_asset('ngayhoi_item/bf_at/case_implant_ngoc_thanh.webp'); ?>" alt="Khách hàng Chú Ngọc Thành - Phục hình Implant All-on-6 Thụy Sĩ" loading="lazy" />
+                        </div>
+                        <div class="case-card-body">
+                            <h4>Chú Ngọc Thành (65 tuổi)</h4>
+                            <div class="case-detail-row">
+                                <strong>Tình trạng ban đầu:</strong>
+                                <span>Viêm nha chu nặng cả hai hàm, răng lung lay hàng loạt, tụt nướu, lộ chân răng, có tiêu xương, lệch khớp cắn.</span>
+                            </div>
+                            <div class="case-detail-row">
+                                <strong>Phương pháp điều trị:</strong>
+                                <span>Cấy ghép 4 trụ Implant Thụy Sĩ đơn lẻ hàm dưới. Nhổ toàn bộ răng hàm trên, cấy ghép All on 6 hàm trên, bọc 10 răng sứ Cercon cao cấp.</span>
+                            </div>
+                            <div class="case-detail-row">
+                                <strong>Thời gian thực hiện:</strong>
+                                <span>24 tuần.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── CÂU CHUYỆN IMPLANT TẠI NHA KHOA FLORA (VIDEO GALLERY) ─── -->
+    <section class="section-padding video-gallery-section" id="implant-stories" style="background: var(--clr-bg-light); border-top: 1px solid var(--clr-border); border-bottom: 1px solid var(--clr-border);">
+        <div class="container">
+            <div class="section-header center reveal">
+                <h2>Câu Chuyện Implant Tại Nha Khoa Flora</h2>
+                <p style="max-width: 760px; margin: 12px auto 0; font-size: 0.95rem; color: var(--clr-text-muted);">
+                    Lắng nghe chia sẻ chân thực từ những khách hàng đã tìm lại nụ cười, chức năng ăn nhai vững chắc và sự tự tin cùng công nghệ cấy ghép Implant êm ái tại Flora.
+                </p>
+            </div>
+            
+            <div class="stories-video-grid reveal reveal-delay-1" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 1080px; margin: 40px auto 0;">
+                <!-- Video 1 -->
+                <div class="story-video-card" style="background: #ffffff; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--clr-border); transition: var(--transition);">
+                    <div class="story-video-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0; background: #000;">
+                        <iframe src="https://www.youtube-nocookie.com/embed/G99oXPBkjeA?rel=0&modestbranding=1&controls=1" title="Khách hàng cấy ghép Implant tại Flora" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div style="padding: 16px 20px;">
+                        <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--clr-navy); margin: 0 0 6px;">Hành Trình Khôi Phục Ăn Nhai Hoàn Hảo</h4>
+                        <p style="font-size: 0.85rem; color: var(--clr-text-muted); margin: 0;">Trải nghiệm cấy ghép nhẹ nhàng không đau của khách hàng tại Nha Khoa Flora.</p>
+                    </div>
+                </div>
+                <!-- Video 2 -->
+                <div class="story-video-card" style="background: #ffffff; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--clr-border); transition: var(--transition);">
+                    <div class="story-video-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0; background: #000;">
+                        <iframe src="https://www.youtube-nocookie.com/embed/FzkG1cPQqm8?rel=0&modestbranding=1&controls=1" title="Cảm nhận khách hàng cấy Implant Thụy Sĩ" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div style="padding: 16px 20px;">
+                        <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--clr-navy); margin: 0 0 6px;">Tạm Biệt Răng Lung Lay – Tự Tin Giao Tiếp</h4>
+                        <p style="font-size: 0.85rem; color: var(--clr-text-muted); margin: 0;">Khách hàng chia sẻ cảm nhận sau khi phục hình răng tức thì với Implant Thụy Sĩ.</p>
+                    </div>
+                </div>
+                <!-- Video 3 -->
+                <div class="story-video-card" style="background: #ffffff; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--clr-border); transition: var(--transition);">
+                    <div class="story-video-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0; background: #000;">
+                        <iframe src="https://www.youtube-nocookie.com/embed/hNb-Np7yu0c?rel=0&modestbranding=1&controls=1" title="Cấy ghép Implant an toàn tại Flora" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div style="padding: 16px 20px;">
+                        <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--clr-navy); margin: 0 0 6px;">Niềm Vui Ăn Nhai Thỏa Mái Tuổi Trung Niên</h4>
+                        <p style="font-size: 0.85rem; color: var(--clr-text-muted); margin: 0;">Khôi phục nụ cười trọn vẹn sau nhiều năm chịu đựng việc mất răng.</p>
+                    </div>
+                </div>
+                <!-- Video 4 -->
+                <div class="story-video-card" style="background: #ffffff; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--clr-border); transition: var(--transition);">
+                    <div class="story-video-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0; background: #000;">
+                        <iframe src="https://www.youtube-nocookie.com/embed/68m5G1u-Ewk?rel=0&modestbranding=1&controls=1" title="Quy trình điều trị êm ái tại Flora" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div style="padding: 16px 20px;">
+                        <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--clr-navy); margin: 0 0 6px;">Giải Pháp Không Đau Chuẩn Y Khoa</h4>
+                        <p style="font-size: 0.85rem; color: var(--clr-text-muted); margin: 0;">Ứng dụng công nghệ kiểm soát cơn đau hiện đại mang lại cảm giác an tâm tuyệt đối.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── BÁC SĨ PHỤ TRÁCH (EXPERT SECTION) ─── -->
+    <section class="section-padding expert-section" id="expert">
+        <img src="<?php echo flora_asset('ngayhoi_item/element-2.webp'); ?>" alt="Trang trí" class="decor-implant-img decor-exp-elem2 float-anim-1" />
+        <div class="container">
+            <div class="section-header center reveal">
+                <h2>Bác Sĩ Trực Tiếp Điều Trị Tại Flora</h2>
+            </div>
+            <div class="expert-grid reveal">
+                <!-- Left Column: Premium Framed portrait image -->
+                <div class="reveal-left expert-portrait-frame">
+                    <img src="<?php echo flora_asset('assets/homepage/bs_minh_portrait.webp'); ?>" alt="BS.CKI Nguyễn Đắc Minh - Bác sĩ phụ trách chuyên môn tại Flora" class="expert-portrait-img" loading="lazy" width="480" height="580" style="object-fit: cover; object-position: 55% 10%; border-radius: 16px;" />
+                </div>
+                
+                <!-- Right Column: Biography & Achievements -->
+                <div class="reveal-right" style="display: flex; flex-direction: column; gap: 18px;">
+                    <div>
+                        <h3 style="font-family: var(--font-title); font-size: 1.55rem; font-weight: 800; color: var(--clr-navy); margin-bottom: 4px; line-height: 1.2;">BS.CKI NGUYỄN ĐẮC MINH</h3>
+                        <p style="font-size: 0.95rem; font-weight: 700; color: var(--clr-secondary); margin-bottom: 12px;">Chuyên gia Cấy ghép Implant & Phục hình thẩm mỹ</p>
+                        
+                        <div style="background: var(--clr-bg-light); padding: 14px 18px; border-left: 3.5px solid var(--clr-primary); border-radius: 8px; margin-bottom: 16px;">
+                            <strong style="color: var(--clr-navy); display: block; font-size: 0.92rem; margin-bottom: 4px; letter-spacing: 0.5px;">TRIẾT LÝ ĐIỀU TRỊ:</strong>
+                            <p style="font-size: 0.95rem; font-weight: 700; color: var(--clr-primary); font-style: italic; margin-bottom: 6px;">“Nha khoa là sự giao thoa giữa y khoa, kỹ thuật và thẩm mỹ.”</p>
+                            <p style="font-size: 0.88rem; color: #334155; line-height: 1.6; margin: 0;">Mỗi kế hoạch điều trị được xây dựng trên nền tảng chẩn đoán kỹ lưỡng, chỉ định phù hợp, thao tác có kiểm soát và theo dõi dài hạn, hướng đến sự cân bằng giữa chức năng, thẩm mỹ và trải nghiệm của khách hàng.</p>
+                        </div>
+
+                        <!-- 3 Statistics Box right below intro per Slide 4 note -->
+                        <div style="margin-bottom: 8px;">
+                            <span style="font-size: 0.82rem; font-weight: 700; color: var(--clr-navy); text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 8px;">HỒ SƠ ĐIỀU TRỊ NỔI BẬT</span>
+                            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+                                <div style="background: rgba(4, 147, 241, 0.06); border: 1px solid rgba(4, 147, 241, 0.2); padding: 12px 8px; border-radius: 12px; text-align: center;">
+                                    <strong style="display: block; font-size: 1.35rem; font-weight: 800; color: var(--clr-primary); line-height: 1.1;">5.000+</strong>
+                                    <span style="font-size: 0.76rem; color: var(--clr-navy); font-weight: 600;">ca cấy ghép & phục hình Implant</span>
+                                </div>
+                                <div style="background: rgba(4, 147, 241, 0.06); border: 1px solid rgba(4, 147, 241, 0.2); padding: 12px 8px; border-radius: 12px; text-align: center;">
+                                    <strong style="display: block; font-size: 1.35rem; font-weight: 800; color: var(--clr-primary); line-height: 1.1;">2.200+</strong>
+                                    <span style="font-size: 0.76rem; color: var(--clr-navy); font-weight: 600;">ca phục hình răng sứ thẩm mỹ</span>
+                                </div>
+                                <div style="background: rgba(4, 147, 241, 0.06); border: 1px solid rgba(4, 147, 241, 0.2); padding: 12px 8px; border-radius: 12px; text-align: center;">
+                                    <strong style="display: block; font-size: 1.35rem; font-weight: 800; color: var(--clr-primary); line-height: 1.1;">1.200+</strong>
+                                    <span style="font-size: 0.76rem; color: var(--clr-navy); font-weight: 600;">ca điều trị cười hở lợi</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="border-top: 1px solid var(--clr-border); border-bottom: 1px solid var(--clr-border); padding: 16px 0; margin: 0;">
+                        <ul style="list-style: none; font-size: 0.88rem; color: var(--clr-text); display: flex; flex-direction: column; gap: 10px; padding: 0; margin: 0;">
+                            <li style="display: flex; align-items: flex-start; gap: 10px; margin: 0;">
+                                <i class="fa-solid fa-circle-check" style="color: var(--clr-secondary); margin-top: 3px;"></i> 
+                                <span><strong>ĐÀO TẠO CHUYÊN MÔN:</strong> Tốt nghiệp chính quy Bác sĩ chuyên khoa Răng Hàm Mặt, nhận chứng chỉ Cấy ghép nha khoa (Bệnh viện RHM Trung ương) và Chỉnh nha nâng cao (Bệnh viện Trung ương Huế).</span>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px; margin: 0;">
+                                <i class="fa-solid fa-circle-check" style="color: var(--clr-secondary); margin-top: 3px;"></i> 
+                                <span><strong>HOẠT ĐỘNG CHUYÊN MÔN QUỐC TẾ:</strong> Thành viên chính thức ICOI (Hiệp hội Implant Thế giới) và ITI (Hiệp hội Implant Quốc tế).</span>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px; margin: 0;">
+                                <i class="fa-solid fa-circle-check" style="color: var(--clr-secondary); margin-top: 3px;"></i> 
+                                <span><strong>TRAO ĐỔI & CHIA SẺ CHUYÊN MÔN:</strong> Đài Phát thanh & Truyền hình Vĩnh Long phỏng vấn về ứng dụng công nghệ trong cấy ghép Implant (2023); trao đổi chuyên môn cùng Dr. Gilles P. Chaumanet.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div style="text-align: left;">
+                        <a href="#dang-ky" class="btn btn-primary btn-booking" style="display: inline-block;">Đặt lịch tư vấn cùng Bác sĩ Minh <i class="fa-solid fa-calendar-check" style="margin-left: 8px;"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── REGISTRATION SECTION (FAQ + FORM SPLIT) ─── -->
+    <section class="section-padding registration-section" id="dang-ky">
+        <div class="container">
+            <div class="reg-split-container">
+                <!-- Left Column: FAQ Accordion -->
+                <div class="reveal" style="display: flex; flex-direction: column; justify-content: flex-start; gap: 20px;">
+                    <div>
+                        <h3 style="font-family: var(--font-title); font-size: 1.6rem; font-weight: 700; color: var(--clr-navy); margin: 0 0 10px 0;">Câu Hỏi Thường Gặp</h3>
+                        <p style="font-size: 0.9rem; color: var(--clr-text-muted); margin: 0 0 20px 0; line-height: 1.6;">Những băn khoăn phổ biến của khách hàng khi tìm hiểu dịch vụ tại Nha khoa Flora.</p>
+                    </div>
+                    <div class="faq-list" style="margin-top: 0;">
+                        <div class="faq-item active">
+                            <button class="faq-question">Trồng răng Implant có đau không? <i class="fa-solid fa-chevron-down"></i></button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    Quá trình cấy ghép được thực hiện dưới gây tê. Flora ứng dụng DentalVibe và quy trình kiểm soát cảm giác để hỗ trợ giảm lo lắng, khó chịu. Mức độ sưng hoặc ê sau điều trị có thể khác nhau tùy cơ địa và mức độ phẫu thuật.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">Bao lâu có thể hoàn thiện răng? <i class="fa-solid fa-chevron-down"></i></button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    Thời gian phụ thuộc vào chất lượng xương, độ ổn định của trụ, vị trí cấy ghép và việc khách hàng có cần ghép xương hay không. Bác sĩ chỉ quyết định phục hình sau khi đánh giá đủ điều kiện.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">Người lớn tuổi có thể trồng Implant không? <i class="fa-solid fa-chevron-down"></i></button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    Tuổi không phải là yếu tố duy nhất quyết định. Bác sĩ cần đánh giá sức khỏe toàn thân, bệnh lý nền, thuốc đang sử dụng và tình trạng xương hàm trước khi chỉ định.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">Mất răng lâu năm, tiêu xương có làm được không? <i class="fa-solid fa-chevron-down"></i></button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    Nhiều trường hợp vẫn có thể điều trị sau khi bác sĩ đánh giá bằng phim CT Cone Beam 3D. Tùy tình trạng, khách hàng có thể cần ghép xương, nâng xoang hoặc lựa chọn phương án phục hình khác.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">Vì sao chưa thể báo chính xác chi phí qua điện thoại? <i class="fa-solid fa-chevron-down"></i></button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    Tổng chi phí phụ thuộc vào số răng mất, chất lượng xương, dòng trụ, loại Abutment, mão sứ và các điều trị hỗ trợ. Chụp CT Cone Beam 3D giúp bác sĩ xác định phương án và dự toán sát với tình trạng thực tế.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Registration Form -->
+                <div class="cta-form reveal reveal-delay-2" style="background: #ffffff; border: 1px solid var(--clr-border); padding: 40px; border-radius: var(--radius-md); box-shadow: var(--shadow-premium);">
+                    <h3 style="color: var(--clr-navy); font-size: 1.35rem; margin-bottom: 8px; text-align: center; font-weight: 800; line-height: 1.3;">ĐĂNG KÝ THĂM KHÁM 1:1 CÙNG BÁC SĨ</h3>
+                    <p style="font-size: 0.92rem; color: var(--clr-secondary); text-align: center; margin-bottom: 24px; font-weight: 700; line-height: 1.4;">Miễn phí chụp phim CT Cone Beam và lập phác đồ điều trị cá nhân</p>
+                    
+                    <form id="floraRegistrationForm" class="modal-form" style="display: flex; flex-direction: column; gap: 15px;">
+                        <input type="hidden" id="note" name="note" value="" />
+                        <div class="form-group">
+                            <input class="form-input" name="name" placeholder="Họ và tên của bạn" required type="text" style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);" />
+                        </div>
+                        <div class="form-group">
+                            <input class="form-input" name="phone" placeholder="Số điện thoại liên hệ" required type="tel" style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);" />
+                        </div>
+                        <div class="form-group">
+                            <input class="form-input" name="email" placeholder="Địa chỉ Email" required type="email" style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);" />
+                        </div>
+                        <div class="form-group">
+                            <input class="form-input" name="location" placeholder="Nơi ở (Tỉnh / Thành phố / Quận)" type="text" style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);" />
+                        </div>
+                        <div class="form-group">
+                            <label style="display: block; font-size: 0.85rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 6px; text-align: left;">Giới tính:</label>
+                            <div style="display: flex; gap: 10px;">
+                                <label style="flex: 1; text-align: center; border: 1px solid var(--clr-border); padding: 10px; border-radius: var(--radius-sm); background: var(--clr-white); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 600; font-size: 0.9rem; transition: var(--transition);">
+                                    <input type="radio" name="gender" value="Nam" checked style="display: none;" />
+                                    <i class="fa-solid fa-mars" style="color: #0084ff;"></i> Nam
+                                </label>
+                                <label style="flex: 1; text-align: center; border: 1px solid var(--clr-border); padding: 10px; border-radius: var(--radius-sm); background: var(--clr-white); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 600; font-size: 0.9rem; transition: var(--transition);">
+                                    <input type="radio" name="gender" value="Nữ" style="display: none;" />
+                                    <i class="fa-solid fa-venus" style="color: #ff007f;"></i> Nữ
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-select" name="service" required style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);">
+<option value="Trồng răng Implant" selected>Trồng răng Implant Thụy Sĩ</option>
+                                <option value="Niềng răng chỉnh nha">Niềng răng Invisalign / Mắc cài</option>
+                                <option value="Điều trị cười hở lợi">Điều trị cười hở lợi</option>
+                                <option value="Dán sứ thẩm mỹ Veneer">Dán sứ Veneer E.max</option>
+                                <option value="Bọc răng sứ">Bọc răng sứ thẩm mỹ</option>
+                                <option value="Nha khoa tổng quát">Khám răng tổng quát / Lấy cao răng</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-select" name="preferredTime" required style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);">
+                                <option value="" disabled selected>Thời gian muốn được liên hệ</option>
+                                <option value="Sáng (8h00 - 12h00)">Sáng (8h00 - 12h00)</option>
+                                <option value="Chiều (13h30 - 17h30)">Chiều (13h30 - 17h30)</option>
+                                <option value="Tối (18h00 - 20h00)">Tối (18h00 - 20h00)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="padding: 14px; margin-top: 10px; font-size: 1rem; font-weight: bold; width: 100%;">Gửi Đăng Ký Đặt Lịch</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- ─── FOOTER ─── -->
+        <!-- ─── FOOTER ─── -->
+
+<?php
+get_footer();

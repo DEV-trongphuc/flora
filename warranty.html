@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <link href="https://nhakhoaflora.com/wp-content/uploads/2022/05/cropped-LOGO-FLORA1-3-192x192.png" rel="icon" type="image/png" />
+    <title>Tra Cứu Bảo Hành & Kiểm Tra Sản Phẩm Chính Hãng | Nha Khoa Flora</title>
+    <meta content="Cổng tra cứu bảo hành điện tử và xác thực phôi răng sứ, trụ Implant chính hãng từ các tập đoàn Thụy Sĩ, Hoa Kỳ, CHLB Đức, Hàn Quốc tại Nha khoa Flora." name="description" />
+    <meta content="check chinh hang, tra cuu bao hanh nha khoa flora, bao hanh implant, bao hanh rang su, straumann, cercon, emax, lava, ddbio, implantswiss, osstem, dentium" name="keywords" />
+    <meta content="index, follow" name="robots" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+    <link href="css/flora-style.css?v=2.4" rel="stylesheet" />
+    <link href="css/decor-animations.css" rel="stylesheet" />
+
+    <style>
+    /* ==========================================================================
+       FLORA WARRANTY PORTAL - CLEAN & BASIC DESIGN SYSTEM
+       ========================================================================== */
+    .warranty-page {
+        --w-navy: #0a1931;
+        --w-blue: #0033a3;
+        --w-cyan: #0493f1;
+        --w-text: #0f172a;
+        --w-text-muted: #64748b;
+        --w-card-bg: #ffffff;
+        --w-border: #e2e8f0;
+        --w-border-light: #f1f5f9;
+        background-color: #f8fafc;
+        color: var(--w-text);
+        overflow-x: hidden;
+    }
+
+    /* ─── 1. HERO BANNER ─── */
+    .warranty-hero {
+        position: relative;
+        background: linear-gradient(135deg, #050d1a 0%, #0a1e3f 50%, #002b80 100%);
+        color: #ffffff;
+        padding: 60px 0 50px;
+        overflow: hidden;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .warranty-hero-grid {
+        position: relative;
+        z-index: 2;
+        max-width: 900px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .warranty-badge-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 16px;
+        border-radius: 50px;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(4, 147, 241, 0.4);
+        color: #38bdf8;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        margin: 0 auto 16px;
+    }
+
+    .warranty-hero h1 {
+        font-family: var(--font-title, 'Plus Jakarta Sans', sans-serif);
+        font-size: 2.3rem;
+        font-weight: 800;
+        line-height: 1.25;
+        margin-bottom: 14px;
+        color: #ffffff;
+        letter-spacing: -0.5px;
+    }
+
+    .warranty-hero h1 .highlight-text {
+        background: linear-gradient(135deg, #38bdf8 0%, #ffffff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .warranty-hero-desc {
+        font-size: 1rem;
+        line-height: 1.65;
+        color: #cbd5e1;
+        margin: 0 auto 28px;
+        max-width: 740px;
+    }
+
+    /* Hero Stats */
+    .warranty-stats-bar {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+        margin-top: 24px;
+        padding: 18px 20px;
+        background: rgba(10, 25, 49, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 14px;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+
+    .warranty-stat-item {
+        text-align: center;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 2px 6px;
+    }
+
+    .warranty-stat-item:last-child {
+        border-right: none;
+    }
+
+    .warranty-stat-val {
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: #38bdf8;
+        font-family: var(--font-title, sans-serif);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+    }
+
+    .warranty-stat-lbl {
+        font-size: 0.78rem;
+        color: #94a3b8;
+        margin-top: 3px;
+        font-weight: 500;
+        white-space: nowrap;
+    }
+
+    /* ─── 2. STICKY FILTER & SEARCH TOOLBAR ─── */
+    .warranty-toolbar-wrapper {
+        position: sticky;
+        top: 68px;
+        z-index: 90;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--w-border);
+        padding: 14px 0;
+    }
+
+    .warranty-toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+
+    .warranty-filter-tabs {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .w-tab-btn {
+        appearance: none;
+        border: 1px solid var(--w-border);
+        background: #ffffff;
+        color: #475569;
+        font-family: var(--font-title, sans-serif);
+        font-size: 0.88rem;
+        font-weight: 600;
+        padding: 8px 16px;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        white-space: nowrap;
+    }
+
+    .w-tab-btn .tab-count {
+        background: #f1f5f9;
+        color: #475569;
+        font-size: 0.75rem;
+        padding: 2px 7px;
+        border-radius: 12px;
+        font-weight: 700;
+    }
+
+    .w-tab-btn:hover {
+        border-color: var(--w-cyan);
+        color: var(--w-blue);
+        background: #f0f9ff;
+    }
+
+    .w-tab-btn.active {
+        background: #0033a3;
+        border-color: #0033a3;
+        color: #ffffff;
+    }
+
+    .w-tab-btn.active .tab-count {
+        background: rgba(255, 255, 255, 0.25);
+        color: #ffffff;
+    }
+
+    .warranty-search-box {
+        position: relative;
+        min-width: 300px;
+        max-width: 100%;
+        flex: 1;
+    }
+
+    .warranty-search-box i.search-icon {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #94a3b8;
+        font-size: 0.9rem;
+        pointer-events: none;
+    }
+
+    .warranty-search-input {
+        width: 100%;
+        padding: 9px 38px 9px 40px;
+        border: 1px solid var(--w-border);
+        border-radius: 30px;
+        background: #ffffff;
+        font-family: var(--font-body, sans-serif);
+        font-size: 0.9rem;
+        color: var(--w-text);
+        outline: none;
+        transition: border-color 0.2s;
+    }
+
+    .warranty-search-input:focus {
+        border-color: var(--w-cyan);
+    }
+
+    .warranty-search-clear {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: #94a3b8;
+        font-size: 0.9rem;
+        cursor: pointer;
+        display: none;
+        padding: 4px;
+    }
+
+    /* ─── 3. BRAND SHOWCASE SECTION ─── */
+    .warranty-content-section {
+        padding: 40px 0 60px;
+    }
+
+    .warranty-group {
+        margin-bottom: 50px;
+    }
+
+    .warranty-group:last-child {
+        margin-bottom: 0;
+    }
+
+    .warranty-group-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 22px;
+        padding-bottom: 12px;
+        border-bottom: 2px solid #e2e8f0;
+    }
+
+    .warranty-group-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        background: #0033a3;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.15rem;
+        flex-shrink: 0;
+    }
+
+    .warranty-group-title h2 {
+        font-family: var(--font-title, sans-serif);
+        font-size: 1.35rem;
+        font-weight: 800;
+        color: var(--w-navy);
+        margin: 0;
+        line-height: 1.3;
+    }
+
+    .warranty-group-desc {
+        font-size: 0.85rem;
+        color: var(--w-text-muted);
+        margin-top: 2px;
+    }
+
+    /* 4 CARDS PER ROW ON DESKTOP */
+    .warranty-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+
+    /* ─── 4. BRAND CARD DESIGN (BASIC & CLEAN) ─── */
+    .brand-card {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 16px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+    }
+
+    .brand-card:hover {
+        transform: translateY(-4px);
+        border-color: #cbd5e1;
+        box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+    }
+
+    /* Brand Logo Box */
+    .brand-logo-container {
+        background: #ffffff;
+        border: 1px solid #edf2f7;
+        border-radius: 12px;
+        height: 96px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 16px;
+        margin-bottom: 16px;
+    }
+
+    .brand-logo-img {
+        max-width: 100%;
+        max-height: 64px;
+        object-fit: contain;
+    }
+
+    .brand-info {
+        margin-bottom: 16px;
+        flex: 1;
+    }
+
+    /* Single line title */
+    .brand-title {
+        font-family: var(--font-title, sans-serif);
+        font-size: 1.1rem;
+        font-weight: 800;
+        color: var(--w-navy);
+        margin-bottom: 4px;
+        line-height: 1.3;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* Single line corporation/origin */
+    .brand-corp {
+        font-size: 0.8rem;
+        color: #64748b;
+        margin-bottom: 14px;
+        font-weight: 500;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* Specs Box (No line wrapping) */
+    .brand-specs {
+        background: #f8fafc;
+        border-radius: 10px;
+        padding: 9px 12px;
+        border: 1px solid #f1f5f9;
+    }
+
+    .brand-spec-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 4px 0;
+        font-size: 0.82rem;
+        white-space: nowrap;
+    }
+
+    .brand-spec-row:first-child {
+        border-bottom: 1px dashed #e2e8f0;
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+    }
+
+    .brand-spec-label {
+        color: #64748b;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    .brand-spec-label i {
+        font-size: 0.8rem;
+        color: var(--w-cyan);
+    }
+
+    .brand-spec-val {
+        font-weight: 700;
+        color: var(--w-navy);
+        text-align: right;
+        white-space: nowrap;
+    }
+
+    .brand-spec-val.highlight {
+        color: #0284c7;
+    }
+
+    /* Card Action Button (Only 1 primary button) */
+    .btn-check-official {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 11px 16px;
+        border-radius: 10px;
+        background: #0033a3;
+        color: #ffffff !important;
+        font-family: var(--font-title, sans-serif);
+        font-size: 0.88rem;
+        font-weight: 700;
+        text-decoration: none;
+        transition: background-color 0.2s ease;
+        width: 100%;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    .btn-check-official:hover {
+        background: #0493f1;
+        color: #ffffff !important;
+    }
+
+    .btn-check-official i {
+        font-size: 0.82rem;
+    }
+
+    /* Empty search state */
+    .warranty-empty-state {
+        display: none;
+        text-align: center;
+        padding: 50px 20px;
+        background: #ffffff;
+        border: 1px dashed #cbd5e1;
+        border-radius: 16px;
+        margin: 20px 0;
+    }
+
+    .warranty-empty-state i {
+        font-size: 2.5rem;
+        color: #94a3b8;
+        margin-bottom: 12px;
+    }
+
+    .warranty-empty-state h3 {
+        font-size: 1.15rem;
+        color: var(--w-navy);
+        margin-bottom: 6px;
+    }
+
+    .warranty-empty-state p {
+        color: var(--w-text-muted);
+        font-size: 0.9rem;
+        margin-bottom: 16px;
+    }
+
+    /* ─── 5. 3-STEP VERIFICATION GUIDE SECTION ─── */
+    .warranty-steps-section {
+        background: #ffffff;
+        border-top: 1px solid var(--w-border);
+        border-bottom: 1px solid var(--w-border);
+        padding: 60px 0;
+    }
+
+    .section-header-center {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 40px;
+    }
+
+    .section-tag {
+        display: inline-block;
+        color: var(--w-cyan);
+        font-size: 0.8rem;
+        font-weight: 800;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+    }
+
+    .section-header-center h2 {
+        font-family: var(--font-title, sans-serif);
+        font-size: 1.85rem;
+        font-weight: 800;
+        color: var(--w-navy);
+        margin-bottom: 10px;
+    }
+
+    .section-header-center p {
+        color: var(--w-text-muted);
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .warranty-steps-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+
+    .warranty-step-card {
+        background: #f8fafc;
+        border: 1px solid var(--w-border);
+        border-radius: 16px;
+        padding: 28px 22px;
+        position: relative;
+        transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .warranty-step-card:hover {
+        background: #ffffff;
+        border-color: var(--w-cyan);
+        transform: translateY(-3px);
+    }
+
+    .step-num-badge {
+        position: absolute;
+        top: -16px;
+        left: 22px;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: #0033a3;
+        color: #ffffff;
+        font-weight: 800;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .step-icon-wrap {
+        width: 52px;
+        height: 52px;
+        border-radius: 12px;
+        background: #e0f2fe;
+        color: #0284c7;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        margin-bottom: 16px;
+    }
+
+    .warranty-step-card h3 {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--w-navy);
+        margin-bottom: 8px;
+    }
+
+    .warranty-step-card p {
+        font-size: 0.85rem;
+        line-height: 1.55;
+        color: var(--w-text-muted);
+    }
+
+    /* ─── 6. COMMITMENTS GRID ─── */
+    .warranty-commitments-section {
+        padding: 60px 0;
+        background: #f8fafc;
+    }
+
+    .commitments-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+
+    .commitment-card {
+        background: #ffffff;
+        border: 1px solid var(--w-border);
+        border-radius: 14px;
+        padding: 24px 18px;
+        text-align: center;
+        transition: transform 0.2s ease;
+    }
+
+    .commitment-card:hover {
+        transform: translateY(-3px);
+        border-color: #cbd5e1;
+    }
+
+    .commitment-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: #e0f2fe;
+        color: #0033a3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        margin: 0 auto 14px;
+    }
+
+    .commitment-card h4 {
+        font-size: 0.98rem;
+        font-weight: 700;
+        color: var(--w-navy);
+        margin-bottom: 6px;
+    }
+
+    .commitment-card p {
+        font-size: 0.82rem;
+        color: var(--w-text-muted);
+        line-height: 1.5;
+    }
+
+    /* ─── RESPONSIVE RULES ─── */
+    @media (max-width: 1100px) {
+        .warranty-cards-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 991px) {
+        .warranty-hero h1 {
+            font-size: 2rem;
+        }
+        .warranty-stats-bar {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+        .warranty-stat-item:nth-child(2) {
+            border-right: none;
+        }
+        .warranty-steps-grid {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        .commitments-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 600px) {
+        .warranty-hero {
+            padding: 45px 0 35px;
+        }
+        .warranty-hero h1 {
+            font-size: 1.6rem;
+        }
+        .warranty-stats-bar {
+            grid-template-columns: 1fr 1fr;
+        }
+        .warranty-toolbar {
+            flex-direction: column;
+            align-items: stretch;
+        }
+        .warranty-filter-tabs {
+            width: 100%;
+            overflow-x: auto;
+            padding-bottom: 4px;
+            flex-wrap: nowrap;
+        }
+        .w-tab-btn {
+            flex-shrink: 0;
+        }
+        .warranty-search-box {
+            min-width: 100%;
+        }
+        .warranty-cards-grid {
+            grid-template-columns: 1fr;
+        }
+        .commitments-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+    </style>
+</head>
+<body class="subpage-body">
+
+    <!-- HEADER -->
+    <header class="header-bar">
+        <div class="container header-inner">
+            <div class="logo-box">
+                <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
+                    <img src="ngayhoi_item/Logo-Flora1.webp" alt="Flora Logo" class="logo-img" />
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li class="nav-link-item"><a href="index.html">Trang Chủ</a></li>
+                <li class="nav-link-item"><a href="implant.html">Implant</a></li>
+                <li class="nav-link-item"><a href="ho-loi.html">Cười Hở Lợi</a></li>
+                <li class="nav-link-item has-dropdown">
+                    <a href="javascript:void(0)">Dịch Vụ Khác <i class="fa-solid fa-chevron-down dropdown-icon"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="nieng-rang.html">Niềng Răng</a></li>
+                        <li><a href="veneer.html">Dán Sứ Veneer</a></li>
+                        <li><a href="boc-rang-su.html">Bọc Răng Sứ</a></li>
+                        <li><a href="tong-quat.html">Nha Khoa Tổng Quát</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-item"><a href="bang-gia.html">Bảng Giá</a></li>
+                <li class="nav-link-item has-dropdown">
+                    <a href="goc-suc-khoe.html">Góc Sức Khỏe <i class="fa-solid fa-chevron-down dropdown-icon"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="goc-suc-khoe.html#kien-thuc">Kiến Thức</a></li>
+                        <li><a href="goc-suc-khoe.html#cases">Ca Điều Trị</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-item"><a href="lien-he.html">Liên Hệ</a></li>
+            </ul>
+
+            <div class="header-action">
+                <a href="warranty.html" class="btn-check-auth active" title="Tra cứu & Xác thực sản phẩm chính hãng (Check Chính Hãng)" aria-label="Check chính hãng">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>Check Chính Hãng</span>
+                </a>
+                <a href="#dang-ky" class="btn btn-primary btn-booking">Đăng Ký Đặt Hẹn</a>
+            </div>
+            <button class="hamburger-btn" id="drawerTrigger" aria-label="Menu Mobile">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- MOBILE OVERLAY & DRAWER -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <nav class="drawer-nav" id="drawerNav">
+        <div class="logo-box" style="margin-bottom: 20px;">
+            <img src="ngayhoi_item/Logo-Flora1.webp" alt="Flora Logo" class="logo-img" />
+        </div>
+        <a href="warranty.html" class="drawer-auth-badge">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>Check Chính Hãng</span>
+        </a>
+        <a href="index.html">Trang Chủ</a>
+        <a href="implant.html">Implant</a>
+        <a href="ho-loi.html">Cười Hở Lợi</a>
+        
+        <div class="drawer-accordion">
+            <div class="drawer-accordion-header">
+                <span>Dịch Vụ Khác</span>
+                <i class="fa-solid fa-chevron-down accordion-icon"></i>
+            </div>
+            <div class="drawer-accordion-body">
+                <a href="nieng-rang.html">Niềng Răng</a>
+                <a href="veneer.html">Dán Sứ Veneer</a>
+                <a href="boc-rang-su.html">Bọc Răng Sứ</a>
+                <a href="tong-quat.html">Nha Khoa Tổng Quát</a>
+            </div>
+        </div>
+
+        <a href="bang-gia.html">Bảng Giá</a>
+        <a href="goc-suc-khoe.html">Góc Sức Khỏe</a>
+        <a href="lien-he.html">Liên Hệ</a>
+    </nav>
+
+    <!-- MAIN WRAPPER -->
+    <div class="warranty-page">
+
+        <!-- ─── 1. HERO SECTION ─── -->
+        <section class="warranty-hero">
+            <div class="container">
+                <div class="warranty-hero-grid">
+                    <div class="warranty-badge-pill">
+                        <i class="fa-solid fa-shield-check"></i>
+                        <span>Cổng Xác Thực &amp; Bảo Hành Chính Hãng</span>
+                    </div>
+                    
+                    <h1>
+                        Kiểm Tra Sản Phẩm Chính Hãng <br>
+                        <span class="highlight-text">&amp; Tra Cứu Bảo Hành Điện Tử</span>
+                    </h1>
+                    
+                    <p class="warranty-hero-desc">
+                        Nha khoa Flora cam kết 100% phôi răng sứ thẩm mỹ và trụ Implant được nhập khẩu chính ngạch từ các tập đoàn nha khoa hàng đầu thế giới (Thụy Sĩ, Hoa Kỳ, CHLB Đức, Hàn Quốc). Quý khách dễ dàng đối chiếu số thẻ, mã QR và serial trực tiếp trên hệ thống máy chủ của nhà sản xuất.
+                    </p>
+
+                    <!-- Key Metrics & Trust Stats -->
+                    <div class="warranty-stats-bar">
+                        <div class="warranty-stat-item">
+                            <div class="warranty-stat-val">
+                                <i class="fa-solid fa-gem"></i>
+                                <span>8+</span>
+                            </div>
+                            <div class="warranty-stat-lbl">Thương Hiệu Toàn Cầu</div>
+                        </div>
+                        <div class="warranty-stat-item">
+                            <div class="warranty-stat-val">
+                                <i class="fa-solid fa-certificate"></i>
+                                <span>100%</span>
+                            </div>
+                            <div class="warranty-stat-lbl">Chính Ngạch CO/CQ</div>
+                        </div>
+                        <div class="warranty-stat-item">
+                            <div class="warranty-stat-val">
+                                <i class="fa-solid fa-clock-rotate-left"></i>
+                                <span>10+</span>
+                            </div>
+                            <div class="warranty-stat-lbl">Bảo Hành Lên Đến Trọn Đời</div>
+                        </div>
+                        <div class="warranty-stat-item">
+                            <div class="warranty-stat-val">
+                                <i class="fa-solid fa-headset"></i>
+                                <span>24/7</span>
+                            </div>
+                            <div class="warranty-stat-lbl">Hotline: 028 7305 8999</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── 2. STICKY FILTER & SEARCH TOOLBAR ─── -->
+        <div class="warranty-toolbar-wrapper" id="brandToolbar">
+            <div class="container">
+                <div class="warranty-toolbar">
+                    <div class="warranty-filter-tabs" role="tablist">
+                        <button class="w-tab-btn active" data-filter="all" id="tabAll">
+                            <i class="fa-solid fa-layer-group"></i> Tất Cả <span class="tab-count">8</span>
+                        </button>
+                        <button class="w-tab-btn" data-filter="su" id="tabSu">
+                            <i class="fa-solid fa-tooth"></i> Răng Sứ <span class="tab-count">4</span>
+                        </button>
+                        <button class="w-tab-btn" data-filter="implant" id="tabImplant">
+                            <i class="fa-solid fa-screwdriver"></i> Implant <span class="tab-count">4</span>
+                        </button>
+                    </div>
+
+                    <div class="warranty-search-box">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" id="warrantySearchInput" class="warranty-search-input" placeholder="Tìm kiếm hãng (Ví dụ: Straumann, Cercon, Emax...)" aria-label="Tìm kiếm thương hiệu bảo hành" />
+                        <button type="button" id="warrantySearchClear" class="warranty-search-clear" aria-label="Xóa tìm kiếm">
+                            <i class="fa-solid fa-circle-xmark"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ─── 3. BRAND LISTINGS SECTION ─── -->
+        <section class="warranty-content-section">
+            <div class="container">
+
+                <!-- Empty Search State -->
+                <div id="warrantyEmptyState" class="warranty-empty-state">
+                    <i class="fa-solid fa-shield-slash"></i>
+                    <h3>Không tìm thấy thương hiệu phù hợp</h3>
+                    <p>Vui lòng thử lại với từ khóa khác hoặc bấm nút bên dưới để xem tất cả.</p>
+                    <button type="button" class="btn btn-primary" id="btnResetSearch" style="border-radius: 30px; padding: 9px 22px;">
+                        <i class="fa-solid fa-rotate-left"></i> Xem Tất Cả 8 Hãng
+                    </button>
+                </div>
+
+                <!-- GROUP 1: RĂNG SỨ THẨM MỸ (4 BRANDS) -->
+                <div class="warranty-group" id="groupSu" data-category="su">
+                    <div class="warranty-group-header">
+                        <div class="warranty-group-icon">
+                            <i class="fa-solid fa-tooth"></i>
+                        </div>
+                        <div class="warranty-group-title">
+                            <h2>Răng Sứ Thẩm Mỹ Chính Hãng</h2>
+                            <div class="warranty-group-desc">Danh mục phôi toàn sứ cao cấp nhập khẩu Thụy Sĩ, CHLB Đức và Hoa Kỳ</div>
+                        </div>
+                    </div>
+
+                    <div class="warranty-cards-grid">
+                        <!-- Brand 1: Emax -->
+                        <div class="brand-card" data-category="su" data-keywords="emax e.max medent ivoclar rang su thuy si">
+                            <div>
+                                <div class="brand-logo-container">
+                                    <img src="assets/images/brands/emax.webp" alt="Emax Logo" class="brand-logo-img" loading="lazy" />
+                                </div>
+                                <div class="brand-info">
+                                    <h3 class="brand-title">Sứ IPS e.max®</h3>
+                                    <div class="brand-corp">Ivoclar Vivadent &bull; Thụy Sĩ</div>
+                                    
+                                    <div class="brand-specs">
+                                        <div class="brand-spec-row">
+                                            <span class="brand-spec-label"><i class="fa-solid fa-clock"></i> Bảo hành:</span>
+                                            <span class="brand-spec-val highlight">10 Năm</span>
+                                        </div>
+                                        <div class="brand-spec-row">
+                                            <span class="brand-spec-label"><i class="fa-solid fa-key"></i> Nhập mã:</span>
+                                            <span class="brand-spec-val">Mã thẻ cào</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="https://emax.medent.vn/" target="_blank" rel="noopener noreferrer" class="btn-check-official" title="Tra cứu bảo hành Emax chính hãng trên Medent">
+                                <span>Kiểm Tra Chính Hãng</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+
+                        <!-- Brand 2: Lava -->
+                        <div class="brand-card" data-category="su" data-keywords="lava 3m espe lava plus rang su hoa ky usa my">
+                            <div>
+                                <div class="brand-logo-container">
+                                    <img src="assets/images/brands/lava.webp" alt="Lava 3M Logo" class="brand-logo-img" loading="lazy" />
+                                </div>
+                                <div class="brand-info">
+                                    <h3 class="brand-title">Sứ Lava™ Plus 3M</h3>
+                                    <div class="brand-corp">3M ESPE Dental &bull; Hoa Kỳ</div>
+                                    
+                                    <div class="brand-specs">
+                                        <div class="brand-spec-row">
+                                            <span class="brand-spec-label"><i class="fa-solid fa-clock"></i> Bảo hành:</span>
+                                            <span class="brand-spec-val highlight">15 Năm</span>
+                                        </div>
+                                        <div class="brand-spec-row">
+                                            <span class="brand-spec-label"><i class="fa-solid fa-key"></i> Nhập mã:</span>
+                                            <span class="brand-spec-val">Mã thẻ ID</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="https://lavavietnam.com.vn/check-bao-hanh/" target="_blank" rel="noopener noreferrer" class="btn-check-official" title="Tra cứu bảo hành Lava 3M chính hãng">
+                                <span>Kiểm Tra Chính Hãng</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+
+                        <!-- Brand 3: DDBIO -->
+                        <div class="brand-card" data-category="su" data-keywords="ddbio dd bio dental direkt zirconia duc germany chlb duc">
+                            <div>
+                                <div class="brand-logo-container">
+                                    <img src="assets/images/brands/ddbio.webp" alt="Dental Direkt DDBIO Logo" class="brand-logo-img" loading="lazy" />
+                                </div>
+                                <div class="brand-info">
+                                    <h3 class="brand-title">Sứ Zirconia DDBIO®</h3>
+                                    <div class="brand-corp">Dental Direkt &bull; CHLB Đức</div>
+                                    
+                                    <div class="brand-specs">
+                                        <div class="brand-spec-row">
+                                            <span class="brand-spec-label"><i class="fa-solid fa-clock"></i> Bảo hành:</span>
+                                            <span class="brand-spec-val highlight">10 Năm</span>
+                                        </div>
+                                        <div class="brand-spec-row">
+                                            <span class="brand-spec-label"><i class="fa-solid fa-key"></i> Nhập mã:</span>
+                                            <span class="brand-spec-val">Mã thẻ cào</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="https://baohanh.ddbio.com.vn/" target="_blank" rel="noopener noreferrer" class="btn-check-official" title="Tra cứu bảo hành DDBIO Dental Direkt">
+                                <span>Kiểm Tra Chính Hãng</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+
+                        <!-- Brand 4: Cercon -->
+                        <div class="brand-card" data-category="su" data-keywords="cercon dentsply sirona cercon ht cercon xt rang su hoa ky duc">
+                            <div>
+                                <div class="brand-logo-container">
+                                    <img src="assets/images/brands/cercon.webp" alt="Cercon Dentsply Sirona Logo" class="brand-logo-img" loading="lazy" />
+                                </div>
+                                <div class="brand-info">
+                                    <h3 class="brand-title">Sứ Cercon® HT/XT</h3>
+                                    <div class="brand-corp">Dentsply Sirona &bull; Hoa Kỳ</div>
+                                    
+                                    <div class="brand-specs">
+                                        <div class="brand-spec-row">
+                                            <span class="brand-spec-label"><i class="fa-solid fa-clock"></i> Bảo hành:</span>
+                                            <span class="brand-spec-val highlight">10 Năm</span>
+                                        </div>
+                                        <div class="brand-spec-row">
+                                            <span class="brand-spec-label"><i class="fa-solid fa-key"></i> Nhập mã:</span>
+                                            <span class="brand-spec-val">Mã số / QR</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="https://dentsplysirona.com.vn/page/" target="_blank" rel="noopener noreferrer" class="btn-check-official" title="Tra cứu bảo hành Cercon Dentsply Sirona">
+                                <span>Kiểm Tra Chính Hãng</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GROUP 2: TRỒNG RĂNG IMPLANT (4 BRANDS) -->
+                <div class="warranty-group" id="groupImplant" data-category="implant">
+                    <div class="warranty-group-header">
+                        <div class="warranty-group-icon">
+                            <i class="fa-solid fa-screwdriver"></i>
+                        </div>
+                        <div class="warranty-group-title">
+                            <h2>Hệ Thống Trụ Implant Nha Khoa Quốc Tế</h2>
+                            <div class="warranty-group-desc">Đối tác chính hãng các dòng trụ Implant tiêu chuẩn Thụy Sĩ, Hoa Kỳ và Châu Á</div>
+                        </div>
+                    </div>
+
+                    <div class="warranty-cards-grid">
+                        <!-- Brand 5: Implantswiss -->
+                        <div class="brand-card" data-category="implant" data-keywords="implantswiss novodent brandson tru implant thuy si switzerland pearl">
+                            <div>
+                                <div class="brand-logo-container">
+                                    <img src="assets/images/brands/implantswiss.webp" alt="Implantswiss Logo" class="brand-logo-img" loading="lazy" />
+                                </div>
+                                <div class="brand-info">
+                                    <h3 class="brand-title">Implant Implantswiss</h3>
+                                    <div class="brand-corp">Novodent SA &bull; Thụy Sĩ</div>
+                                    
+                                    <div class="brand-specs">
+                                        <div class="brand-spec-row">
+                                            <span class="brand-spec-label"><i class="fa-solid fa-clock"></i> Bảo hành:</span>
+                                            <span class="brand-spec-val highlight" style="color: #10b981;">Trọn Đời</span>
+                                        </div>
+                                        <div class="brand-spec-row">
+                                            <span class="brand-spec-label"><i class="fa-solid fa-key"></i> Nhập mã:</span>
+                                            <span class="brand-spec-val">Mã thẻ / LOT</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="https://implantswiss.vn/warranty/" target="_blank" rel="noopener noreferrer" class="btn-check-official" title="Tra cứu bảo hành Implantswiss Thụy Sĩ chính hãng">
+                                <span>Kiểm Tra Chính Hãng</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+
+                        <!-- Brand 6: Straumann -->
+                        <div class="brand-card" data-category="implant" data-keywords="straumann strauman sla slactive implant so 1 the gioi basel thuy si swiss">
+                            <div>
+                                <div class="brand-logo-container">
+                                    <img src="assets/images/brands/straumann.webp" alt="Straumann Logo" class="brand-logo-img" loading="lazy" />
+                                </div>
+                                <div class="brand-info">
+                                    <h3 class="brand-title">Implant Straumann®</h3>
+                                    <div class="brand-corp">Straumann Group &bull; Thụy Sĩ</div>
+                                    
+                                    <div class="brand-specs">
+                                        <div class="brand-spec-row">
+                                            <span class="brand-spec-label"><i class="fa-solid fa-clock"></i> Bảo hành:</span>
+                                            <span class="brand-spec-val highlight" style="color: #10b981;">Trọn Đời</span>
+                                        </div>
+                                        <div class="brand-spec-row">
+                                            <span class="brand-spec-label"><i class="fa-solid fa-key"></i> Nhập mã:</span>
+                                            <span class="brand-spec-val">Mã LOT &amp; REF</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="https://www.straumann.com/en/dental-professionals/services/customer-services/online-verification-tool.html" target="_blank" rel="noopener noreferrer" class="btn-check-official" title="Tra cứu mã sản phẩm Straumann toàn cầu">
+                                <span>Kiểm Tra Chính Hãng</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+
+                        <!-- Brand 7: Dentium -->
+                        <div class="brand-card" data-category="implant" data-keywords="dentium dentium superline implant han quoc korea my usa">
+                            <div>
+                                <div class="brand-logo-container">
+                                    <img src="assets/images/brands/dentium.webp" alt="Dentium Logo" class="brand-logo-img" loading="lazy" />
+                                </div>
+                                <div class="brand-info">
+                                    <h3 class="brand-title">Implant Dentium</h3>
+                                    <div class="brand-corp">Dentium Co. &bull; Hàn Quốc</div>
+                                    
+                                    <div class="brand-specs">
+                                        <div class="brand-spec-row">
+                                            <span class="brand-spec-label"><i class="fa-solid fa-clock"></i> Bảo hành:</span>
+                                            <span class="brand-spec-val highlight">10 - 20 Năm</span>
+                                        </div>
+                                        <div class="brand-spec-row">
+                                            <span class="brand-spec-label"><i class="fa-solid fa-key"></i> Nhập mã:</span>
+                                            <span class="brand-spec-val">Mã Code vỉ</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="https://dentium.com.vn/tra-cuu-san-pham/#KetQua" target="_blank" rel="noopener noreferrer" class="btn-check-official" title="Tra cứu mã sản phẩm Dentium chính hãng">
+                                <span>Kiểm Tra Chính Hãng</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+
+                        <!-- Brand 8: Osstem -->
+                        <div class="brand-card" data-category="implant" data-keywords="osstem osstem implant tsiii so 1 chau a han quoc korea">
+                            <div>
+                                <div class="brand-logo-container">
+                                    <img src="assets/images/brands/osstem.webp" alt="Osstem Implant Logo" class="brand-logo-img" loading="lazy" />
+                                </div>
+                                <div class="brand-info">
+                                    <h3 class="brand-title">Implant Osstem</h3>
+                                    <div class="brand-corp">Osstem Implant &bull; Hàn Quốc</div>
+                                    
+                                    <div class="brand-specs">
+                                        <div class="brand-spec-row">
+                                            <span class="brand-spec-label"><i class="fa-solid fa-clock"></i> Bảo hành:</span>
+                                            <span class="brand-spec-val highlight">10 - 20 Năm</span>
+                                        </div>
+                                        <div class="brand-spec-row">
+                                            <span class="brand-spec-label"><i class="fa-solid fa-key"></i> Nhập mã:</span>
+                                            <span class="brand-spec-val">Mã thẻ / QR</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="https://check.osstem.vn/" target="_blank" rel="noopener noreferrer" class="btn-check-official" title="Tra cứu bảo hành Osstem Implant chính hãng">
+                                <span>Kiểm Tra Chính Hãng</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ─── 4. QUY TRÌNH 3 BƯỚC XÁC THỰC ─── -->
+        <section class="warranty-steps-section">
+            <div class="container">
+                <div class="section-header-center">
+                    <span class="section-tag">Hướng Dẫn Nhanh</span>
+                    <h2>Quy Trình 3 Bước Xác Thực Chính Hãng</h2>
+                    <p>Khách hàng tại Nha khoa Flora hoàn toàn an tâm về nguồn gốc xuất xứ với quy trình đối chiếu minh bạch.</p>
+                </div>
+
+                <div class="warranty-steps-grid">
+                    <!-- Step 1 -->
+                    <div class="warranty-step-card">
+                        <span class="step-num-badge">1</span>
+                        <div class="step-icon-wrap">
+                            <i class="fa-solid fa-id-card-clip"></i>
+                        </div>
+                        <h3>Nhận Thẻ &amp; Mã Xác Thực</h3>
+                        <p>Sau khi cấy ghép Implant hoặc phục hình răng sứ, Quý khách được Bác sĩ bàn giao Thẻ bảo hành ID chính hãng hoặc tem niêm phong hộp sản phẩm có mã QR / Serial riêng biệt.</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="warranty-step-card">
+                        <span class="step-num-badge">2</span>
+                        <div class="step-icon-wrap">
+                            <i class="fa-solid fa-arrow-pointer"></i>
+                        </div>
+                        <h3>Chọn Thương Hiệu &amp; Truy Cập</h3>
+                        <p>Tại Cổng tra cứu Flora, chọn đúng hãng răng sứ hoặc trụ Implant bạn đã làm và bấm <strong>"Kiểm Tra Chính Hãng"</strong> để truy cập trực tiếp máy chủ của nhà sản xuất.</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="warranty-step-card">
+                        <span class="step-num-badge">3</span>
+                        <div class="step-icon-wrap">
+                            <i class="fa-solid fa-shield-check"></i>
+                        </div>
+                        <h3>Nhập Mã &amp; Đối Chiếu Dữ Liệu</h3>
+                        <p>Nhập mã số cào, mã LOT hoặc số điện thoại theo yêu cầu của hệ thống để xác nhận tức thì thông tin bệnh nhân, ngày kích hoạt, thời hạn bảo hành và nguồn gốc sản phẩm.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── 5. CAM KẾT CHẤT LƯỢNG FLORA ─── -->
+        <section class="warranty-commitments-section">
+            <div class="container">
+                <div class="section-header-center">
+                    <span class="section-tag">Quyền Lợi Khách Hàng</span>
+                    <h2>4 Cam Kết Vàng Về Nguồn Gốc Vật Liệu Tại Flora</h2>
+                    <p>Nha khoa Flora - Phòng khám chuẩn Thụy Sĩ đặt trọn uy tín và sức khỏe của khách hàng lên hàng đầu.</p>
+                </div>
+
+                <div class="commitments-grid">
+                    <div class="commitment-card">
+                        <div class="commitment-icon"><i class="fa-solid fa-file-shield"></i></div>
+                        <h4>100% Chính Ngạch</h4>
+                        <p>Toàn bộ vật liệu phôi sứ và trụ implant đều có đầy đủ chứng nhận CO/CQ từ hãng và giấy phép Bộ Y Tế.</p>
+                    </div>
+
+                    <div class="commitment-card">
+                        <div class="commitment-icon"><i class="fa-solid fa-box-open"></i></div>
+                        <h4>Đồng Kiểm Trước Khi Làm</h4>
+                        <p>Khách hàng được trực tiếp kiểm tra tem niêm phong, hạn sử dụng và bóc seal vỉ sản phẩm trước mặt Bác sĩ.</p>
+                    </div>
+
+                    <div class="commitment-card">
+                        <div class="commitment-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                        <h4>Bồi Thường Minh Bạch</h4>
+                        <p>Cam kết bồi hoàn 200% toàn bộ chi phí nếu phát hiện vật liệu phôi sứ hoặc trụ implant là hàng nhái / trôi nổi.</p>
+                    </div>
+
+                    <div class="commitment-card">
+                        <div class="commitment-icon"><i class="fa-solid fa-database"></i></div>
+                        <h4>Lưu Trữ Điện Tử Trọn Đời</h4>
+                        <p>Dữ liệu điều trị và thông tin bảo hành được lưu trữ vĩnh viễn trên hệ thống phần mềm quản lý của Flora.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── 6. FAQ & FORM ĐĂNG KÝ HỖ TRỢ BẢO HÀNH ─── -->
+        <section class="section-padding registration-section" id="dang-ky">
+            <div class="container">
+                <div class="reg-split-container">
+                    <!-- Left: FAQ -->
+                    <div style="display: flex; flex-direction: column; justify-content: flex-start; gap: 20px;">
+                        <div>
+                            <h3 style="font-family: var(--font-title); font-size: 1.6rem; font-weight: 700; color: var(--clr-navy); margin: 0 0 10px 0;">Giải Đáp Thắc Mắc Về Bảo Hành</h3>
+                            <p style="font-size: 0.9rem; color: var(--clr-text-muted); margin: 0 0 20px 0; line-height: 1.6;">Những băn khoăn phổ biến của khách hàng khi tra cứu và kích hoạt thẻ bảo hành chính hãng.</p>
+                        </div>
+                        <div class="faq-list" style="margin-top: 0;">
+                            <div class="faq-item active">
+                                <button class="faq-question">Tôi bị mất thẻ bảo hành cứng thì có được bảo hành không? <i class="fa-solid fa-chevron-down"></i></button>
+                                <div class="faq-answer">
+                                    <div class="faq-answer-content">
+                                        Hoàn toàn được! Dữ liệu điều trị của Quý khách đã được Nha khoa Flora đồng bộ điện tử trên hệ thống bệnh án số và máy chủ của hãng. Bạn chỉ cần đọc Số Điện Thoại đăng ký là đội ngũ trợ lý y tế có thể tra cứu và bảo hành bình thường.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <button class="faq-question">Tôi có thể tự check mã trước khi bác sĩ gắn răng không? <i class="fa-solid fa-chevron-down"></i></button>
+                                <div class="faq-answer">
+                                    <div class="faq-answer-content">
+                                        Hoàn toàn được! Đây là quyền lợi tiêu chuẩn tại Flora. Bác sĩ luôn để Quý khách kiểm tra bao bì, tem niêm phong, mã LOT/REF và hạn sử dụng trước khi bóc hộp thực hiện thủ thuật.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <button class="faq-question">Chế độ bảo hành trọn đời áp dụng trong những trường hợp nào? <i class="fa-solid fa-chevron-down"></i></button>
+                                <div class="faq-answer">
+                                    <div class="faq-answer-content">
+                                        Các dòng trụ cao cấp như Straumann (Thụy Sĩ), Implantswiss (Thụy Sĩ) áp dụng bảo hành trọn đời toàn cầu do lỗi cấu trúc vật liệu từ nhà sản xuất. Khách hàng chỉ cần tái khám định kỳ theo hướng dẫn y khoa của Bác sĩ.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Form -->
+                    <div class="cta-form" style="background: #ffffff; border: 1px solid var(--clr-border); padding: 40px; border-radius: var(--radius-md); box-shadow: var(--shadow-premium);">
+                        <h3 style="color: var(--clr-navy); font-size: 1.4rem; margin-bottom: 8px; text-align: center;">Cần Hỗ Trợ Kích Hoạt Thẻ?</h3>
+                        <p style="font-size: 0.88rem; color: var(--clr-text-muted); text-align: center; margin-bottom: 24px;">Để lại thông tin, đội ngũ chăm sóc khách hàng Flora sẽ hỗ trợ đối chiếu mã hãng ngay trong 5 phút</p>
+                        
+                        <form id="floraRegistrationForm" class="modal-form" style="display: flex; flex-direction: column; gap: 15px;">
+                            <input type="hidden" id="note" name="note" value="Khách hàng yêu cầu hỗ trợ kiểm tra thẻ bảo hành & check chính hãng" />
+                            <div class="form-group">
+                                <input class="form-input" name="name" placeholder="Họ và tên của bạn" required type="text" style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);" />
+                            </div>
+                            <div class="form-group">
+                                <input class="form-input" name="phone" placeholder="Số điện thoại của bạn" required type="tel" style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);" />
+                            </div>
+                            <div class="form-group">
+                                <select class="form-select" name="service" required style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);">
+                                    <option value="" disabled selected>Chọn thương hiệu bạn đang dùng</option>
+                                    <option value="Bảo hành Sứ Emax">Sứ IPS e.max (Thụy Sĩ)</option>
+                                    <option value="Bảo hành Sứ Lava">Sứ Lava Plus 3M (Hoa Kỳ)</option>
+                                    <option value="Bảo hành Sứ DDBIO">Sứ Zirconia DDBIO (Đức)</option>
+                                    <option value="Bảo hành Sứ Cercon">Sứ Cercon HT/XT (Hoa Kỳ)</option>
+                                    <option value="Bảo hành Implantswiss">Implant Implantswiss (Thụy Sĩ)</option>
+                                    <option value="Bảo hành Straumann">Implant Straumann (Thụy Sĩ)</option>
+                                    <option value="Bảo hành Dentium">Implant Dentium (Hàn Quốc)</option>
+                                    <option value="Bảo hành Osstem">Implant Osstem (Hàn Quốc)</option>
+                                    <option value="Khác">Dịch vụ khác / Cần tư vấn</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="padding: 14px; margin-top: 10px; font-size: 1rem; font-weight: bold; width: 100%;">
+                                <i class="fa-solid fa-headset"></i> Yêu Cầu Hỗ Trợ Ngay
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <img src="ngayhoi_item/Logo-Flora1.webp" alt="Flora Logo" class="footer-logo-img" />
+                </div>
+                <p>Nha khoa Flora - Hệ thống nha khoa êm ái tiêu chuẩn Thụy Sĩ. Đội ngũ bác sĩ chuyên môn Răng Hàm Mặt, kiến tạo nụ cười rạng rỡ tự nhiên cho gia đình bạn.</p>
+                <div class="footer-socials">
+                    <a href="https://facebook.com/nhakhoaflora" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="https://youtube.com/c/nhakhoaflora" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="YouTube">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Dịch Vụ Nổi Bật</h4>
+                <ul class="footer-links">
+                    <li><a href="implant.html">Cấy Ghép Implant Thụy Sĩ</a></li>
+                    <li><a href="nieng-rang.html">Niềng Răng Invisalign</a></li>
+                    <li><a href="ho-loi.html">Điều Trị Cười Hở Lợi</a></li>
+                    <li><a href="veneer.html">Dán Sứ Veneer E.max</a></li>
+                    <li><a href="boc-rang-su.html">Bọc Sứ Thẩm Mỹ Cercon</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Về Nha Khoa</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Trang Chủ Flora</a></li>
+                    <li><a href="bang-gia.html">Bảng Giá Dịch Vụ</a></li>
+                    <li><a href="warranty.html">Tra Cứu Bảo Hành Chính Hãng</a></li>
+                    <li><a href="chinh-sach-bao-hanh.html">Chính Sách Bảo Hành</a></li>
+                    <li><a href="chinh-sach-bao-mat.html">Chính Sách Bảo Mật</a></li>
+                    <li><a href="dieu-khoan-dich-vu.html">Điều Khoản Dịch Vụ</a></li>
+                    <li><a href="dang-ky-doi-tac.html" style="color: #38bdf8; font-weight: 600;"><i class="fa-solid fa-handshake" style="font-size: 0.8rem; margin-right: 4px;"></i> Đăng Ký Đối Tác / KOL</a></li>
+                    <li><a href="doi-tac.html"><i class="fa-solid fa-chart-pie" style="font-size: 0.8rem; margin-right: 4px;"></i> Cổng Thông Tin Đối Tác</a></li>
+                    <li><a href="goc-suc-khoe.html">Góc Sức Khỏe &amp; Cẩm Nang</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Thông Tin Liên Hệ</h4>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>326 Nguyễn Thị Minh Khai, Phường Bàn Cờ, TP. Hồ Chí Minh</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>028 7305 8999</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-clock"></i>
+                    <span>8h30 - 18h30 (Thứ 2 - Chủ Nhật)</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Nha Khoa Flora. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="js/flora-main.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var tabBtns = document.querySelectorAll('.w-tab-btn');
+        var groupSu = document.getElementById('groupSu');
+        var groupImplant = document.getElementById('groupImplant');
+        var cards = document.querySelectorAll('.brand-card');
+        var emptyState = document.getElementById('warrantyEmptyState');
+        var searchInput = document.getElementById('warrantySearchInput');
+        var clearBtn = document.getElementById('warrantySearchClear');
+        var resetBtn = document.getElementById('btnResetSearch');
+
+        var currentFilter = 'all';
+
+        function applyFilterAndSearch() {
+            var query = searchInput.value.trim().toLowerCase();
+            var visibleCount = 0;
+            var visibleSu = 0;
+            var visibleImplant = 0;
+
+            cards.forEach(function(card) {
+                var cardCat = card.getAttribute('data-category');
+                var cardKeywords = card.getAttribute('data-keywords') || '';
+                var cardTitle = card.querySelector('.brand-title').textContent.toLowerCase();
+                var cardCorp = card.querySelector('.brand-corp').textContent.toLowerCase();
+
+                var matchesTab = (currentFilter === 'all') || (cardCat === currentFilter);
+                var matchesSearch = (!query) || (cardKeywords.indexOf(query) !== -1) || (cardTitle.indexOf(query) !== -1) || (cardCorp.indexOf(query) !== -1);
+
+                if (matchesTab && matchesSearch) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                    if (cardCat === 'su') visibleSu++;
+                    if (cardCat === 'implant') visibleImplant++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            groupSu.style.display = (visibleSu > 0) ? 'block' : 'none';
+            groupImplant.style.display = (visibleImplant > 0) ? 'block' : 'none';
+
+            if (visibleCount === 0) {
+                emptyState.style.display = 'block';
+            } else {
+                emptyState.style.display = 'none';
+            }
+
+            clearBtn.style.display = query.length > 0 ? 'block' : 'none';
+        }
+
+        tabBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                tabBtns.forEach(function(b) { b.classList.remove('active'); });
+                this.classList.add('active');
+                currentFilter = this.getAttribute('data-filter');
+                applyFilterAndSearch();
+            });
+        });
+
+        searchInput.addEventListener('input', applyFilterAndSearch);
+
+        clearBtn.addEventListener('click', function() {
+            searchInput.value = '';
+            searchInput.focus();
+            applyFilterAndSearch();
+        });
+
+        if (resetBtn) {
+            resetBtn.addEventListener('click', function() {
+                searchInput.value = '';
+                tabBtns.forEach(function(b) { b.classList.remove('active'); });
+                document.getElementById('tabAll').classList.add('active');
+                currentFilter = 'all';
+                applyFilterAndSearch();
+            });
+        }
+
+        var faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(function(item) {
+            var questionBtn = item.querySelector('.faq-question');
+            if (questionBtn) {
+                questionBtn.addEventListener('click', function() {
+                    var isActive = item.classList.contains('active');
+                    faqItems.forEach(function(other) { other.classList.remove('active'); });
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            }
+        });
+    });
+    </script>
+</body>
+</html>

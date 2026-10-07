@@ -4074,6 +4074,10 @@
                 <li><a href="#offer">Quyền lợi</a></li>
             </ul>
             <div class="header-action">
+                <a href="https://implantswiss.vn/warranty" class="btn-check-auth" target="_blank" rel="noopener noreferrer" title="Tra cứu & Xác thực trụ Implant Thụy Sĩ chính hãng">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>Check Chính Hãng</span>
+                </a>
                 <a href="#dang-ky" class="btn btn-primary">Đăng Ký Tham Gia</a>
             </div>
             <button class="hamburger-btn" id="drawerTrigger">
@@ -4090,6 +4094,10 @@
         <div class="logo-box" style="margin-bottom: 24px;">
             <img src="ngayhoi_item/Logo-Flora1.webp" alt="Flora Logo" class="logo-img" style="height: 30px;" />
         </div>
+        <a href="https://implantswiss.vn/warranty" class="drawer-auth-badge" target="_blank" rel="noopener noreferrer">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>Check Chính Hãng Implantswiss</span>
+        </a>
         <a href="#banner">Trang chủ</a>
         <a href="#value">Nội dung</a>
         <a href="#expert">Chuyên gia</a>
@@ -5372,23 +5380,70 @@
         }
 
         async function submitLeadToSheets(data) {
-            if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === '' || GOOGLE_SCRIPT_URL.includes('YOUR_GOOGLE_APPS_SCRIPT_URL_HERE')) {
-                console.warn('Google Sheets script URL is not configured.');
-                return;
-            }
+            let wpSuccess = false;
+            let wpMessage = '';
+            let wpLeadId = null;
+
+            // 1. Post to WordPress Admin AJAX (if WP backend available)
             try {
-                await fetch(GOOGLE_SCRIPT_URL, {
+                let ajaxUrl = (typeof floraData !== 'undefined' && floraData.ajaxUrl) ? floraData.ajaxUrl : '/wp-admin/admin-ajax.php';
+                let nonce = (typeof floraData !== 'undefined' && floraData.nonce) ? floraData.nonce : '';
+
+                const wpFormData = new FormData();
+                wpFormData.append('action', 'flora_booking');
+                if (nonce) wpFormData.append('nonce', nonce);
+                wpFormData.append('name', data.fullname || data.name || '');
+                wpFormData.append('phone', data.phone || '');
+                wpFormData.append('email', data.email || '');
+                wpFormData.append('service', data.clinic || data.interest || data.service || '');
+                wpFormData.append('location', data.city || data.location || '');
+                wpFormData.append('gender', data.gender || '');
+                wpFormData.append('preferredTime', data.timeSlot || data.preferredTime || '');
+                wpFormData.append('notes', data.note || data.notes || '');
+                wpFormData.append('source', data.eventSourceUrl || window.location.href);
+
+                const wpResponse = await fetch(ajaxUrl, {
                     method: 'POST',
-                    mode: 'no-cors',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
+                    body: wpFormData
                 });
-                console.log('Lead sync OK.');
-            } catch (error) {
-                console.error('Lead sync failed:', error);
+
+                if (wpResponse.ok) {
+                    const res = await wpResponse.json();
+                    if (res && res.success) {
+                        wpSuccess = true;
+                        wpMessage = (res.data && res.data.message) ? res.data.message : 'Đăng ký thành công!';
+                        wpLeadId = (res.data && res.data.lead_id) ? res.data.lead_id : null;
+                    }
+                }
+            } catch (wpErr) {
+                console.warn('WP Lead sync warning:', wpErr);
             }
+
+            // 2. Post to Google Sheets
+            let sheetSuccess = false;
+            if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL !== '' && !GOOGLE_SCRIPT_URL.includes('YOUR_GOOGLE_APPS_SCRIPT_URL_HERE')) {
+                try {
+                    await fetch(GOOGLE_SCRIPT_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
+                    sheetSuccess = true;
+                    console.log('Google Sheets lead sync OK.');
+                } catch (error) {
+                    console.error('Google Sheets lead sync failed:', error);
+                }
+            }
+
+            const isSuccess = wpSuccess || sheetSuccess;
+            return {
+                success: isSuccess,
+                message: wpMessage || (isSuccess ? 'Đăng ký thành công!' : 'Có lỗi xảy ra khi lưu thông tin.'),
+                leadId: wpLeadId
+            };
         }
 
         // Hamburger Navigation Drawer
@@ -5764,15 +5819,19 @@
             const toothStatus = document.getElementById('toothStatus').value;
             const userNote = document.getElementById('note').value;
 
-            // Map variables safely to existing Google Sheet layout
+            const email = (document.getElementById('email') ? document.getElementById('email').value : '') || '';
+
+            // Map variables safely to existing Google Sheet layout & WP Admin
             const data = {
                 formType: "Ngày hội Implant (flora.html)",
                 fullname: fullname,
                 phone: phone,
-                email: "",
+                email: email,
                 clinic: toothStatus,
-                city: address,
+                city: address || "Hồ Chí Minh",
+                location: address || "Hồ Chí Minh",
                 interest: needStr,
+                gender: gender,
                 date: "25/07/2026",
                 timeSlot: "08:30 - 13:00",
                 note: `Năm sinh: ${birthYear} | Giới tính: ${gender} | Ghi chú thêm: ${userNote}`,
@@ -5783,27 +5842,43 @@
                 eventId: eventId
             };
 
-            // Sheets submit in background
-            submitLeadToSheets(data);
-
             // Button state during request wait
             const submitBtn = document.getElementById('submitBtn');
             const originalText = submitBtn.textContent;
             submitBtn.disabled = true;
             submitBtn.innerHTML = 'Đang gửi thông tin đăng ký... <i class="fa-solid fa-spinner fa-spin" style="margin-left: 8px;"></i>';
 
-            setTimeout(() => {
-                successPopup.classList.add('active');
+            try {
+                const result = await submitLeadToSheets(data);
+                if (result && result.success) {
+                    successPopup.classList.add('active');
+                    registrationForm.reset();
+
+                    // Conversion tracking
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'generate_lead', { event_category: 'Flora Booking Lead', event_label: 'Ngày hội Implant', value: 1 });
+                    }
+                    if (window.dataLayer && Array.isArray(window.dataLayer)) {
+                        window.dataLayer.push({ event: 'lead_form_success', form_name: 'Ngày hội Implant' });
+                    }
+                    if (typeof fbq === 'function') {
+                        fbq('track', 'Lead', { content_name: 'Ngày hội Implant' }, { eventID: eventId });
+                    }
+                } else {
+                    alert(result.message || 'Không thể lưu thông tin. Vui lòng thử lại hoặc gọi 028 7305 8999.');
+                }
+            } catch (err) {
+                alert('Có lỗi xảy ra khi gửi thông tin. Vui lòng gọi 028 7305 8999.');
+            } finally {
                 submitBtn.disabled = false;
                 submitBtn.textContent = originalText;
-                registrationForm.reset();
-            }, 1800);
+            }
         });
 
         // Popup Form Submit Actions
         const popupRegistrationForm = document.getElementById('popupRegistrationForm');
         if (popupRegistrationForm) {
-            popupRegistrationForm.addEventListener('submit', function (e) {
+            popupRegistrationForm.addEventListener('submit', async function (e) {
                 e.preventDefault();
 
                 const eventId = 'lead_' + Date.now() + '_' + Math.random().toString(36).substring(2, 9);
@@ -5816,8 +5891,9 @@
 
                 const fullname = document.getElementById('popupFullname').value;
                 const phone = document.getElementById('popupPhone').value;
+                const email = (document.getElementById('popupEmail') ? document.getElementById('popupEmail').value : '') || '';
                 const birthYear = document.getElementById('popupBirthYear').value;
-                const gender = document.querySelector('input[name="popupGender"]:checked').value;
+                const gender = document.querySelector('input[name="popupGender"]:checked') ? document.querySelector('input[name="popupGender"]:checked').value : '';
                 const address = document.getElementById('popupAddress').value;
                 const toothStatus = document.getElementById('popupToothStatus').value;
                 const userNote = document.getElementById('popupNote').value;
@@ -5826,10 +5902,12 @@
                     formType: "Ngày hội Implant (flora.html - Mobile Popup)",
                     fullname: fullname,
                     phone: phone,
-                    email: "",
+                    email: email,
                     clinic: toothStatus,
-                    city: address,
+                    city: address || "Hồ Chí Minh",
+                    location: address || "Hồ Chí Minh",
                     interest: needStr,
+                    gender: gender,
                     date: "25/07/2026",
                     timeSlot: "08:30 - 13:00",
                     note: `Năm sinh: ${birthYear} | Giới tính: ${gender} | Ghi chú thêm: ${userNote}`,
@@ -5840,20 +5918,38 @@
                     eventId: eventId
                 };
 
-                submitLeadToSheets(data);
-
                 const submitBtn = document.getElementById('popupSubmitBtn');
                 const originalText = submitBtn.textContent;
                 submitBtn.disabled = true;
                 submitBtn.innerHTML = 'Đang gửi thông tin đăng ký... <i class="fa-solid fa-spinner fa-spin" style="margin-left: 8px;"></i>';
 
-                setTimeout(() => {
-                    document.getElementById('registrationPopup').classList.remove('active');
-                    successPopup.classList.add('active');
+                try {
+                    const result = await submitLeadToSheets(data);
+                    if (result && result.success) {
+                        const regPop = document.getElementById('registrationPopup');
+                        if (regPop) regPop.classList.remove('active');
+                        successPopup.classList.add('active');
+                        popupRegistrationForm.reset();
+
+                        // Conversion tracking
+                        if (typeof gtag === 'function') {
+                            gtag('event', 'generate_lead', { event_category: 'Flora Booking Lead', event_label: 'Ngày hội Implant Popup', value: 1 });
+                        }
+                        if (window.dataLayer && Array.isArray(window.dataLayer)) {
+                            window.dataLayer.push({ event: 'lead_form_success', form_name: 'Ngày hội Implant Popup' });
+                        }
+                        if (typeof fbq === 'function') {
+                            fbq('track', 'Lead', { content_name: 'Ngày hội Implant' }, { eventID: eventId });
+                        }
+                    } else {
+                        alert(result.message || 'Không thể lưu thông tin. Vui lòng thử lại hoặc gọi 028 7305 8999.');
+                    }
+                } catch (err) {
+                    alert('Có lỗi xảy ra khi gửi thông tin. Vui lòng gọi 028 7305 8999.');
+                } finally {
                     submitBtn.disabled = false;
                     submitBtn.textContent = originalText;
-                    popupRegistrationForm.reset();
-                }, 1800);
+                }
             });
         }
 

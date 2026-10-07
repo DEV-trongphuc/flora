@@ -1,0 +1,1201 @@
+<?php
+/**
+ * Template Name: Trang Nha Khoa Tổng Quát
+ */
+
+get_header();
+?>
+
+<!-- Global SVG Gradient Definitions -->
+    <svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="sparkleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0493f1" />
+                <stop offset="100%" stop-color="#0033a3" />
+            </linearGradient>
+            <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#0493f1" />
+                <stop offset="100%" stop-color="#0033a3" />
+            </linearGradient>
+            <linearGradient id="swissGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#e20613" />
+                <stop offset="100%" stop-color="#9f040d" />
+            </linearGradient>
+            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ffd700" />
+                <stop offset="100%" stop-color="#ffa500" />
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <!-- ─── HERO SECTION (HOMEPAGE STYLE WITH FLOATING DECOR CARDS) ─── -->
+    <div class="hero-wrapper">
+        <!-- Floating SVG Sparkles -->
+        <div class="hero-sparkle hero-sparkle-1">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z" fill="url(#sparkleGrad)"/></svg>
+        </div>
+        <div class="hero-sparkle hero-sparkle-2">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z" fill="url(#sparkleGrad)"/></svg>
+        </div>
+        <div class="hero-sparkle hero-sparkle-3">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z" fill="url(#sparkleGrad)"/></svg>
+        </div>
+
+        <!-- Floating Clinic Life & Activity Photos (Desktop only) -->
+        <div class="hero-decor-wrapper hero-decor-1">
+            <img src="<?php echo flora_asset('ngayhoi_item/ngayhoi/IMG_5909_1_1.webp'); ?>" alt="Bác sĩ tư vấn kế hoạch điều trị" class="hero-decor-card" />
+        </div>
+        <div class="hero-decor-wrapper hero-decor-2">
+            <img src="<?php echo flora_asset('ngayhoi_item/khach_cuoi/IMG_2805.webp'); ?>" alt="Nụ cười hài lòng của khách hàng" class="hero-decor-card" />
+        </div>
+        <div class="hero-decor-wrapper hero-decor-3">
+            <img src="<?php echo flora_asset('ngayhoi_item/ngayhoi/IMG_5937_1_1.webp'); ?>" alt="Thăm khám lâm sàng kỹ thuật cao" class="hero-decor-card" />
+        </div>
+        <div class="hero-decor-wrapper hero-decor-4">
+            <img src="<?php echo flora_asset('ngayhoi_item/anh_hoatdong/doc_checkup_1.webp'); ?>" alt="Phân tích chẩn đoán hình ảnh cùng bác sĩ" class="hero-decor-card" />
+        </div>
+        <div class="hero-decor-wrapper hero-decor-5">
+            <img src="<?php echo flora_asset('ngayhoi_item/khach_cuoi/_ROM9345.webp'); ?>" alt="Nụ cười tự tin sau điều trị" class="hero-decor-card" />
+        </div>
+        <div class="hero-decor-wrapper hero-decor-6">
+            <img src="<?php echo flora_asset('ngayhoi_item/BOSUNG/DSC09854.webp'); ?>" alt="Bác sĩ và khách hàng đồng hành" class="hero-decor-card" />
+        </div>
+
+        <section class="hero-section" id="banner">
+            <div class="container" style="position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; height: 100%;">
+                <div class="reveal" style="max-width: 850px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 16px;">
+
+                    <!-- Hidden H1 for SEO -->
+                    <h1 class="visually-hidden">Nha Khoa Tổng Quát Flora Total Care 360 - Chăm Sóc & Bảo Tồn Răng Thật</h1>
+
+                    <!-- Central Flora Logo -->
+                    <div style="margin-bottom: 14px; width: 100%; display: flex; justify-content: center;">
+                        <img src="<?php echo flora_asset('ngayhoi_item/Logo-Flora1.webp'); ?>" alt="Nha Khoa Flora Logo" style="max-width: 260px; width: 80%; height: auto; display: block;" />
+                    </div>
+
+                    <!-- Main Title -->
+                    <div style="text-align: center; margin-bottom: 10px; width: 100%;">
+                        <h2 style="font-family: var(--font-title); font-size: clamp(2.2rem, 5.2vw, 3.6rem); font-weight: 800; color: #0033a3; line-height: 1.25; margin: 0;">Nha Khoa Tổng Quát<br/>
+                            <span class="highlight-text-container">
+                                <span style="background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-secondary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Flora Total Care 360</span>
+                                <svg class="heading-underline-svg" viewBox="0 0 300 20" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 12 C 100 2, 200 18, 295 10" stroke="url(#accentGrad)" stroke-width="4" stroke-linecap="round" />
+                                </svg>
+                            </span>
+                        </h2>
+                    </div>
+
+                    <!-- Hero Subtitle & Description -->
+                    <div class="hero-desc-wrapper" style="margin-bottom: 18px; max-width: 680px; text-align: center;">
+                        <strong style="display: block; font-size: clamp(1.0rem, 2.2vw, 1.2rem); color: #0033a3; margin-bottom: 6px; font-family: var(--font-title); font-weight: 700;">
+                            Phát hiện sớm – Điều trị vừa đủ – Theo dõi đến cùng
+                        </strong>
+                        <p style="font-size: clamp(0.85rem, 1.8vw, 0.95rem); color: #334155; line-height: 1.6; margin: 0; font-family: var(--font-body);">
+                            Khám chẩn đoán đa chiều, phát hiện sớm nguy cơ và can thiệp bảo tồn tối đa răng thật tự nhiên. Quy trình điều trị êm dịu, không đau tiêu chuẩn Thụy Sĩ giúp bạn an tâm chăm sóc nụ cười cho cả gia đình.
+                        </p>
+                    </div>
+
+                    <!-- 3 Features in 1 Horizontal Premium Card (Strict 3 in 1 Row) -->
+                    <div class="hero-features-single-card" style="background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1.5px solid rgba(4, 147, 241, 0.2); padding: 16px 20px; border-radius: 16px; display: flex; justify-content: space-between; align-items: center; gap: 16px; box-shadow: 0 10px 30px rgba(0, 51, 163, 0.06); width: 100%; max-width: 880px; margin: 10px auto 20px; box-sizing: border-box;">
+                        <!-- Feature 1 -->
+                        <div class="hero-feature-item" style="flex: 1 1 0; min-width: 0; display: flex; align-items: center; gap: 10px; text-align: left;">
+                            <img src="<?php echo flora_asset('ngayhoi_item/HERO/gift_icon.webp'); ?>" alt="Khám & Chụp phim CT" style="width: 44px; height: 44px; flex-shrink: 0;" />
+                            <div class="hero-feature-text" style="display: flex; flex-direction: column;">
+                                <span style="font-size: 0.76rem; color: #475569;">Thăm khám 1:1 &</span>
+                                <strong style="font-size: 0.98rem; font-weight: 800; color: #0033a3; line-height: 1.2; text-transform: uppercase;">CHỤP PHIM CT 3D</strong>
+                                <span style="font-size: 0.76rem; color: #475569;">miễn phí 100%</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Divider Line -->
+                        <div class="feature-card-divider" style="width: 1px; height: 40px; background: rgba(0, 51, 163, 0.12); flex-shrink: 0;"></div>
+                        
+                        <!-- Feature 2 -->
+                        <div class="hero-feature-item" style="flex: 1 1 0; min-width: 0; display: flex; align-items: center; gap: 10px; text-align: left;">
+                            <img src="<?php echo flora_asset('ngayhoi_item/HERO/sponsorship_icon.webp'); ?>" alt="Bảo tồn răng thật" style="width: 44px; height: 44px; flex-shrink: 0;" />
+                            <div class="hero-feature-text" style="display: flex; flex-direction: column;">
+                                <span style="font-size: 0.76rem; color: #475569;">Can thiệp tối thiểu</span>
+                                <strong style="font-size: 0.98rem; font-weight: 800; color: #0033a3; line-height: 1.2; text-transform: uppercase;">BẢO TỒN RĂNG THẬT</strong>
+                                <span style="font-size: 0.76rem; color: #475569;">chuẩn Thụy Sĩ</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Divider Line -->
+                        <div class="feature-card-divider" style="width: 1px; height: 40px; background: rgba(0, 51, 163, 0.12); flex-shrink: 0;"></div>
+                        
+                        <!-- Feature 3 -->
+                        <div class="hero-feature-item" style="flex: 1 1 0; min-width: 0; display: flex; align-items: center; gap: 10px; text-align: left;">
+                            <img src="<?php echo flora_asset('ngayhoi_item/HERO/join_icon.webp'); ?>" alt="Chi phí trọn gói" style="width: 44px; height: 44px; flex-shrink: 0;" />
+                            <div class="hero-feature-text" style="display: flex; flex-direction: column;">
+                                <span style="font-size: 0.76rem; color: #475569;">Báo giá minh bạch</span>
+                                <strong style="font-size: 0.98rem; font-weight: 800; color: #0493f1; line-height: 1.2; text-transform: uppercase;">TRỌN GÓI MINH BẠCH</strong>
+                                <span style="font-size: 0.76rem; color: #475569;">không phát sinh</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Date & Location (Capsule Pills) -->
+                    <div class="hero-info-pills">
+                        <div class="hero-pill">
+                            <i class="fa-solid fa-clock"></i>
+                            <span class="pill-time">8h30 - 18h30</span>
+                            <span class="pill-days">(T2 - CN)</span>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=326+Nguy%E1%BB%85n+Th%E1%BB%8B+Minh+Khai,+Ph%C6%B0%E1%BB%9Dng+B%C3%A0n+C%E1%BB%9D,+Qu%E1%BA%ADn+3,+TP.HCM" target="_blank" class="hero-pill clickable">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span class="pill-label">ĐỊA ĐIỂM:</span>
+                            <span class="pill-address">326 Nguyễn Thị Minh Khai, Phường Bàn Cờ, TP. Hồ Chí Minh</span>
+                        </a>
+                    </div>
+
+                    <!-- Hero Action Buttons -->
+                    <div class="hero-actions" style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; width: 100%;">
+                        <a href="#dang-ky" class="btn btn-primary" style="padding: 12px 28px; font-size: 0.95rem; gap: 8px; justify-content: center;">Đăng Ký Đặt Hẹn <i class="fa-solid fa-calendar-check" style="margin-left: 8px;"></i></a>
+                        <a href="#pricing-tables" class="btn btn-outline" style="padding: 12px 28px; font-size: 0.95rem; justify-content: center;">Xem Bảng Giá Trọn Gói</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ─── TRIẾT LÝ ĐIỀU TRỊ (PHILOSOPHY SECTION) ─── -->
+    <section class="section-padding fact-section">
+        <div class="container">
+            <div class="section-header center reveal">
+                <h2 style="text-wrap: balance;">Không đau chưa chắc răng đã khỏe</h2>
+                <h3 style="font-size: 1.15rem; margin-top: 10px; color: var(--clr-secondary); font-weight: 600;">Triết Lý Nha Khoa Tổng Quát Flora Total Care 360</h3>
+                <p style="max-width: 800px; margin: 15px auto 0; font-size: 0.95rem; color: var(--clr-text-muted); line-height: 1.6;">
+                    Răng không đau chưa chắc đã hoàn toàn khỏe mạnh. Sâu răng giai đoạn đầu, viêm nướu, vết nứt nhỏ, miếng trám cũ bị hở... đều diễn tiến âm thầm trước khi gây ra các triệu chứng rõ rệt.
+                </p>
+            </div>
+
+            <!-- Center Tooth Visual with 4 Indicators (Slide 26) -->
+            <div class="reveal reveal-delay-1" style="max-width: 840px; margin: 30px auto 35px; position: relative;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; position: relative;">
+                    <!-- Indicator 1 -->
+                    <div style="background: #ffffff; border: 1.5px solid rgba(239, 68, 68, 0.25); padding: 16px 20px; border-radius: 14px; display: flex; align-items: center; gap: 14px; box-shadow: 0 4px 16px rgba(0, 51, 163, 0.04);">
+                        <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(239, 68, 68, 0.1); color: #ef4444; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0;">
+                            <i class="fa-solid fa-bacteria"></i>
+                        </div>
+                        <div>
+                            <strong style="display: block; font-size: 0.95rem; color: var(--clr-navy);">Sâu răng giai đoạn đầu</strong>
+                            <span style="font-size: 0.82rem; color: var(--clr-text-muted);">Diễn tiến âm thầm dưới men răng</span>
+                        </div>
+                    </div>
+
+                    <!-- Indicator 2 -->
+                    <div style="background: #ffffff; border: 1.5px solid rgba(245, 158, 11, 0.25); padding: 16px 20px; border-radius: 14px; display: flex; align-items: center; gap: 14px; box-shadow: 0 4px 16px rgba(0, 51, 163, 0.04);">
+                        <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(245, 158, 11, 0.1); color: #f59e0b; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0;">
+                            <i class="fa-solid fa-droplet"></i>
+                        </div>
+                        <div>
+                            <strong style="display: block; font-size: 0.95rem; color: var(--clr-navy);">Viêm nướu</strong>
+                            <span style="font-size: 0.82rem; color: var(--clr-text-muted);">Chảy máu nhẹ khi chải răng</span>
+                        </div>
+                    </div>
+
+                    <!-- Indicator 3 -->
+                    <div style="background: #ffffff; border: 1.5px solid rgba(4, 147, 241, 0.25); padding: 16px 20px; border-radius: 14px; display: flex; align-items: center; gap: 14px; box-shadow: 0 4px 16px rgba(0, 51, 163, 0.04);">
+                        <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(4, 147, 241, 0.1); color: var(--clr-secondary); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0;">
+                            <i class="fa-solid fa-bolt-lightning"></i>
+                        </div>
+                        <div>
+                            <strong style="display: block; font-size: 0.95rem; color: var(--clr-navy);">Vết nứt nhỏ</strong>
+                            <span style="font-size: 0.82rem; color: var(--clr-text-muted);">Đường nứt vi thể dễ bỏ sót</span>
+                        </div>
+                    </div>
+
+                    <!-- Indicator 4 -->
+                    <div style="background: #ffffff; border: 1.5px solid rgba(139, 92, 246, 0.25); padding: 16px 20px; border-radius: 14px; display: flex; align-items: center; gap: 14px; box-shadow: 0 4px 16px rgba(0, 51, 163, 0.04);">
+                        <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(139, 92, 246, 0.1); color: #8b5cf6; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0;">
+                            <i class="fa-solid fa-tooth"></i>
+                        </div>
+                        <div>
+                            <strong style="display: block; font-size: 0.95rem; color: var(--clr-navy);">Miếng trám cũ bị hở</strong>
+                            <span style="font-size: 0.82rem; color: var(--clr-text-muted);">Vi khuẩn xâm nhập vùng viền</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Prominent Goal Highlight Box (Slide 26) -->
+            <div class="reveal reveal-delay-2" style="max-width: 840px; margin: 0 auto 40px; background: linear-gradient(135deg, #00227a 0%, #0033a3 100%); color: #ffffff; padding: 20px 24px; border-radius: 16px; text-align: center; box-shadow: 0 10px 30px rgba(0, 51, 163, 0.15);">
+                <div style="font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px; color: #93c5fd; font-weight: 700; margin-bottom: 6px;">Mục tiêu tại Flora</div>
+                <div style="font-size: clamp(1.0rem, 2.2vw, 1.3rem); font-weight: 800; line-height: 1.4;">
+                    Phát hiện sớm <i class="fa-solid fa-angles-right" style="color: #60a5fa; font-size: 0.85em; margin: 0 6px;"></i> Hạn chế thủ thuật không cần thiết <i class="fa-solid fa-angles-right" style="color: #60a5fa; font-size: 0.85em; margin: 0 6px;"></i> Bảo tồn tối đa răng thật
+                </div>
+            </div>
+
+            <!-- 3 Philosophy Pillar Cards with Real Clinic Photos (Slide 27) -->
+            <div class="philosophy-grid reveal reveal-delay-1">
+                <!-- Card 1: PHÁT HIỆN -->
+                <div class="philosophy-card">
+                    <div class="philosophy-card-img-wrap">
+                        <img src="<?php echo flora_asset('assets/tong-quat/tru_cot/1_phat_hien.webp'); ?>" alt="Phát hiện - Bác sĩ tư vấn và chẩn đoán sớm bệnh lý răng miệng" class="philosophy-card-img" loading="lazy" />
+                        <span class="philosophy-card-badge"><i class="fa-solid fa-magnifying-glass-chart" style="color: var(--clr-secondary);"></i> TRỤ CỘT 01</span>
+                    </div>
+                    <div class="philosophy-card-body">
+                        <h3>PHÁT HIỆN</h3>
+                        <p>Ứng dụng chẩn đoán hình ảnh kỹ thuật số và khảo sát 360° giúp phát hiện các tổn thương vi thể, viêm nướu tiềm ẩn trước khi chuyển biến thành bệnh lý phức tạp.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2: BẢO TỒN -->
+                <div class="philosophy-card">
+                    <div class="philosophy-card-img-wrap">
+                        <img src="<?php echo flora_asset('assets/tong-quat/tru_cot/2_bao_ton.webp'); ?>" alt="Bảo tồn - Điều trị vừa đủ và bảo tồn tối đa răng thật" class="philosophy-card-img" loading="lazy" />
+                        <span class="philosophy-card-badge"><i class="fa-solid fa-shield-heart" style="color: #10b981;"></i> TRỤ CỘT 02</span>
+                    </div>
+                    <div class="philosophy-card-body">
+                        <h3>BẢO TỒN</h3>
+                        <p>Nguyên tắc vàng tại Flora là ưu tiên bảo tồn tối đa cấu trúc răng thật. Không lạm dụng thủ thuật lớn, chỉ định chính xác giải pháp vừa đủ với chi phí tối ưu nhất.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3: ĐỒNG HÀNH -->
+                <div class="philosophy-card">
+                    <div class="philosophy-card-img-wrap">
+                        <img src="<?php echo flora_asset('assets/tong-quat/tru_cot/3_dong_hanh.webp'); ?>" alt="Đồng hành - Chăm sóc sức khỏe răng miệng dài hạn" class="philosophy-card-img" loading="lazy" />
+                        <span class="philosophy-card-badge"><i class="fa-solid fa-clipboard-check" style="color: #f59e0b;"></i> TRỤ CỘT 03</span>
+                    </div>
+                    <div class="philosophy-card-body">
+                        <h3>ĐỒNG HÀNH</h3>
+                        <p>Xây dựng bản đồ sức khỏe răng miệng cá nhân hóa, hướng dẫn vệ sinh chuẩn y khoa tại nhà và chủ động nhắc lịch tái khám định kỳ đồng hành cùng cả gia đình.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 35px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                <a href="#dang-ky" class="btn btn-primary btn-booking">Đăng Ký Đặt Hẹn <i class="fa-solid fa-calendar-check" style="margin-left: 6px;"></i></a>
+                <a href="#pricing-tables" class="btn btn-outline">Xem Bảng Giá Trọn Gói <i class="fa-solid fa-arrow-down" style="margin-left: 6px;"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SECTION: KHI NÀO BẠN NÊN ĐẾN KHÁM NHA KHOA? (PAGE 75) ─── -->
+    <section class="section-padding" id="when-to-visit" style="background-color: var(--clr-bg-light); border-top: 1px solid var(--clr-border);">
+        <div class="container">
+            <div class="section-header center reveal">
+                <h2>Khi Nào Bạn Nên Đến Khám Nha Khoa?</h2>
+                <p style="max-width: 720px; margin: 12px auto 0; font-size: 0.95rem; color: var(--clr-text-muted);">
+                    Bạn nên đặt lịch kiểm tra nếu đang gặp một hoặc nhiều biểu hiện dưới đây:
+                </p>
+            </div>
+
+            <!-- 15 Triệu chứng & Tình huống lâm sàng (Grid 3 cột) -->
+            <div class="symptoms-grid mobile-slider reveal reveal-delay-1" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 18px; margin-top: 40px;">
+                <!-- Symptom 1 -->
+                <div class="symptom-item-card" style="background: #ffffff; padding: 18px 20px; border-radius: var(--radius-md); border: 1px solid var(--clr-border); display: flex; align-items: center; gap: 15px; box-shadow: var(--shadow-sm); transition: var(--transition);">
+                    <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(239, 68, 68, 0.1); color: #ef4444; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0;">
+                        <i class="fa-solid fa-droplet"></i>
+                    </div>
+                    <span style="font-weight: 600; font-size: 0.93rem; color: var(--clr-navy);">Chảy máu nướu khi đánh răng</span>
+                </div>
+
+                <!-- Symptom 2 -->
+                <div class="symptom-item-card" style="background: #ffffff; padding: 18px 20px; border-radius: var(--radius-md); border: 1px solid var(--clr-border); display: flex; align-items: center; gap: 15px; box-shadow: var(--shadow-sm); transition: var(--transition);">
+                    <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(245, 158, 11, 0.1); color: #f59e0b; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0;">
+                        <i class="fa-solid fa-wind"></i>
+                    </div>
+                    <span style="font-weight: 600; font-size: 0.93rem; color: var(--clr-navy);">Hôi miệng kéo dài</span>
+                </div>
+
+                <!-- Symptom 3 -->
+                <div class="symptom-item-card" style="background: #ffffff; padding: 18px 20px; border-radius: var(--radius-md); border: 1px solid var(--clr-border); display: flex; align-items: center; gap: 15px; box-shadow: var(--shadow-sm); transition: var(--transition);">
+                    <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(4, 147, 241, 0.1); color: var(--clr-secondary); display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0;">
+                        <i class="fa-solid fa-teeth"></i>
+                    </div>
+                    <span style="font-weight: 600; font-size: 0.93rem; color: var(--clr-navy);">Vôi răng hoặc mảng bám tích tụ</span>
+                </div>
+
+                <!-- Symptom 4 -->
+                <div class="symptom-item-card" style="background: #ffffff; padding: 18px 20px; border-radius: var(--radius-md); border: 1px solid var(--clr-border); display: flex; align-items: center; gap: 15px; box-shadow: var(--shadow-sm); transition: var(--transition);">
+                    <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(59, 130, 246, 0.1); color: #3b82f6; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0;">
+                        <i class="fa-solid fa-snowflake"></i>
+                    </div>
+                    <span style="font-weight: 600; font-size: 0.93rem; color: var(--clr-navy);">Răng ê buốt khi ăn nóng, lạnh, chua hoặc ngọt</span>
+                </div>
+
+                <!-- Symptom 5 -->
+                <div class="symptom-item-card" style="background: #ffffff; padding: 18px 20px; border-radius: var(--radius-md); border: 1px solid var(--clr-border); display: flex; align-items: center; gap: 15px; box-shadow: var(--shadow-sm); transition: var(--transition);">
+                    <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(239, 68, 68, 0.1); color: #ef4444; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0;">
+                        <i class="fa-solid fa-bolt-lightning"></i>
+                    </div>
+                    <span style="font-weight: 600; font-size: 0.93rem; color: var(--clr-navy);">Đau răng khi nhai</span>
+                </div>
+
+                <!-- Symptom 6 -->
+                <div class="symptom-item-card" style="background: #ffffff; padding: 18px 20px; border-radius: var(--radius-md); border: 1px solid var(--clr-border); display: flex; align-items: center; gap: 15px; box-shadow: var(--shadow-sm); transition: var(--transition);">
+                    <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(16, 185, 129, 0.1); color: #10b981; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0;">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <span style="font-weight: 600; font-size: 0.93rem; color: var(--clr-navy);">Thức ăn thường xuyên mắc vào một vị trí</span>
+                </div>
+
+                <!-- Symptom 7 -->
+                <div class="symptom-item-card" style="background: #ffffff; padding: 18px 20px; border-radius: var(--radius-md); border: 1px solid var(--clr-border); display: flex; align-items: center; gap: 15px; box-shadow: var(--shadow-sm); transition: var(--transition);">
+                    <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(139, 92, 246, 0.1); color: #8b5cf6; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0;">
+                        <i class="fa-solid fa-tooth"></i>
+                    </div>
+                    <span style="font-weight: 600; font-size: 0.93rem; color: var(--clr-navy);">Răng sâu, đổi màu, nứt hoặc sứt mẻ</span>
+                </div>
+
+                <!-- Symptom 8 -->
+                <div class="symptom-item-card" style="background: #ffffff; padding: 18px 20px; border-radius: var(--radius-md); border: 1px solid var(--clr-border); display: flex; align-items: center; gap: 15px; box-shadow: var(--shadow-sm); transition: var(--transition);">
+                    <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(245, 158, 11, 0.1); color: #f59e0b; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0;">
+                        <i class="fa-solid fa-mortar-pestle"></i>
+                    </div>
+                    <span style="font-weight: 600; font-size: 0.93rem; color: var(--clr-navy);">Miếng trám cũ bị bong, cộm hoặc đổi màu</span>
+                </div>
+
+                <!-- Symptom 9 -->
+                <div class="symptom-item-card" style="background: #ffffff; padding: 18px 20px; border-radius: var(--radius-md); border: 1px solid var(--clr-border); display: flex; align-items: center; gap: 15px; box-shadow: var(--shadow-sm); transition: var(--transition);">
+                    <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(239, 68, 68, 0.1); color: #ef4444; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0;">
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                    </div>
+                    <span style="font-weight: 600; font-size: 0.93rem; color: var(--clr-navy);">Nướu sưng, đỏ hoặc xuất hiện mụn mủ</span>
+                </div>
+
+                <!-- Symptom 10 -->
+                <div class="symptom-item-card" style="background: #ffffff; padding: 18px 20px; border-radius: var(--radius-md); border: 1px solid var(--clr-border); display: flex; align-items: center; gap: 15px; box-shadow: var(--shadow-sm); transition: var(--transition);">
+                    <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(236, 72, 153, 0.1); color: #ec4899; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0;">
+                        <i class="fa-solid fa-burst"></i>
+                    </div>
+                    <span style="font-weight: 600; font-size: 0.93rem; color: var(--clr-navy);">Răng khôn đau, sưng hoặc khó vệ sinh</span>
+                </div>
+
+                <!-- Symptom 11 -->
+                <div class="symptom-item-card" style="background: #ffffff; padding: 18px 20px; border-radius: var(--radius-md); border: 1px solid var(--clr-border); display: flex; align-items: center; gap: 15px; box-shadow: var(--shadow-sm); transition: var(--transition);">
+                    <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(239, 68, 68, 0.1); color: #ef4444; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0;">
+                        <i class="fa-solid fa-arrows-up-down-left-right"></i>
+                    </div>
+                    <span style="font-weight: 600; font-size: 0.93rem; color: var(--clr-navy);">Răng lung lay</span>
+                </div>
+
+                <!-- Symptom 12 -->
+                <div class="symptom-item-card" style="background: #ffffff; padding: 18px 20px; border-radius: var(--radius-md); border: 1px solid var(--clr-border); display: flex; align-items: center; gap: 15px; box-shadow: var(--shadow-sm); transition: var(--transition);">
+                    <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(14, 165, 233, 0.1); color: #0ea5e9; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0;">
+                        <i class="fa-solid fa-head-side-cough"></i>
+                    </div>
+                    <span style="font-weight: 600; font-size: 0.93rem; color: var(--clr-navy);">Khớp hàm kêu, mỏi hoặc khó há miệng</span>
+                </div>
+
+                <!-- Symptom 13 -->
+                <div class="symptom-item-card" style="background: #ffffff; padding: 18px 20px; border-radius: var(--radius-md); border: 1px solid var(--clr-border); display: flex; align-items: center; gap: 15px; box-shadow: var(--shadow-sm); transition: var(--transition);">
+                    <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(100, 116, 139, 0.1); color: #64748b; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0;">
+                        <i class="fa-solid fa-calendar-xmark"></i>
+                    </div>
+                    <span style="font-weight: 600; font-size: 0.93rem; color: var(--clr-navy);">Đã lâu chưa kiểm tra sức khỏe răng miệng</span>
+                </div>
+
+                <!-- Symptom 14 -->
+                <div class="symptom-item-card" style="background: #ffffff; padding: 18px 20px; border-radius: var(--radius-md); border: 1px solid var(--clr-border); display: flex; align-items: center; gap: 15px; box-shadow: var(--shadow-sm); transition: var(--transition);">
+                    <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(16, 185, 129, 0.1); color: #10b981; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0;">
+                        <i class="fa-solid fa-person-pregnant"></i>
+                    </div>
+                    <span style="font-weight: 600; font-size: 0.93rem; color: var(--clr-navy);">Đang mang thai, mắc bệnh nền hoặc dùng thuốc dài ngày</span>
+                </div>
+
+                <!-- Symptom 15 -->
+                <div class="symptom-item-card" style="background: #ffffff; padding: 18px 20px; border-radius: var(--radius-md); border: 1px solid var(--clr-border); display: flex; align-items: center; gap: 15px; box-shadow: var(--shadow-sm); transition: var(--transition);">
+                    <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(0, 51, 163, 0.1); color: var(--clr-primary); display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0;">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <span style="font-weight: 600; font-size: 0.93rem; color: var(--clr-navy);">Chuẩn bị niềng răng, làm sứ hoặc trồng Implant</span>
+                </div>
+            </div>
+
+            <!-- Callout Note (Page 75) -->
+            <div class="reveal reveal-delay-2" style="max-width: 860px; margin: 35px auto 0; background: rgba(245, 158, 11, 0.08); border-left: 4px solid var(--clr-warning, #f59e0b); padding: 18px 24px; border-radius: 0 var(--radius-md) var(--radius-md) 0;">
+                <p style="margin: 0; font-size: 0.95rem; color: var(--clr-navy); line-height: 1.6; font-weight: 500;">
+                    <i class="fa-solid fa-circle-exclamation" style="color: #f59e0b; margin-right: 8px;"></i>
+                    <strong>Lời khuyên từ Bác sĩ:</strong> Không nên chờ đến khi đau dữ dội mới điều trị. Khi tổn thương tiến triển sâu hơn, phương pháp có thể phức tạp hơn và chi phí cũng có thể tăng theo.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SECTION 4.2: FLORA TOTAL CARE 360 – QUY TRÌNH KIỂM TRA TOÀN DIỆN (PAGE 76) ─── -->
+    <section class="section-padding timeline-section" id="total-care-360">
+        <div class="container">
+            <div class="section-header center reveal">
+                <h2>Flora Total Care 360<br/><span style="color: var(--clr-secondary);">Kiểm Tra Toàn Diện, Không Bỏ Sót Vấn Đề</span></h2>
+                <p style="max-width: 680px; margin: 12px auto 0; font-size: 0.98rem; color: #e2e8f0; line-height: 1.6;">
+                    Khảo sát chi tiết đa chiều từ triệu chứng lâm sàng đến cấu trúc xương hàm, đảm bảo chẩn đoán chính xác tuyệt đối.
+                </p>
+            </div>
+            
+            <div class="steps-grid steps-6 mobile-slider" style="margin-top: 40px;">
+                <!-- Step 1 -->
+                <div class="step-card reveal">
+                    <div class="step-card-icon"><i class="fa-solid fa-comments"></i></div>
+                    <span class="step-badge">BƯỚC 1</span>
+                    <h3>LẮNG NGHE TRIỆU CHỨNG & NHU CẦU</h3>
+                    <p>Bác sĩ tìm hiểu vấn đề khiến khách hàng lo lắng, tiền sử điều trị, bệnh toàn thân, thuốc đang sử dụng, dị ứng và trải nghiệm nha khoa trước đây.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="step-card reveal reveal-delay-1">
+                    <div class="step-card-icon"><i class="fa-solid fa-tooth"></i></div>
+                    <span class="step-badge">BƯỚC 2</span>
+                    <h3>KIỂM TRA TỪNG RĂNG</h3>
+                    <p>Đánh giá sâu răng, vết nứt, tình trạng men răng, miếng trám cũ, mão sứ, độ mòn và khả năng ăn nhai trên toàn bộ cung hàm.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="step-card reveal reveal-delay-2">
+                    <div class="step-card-icon"><i class="fa-solid fa-hand-holding-medical"></i></div>
+                    <span class="step-badge">BƯỚC 3</span>
+                    <h3>KIỂM TRA NƯỚU & MÔ NHA CHU</h3>
+                    <p>Quan sát tình trạng viêm, chảy máu, vôi răng, túi nha chu và mức độ nâng đỡ của răng khi cần thiết.</p>
+                </div>
+                <!-- Step 4 -->
+                <div class="step-card reveal reveal-delay-3">
+                    <div class="step-card-icon"><i class="fa-solid fa-teeth-open"></i></div>
+                    <span class="step-badge">BƯỚC 4</span>
+                    <h3>ĐÁNH GIÁ TỦY, KHỚP CẮN & RĂNG KHÔN</h3>
+                    <p>Bác sĩ kiểm tra các dấu hiệu liên quan đến tủy răng, tiếp xúc cắn, tật nghiến răng, khớp hàm và vị trí mọc của răng khôn.</p>
+                </div>
+                <!-- Step 5 -->
+                <div class="step-card reveal reveal-delay-4">
+                    <div class="step-card-icon"><i class="fa-solid fa-x-ray"></i></div>
+                    <span class="step-badge">BƯỚC 5</span>
+                    <h3>CHỤP PHIM KHI CÓ CHỈ ĐỊNH</h3>
+                    <p>X-quang quanh chóp, Panorama hoặc CBCT được lựa chọn tùy vấn đề cần khảo sát. Không phải khách hàng nào cũng cần chụp tất cả các loại phim.</p>
+                </div>
+                <!-- Step 6 -->
+                <div class="step-card reveal reveal-delay-5">
+                    <div class="step-card-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                    <span class="step-badge">BƯỚC 6</span>
+                    <h3>LẬP “BẢN ĐỒ SỨC KHỎE RĂNG MIỆNG”</h3>
+                    <p>Tình trạng của từng vùng được giải thích bằng hình ảnh và chia thành ba mức ưu tiên để khách hàng dễ dàng nắm bắt và ra quyết định.</p>
+                </div>
+            </div>
+
+            <div class="text-center reveal reveal-delay-3" style="margin-top: 35px;">
+                <a href="#dang-ky" class="btn btn-primary btn-booking">Nhận Bản Đồ Sức Khỏe Răng Miệng <i class="fa-solid fa-file-medical" style="margin-left: 6px;"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SECTION 5: CÁC DỊCH VỤ NHA KHOA TỔNG QUÁT TẠI FLORA (PAGES 77 - 79) ─── -->
+    <section class="section-padding" id="services-detail" style="background-color: var(--clr-white);">
+        <div class="container">
+            <div class="section-header center reveal">
+                <h2>Các Dịch Vụ Nha Khoa Tổng Quát Tại Flora</h2>
+                <p style="max-width: 780px; margin: 12px auto 0; font-size: 0.95rem; color: var(--clr-text-muted);">
+                    Hệ thống giải pháp điều trị chuyên sâu, tôn trọng tối đa mô răng thật và bảo tồn nụ cười bền vững.
+                </p>
+            </div>
+            
+            <div style="display: flex; flex-direction: column; gap: 35px; margin-top: 45px;">
+                <!-- Dịch vụ 01: Khám, Chẩn Đoán & Chăm Sóc Dự Phòng (Slide 29) -->
+                <div class="service-split-card reveal">
+                    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 8px;">
+                        <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--clr-primary); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; font-weight: 700; flex-shrink: 0;">
+                            01
+                        </div>
+                        <div>
+                            <h3 style="font-family: var(--font-title); font-size: 1.35rem; font-weight: 700; color: var(--clr-navy); margin: 0;">01. Khám, Chẩn Đoán & Chăm Sóc Dự Phòng</h3>
+                            <p style="font-size: 0.88rem; color: var(--clr-secondary); font-weight: 600; margin: 3px 0 0 0;">Phù hợp với khách hàng muốn kiểm tra định kỳ hoặc đánh giá sức khỏe răng miệng trước điều trị.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-split-grid">
+                        <div class="service-img-wrap">
+                            <img src="<?php echo flora_asset('assets/tong-quat/services/1_kham_chan_doan.webp'); ?>" alt="Khám chẩn đoán và chăm sóc dự phòng" loading="lazy" width="480" height="600" />
+                            <div class="service-img-badge"><i class="fa-solid fa-user-doctor"></i> Khám Lâm Sàng 1:1</div>
+                        </div>
+                        <div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; margin-bottom: 16px; background: #ffffff; padding: 18px; border-radius: var(--radius-sm); border: 1px solid var(--clr-border);">
+                                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--clr-text);"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary);"></i> Khám tổng quát răng miệng</div>
+                                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--clr-text);"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary);"></i> Chụp X-quang kỹ thuật số</div>
+                                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--clr-text);"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary);"></i> Đánh giá nguy cơ sâu răng</div>
+                                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--clr-secondary); font-weight: 600;"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary);"></i> Cạo vôi và đánh bóng</div>
+                                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--clr-text);"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary);"></i> Bôi fluoride dự phòng sâu răng</div>
+                                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--clr-text);"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary);"></i> Tư vấn chăm sóc răng miệng cá nhân hóa</div>
+                            </div>
+                            <p style="margin: 0; font-size: 0.88rem; color: var(--clr-text-muted); font-style: italic; border-left: 3px solid var(--clr-primary); padding-left: 12px; line-height: 1.6;">
+                                <strong>Lưu ý:</strong> Dịch vụ chụp phim và bôi fluoride được thực hiện khi có chỉ định, dựa trên tình trạng và nguy cơ răng miệng của từng khách hàng.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dịch vụ 02: Điều Trị Nướu & Nha Chu (Slide 29) -->
+                <div class="service-split-card reveal" id="dieu-tri-nha-chu">
+                    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 8px;">
+                        <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--clr-primary); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; font-weight: 700; flex-shrink: 0;">
+                            02
+                        </div>
+                        <div>
+                            <h3 style="font-family: var(--font-title); font-size: 1.35rem; font-weight: 700; color: var(--clr-navy); margin: 0;">02. Điều Trị Nướu & Nha Chu</h3>
+                            <p style="font-size: 0.88rem; color: var(--clr-secondary); font-weight: 600; margin: 3px 0 0 0;">Phù hợp với tình trạng chảy máu khi đánh răng, hôi miệng, nướu sưng hoặc răng có dấu hiệu lung lay.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-split-grid">
+                        <div class="service-img-wrap">
+                            <img src="<?php echo flora_asset('assets/tong-quat/services/2_dieu_tri_nuou.webp'); ?>" alt="Kiểm tra và điều trị mô nha chu" loading="lazy" width="480" height="600" />
+                            <div class="service-img-badge"><i class="fa-solid fa-shield-heart"></i> Chăm Sóc Nha Chu Êm Dịu</div>
+                        </div>
+                        <div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; margin-bottom: 16px; background: #ffffff; padding: 18px; border-radius: var(--radius-sm); border: 1px solid var(--clr-border);">
+                                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--clr-text);"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary);"></i> Khám và đánh giá tình trạng nha chu</div>
+                                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--clr-secondary); font-weight: 600;"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary);"></i> Cạo vôi và đánh bóng</div>
+                                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--clr-text);"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary);"></i> Điều trị viêm nướu theo mức độ</div>
+                                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--clr-text);"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary);"></i> Điều trị nha chu theo mức độ</div>
+                                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--clr-text);"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary);"></i> Làm sạch dưới nướu và xử lý mặt gốc răng</div>
+                            </div>
+                            <p style="margin: 0; font-size: 0.88rem; color: var(--clr-text-muted); font-style: italic; border-left: 3px solid var(--clr-warning, #f59e0b); padding-left: 12px; line-height: 1.6;">
+                                <strong>Lưu ý:</strong> Cạo vôi thông thường không thay thế cho điều trị nha chu. Bác sĩ sẽ đánh giá tình trạng nướu, độ sâu túi nha chu và mô nâng đỡ răng để chỉ định phương pháp điều trị và lịch theo dõi phù hợp.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dịch vụ 03: Trám Răng & Phục Hồi Tổn Thương (Slide 30) -->
+                <div class="service-split-card reveal" id="tram-rang">
+                    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 8px;">
+                        <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--clr-primary); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; font-weight: 700; flex-shrink: 0;">
+                            03
+                        </div>
+                        <div>
+                            <h3 style="font-family: var(--font-title); font-size: 1.35rem; font-weight: 700; color: var(--clr-navy); margin: 0;">03. Trám Răng & Phục Hồi Tổn Thương</h3>
+                            <p style="font-size: 0.88rem; color: var(--clr-secondary); font-weight: 600; margin: 3px 0 0 0;">Trám răng giúp phục hồi vùng mất mô do sâu, mòn, vỡ nhỏ hoặc miếng trám cũ không còn phù hợp.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-split-grid">
+                        <div class="service-img-wrap">
+                            <img src="<?php echo flora_asset('assets/tong-quat/services/3_tram_rang.webp'); ?>" alt="Trám composite và phục hồi bảo tồn" loading="lazy" width="480" height="600" />
+                            <div class="service-img-badge"><i class="fa-solid fa-tooth"></i> Trám Composite 3M & Inlay Sứ</div>
+                        </div>
+                        <div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; margin-bottom: 16px; background: #ffffff; padding: 18px; border-radius: var(--radius-sm); border: 1px solid var(--clr-border);">
+                                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--clr-text);"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary);"></i> Trám GIC / Fuji Nhật Bản</div>
+                                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--clr-text);"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary);"></i> Trám Composite 3M ESPE (Mỹ)</div>
+                                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--clr-text);"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary);"></i> Trám mòn cổ răng chống ê buốt</div>
+                                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--clr-text);"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary);"></i> Trám răng thẩm mỹ góc cạnh</div>
+                                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--clr-text);"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary);"></i> Trám tạm Eugenate khử khuẩn</div>
+                                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--clr-secondary); font-weight: 600;"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary);"></i> Inlay – Onlay sứ chịu lực</div>
+                            </div>
+                            <p style="margin: 0; font-size: 0.88rem; color: var(--clr-text-muted); font-style: italic; border-left: 3px solid var(--clr-primary); padding-left: 12px; line-height: 1.6;">
+                                <strong>Lưu ý:</strong> Bác sĩ sẽ lựa chọn vật liệu và phương pháp phục hồi dựa trên vị trí, mức độ tổn thương và lực nhai của từng răng.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dịch vụ 04: Điều Trị Tủy & Bảo Tồn Răng (Slide 30) -->
+                <div class="service-split-card reveal" id="chua-tuy">
+                    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 8px;">
+                        <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--clr-primary); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; font-weight: 700; flex-shrink: 0;">
+                            04
+                        </div>
+                        <div>
+                            <h3 style="font-family: var(--font-title); font-size: 1.35rem; font-weight: 700; color: var(--clr-navy); margin: 0;">04. Điều Trị Tủy & Bảo Tồn Răng</h3>
+                            <p style="font-size: 0.88rem; color: var(--clr-secondary); font-weight: 600; margin: 3px 0 0 0;">Điều trị tủy được cân nhắc khi tủy răng viêm hoặc hoại tử, thường liên quan đến sâu lớn, chấn thương, vết nứt hoặc nhiễm trùng.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-split-grid">
+                        <div class="service-img-wrap">
+                            <img src="<?php echo flora_asset('assets/tong-quat/services/4_dieu_tri_tuy.webp'); ?>" alt="Chẩn đoán hình ảnh và điều trị tủy lâm sàng" loading="lazy" width="480" height="600" />
+                            <div class="service-img-badge"><i class="fa-solid fa-shield-virus"></i> Điều Trị Tủy Vô Trùng Chuẩn Y Khoa</div>
+                        </div>
+                        <div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; margin-bottom: 16px; background: #ffffff; padding: 18px; border-radius: var(--radius-sm); border: 1px solid var(--clr-border);">
+                                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--clr-text);"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary);"></i> Khám và chụp phim kiểm tra vị trí tủy</div>
+                                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--clr-text);"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary);"></i> Đánh giá chính xác tình trạng tủy</div>
+                                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--clr-text);"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary);"></i> Làm sạch và tạo hình hệ thống ống tủy</div>
+                                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--clr-text);"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary);"></i> Trám bít ống tủy kín khít 3 chiều</div>
+                                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--clr-text);"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary);"></i> Phục hồi thân răng sau điều trị (chốt/mão)</div>
+                                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--clr-text);"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary);"></i> Theo dõi sát quá trình lành thương</div>
+                            </div>
+                            <p style="margin: 0; font-size: 0.88rem; color: var(--clr-text-muted); font-style: italic; border-left: 3px solid var(--clr-primary); padding-left: 12px; line-height: 1.6;">
+                                <strong>Lưu ý:</strong> Chỉ định điều trị được đưa ra sau khi bác sĩ đánh giá triệu chứng, thăm khám và dựa trên dữ liệu hình ảnh. Với răng đã điều trị tủy nhưng vẫn còn nhiễm trùng, bác sĩ sẽ cân nhắc điều trị lại hoặc phẫu thuật cắt chóp dựa trên nguyên nhân và khả năng bảo tồn răng.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dịch vụ 05: Nhổ Răng (Slide 31) -->
+                <div class="service-split-card reveal" id="nho-rang-khon">
+                    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 8px;">
+                        <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--clr-primary); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; font-weight: 700; flex-shrink: 0;">
+                            05
+                        </div>
+                        <div>
+                            <h3 style="font-family: var(--font-title); font-size: 1.35rem; font-weight: 700; color: var(--clr-navy); margin: 0;">05. Nhổ Răng</h3>
+                            <p style="font-size: 0.88rem; color: var(--clr-secondary); font-weight: 600; margin: 3px 0 0 0;">Phù hợp với răng không còn khả năng bảo tồn hoặc răng khôn gây ảnh hưởng đến sức khỏe răng miệng.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-split-grid">
+                        <div class="service-img-wrap">
+                            <img src="<?php echo flora_asset('assets/tong-quat/services/5_nho_rang.webp'); ?>" alt="Khám và tiểu phẫu răng khôn êm dịu" loading="lazy" width="480" height="600" />
+                            <div class="service-img-badge"><i class="fa-solid fa-feather-pointed"></i> Tiểu Phẫu Không Đau Chuẩn Y Khoa</div>
+                        </div>
+                        <div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; margin-bottom: 16px; background: #ffffff; padding: 18px; border-radius: var(--radius-sm); border: 1px solid var(--clr-border);">
+                                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--clr-text);"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary);"></i> Nhổ răng sữa</div>
+                                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--clr-text);"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary);"></i> Nhổ răng vĩnh viễn</div>
+                                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--clr-text);"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary);"></i> Nhổ chân răng sót / răng gãy</div>
+                                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--clr-text);"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary);"></i> Nhổ răng khôn mọc thẳng</div>
+                                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--clr-secondary); font-weight: 600;"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary);"></i> Tiểu phẫu răng khôn mọc lệch, mọc ngầm</div>
+                                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--clr-text);"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary);"></i> Cắt lợi trùm răng khôn (theo chỉ định)</div>
+                            </div>
+                            <p style="margin: 0; font-size: 0.88rem; color: var(--clr-text-muted); font-style: italic; border-left: 3px solid var(--clr-warning, #f59e0b); padding-left: 12px; line-height: 1.6;">
+                                <strong>Lưu ý:</strong> Với nhổ răng khôn, Bác sĩ sẽ đánh giá hướng mọc, khả năng vệ sinh và mức độ ảnh hưởng đến răng kế cận; đồng thời chỉ định chụp phim khi cần để xây dựng phương án phù hợp.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dịch vụ 06: Tẩy Trắng Răng & Thẩm mỹ răng (Slide 31) -->
+                <div class="service-split-card reveal" id="tay-trang">
+                    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 8px;">
+                        <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--clr-primary); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; font-weight: 700; flex-shrink: 0;">
+                            06
+                        </div>
+                        <div>
+                            <h3 style="font-family: var(--font-title); font-size: 1.35rem; font-weight: 700; color: var(--clr-navy); margin: 0;">06. Tẩy Trắng Răng & Thẩm mỹ răng</h3>
+                            <p style="font-size: 0.88rem; color: var(--clr-secondary); font-weight: 600; margin: 3px 0 0 0;">Phù hợp với khách hàng muốn cải thiện màu răng sau khi sức khỏe răng và nướu đã được kiểm tra.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-split-grid">
+                        <div class="service-img-wrap">
+                            <img src="<?php echo flora_asset('assets/tong-quat/services/6_tay_trang_rang.webp'); ?>" alt="Nụ cười sáng đẹp sau tẩy trắng răng" loading="lazy" width="480" height="600" />
+                            <div class="service-img-badge"><i class="fa-solid fa-star"></i> Tẩy Trắng Quang Học Sinh Học</div>
+                        </div>
+                        <div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; margin-bottom: 16px; background: #ffffff; padding: 18px; border-radius: var(--radius-sm); border: 1px solid var(--clr-border);">
+                                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--clr-text);"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary);"></i> Tẩy trắng răng tại phòng khám</div>
+                                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--clr-text);"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary);"></i> Tẩy trắng răng tại nhà theo hướng dẫn</div>
+                                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--clr-secondary); font-weight: 600;"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary);"></i> Tẩy trắng kết hợp tại phòng khám và tại nhà</div>
+                                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--clr-text);"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary);"></i> Thiết kế máng tẩy trắng cá nhân</div>
+                                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--clr-text);"><i class="fa-solid fa-circle-check" style="color: var(--clr-secondary);"></i> Đính đá hoặc kim cương nha khoa thẩm mỹ</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── BÁC SĨ PHỤ TRÁCH CHUYÊN MÔN (EXPERT SECTION) ─── -->
+    <section class="section-padding expert-section" id="expert" style="background-color: var(--clr-bg-light); border-top: 1px solid var(--clr-border);">
+        <div class="container">
+            <div class="section-header center reveal">
+                <h2>Bác Sĩ Trực Tiếp Điều Trị Tại Flora</h2>
+            </div>
+            <div class="expert-grid reveal">
+                <!-- Left Column: Premium Framed portrait image -->
+                <div class="reveal-left expert-portrait-frame">
+                    <img src="<?php echo flora_asset('assets/homepage/bs_minh_portrait.webp'); ?>" alt="BS.CKI Nguyễn Đắc Minh - Bác sĩ phụ trách chuyên môn tại Flora" class="expert-portrait-img" loading="lazy" width="480" height="580" style="object-fit: cover; object-position: 55% 10%; border-radius: 16px;" />
+                </div>
+                
+                <!-- Right Column: Biography & Achievements -->
+                <div class="reveal-right" style="display: flex; flex-direction: column; gap: 18px;">
+                    <div>
+                        <h3 style="font-family: var(--font-title); font-size: 1.55rem; font-weight: 800; color: var(--clr-navy); margin-bottom: 4px; line-height: 1.2;">BS.CKI NGUYỄN ĐẮC MINH</h3>
+                        <p style="font-size: 0.95rem; font-weight: 700; color: var(--clr-secondary); margin-bottom: 12px;">Chuyên gia Cấy ghép Implant & Phục hình thẩm mỹ</p>
+                        
+                        <div style="background: var(--clr-bg-light); padding: 14px 18px; border-left: 3.5px solid var(--clr-primary); border-radius: 8px; margin-bottom: 16px;">
+                            <strong style="color: var(--clr-navy); display: block; font-size: 0.92rem; margin-bottom: 4px; letter-spacing: 0.5px;">TRIẾT LÝ ĐIỀU TRỊ:</strong>
+                            <p style="font-size: 0.95rem; font-weight: 700; color: var(--clr-primary); font-style: italic; margin-bottom: 6px;">“Nha khoa là sự giao thoa giữa y khoa, kỹ thuật và thẩm mỹ.”</p>
+                            <p style="font-size: 0.88rem; color: #334155; line-height: 1.6; margin: 0;">Mỗi kế hoạch điều trị được xây dựng trên nền tảng chẩn đoán kỹ lưỡng, chỉ định phù hợp, thao tác có kiểm soát và theo dõi dài hạn, hướng đến sự cân bằng giữa chức năng, thẩm mỹ và trải nghiệm của khách hàng.</p>
+                        </div>
+
+                        <!-- 3 Statistics Box -->
+                        <div style="margin-bottom: 8px;">
+                            <span style="font-size: 0.82rem; font-weight: 700; color: var(--clr-navy); text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 8px;">HỒ SƠ ĐIỀU TRỊ NỔI BẬT</span>
+                            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+                                <div style="background: rgba(4, 147, 241, 0.06); border: 1px solid rgba(4, 147, 241, 0.2); padding: 12px 8px; border-radius: 12px; text-align: center;">
+                                    <strong style="display: block; font-size: 1.35rem; font-weight: 800; color: var(--clr-primary); line-height: 1.1;">5.000+</strong>
+                                    <span style="font-size: 0.76rem; color: var(--clr-navy); font-weight: 600;">ca cấy ghép & phục hình Implant</span>
+                                </div>
+                                <div style="background: rgba(4, 147, 241, 0.06); border: 1px solid rgba(4, 147, 241, 0.2); padding: 12px 8px; border-radius: 12px; text-align: center;">
+                                    <strong style="display: block; font-size: 1.35rem; font-weight: 800; color: var(--clr-primary); line-height: 1.1;">2.200+</strong>
+                                    <span style="font-size: 0.76rem; color: var(--clr-navy); font-weight: 600;">ca phục hình răng sứ thẩm mỹ</span>
+                                </div>
+                                <div style="background: rgba(4, 147, 241, 0.06); border: 1px solid rgba(4, 147, 241, 0.2); padding: 12px 8px; border-radius: 12px; text-align: center;">
+                                    <strong style="display: block; font-size: 1.35rem; font-weight: 800; color: var(--clr-primary); line-height: 1.1;">1.200+</strong>
+                                    <span style="font-size: 0.76rem; color: var(--clr-navy); font-weight: 600;">ca điều trị cười hở lợi</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="border-top: 1px solid var(--clr-border); border-bottom: 1px solid var(--clr-border); padding: 16px 0; margin: 0;">
+                        <ul style="list-style: none; font-size: 0.88rem; color: var(--clr-text); display: flex; flex-direction: column; gap: 10px; padding: 0; margin: 0;">
+                            <li style="display: flex; align-items: flex-start; gap: 10px; margin: 0;">
+                                <i class="fa-solid fa-circle-check" style="color: var(--clr-secondary); margin-top: 3px;"></i> 
+                                <span><strong>ĐÀO TẠO CHUYÊN MÔN:</strong> Tốt nghiệp chính quy Bác sĩ chuyên khoa Răng Hàm Mặt, nhận chứng chỉ Cấy ghép nha khoa (Bệnh viện RHM Trung ương) và Chỉnh nha nâng cao (Bệnh viện Trung ương Huế).</span>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px; margin: 0;">
+                                <i class="fa-solid fa-circle-check" style="color: var(--clr-secondary); margin-top: 3px;"></i> 
+                                <span><strong>HOẠT ĐỘNG CHUYÊN MÔN QUỐC TẾ:</strong> Thành viên chính thức ICOI (Hiệp hội Implant Thế giới) và ITI (Hiệp hội Implant Quốc tế).</span>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px; margin: 0;">
+                                <i class="fa-solid fa-circle-check" style="color: var(--clr-secondary); margin-top: 3px;"></i> 
+                                <span><strong>TRAO ĐỔI & CHIA SẺ CHUYÊN MÔN:</strong> Đài Phát thanh & Truyền hình Vĩnh Long phỏng vấn về ứng dụng công nghệ trong cấy ghép Implant (2023); trao đổi chuyên môn cùng Dr. Gilles P. Chaumanet.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div style="text-align: left;">
+                        <a href="#dang-ky" class="btn btn-primary btn-booking" style="display: inline-block;">Đặt lịch tư vấn cùng Bác sĩ Minh <i class="fa-solid fa-calendar-check" style="margin-left: 8px;"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── BẢNG GIÁ NHA KHOA TỔNG QUÁT TẠI FLORA (PAGES 80 & 81) ─── -->
+    <section class="section-padding pricing-section" id="pricing-tables" style="background-color: var(--clr-white);">
+        <div class="container">
+            <div class="section-header center reveal">
+                <h2>Bảng Giá Nha Khoa Tổng Quát Tại Flora</h2>
+                <p style="max-width: 680px; margin: 10px auto 0; font-size: 0.95rem; color: var(--clr-text-muted);">
+                    Mọi chi phí đều được bác sĩ thông báo rõ ràng, cam kết trọn gói không phát sinh.
+                </p>
+            </div>
+            
+            <div class="reveal reveal-delay-1" style="max-width: 960px; margin: 40px auto 0; display: flex; flex-direction: column; gap: 30px;">
+                <!-- Bảng 1: Khám và chuẩn đoán -->
+                <div style="background: #ffffff; border: 1px solid var(--clr-border); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm);">
+                    <div style="background: var(--clr-navy); color: #ffffff; padding: 14px 20px; font-weight: 700; font-size: 1.1rem; display: flex; align-items: center; justify-content: space-between;">
+                        <span><i class="fa-solid fa-stethoscope" style="margin-right: 8px; color: var(--clr-secondary);"></i> 1. Khám và Chuẩn Đoán</span>
+                        <span style="font-size: 0.85rem; background: rgba(255,255,255,0.15); padding: 4px 10px; border-radius: 20px;">Miễn phí 100%</span>
+                    </div>
+                    <div class="responsive-table-wrapper">
+                        <table class="flora-price-table">
+<thead>
+<tr>
+<th class="col-service">Dịch vụ</th>
+<th class="col-unit">Đơn vị</th>
+<th class="col-price">Giá công bố</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="col-service">Khám và tư vấn chuyên sâu cùng bác sĩ</td>
+<td class="col-unit">1 lần</td>
+<td class="col-price free">Miễn phí</td>
+</tr>
+<tr>
+<td class="col-service">X-quang quanh chóp kỹ thuật số</td>
+<td class="col-unit">1 răng</td>
+<td class="col-price free">Miễn phí</td>
+</tr>
+</tbody>
+</table>
+                    </div>
+                </div>
+
+                <!-- Bảng 2: Cạo vôi và điều trị nha chu -->
+                <div style="background: #ffffff; border: 1px solid var(--clr-border); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm);">
+                    <div style="background: var(--clr-navy); color: #ffffff; padding: 14px 20px; font-weight: 700; font-size: 1.1rem;">
+                        <i class="fa-solid fa-hands-wash" style="margin-right: 8px; color: var(--clr-secondary);"></i> 2. Cạo Vôi và Điều Trị Nha Chu
+                    </div>
+                    <div class="responsive-table-wrapper">
+                        <table class="flora-price-table">
+<thead>
+<tr>
+<th class="col-service">Dịch vụ</th>
+<th class="col-unit">Đơn vị</th>
+<th class="col-price">Giá công bố</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="col-service">Đánh bóng răng</td>
+<td class="col-unit">1 ca</td>
+<td class="col-price">100.000 đồng</td>
+</tr>
+<tr>
+<td class="col-service">Cạo vôi và đánh bóng mức độ 1</td>
+<td class="col-unit">1 ca</td>
+<td class="col-price">300.000 đồng</td>
+</tr>
+<tr>
+<td class="col-service">Cạo vôi và đánh bóng mức độ 2</td>
+<td class="col-unit">1 ca</td>
+<td class="col-price">400.000 đồng</td>
+</tr>
+<tr>
+<td class="col-service">Cạo vôi và đánh bóng mức độ 3</td>
+<td class="col-unit">1 ca</td>
+<td class="col-price">500.000 đồng</td>
+</tr>
+<tr>
+<td class="col-service">Điều trị viêm nha chu mức độ 1</td>
+<td class="col-unit">1 ca</td>
+<td class="col-price highlight">3.000.000 đồng</td>
+</tr>
+<tr>
+<td class="col-service">Điều trị viêm nha chu mức độ 2</td>
+<td class="col-unit">1 ca</td>
+<td class="col-price highlight">4.000.000 đồng</td>
+</tr>
+<tr>
+<td class="col-service">Điều trị viêm nha chu mức độ 3</td>
+<td class="col-unit">1 ca</td>
+<td class="col-price highlight">5.000.000 đồng</td>
+</tr>
+</tbody>
+</table>
+                    </div>
+                </div>
+
+                <!-- Bảng 3: Nhổ răng và răng khôn -->
+                <div style="background: #ffffff; border: 1px solid var(--clr-border); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm);">
+                    <div style="background: var(--clr-navy); color: #ffffff; padding: 14px 20px; font-weight: 700; font-size: 1.1rem;">
+                        <i class="fa-solid fa-tooth" style="margin-right: 8px; color: var(--clr-secondary);"></i> 3. Nhổ Răng và Răng Khôn
+                    </div>
+                    <div class="responsive-table-wrapper">
+                        <table class="flora-price-table">
+<thead>
+<tr>
+<th class="col-service">Dịch vụ</th>
+<th class="col-unit">Đơn vị</th>
+<th class="col-price">Giá công bố</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="col-service">Xử lý lợi trùm</td>
+<td class="col-unit">1 răng</td>
+<td class="col-price">700.000 đồng</td>
+</tr>
+<tr>
+<td class="col-service">Nhổ răng sữa trẻ em</td>
+<td class="col-unit">1 răng</td>
+<td class="col-price">100.000 đồng</td>
+</tr>
+<tr>
+<td class="col-service">Nhổ chân răng hoặc răng 1 chân</td>
+<td class="col-unit">1 răng</td>
+<td class="col-price">500.000 đồng</td>
+</tr>
+<tr>
+<td class="col-service">Nhổ chân răng hoặc răng nhiều chân</td>
+<td class="col-unit">1 răng</td>
+<td class="col-price">700.000 đồng</td>
+</tr>
+<tr>
+<td class="col-service">Nhổ răng hàm nhỏ hoặc lớn</td>
+<td class="col-unit">1 răng</td>
+<td class="col-price">1.000.000 đồng</td>
+</tr>
+<tr>
+<td class="col-service">Nhổ răng khôn mọc thẳng</td>
+<td class="col-unit">1 răng</td>
+<td class="col-price">1.500.000 đồng</td>
+</tr>
+<tr>
+<td class="col-service">Nhổ răng khôn mọc lệch mức 1</td>
+<td class="col-unit">1 răng</td>
+<td class="col-price highlight">2.000.000 đồng</td>
+</tr>
+<tr>
+<td class="col-service">Nhổ răng khôn mọc lệch mức 2</td>
+<td class="col-unit">1 răng</td>
+<td class="col-price highlight">3.000.000 đồng</td>
+</tr>
+<tr>
+<td class="col-service">Nhổ răng khôn mọc ngầm mức 3</td>
+<td class="col-unit">1 răng</td>
+<td class="col-price highlight">5.000.000 đồng</td>
+</tr>
+</tbody>
+</table>
+                    </div>
+                </div>
+
+                <!-- Bảng 4: Điều trị tủy -->
+                <div style="background: #ffffff; border: 1px solid var(--clr-border); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm);">
+                    <div style="background: var(--clr-navy); color: #ffffff; padding: 14px 20px; font-weight: 700; font-size: 1.1rem;">
+                        <i class="fa-solid fa-kit-medical" style="margin-right: 8px; color: var(--clr-secondary);"></i> 4. Điều Trị Tủy và Bảo Tồn Răng
+                    </div>
+                    <div class="responsive-table-wrapper">
+                        <table class="flora-price-table">
+<thead>
+<tr>
+<th class="col-service">Dịch vụ</th>
+<th class="col-unit">Đơn vị</th>
+<th class="col-price">Giá công bố</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="col-service">Chốt tủy kim loại</td>
+<td class="col-unit">1 răng</td>
+<td class="col-price">500.000 đồng</td>
+</tr>
+<tr>
+<td class="col-service">Chốt không kim loại mức 1</td>
+<td class="col-unit">1 răng</td>
+<td class="col-price">2.000.000 đồng</td>
+</tr>
+<tr>
+<td class="col-service">Chốt không kim loại mức 2</td>
+<td class="col-unit">1 răng</td>
+<td class="col-price highlight">3.000.000 đồng</td>
+</tr>
+<tr>
+<td class="col-service">Điều trị tủy răng một chân (răng cửa / nanh)</td>
+<td class="col-unit">1 răng</td>
+<td class="col-price">600.000 đồng</td>
+</tr>
+<tr>
+<td class="col-service">Điều trị tủy răng hai chân (răng hàm nhỏ)</td>
+<td class="col-unit">1 răng</td>
+<td class="col-price">800.000 đồng</td>
+</tr>
+<tr>
+<td class="col-service">Điều trị tủy răng nhiều chân (răng hàm lớn)</td>
+<td class="col-unit">1 răng</td>
+<td class="col-price">1.500.000 đồng</td>
+</tr>
+<tr>
+<td class="col-service">Điều trị tủy lại mức 1 (nội nha lại)</td>
+<td class="col-unit">1 răng</td>
+<td class="col-price highlight">1.500.000 đồng</td>
+</tr>
+<tr>
+<td class="col-service">Điều trị tủy lại mức 2</td>
+<td class="col-unit">1 răng</td>
+<td class="col-price highlight">2.000.000 đồng</td>
+</tr>
+<tr>
+<td class="col-service">Phẫu thuật cắt chóp và trám ngược</td>
+<td class="col-unit">1 răng</td>
+<td class="col-price highlight">2.000.000 đồng</td>
+</tr>
+</tbody>
+</table>
+                    </div>
+                </div>
+
+                <!-- Bảng 5: Trám và phục hồi răng -->
+                <div style="background: #ffffff; border: 1px solid var(--clr-border); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm);">
+                    <div style="background: var(--clr-navy); color: #ffffff; padding: 14px 20px; font-weight: 700; font-size: 1.1rem;">
+                        <i class="fa-solid fa-shield-halved" style="margin-right: 8px; color: var(--clr-secondary);"></i> 5. Trám và Phục Hồi Răng
+                    </div>
+                    <div class="responsive-table-wrapper">
+                        <table class="flora-price-table">
+<thead>
+<tr>
+<th class="col-service">Dịch vụ</th>
+<th class="col-unit">Đơn vị</th>
+<th class="col-price">Giá công bố</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="col-service">Trám GIC / Fuji Nhật Bản</td>
+<td class="col-unit">1 răng</td>
+<td class="col-price">250.000 đồng</td>
+</tr>
+<tr>
+<td class="col-service">Trám cổ răng chống ê buốt</td>
+<td class="col-unit">1 răng</td>
+<td class="col-price">400.000 đồng</td>
+</tr>
+<tr>
+<td class="col-service">Trám Composite 3M ESPE (Mỹ)</td>
+<td class="col-unit">1 răng</td>
+<td class="col-price">400.000 đồng</td>
+</tr>
+<tr>
+<td class="col-service">Trám răng thẩm mỹ góc cạnh</td>
+<td class="col-unit">1 răng</td>
+<td class="col-price">500.000 đồng</td>
+</tr>
+<tr>
+<td class="col-service">Trám tạm Eugenate khử khuẩn</td>
+<td class="col-unit">1 răng</td>
+<td class="col-price">700.000 đồng</td>
+</tr>
+<tr>
+<td class="col-service">Inlay – Onlay sứ chịu lực</td>
+<td class="col-unit">1 răng</td>
+<td class="col-price highlight">5.000.000 đồng</td>
+</tr>
+<tr>
+<td class="col-service">Chụp bảo vệ răng sữa</td>
+<td class="col-unit">1 răng</td>
+<td class="col-price">1.000.000 đồng</td>
+</tr>
+</tbody>
+</table>
+                    </div>
+                </div>
+
+                <!-- Bảng 6: Tẩy trắng răng -->
+                <div style="background: #ffffff; border: 1px solid var(--clr-border); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm);">
+                    <div style="background: var(--clr-navy); color: #ffffff; padding: 14px 20px; font-weight: 700; font-size: 1.1rem;">
+                        <i class="fa-solid fa-wand-magic-sparkles" style="margin-right: 8px; color: var(--clr-secondary);"></i> 6. Tẩy Trắng Răng
+                    </div>
+                    <div class="responsive-table-wrapper">
+                        <table class="flora-price-table">
+<thead>
+<tr>
+<th class="col-service">Dịch vụ</th>
+<th class="col-unit">Đơn vị</th>
+<th class="col-price">Giá công bố</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="col-service">Tẩy trắng tại nhà (kèm 2 ống thuốc chính hãng)</td>
+<td class="col-unit">1 ca</td>
+<td class="col-price">1.500.000 đồng</td>
+</tr>
+<tr>
+<td class="col-service">Tẩy trắng tại phòng khám bằng ánh sáng sinh học</td>
+<td class="col-unit">1 ca</td>
+<td class="col-price">2.500.000 đồng</td>
+</tr>
+<tr>
+<td class="col-service">Tẩy trắng kết hợp tại nhà và phòng khám</td>
+<td class="col-unit">1 ca</td>
+<td class="col-price highlight">3.500.000 đồng</td>
+</tr>
+<tr>
+<td class="col-service">Làm máng tẩy trắng (không kèm thuốc)</td>
+<td class="col-unit">2 hàm</td>
+<td class="col-price">1.000.000 đồng</td>
+</tr>
+</tbody>
+</table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SECTION 12: CTA & BẢN ĐỒ SỨC KHỎE RĂNG MIỆNG (PAGE 82) ─── -->
+    <section class="section-padding registration-section" id="dang-ky" style="background-color: var(--clr-bg-light); border-top: 1px solid var(--clr-border);">
+        <div class="container">
+            <div class="reg-split-container">
+                <!-- Left Column: Inspiring Message & FAQ -->
+                <div class="reveal" style="display: flex; flex-direction: column; justify-content: flex-start; gap: 20px;">
+                    <div>
+                        <h2 style="font-family: var(--font-title); font-size: 1.75rem; font-weight: 700; color: var(--clr-navy); margin: 0 0 14px 0; line-height: 1.35; text-wrap: balance;">
+                            Hiểu Rõ Sức Khỏe Răng Miệng • Chủ Động Kế Hoạch Chăm Sóc
+                        </h2>
+                        
+                        <div style="background: #ffffff; padding: 22px 24px; border-radius: var(--radius-md); border-left: 4px solid var(--clr-primary); box-shadow: var(--shadow-sm); margin-bottom: 20px;">
+                            <p style="font-size: 0.98rem; color: var(--clr-navy); font-weight: 600; line-height: 1.6; margin: 0;">
+                                Cùng bác sĩ Flora xây dựng bản đồ sức khỏe răng miệng cá nhân hoá với các phương pháp điều trị phù hợp.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-list" style="margin-top: 0;">
+                        <div class="faq-item active">
+                            <button class="faq-question">Bao lâu thì nên đi lấy cao răng và khám định kỳ một lần? <i class="fa-solid fa-chevron-down"></i></button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    Nha sĩ khuyên bạn nên đi kiểm tra và cạo vôi răng định kỳ từ 3 - 6 tháng/lần để ngăn ngừa viêm nướu, hôi miệng và phát hiện sớm các tổn thương men răng trước khi sâu vào tủy.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">Trám răng sâu có đau không và giữ được bao lâu? <i class="fa-solid fa-chevron-down"></i></button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    Quá trình trám răng sâu tại Flora diễn ra nhẹ nhàng, êm dịu. Vật liệu Composite 3M ESPE chính hãng kết hợp công nghệ trùng hợp ánh sáng cho độ bền từ 3 - 5 năm trở lên và thẩm mỹ như răng thật.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">Có phải tất cả các răng khôn mọc lên đều bắt buộc phải nhổ? <i class="fa-solid fa-chevron-down"></i></button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    Không phải răng khôn nào cũng cần nhổ. Nếu răng khôn mọc thẳng, ăn khớp tốt và dễ vệ sinh, bác sĩ sẽ khuyên giữ lại. Chỉ định nhổ chỉ áp dụng khi răng mọc lệch, kẹt thức ăn, gây sâu răng số 7 hoặc có nguy cơ biến chứng xương hàm.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Registration Form (Page 82) -->
+                <div class="cta-form reveal reveal-delay-2" style="background: #ffffff; border: 1px solid var(--clr-border); padding: 40px; border-radius: var(--radius-md); box-shadow: var(--shadow-premium);">
+                    <h3 style="color: var(--clr-navy); font-size: 1.4rem; margin-bottom: 8px; text-align: center;">Đăng Ký Khám & Nhận Bản Đồ Răng Miệng</h3>
+                    <p style="font-size: 0.88rem; color: var(--clr-text-muted); text-align: center; margin-bottom: 24px;">Miễn phí chụp phim X-quang kỹ thuật số & Thăm khám 1:1 cùng Bác sĩ Chuyên Khoa</p>
+                    
+                    <form id="floraRegistrationForm" class="modal-form" style="display: flex; flex-direction: column; gap: 15px;">
+                        <input type="hidden" id="note" name="note" value="Đăng ký khám tổng quát - Flora Total Care 360" />
+                        
+                        <!-- 1. Họ và tên -->
+                        <div class="form-group">
+                            <label style="display: block; font-size: 0.85rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 4px;">Họ và tên *</label>
+                            <input class="form-input" name="name" placeholder="Nhập họ và tên của bạn" required type="text" style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);" />
+                        </div>
+                        
+                        <!-- 2. Số điện thoại -->
+                        <div class="form-group">
+                            <label style="display: block; font-size: 0.85rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 4px;">Số điện thoại *</label>
+                            <input class="form-input" name="phone" placeholder="Nhập số điện thoại liên hệ" required type="tel" style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);" />
+                        </div>
+                        
+                        <!-- 3. Dịch vụ quan tâm -->
+                        <div class="form-group">
+                            <label style="display: block; font-size: 0.85rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 4px;">Dịch vụ quan tâm *</label>
+                            <select class="form-select" name="service" required style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);">
+                                <option value="Khám tổng quát 360" selected>Khám tổng quát Flora Total Care 360</option>
+                                <option value="Cạo vôi và điều trị nha chu">Cạo vôi & Điều trị nha chu</option>
+                                <option value="Trám răng và phục hồi bảo tồn">Trám răng & Phục hồi bảo tồn</option>
+                                <option value="Điều trị tủy bảo tồn răng">Điều trị tủy & Bảo tồn răng</option>
+                                <option value="Nhổ răng và tiểu phẫu răng khôn">Nhổ răng & Tiểu phẫu răng khôn</option>
+                                <option value="Tẩy trắng và chăm sóc thẩm mỹ">Tẩy trắng răng thẩm mỹ</option>
+                                <option value="Trồng răng Implant">Trồng răng Implant Thụy Sĩ</option>
+                                <option value="Niềng răng chỉnh nha">Niềng răng Invisalign / Mắc cài</option>
+                                <option value="Dán sứ Veneer / Bọc răng sứ">Thẩm mỹ răng sứ / Veneer</option>
+                            </select>
+                        </div>
+                        
+                        <!-- 4. Thời gian muốn được liên hệ -->
+                        <div class="form-group">
+                            <label style="display: block; font-size: 0.85rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 4px;">Thời gian muốn được liên hệ *</label>
+                            <select class="form-select" name="preferredTime" required style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);">
+                                <option value="" disabled selected>Chọn khung giờ phù hợp với bạn</option>
+                                <option value="Sáng (8h00 - 12h00)">Sáng (8h00 - 12h00)</option>
+                                <option value="Chiều (13h30 - 17h30)">Chiều (13h30 - 17h30)</option>
+                                <option value="Tối (18h00 - 20h00)">Tối (18h00 - 20h00)</option>
+                                <option value="Bất kỳ lúc nào">Bất kỳ lúc nào trong giờ làm việc</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="padding: 14px; margin-top: 10px; font-size: 1rem; font-weight: bold; width: 100%;">ĐĂNG KÝ ĐẶT LỊCH <i class="fa-solid fa-paper-plane" style="margin-left: 6px;"></i></button>
+                    </form>
+                    
+                    <!-- Thông tin cam kết dưới form (Page 82) -->
+                    <div style="margin-top: 20px; padding-top: 15px; border-top: 1px dashed var(--clr-border); font-size: 0.82rem; color: var(--clr-text-muted); display: flex; flex-direction: column; gap: 6px;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <i class="fa-solid fa-clock" style="color: var(--clr-secondary);"></i>
+                            <span>Thời gian phản hồi dự kiến: <strong>trong giờ làm việc</strong>.</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <i class="fa-solid fa-shield" style="color: #10b981;"></i>
+                            <span>Thông tin được sử dụng cho mục đích tư vấn và đặt lịch.</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <i class="fa-solid fa-hand-holding-heart" style="color: var(--clr-primary);"></i>
+                            <span>Không bắt buộc quyết định điều trị ngay sau khi thăm khám.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+
+<?php
+get_footer();

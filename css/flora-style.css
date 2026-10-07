@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&display=swap');
+
 
         :root {
             --clr-primary: #0033a3;
@@ -23,8 +25,8 @@
             --grad-accent: linear-gradient(135deg, #0493f1 0%, #0135a6 100%);
             --grad-hero: linear-gradient(135deg, #090e26 0%, #0033a3 100%);
 
-            --font-title: 'Montserrat', sans-serif;
-            --font-body: 'Quicksand', sans-serif;
+            --font-title: 'Plus Jakarta Sans', 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 
             --radius-sm: 8px;
             --radius-md: 18px;
@@ -554,6 +556,121 @@
             padding-bottom: 0 !important;
         }
 
+        /* Check Chính Hãng Header Button */
+        .header-action {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-action .btn-check-auth {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            padding: 0;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+            border: 1.5px solid #0493f1;
+            color: #0033a3 !important;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 8px rgba(4, 147, 241, 0.18);
+            flex-shrink: 0;
+        }
+
+        .header-action .btn-check-auth i {
+            font-size: 1.15rem;
+            color: #0493f1;
+            transition: transform 0.25s ease, color 0.25s ease;
+        }
+
+        .header-action .btn-check-auth:hover {
+            background: linear-gradient(135deg, #0493f1 0%, #0033a3 100%);
+            border-color: #0033a3;
+            color: #ffffff !important;
+            transform: translateY(-2px) scale(1.06);
+            box-shadow: 0 4px 15px rgba(0, 51, 163, 0.32);
+        }
+
+        .header-action .btn-check-auth:hover i {
+            color: #ffffff;
+            transform: scale(1.15) rotate(-5deg);
+        }
+
+        .btn-check-auth {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            padding: 9px 16px;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+            border: 1.5px solid #0493f1;
+            color: #0033a3 !important;
+            font-family: var(--font-title, sans-serif);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(4, 147, 241, 0.15);
+        }
+
+        .btn-check-auth i {
+            font-size: 0.95rem;
+            color: #0493f1;
+            transition: transform 0.25s ease, color 0.25s ease;
+        }
+
+        .btn-check-auth:hover {
+            background: linear-gradient(135deg, #0493f1 0%, #0033a3 100%);
+            border-color: #0033a3;
+            color: #ffffff !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 51, 163, 0.32);
+        }
+
+        .btn-check-auth:hover i {
+            color: #ffffff;
+            transform: scale(1.15) rotate(-5deg);
+        }
+
+        .drawer-auth-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #f0f7ff;
+            border: 1.5px solid #0493f1;
+            color: #0033a3 !important;
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin: 12px 0 6px;
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+
+        .drawer-auth-badge i {
+            color: #0493f1;
+            font-size: 1.1rem;
+            transition: transform 0.25s ease, color 0.25s ease;
+        }
+
+        .drawer-auth-badge:hover {
+            background: linear-gradient(135deg, #0493f1 0%, #0033a3 100%);
+            color: #ffffff !important;
+            border-color: #0033a3;
+        }
+
+        .drawer-auth-badge:hover i {
+            color: #ffffff;
+            transform: scale(1.15) rotate(-5deg);
+        }
+
         @media (max-width: 1080px) {
 
             .nav-links,
@@ -600,25 +717,29 @@
             }
         }
 
-        /* Mobile Drawer */
+        /* Mobile Drawer (Slide in from Right with Ultra-High Z-Index) */
         .drawer-nav {
             position: fixed;
             top: 0;
-            left: 0;
-            width: 290px;
+            right: 0;
+            left: auto;
+            width: 310px;
+            max-width: 86vw;
             height: 100vh;
             max-height: 100vh;
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
             background: var(--clr-white);
-            z-index: 1001;
-            border-right: 1px solid var(--clr-border);
-            padding: 30px 20px 40px;
+            z-index: 9999999;
+            border-left: 1px solid var(--clr-border);
+            border-right: none;
+            padding: 24px 20px 40px;
             display: flex;
             flex-direction: column;
             gap: 16px;
-            transform: translateX(-100%);
-            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateX(100%);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.2);
         }
 
         .drawer-nav.open {
@@ -637,14 +758,38 @@
             color: var(--clr-secondary);
         }
 
+        .drawer-close-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            border: none;
+            font-size: 1.5rem;
+            line-height: 1;
+            color: #475569;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .drawer-close-btn:hover {
+            background: #e2e8f0;
+            color: #0f172a;
+            transform: scale(1.08);
+        }
+
         .drawer-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(10, 25, 49, 0.4);
-            z-index: 1000;
+            background: rgba(10, 25, 49, 0.6);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            z-index: 9999998;
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.25s ease;
+            transition: opacity 0.3s ease;
         }
 
         .drawer-overlay.visible {
@@ -1550,7 +1695,7 @@
         /* ─── "ĐIỀU GÌ DIỄN RA TẠI NGÀY HỘI?" SECTION ─── */
         /* ─── "ĐIỀU GÌ DIỄN RA TẠI NGÀY HỘI?" SECTION ─── */
         .value-section {
-            background-image: url('../ngayhoi_item/BG-Điều-gì-diễn-ra.webp');
+            background-image: url('../ngayhoi_item/BG-dieu-gi-dien-ra.webp');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -2214,7 +2359,7 @@
         }
 
         .expert-card {
-            background-image: url('../ngayhoi_item/BG-Điều-gì-diễn-ra.webp');
+            background-image: url('../ngayhoi_item/BG-dieu-gi-dien-ra.webp');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -2227,7 +2372,7 @@
 
         .expert-card:hover {
             transform: translateY(-5px);
-            background-image: url('../ngayhoi_item/BG-Điều-gì-diễn-ra.webp');
+            background-image: url('../ngayhoi_item/BG-dieu-gi-dien-ra.webp');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -3129,7 +3274,7 @@
 
         /* ─── "ĐĂNG KÝ THAM DỰ" SECTION ─── */
         .registration-section {
-            background-image: url('../ngayhoi_item/BG-Điều-gì-diễn-ra.webp') !important;
+            background-image: url('../ngayhoi_item/BG-dieu-gi-dien-ra.webp') !important;
             background-size: cover !important;
             background-position: center !important;
             background-repeat: no-repeat !important;
@@ -3637,9 +3782,9 @@
 
         @media (max-width: 768px) {
             .back-to-top {
-                left: auto;
-                right: 20px;
-                bottom: 90px;
+                left: 14px;
+                right: auto;
+                bottom: 85px;
                 transform: none;
                 width: 40px;
                 height: 40px;
@@ -4014,7 +4159,8 @@
 
         /* ─── TIMELINE SECTION ─── */
         .timeline-section {
-            background-image: url('../ngayhoi_item/BG-4-bước-trải-nghiệm.webp');
+            background-color: #0b1a37;
+            background-image: url('../ngayhoi_item/BG-4-buoc-trai-nghiem.webp');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -4093,7 +4239,7 @@
         }
 
         #journey .step-card {
-            background: rgba(255, 255, 255, 0.05) !important;
+            background: rgba(11, 26, 55, 0.8) !important;
             border: 1px solid rgba(255, 255, 255, 0.1) !important;
             backdrop-filter: blur(10px) !important;
             -webkit-backdrop-filter: blur(10px) !important;
@@ -4120,22 +4266,54 @@
         #journey .step-card-icon {
             width: 48px;
             height: 48px;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
             font-size: 1.25rem;
-            background-color: #0b1a37; /* matches dark background of BG-4-bước-trải-nghiệm.webp */
-            border: 2px solid var(--clr-secondary);
-            color: var(--clr-secondary);
+            background-color: #0b1a37; /* matches dark background of BG-4-buoc-trai-nghiem.webp */
+            border: 2px solid var(--clr-secondary, #0493f1);
+            color: var(--clr-secondary, #0493f1);
             margin: 0 auto 15px;
             position: relative;
             z-index: 2;
             box-shadow: 0 0 15px rgba(4, 147, 241, 0.4);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 0;
+        }
+
+        #journey .step-card-icon svg {
+            width: 22px;
+            height: 22px;
+            max-width: 22px;
+            max-height: 22px;
+            fill: #0493f1;
+            display: block;
+            transition: transform 0.3s ease, fill 0.3s ease;
+        }
+
+        #journey .step-card-icon i {
+            display: inline-block;
+            color: #0493f1;
+            font-size: 1.25rem;
+            line-height: 1;
         }
 
         #journey .step-card:hover .step-card-icon {
             transform: scale(1.15);
-            background-color: var(--clr-secondary);
-            color: var(--clr-white);
-            border-color: var(--clr-secondary);
-            box-shadow: 0 0 25px var(--clr-secondary);
+            background-color: var(--clr-secondary, #0493f1);
+            color: var(--clr-white, #ffffff);
+            border-color: var(--clr-secondary, #0493f1);
+            box-shadow: 0 0 25px var(--clr-secondary, #0493f1);
+        }
+
+        #journey .step-card:hover .step-card-icon svg {
+            fill: #ffffff;
+            transform: scale(1.1);
+        }
+
+        #journey .step-card:hover .step-card-icon i {
+            color: #ffffff;
         }
 
         #journey .step-badge {
@@ -4253,7 +4431,7 @@
 
         /* ─── FAQ ACCORDION SECTION ─── */
         .faq-section {
-            background-image: url('../ngayhoi_item/BG-Điều-gì-diễn-ra.webp');
+            background-image: url('../ngayhoi_item/BG-dieu-gi-dien-ra.webp');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -5038,6 +5216,16 @@
 .widget-btn:hover {
     transform: scale(1.08) translateY(-3px);
     box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+}
+
+.widget-btn svg {
+    display: block !important;
+    margin: auto !important;
+    transition: transform 0.2s ease !important;
+}
+
+.widget-btn:hover svg {
+    transform: scale(1.12) !important;
 }
 
 .widget-messenger { 
@@ -6045,6 +6233,16 @@
     box-shadow: 0 4px 12px rgba(4, 147, 241, 0.3) !important;
 }
 
+.footer-social-btn svg {
+    display: block !important;
+    margin: auto !important;
+    transition: transform 0.2s ease !important;
+}
+
+.footer-social-btn:hover svg {
+    transform: scale(1.15) !important;
+}
+
 /* Contact item formatting */
 .footer-contact-item {
     display: flex !important;
@@ -6727,9 +6925,33 @@ input:focus, select:focus, textarea:focus {
 /* ─── PREMIUM MOBILE BOTTOM STICKY ACTION DOCK ─── */
 
 @media (max-width: 768px) {
-    /* Hide floating widgets container on mobile since we have mobile floating dock */
+    /* Floating Contact Widgets on Mobile (Bottom-Right) */
     .floating-widgets {
-        display: none !important;
+        position: fixed !important;
+        bottom: 85px !important;
+        right: 14px !important;
+        left: auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+        z-index: 998 !important;
+    }
+
+    .widget-btn {
+        width: 44px !important;
+        height: 44px !important;
+        font-size: 1.15rem !important;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18) !important;
+    }
+
+    .widget-btn svg {
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    .widget-zalo img {
+        width: 24px !important;
+        height: 24px !important;
     }
     
     /* Create bottom clearance on body for mobile floating dock */
@@ -7825,6 +8047,14 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
 }
 
 @media (max-width: 992px) {
+    .audience-card .btn-text-extra {
+        display: none !important;
+    }
+    .audience-card .btn-outline {
+        padding: 7px 14px !important;
+        font-size: 0.8rem !important;
+        white-space: nowrap !important;
+    }
     .audience-grid.homepage-services {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 20px !important;
@@ -8958,7 +9188,7 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
 
 /* ─── STORY GALLERY HERO LAYOUT (OPTION 02) ─── */
 .hero-story-gallery {
-    padding-top: 20px;
+    padding-top: 35px;
     padding-bottom: 40px;
     position: relative;
     overflow: hidden;
@@ -8969,7 +9199,7 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
     align-items: end;
     gap: 14px;
     max-width: 1200px;
-    margin: 10px auto 35px;
+    margin: 25px auto 35px;
     padding: 0 15px;
 }
 .hero-arc-photo {
@@ -9468,3 +9698,39 @@ input[type="range"]#calc-qty::-moz-range-thumb:hover {
 
 
 
+
+
+/* Guarantee above-the-fold Hero text visibility */
+.hero-section .reveal,
+.hero-section .reveal.active,
+#banner .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* Global Font Enforcement - Modern Swiss Medical Typography */
+body, button, input, select, textarea {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6, .hero-section h2, .nav-links a, .btn, .btn-primary, .highlight-text-container, .hero-desc-wrapper strong {
+    font-family: 'Plus Jakarta Sans', 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+}
+
+/* ─── FONT AWESOME GLOBAL RESILIENCE & RENDERING GUARANTEE ─── */
+.fa, .fas, .far, .fal, .fad, .fab, .fa-solid, .fa-regular, .fa-brands, [class*="fa-"] {
+    font-family: "Font Awesome 6 Free", "FontAwesome" !important;
+    font-style: normal !important;
+    line-height: 1 !important;
+    display: inline-block !important;
+}
+.fa-solid, .fas {
+    font-weight: 900 !important;
+}
+.fa-regular, .far {
+    font-weight: 400 !important;
+}
+.fa-brands, .fab {
+    font-family: "Font Awesome 6 Brands", "FontAwesome" !important;
+    font-weight: 400 !important;
+}

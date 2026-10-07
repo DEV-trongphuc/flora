@@ -1,0 +1,868 @@
+<?php
+/**
+ * Template Name: Trang Niềng Răng
+ */
+
+get_header();
+?>
+
+<!-- Global SVG Gradient Definitions -->
+    <svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="sparkleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0493f1" />
+                <stop offset="100%" stop-color="#0033a3" />
+            </linearGradient>
+            <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#0493f1" />
+                <stop offset="100%" stop-color="#0033a3" />
+            </linearGradient>
+            <linearGradient id="swissGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#e20613" />
+                <stop offset="100%" stop-color="#9f040d" />
+            </linearGradient>
+            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ffd700" />
+                <stop offset="100%" stop-color="#ffa500" />
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <!-- ─── SUBPAGE HERO SECTION ─── -->
+    <div class="hero-wrapper">
+        <!-- Floating Sparkles -->
+        <div class="hero-sparkle hero-sparkle-1">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z" fill="url(#sparkleGrad)"/></svg>
+        </div>
+        <div class="hero-sparkle hero-sparkle-2">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z" fill="url(#sparkleGrad)"/></svg>
+        </div>
+        <div class="hero-sparkle hero-sparkle-3">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z" fill="url(#sparkleGrad)"/></svg>
+        </div>
+
+        <!-- Floating Decor Images (Desktop only) -->
+        <div class="hero-decor-wrapper hero-decor-1">
+            <img src="<?php echo flora_asset('ngayhoi_item/bf_at/Ah_sen_at.webp'); ?>" alt="Khách hàng Flora" class="hero-decor-card" />
+        </div>
+        <div class="hero-decor-wrapper hero-decor-2">
+            <img src="<?php echo flora_asset('ngayhoi_item/khach_cuoi/IMG_2805.webp'); ?>" alt="Khách hàng Flora" class="hero-decor-card" />
+        </div>
+        <div class="hero-decor-wrapper hero-decor-3">
+            <img src="<?php echo flora_asset('ngayhoi_item/khach_cuoi/13.webp'); ?>" alt="Khách hàng Flora" class="hero-decor-card" />
+        </div>
+        <div class="hero-decor-wrapper hero-decor-4">
+            <img src="<?php echo flora_asset('ngayhoi_item/khach_cuoi/_ROM9345.webp'); ?>" alt="Khách hàng Flora" class="hero-decor-card" />
+        </div>
+        <div class="hero-decor-wrapper hero-decor-5">
+            <img src="<?php echo flora_asset('ngayhoi_item/khach_cuoi/IMG_9944.webp'); ?>" alt="Khách hàng Flora" class="hero-decor-card" />
+        </div>
+        <div class="hero-decor-wrapper hero-decor-6">
+            <img src="<?php echo flora_asset('ngayhoi_item/khach_cuoi/_ROM9565.webp'); ?>" alt="Khách hàng Flora" class="hero-decor-card" />
+        </div>
+        
+        <section class="hero-section" id="banner">
+            <div class="container" style="position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; height: 100%;">
+                <!-- Central Content -->
+                <div class="hero-story-content reveal" style="max-width: 850px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 16px;">
+                    <h1 class="hero-title" style="color: var(--clr-navy);">
+                        <span class="hero-title-line">Niềng Răng Thẩm Mỹ</span>
+                        <span class="highlight-text-container hero-title-line">
+                            <span style="background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-secondary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Êm Ái & Chuẩn Khớp Cắn</span>
+                            <svg class="heading-underline-svg" viewBox="0 0 300 20" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12 C 100 2, 200 18, 295 10" stroke="url(#accentGrad)" stroke-width="4" stroke-linecap="round" />
+                            </svg>
+                        </span>
+                    </h1>
+                    
+                    <p class="hero-description">
+                        Kiến tạo nụ cười hoàn mỹ với khay niềng trong suốt Invisalign và mắc cài số hóa thế hệ mới. Phác đồ 3D cá nhân hóa, bảo tồn tối đa răng thật và rút ngắn thời gian dịch chuyển răng.
+                    </p>
+                    
+                    <div class="hero-story-actions">
+                        <a href="#dang-ky" class="btn btn-primary"><span class="btn-text-desktop">Đăng Ký </span>Đặt Hẹn <i class="fa-solid fa-calendar-check" style="margin-left: 6px;"></i></a>
+                        <a href="#pricing-tables" class="btn btn-outline"><span class="btn-text-desktop">Xem </span>Bảng Giá<span class="btn-text-desktop"> Trọn Gói</span></a>
+                    </div>
+
+                    <!-- Date & Location (Capsule Pills) -->
+                    <div class="hero-info-pills">
+                        <div class="hero-pill">
+                            <i class="fa-solid fa-clock"></i>
+                            <span class="pill-time">8h30 - 18h30</span>
+                            <span class="pill-days">(T2 - CN)</span>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=326+Nguy%E1%BB%85n+Th%E1%BB%8B+Minh+Khai,+Ph%C6%B0%E1%BB%9Dng+B%C3%A0n+C%E1%BB%9D,+Qu%E1%BA%ADn+3,+TP.HCM" target="_blank" class="hero-pill clickable">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span class="pill-label">ĐỊA ĐIỂM:</span>
+                            <span class="pill-address">326 Nguyễn Thị Minh Khai, Phường Bàn Cờ, TP. Hồ Chí Minh</span>
+                        </a>
+                    </div>
+
+                    <!-- 3 Benefit Cards -->
+                    <div class="hero-features-single-card" style="background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1.5px solid rgba(4, 147, 241, 0.2); padding: 16px 20px; border-radius: 18px; display: flex; justify-content: space-between; align-items: center; gap: 16px; box-shadow: 0 12px 36px rgba(0, 51, 163, 0.08); width: 100%; max-width: 880px; margin: 0 auto; box-sizing: border-box;">
+                        <div class="hero-feature-item" style="flex: 1 1 0; min-width: 0; display: flex; align-items: center; gap: 10px; text-align: left;">
+                            <img src="<?php echo flora_asset('ngayhoi_item/HERO/sponsorship_icon.webp'); ?>" alt="Tài trợ" style="width: 42px; height: 42px; flex-shrink: 0;" />
+                            <div class="hero-feature-text" style="display: flex; flex-direction: column;">
+                                <span style="font-size: 0.76rem; color: #475569;">Trả góp 0%</span>
+                                <strong style="font-size: 1.25rem; font-weight: 800; color: #0033a3; line-height: 1.1;">0% LÃI SUẤT</strong>
+                                <span style="font-size: 0.76rem; color: #475569;">chỉ từ 2tr/tháng</span>
+                            </div>
+                        </div>
+                        <div class="feature-card-divider" style="width: 1px; height: 40px; background: rgba(0, 51, 163, 0.12); flex-shrink: 0;"></div>
+                        <div class="hero-feature-item" style="flex: 1 1 0; min-width: 0; display: flex; align-items: center; gap: 10px; text-align: left;">
+                            <img src="<?php echo flora_asset('ngayhoi_item/HERO/gift_icon.webp'); ?>" alt="Quà tặng" style="width: 42px; height: 42px; flex-shrink: 0;" />
+                            <div class="hero-feature-text" style="display: flex; flex-direction: column;">
+                                <span style="font-size: 0.76rem; color: #475569;">Scan hàm 3D</span>
+                                <strong style="font-size: 0.95rem; font-weight: 800; color: #0033a3; line-height: 1.2; text-transform: uppercase;">MÁY TRIOS MIỄN PHÍ</strong>
+                                <span style="font-size: 0.76rem; color: #475569;">mô phỏng kết quả</span>
+                            </div>
+                        </div>
+                        <div class="feature-card-divider" style="width: 1px; height: 40px; background: rgba(0, 51, 163, 0.12); flex-shrink: 0;"></div>
+                        <div class="hero-feature-item" style="flex: 1 1 0; min-width: 0; display: flex; align-items: center; gap: 10px; text-align: left;">
+                            <img src="<?php echo flora_asset('ngayhoi_item/HERO/join_icon.webp'); ?>" alt="Tham gia" style="width: 42px; height: 42px; flex-shrink: 0;" />
+                            <div class="hero-feature-text" style="display: flex; flex-direction: column;">
+                                <span style="font-size: 0.76rem; color: #475569;">Cam kết chuẩn khớp</span>
+                                <strong style="font-size: 0.95rem; font-weight: 800; color: #0493f1; line-height: 1.2; text-transform: uppercase;">BÁC SĨ CHUYÊN KHOA</strong>
+                                <span style="font-size: 0.76rem; color: #475569;">trực tiếp điều trị</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ─── CHỈ ĐỊNH ĐIỀU TRỊ (SECTION 3 - KHI NÀO BẠN NÊN NIỀNG RĂNG) ─── -->
+    <section class="section-padding fact-section" id="fact">
+        <div class="container">
+            <div class="section-header center reveal">
+                <h2>Khi Nào Bạn Nên Niềng Răng?</h2>
+                <p style="max-width: 760px; margin: 12px auto 0; font-size: 0.95rem; color: var(--clr-text-muted); line-height: 1.6;">
+                    Nhận biết 6 tình trạng sai lệch răng và khớp cắn phổ biến cần được thăm khám, để can thiệp chỉnh nha kịp thời nhằm cải thiện chức năng ăn nhai và tính thẩm mỹ của nụ cười.
+                </p>
+            </div>
+            
+            <div class="fact-grid grid-3-cols reveal reveal-delay-1" style="margin-bottom: 40px;">
+                <!-- Card 1: Răng hô, chìa -->
+                <div class="fact-card text-center">
+                    <img src="<?php echo flora_asset('assets/nieng-rang/section3/rang-ho-chia.webp'); ?>" alt="Răng hô, chìa" class="fact-card-img" width="400" height="300" loading="lazy" />
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 8px;">Răng hô, chìa</h3>
+                    <p style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.55;">Răng cửa nhô ra phía trước, môi khó khép tự nhiên hoặc khuôn mặt thiếu cân đối khi nhìn nghiêng.</p>
+                </div>
+
+                <!-- Card 2: Răng móm, khớp cắn ngược -->
+                <div class="fact-card text-center">
+                    <img src="<?php echo flora_asset('assets/nieng-rang/section3/rang-mom-khop-can-nguoc.webp'); ?>" alt="Răng móm, khớp cắn ngược" class="fact-card-img" width="400" height="300" loading="lazy" />
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 8px;">Răng móm, khớp cắn ngược</h3>
+                    <p style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.55;">Răng hàm dưới phủ ra ngoài răng hàm trên, có thể ảnh hưởng đến khả năng cắn, nhai và thẩm mỹ khuôn mặt.</p>
+                </div>
+
+                <!-- Card 3: Răng khấp khểnh, chen chúc -->
+                <div class="fact-card text-center">
+                    <img src="<?php echo flora_asset('assets/nieng-rang/section3/rang-khap-khenh-chen-chuc.webp'); ?>" alt="Răng khấp khểnh, chen chúc" class="fact-card-img" width="400" height="300" loading="lazy" />
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 8px;">Răng khấp khểnh, chen chúc</h3>
+                    <p style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.55;">Răng mọc không đủ khoảng, xoay lệch hoặc chồng lên nhau, gây khó khăn khi vệ sinh.</p>
+                </div>
+
+                <!-- Card 4: Răng thưa, hở kẽ -->
+                <div class="fact-card text-center">
+                    <img src="<?php echo flora_asset('assets/nieng-rang/section3/rang-thua-ho-ke.webp'); ?>" alt="Răng thưa, hở kẽ" class="fact-card-img" width="400" height="300" loading="lazy" />
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 8px;">Răng thưa, hở kẽ</h3>
+                    <p style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.55;">Khoảng cách giữa các răng lớn, dễ mắc thức ăn và làm nụ cười thiếu cân đối.</p>
+                </div>
+
+                <!-- Card 5: Khớp cắn sâu hoặc cắn hở -->
+                <div class="fact-card text-center">
+                    <img src="<?php echo flora_asset('assets/nieng-rang/section3/khop-can-sau-can-ho.webp'); ?>" alt="Khớp cắn sâu hoặc cắn hở" class="fact-card-img" width="400" height="300" loading="lazy" />
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 8px;">Khớp cắn sâu hoặc cắn hở</h3>
+                    <p style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.55;">Hai hàm không tiếp xúc đúng vị trí, ảnh hưởng đến khả năng cắn thức ăn và sự ổn định của hệ thống nhai.</p>
+                </div>
+
+                <!-- Card 6: Khớp cắn chéo hoặc cung hàm hẹp -->
+                <div class="fact-card text-center">
+                    <img src="<?php echo flora_asset('assets/nieng-rang/section3/khop-can-cheo-cung-ham-hep.webp'); ?>" alt="Khớp cắn chéo hoặc cung hàm hẹp" class="fact-card-img" width="400" height="300" loading="lazy" />
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 8px;">Khớp cắn chéo hoặc cung hàm hẹp</h3>
+                    <p style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.55;">Một hoặc nhiều răng hàm trên nằm phía trong răng hàm dưới, cần được đánh giá sớm để lựa chọn phương án phù hợp.</p>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="#dang-ky" class="btn btn-primary btn-booking">Kiểm tra tình trạng khớp cắn của tôi</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SO SÁNH GIẢI PHÁP (SECTION 4 - NÊN CHỌN INVISALIGN HAY MẮC CÀI) ─── -->
+    <section class="section-padding value-section" id="value">
+        <div class="container">
+            <div class="section-header center reveal">
+                <h2 style="text-wrap: balance;">Nên Chọn Niềng Răng Invisalign Hay Niềng Răng Mắc Cài?</h2>
+                <p style="max-width: 780px; margin: 12px auto 0; font-size: 0.95rem; color: var(--clr-text-muted); line-height: 1.6;">
+                    Cùng tìm hiểu sự khác biệt giữa hai phương pháp niềng răng phổ biến hiện nay để lựa chọn giải pháp phù hợp với nhu cầu thẩm mỹ, thói quen sinh hoạt và chi phí điều trị.
+                </p>
+            </div>
+
+            <div class="method-compare-grid reveal reveal-delay-1">
+                <!-- Option 1: Niềng Răng Trong Suốt Invisalign -->
+                <div class="method-compare-card card-invis">
+                    <div class="compare-badge badge-invis">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> THẨM MỸ CAO · LINH HOẠT
+                    </div>
+                    <h3 class="compare-title">Niềng Răng Trong Suốt Invisalign</h3>
+                    <div class="compare-img-box" style="min-height: 240px; display: flex; align-items: center; justify-content: center; padding: 15px; background: rgba(4, 147, 241, 0.03); border-radius: 14px;">
+                        <img src="<?php echo flora_asset('assets/nieng-rang/section4/slide23_invisalign.webp'); ?>" alt="Khay niềng trong suốt Invisalign chính hãng" style="max-height: 230px; width: auto; max-width: 100%; object-fit: contain;" loading="lazy" />
+                    </div>
+                    <ul class="compare-feature-list">
+                        <li class="compare-feature-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div><strong>Thẩm mỹ cao:</strong> Khay SmartTrack trong suốt, ôm sát cung răng, đảm bảo tự nhiên.</div>
+                        </li>
+                        <li class="compare-feature-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div><strong>Tháo lắp linh hoạt:</strong> Thuận tiện khi ăn uống và vệ sinh răng miệng khi cần thiết.</div>
+                        </li>
+                        <li class="compare-feature-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div><strong>Hình dung kế hoạch điều trị:</strong> ClinCheck 3D mô phỏng dự kiến quá trình dịch chuyển răng và kết quả sau chỉnh nha.</div>
+                        </li>
+                        <li class="compare-feature-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div><strong>Chủ động lịch tái khám:</strong> Thay khay tại nhà và tái khám khoảng 6-8 tuần/lần theo chỉ định.</div>
+                        </li>
+                    </ul>
+                    <div class="compare-target-box" style="background: linear-gradient(135deg, #00227a 0%, #0033a3 100%); color: #ffffff; border: none; border-radius: 12px; padding: 14px 18px; box-shadow: 0 4px 14px rgba(0, 51, 163, 0.15);">
+                        <i class="fa-solid fa-user-check" style="color: #60a5fa; margin-right: 6px;"></i>
+                        <strong style="color: #ffffff;">Phù hợp nhất:</strong> Người làm công việc giao tiếp nhiều, doanh nhân, kiều bào, hoặc người ưu tiên thẩm mỹ tối đa.
+                    </div>
+                </div>
+
+                <!-- Option 2: Niềng Răng Mắc Cài -->
+                <div class="method-compare-card card-braces">
+                    <div class="compare-badge badge-braces">
+                        <i class="fa-solid fa-teeth-open"></i> ỔN ĐỊNH · TỐI ƯU CHI PHÍ
+                    </div>
+                    <h3 class="compare-title">Niềng Răng Mắc Cài</h3>
+                    <div class="compare-img-box" style="min-height: 240px; display: flex; align-items: center; justify-content: center; padding: 15px; background: rgba(0, 51, 163, 0.03); border-radius: 14px;">
+                        <img src="<?php echo flora_asset('assets/nieng-rang/section4/nieng-rang-mac-cai.webp'); ?>" alt="Niềng răng mắc cài và công cụ dụng cụ chỉnh nha" style="max-height: 200px; width: auto; max-width: 85%; object-fit: contain;" loading="lazy" />
+                    </div>
+                    <ul class="compare-feature-list">
+                        <li class="compare-feature-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div><strong>Kiểm soát lực kéo vượt trội:</strong> Xử lý hiệu quả cả những ca sai lệch khớp cắn phức tạp, răng hô móm và lệch lạc rất nặng.</div>
+                        </li>
+                        <li class="compare-feature-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div><strong>Đa dạng vật liệu mắc cài:</strong> Tùy chọn linh hoạt mắc cài kim loại chuẩn, mắc cài sứ thẩm mỹ hoặc mắc cài tự buộc thông minh.</div>
+                        </li>
+                        <li class="compare-feature-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div><strong>Tác động nắn chỉnh liên tục 24/7:</strong> Hệ thống mắc cài và khí cụ chuyên dụng duy trì lực kéo ổn định, không phụ thuộc việc quên đeo máng.</div>
+                        </li>
+                        <li class="compare-feature-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div><strong>Chi phí tối ưu & trả góp 0%:</strong> Mức đầu tư ban đầu hợp lý, hỗ trợ chính sách trả góp linh hoạt chỉ từ ~2.9 triệu/tháng.</div>
+                        </li>
+                    </ul>
+                    <div class="compare-target-box" style="background: linear-gradient(135deg, #00227a 0%, #0033a3 100%); color: #ffffff; border: none; border-radius: 12px; padding: 14px 18px; box-shadow: 0 4px 14px rgba(0, 51, 163, 0.15);">
+                        <i class="fa-solid fa-user-check" style="color: #60a5fa; margin-right: 6px;"></i>
+                        <strong style="color: #ffffff;">Phù hợp nhất:</strong> Học sinh, sinh viên, người có ca sai lệch khớp cắn nặng hoặc mong muốn tối ưu chi phí đầu tư.
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center reveal reveal-delay-2">
+                <a href="#dang-ky" class="btn btn-primary btn-booking">Nhận Tư Vấn Phương Pháp Phù Hợp Với Bạn</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── CHỈNH NHA KỸ THUẬT SỐ (SECTION 5) ─── -->
+    <section class="section-padding audience-section" id="braces-tech">
+        <div class="container">
+            <div class="section-header center reveal">
+                <h2>Chỉnh Nha Kỹ Thuật Số Chuẩn Quốc Tế</h2>
+                <p style="max-width: 720px; margin: 12px auto 0; font-size: 0.95rem; color: var(--clr-text-muted);">
+                    Hệ thống trang thiết bị số hóa và phần mềm 3D hiện đại hàng đầu, mang lại trải nghiệm chỉnh nha chính xác, nhẹ nhàng và cá nhân hóa phác đồ điều trị.
+                </p>
+            </div>
+
+            <div class="tech-digital-grid reveal reveal-delay-1">
+                <!-- Card 1: Scan răng kỹ thuật số TRIOS -->
+                <div class="tech-digital-card">
+                    <div class="tech-digital-img-box">
+                        <img src="<?php echo flora_asset('assets/nieng-rang/section5/scan-trios-3d.webp'); ?>" alt="Scan răng kỹ thuật số TRIOS" width="1000" height="1000" loading="lazy" />
+                    </div>
+                    <h3>Scan Răng Kỹ Thuật Số TRIOS</h3>
+                    <p>Ghi nhận hình dạng răng và cung hàm bằng dữ liệu 3D, hạn chế cảm giác khó chịu so với một số phương pháp lấy dấu truyền thống.</p>
+                </div>
+
+                <!-- Card 2: TRIOS Treatment Simulator (Transparent WebP) -->
+                <div class="tech-digital-card">
+                    <div class="tech-digital-img-box" style="display: flex; align-items: center; justify-content: center; padding: 10px;">
+                        <img src="<?php echo flora_asset('assets/nieng-rang/section5/trios-treatment-simulator.webp'); ?>" alt="TRIOS Treatment Simulator mô phỏng nụ cười" style="max-height: 200px; width: auto; max-width: 100%; object-fit: contain;" width="1000" height="1000" loading="lazy" />
+                    </div>
+                    <h3>TRIOS Treatment Simulator</h3>
+                    <p>Hỗ trợ mô phỏng tiềm năng thay đổi của hàm răng, giúp khách hàng dễ hình dung định hướng điều trị.</p>
+                    <p style="font-size: 0.85rem; font-style: italic; color: var(--clr-text-muted); margin-top: 8px; opacity: 0.85;">* Lưu ý: Hình ảnh mô phỏng không phải cam kết kết quả cuối cùng.</p>
+                </div>
+
+                <!-- Card 3: Phim Panorex, Cephalometric hoặc CT Cone Beam -->
+                <div class="tech-digital-card">
+                    <div class="tech-digital-img-box">
+                        <img src="<?php echo flora_asset('assets/nieng-rang/section5/phim-ct-cone-beam.webp'); ?>" alt="Phim Panorex, Cephalometric hoặc CT Cone Beam" width="1000" height="1000" loading="lazy" />
+                    </div>
+                    <h3>Phim Panorex, Cephalometric hoặc CT Cone Beam</h3>
+                    <p>Được bác sĩ chỉ định theo nhu cầu chẩn đoán nhằm đánh giá chân răng, xương hàm, khớp cắn và tương quan sọ mặt.</p>
+                </div>
+
+                <!-- Card 4: ClinCheck dành cho Invisalign -->
+                <div class="tech-digital-card">
+                    <div class="tech-digital-img-box">
+                        <img src="<?php echo flora_asset('assets/nieng-rang/section5/clincheck-invisalign.webp'); ?>" alt="ClinCheck dành cho Invisalign" width="1000" height="1000" loading="lazy" />
+                    </div>
+                    <h3>ClinCheck Dành Cho Invisalign</h3>
+                    <p>Thể hiện kế hoạch dịch chuyển dự kiến của răng qua từng giai đoạn. Bác sĩ trực tiếp kiểm tra, điều chỉnh và phê duyệt kế hoạch trước khi sản xuất khay.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── BẢNG GIÁ NIỀNG RĂNG ─── -->
+    <!-- ─── BẢNG GIÁ NIỀNG RĂNG ─── -->
+    <section class="section-padding" id="pricing-tables" style="background-color: var(--clr-bg-light);">
+        <div class="container">
+            <div class="section-header center reveal">
+                <h2>Chi Phí Chỉnh Nha Trọn Gói</h2>
+                <p style="max-width: 680px; margin: 12px auto 0; font-size: 0.95rem; color: var(--clr-text-muted);">
+                    Nha khoa Flora cam kết bảng giá minh bạch, trọn gói và không phát sinh chi phí trong suốt quá trình điều trị.
+                </p>
+            </div>
+            
+            <?php 
+            $pricing_all = flora_get_pricing_data();
+            $nieng_data = $pricing_all['nieng_rang'] ?? array();
+            $mac_cai_rows = $nieng_data['tables']['mac_cai']['rows'] ?? array();
+            $invisalign_rows = $nieng_data['tables']['invisalign']['rows'] ?? array();
+            ?>
+            <div class="reveal reveal-delay-1" style="max-width: 900px; margin: 0 auto;">
+                <div style="background: var(--clr-white); border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 51, 163, 0.08); border: 1px solid var(--clr-border);">
+                    <div class="responsive-table-wrapper" style="overflow-x: auto;">
+                        <table class="premium-price-table" style="border: none; border-radius: 0; min-width: 500px; width: 100%;">
+                            <thead>
+                                <tr>
+                                    <th style="width: 60%; padding: 16px 22px;">Phương Pháp Chỉnh Nha</th>
+                                    <th style="width: 40%; text-align: right; padding: 16px 22px;">Đơn Giá Trọn Gói</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($mac_cai_rows as $row): 
+                                    $is_hl = !empty($row['highlight']);
+                                ?>
+                                <tr>
+                                    <td class="service-name" style="padding: 16px 22px; <?php if ($is_hl) echo 'color: var(--clr-secondary); font-weight: 700;'; ?>"><?php echo esc_html($row['name']); ?></td>
+                                    <td class="service-price <?php echo $is_hl ? 'highlight' : ''; ?>" style="padding: 16px 22px;"><?php echo esc_html($row['price']); ?></td>
+                                </tr>
+                                <?php endforeach; ?>
+
+                                <?php foreach ($invisalign_rows as $row): 
+                                    $is_hl = !empty($row['highlight']);
+                                ?>
+                                <tr>
+                                    <td class="service-name" style="padding: 16px 22px; color: <?php echo $is_hl ? 'var(--clr-navy)' : 'var(--clr-primary)'; ?>; <?php if ($is_hl) echo 'font-weight: 700;'; ?>">
+                                        <?php echo esc_html($row['name']); ?>
+                                    </td>
+                                    <td class="service-price highlight" style="padding: 16px 22px;"><?php echo esc_html($row['price']); ?></td>
+                                </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── 8. CHÍNH SÁCH TRẢ GÓP NIỀNG RĂNG TẠI FLORA ─── -->
+    <section class="section-padding installment-section" id="chinh-sach-tra-gop" style="background: #ffffff; border-top: 1px solid var(--clr-border);">
+        <div class="container">
+            <div class="section-header center reveal">
+                <h2>8. CHÍNH SÁCH TRẢ GÓP NIỀNG RĂNG TẠI FLORA</h2>
+                <p style="max-width: 720px; margin: 12px auto 0; font-size: 0.95rem; color: var(--clr-text-muted);">
+                    Hỗ trợ phương thức thanh toán chia nhỏ linh hoạt theo tiến độ điều trị và chương trình trả góp 0% lãi suất qua thẻ tín dụng.
+                </p>
+            </div>
+
+            <div class="installment-grid reveal reveal-delay-1">
+                
+                <!-- Cột trái: Phương thức hỗ trợ thanh toán linh hoạt -->
+                <div class="installment-left-card" style="background: var(--clr-bg-light); border: 1px solid var(--clr-border); border-radius: var(--radius-md); padding: 32px 28px; box-shadow: var(--shadow-sm);">
+                    <h3 style="font-family: var(--font-title); font-size: 1.22rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 22px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fa-solid fa-wallet" style="color: var(--clr-primary);"></i> Phương thức hỗ trợ thanh toán linh hoạt
+                    </h3>
+
+                    <!-- 1. Thanh toán theo tiến độ điều trị -->
+                    <div style="margin-bottom: 24px;">
+                        <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 8px;">
+                            1. Thanh toán theo tiến độ điều trị
+                        </h4>
+                        <p style="font-size: 0.9rem; color: var(--clr-text); line-height: 1.65; margin: 0;">
+                            Khách hàng không cần thanh toán toàn bộ chi phí ngay từ đầu. Chi phí có thể được chia thành nhiều đợt tương ứng với các giai đoạn như hoàn tất hồ sơ, bắt đầu gắn khí cụ, tái khám và theo dõi điều trị. Số tiền và thời điểm thanh toán từng đợt được thể hiện rõ trong kế hoạch tài chính và hợp đồng trước khi bắt đầu.
+                        </p>
+                    </div>
+
+                    <!-- 2. Trả góp 0% qua thẻ tín dụng -->
+                    <div style="border-top: 1px dashed var(--clr-border); padding-top: 20px;">
+                        <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 8px;">
+                            2. Trả góp 0% qua thẻ tín dụng
+                        </h4>
+                        <p style="font-size: 0.9rem; color: var(--clr-text); line-height: 1.65; margin-bottom: 12px;">
+                            Flora hỗ trợ chuyển đổi trả góp qua thẻ tín dụng của nhiều ngân hàng phổ biến tại Việt Nam, với các kỳ hạn:
+                        </p>
+                        <ul style="list-style: none; padding: 0; margin: 0 0 14px 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+                            <li style="font-size: 0.92rem; font-weight: 600; color: var(--clr-navy); display: flex; align-items: center; gap: 8px;">
+                                <i class="fa-solid fa-circle-check" style="color: var(--clr-primary); font-size: 0.9rem;"></i> 3 tháng.
+                            </li>
+                            <li style="font-size: 0.92rem; font-weight: 600; color: var(--clr-navy); display: flex; align-items: center; gap: 8px;">
+                                <i class="fa-solid fa-circle-check" style="color: var(--clr-primary); font-size: 0.9rem;"></i> 6 tháng.
+                            </li>
+                            <li style="font-size: 0.92rem; font-weight: 600; color: var(--clr-navy); display: flex; align-items: center; gap: 8px;">
+                                <i class="fa-solid fa-circle-check" style="color: var(--clr-primary); font-size: 0.9rem;"></i> 9 tháng.
+                            </li>
+                            <li style="font-size: 0.92rem; font-weight: 600; color: var(--clr-navy); display: flex; align-items: center; gap: 8px;">
+                                <i class="fa-solid fa-circle-check" style="color: var(--clr-primary); font-size: 0.9rem;"></i> 12 tháng.
+                            </li>
+                        </ul>
+                        <p style="font-size: 0.86rem; color: var(--clr-text-muted); line-height: 1.6; margin: 0; background: #ffffff; padding: 14px 16px; border-radius: var(--radius-sm); border: 1px solid var(--clr-border);">
+                            Khách hàng có thể lựa chọn kỳ hạn phù hợp để giảm số tiền phải thanh toán hàng tháng. Việc xét duyệt, hạn mức và phí chuyển đổi, nếu có, phụ thuộc vào chính sách của ngân hàng phát hành thẻ tại thời điểm đăng ký.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Cột phải: Bảng chi phí tham khảo & trung bình mỗi tháng (8 dòng) -->
+                <div class="installment-right-table" style="background: var(--clr-white); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--clr-border);">
+                    <div class="responsive-table-wrapper" style="overflow-x: auto;">
+                        <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.92rem;">
+                            <thead>
+                                <tr style="background: var(--clr-navy); color: var(--clr-white);">
+                                    <th style="padding: 14px 18px; font-weight: 700;">Phương pháp</th>
+                                    <th style="padding: 14px 18px; text-align: right; font-weight: 700;">Tổng chi phí tham khảo</th>
+                                    <th style="padding: 14px 18px; text-align: right; font-weight: 700;">Trung bình mỗi tháng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid var(--clr-border);">
+                                    <td style="padding: 12px 18px; font-weight: 600;">Mắc cài kim loại thường</td>
+                                    <td style="padding: 12px 18px; text-align: right; font-weight: 700; color: var(--clr-navy);">35.000.000đ</td>
+                                    <td style="padding: 12px 18px; text-align: right; font-weight: 700; color: var(--clr-primary);">Khoảng 2.920.000đ</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--clr-border); background: rgba(248, 250, 252, 0.6);">
+                                    <td style="padding: 12px 18px; font-weight: 600;">Mắc cài kim loại tự buộc</td>
+                                    <td style="padding: 12px 18px; text-align: right; font-weight: 700; color: var(--clr-navy);">45.000.000đ</td>
+                                    <td style="padding: 12px 18px; text-align: right; font-weight: 700; color: var(--clr-primary);">Khoảng 3.750.000đ</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--clr-border);">
+                                    <td style="padding: 12px 18px; font-weight: 600;">Mắc cài sứ thường</td>
+                                    <td style="padding: 12px 18px; text-align: right; font-weight: 700; color: var(--clr-navy);">50.000.000đ</td>
+                                    <td style="padding: 12px 18px; text-align: right; font-weight: 700; color: var(--clr-primary);">Khoảng 4.170.000đ</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--clr-border); background: rgba(248, 250, 252, 0.6);">
+                                    <td style="padding: 12px 18px; font-weight: 600;">Mắc cài sứ tự buộc</td>
+                                    <td style="padding: 12px 18px; text-align: right; font-weight: 700; color: var(--clr-navy);">60.000.000đ</td>
+                                    <td style="padding: 12px 18px; text-align: right; font-weight: 700; color: var(--clr-primary);">Khoảng 5.000.000đ</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--clr-border); background: rgba(4, 147, 241, 0.03);">
+                                    <td style="padding: 12px 18px; font-weight: 600; color: var(--clr-secondary);">Invisalign Mức 1 (Express)</td>
+                                    <td style="padding: 12px 18px; text-align: right; font-weight: 700; color: var(--clr-secondary);">59.000.000đ</td>
+                                    <td style="padding: 12px 18px; text-align: right; font-weight: 700; color: var(--clr-secondary);">Khoảng 4.920.000đ</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--clr-border);">
+                                    <td style="padding: 12px 18px; font-weight: 600; color: var(--clr-secondary);">Invisalign Mức 2 (Lite)</td>
+                                    <td style="padding: 12px 18px; text-align: right; font-weight: 700; color: var(--clr-secondary);">79.000.000đ</td>
+                                    <td style="padding: 12px 18px; text-align: right; font-weight: 700; color: var(--clr-secondary);">Khoảng 6.580.000đ</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--clr-border); background: rgba(4, 147, 241, 0.03);">
+                                    <td style="padding: 12px 18px; font-weight: 600; color: var(--clr-secondary);">Invisalign Mức 3 (Moderate)</td>
+                                    <td style="padding: 12px 18px; text-align: right; font-weight: 700; color: var(--clr-secondary);">99.000.000đ</td>
+                                    <td style="padding: 12px 18px; text-align: right; font-weight: 700; color: var(--clr-secondary);">Khoảng 8.250.000đ</td>
+                                </tr>
+                                <tr style="background: rgba(0, 51, 163, 0.04);">
+                                    <td style="padding: 12px 18px; font-weight: 700; color: var(--clr-navy);">Invisalign Mức 4 (Comprehensive)</td>
+                                    <td style="padding: 12px 18px; text-align: right; font-weight: 700; color: var(--clr-navy);">120.000.000đ</td>
+                                    <td style="padding: 12px 18px; text-align: right; font-weight: 700; color: var(--clr-navy);">Khoảng 10.000.000đ</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── CHÍNH SÁCH TRẢ GÓP NIỀNG RĂNG (INSTALLMENT SECTION - CANVA P.35) ─── -->
+    <section class="section-padding installment-section" id="chinh-sach-tra-gop" style="background-color: var(--clr-white); border-top: 1px solid var(--clr-border); border-bottom: 1px solid var(--clr-border);">
+        <div class="container">
+            <div class="section-header center reveal">
+                <h2>Chính Sách Trả Góp Niềng Răng Tại Flora</h2>
+                <p style="max-width: 780px; margin: 12px auto 0; font-size: 0.95rem; color: var(--clr-text-muted);">
+                    Flora thấu hiểu chi phí là mối quan tâm lớn của nhiều khách hàng. Vì vậy, chúng tôi áp dụng 2 hình thức thanh toán linh hoạt giúp bạn an tâm làm đẹp nụ cười mà không lo gánh nặng tài chính.
+                </p>
+            </div>
+
+            <!-- 2 Payment Method Cards -->
+            <div class="finance-methods-grid reveal reveal-delay-1" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 40px;">
+                <!-- Method 1: Theo tiến độ điều trị -->
+                <div class="finance-method-card" style="background: linear-gradient(135deg, rgba(4, 147, 241, 0.04) 0%, rgba(255, 255, 255, 1) 100%); border: 1.5px solid rgba(4, 147, 241, 0.25); border-radius: 20px; padding: 32px; box-shadow: var(--shadow-sm); position: relative;">
+                    <div style="display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 14px; background: rgba(4, 147, 241, 0.12); color: var(--clr-primary); font-size: 1.4rem; margin-bottom: 16px;">
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </div>
+                    <span style="display: block; font-size: 0.8rem; font-weight: 800; color: var(--clr-primary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;">HÌNH THỨC 01</span>
+                    <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--clr-navy); margin: 0 0 16px;">Trả Góp Theo Tiến Độ Điều Trị</h3>
+                    <p style="font-size: 0.9rem; color: var(--clr-text-muted); line-height: 1.6; margin-bottom: 18px;">
+                        Thanh toán theo từng giai đoạn dịch chuyển của răng, hoàn toàn không qua ngân hàng hoặc bên thứ ba.
+                    </p>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 0.9rem; color: var(--clr-text);">
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <i class="fa-solid fa-circle-check" style="color: #10b981; margin-top: 3px;"></i>
+                            <span><strong>Thanh toán trước 30% – 50%</strong> tổng chi phí khi bắt đầu gắn mắc cài hoặc bàn giao khay niềng.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <i class="fa-solid fa-circle-check" style="color: #10b981; margin-top: 3px;"></i>
+                            <span><strong>Số tiền còn lại chia đều</strong> thanh toán dần trong các lần tái khám định kỳ mỗi tháng (khoảng 1 – 3 triệu đồng/lần).</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <i class="fa-solid fa-circle-check" style="color: #10b981; margin-top: 3px;"></i>
+                            <span><strong>Thủ tục nhanh gọn:</strong> Ký cam kết minh bạch trực tiếp tại phòng khám Flora.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Method 2: Trả góp 0% qua thẻ tín dụng -->
+                <div class="finance-method-card" style="background: linear-gradient(135deg, rgba(0, 51, 163, 0.04) 0%, rgba(255, 255, 255, 1) 100%); border: 1.5px solid rgba(0, 51, 163, 0.25); border-radius: 20px; padding: 32px; box-shadow: var(--shadow-sm); position: relative;">
+                    <div style="display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 14px; background: rgba(0, 51, 163, 0.12); color: var(--clr-secondary); font-size: 1.4rem; margin-bottom: 16px;">
+                        <i class="fa-solid fa-credit-card"></i>
+                    </div>
+                    <span style="display: block; font-size: 0.8rem; font-weight: 800; color: var(--clr-secondary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;">HÌNH THỨC 02</span>
+                    <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--clr-navy); margin: 0 0 16px;">Trả Góp 0% Lãi Suất Qua Thẻ Tín Dụng</h3>
+                    <p style="font-size: 0.9rem; color: var(--clr-text-muted); line-height: 1.6; margin-bottom: 18px;">
+                        Áp dụng cho chủ thẻ tín dụng của hơn 25 ngân hàng liên kết uy tín tại Việt Nam (Vietcombank, Techcombank, HSBC, v.v.).
+                    </p>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 0.9rem; color: var(--clr-text);">
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <i class="fa-solid fa-circle-check" style="color: #10b981; margin-top: 3px;"></i>
+                            <span><strong>Kỳ hạn trả góp linh hoạt:</strong> 3 tháng, 6 tháng, 9 tháng hoặc 12 tháng.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <i class="fa-solid fa-circle-check" style="color: #10b981; margin-top: 3px;"></i>
+                            <span><strong>Lãi suất 0%:</strong> Không phát sinh lãi suất hàng tháng từ ngân hàng.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <i class="fa-solid fa-circle-check" style="color: #10b981; margin-top: 3px;"></i>
+                            <span><strong>Thanh toán quẹt thẻ tiện lợi:</strong> Hỗ trợ thao tác trực tiếp chỉ mất 5 phút.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Installment Reference Table (Canva p.35) -->
+            <div class="installment-table-card reveal reveal-delay-2" style="margin-top: 40px; background: #ffffff; border: 1px solid var(--clr-border); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-sm);">
+                <div style="background: linear-gradient(135deg, var(--clr-navy) 0%, #0033a3 100%); padding: 20px 24px; color: #ffffff; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+                    <div>
+                        <h4 style="font-size: 1.15rem; font-weight: 700; margin: 0; color: #ffffff;">Bảng Dự Toán Chi Phí & Trả Góp Tham Khảo (Kỳ Hạn 12 Tháng)</h4>
+                        <p style="font-size: 0.85rem; color: rgba(255, 255, 255, 0.8); margin: 4px 0 0;">Số tiền thực tế có thể chia theo số lần tái khám định kỳ thực tế của quý khách</p>
+                    </div>
+                    <span style="background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.3); padding: 6px 14px; border-radius: 30px; font-size: 0.82rem; font-weight: 700;">LÃI SUẤT 0%</span>
+                </div>
+
+                <div class="responsive-table-wrapper" style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.92rem;">
+                        <thead>
+                            <tr style="background: #f8fafc; color: var(--clr-navy); border-bottom: 2px solid var(--clr-border);">
+                                <th style="padding: 14px 20px; font-weight: 700;">Gói Niềng Răng</th>
+                                <th style="padding: 14px 20px; text-align: right; font-weight: 700;">Chi Phí Trọn Gói</th>
+                                <th style="padding: 14px 20px; text-align: right; font-weight: 700;">Trả Trước (30% - 50%)</th>
+                                <th style="padding: 14px 20px; text-align: right; font-weight: 700;">Góp Mỗi Tháng (12 tháng)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid var(--clr-border);">
+                                <td style="padding: 14px 20px; font-weight: 600; color: var(--clr-navy);">Mắc cài kim loại chuẩn</td>
+                                <td style="padding: 14px 20px; text-align: right; font-weight: 700; color: var(--clr-navy);">35.000.000đ</td>
+                                <td style="padding: 14px 20px; text-align: right; font-weight: 600; color: #475569;">10.500.000đ (30%)</td>
+                                <td style="padding: 14px 20px; text-align: right; font-weight: 800; color: var(--clr-primary);">~2.040.000đ/tháng</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--clr-border); background: rgba(248, 250, 252, 0.6);">
+                                <td style="padding: 14px 20px; font-weight: 600; color: var(--clr-navy);">Mắc cài kim loại tự buộc</td>
+                                <td style="padding: 14px 20px; text-align: right; font-weight: 700; color: var(--clr-navy);">45.000.000đ</td>
+                                <td style="padding: 14px 20px; text-align: right; font-weight: 600; color: #475569;">13.500.000đ (30%)</td>
+                                <td style="padding: 14px 20px; text-align: right; font-weight: 800; color: var(--clr-primary);">~2.625.000đ/tháng</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--clr-border);">
+                                <td style="padding: 14px 20px; font-weight: 600; color: var(--clr-navy);">Mắc cài sứ tự buộc thẩm mỹ</td>
+                                <td style="padding: 14px 20px; text-align: right; font-weight: 700; color: var(--clr-navy);">60.000.000đ</td>
+                                <td style="padding: 14px 20px; text-align: right; font-weight: 600; color: #475569;">18.000.000đ (30%)</td>
+                                <td style="padding: 14px 20px; text-align: right; font-weight: 800; color: var(--clr-primary);">~3.500.000đ/tháng</td>
+                            </tr>
+                            <tr style="background: rgba(4, 147, 241, 0.04);">
+                                <td style="padding: 14px 20px; font-weight: 700; color: var(--clr-secondary);"><i class="fa-solid fa-sparkles" style="margin-right: 6px;"></i> Khay niềng trong suốt Invisalign</td>
+                                <td style="padding: 14px 20px; text-align: right; font-weight: 800; color: var(--clr-secondary);">Từ 70.000.000đ</td>
+                                <td style="padding: 14px 20px; text-align: right; font-weight: 600; color: #475569;">50% khi nhận khay</td>
+                                <td style="padding: 14px 20px; text-align: right; font-weight: 800; color: var(--clr-secondary);">Linh hoạt theo đợt nhận khay</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="text-center reveal reveal-delay-3" style="margin-top: 32px;">
+                <a href="#dang-ky" class="btn btn-primary btn-booking">Đăng Ký Nhận Dự Toán Chi Phí & Trả Góp Cá Nhân Hóa</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── HÀNH TRÌNH NIỀNG RĂNG (TIMELINE SECTION) ─── -->
+    <section class="section-padding timeline-section" id="subpage-journey">
+        <div class="container">
+            <div class="section-header center reveal">
+                <h2>6 Bước Chỉnh Nha Chuẩn Mỹ</h2>
+            </div>
+            
+            <div class="steps-grid steps-6 mobile-slider">
+                <!-- Step 1 -->
+                <div class="step-card reveal">
+                    <div class="step-card-icon"><i class="fa-solid fa-user-doctor"></i></div>
+                    <span class="step-badge">BƯỚC 1</span>
+                    <h3>THĂM KHÁM & THU THẬP DỮ LIỆU</h3>
+                    <p>Khám lâm sàng răng mặt, chụp ảnh chân dung, scan hàm 3D và chụp phim X-quang chẩn đoán.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="step-card reveal reveal-delay-1">
+                    <div class="step-card-icon"><i class="fa-solid fa-chart-pie"></i></div>
+                    <span class="step-badge">BƯỚC 2</span>
+                    <h3>PHÂN TÍCH & LẬP PHÁC ĐỒ</h3>
+                    <p>Bác sĩ đánh giá mức độ khuyết điểm, lên kế hoạch dịch chuyển, thời gian dự kiến và khí cụ cần dùng.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="step-card reveal reveal-delay-2">
+                    <div class="step-card-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                    <span class="step-badge">BƯỚC 3</span>
+                    <h3>TƯ VẤN & THỐNG NHẤT CHI PHÍ</h3>
+                    <p>Giải thích phác đồ Clincheck, ký kết cam kết hiệu quả điều trị và thống nhất tổng chi phí minh bạch.</p>
+                </div>
+                <!-- Step 4 -->
+                <div class="step-card reveal reveal-delay-3">
+                    <div class="step-card-icon"><i class="fa-solid fa-box-open"></i></div>
+                    <span class="step-badge">BƯỚC 4</span>
+                    <h3>BẮT ĐẦU ĐIỀU TRỊ</h3>
+                    <p>Tiến hành gắn hệ thống mắc cài hoặc bàn giao đợt khay Invisalign đầu tiên sau khi thử độ khít sát.</p>
+                </div>
+                <!-- Step 5 -->
+                <div class="step-card reveal reveal-delay-4">
+                    <div class="step-card-icon"><i class="fa-solid fa-calendar-days"></i></div>
+                    <span class="step-badge">BƯỚC 5</span>
+                    <h3>TÁI KHÁM THEO DÕI TIẾN ĐỘ</h3>
+                    <p>Tái khám mỗi 4-8 tuần để kiểm tra dịch chuyển răng, vệ sinh răng miệng và điều chỉnh lực siết răng.</p>
+                </div>
+                <!-- Step 6 -->
+                <div class="step-card reveal reveal-delay-5">
+                    <div class="step-card-icon"><i class="fa-solid fa-circle-check"></i></div>
+                    <span class="step-badge">BƯỚC 6</span>
+                    <h3>THÁO NIỀNG & DUY TRÌ</h3>
+                    <p>Tháo mắc cài/hoàn thành khay niềng, vệ sinh răng miệng và đeo máng duy trì chống răng chạy xô lệch lại.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── CA ĐIỀU TRỊ THỰC TẾ (CLINICAL CASES) ─── -->
+    <section class="section-padding" id="cases" style="background: var(--clr-white);">
+        <div class="container">
+            <div class="section-header center reveal">
+                <h2>Kết Quả Điều Trị Thực Tế Tại Flora</h2>
+                <p style="max-width: 680px; margin: 12px auto 0; font-size: 0.95rem; color: var(--clr-text-muted);">
+                    Hình ảnh trước và sau điều trị thực tế của khách hàng chỉnh nha niềng răng mắc cài và khay trong suốt Invisalign tại Nha khoa Flora.
+                </p>
+            </div>
+            
+            <div class="case-grid mobile-slider" style="margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px;">
+                <!-- Case 1: Phong Phạm -->
+                <div class="case-card reveal-scale" style="padding: 0; overflow: hidden; border: 1px solid var(--clr-border); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); display: flex; flex-direction: column;">
+                    <div class="case-img-split">
+                        <div class="case-img-half before">
+                            <img src="<?php echo flora_asset('ngayhoi_item/bf_at/phong_pham_bf.webp'); ?>" alt="Anh Phong Phạm Trước Khi Niềng Răng" loading="lazy" />
+                            <span class="case-img-label">Trước</span>
+                        </div>
+                        <div class="case-img-half after">
+                            <img src="<?php echo flora_asset('ngayhoi_item/bf_at/phong_pham_at.webp'); ?>" alt="Anh Phong Phạm Sau Khi Niềng Răng" loading="lazy" />
+                            <span class="case-img-label">Sau</span>
+                        </div>
+                    </div>
+                    <div class="case-card-body" style="padding: 22px 20px;">
+                        <h4 style="font-family: var(--font-title); font-size: 1.1rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--clr-border);">Anh Phong Phạm (21 tuổi)</h4>
+                        <div class="case-detail-row" style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.5; margin-bottom: 6px;">
+                            <strong style="color: var(--clr-text);">Tình trạng ban đầu:</strong> Răng khập khểnh chen chúc nặng, lệch đường trung nhân, khớp cắn chéo.
+                        </div>
+                        <div class="case-detail-row" style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.5; margin-bottom: 6px;">
+                            <strong style="color: var(--clr-text);">Phương pháp điều trị:</strong> Niềng răng mắc cài kim loại tự buộc thông minh thế hệ mới.
+                        </div>
+                        <div class="case-detail-row" style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.5;">
+                            <strong style="color: var(--clr-text);">Thời gian thực hiện:</strong> 22 tháng.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 2: Diễm Châu -->
+                <div class="case-card reveal-scale" style="padding: 0; overflow: hidden; border: 1px solid var(--clr-border); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); display: flex; flex-direction: column;">
+                    <div class="case-img-split">
+                        <div class="case-img-half before">
+                            <img src="<?php echo flora_asset('ngayhoi_item/bf_at/diem_chau_bf.webp'); ?>" alt="Chị Diễm Châu Trước Khi Niềng Răng" loading="lazy" />
+                            <span class="case-img-label">Trước</span>
+                        </div>
+                        <div class="case-img-half after">
+                            <img src="<?php echo flora_asset('ngayhoi_item/bf_at/diem_chau_at.webp'); ?>" alt="Chị Diễm Châu Sau Khi Niềng Răng" loading="lazy" />
+                            <span class="case-img-label">Sau</span>
+                        </div>
+                    </div>
+                    <div class="case-card-body" style="padding: 22px 20px;">
+                        <h4 style="font-family: var(--font-title); font-size: 1.1rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--clr-border);">Chị Diễm Châu (26 tuổi)</h4>
+                        <div class="case-detail-row" style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.5; margin-bottom: 6px;">
+                            <strong style="color: var(--clr-text);">Tình trạng ban đầu:</strong> Răng thưa, hở kẽ vùng răng cửa và hô nhẹ hàm trên.
+                        </div>
+                        <div class="case-detail-row" style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.5; margin-bottom: 6px;">
+                            <strong style="color: var(--clr-text);">Phương pháp điều trị:</strong> Khay niềng trong suốt Invisalign Lite chuẩn Mỹ.
+                        </div>
+                        <div class="case-detail-row" style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.5;">
+                            <strong style="color: var(--clr-text);">Thời gian thực hiện:</strong> 9 tháng.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 3: Liên Nguyễn -->
+                <div class="case-card reveal-scale" style="padding: 0; overflow: hidden; border: 1px solid var(--clr-border); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); display: flex; flex-direction: column;">
+                    <div class="case-img-split">
+                        <div class="case-img-half before">
+                            <img src="<?php echo flora_asset('ngayhoi_item/bf_at/lien_nguyen_bf.webp'); ?>" alt="Chị Liên Nguyễn Trước Khi Niềng Răng" loading="lazy" />
+                            <span class="case-img-label">Trước</span>
+                        </div>
+                        <div class="case-img-half after">
+                            <img src="<?php echo flora_asset('ngayhoi_item/bf_at/lien_nguyen_at.webp'); ?>" alt="Chị Liên Nguyễn Sau Khi Niềng Răng" loading="lazy" />
+                            <span class="case-img-label">Sau</span>
+                        </div>
+                    </div>
+                    <div class="case-card-body" style="padding: 22px 20px;">
+                        <h4 style="font-family: var(--font-title); font-size: 1.1rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--clr-border);">Chị Liên Nguyễn (24 tuổi)</h4>
+                        <div class="case-detail-row" style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.5; margin-bottom: 6px;">
+                            <strong style="color: var(--clr-text);">Tình trạng ban đầu:</strong> Răng chen chúc, cắn chéo răng cửa và cung hàm hẹp.
+                        </div>
+                        <div class="case-detail-row" style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.5; margin-bottom: 6px;">
+                            <strong style="color: var(--clr-text);">Phương pháp điều trị:</strong> Niềng răng mắc cài sứ tự buộc thẩm mỹ.
+                        </div>
+                        <div class="case-detail-row" style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.5;">
+                            <strong style="color: var(--clr-text);">Thời gian thực hiện:</strong> 16 tháng.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── REGISTRATION SECTION (FAQ + FORM SPLIT) ─── -->
+    <section class="section-padding registration-section" id="dang-ky">
+        <div class="container">
+            <div class="reg-split-container">
+                <!-- Left Column: FAQ Accordion -->
+                <div class="reveal" style="display: flex; flex-direction: column; justify-content: flex-start; gap: 20px;">
+                    <div>
+                        <h3 style="font-family: var(--font-title); font-size: 1.6rem; font-weight: 700; color: var(--clr-navy); margin: 0 0 10px 0;">Câu Hỏi Thường Gặp</h3>
+                        <p style="font-size: 0.9rem; color: var(--clr-text-muted); margin: 0 0 20px 0; line-height: 1.6;">Những băn khoăn phổ biến của khách hàng khi tìm hiểu dịch vụ tại Nha khoa Flora.</p>
+                    </div>
+                    <div class="faq-list" style="margin-top: 0;">
+                        <div class="faq-item active">
+                            <button class="faq-question">Niềng răng Invisalign có phải nhổ răng không? <i class="fa-solid fa-chevron-down"></i></button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    Không phải mọi ca đều phải nhổ răng. Nhờ công nghệ lập phác đồ di chuyển răng ClinCheck 3D và các kỹ thuật tạo khoảng hiện đại, tỷ lệ nhổ răng khi chỉnh nha tại Flora được giảm thiểu tối đa để bảo tồn răng gốc.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">Thời gian niềng răng kéo dài bao lâu? <i class="fa-solid fa-chevron-down"></i></button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    Trung bình thời gian niềng răng từ 12 - 24 tháng. Với các trường hợp lệch lạc nhẹ, việc sử dụng khay niềng trong suốt Invisalign có thể hoàn tất chỉ sau 6 - 9 tháng.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">Đeo khay niềng Invisalign có đau không? <i class="fa-solid fa-chevron-down"></i></button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    Bạn chỉ cảm thấy lực đẩy nhẹ ở răng trong 1 - 2 ngày đầu khi mới thay khay niềng mới. Lực di chuyển này rất nhẹ nhàng và êm ái hơn nhiều so với việc siết dây cung mắc cài kim loại.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Registration Form -->
+                <div class="cta-form reveal reveal-delay-2" style="background: #ffffff; border: 1px solid var(--clr-border); padding: 40px; border-radius: var(--radius-md); box-shadow: var(--shadow-premium);">
+                    <h3 style="color: var(--clr-navy); font-size: 1.35rem; margin-bottom: 8px; text-align: center; font-weight: 800; line-height: 1.3;">ĐĂNG KÝ THĂM KHÁM 1:1 CÙNG BÁC SĨ</h3>
+                    <p style="font-size: 0.92rem; color: var(--clr-secondary); text-align: center; margin-bottom: 24px; font-weight: 700; line-height: 1.4;">Miễn phí chụp phim CT Cone Beam và lập phác đồ điều trị cá nhân</p>
+                    
+                    <form id="floraRegistrationForm" class="modal-form" style="display: flex; flex-direction: column; gap: 15px;">
+                        <input type="hidden" id="note" name="note" value="" />
+                        <div class="form-group">
+                            <input class="form-input" name="name" placeholder="Họ và tên của bạn" required type="text" style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);" />
+                        </div>
+                        <div class="form-group">
+                            <input class="form-input" name="phone" placeholder="Số điện thoại liên hệ" required type="tel" style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);" />
+                        </div>
+                        <div class="form-group">
+                            <input class="form-input" name="email" placeholder="Địa chỉ Email" required type="email" style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);" />
+                        </div>
+                        <div class="form-group">
+                            <input class="form-input" name="location" placeholder="Nơi ở (Tỉnh / Thành phố / Quận)" type="text" style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);" />
+                        </div>
+                        <div class="form-group">
+                            <label style="display: block; font-size: 0.85rem; font-weight: 700; color: var(--clr-navy); margin-bottom: 6px; text-align: left;">Giới tính:</label>
+                            <div style="display: flex; gap: 10px;">
+                                <label style="flex: 1; text-align: center; border: 1px solid var(--clr-border); padding: 10px; border-radius: var(--radius-sm); background: var(--clr-white); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 600; font-size: 0.9rem; transition: var(--transition);">
+                                    <input type="radio" name="gender" value="Nam" checked style="display: none;" />
+                                    <i class="fa-solid fa-mars" style="color: #0084ff;"></i> Nam
+                                </label>
+                                <label style="flex: 1; text-align: center; border: 1px solid var(--clr-border); padding: 10px; border-radius: var(--radius-sm); background: var(--clr-white); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 600; font-size: 0.9rem; transition: var(--transition);">
+                                    <input type="radio" name="gender" value="Nữ" style="display: none;" />
+                                    <i class="fa-solid fa-venus" style="color: #ff007f;"></i> Nữ
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-select" name="service" required style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);">
+<option value="Trồng răng Implant">Trồng răng Implant Thụy Sĩ</option>
+                                <option value="Niềng răng chỉnh nha" selected>Niềng răng Invisalign / Mắc cài</option>
+                                <option value="Điều trị cười hở lợi">Điều trị cười hở lợi</option>
+                                <option value="Dán sứ thẩm mỹ Veneer">Dán sứ Veneer E.max</option>
+                                <option value="Bọc răng sứ">Bọc răng sứ thẩm mỹ</option>
+                                <option value="Nha khoa tổng quát">Khám răng tổng quát / Lấy cao răng</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-select" name="preferredTime" required style="background: #ffffff; border-color: var(--clr-border); color: var(--clr-text);">
+                                <option value="" disabled selected>Thời gian muốn được liên hệ</option>
+                                <option value="Sáng (8h00 - 12h00)">Sáng (8h00 - 12h00)</option>
+                                <option value="Chiều (13h30 - 17h30)">Chiều (13h30 - 17h30)</option>
+                                <option value="Tối (18h00 - 20h00)">Tối (18h00 - 20h00)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="padding: 14px; margin-top: 10px; font-size: 1rem; font-weight: bold; width: 100%;">Gửi Đăng Ký Đặt Lịch</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- ─── FOOTER ─── -->
+        <!-- ─── FOOTER ─── -->
+
+<?php
+get_footer();

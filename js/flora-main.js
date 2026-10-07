@@ -22,25 +22,81 @@ function getFbcQueryParam() {
     return null;
 }
 
-// Send Lead to Google Sheets via fetch
+// Send Lead to Google Sheets & WordPress Admin DB
 async function submitLeadToSheets(data) {
-    if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === '' || GOOGLE_SCRIPT_URL.includes('YOUR_GOOGLE_APPS_SCRIPT_URL_HERE')) {
-        console.warn('Google Sheets script URL is not configured.');
-        return;
-    }
+    let wpSuccess = false;
+    let wpMessage = '';
+    let wpLeadId = null;
+
+    // 1. Post to WordPress Admin AJAX (Priority 1: Direct Database Record & Lead Verification)
     try {
-        await fetch(GOOGLE_SCRIPT_URL, {
+        let ajaxUrl = (typeof floraData !== 'undefined' && floraData.ajaxUrl) ? floraData.ajaxUrl : '/wp-admin/admin-ajax.php';
+        let nonce = (typeof floraData !== 'undefined' && floraData.nonce) ? floraData.nonce : '';
+
+        const wpFormData = new FormData();
+        wpFormData.append('action', 'flora_booking');
+        if (nonce) wpFormData.append('nonce', nonce);
+        wpFormData.append('name', data.fullname || data.name || '');
+        wpFormData.append('phone', data.phone || '');
+        wpFormData.append('email', data.email || '');
+        wpFormData.append('service', data.clinic || data.interest || data.service || '');
+        wpFormData.append('location', data.city || data.location || '');
+        wpFormData.append('gender', data.gender || '');
+        wpFormData.append('preferredTime', data.timeSlot || data.preferredTime || '');
+        wpFormData.append('notes', data.note || data.notes || '');
+        wpFormData.append('source', data.eventSourceUrl || window.location.href);
+
+        const wpResponse = await fetch(ajaxUrl, {
             method: 'POST',
-            mode: 'no-cors',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
+            body: wpFormData
         });
-        console.log('Lead sync OK.');
-    } catch (error) {
-        console.error('Lead sync failed:', error);
+
+        if (wpResponse.ok) {
+            const res = await wpResponse.json();
+            if (res && res.success) {
+                wpSuccess = true;
+                wpMessage = (res.data && res.data.message) ? res.data.message : 'Đăng ký thành công!';
+                wpLeadId = (res.data && res.data.lead_id) ? res.data.lead_id : null;
+                console.log('WP Lead saved to DB:', res);
+            } else {
+                wpMessage = (res && res.data && res.data.message) ? res.data.message : 'Không thể lưu thông tin vào hệ thống.';
+                console.warn('WP Lead save rejected:', res);
+            }
+        } else {
+            console.warn('WP Lead HTTP error status:', wpResponse.status);
+            wpMessage = `Lỗi kết nối máy chủ (${wpResponse.status})`;
+        }
+    } catch (wpErr) {
+        console.warn('WP Lead sync error:', wpErr);
+        wpMessage = 'Lỗi kết nối mạng khi gửi dữ liệu.';
     }
+
+    // 2. Post to Google Sheets (Parallel / Redundant Cloud Sync)
+    let sheetSuccess = false;
+    if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL !== '' && !GOOGLE_SCRIPT_URL.includes('YOUR_GOOGLE_APPS_SCRIPT_URL_HERE')) {
+        try {
+            await fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+            sheetSuccess = true;
+            console.log('Google Sheets lead sync OK.');
+        } catch (error) {
+            console.error('Google Sheets lead sync failed:', error);
+        }
+    }
+
+    const isSuccess = wpSuccess || (sheetSuccess && !window.location.pathname.includes('wp-admin'));
+
+    return {
+        success: isSuccess,
+        message: wpMessage || (isSuccess ? 'Đăng ký thành công!' : 'Có lỗi xảy ra khi lưu thông tin.'),
+        leadId: wpLeadId
+    };
 }
 
 // ─── DOM INITS ───
@@ -50,6 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.getElementById('drawerTrigger');
     const drawerNav = document.getElementById('drawerNav');
     const drawerOverlay = document.getElementById('drawerOverlay');
+    const drawerCloseBtn = document.getElementById('drawerCloseBtn');
 
     if (hamburger && drawerNav && drawerOverlay) {
         const toggleDrawer = () => {
@@ -61,6 +118,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         hamburger.addEventListener('click', toggleDrawer);
         drawerOverlay.addEventListener('click', toggleDrawer);
+        if (drawerCloseBtn) {
+            drawerCloseBtn.addEventListener('click', toggleDrawer);
+        }
 
         // Mobile Accordion Toggle
         drawerNav.querySelectorAll('.drawer-accordion-header').forEach(header => {
@@ -79,6 +139,22 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // Header Check Dropdown Toggle (Desktop & Touch)
+    document.querySelectorAll('.header-check-dropdown').forEach(dropdown => {
+        const toggleBtn = dropdown.querySelector('.btn-check-toggle');
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                dropdown.classList.toggle('active');
+            });
+        }
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.header-check-dropdown.active').forEach(dropdown => {
+            dropdown.classList.remove('active');
+        });
+    });
 
     // 2. Sticky Header scroll behaviors
     const backToTopBtn = document.getElementById('backToTopBtn');
@@ -413,42 +489,78 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ─── FORM SUBMIT HANDLERS ───
-    const handleFormSubmit = (e, formElement, formTypeName) => {
+    const handleFormSubmit = async (e, formElement, formTypeName) => {
         e.preventDefault();
         
         const eventId = 'lead_' + Date.now() + '_' + Math.random().toString(36).substring(2, 9);
         const formData = new FormData(formElement);
 
-        // Safely retrieve form fields by name or fallback IDs
-        const fullname = formData.get('name') || (document.getElementById('fullname') ? document.getElementById('fullname').value : '') || (document.getElementById('popupFullname') ? document.getElementById('popupFullname').value : '');
-        const phone = formData.get('phone') || (document.getElementById('phone') ? document.getElementById('phone').value : '') || (document.getElementById('popupPhone') ? document.getElementById('popupPhone').value : '');
-        const service = formData.get('service') || (document.getElementById('toothStatus') ? document.getElementById('toothStatus').value : '') || (document.getElementById('popupToothStatus') ? document.getElementById('popupToothStatus').value : '');
-        const preferredTime = formData.get('preferredTime') || '';
+        // Safely retrieve form fields by name or fallback IDs/elements
+        const fullname = (formData.get('name') || formData.get('fullname') || (formElement.querySelector('input[name="name"]') ? formElement.querySelector('input[name="name"]').value : '') || (document.getElementById('fullname') ? document.getElementById('fullname').value : '') || (document.getElementById('popupFullname') ? document.getElementById('popupFullname').value : '') || '').trim();
+        
+        const phone = (formData.get('phone') || formData.get('tel') || (formElement.querySelector('input[name="phone"]') ? formElement.querySelector('input[name="phone"]').value : '') || (document.getElementById('phone') ? document.getElementById('phone').value : '') || (document.getElementById('popupPhone') ? document.getElementById('popupPhone').value : '') || '').trim();
+        
+        const email = (formData.get('email') || (formElement.querySelector('input[name="email"]') ? formElement.querySelector('input[name="email"]').value : '') || (document.getElementById('email') ? document.getElementById('email').value : '') || '').trim();
+        
+        const service = formData.get('service') || formData.get('toothStatus') || (formElement.querySelector('select[name="service"]') ? formElement.querySelector('select[name="service"]').value : '') || (document.getElementById('toothStatus') ? document.getElementById('toothStatus').value : '') || (document.getElementById('popupToothStatus') ? document.getElementById('popupToothStatus').value : '') || 'Tư vấn thăm khám';
+        
+        const preferredTime = formData.get('preferredTime') || formData.get('pref_time') || formData.get('timeSlot') || (formElement.querySelector('select[name="preferredTime"]') ? formElement.querySelector('select[name="preferredTime"]').value : '') || 'Bất kỳ lúc nào';
 
-        const birthYear = document.getElementById('birthYear') ? document.getElementById('birthYear').value : (document.getElementById('popupBirthYear') ? document.getElementById('popupBirthYear').value : '');
-        const genderEl = document.querySelector('input[name="gender"]:checked') || document.querySelector('input[name="popupGender"]:checked');
-        const gender = genderEl ? genderEl.value : '';
-        const address = document.getElementById('address') ? document.getElementById('address').value : (document.getElementById('popupAddress') ? document.getElementById('popupAddress').value : '');
-        const userNote = document.getElementById('note') ? document.getElementById('note').value : (document.getElementById('popupNote') ? document.getElementById('popupNote').value : '');
+        const location = formData.get('location') || formData.get('address') || formData.get('city') || (formElement.querySelector('input[name="location"]') ? formElement.querySelector('input[name="location"]').value : '') || (document.getElementById('address') ? document.getElementById('address').value : '') || (document.getElementById('popupAddress') ? document.getElementById('popupAddress').value : '') || 'Hồ Chí Minh';
+
+        const birthYear = formData.get('birthYear') || (formElement.querySelector('input[name="birthYear"]') ? formElement.querySelector('input[name="birthYear"]').value : '') || (document.getElementById('birthYear') ? document.getElementById('birthYear').value : '') || (document.getElementById('popupBirthYear') ? document.getElementById('popupBirthYear').value : '');
+        
+        const genderEl = formElement.querySelector('input[name="gender"]:checked') || formElement.querySelector('input[name="popupGender"]:checked') || document.querySelector('input[name="gender"]:checked') || document.querySelector('input[name="popupGender"]:checked');
+        const gender = genderEl ? genderEl.value : (formData.get('gender') || '');
+        
+        const userNote = formData.get('note') || formData.get('notes') || (formElement.querySelector('textarea[name="note"]') ? formElement.querySelector('textarea[name="note"]').value : '') || (formElement.querySelector('input[name="note"]') ? formElement.querySelector('input[name="note"]').value : '') || (document.getElementById('note') ? document.getElementById('note').value : '') || (document.getElementById('popupNote') ? document.getElementById('popupNote').value : '');
+
+        // Validation: Required name and valid phone
+        if (!fullname) {
+            alert('Vui lòng nhập họ và tên của bạn.');
+            const nameInput = formElement.querySelector('input[name="name"], input[name="fullname"], #fullname, #popupFullname');
+            if (nameInput) nameInput.focus();
+            return;
+        }
+
+        if (!phone || phone.length < 8) {
+            alert('Vui lòng nhập số điện thoại liên hệ hợp lệ để bác sĩ hỗ trợ.');
+            const phoneInput = formElement.querySelector('input[name="phone"], input[name="tel"], #phone, #popupPhone');
+            if (phoneInput) phoneInput.focus();
+            return;
+        }
 
         // Collect checkboxed interests if any exist
         const selectedNeeds = [];
-        document.querySelectorAll('input[name="need"]:checked, input[name="popupNeed"]:checked').forEach(cb => {
+        formElement.querySelectorAll('input[name="need"]:checked, input[name="popupNeed"]:checked').forEach(cb => {
             selectedNeeds.push(cb.value);
         });
+        if (selectedNeeds.length === 0) {
+            document.querySelectorAll('input[name="need"]:checked, input[name="popupNeed"]:checked').forEach(cb => {
+                selectedNeeds.push(cb.value);
+            });
+        }
         const needStr = selectedNeeds.length > 0 ? selectedNeeds.join(', ') : service;
+
+        const noteParts = [];
+        if (birthYear) noteParts.push(`Năm sinh: ${birthYear}`);
+        if (gender) noteParts.push(`Giới tính: ${gender}`);
+        if (userNote) noteParts.push(`Ghi chú: ${userNote}`);
+        const compiledNote = noteParts.length > 0 ? noteParts.join(' | ') : '';
 
         const data = {
             formType: formTypeName,
             fullname: fullname,
             phone: phone,
-            email: "",
+            email: email,
             clinic: service,
-            city: address || "Hồ Chí Minh",
+            city: location,
+            location: location,
             interest: needStr,
+            gender: gender,
             date: new Date().toLocaleDateString('vi-VN'),
             timeSlot: preferredTime || "Bất kỳ lúc nào",
-            note: `Năm sinh: ${birthYear} | Giới tính: ${gender} | Ghi chú thêm: ${userNote}`,
+            note: compiledNote,
             clientUserAgent: navigator.userAgent,
             eventSourceUrl: window.location.href,
             fbp: getCookie('_fbp'),
@@ -456,43 +568,101 @@ document.addEventListener('DOMContentLoaded', () => {
             eventId: eventId
         };
 
-        // Submit async in background
-        submitLeadToSheets(data);
-
         // Find submit button in this form to show spinner state
         const submitBtn = formElement.querySelector('button[type="submit"]');
+        const originalText = submitBtn ? submitBtn.innerHTML : '';
         if (submitBtn) {
-            const originalText = submitBtn.innerHTML;
             submitBtn.disabled = true;
             submitBtn.innerHTML = 'Đang gửi đăng ký... <i class="fa-solid fa-spinner fa-spin" style="margin-left: 8px;"></i>';
-            
-            setTimeout(() => {
+        }
+
+        try {
+            // AWAIT SERVER CONFIRMATION (NO PREMATURE POPUP / NO FAKE LEADS)
+            const result = await submitLeadToSheets(data);
+
+            if (result && result.success) {
+                // 1. Close active registration/promo modals
                 if (registrationPopup) registrationPopup.classList.remove('active');
                 if (promoPopup) promoPopup.classList.remove('active');
-                if (successPopup) successPopup.classList.add('active');
-                
+
+                // 2. Open Success Confirmation Modal
+                if (successPopup) {
+                    const msgEl = document.getElementById('successPopupMessage');
+                    if (msgEl && result.message) {
+                        msgEl.innerText = result.message;
+                    }
+                    successPopup.classList.add('active');
+                }
+
+                // 3. Trigger Conversion Tracking for Google Ads / GA4 / Meta Pixel ONLY after verified save
+                try {
+                    // Google Analytics 4 / Google Ads Lead Event
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'generate_lead', {
+                            event_category: 'Flora Booking Lead',
+                            event_label: formTypeName || 'Dental Booking',
+                            value: 1,
+                            currency: 'VND'
+                        });
+                        gtag('event', 'conversion', {
+                            event_category: 'Flora Booking Success',
+                            event_label: service
+                        });
+                    }
+
+                    // GTM dataLayer push
+                    if (window.dataLayer && Array.isArray(window.dataLayer)) {
+                        window.dataLayer.push({
+                            event: 'lead_form_success',
+                            form_name: formTypeName,
+                            lead_id: result.leadId || eventId,
+                            service: service,
+                            location: location
+                        });
+                    }
+
+                    // Meta Pixel Lead Event
+                    if (typeof fbq === 'function') {
+                        fbq('track', 'Lead', {
+                            content_name: service,
+                            content_category: formTypeName,
+                            value: 1,
+                            currency: 'VND'
+                        }, { eventID: eventId });
+                    }
+                } catch (trackingErr) {
+                    console.warn('Tracking notice:', trackingErr);
+                }
+
+                // 4. Reset form fields
+                formElement.reset();
+            } else {
+                // Server rejected or database error: Show clear error, DO NOT open success popup
+                alert(result.message || 'Không thể gửi đăng ký lúc này. Quý khách vui lòng liên hệ hotline 028 7305 8999 để được hỗ trợ kịp thời!');
+            }
+        } catch (submitErr) {
+            console.error('Form submission unexpected error:', submitErr);
+            alert('Đã xảy ra sự cố khi gửi dữ liệu. Quý khách vui lòng gọi 028 7305 8999 để được hỗ trợ.');
+        } finally {
+            if (submitBtn) {
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalText;
-                formElement.reset();
-            }, 1800);
+            }
         }
     };
 
-    // Bind bottom inline registration form
-    const inlineForm = document.getElementById('floraRegistrationForm');
-    if (inlineForm) {
-        inlineForm.addEventListener('submit', (e) => {
-            handleFormSubmit(e, inlineForm, "Đăng ký khám website (Flora Portal)");
-        });
-    }
+    // Bind all booking forms across the page
+    document.querySelectorAll('#floraRegistrationForm, #popupRegistrationForm, .flora-registration-form, form.modal-form').forEach(form => {
+        if (form.dataset.floraBound) return;
+        form.dataset.floraBound = "true";
 
-    // Bind popup modal registration form
-    const popupForm = document.getElementById('popupRegistrationForm');
-    if (popupForm) {
-        popupForm.addEventListener('submit', (e) => {
-            handleFormSubmit(e, popupForm, "Đăng ký khám modal (Flora Portal Popup)");
+        const isPopup = form.id === 'popupRegistrationForm' || form.closest('#registrationPopup, #promoPopup, .popup-modal');
+        const formName = isPopup ? "Đăng ký khám modal (Flora Portal Popup)" : "Đăng ký khám website (Flora Portal)";
+
+        form.addEventListener('submit', (e) => {
+            handleFormSubmit(e, form, formName);
         });
-    }
+    });
 });
 
 // ─── DYNAMIC ACCORDIONS, ANIMATIONS & SNOWFALL (PAGE-LEVEL SAFE INITS) ───
@@ -653,7 +823,12 @@ function initScrollReveal() {
         }
     });
 }
-document.addEventListener('DOMContentLoaded', initScrollReveal);
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initScrollReveal);
+} else {
+    initScrollReveal();
+}
+window.addEventListener('load', initScrollReveal);
 
 // FAQ Accordion
 function initFAQ() {
@@ -1779,28 +1954,17 @@ document.addEventListener('DOMContentLoaded', initFinanceTabs);
 
 // ─── NAV CLICK JUMP TO TOP OF SERVICE PAGE ───
 function initNavScrollTop() {
-    const navLinks = document.querySelectorAll('.dropdown-menu a, .drawer-nav a, .nav-links > li > a');
-    navLinks.forEach(link => {
+    const topLinks = document.querySelectorAll('a[href="#"], a[href="#top"], a[href="#banner"], .back-to-top');
+    topLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if (!href || href.startsWith('javascript') || href.startsWith('tel:') || href.startsWith('mailto:')) return;
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
             
-            // Get current page filename
-            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-            const targetUrl = href.split('#')[0].split('/').pop() || 'index.html';
-            const hash = href.includes('#') ? href.substring(href.indexOf('#')) : '';
-
-            // If navigating to the same page without a specific in-page section hash
-            if (targetUrl === currentPath && (!hash || hash === '#' || hash === '#banner' || hash === '#top')) {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                
-                // Close drawer if open
-                const drawer = document.getElementById('drawerNav');
-                const overlay = document.getElementById('drawerOverlay');
-                if (drawer) drawer.classList.remove('open');
-                if (overlay) overlay.classList.remove('active');
-            }
+            // Close drawer if open
+            const drawer = document.getElementById('drawerNav');
+            const overlay = document.getElementById('drawerOverlay');
+            if (drawer) drawer.classList.remove('open');
+            if (overlay) overlay.classList.remove('active');
         });
     });
 }

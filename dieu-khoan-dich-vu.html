@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <link href="https://nhakhoaflora.com/wp-content/uploads/2022/05/cropped-LOGO-FLORA1-3-192x192.png" rel="icon" type="image/png" />
+    <title>Điều Khoản Dịch Vụ & Sử Dụng | Nha Khoa Flora</title>
+    <meta content="Quy định đặt lịch khám, mua gói dịch vụ, tư vấn y khoa trực tuyến và điều khoản sử dụng website Nha Khoa Flora." name="description" />
+    <meta content="dieu khoan dich vu, quy dinh nha khoa flora, dat lich kham nha khoa" name="keywords" />
+    <meta content="index, follow" name="robots" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="css/flora-style.css?v=1.3" rel="stylesheet" />
+    <link href="css/decor-animations.css" rel="stylesheet" />
+
+    <style>
+        .policy-page-header {
+            background: linear-gradient(135deg, #001f66 0%, #0033a3 50%, #0493f1 100%);
+            padding: 70px 0 50px;
+            color: #ffffff;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .policy-page-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background: #f8fafc;
+            border-radius: 28px 28px 0 0;
+        }
+        .policy-breadcrumb {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.75);
+            margin-bottom: 12px;
+        }
+        .policy-breadcrumb a {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+        .policy-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin: 0 0 12px;
+            letter-spacing: -0.5px;
+        }
+        .policy-subtitle {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 760px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        .policy-meta-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 6px 16px;
+            border-radius: 9999px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            margin-top: 18px;
+        }
+        .policy-container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 30px 20px 80px;
+        }
+        .policy-grid {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+        @media (max-width: 991px) {
+            .policy-grid { grid-template-columns: 1fr; }
+        }
+        .policy-sidebar {
+            position: sticky;
+            top: 90px;
+            background: #ffffff;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0, 51, 163, 0.04);
+        }
+        .policy-sidebar-title {
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: #0033a3;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .policy-toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .policy-toc-link {
+            display: block;
+            font-size: 0.88rem;
+            color: #475569;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+        .policy-toc-link:hover, .policy-toc-link.active {
+            background: #eff6ff;
+            color: #0033a3;
+            font-weight: 700;
+            border-left-color: #0493f1;
+        }
+        .policy-content-card {
+            background: #ffffff;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+            padding: 40px 48px;
+            box-shadow: 0 4px 25px rgba(0, 51, 163, 0.03);
+            line-height: 1.75;
+            color: #334155;
+        }
+        @media (max-width: 768px) {
+            .policy-content-card { padding: 28px 20px; }
+            .policy-title { font-size: 1.7rem; }
+        }
+        .policy-section {
+            margin-bottom: 40px;
+            scroll-margin-top: 100px;
+        }
+        .policy-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: #0033a3;
+            margin: 0 0 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 12px;
+        }
+        .policy-alert-box {
+            background: #eff6ff;
+            border-left: 4px solid #0033a3;
+            padding: 16px 20px;
+            border-radius: 0 12px 12px 0;
+            margin: 20px 0;
+            font-size: 0.92rem;
+            color: #1e3a8a;
+        }
+        .contact-highlight-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
+            border: 1px solid #bae6fd;
+            border-radius: 16px;
+            padding: 24px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body class="subpage-body">
+    <!-- HEADER -->
+    <header class="header-bar">
+        <div class="container header-inner">
+            <div class="logo-box">
+                <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
+                    <img src="ngayhoi_item/Logo-Flora1.webp" alt="Flora Logo" class="logo-img" />
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li class="nav-link-item"><a href="index.html">Trang Chủ</a></li>
+                <li class="nav-link-item"><a href="implant.html">Implant</a></li>
+                <li class="nav-link-item"><a href="ho-loi.html">Cười Hở Lợi</a></li>
+                <li class="nav-link-item has-dropdown">
+                    <a href="javascript:void(0)">Dịch Vụ Khác <i class="fa-solid fa-chevron-down dropdown-icon"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="nieng-rang.html">Niềng Răng</a></li>
+                        <li><a href="veneer.html">Dán Sứ Veneer</a></li>
+                        <li><a href="boc-rang-su.html">Bọc Răng Sứ</a></li>
+                        <li><a href="tong-quat.html">Nha Khoa Tổng Quát</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-item"><a href="bang-gia.html">Bảng Giá</a></li>
+                <li class="nav-link-item"><a href="goi-dich-vu.html" style="color: #0493f1; font-weight: 700;">Gói Dịch Vụ</a></li>
+                <li class="nav-link-item"><a href="lien-he.html">Liên Hệ</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- HERO HEADER -->
+    <div class="policy-page-header">
+        <div class="container" style="position: relative; z-index: 2;">
+            <div class="policy-breadcrumb">
+                <a href="index.html">Trang Chủ</a> &nbsp;/&nbsp; <span>Điều Khoản Dịch Vụ</span>
+            </div>
+            <h1 class="policy-title">Điều Khoản Dịch Vụ & Sử Dụng Website</h1>
+            <p class="policy-subtitle">
+                Quy định chung về đặt lịch khám, đăng ký mua gói dịch vụ, tư vấn y tế trực tuyến và nguyên tắc giao dịch tại Nha Khoa Flora.
+            </p>
+            <div class="policy-meta-badge">
+                <i class="fa-solid fa-file-contract" style="color: #38bdf8;"></i> Hiệu lực áp dụng: Năm 2026 | Nha Khoa Flora
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT WRAPPER -->
+    <div class="policy-container">
+        <div class="policy-grid">
+            <!-- SIDEBAR TOC -->
+            <aside class="policy-sidebar">
+                <div class="policy-sidebar-title">
+                    <i class="fa-solid fa-list-ul"></i> Mục Lục Điều Khoản
+                </div>
+                <ul class="policy-toc-list">
+                    <li><a href="#chap-thuan" class="policy-toc-link active">1. Chấp Thuận Điều Khoản</a></li>
+                    <li><a href="#pham-vi-dich-vu" class="policy-toc-link">2. Phạm Vi & Tư Vấn AI</a></li>
+                    <li><a href="#quy-trinh-dat-lich" class="policy-toc-link">3. Quy Trình Đặt Hẹn Khám</a></li>
+                    <li><a href="#quy-dinh-thanh-toan" class="policy-toc-link">4. Thanh Toán Gói Dịch Vụ</a></li>
+                    <li><a href="#doi-lich-hoan-tien" class="policy-toc-link">5. Đổi Lịch & Hoàn Tiền</a></li>
+                    <li><a href="#ban-quyen" class="policy-toc-link">6. Bản Quyền & Sở Hữu Trí Tuệ</a></li>
+                    <li><a href="#don-vi-quan-ly" class="policy-toc-link">7. Đơn Vị Quản Lý & Liên Hệ</a></li>
+                </ul>
+
+                <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid #f1f5f9;">
+                    <div style="font-size: 0.82rem; color: #64748b; margin-bottom: 8px;">Hotline tư vấn hỗ trợ:</div>
+                    <a href="tel:02873058999" style="font-weight: 800; color: #0033a3; font-size: 1.1rem; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-phone" style="color: #0493f1;"></i> 028 7305 8999
+                    </a>
+                </div>
+            </aside>
+
+            <!-- MAIN ARTICLE -->
+            <article class="policy-content-card">
+                <section id="chap-thuan" class="policy-section">
+                    <h2><span>1.</span> Chấp Thuận Các Điều Khoản</h2>
+                    <p>Khi Quý khách truy cập, tham khảo thông tin, đặt lịch hẹn khám hoặc mua gói dịch vụ trên website <code>nhakhoaflora.com</code>, Quý khách được xem là đã đọc, hiểu và đồng ý tuân thủ toàn bộ các điều khoản quy định tại đây.</p>
+                </section>
+
+                <section id="pham-vi-dich-vu" class="policy-section">
+                    <h2><span>2.</span> Phạm Vi Dịch Vụ & Tư Vấn Y Khoa Trực Tuyến</h2>
+                    <p>Nha Khoa Flora cung cấp các dịch vụ chuyên sâu: Cấy ghép Implant Thụy Sĩ, Chỉnh nha niềng răng, Răng sứ thẩm mỹ & Veneer, Điều trị cười hở lợi cùng các Gói Khám Chăm Sóc Định Kỳ (Care Plus, White Up).</p>
+                    <div class="policy-alert-box">
+                        <strong><i class="fa-solid fa-robot"></i> Lưu ý về tính năng Bác Sĩ AI:</strong> Thông tin tư vấn từ Trợ lý AI chỉ mang tính chất tham khảo, không thay thế việc khám lâm sàng trực tiếp và chỉ định chuyên môn của Bác sĩ tại phòng khám.
+                    </div>
+                </section>
+
+                <section id="quy-trinh-dat-lich" class="policy-section">
+                    <h2><span>3.</span> Quy Trình Đặt Hẹn & Xác Nhận Lịch Khám</h2>
+                    <ul>
+                        <li>Khách hàng đăng ký qua website hoặc hotline: chuyên viên CSKH liên hệ xác nhận giờ hẹn trong vòng 15 - 30 phút.</li>
+                        <li>Quý khách vui lòng đến trước 10 phút để thực hiện thủ tục đón tiếp và kiểm tra huyết áp ban đầu.</li>
+                    </ul>
+                </section>
+
+                <section id="quy-dinh-thanh-toan" class="policy-section">
+                    <h2><span>4.</span> Quy Định Mua Gói Dịch Vụ & Thanh Toán</h2>
+                    <p>Đối với các gói dịch vụ trực tuyến (Flora Care Plus, Flora White Up), thanh toán được thực hiện qua tài khoản ngân hàng chính thức:</p>
+                    <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 12px; padding: 18px; margin: 16px 0;">
+                        <ul style="list-style: none; padding: 0; margin: 0; line-height: 1.8;">
+                            <li>Ngân hàng: <strong>Ngân hàng TMCP Á Châu (ACB)</strong></li>
+                            <li>Chi nhánh: <strong>ACB - CN HOA HUNG</strong></li>
+                            <li>Số tài khoản: <strong style="color: #0033a3; font-size: 1.1rem; font-family: monospace;">77779268</strong></li>
+                            <li>Chủ tài khoản: <strong>CONG TY CO PHAN FLORA DENTAL CARE</strong></li>
+                        </ul>
+                    </div>
+                    <p>Sau khi chuyển khoản, bấm nút <strong>"Tôi Đã Chuyển Khoản"</strong> trên màn hình để hệ thống tự động đối soát và gửi email xác nhận.</p>
+                </section>
+
+                <section id="doi-lich-hoan-tien" class="policy-section">
+                    <h2><span>5.</span> Chính Sách Đổi Lịch Khám, Bảo Lưu & Hoàn Tiền</h2>
+                    <ul>
+                        <li>Gói khám trực tuyến có thời hạn bảo lưu và sử dụng trong <strong>12 tháng</strong>.</li>
+                        <li>Quý khách có thể đổi lịch khám miễn phí bằng cách thông báo trước tối thiểu 04 tiếng.</li>
+                        <li>Trường hợp có chỉ định y khoa không thể thực hiện dịch vụ, Flora hỗ trợ hoàn phí qua tài khoản ngân hàng trong 3 - 5 ngày làm việc.</li>
+                    </ul>
+                </section>
+
+                <section id="ban-quyen" class="policy-section">
+                    <h2><span>6.</span> Bản Quyền & Sở Hữu Trí Tuệ</h2>
+                    <p>Mọi hình ảnh ca điều trị, video, logo thương hiệu và tài liệu chuyên môn thuộc quyền sở hữu trí tuệ của Công ty Cổ phần Flora Dental Care.</p>
+                </section>
+
+                <section id="don-vi-quan-ly" class="policy-section">
+                    <h2><span>7.</span> Đơn Vị Quản Lý & Liên Hệ</h2>
+                    <div class="contact-highlight-card">
+                        <h4 style="font-size: 1.15rem; font-weight: 800; color: #0033a3; margin: 0 0 14px;">
+                            <i class="fa-solid fa-hospital-user"></i> CÔNG TY CỔ PHẦN FLORA DENTAL CARE
+                        </h4>
+                        <p style="margin-bottom: 8px;"><strong>Cơ sở khám chữa bệnh:</strong> Phòng khám Răng Hàm Mặt thuộc địa điểm kinh doanh - Công ty Cổ phần Flora Dental Care</p>
+                        <p style="margin-bottom: 8px;"><strong>Giấy phép hoạt động:</strong> 09723/HCM-GPHĐ do Sở Y tế TP.HCM cấp ngày 27/07/2026</p>
+                        <p style="margin-bottom: 8px;"><strong>Địa chỉ:</strong> 326 Nguyễn Thị Minh Khai, Phường Bàn Cờ, TP. Hồ Chí Minh</p>
+                        <p style="margin-bottom: 0;"><strong>Hotline hỗ trợ:</strong> <a href="tel:02873058999" style="font-weight: 700; color: #0033a3;">028 7305 8999</a> (24/7)</p>
+                    </div>
+                </section>
+            </article>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col" style="grid-column: span 1;">
+                <div class="footer-logo" style="margin-bottom: 20px;">
+                    <img src="ngayhoi_item/Logo-Flora1.webp" alt="Flora Logo" class="footer-logo-img" style="height: 40px; object-fit: contain;" />
+                </div>
+                <p style="font-size: 0.88rem; color: #94a3b8; line-height: 1.6; margin-bottom: 16px;">
+                    Nha khoa Flora - Hệ thống nha khoa êm ái tiêu chuẩn Thụy Sĩ. Đội ngũ bác sĩ chuyên môn Răng Hàm Mặt, kiến tạo nụ cười rạng rỡ tự nhiên cho gia đình bạn.
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>Dịch Vụ Nổi Bật</h4>
+                <ul class="footer-links">
+                    <li><a href="implant.html">Cấy Ghép Implant Thụy Sĩ</a></li>
+                    <li><a href="nieng-rang.html">Niềng Răng Invisalign</a></li>
+                    <li><a href="ho-loi.html">Điều Trị Cười Hở Lợi</a></li>
+                    <li><a href="veneer.html">Dán Sứ Veneer E.max</a></li>
+                    <li><a href="boc-rang-su.html">Bọc Sứ Thẩm Mỹ Cercon</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Về Nha Khoa</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Trang Chủ Flora</a></li>
+                    <li><a href="bang-gia.html">Bảng Giá Dịch Vụ</a></li>
+                    <li><a href="warranty.html" style="color: #38bdf8; font-weight: 600;"><i class="fa-solid fa-shield-halved"></i> Tra Cứu Bảo Hành</a></li>
+                    <li><a href="chinh-sach-bao-hanh.html">Chính Sách Bảo Hành</a></li>
+                    <li><a href="chinh-sach-bao-mat.html">Chính Sách Bảo Mật</a></li>
+                    <li><a href="dieu-khoan-dich-vu.html">Điều Khoản Dịch Vụ</a></li>
+                    <li><a href="dang-ky-doi-tac.html" style="color: #38bdf8; font-weight: 600;"><i class="fa-solid fa-handshake"></i> Đăng Ký Đối Tác / KOL</a></li>
+                    <li><a href="doi-tac.html"><i class="fa-solid fa-chart-pie"></i> Cổng Thông Tin Đối Tác</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Liên Hệ Flora</h4>
+                <div class="footer-contact-item">
+                    <span>326 Nguyễn Thị Minh Khai, Phường Bàn Cờ, TP. Hồ Chí Minh</span>
+                </div>
+                <div class="footer-contact-item">
+                    <span>Hotline: 028 7305 8999</span>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; text-align: center; font-size: 0.85rem; color: #64748b; margin-top: 30px;">
+            <p>&copy; 2026 Nha Khoa Flora. Bảo lưu mọi quyền.</p>
+        </div>
+    </footer>
+</body>
+</html>

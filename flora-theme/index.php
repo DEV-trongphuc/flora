@@ -1,0 +1,5 @@
+<?php
+/**
+ * Main Template Fallback
+ */
+include(get_template_directory() . '/archive.php');
