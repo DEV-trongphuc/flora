@@ -20,13 +20,13 @@ async def generate_partner_pdf():
     os.makedirs(temp_dir, exist_ok=True)
 
     print("=================================================================")
-    print("🚀 NHA KHOA FLORA - XUẤT CẨM NANG DÀNH CHO ĐỐI TÁC (10 TRANG A4 DỌC)")
+    print("🚀 NHA KHOA FLORA - XUẤT CẨM NANG DÀNH CHO ĐỐI TÁC (14 TRANG A4 DỌC)")
     print(f"📄 Nguồn HTML: {html_path}")
     print(f"📑 File đích PDF: {output_pdf}")
     print("=================================================================")
 
     page_images = []
-    total_pages = 10
+    total_pages = 14
 
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)

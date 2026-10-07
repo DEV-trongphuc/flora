@@ -105,14 +105,22 @@ async def generate_portrait_pdf():
         pdf_page.insert_image(page_rect, filename=img_path)
         print(f"    [+] Trang PDF {idx + 1:02d}: Chèn ảnh thành công")
 
-    pdf_doc.save(output_pdf, deflate=True)
+    targets = [
+        os.path.join(base_dir, "NHA_KHOA_FLORA_BO_TONG_CAM_NANG_15_TRANG.pdf"),
+        output_pdf
+    ]
+
+    for target in targets:
+        try:
+            pdf_doc.save(target, deflate=True)
+            file_size_mb = os.path.getsize(target) / (1024 * 1024)
+            print(f"✔ Đã lưu thành công: {target} ({file_size_mb:.2f} MB)")
+        except Exception as e:
+            print(f"⚠ Không thể lưu {target}: {e}")
     pdf_doc.close()
 
-    file_size_mb = os.path.getsize(output_pdf) / (1024 * 1024)
     print("=================================================================")
-    print("🎉 XUẤT PDF DỌC THÀNH CÔNG RỰC RỠ!")
-    print(f"📁 Vị trí: {output_pdf}")
-    print(f"📊 Dung lượng: {file_size_mb:.2f} MB")
+    print("🎉 XUẤT BỘ TỔNG PDF THÀNH CÔNG RỰC RỠ!")
     print(f"📄 Tổng số trang: {total_pages} trang A4 Dọc chuẩn in ấn & phát hành")
     print("=================================================================")
 

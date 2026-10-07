@@ -1991,6 +1991,31 @@ function flora_ajax_partner_test_zalo() {
 }
 
 /**
+ * AJAX KIỂM TRA TRẠNG THÁI LIÊN KẾT ZALO BOT (POLLING TỰ ĐỘNG 1 CHẠM)
+ */
+add_action('wp_ajax_flora_ajax_partner_check_zalo_status', 'flora_ajax_partner_check_zalo_status');
+add_action('wp_ajax_nopriv_flora_ajax_partner_check_zalo_status', 'flora_ajax_partner_check_zalo_status');
+function flora_ajax_partner_check_zalo_status() {
+    $token = isset($_POST['token']) ? sanitize_text_field($_POST['token']) : '';
+    if (empty($token)) {
+        wp_send_json_error(array('message' => 'Phiên đăng nhập hết hạn.'));
+    }
+
+    $kol = flora_affiliate_get_by_token($token);
+    if (!$kol) {
+        wp_send_json_error(array('message' => 'Tài khoản đối tác không tồn tại.'));
+    }
+
+    $is_linked = !empty($kol['zalo_chat_id']);
+    wp_send_json_success(array(
+        'is_linked'    => $is_linked,
+        'zalo_chat_id' => $kol['zalo_chat_id'] ?? '',
+        'ref_code'     => $kol['ref_code'] ?? '',
+        'name'         => $kol['name'] ?? ''
+    ));
+}
+
+/**
  * ─────────────────────────────────────────────────────────────────────────────
  * HỆ THỐNG ĐỐI TÁC & KOL: PHÊ DUYỆT, ĐĂNG KÝ, ĐĂNG NHẬP & CẬP NHẬT HỒ SƠ
  * Lưu trữ độc lập trong wp_flora_affiliates (KHÔNG lưu vào wp_users)
