@@ -2495,6 +2495,7 @@ function flora_ajax_partner_register() {
     flora_send_affiliate_registration_received_email($new_kol);
 
     // 2. Bắn thông báo Zalo vào nhóm Bot
+    $admin_pending_url = admin_url('admin.php?page=flora-affiliates&status=pending');
     $zalo_msg = "🔔 [ CÓ ĐĂNG KÝ ĐỐI TÁC MỚI ] 🔔\n"
               . "━━━━━━\n"
               . "Dự án: Đối Tác Tiếp Thị Nha Khoa Flora\n\n"
@@ -2504,28 +2505,54 @@ function flora_ajax_partner_register() {
               . "  ▸ Email: {$email}\n"
               . "  ▸ Kênh: " . ($channel_url ?: 'Chưa cập nhật') . "\n"
               . "  ▸ Ngân hàng: " . ($bank_name ?: 'Chưa nhập') . " - STK: " . ($bank_acc ?: 'Chưa nhập') . " (" . ($bank_own ?: 'Chưa nhập') . ")\n"
-              . "  └─ Trạng thái: Chờ duyệt hồ sơ\n\n"
+              . "  └─ Trạng thái: CHỜ DUYỆT (PENDING)\n\n"
+              . "⚠️ LƯU Ý: CÓ CẦN DUYỆT MỚI ĐƯỢC NHA!\n"
+              . "  (Tài khoản chưa được kích hoạt, đối tác chưa thể đăng nhập cổng cho đến khi Admin duyệt)\n\n"
+              . "👉 Thao tác duyệt nhanh ngay trên Zalo:\n"
+              . "  /duyetkol {$clean_phone}\n\n"
+              . "👉 Hoặc duyệt trong WP-Admin:\n"
+              . "  {$admin_pending_url}\n\n"
               . "━━━━━━\n"
               . "  └─ Nguồn: Form Đăng Ký Đối Tác\n"
               . "  └─ Thời gian: " . current_time('d/m/Y H:i:s');
 
-    if (function_exists('flora_send_zalo_lead_notification')) {
-        $config = flora_get_payment_config();
-        $bot_token     = trim($config['zalo_bot_token'] ?? '');
-        $group_chat_id = trim($config['zalo_group_chat_id'] ?? '');
-        if (!empty($bot_token) && !empty($group_chat_id)) {
-            wp_remote_post("https://bot-api.zaloplatforms.com/bot" . $bot_token . "/sendMessage", array(
-                'method'      => 'POST',
-                'timeout'     => 10,
-                'blocking'    => false,
-                'headers'     => array('Content-Type' => 'application/json; charset=utf-8'),
-                'body'        => wp_json_encode(array('chat_id' => $group_chat_id, 'text' => $zalo_msg), JSON_UNESCAPED_UNICODE)
-            ));
-        }
+    $config = function_exists('flora_get_payment_config') ? flora_get_payment_config() : array();
+    $bot_token     = trim($config['zalo_bot_token'] ?? get_option('flora_zalo_bot_token', ''));
+    $group_chat_id = trim($config['zalo_group_chat_id'] ?? get_option('flora_zalo_group_chat_id', ''));
+    $webhook_url   = trim($config['zalo_webhook_url'] ?? get_option('flora_zalo_webhook_url', ''));
+
+    if (!empty($bot_token) && !empty($group_chat_id)) {
+        wp_remote_post("https://bot-api.zaloplatforms.com/bot" . $bot_token . "/sendMessage", array(
+            'method'      => 'POST',
+            'timeout'     => 10,
+            'blocking'    => false,
+            'headers'     => array('Content-Type' => 'application/json; charset=utf-8'),
+            'body'        => wp_json_encode(array('chat_id' => $group_chat_id, 'text' => $zalo_msg), JSON_UNESCAPED_UNICODE)
+        ));
+    }
+
+    if (!empty($webhook_url)) {
+        wp_remote_post($webhook_url, array(
+            'method'      => 'POST',
+            'timeout'     => 10,
+            'blocking'    => false,
+            'headers'     => array('Content-Type' => 'application/json; charset=utf-8'),
+            'body'        => wp_json_encode(array(
+                'event'      => 'affiliate_registration',
+                'title'      => '🔔 [ CÓ ĐĂNG KÝ ĐỐI TÁC MỚI ] 🔔',
+                'text'       => $zalo_msg,
+                'name'       => $name,
+                'phone'      => $clean_phone,
+                'email'      => $email,
+                'status'     => 'pending',
+                'note'       => 'Có cần duyệt mới được nha',
+                'created_at' => current_time('mysql')
+            ), JSON_UNESCAPED_UNICODE)
+        ));
     }
 
     wp_send_json_success(array(
-        'message' => 'Đăng ký thành công! Hồ sơ của bạn đã được chuyển tới Ban Quản Trị để duyệt. Thông tin kích hoạt sẽ được gửi tới email của bạn trong vòng 24h.'
+        'message' => 'Đăng ký thành công! Hồ sơ của bạn đã được chuyển tới Ban Quản Trị. Lưu ý: Tài khoản cần được Admin duyệt mới có thể đăng nhập Cổng Đối Tác. Thông tin kích hoạt sẽ được gửi tới email của bạn trong vòng 24h.'
     ));
 }
 
