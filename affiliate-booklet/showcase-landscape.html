@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Nha Khoa Flora - Sơ Đồ Hệ Thống Tính Năng & Giao Diện (Landscape)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;0,900;1,600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #040e21;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #0f172a;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .master-landscape {
+      width: 3200px;
+      margin: 0 auto;
+      background: #f8fafc;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* TOP HEADER - FLORA ROYAL BLUE BRAND (CHUẨN BOOKLET PDF) */
+    .header-bar {
+      background: linear-gradient(135deg, #071a3d 0%, #002270 50%, #0033a3 100%);
+      padding: 45px 70px 40px 70px;
+      color: #ffffff;
+      position: relative;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .logo-group {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand-logo {
+      height: 70px;
+      width: auto;
+      filter: brightness(0) invert(1);
+    }
+
+    .brand-text h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+
+    .brand-text p {
+      font-size: 15px;
+      color: #93c5fd;
+      font-weight: 500;
+    }
+
+    .meta-tag {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 8px 22px;
+      border-radius: 30px;
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .main-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 40px;
+    }
+
+    .title-left h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 40px;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.25;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+
+    .title-left p {
+      font-size: 18px;
+      color: #e0f2fe;
+      max-width: 1700px;
+      font-weight: 400;
+    }
+
+    .pills-strip {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 7px 16px;
+      border-radius: 6px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pill .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #38bdf8;
+    }
+
+    /* MAIN CONTAINER */
+    .content-canvas {
+      padding: 45px 70px 55px 70px;
+      display: flex;
+      flex-direction: column;
+      gap: 45px;
+    }
+
+    /* SECTION HEADER - EDITORIAL PDF STYLE (CLEAN, NO COLORED BORDER) */
+    .sec-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #cbd5e1;
+      margin-bottom: 22px;
+    }
+
+    .sec-title-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .sec-badge-num {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: #0033a3;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      font-weight: 800;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .sec-title-text h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 23px;
+      font-weight: 800;
+      color: #0a1931;
+      letter-spacing: -0.3px;
+    }
+
+    .sec-title-text p {
+      font-size: 14px;
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    .sec-tag-right {
+      font-size: 13px;
+      font-weight: 700;
+      color: #0033a3;
+      background: #eff6ff;
+      padding: 6px 16px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* 4-CARD EQUAL GRID (LANDSCAPE 4 COLUMNS) */
+    .grid-4-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    /* SCREEN CARD - ULTRA CLEAN, NO COLORED BORDER */
+    .card-screen {
+      background: #ffffff;
+      border-radius: 14px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 15px rgba(0, 37, 112, 0.04);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-screen-head {
+      padding: 16px 20px;
+      background: #f8fafc;
+      border-bottom: 1px solid #edf2f7;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card-step-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .step-cir {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #0033a3;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .step-name {
+      font-size: 16px;
+      font-weight: 800;
+      color: #0a1931;
+    }
+
+    .clean-tag {
+      font-size: 12px;
+      font-weight: 700;
+      color: #0033a3;
+      background: #eff6ff;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .card-img-wrap {
+      background: #0a1931;
+      height: 270px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid #edf2f7;
+    }
+
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center top;
+      background: #ffffff;
+    }
+
+    .card-screen-body {
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .feature-points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .feature-points li {
+      font-size: 13.5px;
+      color: #334155;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.45;
+    }
+
+    .feature-points li::before {
+      content: "•";
+      color: #0033a3;
+      font-size: 18px;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    /* PURE CLEAN NOTE - NO BORDER LEFT, NO NEON COLOR */
+    .clean-note-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 12.5px;
+      color: #475569;
+      font-weight: 600;
+      line-height: 1.45;
+    }
+
+    /* OPS VERTICAL STACK (IN 4TH COLUMN) */
+    .ops-column {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      height: 100%;
+    }
+
+    .ops-box {
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      padding: 14px 16px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      flex-grow: 1;
+      box-shadow: 0 2px 10px rgba(0, 37, 112, 0.03);
+    }
+
+    .ops-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      background: #eff6ff;
+      color: #0033a3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .ops-info h4 {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: #0a1931;
+      margin-bottom: 3px;
+    }
+
+    .ops-info p {
+      font-size: 12px;
+      color: #475569;
+      line-height: 1.4;
+    }
+
+    .ops-tag {
+      display: inline-block;
+      margin-top: 5px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #0033a3;
+      background: #eff6ff;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    /* FOOTER BAR */
+    .footer-bar {
+      background: #040e21;
+      padding: 28px 70px;
+      color: #94a3b8;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #1e293b;
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .footer-logo {
+      height: 40px;
+      filter: brightness(0) invert(1);
+    }
+
+    .footer-brand h5 {
+      font-size: 15px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-brand p {
+      font-size: 12.5px;
+      color: #93c5fd;
+    }
+
+    .footer-right {
+      text-align: right;
+      font-size: 12.5px;
+      color: #94a3b8;
+      line-height: 1.5;
+    }
+
+    .footer-right strong {
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="master-landscape" id="landscape-poster">
+    
+    <!-- HEADER SECTION - FLORA BRAND BLUE GRADIENT -->
+    <header class="header-bar">
+      <div class="header-top">
+        <div class="logo-group">
+          <img src="../flora-theme/assets/ngayhoi_item/Logo-Flora1.webp" alt="Flora Logo" class="brand-logo">
+          <div class="brand-text">
+            <h1>NHA KHOA FLORA • DENTAL CLINIC</h1>
+            <p>Hệ Thống Y Khoa Kỹ Thuật Số & Vận Hành Affiliate Độc Quyền 2026</p>
+          </div>
+        </div>
+        <div class="meta-tag">
+          HỆ THỐNG VẬN HÀNH TOÀN DIỆN (LANDSCAPE ARCHITECTURE)
+        </div>
+      </div>
+
+      <div class="main-title-row">
+        <div class="title-left">
+          <h2>BẢN ĐỒ TÍNH NĂNG & GIAO DIỆN HỆ THỐNG AFFILIATE & VOUCHER</h2>
+          <p>Trực quan hóa toàn diện màn hình chức năng thực tế: Khách Hàng đặt mua & VietQR ACB • Đối Tác tiếp thị Portal • Quản Trị Trung Tâm Flora Admin.</p>
+        </div>
+        <div class="pills-strip">
+          <div class="pill"><span class="dot"></span> Webhook ACB 3s</div>
+          <div class="pill"><span class="dot"></span> Hoa Hồng 10% Tự Động</div>
+          <div class="pill"><span class="dot"></span> Khách Không Cần Gửi Bill</div>
+          <div class="pill"><span class="dot"></span> Rút Tiền Min 100k • Flora Duyệt</div>
+          <div class="pill"><span class="dot"></span> Chi Trả Napas 24/7</div>
+          <div class="pill"><span class="dot"></span> Chuẩn Y Khoa HIPAA</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTENT BODY - 3 ROWS -->
+    <main class="content-canvas">
+
+      <!-- ==============================================
+           ROW 1: PHÂN HỆ KHÁCH HÀNG (4 BƯỚC MUA VOUCHER)
+           ============================================== -->
+      <section>
+        <div class="sec-header">
+          <div class="sec-title-group">
+            <div class="sec-badge-num">01</div>
+            <div class="sec-title-text">
+              <h3>PHÂN HỆ KHÁCH HÀNG — ĐẶT VOUCHER, VIETQR ACB & TRA CỨU ĐƠN HÀNG</h3>
+              <p>Hành trình mua dịch vụ nha khoa tiện lợi, thanh toán tự động trong 3 giây không cần nhân viên duyệt thủ công</p>
+            </div>
+          </div>
+          <div class="sec-tag-right">Khách Hàng (Customer Journey)</div>
+        </div>
+
+        <div class="grid-4-row">
+          
+          <!-- Card 1: Checkout -->
+          <div class="card-screen">
+            <div class="card-screen-head">
+              <div class="card-step-box">
+                <span class="step-cir">1</span>
+                <span class="step-name">Đặt Mua Voucher</span>
+              </div>
+              <span class="clean-tag">Checkout Page</span>
+            </div>
+            <div class="card-img-wrap">
+              <img src="checkout_flora_screen.png" alt="Đặt Mua Voucher Flora">
+            </div>
+            <div class="card-screen-body">
+              <ul class="feature-points">
+                <li>Chọn gói dịch vụ: <strong>Care Plus (1.250k)</strong> hoặc <strong>White Up (2.650k)</strong>.</li>
+                <li>Tự động nhận diện mã giới thiệu Đối tác (Ref Code) qua link.</li>
+                <li>Thu thập thông tin đặt hẹn: Họ tên, Số điện thoại, Email.</li>
+              </ul>
+              <div class="clean-note-box">
+                Giao diện tối ưu chuyển đổi cao trên Mobile &amp; Desktop.
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: VietQR Modal -->
+          <div class="card-screen">
+            <div class="card-screen-head">
+              <div class="card-step-box">
+                <span class="step-cir">2</span>
+                <span class="step-name">VietQR Thanh Toán</span>
+              </div>
+              <span class="clean-tag">ACB Webhook 3s</span>
+            </div>
+            <div class="card-img-wrap">
+              <img src="vietqr_flora_modal.png" alt="Cổng Thanh Toán VietQR ACB">
+            </div>
+            <div class="card-screen-body">
+              <ul class="feature-points">
+                <li>Tạo mã VietQR động chứa chính xác số tiền và mã đơn hàng.</li>
+                <li>Đồng hồ đếm ngược 15 phút bảo vệ phiên giao dịch.</li>
+                <li><strong>Webhook ACB</strong> tự động xác thực trong 3 giây — Khách không cần gửi bill.</li>
+              </ul>
+              <div class="clean-note-box">
+                Tương thích 100% ứng dụng ngân hàng và ví điện tử.
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Email Voucher -->
+          <div class="card-screen">
+            <div class="card-screen-head">
+              <div class="card-step-box">
+                <span class="step-cir">3</span>
+                <span class="step-name">E-Voucher & Email</span>
+              </div>
+              <span class="clean-tag">Email Tức Thì</span>
+            </div>
+            <div class="card-img-wrap">
+              <img src="email_success_flora_real.png" alt="Email Voucher Flora">
+            </div>
+            <div class="card-screen-body">
+              <ul class="feature-points">
+                <li>Header chuẩn nhận diện thương hiệu Nha Khoa Flora.</li>
+                <li>Cấp mã Voucher định danh kèm <strong>mã QR check-in</strong> tại phòng khám.</li>
+                <li>Kèm cẩm nang chăm sóc răng miệng, bản đồ cơ sở và hotline.</li>
+              </ul>
+              <div class="clean-note-box">
+                Tự động gửi đến hòm thư khách hàng ngay khi tiền vào ACB.
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Order Tracking -->
+          <div class="card-screen">
+            <div class="card-screen-head">
+              <div class="card-step-box">
+                <span class="step-cir">4</span>
+                <span class="step-name">Tra Cứu Đơn Hàng</span>
+              </div>
+              <span class="clean-tag">Self-Service</span>
+            </div>
+            <div class="card-img-wrap">
+              <img src="order_tracking_screen.png" alt="Tra Cứu Đơn Hàng Online">
+            </div>
+            <div class="card-screen-body">
+              <ul class="feature-points">
+                <li>Cổng tra cứu trực tuyến dành riêng cho khách hàng (Self-Service).</li>
+                <li>Chỉ cần nhập Mã đơn hàng hoặc SĐT để xem trạng thái kích hoạt.</li>
+                <li>Hiển thị chi tiết hạn dùng và thông tin lịch hẹn đã đăng ký.</li>
+              </ul>
+              <div class="clean-note-box">
+                Giảm tải 80% áp lực hỗ trợ thủ công cho lễ tân phòng khám.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==============================================
+           ROW 2: PHÂN HỆ ĐỐI TÁC TIẾP THỊ (PORTAL 4 MODULE)
+           ============================================== -->
+      <section>
+        <div class="sec-header">
+          <div class="sec-title-group">
+            <div class="sec-badge-num">02</div>
+            <div class="sec-title-text">
+              <h3>PHÂN HỆ ĐỐI TÁC — CỔNG THÔNG TIN AFFILIATE PARTNER PORTAL</h3>
+              <p>Không gian làm việc số cho KOL, Bác sĩ & Đối tác: Theo dõi hoa hồng 10%, công cụ Link/QR Ref và rút tiền 24/7</p>
+            </div>
+          </div>
+          <div class="sec-tag-right">Đối Tác & KOL (Partner Portal)</div>
+        </div>
+
+        <div class="grid-4-row">
+          
+          <!-- Card 5: Portal Auth -->
+          <div class="card-screen">
+            <div class="card-screen-head">
+              <div class="card-step-box">
+                <span class="step-cir">5</span>
+                <span class="step-name">Đăng Nhập Đối Tác</span>
+              </div>
+              <span class="clean-tag">Partner Auth</span>
+            </div>
+            <div class="card-img-wrap">
+              <img src="portal_auth_screen.png" alt="Đăng Nhập Đối Tác">
+            </div>
+            <div class="card-screen-body">
+              <ul class="feature-points">
+                <li>Cổng xác thực độc lập, an toàn dành cho cộng tác viên và đối tác.</li>
+                <li>Đăng ký và kích hoạt nhanh chóng, phân quyền tự động.</li>
+                <li>Bảo mật tài khoản đa lớp, phân tách độc lập với khu quản trị.</li>
+              </ul>
+              <div class="clean-note-box">
+                Ghi nhớ đăng nhập an toàn, tương thích mọi thiết bị di động.
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6: Partner Dashboard -->
+          <div class="card-screen">
+            <div class="card-screen-head">
+              <div class="card-step-box">
+                <span class="step-cir">6</span>
+                <span class="step-name">Dashboard Thống Kê</span>
+              </div>
+              <span class="clean-tag">4 Chỉ Số Realtime</span>
+            </div>
+            <div class="card-img-wrap">
+              <img src="real_portal_dashboard.png" alt="Dashboard Đối Tác">
+            </div>
+            <div class="card-screen-body">
+              <ul class="feature-points">
+                <li>4 chỉ số realtime: <strong>Doanh số, Hoa hồng 10%, Đơn thành công, Clicks</strong>.</li>
+                <li>1-Click sao chép <strong>Đường link Ref độc quyền</strong> chia sẻ mạng xã hội.</li>
+                <li>Tải ngay <strong>Mã QR tiếp thị riêng</strong> in ấn đặt tại quầy hoặc standee.</li>
+              </ul>
+              <div class="clean-note-box">
+                Cập nhật hoa hồng tức thì ngay khi khách quét mã VietQR xong.
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 7: Ledger HIPAA -->
+          <div class="card-screen">
+            <div class="card-screen-head">
+              <div class="card-step-box">
+                <span class="step-cir">7</span>
+                <span class="step-name">Bảng Kê Doanh Thu</span>
+              </div>
+              <span class="clean-tag">Chuẩn HIPAA</span>
+            </div>
+            <div class="card-img-wrap">
+              <img src="real_ledger_table.png" alt="Bảng Kê Doanh Thu">
+            </div>
+            <div class="card-screen-body">
+              <ul class="feature-points">
+                <li>Bảng kê minh bạch từng giao dịch (Mã đơn hàng FT..., ngày giờ, số tiền).</li>
+                <li>Cộng hoa hồng chuẩn xác: <strong>+125.000đ (Care Plus)</strong> hoặc <strong>+265.000đ (White Up)</strong>.</li>
+                <li><strong>Tuân thủ chuẩn bảo mật Y khoa HIPAA</strong>: Ẩn danh bệnh án và SĐT khách hàng.</li>
+              </ul>
+              <div class="clean-note-box">
+                Bảo vệ quyền riêng tư người bệnh và uy tín y đức Flora.
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 8: Withdrawal Modals -->
+          <div class="card-screen">
+            <div class="card-screen-head">
+              <div class="card-step-box">
+                <span class="step-cir">8</span>
+                <span class="step-name">Tạo Lệnh Rút Tiền</span>
+              </div>
+              <span class="clean-tag">Min 100.000đ</span>
+            </div>
+            <div class="card-img-wrap" style="display: flex; gap: 4px; padding: 4px; background: #f1f5f9;">
+              <img src="real_withdrawal_modal.png" alt="Modal Rút Tiền" style="width: 50%; height: 100%; object-fit: contain;">
+              <img src="real_bank_update_modal.png" alt="Modal Đổi STK" style="width: 50%; height: 100%; object-fit: contain;">
+            </div>
+            <div class="card-screen-body">
+              <ul class="feature-points">
+                <li>Đối tác chủ động gửi lệnh rút tiền 24/7 trực tiếp trên Portal (Min 100.000đ).</li>
+                <li>Cập nhật tài khoản thụ hưởng ngân hàng chính chủ (ACB, VCB, MB,...).</li>
+                <li><strong>Flora đối soát & phê duyệt</strong>: Kế toán Flora kiểm tra trước khi chi trả Napas 24/7.</li>
+              </ul>
+              <div class="clean-note-box">
+                Chi trả nhanh chóng, loại bỏ hoàn toàn rủi ro sai sót tài khoản.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==============================================
+           ROW 3: HỆ THỐNG TRUNG TÂM FLORA (ADMIN & VẬN HÀNH)
+           ============================================== -->
+      <section>
+        <div class="sec-header">
+          <div class="sec-title-group">
+            <div class="sec-badge-num">03</div>
+            <div class="sec-title-text">
+              <h3>PHÂN HỆ TRUNG TÂM QUẢN TRỊ FLORA & HẠ TẦNG VẬN HÀNH TỰ ĐỘNG HÓA</h3>
+              <p>Màn hình Admin tổng hành dinh Nha Khoa Flora: Giám sát KOL, quản lý đơn hàng gói khám, đối soát và tự động hóa</p>
+            </div>
+          </div>
+          <div class="sec-tag-right">Quản Trị & Vận Hành (Flora Admin Central)</div>
+        </div>
+
+        <div class="grid-4-row">
+          
+          <!-- Card 9: Admin Dashboard KOLs -->
+          <div class="card-screen">
+            <div class="card-screen-head">
+              <div class="card-step-box">
+                <span class="step-cir">9</span>
+                <span class="step-name">Quản Lý KOL & Affiliate</span>
+              </div>
+              <span class="clean-tag">Admin Overview</span>
+            </div>
+            <div class="card-img-wrap">
+              <img src="real_flora_admin_dashboard.png" alt="Admin Dashboard Flora">
+            </div>
+            <div class="card-screen-body">
+              <ul class="feature-points">
+                <li>Giám sát mạng lưới KOL/Đối tác, cấp mã REF, trạng thái hoạt động.</li>
+                <li>Báo cáo 6 chỉ số: KOL hoạt động, clicks, đơn KOL, hoa hồng chi trả.</li>
+                <li>Quản lý lệnh rút tiền, kiểm tra STK ngân hàng và phê duyệt.</li>
+              </ul>
+              <div class="clean-note-box">
+                1-Click xuất toàn bộ dữ liệu ra Excel phục vụ kế toán thuế.
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 10: Admin Quản Lý Đơn Hàng Gói Dịch Vụ (ẢNH MỚI) -->
+          <div class="card-screen">
+            <div class="card-screen-head">
+              <div class="card-step-box">
+                <span class="step-cir">10</span>
+                <span class="step-name">Quản Lý Đơn Hàng Gói Dịch Vụ</span>
+              </div>
+              <span class="clean-tag">Order Management</span>
+            </div>
+            <div class="card-img-wrap">
+              <img src="real_admin_order_management.png" alt="Quản Lý Đơn Hàng Gói Dịch Vụ">
+            </div>
+            <div class="card-screen-body">
+              <ul class="feature-points">
+                <li>Xác thực chuyển khoản VietQR Ngân hàng ACB (77779268) tự động.</li>
+                <li>Theo dõi 4 thẻ thống kê: Tổng đơn, Đã thu, Chờ xác nhận, Hết hạn.</li>
+                <li>Đối soát cú pháp SĐT, kiểm tra minh chứng bill và thao tác Duyệt.</li>
+              </ul>
+              <div class="clean-note-box">
+                Tích hợp nút cấu hình ACB &amp; Zalo Bot, xuất file CSV tiện lợi.
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 11: Modal Chi Tiết KOL (ẢNH MỚI) -->
+          <div class="card-screen">
+            <div class="card-screen-head">
+              <div class="card-step-box">
+                <span class="step-cir">11</span>
+                <span class="step-name">Chi Tiết Đối Tác & Quyết Toán</span>
+              </div>
+              <span class="clean-tag">KOL Detail Modal</span>
+            </div>
+            <div class="card-img-wrap">
+              <img src="real_admin_kol_detail_modal.png" alt="Chi Tiết Đối Tác KOL">
+            </div>
+            <div class="card-screen-body">
+              <ul class="feature-points">
+                <li>Xem chi tiết từng ca điều trị: Invisalign 45tr, Implant 28tr, Sứ 15tr, Care Plus 2.5tr.</li>
+                <li>Cơ chế rõ ràng: "Chỉ tính hoa hồng thực nhận khi đơn đã thanh toán".</li>
+                <li>Hiển thị chuẩn STK thụ hưởng ACB: 77779268 (NGUYEN THU TRANG).</li>
+              </ul>
+              <div class="clean-note-box">
+                Nút chức năng Quyết toán và Xuất Excel KOL cho từng đối tác.
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 12: 4 Khối Vận Hành Kỹ Thuật (Cột thứ 4) -->
+          <div class="ops-column">
+            
+            <div class="ops-box">
+              <div class="ops-icon">🏦</div>
+              <div class="ops-info">
+                <h4>ACB Open Banking Webhook</h4>
+                <p>Khớp lệnh biến động số dư tự động trong <strong>3 giây</strong>, kích hoạt đơn hàng không cần soát bill.</p>
+                <span class="ops-tag">Xử lý tự động &lt; 3s</span>
+              </div>
+            </div>
+
+            <div class="ops-box">
+              <div class="ops-icon">💬</div>
+              <div class="ops-info">
+                <h4>Zalo Bot Realtime Alert</h4>
+                <p>Bắn thông báo tức thì về Zalo ngay khi có đơn mới hoặc yêu cầu rút tiền mới từ đối tác.</p>
+                <span class="ops-tag">Thông báo realtime</span>
+              </div>
+            </div>
+
+            <div class="ops-box">
+              <div class="ops-icon">⚡</div>
+              <div class="ops-info">
+                <h4>Chi Trả Napas 24/7 (Flora Duyệt)</h4>
+                <p>Kế toán Flora kiểm soát an toàn trước khi chuyển khoản Napas 24/7. Hạn mức rút tối thiểu 100.000đ.</p>
+                <span class="ops-tag">Flora đối soát duyệt</span>
+              </div>
+            </div>
+
+            <div class="ops-box">
+              <div class="ops-icon">🛡️</div>
+              <div class="ops-info">
+                <h4>Bảo Mật Y Khoa Chuẩn HIPAA</h4>
+                <p>Mã hóa dữ liệu bệnh án, ẩn danh SĐT người bệnh trên Portal để bảo vệ y đức và quyền riêng tư.</p>
+                <span class="ops-tag">Bảo mật y tế quốc tế</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer-bar">
+      <div class="footer-left">
+        <img src="../flora-theme/assets/ngayhoi_item/Logo-Flora1.webp" alt="Flora Logo" class="footer-logo">
+        <div class="footer-brand">
+          <h5>NHA KHOA FLORA • DENTAL CLINIC</h5>
+          <p>Hệ Thống Voucher Nha Khoa & Đối Tác Tiếp Thị Độc Quyền</p>
+        </div>
+      </div>
+      <div class="footer-right">
+        <p>Phiên bản hệ thống: <strong>Flora Affiliate & Voucher Hub v2.3.7</strong></p>
+        <p>Bản quyền tài liệu thuộc về <strong>Nha Khoa Flora</strong> • Phát hành chính thức 2026</p>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
