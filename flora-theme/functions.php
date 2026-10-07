@@ -141,6 +141,10 @@ function flora_asset($path) {
     if (strpos($clean_path, 'assets/') === 0) {
         $clean_path = substr($clean_path, 7);
     }
+    $theme_dir = get_template_directory();
+    if (!file_exists($theme_dir . '/assets/' . $clean_path) && file_exists($theme_dir . '/assets/assets/' . $clean_path)) {
+        return esc_url(get_template_directory_uri() . '/assets/assets/' . $clean_path);
+    }
     return esc_url(get_template_directory_uri() . '/assets/' . $clean_path);
 }
 

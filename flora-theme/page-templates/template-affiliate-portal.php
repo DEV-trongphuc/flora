@@ -6,8 +6,46 @@
 
 if (!defined('ABSPATH')) exit;
 
+// Chống cache tuyệt đối cho Cổng Đối Tác (LiteSpeed, Cloudflare, Object Cache, Browser)
+if (!defined('DONOTCACHEPAGE')) define('DONOTCACHEPAGE', true);
+if (!defined('DONOTCACHEDB'))   define('DONOTCACHEDB', true);
+if (!defined('DONOTMINIFY'))   define('DONOTMINIFY', true);
+if (function_exists('nocache_headers')) {
+    nocache_headers();
+}
+if (function_exists('do_action')) {
+    do_action('litespeed_control_set_nocache', 'Flora Affiliate Portal Dynamic Page');
+}
+
+// Xử lý Đăng xuất trực tiếp qua GET action=logout
+if (isset($_GET['action']) && $_GET['action'] === 'logout') {
+    $host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '';
+    $clean_host = preg_replace('/:\d+$/', '', $host);
+    $domains = array('', $host, '.' . $host, $clean_host, '.' . $clean_host);
+    foreach ($domains as $d) {
+        setcookie('flora_partner_token', '', time() - 86400, '/', $d, is_ssl(), false);
+        setcookie('flora_partner_token', '', time() - 86400, '/', $d, false, false);
+        setcookie('flora_partner_token', '', time() - 86400, '/', $d, true, true);
+        setcookie('flora_partner_token', '', time() - 86400, '/', $d, false, true);
+    }
+    if (isset($_COOKIE['flora_partner_token'])) {
+        unset($_COOKIE['flora_partner_token']);
+    }
+    // Redirect về trang đăng nhập kèm cờ logged_out=1 và timestamp chống cache
+    $redirect_url = add_query_arg(array('logged_out' => '1', '_t' => time()), home_url('/doi-tac/'));
+    wp_redirect($redirect_url);
+    exit;
+}
+
 // Xác thực Token từ URL hoặc Cookie phiên làm việc
-$token = isset($_GET['token']) ? sanitize_text_field($_GET['token']) : (isset($_GET['view_kol']) ? sanitize_text_field($_GET['view_kol']) : (isset($_COOKIE['flora_partner_token']) ? sanitize_text_field($_COOKIE['flora_partner_token']) : ''));
+if (isset($_GET['logged_out'])) {
+    $token = '';
+    if (isset($_COOKIE['flora_partner_token'])) {
+        unset($_COOKIE['flora_partner_token']);
+    }
+} else {
+    $token = isset($_GET['token']) ? sanitize_text_field($_GET['token']) : (isset($_GET['view_kol']) ? sanitize_text_field($_GET['view_kol']) : (isset($_COOKIE['flora_partner_token']) ? sanitize_text_field($_COOKIE['flora_partner_token']) : ''));
+}
 $kol = null;
 if (!empty($token) && function_exists('flora_affiliate_get_by_token')) {
     $found = flora_affiliate_get_by_token($token);
@@ -515,6 +553,8 @@ $comm_text = $kol ? (($kol['commission_type'] === 'fixed') ? number_format($kol[
             align-items: center;
             gap: 5px;
             white-space: nowrap !important;
+        }
+
         /* Zalo Bot Integration Card */
         .zalo-bot-card {
             background: #ffffff;
@@ -1141,6 +1181,34 @@ $comm_text = $kol ? (($kol['commission_type'] === 'fixed') ? number_format($kol[
 <body>
 
     <div class="portal-container">
+        <?php if (isset($_GET['logged_out'])): ?>
+            <!-- THÔNG BÁO ĐĂNG XUẤT THÀNH CÔNG -->
+            <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 12px; padding: 14px 20px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px; color: #166534; font-size: 0.95rem; box-shadow: 0 4px 12px rgba(22, 101, 52, 0.06);">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <i class="fa-solid fa-circle-check" style="font-size: 1.25rem; color: #16a34a;"></i>
+                    <span><strong>Đã đăng xuất thành công!</strong> Phiên làm việc của bạn đã kết thúc an toàn.</span>
+                </div>
+                <button type="button" onclick="this.parentElement.remove()" style="background: transparent; border: none; font-size: 1.3rem; cursor: pointer; color: #166534; line-height: 1;">&times;</button>
+            </div>
+            <script>
+                (function() {
+                    try {
+                        localStorage.removeItem('flora_partner_token');
+                        sessionStorage.removeItem('flora_partner_token');
+                        const h = window.location.hostname;
+                        ['', h, '.' + h].forEach(d => {
+                            const ds = d ? '; domain=' + d : '';
+                            document.cookie = "flora_partner_token=; path=/" + ds + "; max-age=0; expires=Thu, 01 Jan 1970 00:00:00 UTC; SameSite=Lax";
+                            document.cookie = "flora_partner_token=; path=/" + ds + "; max-age=0; expires=Thu, 01 Jan 1970 00:00:00 UTC; Secure; SameSite=Lax";
+                        });
+                        if (window.history && window.history.replaceState) {
+                            window.history.replaceState({}, document.title, window.location.pathname);
+                        }
+                    } catch(e) {}
+                })();
+            </script>
+        <?php endif; ?>
+
         <!-- TOP BRAND NAVIGATION -->
         <header class="portal-nav">
             <a href="<?php echo esc_url(home_url('/')); ?>" class="portal-logo" title="Trang chủ Nha Khoa Flora">
@@ -1157,9 +1225,9 @@ $comm_text = $kol ? (($kol['commission_type'] === 'fixed') ? number_format($kol[
                     <button type="button" class="btn-portal-action btn-portal-primary" onclick="openProfileModal()">
                         <i class="fa-solid fa-building-columns"></i> Cập Nhật STK / Hồ Sơ
                     </button>
-                    <button type="button" class="btn-portal-action btn-portal-logout" onclick="handlePartnerLogout()">
+                    <a href="<?php echo esc_url(add_query_arg('action', 'logout', home_url('/doi-tac/'))); ?>" class="btn-portal-action btn-portal-logout" onclick="return handlePartnerLogout(event);" style="text-decoration: none;">
                         <i class="fa-solid fa-right-from-bracket"></i> Đăng Xuất
-                    </button>
+                    </a>
                 <?php else: ?>
                     <a href="tel:02873058999" class="btn-portal-action" style="background: #f8fafc; color: #334155; border: 1px solid #e2e8f0;">
                         <i class="fa-solid fa-phone" style="color: #0033a3;"></i> <span>Hotline: <strong>028 7305 8999</strong></span>
@@ -2038,16 +2106,25 @@ $comm_text = $kol ? (($kol['commission_type'] === 'fixed') ? number_format($kol[
             }
         }
 
-        async function handlePartnerLogout() {
-            if (!confirm('Bạn có chắc chắn muốn đăng xuất khỏi Cổng Đối Tác?')) return;
-            document.cookie = "flora_partner_token=; path=/; max-age=0";
-            localStorage.removeItem('flora_partner_token');
+        function handlePartnerLogout(e) {
+            if (e && e.preventDefault) e.preventDefault();
+            if (!confirm('Bạn có chắc chắn muốn đăng xuất khỏi Cổng Đối Tác?')) {
+                return false;
+            }
             try {
-                const formData = new FormData();
-                formData.append('action', 'flora_ajax_partner_logout');
-                await fetch(AJAX_URL, { method: 'POST', body: formData });
-            } catch(e) {}
-            window.location.href = '<?php echo home_url('/doi-tac/'); ?>';
+                const h = window.location.hostname;
+                ['', h, '.' + h].forEach(d => {
+                    const ds = d ? '; domain=' + d : '';
+                    document.cookie = "flora_partner_token=; path=/" + ds + "; max-age=0; expires=Thu, 01 Jan 1970 00:00:00 UTC; SameSite=Lax";
+                    document.cookie = "flora_partner_token=; path=/" + ds + "; max-age=0; expires=Thu, 01 Jan 1970 00:00:00 UTC; Secure; SameSite=Lax";
+                });
+                localStorage.removeItem('flora_partner_token');
+                sessionStorage.removeItem('flora_partner_token');
+            } catch(err) {}
+
+            const logoutUrl = '<?php echo esc_url(add_query_arg(array('action' => 'logout', '_t' => time()), home_url('/doi-tac/'))); ?>';
+            window.location.replace(logoutUrl);
+            return false;
         }
 
         function openProfileModal() {

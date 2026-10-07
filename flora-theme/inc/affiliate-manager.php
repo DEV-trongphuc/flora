@@ -1048,9 +1048,29 @@ function flora_handle_seapay_webhook($request) {
  * ─────────────────────────────────────────────────────────────────────────────
  */
 function flora_register_affiliates_admin_menu() {
+    global $wpdb;
+    $aff_tbl = flora_get_affiliates_table_name();
+    $payout_tbl = flora_get_affiliate_payouts_table_name();
+
+    $pending_aff_cnt = 0;
+    if ($wpdb->get_var("SHOW TABLES LIKE '$aff_tbl'") == $aff_tbl) {
+        $pending_aff_cnt = (int)$wpdb->get_var("SELECT COUNT(*) FROM $aff_tbl WHERE status = 'pending'");
+    }
+
+    $pending_payout_cnt = 0;
+    if ($wpdb->get_var("SHOW TABLES LIKE '$payout_tbl'") == $payout_tbl) {
+        $pending_payout_cnt = (int)$wpdb->get_var("SELECT COUNT(*) FROM $payout_tbl WHERE status = 'requested'");
+    }
+
+    $total_notif = $pending_aff_cnt + $pending_payout_cnt;
+    $menu_title = 'KOL / Affiliate';
+    if ($total_notif > 0) {
+        $menu_title .= ' <span class="update-plugins count-' . $total_notif . '"><span class="plugin-count">' . $total_notif . '</span></span>';
+    }
+
     add_menu_page(
         'Quản Lý Affiliate & KOL - Flora Clinic',
-        'KOL / Affiliate',
+        $menu_title,
         'manage_options',
         'flora-affiliates',
         'flora_render_affiliates_admin_page',
@@ -1058,21 +1078,20 @@ function flora_register_affiliates_admin_menu() {
         5.2
     );
 
+    $kols_sub_title = 'Tổng Quan & KOLs';
+    if ($pending_aff_cnt > 0) {
+        $kols_sub_title .= " <span class='awaiting-mod count-$pending_aff_cnt' style='background:#b45309;color:#ffffff;border-radius:9999px;padding:2px 7px;font-size:10px;font-weight:700;'>$pending_aff_cnt</span>";
+    }
+
     add_submenu_page(
         'flora-affiliates',
         'Tổng Quan & Danh Sách KOL',
-        'Tổng Quan & KOLs',
+        $kols_sub_title,
         'manage_options',
         'flora-affiliates',
         'flora_render_affiliates_admin_page'
     );
 
-    global $wpdb;
-    $payout_tbl = flora_get_affiliate_payouts_table_name();
-    $pending_payout_cnt = 0;
-    if ($wpdb->get_var("SHOW TABLES LIKE '$payout_tbl'") == $payout_tbl) {
-        $pending_payout_cnt = (int)$wpdb->get_var("SELECT COUNT(*) FROM $payout_tbl WHERE status = 'requested'");
-    }
     $payout_badge = $pending_payout_cnt > 0 ? " <span class='awaiting-mod count-$pending_payout_cnt' style='background:#d97706;color:#ffffff;border-radius:9999px;padding:2px 7px;font-size:10px;font-weight:700;'>$pending_payout_cnt</span>" : '';
 
     add_submenu_page(
@@ -2566,16 +2585,21 @@ function flora_ajax_partner_login() {
         wp_send_json_error(array('message' => 'Tài khoản đối tác đang tạm ngưng hoạt động. Vui lòng liên hệ hỗ trợ.'));
     }
 
-    // Lưu cookie xác thực đối tác trong 30 ngày
+    // Lưu cookie xác thực đối tác trong 30 ngày (xử lý domain đa nền tảng)
     $max_age = 30 * 24 * 60 * 60;
+    $host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '';
+    $clean_host = preg_replace('/:\d+$/', '', $host);
     setcookie('flora_partner_token', $kol['secret_token'], time() + $max_age, '/', '', is_ssl(), false);
+    if (!empty($clean_host)) {
+        setcookie('flora_partner_token', $kol['secret_token'], time() + $max_age, '/', $clean_host, is_ssl(), false);
+    }
 
     wp_send_json_success(array(
         'message'      => 'Đăng nhập thành công!',
         'token'        => $kol['secret_token'],
         'name'         => $kol['name'],
         'ref_code'     => $kol['ref_code'],
-        'redirect_url' => home_url('/doi-tac/?token=' . $kol['secret_token'])
+        'redirect_url' => home_url('/doi-tac/')
     ));
 }
 
@@ -2585,8 +2609,36 @@ function flora_ajax_partner_login() {
 add_action('wp_ajax_flora_ajax_partner_logout', 'flora_ajax_partner_logout');
 add_action('wp_ajax_nopriv_flora_ajax_partner_logout', 'flora_ajax_partner_logout');
 function flora_ajax_partner_logout() {
-    setcookie('flora_partner_token', '', time() - 3600, '/', '', is_ssl(), false);
-    wp_send_json_success(array('redirect_url' => home_url('/doi-tac/')));
+    $host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '';
+    $clean_host = preg_replace('/:\d+$/', '', $host);
+    $domains = array('', $host, '.' . $host, $clean_host, '.' . $clean_host);
+    foreach ($domains as $d) {
+        setcookie('flora_partner_token', '', time() - 86400, '/', $d, is_ssl(), false);
+        setcookie('flora_partner_token', '', time() - 86400, '/', $d, false, false);
+    }
+    if (isset($_COOKIE['flora_partner_token'])) {
+        unset($_COOKIE['flora_partner_token']);
+    }
+    wp_send_json_success(array('redirect_url' => add_query_arg(array('logged_out' => '1', '_t' => time()), home_url('/doi-tac/'))));
+}
+
+/**
+ * Vô hiệu hóa Cache tuyệt đối cho Cổng Đối Tác (LiteSpeed, Cloudflare, Object Cache)
+ */
+add_action('template_redirect', 'flora_affiliate_disable_portal_cache');
+function flora_affiliate_disable_portal_cache() {
+    $uri = $_SERVER['REQUEST_URI'] ?? '';
+    if (strpos($uri, '/doi-tac') !== false || strpos($uri, '/dang-ky-doi-tac') !== false) {
+        if (!defined('DONOTCACHEPAGE')) define('DONOTCACHEPAGE', true);
+        if (!defined('DONOTCACHEDB'))   define('DONOTCACHEDB', true);
+        if (!defined('DONOTMINIFY'))   define('DONOTMINIFY', true);
+        if (function_exists('nocache_headers')) {
+            nocache_headers();
+        }
+        if (function_exists('do_action')) {
+            do_action('litespeed_control_set_nocache', 'Flora Dynamic Portal');
+        }
+    }
 }
 
 /**
