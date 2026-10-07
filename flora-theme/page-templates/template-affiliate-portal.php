@@ -515,7 +515,107 @@ $comm_text = $kol ? (($kol['commission_type'] === 'fixed') ? number_format($kol[
             align-items: center;
             gap: 5px;
             white-space: nowrap !important;
-            letter-spacing: 0.3px;
+        /* Zalo Bot Integration Card */
+        .zalo-bot-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0, 51, 163, 0.04);
+            border: 1px solid var(--flora-border);
+            margin-bottom: 24px;
+        }
+        .zalo-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+        .zalo-badge-connected {
+            background: #dcfce7;
+            color: #15803d;
+            border: 1px solid #bbf7d0;
+            padding: 5px 12px;
+            border-radius: 9999px;
+            font-size: 0.76rem;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .zalo-badge-disconnected {
+            background: #fef3c7;
+            color: #b45309;
+            border: 1px solid #fde68a;
+            padding: 5px 12px;
+            border-radius: 9999px;
+            font-size: 0.76rem;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .zalo-action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 14px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            border: 1px solid #cbd5e1;
+            background: #ffffff;
+            color: #1e293b;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+        .zalo-action-btn:hover {
+            background: #f8fafc;
+            border-color: #94a3b8;
+        }
+        .zalo-action-btn.btn-primary-blue {
+            background: #0033a3;
+            color: #ffffff;
+            border-color: #0033a3;
+        }
+        .zalo-action-btn.btn-primary-blue:hover {
+            background: #002277;
+        }
+        .zalo-syntax-box {
+            background: #f8fafc;
+            border: 1px dashed #cbd5e1;
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 14px;
+        }
+        .zalo-commands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+            margin-top: 16px;
+        }
+        .zalo-cmd-item {
+            background: #f8fafc;
+            border: 1px solid #f1f5f9;
+            border-radius: 10px;
+            padding: 10px 14px;
+            font-size: 0.82rem;
+            color: #475569;
+        }
+        .zalo-cmd-code {
+            font-family: monospace;
+            font-weight: 800;
+            color: #0033a3;
+            background: #eff6ff;
+            padding: 2px 6px;
+            border-radius: 4px;
         }
 
         /* Modal Styles */
@@ -1341,6 +1441,110 @@ $comm_text = $kol ? (($kol['commission_type'] === 'fixed') ? number_format($kol[
                 </div>
             </section>
 
+            <!-- ZALO BOT NOTIFICATION INTEGRATION (2 CHIỀU) -->
+            <section class="zalo-bot-card">
+                <div class="zalo-card-header">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <div style="width: 40px; height: 40px; background: #e0f2fe; color: #0284c7; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">
+                            <i class="fa-solid fa-bell"></i>
+                        </div>
+                        <div>
+                            <h3 style="color: var(--flora-primary); font-size: 1.15rem; font-weight: 800; margin: 0;">
+                                Thông Báo Zalo Bot Tự Động (2 Chiều)
+                            </h3>
+                            <p style="color: #64748b; font-size: 0.84rem; margin: 0;">
+                                Nhận tin nhắn thông báo tức thì khi đơn hàng được duyệt thanh toán & kết quả phiếu rút tiền hoa hồng
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <?php if (!empty($kol['zalo_chat_id'])): ?>
+                            <span class="zalo-badge-connected">
+                                <i class="fa-solid fa-circle-check"></i> ĐÃ LIÊN KẾT ZALO BOT
+                            </span>
+                        <?php else: ?>
+                            <span class="zalo-badge-disconnected">
+                                <i class="fa-solid fa-circle-exclamation"></i> CHƯA LIÊN KẾT ZALO BOT
+                            </span>
+                        <?php endif; ?>
+                    </div>
+                </div>
+
+                <?php if (!empty($kol['zalo_chat_id'])): ?>
+                    <!-- KHI ĐÃ LIÊN KẾT -->
+                    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px;">
+                        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+                            <div>
+                                <div style="font-size: 0.88rem; color: #0f172a; font-weight: 700;">
+                                    Tài khoản Zalo nhận thông báo: <code style="color: #0033a3; background: #eff6ff; padding: 2px 8px; border-radius: 6px;"><?php echo esc_html($kol['zalo_chat_id']); ?></code>
+                                </div>
+                                <div style="font-size: 0.8rem; color: #16a34a; margin-top: 4px;">
+                                    <i class="fa-solid fa-shield-check"></i> Đang hoạt động: Tự động rung chuông khi có đơn được duyệt thanh toán thành công và khi nhận tiền chuyển khoản.
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                                <button type="button" class="zalo-action-btn btn-primary-blue" onclick="handleTestZaloBot()">
+                                    <i class="fa-solid fa-paper-plane"></i> Gửi Thử Thông Báo Test
+                                </button>
+                                <button type="button" class="zalo-action-btn" onclick="openZaloModal()">
+                                    <i class="fa-solid fa-gear"></i> Đổi Zalo
+                                </button>
+                                <button type="button" class="zalo-action-btn" onclick="handleUnlinkZaloBot()" style="color: #dc2626; border-color: #fecaca;">
+                                    <i class="fa-solid fa-link-slash"></i> Hủy
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- CÚ PHÁP TRA CỨU 2 CHIỀU -->
+                        <div style="margin-top: 14px; padding-top: 12px; border-top: 1px dashed #cbd5e1;">
+                            <div style="font-size: 0.8rem; font-weight: 700; color: #475569; text-transform: uppercase; margin-bottom: 8px;">
+                                <i class="fa-solid fa-terminal"></i> Tra Cứu Chủ Động Qua Zalo Bot (Nhắn tin trực tiếp cho Bot):
+                            </div>
+                            <div class="zalo-commands-grid">
+                                <div class="zalo-cmd-item">
+                                    Soạn <span class="zalo-cmd-code">SODU</span> &rarr; Xem số dư khả dụng, chờ duyệt & tổng hoa hồng.
+                                </div>
+                                <div class="zalo-cmd-item">
+                                    Soạn <span class="zalo-cmd-code">LINK</span> &rarr; Lấy lại đường link giới thiệu & mã voucher riêng.
+                                </div>
+                                <div class="zalo-cmd-item">
+                                    Soạn <span class="zalo-cmd-code">HOTRO</span> &rarr; Kết nối đường dây nóng chuyên viên hỗ trợ Flora.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php else: ?>
+                    <!-- KHI CHƯA LIÊN KẾT -->
+                    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 18px;">
+                        <p style="font-size: 0.88rem; color: #334155; margin-bottom: 12px; line-height: 1.5;">
+                            Liên kết Zalo Bot giúp Quý đối tác nhận thông báo ngay trong tích tắc khi:
+                            <br>• <strong>Đơn hàng từ link giới thiệu ĐƯỢC DUYỆT THÀNH CÔNG</strong> (kèm chi tiết gói khám và số tiền hoa hồng).
+                            <br>• <strong>Kết quả chuyển khoản ngân hàng</strong> khi bạn gửi phiếu yêu cầu rút tiền hoa hồng.
+                        </p>
+
+                        <div class="zalo-syntax-box">
+                            <div>
+                                <div style="font-size: 0.78rem; font-weight: 800; color: #0033a3; text-transform: uppercase; margin-bottom: 4px;">
+                                    👉 CÁCH LIÊN KẾT NHANH NHẤT (1 CHẠM):
+                                </div>
+                                <div style="font-size: 0.86rem; color: #1e293b;">
+                                    Mở Zalo Bot Flora và gửi tin nhắn:
+                                    <code id="syntaxRefCode" style="font-size: 1.05rem; font-weight: 800; color: #0033a3; background: #eff6ff; padding: 4px 10px; border-radius: 6px; margin: 0 4px; border: 1px solid #bfdbfe;">LINK <?php echo esc_html($kol['ref_code']); ?></code>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <button type="button" class="zalo-action-btn" onclick="copyZaloSyntax('LINK <?php echo esc_js($kol['ref_code']); ?>')">
+                                    <i class="fa-regular fa-copy"></i> Sao Chép Cú Pháp
+                                </button>
+                                <button type="button" class="zalo-action-btn btn-primary-blue" onclick="openZaloModal()">
+                                    <i class="fa-solid fa-pen-to-square"></i> Nhập Chat ID Thủ Công
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            </section>
+
             <!-- ORDERS LIST -->
             <section class="data-card">
                 <div class="data-header">
@@ -1630,6 +1834,42 @@ $comm_text = $kol ? (($kol['commission_type'] === 'fixed') ? number_format($kol[
                 </div>
             </div>
 
+            <!-- MODAL: KẾT NỐI / ĐỔI ZALO BOT CHAT ID -->
+            <div id="modalZaloBotConnect" class="portal-modal">
+                <div class="portal-modal-content" style="max-width: 500px;">
+                    <button type="button" class="portal-modal-close" onclick="closeZaloModal()">&times;</button>
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                        <div style="width: 44px; height: 44px; background: #eff6ff; color: #0033a3; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem;">
+                            <i class="fa-solid fa-link"></i>
+                        </div>
+                        <div>
+                            <h3 style="color: #0033a3; font-size: 1.2rem; font-weight: 800; margin: 0;">Cài Đặt Zalo Bot Thông Báo</h3>
+                            <p style="font-size: 0.82rem; color: #64748b; margin: 0;">Nhận tin báo đơn được duyệt và kết quả rút tiền</p>
+                        </div>
+                    </div>
+
+                    <form id="formUpdateZaloBot" onsubmit="handleSaveZaloChatId(event)">
+                        <input type="hidden" name="token" value="<?php echo esc_attr($kol['secret_token']); ?>">
+
+                        <div class="auth-input-group" style="margin-top: 16px;">
+                            <label class="auth-label">Chat ID Zalo Của Bạn (*):</label>
+                            <input type="text" name="chat_id" id="inputZaloChatId" class="auth-input" required value="<?php echo esc_attr($kol['zalo_chat_id']); ?>" placeholder="Vd: 394484717784... hoặc zgr-b5a415...">
+                            <span style="font-size: 0.78rem; color: #64748b; margin-top: 6px; display: block; line-height: 1.45;">
+                                💡 <strong>Cách lấy Chat ID:</strong> Bạn chỉ cần mở Zalo Bot Flora và gõ <code>/chatid</code> (Bot sẽ gửi ngay ID của bạn), hoặc đơn giản hơn là gửi trực tiếp <code>LINK <?php echo esc_html($kol['ref_code']); ?></code> cho Bot.
+                            </span>
+                        </div>
+
+                        <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 12px; margin: 16px 0; font-size: 0.8rem; color: #166534; line-height: 1.45;">
+                            <i class="fa-solid fa-circle-check"></i> Sau khi lưu, hệ thống sẽ tự động gửi 1 tin nhắn chào mừng và xác nhận kết nối vào Zalo của bạn.
+                        </div>
+
+                        <button type="submit" id="btnSaveZaloChatId" class="btn-auth-submit">
+                            <i class="fa-solid fa-floppy-disk"></i> LƯU & XÁC NHẬN KẾT NỐI
+                        </button>
+                    </form>
+                </div>
+            </div>
+
             <!-- FOOTER INFO -->
             <footer style="text-align: center; color: #94a3b8; font-size: 0.85rem; padding: 20px 0;">
                 <p>Mạng Lưới Tiếp Thị Liên Kết & Đối Tác Nha Khoa Flora - Tiêu Chuẩn Thụy Sĩ</p>
@@ -1861,6 +2101,104 @@ $comm_text = $kol ? (($kol['commission_type'] === 'fixed') ? number_format($kol[
                     btn.disabled = false;
                     btn.innerHTML = origHtml;
                 }
+            }
+        }
+
+        // ─── XỬ LÝ LIÊN KẾT & TEST ZALO BOT ───
+        function openZaloModal() {
+            const modal = document.getElementById('modalZaloBotConnect');
+            if (modal) modal.style.display = 'flex';
+        }
+
+        function closeZaloModal() {
+            const modal = document.getElementById('modalZaloBotConnect');
+            if (modal) modal.style.display = 'none';
+        }
+
+        function copyZaloSyntax(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Đã sao chép cú pháp: "' + text + '"!\n\nBây giờ bạn chỉ cần mở Zalo Bot Flora và gửi tin nhắn này để kích hoạt liên kết tự động.');
+            }).catch(() => {
+                prompt('Sao chép cú pháp:', text);
+            });
+        }
+
+        async function handleSaveZaloChatId(e) {
+            e.preventDefault();
+            const form = document.getElementById('formUpdateZaloBot');
+            const btn = document.getElementById('btnSaveZaloChatId');
+            const origText = btn.innerHTML;
+
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang kết nối...';
+
+            const formData = new FormData(form);
+            formData.append('action', 'flora_ajax_partner_update_zalo');
+
+            try {
+                const res = await fetch(AJAX_URL, { method: 'POST', body: formData });
+                const data = await res.json();
+                if (data.success) {
+                    alert(data.data.message || 'Liên kết Zalo Bot thành công!');
+                    closeZaloModal();
+                    location.reload();
+                } else {
+                    alert('Lỗi: ' + (data.data ? data.data.message : 'Không thể lưu Chat ID'));
+                    btn.disabled = false;
+                    btn.innerHTML = origText;
+                }
+            } catch(err) {
+                alert('Lỗi kết nối máy chủ!');
+                btn.disabled = false;
+                btn.innerHTML = origText;
+            }
+        }
+
+        async function handleTestZaloBot() {
+            const token = '<?php echo esc_js($kol['secret_token'] ?? ''); ?>';
+            if (!token) return;
+
+            if (!confirm('Gửi một thông báo thử nghiệm mẫu vào Zalo của bạn ngay bây giờ?')) return;
+
+            const formData = new FormData();
+            formData.append('action', 'flora_ajax_partner_test_zalo');
+            formData.append('token', token);
+
+            try {
+                const res = await fetch(AJAX_URL, { method: 'POST', body: formData });
+                const data = await res.json();
+                if (data.success) {
+                    alert('🔔 ' + (data.data ? data.data.message : 'Đã gửi thông báo test thành công!'));
+                } else {
+                    alert('⚠️ ' + (data.data ? data.data.message : 'Không thể gửi test'));
+                }
+            } catch(e) {
+                alert('Lỗi kết nối máy chủ!');
+            }
+        }
+
+        async function handleUnlinkZaloBot() {
+            const token = '<?php echo esc_js($kol['secret_token'] ?? ''); ?>';
+            if (!token) return;
+
+            if (!confirm('Bạn có chắc chắn muốn hủy liên kết Zalo Bot? Sau khi hủy, bạn sẽ không nhận được thông báo Zalo khi có đơn duyệt hay rút tiền.')) return;
+
+            const formData = new FormData();
+            formData.append('action', 'flora_ajax_partner_update_zalo');
+            formData.append('token', token);
+            formData.append('chat_id', '');
+
+            try {
+                const res = await fetch(AJAX_URL, { method: 'POST', body: formData });
+                const data = await res.json();
+                if (data.success) {
+                    alert('Đã hủy liên kết Zalo Bot thành công.');
+                    location.reload();
+                } else {
+                    alert('Lỗi: ' + (data.data ? data.data.message : 'Không thể hủy liên kết'));
+                }
+            } catch(e) {
+                alert('Lỗi kết nối máy chủ!');
             }
         }
     </script>

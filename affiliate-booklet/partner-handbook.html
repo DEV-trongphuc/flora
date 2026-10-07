@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cẩm Nang Hợp Tác Chiến Lược Dành Cho Đối Tác & KOL | Nha Khoa Flora</title>
+  <meta name="description" content="Cẩm nang hướng dẫn toàn diện dành riêng cho Đối Tác, KOL, Reviewer: Chính sách hoa hồng 10%, Hướng dẫn Cổng Portal, Rút tiền Napas 24/7 và Kho tài nguyên tiếp thị Nha Khoa Flora.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../flora-theme/assets/ngayhoi_item/Logo-Flora1.webp">
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Booklet Portrait Stylesheet (A4 Dọc - Luxury Editorial) -->
+  <link rel="stylesheet" href="booklet-portrait.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       TOP NAVIGATION & CONTROLS DOCK (DESKTOP BAR)
+       ========================================================================== -->
+  <header class="booklet-nav-header">
+    <a href="#" class="brand-badge" title="Nha Khoa Flora">
+      <img src="../flora-theme/assets/ngayhoi_item/Logo-Flora1.webp" alt="Nha Khoa Flora Logo">
+      <div class="brand-title-group">
+        <span class="name">NHA KHOA FLORA</span>
+        <span class="sub">CẨM NANG DÀNH CHO ĐỐI TÁC &amp; KOL 2026</span>
+      </div>
+    </a>
+
+    <div class="booklet-controls">
+      <button class="ctrl-btn" id="btnPrevPage" title="Trang trước (Phím mũi tên trái)">
+        <i class="fa-solid fa-chevron-left"></i>
+        <span>Trang Trước</span>
+      </button>
+
+      <div class="page-indicator" id="pageIndicator">
+        Trang <span id="currentPageNum">01</span> / 10
+      </div>
+
+      <button class="ctrl-btn" id="btnNextPage" title="Trang sau (Phím mũi tên phải hoặc Space)">
+        <span>Trang Sau</span>
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+
+      <div style="width: 1px; height: 22px; background: var(--c-border); margin: 0 4px;"></div>
+
+      <button class="ctrl-btn btn-primary" onclick="window.print()" title="In ấn hoặc Lưu PDF A4">
+        <i class="fa-solid fa-file-pdf"></i>
+        <span>In / Xuất PDF A4</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       BOOKLET VIEWPORT (10 TRANG A4 DỌC DÀNH CHO ĐỐI TÁC & KOL)
+       ========================================================================== -->
+  <main class="booklet-viewport" id="bookletContainer">
+
+    <!-- ==========================================================================
+         TRANG 01: BÌA CHÍNH DÀNH RIÊNG CHO ĐỐI TÁC & KOL
+         ========================================================================== -->
+    <article class="booklet-page brand-cover" id="page-1" data-page="1">
+      <!-- Header Bìa -->
+      <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px;">
+        <span style="font-family: var(--font-display); font-size: 11.5px; font-weight: 700; letter-spacing: 1.5px; color: #bae6fd; text-transform: uppercase;">
+          FLORA DENTAL CLINIC • TP. HỒ CHÍ MINH
+        </span>
+        <span style="font-family: var(--font-display); font-size: 11px; font-weight: 700; letter-spacing: 1px; color: #fde047; text-transform: uppercase;">
+          BẢN ĐỐI TÁC CHIẾN LƯỢC 2026
+        </span>
+      </div>
+
+      <!-- Khối Chính Diện Bìa -->
+      <div style="text-align: center; display: flex; flex-direction: column; align-items: center; padding: 24px 0;">
+        <img src="../flora-theme/assets/ngayhoi_item/Logo-Flora1.webp" alt="Nha Khoa Flora Logo" class="cover-logo-white">
+        
+        <div style="margin-top: 26px;">
+          <div class="cover-kicker">TIÊU CHUẨN NHA KHOA THỤY SĨ • SWISS DENTAL STANDARD</div>
+          <h1 class="cover-hero-title">
+            CẨM NANG HỢP TÁC CHIẾN LƯỢC<br>
+            <span style="color: #fde047;">DÀNH CHO ĐỐI TÁC &amp; KOL</span>
+          </h1>
+          <p class="cover-hero-desc" style="margin: 0 auto; max-width: 820px;">
+            Tài liệu hướng dẫn toàn diện dành cho <strong>Đối Tác, KOL, Reviewer và Nhà sáng tạo nội dung</strong> đồng hành cùng Nha Khoa Flora. Hướng dẫn chi tiết chính sách hoa hồng 10% trọn đời, cách lấy Link &amp; Mã QR độc quyền, theo dõi doanh thu thời gian thực và rút tiền 24/7 về tài khoản ngân hàng.
+          </p>
+        </div>
+      </div>
+
+      <!-- 4 Thẻ Tính Năng Kính Mờ (Glassmorphism Luxury) -->
+      <div class="grid-2col" style="gap: 16px;">
+        <div class="glass-card-cover">
+          <div class="glass-card-title">
+            <i class="fa-solid fa-percent" style="color: #fde047; font-size: 17px;"></i>
+            <span>Hoa Hồng 10% Trọn Đời</span>
+          </div>
+          <div class="glass-card-desc">
+            Nhận 10% hoa hồng trên viện phí thực thu của mọi ca điều trị. Ghi nhận minh bạch và tức thì ngay khi ca khám hoàn tất.
+          </div>
+        </div>
+
+        <div class="glass-card-cover">
+          <div class="glass-card-title">
+            <i class="fa-solid fa-chart-line" style="color: #fde047; font-size: 17px;"></i>
+            <span>Cổng Portal Trực Quan 24/7</span>
+          </div>
+          <div class="glass-card-desc">
+            Kiểm soát 4 chỉ số tài chính, lượt click, tỷ lệ chuyển đổi và danh sách khách hàng giới thiệu theo thời gian thực.
+          </div>
+        </div>
+
+        <div class="glass-card-cover">
+          <div class="glass-card-title">
+            <i class="fa-solid fa-money-bill-transfer" style="color: #fde047; font-size: 17px;"></i>
+            <span>Rút Tiền Napas 24/7 Từ 100k</span>
+          </div>
+          <div class="glass-card-desc">
+            Chủ động tạo lệnh rút tiền từ 100.000 VNĐ. Tự do cập nhật STK ngân hàng chính chủ, Flora duyệt chi nhanh, 0 VNĐ phí.
+          </div>
+        </div>
+
+        <div class="glass-card-cover">
+          <div class="glass-card-title">
+            <i class="fa-solid fa-photo-film" style="color: #fde047; font-size: 17px;"></i>
+            <span>Media Kit &amp; Hỗ Trợ 1:1</span>
+          </div>
+          <div class="glass-card-desc">
+            Cung cấp miễn phí kho hình ảnh, video bác sĩ CKI và banner chiến dịch. Chuyên viên Flora đồng hành hỗ trợ riêng.
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bìa Trước -->
+      <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 24px; font-size: 11px; color: #bae6fd;">
+        <span>NHA KHOA FLORA © 2026 • CHUẨN MỰC NHA KHOA THỤY SĨ</span>
+        <span style="font-weight: 700; color: #ffffff;">TÀI LIỆU DÀNH RIÊNG CHO ĐỐI TÁC &amp; KOL</span>
+        <span>TRANG 01 / 10</span>
+      </div>
+    </article>
+
+    <!-- ==========================================================================
+         TRANG 02: MỤC LỤC & 3 BƯỚC BẮT ĐẦU CÙNG FLORA
+         ========================================================================== -->
+    <article class="booklet-page" id="page-2" data-page="2">
+      <header class="page-masthead">
+        <div class="masthead-left">
+          <img src="../flora-theme/assets/ngayhoi_item/Logo-Flora1.webp" alt="Flora Logo" class="masthead-logo">
+          <span class="masthead-tag">TỔNG QUAN HỢP TÁC</span>
+          <span class="masthead-divider"></span>
+          <span class="masthead-section-title">QUYỀN LỢI &amp; HÀNH TRÌNH 3 BƯỚC</span>
+        </div>
+        <div class="masthead-right">
+          <span class="clean-meta-label">BẢN ĐỐI TÁC 2026</span>
+        </div>
+      </header>
+
+      <div class="page-body">
+        <div class="page-title-group">
+          <h2 class="page-title">Hành Trình 3 Bước Hợp Tác &amp; Mục Lục Cẩm Nang</h2>
+          <p class="page-subtitle">Khởi đầu thuận lợi cùng Nha Khoa Flora: Tối ưu thu nhập thụ động bền vững chỉ với 3 thao tác đơn giản.</p>
+        </div>
+
+        <!-- 3 Cột Quy Trình Bắt Đầu -->
+        <div class="grid-3col">
+          <div class="card-clean" style="border: 1px solid #e2e8f0; padding: 22px 24px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+              <div style="width: 38px; height: 38px; border-radius: 8px; background: #0033a3; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 800;">
+                1
+              </div>
+              <div>
+                <span class="kicker-tag" style="font-size: 10px; color: #0033a3;">BƯỚC 01</span>
+                <div style="font-size: 16px; font-weight: 800; color: #0a1931;">ĐĂNG KÝ &amp; NHẬN MÃ</div>
+              </div>
+            </div>
+            <div style="font-size: 13px; color: #475569; line-height: 1.6; display: flex; flex-direction: column; gap: 6px;">
+              <div>• Truy cập <code>nhakhoaflora.com/doi-tac/</code></div>
+              <div>• Điền thông tin trong 1 phút để tạo tài khoản</div>
+              <div>• Nhận ngay <strong>Link &amp; Mã QR độc quyền</strong></div>
+            </div>
+          </div>
+
+          <div class="card-clean" style="border: 1px solid #e2e8f0; padding: 22px 24px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+              <div style="width: 38px; height: 38px; border-radius: 8px; background: #059669; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 800;">
+                2
+              </div>
+              <div>
+                <span class="kicker-tag" style="font-size: 10px; color: #059669;">BƯỚC 02</span>
+                <div style="font-size: 16px; font-weight: 800; color: #0a1931;">CHIA SẺ &amp; LAN TỎA</div>
+              </div>
+            </div>
+            <div style="font-size: 13px; color: #475569; line-height: 1.6; display: flex; flex-direction: column; gap: 6px;">
+              <div>• Gắn link tiếp thị vào bài viết, video, bio</div>
+              <div>• Gửi mã QR cho bạn bè, khách hàng</div>
+              <div>• Khách đặt mua gói được giảm giá sâu</div>
+            </div>
+          </div>
+
+          <div class="card-clean" style="border: 1px solid #e2e8f0; padding: 22px 24px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+              <div style="width: 38px; height: 38px; border-radius: 8px; background: #b45309; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 800;">
+                3
+              </div>
+              <div>
+                <span class="kicker-tag" style="font-size: 10px; color: #b45309;">BƯỚC 03</span>
+                <div style="font-size: 16px; font-weight: 800; color: #0a1931;">NHẬN TIỀN &amp; RÚT 24/7</div>
+              </div>
+            </div>
+            <div style="font-size: 13px; color: #475569; line-height: 1.6; display: flex; flex-direction: column; gap: 6px;">
+              <div>• Khách điều trị xong, hoa hồng cộng ngay</div>
+              <div>• Tạo lệnh rút tiền từ 100k về STK bất kỳ</div>
+              <div>• Flora duyệt chi qua Napas 247 tức thời</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MỤC LỤC 10 TRANG TINH GỌN (2 CỘT) -->
+        <div>
+          <div class="toc-section-bar">
+            <span class="title"><i class="fa-solid fa-list-check" style="margin-right: 8px; color: #0033a3;"></i> MỤC LỤC CẨM NANG ĐỐI TÁC &amp; KOL (10 TRANG A4 DỌC)</span>
+            <span class="range">TRANG 01 — 10</span>
+          </div>
+
+          <div class="toc-items-grid" style="margin-bottom: 0;">
+            <div class="toc-item-tile">
+              <div class="toc-item-left">
+                <div class="toc-page-num">01</div>
+                <div>
+                  <div class="toc-page-name">Bìa Chính: Nhận Diện Hợp Tác Flora 2026</div>
+                  <div class="toc-page-sub">Tiêu chuẩn nha khoa Thụy Sĩ &amp; 4 cam kết</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="toc-item-tile">
+              <div class="toc-item-left">
+                <div class="toc-page-num">02</div>
+                <div>
+                  <div class="toc-page-name">Mục Lục &amp; Hành Trình 3 Bước Bắt Đầu</div>
+                  <div class="toc-page-sub">Khởi đầu thuận lợi cùng Nha Khoa Flora</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="toc-item-tile">
+              <div class="toc-item-left">
+                <div class="toc-page-num">03</div>
+                <div>
+                  <div class="toc-page-name">Chính Sách Hoa Hồng 10% Cho 2 Gói Dịch Vụ</div>
+                  <div class="toc-page-sub">Gói Care Plus &amp; Flora White Up (10% thực thu)</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="toc-item-tile">
+              <div class="toc-item-left">
+                <div class="toc-page-num">04</div>
+                <div>
+                  <div class="toc-page-name">Khởi Tạo Tài Khoản &amp; Lấy Link / QR Tiếp Thị</div>
+                  <div class="toc-page-sub">Onboarding trong 1 phút, nhận mã độc quyền</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="toc-item-tile">
+              <div class="toc-item-left">
+                <div class="toc-page-num">05</div>
+                <div>
+                  <div class="toc-page-name">Giao Diện Cổng Thông Tin Đối Tác (Portal)</div>
+                  <div class="toc-page-sub">Kiểm soát 4 chỉ số tài chính, click &amp; doanh số</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="toc-item-tile">
+              <div class="toc-item-left">
+                <div class="toc-page-num">06</div>
+                <div>
+                  <div class="toc-page-name">Bảng Kê Doanh Thu &amp; Bảo Mật Khách Hàng</div>
+                  <div class="toc-page-sub">Mã hóa danh tính HIPAA, minh bạch trạng thái</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="toc-item-tile">
+              <div class="toc-item-left">
+                <div class="toc-page-num">07</div>
+                <div>
+                  <div class="toc-page-name">Quy Trình Rút Tiền &amp; Cập Nhật STK Ngân Hàng</div>
+                  <div class="toc-page-sub">Rút từ 100k, đổi STK trực tiếp, duyệt Napas 247</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="toc-item-tile">
+              <div class="toc-item-left">
+                <div class="toc-page-num">08</div>
+                <div>
+                  <div class="toc-page-name">Tra Cứu Đơn Hàng Online &amp; Zalo Bot Cá Nhân</div>
+                  <div class="toc-page-sub">Báo tiền về STK tức thời qua Zalo OA Flora</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="toc-item-tile">
+              <div class="toc-item-left">
+                <div class="toc-page-num">09</div>
+                <div>
+                  <div class="toc-page-name">Kho Tài Nguyên Media Kit &amp; Hỗ Trợ 1:1</div>
+                  <div class="toc-page-sub">Ảnh, video Bác sĩ CKI &amp; chuyên viên đồng hành</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="toc-item-tile">
+              <div class="toc-item-left">
+                <div class="toc-page-num">10</div>
+                <div>
+                  <div class="toc-page-name">Bìa Sau: Thông Tin Hợp Tác &amp; Kênh Hỗ Trợ 24/7</div>
+                  <div class="toc-page-sub">Hotline đối tác 0901 028 999, địa chỉ &amp; pháp lý</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="page-footer">
+        <div class="footer-left">NHA KHOA FLORA • CẨM NANG HỢP TÁC CHIẾN LƯỢC ĐỐI TÁC &amp; KOL</div>
+        <div class="footer-page-num">TRANG 02 / 10</div>
+      </footer>
+    </article>
+
+    <!-- ==========================================================================
+         TRANG 03: CHÍNH SÁCH HOA HỒNG 10% CHO 2 GÓI DỊCH VỤ CHIẾN LƯỢC
+         ========================================================================== -->
+    <article class="booklet-page" id="page-3" data-page="3">
+      <header class="page-masthead">
+        <div class="masthead-left">
+          <img src="../flora-theme/assets/ngayhoi_item/Logo-Flora1.webp" alt="Flora Logo" class="masthead-logo">
+          <span class="masthead-tag">QUYỀN LỢI ĐỐI TÁC</span>
+          <span class="masthead-divider"></span>
+          <span class="masthead-section-title">2 GÓI DỊCH VỤ CHIẾN LƯỢC</span>
+        </div>
+        <div class="masthead-right">
+          <span class="clean-meta-label">HOA HỒNG 10% THỰC THU</span>
+        </div>
+      </header>
+
+      <div class="page-body">
+        <div class="page-title-group">
+          <h2 class="page-title">Chính Sách Hoa Hồng 10% Cho 2 Gói Dịch Vụ Chiến Lược</h2>
+          <p class="page-subtitle">Cơ chế hoa hồng minh bạch, chi trả trực tiếp theo viện phí thực thu của 2 gói dịch vụ chăm sóc &amp; thẩm mỹ nụ cười chuẩn Thụy Sĩ.</p>
+        </div>
+
+        <!-- GÓI 1: CARE PLUS -->
+        <div class="card-clean" style="border: 1px solid #e2e8f0; background: #ffffff; padding: 22px 26px; display: flex; align-items: stretch; gap: 28px; margin-bottom: 18px;">
+          <div style="width: 220px; flex-shrink: 0; display: flex; flex-direction: column; gap: 10px;">
+            <img src="../assets/care_plus_2.webp" alt="Gói Care Plus" class="card-thumb-img" style="width: 100%; height: 118px; border-radius: 8px; object-fit: cover; display: block;">
+            <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 10px 14px; text-align: center;">
+              <div style="font-size: 11px; font-weight: 700; color: #1e40af; text-transform: uppercase;">Hoa hồng đối tác</div>
+              <div style="font-family: var(--font-display); font-size: 24px; font-weight: 900; color: #0033a3; line-height: 1.1; margin-top: 2px;">
+                250.000đ
+              </div>
+              <span style="font-size: 11px; color: #059669; font-weight: 700;">(10% thực thu)</span>
+            </div>
+          </div>
+
+          <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px;">
+                <div>
+                  <span class="kicker-tag" style="font-size: 10.5px; color: #0033a3;">GÓI DỊCH VỤ 01 • CHĂM SÓC GIA ĐÌNH</span>
+                  <div style="font-size: 20px; font-weight: 800; color: #0a1931;">Gói Nha Khoa Toàn Diện Care Plus</div>
+                </div>
+                <div style="text-align: right;">
+                  <div style="font-size: 11.5px; color: #94a3b8; text-decoration: line-through;">Giá gốc: 4.001.000 VNĐ</div>
+                  <div style="font-size: 18px; font-weight: 800; color: #059669;">Khách trả: 2.500.000 VNĐ</div>
+                </div>
+              </div>
+              <p style="font-size: 13px; color: #475569; line-height: 1.55; margin-bottom: 10px;">
+                Dành cho gia đình lên đến <strong>4 thành viên</strong>: Thăm khám chuyên sâu 1:1 Bác sĩ CKI, Chụp phim toàn cảnh Panorama/CT Cone Beam 3D, Cạo vôi răng sóng siêu âm Piezotome không đau và Đánh bóng răng công nghệ Thụy Sĩ.
+              </p>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 16px; font-size: 12.5px;">
+              <span>🎟️ Khách nhập voucher đối tác: <strong>Giảm ngay 1.501.000 VNĐ</strong></span>
+              <span style="color: #0033a3; font-weight: 700;">Hoa hồng cộng ví: <strong>250.000đ</strong></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- GÓI 2: FLORA WHITE UP -->
+        <div class="card-clean" style="border: 1px solid #e2e8f0; background: #ffffff; padding: 22px 26px; display: flex; align-items: stretch; gap: 28px;">
+          <div style="width: 220px; flex-shrink: 0; display: flex; flex-direction: column; gap: 10px;">
+            <img src="../assets/banner_landing_page_goi_2.webp" alt="Gói Flora White Up" class="card-thumb-img" style="width: 100%; height: 118px; border-radius: 8px; object-fit: cover; display: block;">
+            <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 10px 14px; text-align: center;">
+              <div style="font-size: 11px; font-weight: 700; color: #1e40af; text-transform: uppercase;">Hoa hồng đối tác</div>
+              <div style="font-family: var(--font-display); font-size: 24px; font-weight: 900; color: #0033a3; line-height: 1.1; margin-top: 2px;">
+                180.000đ
+              </div>
+              <span style="font-size: 11px; color: #059669; font-weight: 700;">(10% thực thu)</span>
+            </div>
+          </div>
+
+          <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px;">
+                <div>
+                  <span class="kicker-tag" style="font-size: 10.5px; color: #059669;">GÓI DỊCH VỤ 02 • THẨM MỸ NỤ CƯỜI</span>
+                  <div style="font-size: 20px; font-weight: 800; color: #0a1931;">Gói Tẩy Trắng Răng Flora White Up</div>
+                </div>
+                <div style="text-align: right;">
+                  <div style="font-size: 11.5px; color: #94a3b8; text-decoration: line-through;">Giá gốc: 2.801.000 VNĐ</div>
+                  <div style="font-size: 18px; font-weight: 800; color: #059669;">Khách trả: 1.800.000 VNĐ</div>
+                </div>
+              </div>
+              <p style="font-size: 13px; color: #475569; line-height: 1.55; margin-bottom: 10px;">
+                Công nghệ tẩy trắng răng <strong>Laser Whitening</strong> độc quyền chuyển giao từ Thụy Sĩ: Nâng tone tức thì sau 45 phút, không ê buốt, an toàn tuyệt đối men răng, tặng kèm cạo vôi răng vô trùng tiêu chuẩn quốc tế.
+              </p>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 16px; font-size: 12.5px;">
+              <span>🎟️ Khách nhập voucher đối tác: <strong>Giảm ngay 1.001.000 VNĐ</strong></span>
+              <span style="color: #0033a3; font-weight: 700;">Hoa hồng cộng ví: <strong>180.000đ</strong></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Khối Cam Kết Cơ Chế Ghi Nhận -->
+        <div class="card-gradient-blue" style="padding: 16px 22px; display: flex; align-items: center; justify-content: space-between;">
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <i class="fa-solid fa-handshake-angle" style="font-size: 24px; color: #0033a3;"></i>
+            <div>
+              <div style="font-size: 14px; font-weight: 800; color: #0a1931;">Mô Hình Hợp Tác Win - Win Bền Vững</div>
+              <div style="font-size: 12.5px; color: #475569; margin-top: 2px;">Khách hàng nhận voucher ưu đãi sâu, Đối tác nhận hoa hồng xứng đáng và được bảo vệ quyền lợi trọn đời.</div>
+            </div>
+          </div>
+          <span style="font-size: 12px; font-weight: 700; color: #059669; background: #ecfdf5; padding: 6px 12px; border-radius: 6px; flex-shrink: 0;">✔ MINH BẠCH 100%</span>
+        </div>
+      </div>
+
+      <footer class="page-footer">
+        <div class="footer-left">NHA KHOA FLORA • CHÍNH SÁCH HOA HỒNG 2 GÓI DỊCH VỤ CHIẾN LƯỢC</div>
+        <div class="footer-page-num">TRANG 03 / 10</div>
+      </footer>
+    </article>
+
+    <!-- ==========================================================================
+         TRANG 04: KHỞI TẠO TÀI KHOẢN & LẤY LINK / QR CODE TIẾP THỊ
+         ========================================================================== -->
+    <article class="booklet-page" id="page-4" data-page="4">
+      <header class="page-masthead">
+        <div class="masthead-left">
+          <img src="../flora-theme/assets/ngayhoi_item/Logo-Flora1.webp" alt="Flora Logo" class="masthead-logo">
+          <span class="masthead-tag">HƯỚNG DẪN ONBOARDING</span>
+          <span class="masthead-divider"></span>
+          <span class="masthead-section-title">ĐĂNG KÝ &amp; KÍCH HOẠT TÀI KHOẢN</span>
+        </div>
+        <div class="masthead-right">
+          <span class="clean-meta-label">TRUY CẬP CỔNG ONLINE</span>
+        </div>
+      </header>
+
+      <div class="page-body">
+        <div class="page-title-group">
+          <h2 class="page-title">Khởi Tạo Tài Khoản &amp; Lấy Link, QR Tiếp Thị</h2>
+          <p class="page-subtitle">Chỉ 1 phút đăng ký tài khoản online tại Cổng đối tác để sở hữu bộ công cụ tiếp thị độc quyền mang tên bạn.</p>
+        </div>
+
+        <!-- Banner Xanh Kèm Nút Truy Cập Trực Tiếp -->
+        <div class="card-gradient-navy" style="display: flex; justify-content: space-between; align-items: center; padding: 18px 26px;">
+          <div>
+            <div style="font-family: var(--font-display); font-size: 16px; font-weight: 800; color: #fde047; margin-bottom: 4px;">
+              TRUY CẬP CỔNG ĐỐI TÁC NHA KHOA FLORA
+            </div>
+            <div style="font-size: 13px; color: #bae6fd;">
+              Địa chỉ chính thức: <strong>https://nhakhoaflora.com/doi-tac/</strong> (Kích hoạt nhanh 24/7)
+            </div>
+          </div>
+          <a href="https://nhakhoaflora.com/doi-tac/" target="_blank" style="background: #fde047; color: #0a1931; font-weight: 800; font-size: 13px; padding: 10px 20px; border-radius: 8px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+            <span>TRUY CẬP CỔNG ĐỐI TÁC</span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+        <!-- 2 Cột: Màn Hình Đăng Ký & Email Kích Hoạt -->
+        <div class="grid-2col">
+          <!-- Cột 1: Màn hình Form Đăng Ký -->
+          <div class="mockup-frame">
+            <div class="mockup-header" style="background: #f8fafc;">
+              <div class="mockup-dots"><span class="mockup-dot"></span><span class="mockup-dot"></span><span class="mockup-dot"></span></div>
+              <span style="font-weight: 700; color: var(--c-blue-deep);">FORM ĐĂNG KÝ ĐỐI TÁC MỚI</span>
+              <span style="color: #059669; font-weight: 700; font-size: 10.5px;">1 PHÚT HOÀN TẤT</span>
+            </div>
+            <div class="mockup-body" style="padding: 16px 18px;">
+              <div style="margin-bottom: 10px;">
+                <label style="display: block; font-size: 11.5px; font-weight: 700; color: #1e293b; margin-bottom: 3px;">Họ và tên đối tác (*):</label>
+                <input type="text" value="Nguyễn Văn An" readonly style="width: 100%; padding: 7px 10px; font-size: 12.5px; border: 1px solid #cbd5e1; border-radius: 6px; background: #f8fafc;">
+              </div>
+              <div style="margin-bottom: 10px;">
+                <label style="display: block; font-size: 11.5px; font-weight: 700; color: #1e293b; margin-bottom: 3px;">Số điện thoại Zalo (*):</label>
+                <input type="text" value="0901 028 999" readonly style="width: 100%; padding: 7px 10px; font-size: 12.5px; border: 1px solid #cbd5e1; border-radius: 6px; background: #f8fafc;">
+              </div>
+              <div style="margin-bottom: 12px;">
+                <label style="display: block; font-size: 11.5px; font-weight: 700; color: #1e293b; margin-bottom: 3px;">Mã Voucher Độc Quyền Mong Muốn (*):</label>
+                <input type="text" value="FLORA-AN" readonly style="width: 100%; padding: 7px 10px; font-size: 13px; font-weight: 800; color: #0033a3; border: 1.5px solid #0033a3; border-radius: 6px; background: #f0f7ff;">
+              </div>
+              <button type="button" style="width: 100%; background: #0033a3; color: #ffffff; padding: 10px; border: none; border-radius: 6px; font-weight: 700; font-size: 13px;">
+                <i class="fa-solid fa-user-plus" style="margin-right: 6px;"></i> Hoàn Tất Đăng Ký Đối Tác
+              </button>
+            </div>
+          </div>
+
+          <!-- Cột 2: Email Kích Hoạt Tự Động -->
+          <div class="mockup-frame">
+            <div class="mockup-header" style="background: #f8fafc;">
+              <div class="mockup-dots"><span class="mockup-dot"></span><span class="mockup-dot"></span><span class="mockup-dot"></span></div>
+              <span style="font-weight: 700; color: var(--c-blue-deep);">EMAIL KÍCH HOẠT CHÀO MỪNG</span>
+              <span style="color: #059669; font-weight: 700; font-size: 10.5px;">TỰ ĐỘNG 3S</span>
+            </div>
+            <div class="mockup-body" style="padding: 16px 18px; font-size: 12.5px; line-height: 1.6;">
+              <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 14px;">
+                <div style="font-weight: 800; color: #0033a3; margin-bottom: 4px;">Chào mừng bạn gia nhập mạng lưới Flora!</div>
+                <div>• <strong>Link tiếp thị của bạn:</strong> <code>nhakhoaflora.com/?aff=FLORA-AN</code></div>
+                <div>• <strong>Mã voucher độc quyền:</strong> <strong style="color: #0033a3;">FLORA-AN</strong></div>
+                <div>• <strong>Tài khoản đăng nhập Portal:</strong> <code>an.nguyen@email.com</code></div>
+                <div style="margin-top: 8px; font-size: 11.5px; color: #64748b;">Mật khẩu tạm thời đã được gửi kèm email để bạn đổi ngay khi đăng nhập lần đầu.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 Cách Sử Dụng Bộ Công Cụ Tiếp Thị -->
+        <div class="grid-3col">
+          <div class="card-clean" style="padding: 16px 18px;">
+            <div style="font-size: 13.5px; font-weight: 800; color: #0a1931; margin-bottom: 4px;">
+              <i class="fa-solid fa-link" style="color: #0033a3; margin-right: 6px;"></i> Chia Sẻ Link Trực Tiếp
+            </div>
+            <p style="font-size: 12px; color: #475569; line-height: 1.5; margin: 0;">
+              Gắn link tiếp thị vào phần tiểu sử (Bio), mô tả video YouTube/TikTok hoặc gửi tin nhắn riêng cho bạn bè.
+            </p>
+          </div>
+
+          <div class="card-clean" style="padding: 16px 18px;">
+            <div style="font-size: 13.5px; font-weight: 800; color: #0a1931; margin-bottom: 4px;">
+              <i class="fa-solid fa-qrcode" style="color: #059669; margin-right: 6px;"></i> Quét Mã QR Cá Nhân
+            </div>
+            <p style="font-size: 12px; color: #475569; line-height: 1.5; margin: 0;">
+              Chèn mã QR cá nhân vào hình ảnh, video review hoặc in namecard để khách hàng quét mã nhận ngay ưu đãi.
+            </p>
+          </div>
+
+          <div class="card-clean" style="padding: 16px 18px;">
+            <div style="font-size: 13.5px; font-weight: 800; color: #0a1931; margin-bottom: 4px;">
+              <i class="fa-solid fa-ticket" style="color: #b45309; margin-right: 6px;"></i> Cung Cấp Mã Voucher
+            </div>
+            <p style="font-size: 12px; color: #475569; line-height: 1.5; margin: 0;">
+              Khách hàng chỉ cần nhập mã voucher của bạn khi đặt mua gói online là hệ thống tự động nhận diện đối tác.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <footer class="page-footer">
+        <div class="footer-left">NHA KHOA FLORA • HƯỚNG DẪN ONBOARDING &amp; NHẬN BỘ CÔNG CỤ TIẾP THỊ</div>
+        <div class="footer-page-num">TRANG 04 / 10</div>
+      </footer>
+    </article>
+
+    <!-- ==========================================================================
+         TRANG 05: GIAO DIỆN CỔNG THÔNG TIN ĐỐI TÁC (PORTAL DASHBOARD)
+         ========================================================================== -->
+    <article class="booklet-page" id="page-5" data-page="5">
+      <header class="page-masthead">
+        <div class="masthead-left">
+          <img src="../flora-theme/assets/ngayhoi_item/Logo-Flora1.webp" alt="Flora Logo" class="masthead-logo">
+          <span class="masthead-tag">CỔNG ĐỐI TÁC 24/7</span>
+          <span class="masthead-divider"></span>
+          <span class="masthead-section-title">PARTNER PORTAL DASHBOARD</span>
+        </div>
+        <div class="masthead-right">
+          <span class="clean-meta-label">TRUY CẬP REAL-TIME 24/7</span>
+        </div>
+      </header>
+
+      <div class="page-body">
+        <div class="page-title-group">
+          <h2 class="page-title">Giao Diện Cổng Thông Tin Đối Tác (Portal Dashboard)</h2>
+          <p class="page-subtitle">Theo dõi số lượt click, tỷ lệ chuyển đổi và danh sách đối soát chi tiết từng ca điều trị lâm sàng.</p>
+        </div>
+
+        <!-- MÀN HÌNH CHỤP THẬT CỔNG THÔNG TIN ĐỐI TÁC FLORA (real_portal_dashboard.png) -->
+        <div style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06); background: #ffffff; margin-bottom: 16px;">
+          <div style="background: #f8fafc; padding: 10px 18px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #e2e8f0;">
+            <div style="display: flex; gap: 6px;">
+              <span style="width: 10px; height: 10px; border-radius: 50%; background: #ef4444; display: inline-block;"></span>
+              <span style="width: 10px; height: 10px; border-radius: 50%; background: #f59e0b; display: inline-block;"></span>
+              <span style="width: 10px; height: 10px; border-radius: 50%; background: #10b981; display: inline-block;"></span>
+            </div>
+            <div style="font-size: 12px; font-weight: 600; color: #475569;">
+              https://nhakhoaflora.com/doi-tac/ (Partner Portal Dashboard Thực Tế)
+            </div>
+            <div style="font-size: 11px; color: #059669; font-weight: 700;">
+              <i class="fa-solid fa-shield-halved"></i> XÁC THỰC SSL 256-BIT
+            </div>
+          </div>
+          <img src="real_portal_dashboard.png" alt="Giao diện thật Cổng thông tin đối tác Nha Khoa Flora" style="width: 100%; height: auto; max-height: 520px; object-fit: contain; display: block; margin: 0 auto;">
+        </div>
+
+        <!-- 3 CỘT TÍNH NĂNG CHỦ LỰC TRÊN DASHBOARD ĐỐI TÁC -->
+        <div class="grid-3col" style="gap: 16px;">
+          <div class="card-clean" style="border: 1px solid #e2e8f0; padding: 18px 20px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+              <div style="width: 34px; height: 34px; border-radius: 8px; background: #e0f2fe; color: #0033a3; display: flex; align-items: center; justify-content: center; font-size: 15px;">
+                <i class="fa-solid fa-chart-pie"></i>
+              </div>
+              <div style="font-size: 14px; font-weight: 800; color: #0a1931;">4 Chỉ Số Tài Chính</div>
+            </div>
+            <p style="font-size: 12.5px; color: #475569; line-height: 1.6; margin: 0;">
+              Theo dõi minh bạch: <strong>Hoa hồng xác thực</strong> (đơn đã thu tiền), <strong>Hoa hồng dự kiến</strong> (đang đối soát), <strong>Ví khả dụng</strong> và <strong>Doanh thu tiếp thị</strong>.
+            </p>
+          </div>
+
+          <div class="card-clean" style="border: 1px solid #e2e8f0; padding: 18px 20px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+              <div style="width: 34px; height: 34px; border-radius: 8px; background: #ecfdf5; color: #059669; display: flex; align-items: center; justify-content: center; font-size: 15px;">
+                <i class="fa-solid fa-qrcode"></i>
+              </div>
+              <div style="font-size: 14px; font-weight: 800; color: #0a1931;">Link &amp; QR Code Độc Quyền</div>
+            </div>
+            <p style="font-size: 12.5px; color: #475569; line-height: 1.6; margin: 0;">
+              Một chạm sao chép Link tiếp thị <code>nhakhoaflora.com/goi-dich-vu?ref=MÃ</code> hoặc bấm tải ngay <strong>Mã QR cá nhân</strong> độ nét cao để chèn vào video, bài đăng.
+            </p>
+          </div>
+
+          <div class="card-clean" style="border: 1px solid #e2e8f0; padding: 18px 20px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+              <div style="width: 34px; height: 34px; border-radius: 8px; background: #fef3c7; color: #b45309; display: flex; align-items: center; justify-content: center; font-size: 15px;">
+                <i class="fa-solid fa-building-columns"></i>
+              </div>
+              <div style="font-size: 14px; font-weight: 800; color: #0a1931;">Rút Tiền &amp; Đổi STK</div>
+            </div>
+            <p style="font-size: 12.5px; color: #475569; line-height: 1.6; margin: 0;">
+              Bấm nút <strong>"Gửi Đơn Rút Tiền"</strong> trực tiếp từ ví khả dụng hoặc đổi STK ngân hàng ACB thụ hưởng bất kỳ lúc nào ngay tại Cổng đối tác.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <footer class="page-footer">
+        <div class="footer-left">NHA KHOA FLORA • GIAO DIỆN CỔNG THÔNG TIN ĐỐI TÁC (PORTAL DASHBOARD)</div>
+        <div class="footer-page-num">TRANG 05 / 10</div>
+      </footer>
+    </article>
+
+    <!-- ==========================================================================
+         TRANG 06: BẢNG KÊ DOANH THU & BẢO MẬT KHÁCH HÀNG
+         ========================================================================== -->
+    <article class="booklet-page" id="page-6" data-page="6">
+      <header class="page-masthead">
+        <div class="masthead-left">
+          <img src="../flora-theme/assets/ngayhoi_item/Logo-Flora1.webp" alt="Flora Logo" class="masthead-logo">
+          <span class="masthead-tag">MINH BẠCH DOANH THU</span>
+          <span class="masthead-divider"></span>
+          <span class="masthead-section-title">DANH SÁCH ĐƠN &amp; BẢO MẬT Y KHOA</span>
+        </div>
+        <div class="masthead-right">
+          <span class="clean-meta-label">CHUẨN BẢO MẬT HIPAA</span>
+        </div>
+      </header>
+
+      <div class="page-body">
+        <div class="page-title-group">
+          <h2 class="page-title">Kiểm Soát Doanh Thu &amp; Bảo Mật Danh Tính Khách Hàng</h2>
+          <p class="page-subtitle">Minh bạch 100% từng đơn hàng từ link giới thiệu, đồng thời tuân thủ bảo mật danh tính bệnh nhân theo tiêu chuẩn Y khoa.</p>
+        </div>
+
+        <!-- MÀN HÌNH CHỤP THẬT BẢNG KÊ KHÁCH HÀNG & LỊCH SỬ RÚT TIỀN (real_ledger_table.png) -->
+        <div style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06); background: #ffffff; margin-bottom: 16px;">
+          <div style="background: #0a1931; color: #ffffff; padding: 10px 18px; display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-size: 12px; font-weight: 700;">DANH SÁCH KHÁCH HÀNG &amp; LỊCH SỬ QUYẾT TOÁN TRÊN PORTAL</span>
+            <span style="font-size: 11px; color: #10b981; font-weight: 700;"><i class="fa-solid fa-lock"></i> MÃ HÓA Y KHOA</span>
+          </div>
+          <img src="real_ledger_table.png" alt="Bảng kê danh sách khách hàng và lịch sử đơn rút tiền hoa hồng thực tế" style="width: 100%; height: auto; display: block;">
+        </div>
+
+        <!-- 3 CỘT CAM KẾT QUYỀN LỢI ĐỐI TÁC -->
+        <div class="grid-3col">
+          <div class="card-clean" style="border: 1px solid #e2e8f0; padding: 18px 20px;">
+            <div style="font-size: 14px; font-weight: 800; color: #0a1931; margin-bottom: 6px;">
+              <i class="fa-solid fa-user-shield" style="color: #0033a3; margin-right: 6px;"></i> Bảo Mật Danh Tính Bệnh Nhân
+            </div>
+            <p style="font-size: 12.5px; color: #475569; line-height: 1.55; margin: 0;">
+              Tên và SĐT khách hàng tự động được mã hóa (ví dụ: <code>Phạm T** T**</code>, <code>093****987</code>) nhằm đảm bảo tuyệt đối quyền riêng tư y khoa theo Luật KCB.
+            </p>
+          </div>
+
+          <div class="card-clean" style="border: 1px solid #e2e8f0; padding: 18px 20px;">
+            <div style="font-size: 14px; font-weight: 800; color: #0a1931; margin-bottom: 6px;">
+              <i class="fa-solid fa-cookie-bite" style="color: #059669; margin-right: 6px;"></i> Ghi Nhận Cookie 30 Ngày
+            </div>
+            <p style="font-size: 12.5px; color: #475569; line-height: 1.55; margin: 0;">
+              Khách hàng nhấp vào link tiếp thị của bạn, dù đặt mua ngay hay trong vòng <strong>30 ngày tiếp theo</strong>, hệ thống vẫn tự động ghi nhận hoa hồng cho bạn.
+            </p>
+          </div>
+
+          <div class="card-clean" style="border: 1px solid #e2e8f0; padding: 18px 20px;">
+            <div style="font-size: 14px; font-weight: 800; color: #0a1931; margin-bottom: 6px;">
+              <i class="fa-solid fa-clock-rotate-left" style="color: #b45309; margin-right: 6px;"></i> Bảo Lưu Hoa Hồng Vĩnh Viễn
+            </div>
+            <p style="font-size: 12.5px; color: #475569; line-height: 1.55; margin: 0;">
+              Trường hợp khách hàng dời lịch hẹn hoặc đổi giờ khám, mã đơn hàng được bảo lưu trên Hub lễ tân. Hoa hồng đã xác nhận không bao giờ bị hủy bỏ.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <footer class="page-footer">
+        <div class="footer-left">NHA KHOA FLORA • KIỂM SOÁT DOANH THU &amp; BẢO MẬT KHÁCH HÀNG</div>
+        <div class="footer-page-num">TRANG 06 / 10</div>
+      </footer>
+    </article>
+
+    <!-- ==========================================================================
+         TRANG 07: QUY TRÌNH RÚT TIỀN & CẬP NHẬT STK NGÂN HÀNG
+         ========================================================================== -->
+    <article class="booklet-page" id="page-7" data-page="7">
+      <header class="page-masthead">
+        <div class="masthead-left">
+          <img src="../flora-theme/assets/ngayhoi_item/Logo-Flora1.webp" alt="Flora Logo" class="masthead-logo">
+          <span class="masthead-tag">QUYẾT TOÁN HOA HỒNG</span>
+          <span class="masthead-divider"></span>
+          <span class="masthead-section-title">RÚT TIỀN 24/7 QUA NAPAS</span>
+        </div>
+        <div class="masthead-right">
+          <span class="clean-meta-label">HẠN MỨC MIN TỪ 100.000 VNĐ</span>
+        </div>
+      </header>
+
+      <div class="page-body">
+        <div class="page-title-group">
+          <h2 class="page-title">Quy Trình Gửi Lệnh Rút Tiền &amp; Đổi STK Ngân Hàng</h2>
+          <p class="page-subtitle">Chủ động tạo lệnh rút tiền 24/7 từ 100.000 VNĐ, linh hoạt đổi STK ngân hàng thụ hưởng, Flora kiểm tra và duyệt chi trong 24 giờ.</p>
+        </div>
+
+        <!-- 2 Cột Chụp Thật: Modal Rút Tiền & Modal Cập Nhật STK Ngân Hàng -->
+        <div class="grid-2col" style="gap: 16px;">
+          <!-- Cột Trái: Modal Yêu Cầu Rút Tiền Thật -->
+          <div class="mockup-frame" style="border: 1px solid #cbd5e1; box-shadow: 0 4px 14px rgba(0,0,0,0.05);">
+            <div class="mockup-header" style="background: #f8fafc; padding: 7px 14px; border-bottom: 1px solid #e2e8f0;">
+              <div class="mockup-dots"><span class="mockup-dot"></span><span class="mockup-dot"></span><span class="mockup-dot"></span></div>
+              <span style="font-weight: 700; color: #0033a3; font-size: 11.5px;">MODAL YÊU CẦU RÚT TIỀN (ẢNH THỰC TẾ)</span>
+              <span style="font-size: 10.5px; font-weight: 700; color: #059669; background: #ecfdf5; padding: 2px 6px; border-radius: 4px;">MIN 100.000đ</span>
+            </div>
+            <img src="real_withdrawal_modal.png" alt="Modal yêu cầu rút tiền thực tế Portal Flora" style="width: 100%; height: 215px; object-fit: contain; background: #f8fafc; display: block;">
+            <div style="background: #ffffff; padding: 8px 12px; border-top: 1px solid #f1f5f9; font-size: 11.5px; color: #475569;">
+              <i class="fa-solid fa-circle-check" style="color: #059669; margin-right: 4px;"></i> Đối tác nhập số tiền muốn rút từ <strong>100.000 VNĐ</strong> và bấm Xác nhận rút tiền 24/7.
+            </div>
+          </div>
+
+          <!-- Cột Phải: Modal Cập Nhật STK Thật -->
+          <div class="mockup-frame" style="border: 1px solid #cbd5e1; box-shadow: 0 4px 14px rgba(0,0,0,0.05);">
+            <div class="mockup-header" style="background: #f8fafc; padding: 7px 14px; border-bottom: 1px solid #e2e8f0;">
+              <div class="mockup-dots"><span class="mockup-dot"></span><span class="mockup-dot"></span><span class="mockup-dot"></span></div>
+              <span style="font-weight: 700; color: #0033a3; font-size: 11.5px;">MODAL ĐỔI STK NGÂN HÀNG (ẢNH THỰC TẾ)</span>
+              <span style="font-size: 10.5px; font-weight: 700; color: #0033a3; background: #eff6ff; padding: 2px 6px; border-radius: 4px;">CHỦ ĐỘNG 24/7</span>
+            </div>
+            <img src="real_bank_update_modal.png" alt="Modal cập nhật tài khoản ngân hàng Portal Flora" style="width: 100%; height: 215px; object-fit: contain; background: #f8fafc; display: block;">
+            <div style="background: #ffffff; padding: 8px 12px; border-top: 1px solid #f1f5f9; font-size: 11.5px; color: #475569;">
+              <i class="fa-solid fa-pen-to-square" style="color: #0033a3; margin-right: 4px;"></i> Đối tác có thể thay đổi / cập nhật STK ngân hàng chính chủ trực tiếp ngay trên Portal.
+            </div>
+          </div>
+        </div>
+
+        <!-- Bốn Bước Xử Lý Lệnh Rút Tiền -->
+        <div class="card-clean" style="padding: 16px 20px;">
+          <div style="font-family: var(--font-display); font-size: 13.5px; font-weight: 800; color: var(--c-blue-deep); margin-bottom: 10px;">
+            BỐN BƯỚC XỬ LÝ LỆNH RÚT TIỀN HOA HỒNG
+          </div>
+          <div class="grid-2col" style="gap: 14px; font-size: 12.5px; line-height: 1.55;">
+            <div>
+              <strong>1. Nhập lệnh &amp; Đổi STK:</strong> Điền số tiền muốn rút từ 100.000 VNĐ. Có thể cập nhật STK ngân hàng thụ hưởng bất kỳ lúc nào trực tiếp trên modal.
+            </div>
+            <div>
+              <strong>2. Tạm khóa số dư:</strong> Hệ thống tạm khóa số dư khả dụng và sinh mã định danh giao dịch duy nhất dạng <code>#WD-2026-0891</code> để theo dõi.
+            </div>
+            <div>
+              <strong>3. Flora đối soát &amp; phê duyệt:</strong> Kế toán phòng khám đối chiếu viện phí thực thu và hồ sơ bệnh án, xác nhận và duyệt lệnh chi trong vòng 24 giờ.
+            </div>
+            <div>
+              <strong>4. Chi trả qua Napas 247:</strong> Tiền được chuyển khoản tức thời về STK của đối tác qua Napas 247 liên ngân hàng (0 VNĐ phí giao dịch).
+            </div>
+          </div>
+        </div>
+
+        <!-- Bảng Quy Định Hạn Mức & Chu Kỳ Chi Trả -->
+        <div class="card-clean" style="padding: 16px 20px;">
+          <div style="font-family: var(--font-display); font-size: 13.5px; font-weight: 700; color: var(--c-blue-deep); margin-bottom: 6px;">
+            BẢNG QUY ĐỊNH HẠN MỨC &amp; CHU KỲ CHI TRẢ HOA HỒNG FLORA
+          </div>
+          <table class="table-clean">
+            <thead>
+              <tr>
+                <th>HẠN MỤC QUY ĐỊNH</th>
+                <th>THÔNG SỐ ÁP DỤNG</th>
+                <th>THỜI GIAN XỬ LÝ</th>
+                <th>PHÍ CHUYỂN KHOẢN</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Hạn mức rút tối thiểu</strong></td>
+                <td><strong style="color: var(--c-blue-primary);">100.000 VNĐ / lệnh</strong></td>
+                <td>Tiếp nhận 24/7 qua Portal</td>
+                <td><span style="color: #059669; font-weight: 700;">0 VNĐ (Miễn phí 100%)</span></td>
+              </tr>
+              <tr>
+                <td><strong>Hạn mức rút tối đa / ngày</strong></td>
+                <td>50.000.000 VNĐ (Cá nhân) / Không giới hạn (Đại lý)</td>
+                <td>Flora duyệt chi trong 24 giờ</td>
+                <td>Chuyển khoản nhanh Napas 247</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Cam Kết Thanh Toán Minh Bạch -->
+        <div class="card-gradient-blue" style="display: flex; align-items: center; gap: 14px; padding: 12px 18px;">
+          <i class="fa-solid fa-shield-halved" style="font-size: 20px; color: var(--c-blue-primary);"></i>
+          <span style="font-size: 13px; color: var(--c-text-body); line-height: 1.45;">
+            <strong>Chính sách chi trả minh bạch:</strong> Hoa hồng được Flora đối soát, xác nhận và duyệt chi trả nhanh qua Napas 247. Đối tác không chịu bất kỳ khoản phí chuyển tiền nào từ phòng khám.
+          </span>
+        </div>
+      </div>
+
+      <footer class="page-footer">
+        <div class="footer-left">NHA KHOA FLORA • QUY TRÌNH GỬI LỆNH RÚT TIỀN &amp; CẬP NHẬT STK NGÂN HÀNG</div>
+        <div class="footer-page-num">TRANG 07 / 10</div>
+      </footer>
+    </article>
+
+    <!-- ==========================================================================
+         TRANG 08: CÔNG CỤ TRA CỨU & TỰ ĐỘNG HÓA ZALO BOT
+         ========================================================================== -->
+    <article class="booklet-page" id="page-8" data-page="8">
+      <header class="page-masthead">
+        <div class="masthead-left">
+          <img src="../flora-theme/assets/ngayhoi_item/Logo-Flora1.webp" alt="Flora Logo" class="masthead-logo">
+          <span class="masthead-tag">TỰ ĐỘNG HÓA HỖ TRỢ</span>
+          <span class="masthead-divider"></span>
+          <span class="masthead-section-title">TRA CỨU ONLINE &amp; ZALO BOT</span>
+        </div>
+        <div class="masthead-right">
+          <span class="clean-meta-label">ALERT TỨC THỜI 24/7</span>
+        </div>
+      </header>
+
+      <div class="page-body">
+        <div class="page-title-group">
+          <h2 class="page-title">Công Cụ Tra Cứu Trạng Thái &amp; Tự Động Hóa Zalo Bot</h2>
+          <p class="page-subtitle">Đối tác luôn nắm bắt tình trạng đơn hàng của khách qua website và nhận thông báo biến động hoa hồng ngay trên Zalo cá nhân.</p>
+        </div>
+
+        <!-- 2 KHỐI LỚN: Tra Cứu Website & Zalo OA Thông Báo -->
+        <div class="grid-2col" style="align-items: start;">
+          <!-- Cột Trái: Tra cứu online trên Website -->
+          <div class="mockup-frame" style="border: 1px solid #e2e8f0;">
+            <div class="mockup-header" style="background: #f8fafc;">
+              <div class="mockup-dots"><span class="mockup-dot"></span><span class="mockup-dot"></span><span class="mockup-dot"></span></div>
+              <span style="font-weight: 700; color: #0033a3;">TRA CỨU TRẠNG THÁI ĐƠN ONLINE</span>
+              <span style="font-size: 10.5px; font-weight: 700; color: #059669; background: #ecfdf5; padding: 2px 6px; border-radius: 4px;">CHECK 3S</span>
+            </div>
+            <img src="order_tracking_screen.png" alt="Màn hình tra cứu trạng thái đơn hàng website Flora" style="width: 100%; height: auto; display: block;">
+            <div style="background: #ffffff; padding: 12px 16px; border-top: 1px solid #e2e8f0; font-size: 12px; color: #475569;">
+              Tra cứu nhanh chóng tại: <code>nhakhoaflora.com</code> bằng <strong>Mã đơn hàng</strong> hoặc <strong>Số điện thoại</strong> khách hàng.
+            </div>
+          </div>
+
+          <!-- Cột Phải: Tin nhắn Zalo Báo Tiền Về & Phiếu Quyết Toán -->
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <div class="mockup-frame" style="border: 1px solid #e2e8f0;">
+              <div class="mockup-header" style="background: #f8fafc;">
+                <div class="mockup-dots"><span class="mockup-dot"></span><span class="mockup-dot"></span><span class="mockup-dot"></span></div>
+                <span style="font-weight: 700; color: #0a1931;">TIN NHẮN TỪ ZALO OA FLORA</span>
+                <span style="color: #059669; font-weight: 700; font-size: 10.5px;">ZALO OA TÍCH VÀNG</span>
+              </div>
+              <div class="mockup-body" style="background: #ffffff; padding: 16px 18px;">
+                <div style="background: #f0fdf4; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px; font-size: 12.5px; line-height: 1.6;">
+                  <div style="font-weight: 800; color: #166534; font-size: 14px; margin-bottom: 6px;">
+                    🎉 HOA HỒNG ĐÃ ĐƯỢC CHUYỂN VÀO TÀI KHOẢN!
+                  </div>
+                  <div>Kính gửi Quý Đối tác <strong>Nguyễn Trọng Phúc</strong>,</div>
+                  <div style="margin-top: 4px;">Nha Khoa Flora đã hoàn tất chuyển khoản hoa hồng:</div>
+                  <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 10px; margin: 8px 0;">
+                    <div>• <strong>Số tiền chuyển:</strong> <strong style="color: #059669; font-size: 15px;">1.500.000 VNĐ</strong></div>
+                    <div>• <strong>Mã lệnh rút:</strong> <code>#PO-DOITAC-001</code></div>
+                    <div>• <strong>Mã GD ngân hàng:</strong> <code>FT261004882199</code></div>
+                    <div>• <strong>Ngân hàng thụ hưởng:</strong> ACB (STK: ...9268)</div>
+                  </div>
+                  <div style="font-size: 11.5px; color: #475569;">
+                    Hotline đối tác Flora: <strong>0901 028 999</strong>.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-clean" style="border: 1px solid #e2e8f0; padding: 14px 18px;">
+              <div style="font-size: 14px; font-weight: 800; color: #0a1931; margin-bottom: 4px;">
+                <i class="fa-solid fa-clock-rotate-left" style="color: #0033a3; margin-right: 6px;"></i> Tiền Về Sau 30 Giây (Napas 247)
+              </div>
+              <p style="font-size: 12px; color: #475569; line-height: 1.55; margin: 0;">
+                Hạ tầng kết nối Napas 247 xử lý lệnh thanh toán xuyên suốt ngày nghỉ, cuối tuần và lễ tết. Đối tác kiểm tra tài khoản nhận ngay biến động số dư.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chứng Từ Điện Tử & Kê Khai Thuế -->
+        <div class="card-clean" style="border: 1px solid #e2e8f0; padding: 16px 22px; display: flex; align-items: center; justify-content: space-between;">
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <i class="fa-solid fa-certificate" style="font-size: 24px; color: #0033a3;"></i>
+            <div>
+              <div style="font-size: 14px; font-weight: 800; color: #0a1931;">
+                CHỨNG TỪ QUYẾT TOÁN ĐIỆN TỬ &amp; MINH BẠCH DÒNG TIỀN
+              </div>
+              <div style="font-size: 12.5px; color: #475569; margin-top: 2px;">
+                Mọi lệnh chi trả hoa hồng đều có mã tham chiếu ngân hàng (FT), xuất phiếu chiết khấu điện tử có mộc pháp nhân phục vụ kê khai thuế thu nhập cá nhân.
+              </div>
+            </div>
+          </div>
+          <span style="font-size: 12px; font-weight: 700; color: #059669; flex-shrink: 0; background: #ecfdf5; padding: 6px 12px; border-radius: 6px;">
+            ✔ 100% MINH BẠCH
+          </span>
+        </div>
+      </div>
+
+      <footer class="page-footer">
+        <div class="footer-left">NHA KHOA FLORA • TRA CỨU ĐƠN HÀNG ONLINE &amp; TỰ ĐỘNG HÓA ZALO BOT</div>
+        <div class="footer-page-num">TRANG 08 / 10</div>
+      </footer>
+    </article>
+
+    <!-- ==========================================================================
+         TRANG 09: KHO TÀI NGUYÊN TIẾP THỊ (MEDIA KIT) & ĐỒNG HÀNH 1:1
+         ========================================================================== -->
+    <article class="booklet-page" id="page-9" data-page="9">
+      <header class="page-masthead">
+        <div class="masthead-left">
+          <img src="../flora-theme/assets/ngayhoi_item/Logo-Flora1.webp" alt="Flora Logo" class="masthead-logo">
+          <span class="masthead-tag">TÀI NGUYÊN ĐỐI TÁC</span>
+          <span class="masthead-divider"></span>
+          <span class="masthead-section-title">MEDIA KIT &amp; CHUYÊN VIÊN RIÊNG</span>
+        </div>
+        <div class="masthead-right">
+          <span class="clean-meta-label">MIỄN PHÍ 100%</span>
+        </div>
+      </header>
+
+      <div class="page-body">
+        <div class="page-title-group">
+          <h2 class="page-title">Kho Tài Nguyên Tiếp Thị (Media Kit) &amp; Hỗ Trợ 1:1</h2>
+          <p class="page-subtitle">Nha Khoa Flora cung cấp toàn bộ tư liệu truyền thông chuẩn mực Thụy Sĩ và chuyên viên tư vấn riêng hỗ trợ Đối tác/KOL phát triển thu nhập.</p>
+        </div>
+
+        <!-- 4 Khối Trụ Cột Hỗ Trợ Đối Tác -->
+        <div class="grid-2col" style="gap: 16px;">
+          <div class="card-clean" style="border: 1px solid #e2e8f0; padding: 20px 22px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+              <div style="width: 38px; height: 38px; border-radius: 8px; background: #e0f2fe; color: #0033a3; display: flex; align-items: center; justify-content: center; font-size: 16px;">
+                <i class="fa-solid fa-camera-retro"></i>
+              </div>
+              <div>
+                <span class="kicker-tag" style="font-size: 10px; color: #0033a3;">TÀI NGUYÊN 01</span>
+                <div style="font-size: 16px; font-weight: 800; color: #0a1931;">Hình Ảnh Phòng Khám 4K</div>
+              </div>
+            </div>
+            <p style="font-size: 12.5px; color: #475569; line-height: 1.55; margin: 0;">
+              Bộ ảnh chụp không gian sang trọng, sảnh đón tiếp chuẩn khách sạn, phòng phẫu thuật vô trùng áp lực dương và hệ thống trang thiết bị chuyển giao từ Thụy Sĩ, Đức.
+            </p>
+          </div>
+
+          <div class="card-clean" style="border: 1px solid #e2e8f0; padding: 20px 22px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+              <div style="width: 38px; height: 38px; border-radius: 8px; background: #ecfdf5; color: #059669; display: flex; align-items: center; justify-content: center; font-size: 16px;">
+                <i class="fa-solid fa-video"></i>
+              </div>
+              <div>
+                <span class="kicker-tag" style="font-size: 10px; color: #059669;">TÀI NGUYÊN 02</span>
+                <div style="font-size: 16px; font-weight: 800; color: #0a1931;">Video Chuyên Môn Bác Sĩ CKI</div>
+              </div>
+            </div>
+            <p style="font-size: 12.5px; color: #475569; line-height: 1.55; margin: 0;">
+              Tuyển tập clip ngắn Bác sĩ CKI Nguyễn Triều Triệu tư vấn chuyên sâu về cấy ghép Implant, niềng răng trong suốt Invisalign, bọc răng sứ và tẩy trắng răng không đau.
+            </p>
+          </div>
+
+          <div class="card-clean" style="border: 1px solid #e2e8f0; padding: 20px 22px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+              <div style="width: 38px; height: 38px; border-radius: 8px; background: #fef3c7; color: #b45309; display: flex; align-items: center; justify-content: center; font-size: 16px;">
+                <i class="fa-solid fa-pen-nib"></i>
+              </div>
+              <div>
+                <span class="kicker-tag" style="font-size: 10px; color: #b45309;">TÀI NGUYÊN 03</span>
+                <div style="font-size: 16px; font-weight: 800; color: #0a1931;">Mẫu Bài Viết &amp; Banner Chiến Dịch</div>
+              </div>
+            </div>
+            <p style="font-size: 12.5px; color: #475569; line-height: 1.55; margin: 0;">
+              Các mẫu bài chia sẻ hấp dẫn, gợi ý kịch bản review chân thực cho TikTok/Reels và bộ banner thiết kế chuẩn kích thước cho mạng xã hội.
+            </p>
+          </div>
+
+          <div class="card-clean" style="border: 1px solid #e2e8f0; padding: 20px 22px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+              <div style="width: 38px; height: 38px; border-radius: 8px; background: #ede9fe; color: #6d28d9; display: flex; align-items: center; justify-content: center; font-size: 16px;">
+                <i class="fa-solid fa-headset"></i>
+              </div>
+              <div>
+                <span class="kicker-tag" style="font-size: 10px; color: #6d28d9;">TÀI NGUYÊN 04</span>
+                <div style="font-size: 16px; font-weight: 800; color: #0a1931;">Chuyên Viên Quản Lý Đối Tác 1:1</div>
+              </div>
+            </div>
+            <p style="font-size: 12.5px; color: #475569; line-height: 1.55; margin: 0;">
+              Mỗi Đối tác/KOL được chỉ định một chuyên viên CSKH cấp cao đồng hành, giải đáp thắc mắc và phối hợp thiết kế voucher độc quyền cho các sự kiện đặc biệt.
+            </p>
+          </div>
+        </div>
+
+        <!-- Khung Nút Tải Tài Liệu & Kết Nối Zalo -->
+        <div class="card-gradient-blue" style="display: flex; justify-content: space-between; align-items: center; padding: 18px 24px;">
+          <div>
+            <div style="font-family: var(--font-display); font-size: 14px; font-weight: 800; color: var(--c-blue-deep); margin-bottom: 2px;">
+              TẢI TRỌN BỘ TÀI NGUYÊN TIẾP THỊ &amp; KẾT NỐI CHUYÊN VIÊN
+            </div>
+            <div style="font-size: 12.5px; color: var(--c-text-secondary);">
+              Toàn bộ dữ liệu được cập nhật mới định kỳ hàng tháng trên Google Drive tốc độ cao.
+            </div>
+          </div>
+          <div style="display: flex; gap: 10px; flex-shrink: 0;">
+            <a href="https://zalo.me/0901028999" target="_blank" class="ctrl-btn" style="background: #ffffff; font-size: 12.5px; padding: 8px 16px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+              <i class="fa-solid fa-comments" style="color: #0068ff;"></i> Chat Zalo 1:1
+            </a>
+            <a href="https://nhakhoaflora.com/doi-tac/" target="_blank" class="ctrl-btn btn-primary" style="font-size: 12.5px; padding: 8px 16px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+              <i class="fa-solid fa-cloud-arrow-down"></i> Tải Media Kit
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <footer class="page-footer">
+        <div class="footer-left">NHA KHOA FLORA • KHO TÀI NGUYÊN TIẾP THỊ MEDIA KIT &amp; HỖ TRỢ 1:1</div>
+        <div class="footer-page-num">TRANG 09 / 10</div>
+      </footer>
+    </article>
+
+    <!-- ==========================================================================
+         TRANG 10: BÌA SAU (BACK COVER) - ĐỒNG HÀNH BỀN VỮNG CÙNG ĐỐI TÁC
+         ========================================================================== -->
+    <article class="booklet-page brand-back-cover" id="page-10" data-page="10">
+      <!-- Header Bìa Sau -->
+      <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px;">
+        <span style="font-family: var(--font-display); font-size: 11.5px; font-weight: 700; letter-spacing: 1.5px; color: #bae6fd; text-transform: uppercase;">
+          NHA KHOA FLORA • FLORA DENTAL CLINIC
+        </span>
+        <span style="font-family: var(--font-display); font-size: 11px; font-weight: 700; letter-spacing: 1px; color: #fde047; text-transform: uppercase;">
+          MẠNG LƯỚI ĐỐI TÁC CHIẾN LƯỢC 2026
+        </span>
+      </div>
+
+      <!-- Trung Tâm Bìa Sau (Logo Flora To, Slogan Bền Lâu) -->
+      <div style="text-align: center; display: flex; flex-direction: column; align-items: center; padding: 24px 0;">
+        <img src="../flora-theme/assets/ngayhoi_item/Logo-Flora1.webp" alt="Nha Khoa Flora Logo" class="cover-logo-white">
+
+        <div style="margin-top: 24px;">
+          <div class="cover-kicker">ĐỒNG HÀNH BỀN VỮNG • CHUẨN MỰC THỤY SĨ</div>
+          <h2 class="cover-hero-title" style="font-size: 38px;">
+            NỤ CƯỜI TỎA SÁNG<br>
+            <span style="color: #fde047;">ĐỒNG HÀNH BỀN LÂU CÙNG FLORA</span>
+          </h2>
+          <p class="cover-hero-desc" style="margin: 0 auto; max-width: 800px;">
+            Cảm ơn Quý Đối tác &amp; KOL đã tin tưởng đồng hành cùng Nha Khoa Flora. Chúng tôi cam kết mang lại chính sách hoa hồng minh bạch nhất, hạ tầng công nghệ hiện đại nhất và chất lượng điều trị chuẩn mực Thụy Sĩ cho mọi khách hàng được giới thiệu.
+          </p>
+        </div>
+      </div>
+
+      <!-- Box Kính Mờ Thông Tin Liên Hệ & Pháp Lý (Glassmorphism Luxury) -->
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div class="glass-card-cover" style="padding: 22px 26px;">
+          <div style="font-family: var(--font-display); font-size: 13.5px; font-weight: 800; color: #fde047; margin-bottom: 12px; letter-spacing: 1px; text-transform: uppercase;">
+            THÔNG TIN LIÊN HỆ &amp; BAN HỢP TÁC CHIẾN LƯỢC FLORA
+          </div>
+
+          <div class="grid-2col" style="gap: 18px; font-size: 13px;">
+            <div>
+              <div style="color: #bae6fd; font-size: 11.5px; text-transform: uppercase; font-weight: 700;">Phòng Khám Nha Khoa Flora:</div>
+              <strong style="font-size: 14px; color: #ffffff;">326 Nguyễn Thị Minh Khai, Phường 5, Quận 3, TP. Hồ Chí Minh</strong>
+              <div style="margin-top: 8px; color: #bae6fd; font-size: 11.5px; text-transform: uppercase; font-weight: 700;">Cổng Đăng Ký &amp; Đăng Nhập:</div>
+              <a href="https://nhakhoaflora.com/doi-tac/" style="color: #fde047; font-weight: 700; text-decoration: none;">https://nhakhoaflora.com/doi-tac/</a>
+            </div>
+
+            <div>
+              <div style="color: #bae6fd; font-size: 11.5px; text-transform: uppercase; font-weight: 700;">Tổng Đài CSKH 24/7:</div>
+              <strong style="font-size: 14px; color: #ffffff;">028 7305 8999</strong>
+              <div style="margin-top: 8px; color: #bae6fd; font-size: 11.5px; text-transform: uppercase; font-weight: 700;">Hotline Đối Tác / Zalo Hỗ Trợ:</div>
+              <strong style="font-size: 14px; color: #fde047;">0901 028 999</strong>
+              <div style="margin-top: 4px; font-size: 12px; color: #e0f2fe;">Hòm thư đối tác: <code>affiliate@nhakhoaflora.com</code></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-2col" style="gap: 14px;">
+          <div class="glass-card-cover" style="padding: 14px 18px;">
+            <div style="font-size: 12.5px; font-weight: 700; color: #fde047; margin-bottom: 2px;">
+              <i class="fa-solid fa-hospital" style="margin-right: 6px;"></i> Tiêu Chuẩn Cơ Sở Vật Chất
+            </div>
+            <div style="font-size: 12px; color: #e0f2fe; line-height: 1.45;">
+              Hệ thống phòng phẫu thuật vô trùng áp lực dương, Máy chụp CT Cone Beam 3D thế hệ mới và Máy scan dấu răng kỹ thuật số iTero Element 5D.
+            </div>
+          </div>
+
+          <div class="glass-card-cover" style="padding: 14px 18px;">
+            <div style="font-size: 12.5px; font-weight: 700; color: #fde047; margin-bottom: 2px;">
+              <i class="fa-solid fa-certificate" style="margin-right: 6px;"></i> Pháp Lý &amp; Giấy Phép Sở Y Tế
+            </div>
+            <div style="font-size: 12px; color: #e0f2fe; line-height: 1.45;">
+              Giấy phép hoạt động khám chữa bệnh số <strong>07255/HCM-GPHĐ</strong> cấp bởi Sở Y Tế TP.HCM. Bác sĩ phụ trách chuyên môn: Bác sĩ CKI Nguyễn Triều Triệu.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bìa Sau -->
+      <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 16px; font-size: 11px; color: #bae6fd;">
+        <span>NHA KHOA FLORA © 2026 • CHUẨN MỰC NHA KHOA THỤY SĨ</span>
+        <span style="font-weight: 700; color: #ffffff;">TÀI LIỆU DÀNH RIÊNG CHO ĐỐI TÁC &amp; KOL</span>
+        <span>TRANG 10 / 10</span>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- ==========================================================================
+       SCRIPTS: BÀN PHÍM ĐIỀU HƯỚNG & CẬP NHẬT TRANG
+       ========================================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const pages = document.querySelectorAll('.booklet-page');
+      const totalPages = pages.length;
+      let currentIndex = 0;
+
+      const pageIndicator = document.getElementById('currentPageNum');
+      const btnPrev = document.getElementById('btnPrevPage');
+      const btnNext = document.getElementById('btnNextPage');
+
+      function updatePageIndicator() {
+        const pageNum = String(currentIndex + 1).padStart(2, '0');
+        if (pageIndicator) pageIndicator.textContent = pageNum;
+      }
+
+      function scrollToPage(index) {
+        if (index < 0 || index >= totalPages) return;
+        currentIndex = index;
+        pages[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'start' });
+        updatePageIndicator();
+      }
+
+      if (btnPrev) btnPrev.addEventListener('click', () => scrollToPage(currentIndex - 1));
+      if (btnNext) btnNext.addEventListener('click', () => scrollToPage(currentIndex + 1));
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === 'PageDown') {
+          scrollToPage(currentIndex + 1);
+        } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+          scrollToPage(currentIndex - 1);
+        }
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const pageNum = parseInt(entry.target.getAttribute('data-page'), 10);
+            if (!isNaN(pageNum)) {
+              currentIndex = pageNum - 1;
+              updatePageIndicator();
+            }
+          }
+        });
+      }, { threshold: 0.5 });
+
+      pages.forEach(page => observer.observe(page));
+    });
+  </script>
+</body>
+</html>

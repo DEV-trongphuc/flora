@@ -71,15 +71,22 @@ def run_remote_command(ssh, cmd):
     err = stderr.read().decode('utf-8', errors='ignore').strip()
     return out, err
 
-def create_local_tar_archive(source_dir, output_file):
+def create_local_tar_archive(source_dir, output_file, code_only=False):
     """Nén thư mục theme thành file tar.gz để upload siêu tốc"""
-    log(f"Đang đóng gói Theme thành file nén: {os.path.basename(output_file)} ...")
+    mode_text = " (Chế độ Code-Only Siêu Tốc)" if code_only else ""
+    log(f"Đang đóng gói Theme thành file nén{mode_text}: {os.path.basename(output_file)} ...")
     with tarfile.open(output_file, "w:gz") as tar:
         for root, dirs, files in os.walk(source_dir):
             # Bỏ qua các thư mục không cần thiết
             dirs[:] = [d for d in dirs if d not in ['.git', '.svn', 'node_modules', '__pycache__', '.idea', '.vscode']]
+            
+            # Nếu code_only, bỏ qua thư mục assets nặng
+            rel_dir = os.path.relpath(root, source_dir)
+            if code_only and (rel_dir == 'assets' or rel_dir.startswith('assets' + os.sep)):
+                continue
+
             for file in files:
-                if file in ['.DS_Store', 'Thumbs.db']:
+                if file in ['.DS_Store', 'Thumbs.db'] or file.endswith('.bak') or file.endswith('.tmp'):
                     continue
                 full_path = os.path.join(root, file)
                 rel_path = os.path.relpath(full_path, source_dir)
@@ -96,8 +103,10 @@ def deploy():
         log(f"Không tìm thấy thư mục theme tại: {LOCAL_THEME_DIR}", "ERR")
         sys.exit(1)
 
+    code_only = any(arg in sys.argv for arg in ['--quick', '--code', '-q', '-c'])
+
     # 1. Đóng gói theme thành file .tar.gz
-    create_local_tar_archive(LOCAL_THEME_DIR, LOCAL_ARCHIVE)
+    create_local_tar_archive(LOCAL_THEME_DIR, LOCAL_ARCHIVE, code_only=code_only)
 
     log(f"Đang kết nối tới VPS: {SERVER_USER}@{SERVER_HOST}:{SERVER_PORT} ...")
     

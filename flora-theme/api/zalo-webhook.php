@@ -190,7 +190,7 @@ if ($isZaloBotEvent) {
         // 1. LỆNH /hello, /hi
         if (in_array($command, ['/hello', '/hi', 'hello', 'hi']) || in_array($textLower, ['/hello', '/hi', 'hello', 'hi', 'xin chào', 'chào'])) {
             $helloMsg = "👋 [ XIN CHÀO TỪ BOT NHA KHOA FLORA! ]\n"
-                      . "━━━━━━━━━━━━━━━━━━━━━━\n"
+                      . "━━━━━━━\n"
                       . "🤖 Tôi là Trợ Lý Zalo Bot tự động đối soát đơn hàng gói khám của Nha Khoa Flora.\n\n"
                       . "🟢 Trạng Thái Hoạt Động:\n"
                       . "  • Hệ thống: Trực tuyến 24/7\n"
@@ -206,29 +206,170 @@ if ($isZaloBotEvent) {
         // 2. LỆNH /help, /tools, /huongdan
         if (in_array($command, ['/help', '/tools', 'help', 'tools', '/huongdan', 'hướng dẫn']) || in_array($textLower, ['/help', '/tools', 'help', 'tools', '/huongdan', 'hướng dẫn'])) {
             $helpMsg = "🛠 [ DANH SÁCH LỆNH ZALO BOT FLORA ]\n"
-                     . "━━━━━━━━━━━━━━━━━━━━━━\n"
-                     . "1. Quản Lý Đơn Hàng Gói Khám:\n"
+                     . "━━━━━━━\n"
+                     . "1. Dành Cho Đối Tác Tiếp Thị:\n"
+                     . "  ▸ LINK <mã_ref> : Liên kết Zalo này với Cổng Đối Tác\n"
+                     . "  ▸ SODU : Xem số dư hoa hồng khả dụng và đang chờ\n"
+                     . "  ▸ LINK : Lấy lại link giới thiệu & mã voucher cá nhân\n"
+                     . "  ▸ HOTRO : Kết nối chuyên viên hỗ trợ đối tác\n"
+                     . "  ▸ HUY : Hủy liên kết Zalo bot\n\n"
+                     . "2. Quản Lý Đơn Hàng Gói Khám (Nội Bộ):\n"
                      . "  ▸ /pending : Danh sách đơn hàng đang chờ duyệt & link bill\n"
-                     . "  ▸ /duyet <mã_đơn> : Duyệt đơn ngay trên Zalo (Gửi mail kích hoạt)\n"
-                     . "  ▸ /duyetlai <mã_đơn> : Khôi phục & duyệt lại đơn đã bị từ chối\n"
-                     . "  ▸ /tuchoi <mã_đơn> [lý do] : Từ chối đơn & gửi mail khiếu nại\n\n"
-                     . "2. Quản Lý Đối Tác Tiếp Thị / KOL:\n"
+                     . "  ▸ /duyet <mã_đơn> : Duyệt đơn ngay trên Zalo\n"
+                     . "  ▸ /duyetlai <mã_đơn> : Phục hồi & duyệt lại đơn đã từ chối\n"
+                     . "  ▸ /tuchoi <mã_đơn> [lý do] : Từ chối đơn\n\n"
+                     . "3. Quản Lý Đối Tác / KOL (Admin):\n"
                      . "  ▸ /pendingkol : Danh sách hồ sơ đối tác đang chờ duyệt\n"
-                     . "  ▸ /duyetkol <sđt_hoặc_id> : Duyệt đối tác, cấp mã REF & gửi email\n"
+                     . "  ▸ /duyetkol <sđt_hoặc_id> : Duyệt đối tác & cấp mã REF\n"
                      . "  ▸ /tuchoikol <sđt_hoặc_id> [lý do] : Từ chối hồ sơ đối tác\n\n"
-                     . "3. Thống Kê & Báo Cáo:\n"
-                     . "  ▸ /report : Báo cáo doanh thu & tổng đơn hôm nay\n\n"
-                     . "4. Cấu Hình & Tiện Ích:\n"
-                     . "  ▸ /chatid : Đăng ký & lưu ID nhóm này làm nhóm nhận thông báo\n"
-                     . "  ▸ /test : Gửi tin nhắn thử nghiệm kiểm tra kết nối\n"
-                     . "  ▸ /hello : Kiểm tra trạng thái bot\n\n"
-                     . "💡 Ví dụ thao tác:\n"
-                     . "  /duyet FLORA-89AB12CD\n"
-                     . "  /duyetlai FLORA-89AB12CD\n"
-                     . "  /tuchoi FLORA-89AB12CD Chưa nhận được tiền ACB\n"
-                     . "  /duyetkol 0912345678";
+                     . "4. Báo Cáo & Cấu Hình:\n"
+                     . "  ▸ /report : Báo cáo doanh thu & tổng đơn hôm nay\n"
+                     . "  ▸ /chatid : Đăng ký & lưu ID nhóm nhận thông báo\n"
+                     . "  ▸ /test : Gửi tin nhắn thử nghiệm kiểm tra kết nối";
             flora_send_zalo_bot_direct_message($helpMsg, $chatId);
             echo json_encode(['success' => true, 'action' => 'help_replied']);
+            exit;
+        }
+
+        // 2b. LỆNH DÀNH RIÊNG CHO ĐỐI TÁC TIẾP THỊ (PARTNER BOT COMMANDS)
+
+        // Cú pháp: LINK <MÃ_REF> (Liên kết tài khoản Zalo với đối tác)
+        if (in_array($command, ['/link', 'link', '/lienket', 'lienket', 'liên kết', '/liên kết']) && !empty($arg1)) {
+            global $wpdb;
+            $aff_table = function_exists('flora_get_affiliates_table_name') ? flora_get_affiliates_table_name() : $wpdb->prefix . 'flora_affiliates';
+            $ref_target = strtoupper(trim(trim($arg1), ' "#\':;.,<>[]()'));
+            
+            $kol = $wpdb->get_row($wpdb->prepare("SELECT * FROM $aff_table WHERE ref_code = %s OR phone = %s LIMIT 1", $ref_target, $ref_target), ARRAY_A);
+            
+            if (!$kol) {
+                $notFoundMsg = "⚠️ [ KHÔNG TÌM THẤY HỒ SƠ ĐỐI TÁC ] ⚠️\n"
+                             . "━━━━━━━\n"
+                             . "Không tìm thấy hồ sơ Đối Tác với mã REF hoặc SĐT: {$ref_target}\n\n"
+                             . "💡 Quý đối tác vui lòng kiểm tra lại Mã giới thiệu (REF) trên Cổng Đối Tác (nhakhoaflora.com/doi-tac/) hoặc liên hệ Hotline: 028 7305 8999.";
+                flora_send_zalo_bot_direct_message($notFoundMsg, $chatId);
+                exit;
+            }
+            
+            // Cập nhật zalo_chat_id cho đối tác
+            $wpdb->update($aff_table, array('zalo_chat_id' => $chatId), array('id' => $kol['id']), array('%s'), array('%d'));
+            
+            $portal_link = home_url('/doi-tac/?token=' . $kol['secret_token']);
+            $linkSuccessMsg = "🎉 [ LIÊN KẾT ZALO BOT THÀNH CÔNG ] 🎉\n"
+                            . "━━━━━━━\n"
+                            . "Chào Đối tác {$kol['name']}!\n"
+                            . "Tài khoản Zalo của bạn đã được kết nối thành công với Cổng Đối Tác Flora:\n\n"
+                            . "• Mã REF: {$kol['ref_code']}\n"
+                            . "• Số ĐT: {$kol['phone']}\n"
+                            . "• Chat ID: {$chatId}\n\n"
+                            . "Từ bây giờ, bạn sẽ tự động nhận được:\n"
+                            . "1. Thông báo khi đơn hàng giới thiệu ĐƯỢC DUYỆT THÀNH CÔNG (+hoa hồng).\n"
+                            . "2. Thông báo kết quả chuyển khoản khi bạn làm phiếu rút tiền.\n"
+                            . "━━━━━━━\n"
+                            . "💡 Cú pháp tra cứu nhanh mọi lúc:\n"
+                            . "• Soạn: SODU -> Xem số dư khả dụng có thể rút\n"
+                            . "• Soạn: LINK -> Lấy lại link giới thiệu cá nhân\n"
+                            . "• Soạn: HOTRO -> Kết nối chuyên viên CSKH\n"
+                            . "👉 Cổng Đối Tác: {$portal_link}";
+            flora_send_zalo_bot_direct_message($linkSuccessMsg, $chatId);
+            echo json_encode(['success' => true, 'action' => 'partner_linked', 'ref_code' => $kol['ref_code']]);
+            exit;
+        }
+
+        // Cú pháp: SODU / SỐ DƯ (Đối tác tra cứu số dư hoa hồng)
+        if (in_array($command, ['/sodu', 'sodu', '/sốdư', 'sốdư', 'số dư', '/số dư', 'so du', '/so du'])) {
+            global $wpdb;
+            $aff_table = function_exists('flora_get_affiliates_table_name') ? flora_get_affiliates_table_name() : $wpdb->prefix . 'flora_affiliates';
+            $kol = $wpdb->get_row($wpdb->prepare("SELECT * FROM $aff_table WHERE zalo_chat_id = %s LIMIT 1", $chatId), ARRAY_A);
+            
+            if (!$kol) {
+                $msg = "⚠️ Tài khoản Zalo này chưa được liên kết với hồ sơ Đối Tác nào trên Flora.\n\n"
+                     . "👉 Quý đối tác vui lòng soạn:\n"
+                     . "   LINK <MÃ_REF>\n"
+                     . "Ví dụ: LINK DOITACTEST để liên kết nhận báo cáo số dư tức thì!";
+                flora_send_zalo_bot_direct_message($msg, $chatId);
+                exit;
+            }
+            
+            $stats = function_exists('flora_affiliate_get_financial_stats') ? flora_affiliate_get_financial_stats($kol['id']) : array('available_balance' => 0, 'pending_commission' => 0, 'paid_commission' => 0, 'confirmed_orders' => 0);
+            $availFmt   = number_format($stats['available_balance'], 0, ',', '.') . ' VNĐ';
+            $pendingFmt = number_format($stats['pending_commission'], 0, ',', '.') . ' VNĐ';
+            $paidFmt    = number_format($stats['paid_commission'], 0, ',', '.') . ' VNĐ';
+            $portalUrl  = home_url('/doi-tac/?token=' . $kol['secret_token']);
+            
+            $soduMsg = "💰 [ TRA CỨU SỐ DƯ HOA HỒNG FLORA ] 💰\n"
+                     . "━━━━━━━\n"
+                     . "Chào Đối tác {$kol['name']}! (REF: {$kol['ref_code']})\n\n"
+                     . "💳 Số dư khả dụng (Có thể rút ngay): {$availFmt}\n"
+                     . "⏳ Hoa hồng chờ đối soát: {$pendingFmt}\n"
+                     . "✅ Tổng hoa hồng đã nhận: {$paidFmt}\n"
+                     . "📦 Số đơn hoàn tất: {$stats['confirmed_orders']} đơn\n"
+                     . "━━━━━━━\n"
+                     . "👉 Bấm vào đây để vào Cổng Rút Tiền:\n"
+                     . "   {$portalUrl}";
+            flora_send_zalo_bot_direct_message($soduMsg, $chatId);
+            echo json_encode(['success' => true, 'action' => 'partner_balance_checked']);
+            exit;
+        }
+
+        // Cú pháp: LINK (Không kèm tham số - Đối tác lấy lại link giới thiệu & voucher)
+        if ((in_array($command, ['/link', 'link', '/voucher', 'voucher']) && empty($arg1)) || in_array($textLower, ['link', '/link', 'voucher', '/voucher'])) {
+            global $wpdb;
+            $aff_table = function_exists('flora_get_affiliates_table_name') ? flora_get_affiliates_table_name() : $wpdb->prefix . 'flora_affiliates';
+            $kol = $wpdb->get_row($wpdb->prepare("SELECT * FROM $aff_table WHERE zalo_chat_id = %s LIMIT 1", $chatId), ARRAY_A);
+            
+            if (!$kol) {
+                $msg = "⚠️ Tài khoản Zalo này chưa liên kết với hồ sơ Đối Tác Flora.\n\n"
+                     . "👉 Soạn: LINK <MÃ_REF> để liên kết (Ví dụ: LINK DOITACTEST).";
+                flora_send_zalo_bot_direct_message($msg, $chatId);
+                exit;
+            }
+            
+            $refUrl = home_url('/goi-dich-vu/?ref=' . $kol['ref_code']);
+            $portalUrl = home_url('/doi-tac/?token=' . $kol['secret_token']);
+            $commRate = $kol['commission_rate'] . ($kol['commission_type'] === 'fixed' ? 'đ' : '%');
+            
+            $linkMsg = "🔗 [ THÔNG TIN TIẾP THỊ ĐỘC QUYỀN ] 🔗\n"
+                     . "━━━━━━━\n"
+                     . "Chào Đối tác {$kol['name']}!\n\n"
+                     . "• Mã REF của bạn: {$kol['ref_code']}\n"
+                     . "• Mức hoa hồng: {$commRate}\n"
+                     . "• Đường link giới thiệu độc quyền:\n"
+                     . "  {$refUrl}\n"
+                     . "• Mã voucher ưu đãi cho khách: {$kol['ref_code']}\n"
+                     . "━━━━━━━\n"
+                     . "👉 Cổng quản trị cá nhân: {$portalUrl}";
+            flora_send_zalo_bot_direct_message($linkMsg, $chatId);
+            echo json_encode(['success' => true, 'action' => 'partner_link_retrieved']);
+            exit;
+        }
+
+        // Cú pháp: HOTRO / HỖ TRỢ
+        if (in_array($command, ['/hotro', 'hotro', '/hỗtrợ', 'hỗtrợ', 'hỗ trợ', '/hỗ trợ', 'support', '/support'])) {
+            $hotroMsg = "📞 [ TRỢ GIÚP ĐỐI TÁC NHA KHOA FLORA ] 📞\n"
+                      . "━━━━━━━\n"
+                      . "Mọi thắc mắc về đối soát doanh thu, duyệt đơn hoặc quyết toán hoa hồng, Quý đối tác vui lòng liên hệ:\n\n"
+                      . "• Hotline Đối Tác 24/7: 028 7305 8999\n"
+                      . "• Zalo Hỗ Trợ Kỹ Thuật & Kế Toán: 028 7305 8999\n"
+                      . "• Phòng khám: 326 Nguyễn Thị Minh Khai, P. Bàn Cờ, TP.HCM\n"
+                      . "• Thời gian hỗ trợ: 08:00 - 19:00 (Tất cả các ngày trong tuần)";
+            flora_send_zalo_bot_direct_message($hotroMsg, $chatId);
+            echo json_encode(['success' => true, 'action' => 'hotro_replied']);
+            exit;
+        }
+
+        // Cú pháp: HUY / UNLINK (Hủy liên kết Zalo bot)
+        if (in_array($command, ['/huy', 'huy', '/unlink', 'unlink', 'hủy', '/hủy'])) {
+            global $wpdb;
+            $aff_table = function_exists('flora_get_affiliates_table_name') ? flora_get_affiliates_table_name() : $wpdb->prefix . 'flora_affiliates';
+            $kol = $wpdb->get_row($wpdb->prepare("SELECT * FROM $aff_table WHERE zalo_chat_id = %s LIMIT 1", $chatId), ARRAY_A);
+            if ($kol) {
+                $wpdb->update($aff_table, array('zalo_chat_id' => ''), array('id' => $kol['id']), array('%s'), array('%d'));
+                $unMsg = "✅ Đã hủy liên kết Zalo Bot cho hồ sơ Đối Tác {$kol['name']} (REF: {$kol['ref_code']}).\n"
+                       . "Khi cần kết nối lại, bạn chỉ cần soạn: LINK {$kol['ref_code']}";
+                flora_send_zalo_bot_direct_message($unMsg, $chatId);
+            } else {
+                flora_send_zalo_bot_direct_message("Tài khoản Zalo này hiện chưa liên kết với đối tác nào.", $chatId);
+            }
             exit;
         }
 
@@ -236,7 +377,7 @@ if ($isZaloBotEvent) {
         if (in_array($command, ['/chatid', 'chatid', '/id', 'id', '/info', 'info']) || in_array($textLower, ['/chatid', 'chatid', '/id', 'id', '/info', 'info'])) {
             update_option('flora_zalo_group_chat_id', $chatId);
             $reply = "✅ [ NHA KHOA FLORA - KẾT NỐI NHÓM THÀNH CÔNG ]\n"
-                   . "━━━━━━━━━━━━━━━━━━━━━━\n"
+                   . "━━━━━━━\n"
                    . "📌 Group Chat ID: " . $chatId . "\n"
                    . "👤 Người kích hoạt: " . $senderLabel . "\n\n"
                    . "🎉 Hệ thống đã tự động lưu nhóm Zalo này vào Website Flora!\n"
@@ -250,14 +391,14 @@ if ($isZaloBotEvent) {
         // 4. LỆNH /test
         if ($textLower === '/test') {
             $testMsg = "🔔 [ TIN NHẮN KIỂM TRA ĐƯỜNG TRUYỀN FLORA ]\n"
-                     . "━━━━━━━━━━━━━━━━━━━━━━\n"
+                     . "━━━━━━━\n"
                      . "🏷️ Mã đơn test: FLORA-TEST-" . rand(1000, 9999) . "\n"
                      . "👤 Khách hàng: Nguyễn Khách Mẫu\n"
                      . "📞 SĐT: 0912345678\n"
                      . "📦 Gói: Care Plus (999.000 VNĐ)\n"
                      . "🏦 Ngân hàng: ACB - 77779268 (CN HOA HUNG)\n"
                      . "⏰ Lúc: " . current_time('d/m/Y H:i:s') . "\n"
-                     . "━━━━━━━━━━━━━━━━━━━━━━\n"
+                     . "━━━━━━━\n"
                      . "⚡ Zalo Bot Platform hoạt động hoàn hảo và sẵn sàng nhận đơn!";
             flora_send_zalo_bot_direct_message($testMsg, $chatId);
             echo json_encode(['success' => true, 'action' => 'test_sent']);
@@ -274,7 +415,7 @@ if ($isZaloBotEvent) {
                 $msg = "🎉 Hiện không có đơn hàng nào đang chờ xác nhận! Tất cả đơn đã được xử lý xong.";
             } else {
                 $msg = "⏳ [ DANH SÁCH ĐƠN HÀNG ĐANG CHỜ XÁC NHẬN ] (" . count($orders) . " đơn mới nhất)\n"
-                     . "━━━━━━━━━━━━━━━━━━━━━━\n";
+                     . "━━━━━━━\n";
                 foreach ($orders as $idx => $o) {
                     $num = $idx + 1;
                     $amt = number_format($o['final_amount'], 0, ',', '.') . 'đ';
@@ -293,7 +434,7 @@ if ($isZaloBotEvent) {
                           . "   👉 Duyệt: /duyet {$o['order_code']}\n"
                           . "   👉 Từ chối: /tuchoi {$o['order_code']}\n\n";
                 }
-                $msg .= "━━━━━━━━━━━━━━━━━━━━━━\n"
+                $msg .= "━━━━━━━\n"
                       . "💡 Gõ /duyet <mã_đơn> để duyệt trực tiếp ngay tại đây!";
             }
             flora_send_zalo_bot_direct_message($msg, $chatId);

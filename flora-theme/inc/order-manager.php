@@ -2370,11 +2370,11 @@ add_action('wp_ajax_flora_test_zalo_bot_message', function() {
     }
 
     $test_msg = "👋 [XIN CHÀO TỪ TRỢ LÝ BOT NHA KHOA FLORA!]\n"
-              . "━━━━━━━━━━━━━━━━━━━━━━\n"
+              . "━━━━━━━\n"
               . "🤖 Kết nối Zalo Bot Platform với Website Flora thành công rực rỡ!\n"
               . "🏷️ Group ID: " . $chat_id . "\n"
               . "⏰ Thời gian: " . current_time('d/m/Y H:i:s') . "\n"
-              . "━━━━━━━━━━━━━━━━━━━━━━\n"
+              . "━━━━━━━\n"
               . "✨ Từ bây giờ, mọi đơn hàng khách chuyển khoản ACB sẽ được thông báo ngay tại đây.\n"
               . "💡 Gõ /pending để xem đơn chờ duyệt, hoặc /help để xem hướng dẫn lệnh.";
 
@@ -2430,7 +2430,7 @@ add_action('wp_ajax_flora_test_zalo_webhook', function() {
     );
 
     $msg = "🧪 [TIN NHẮN TEST WEBHOOK TỪ NHA KHOA FLORA]\n"
-         . "━━━━━━━━━━━━━━━━━━━━━━\n"
+         . "━━━━━━━\n"
          . "Cấu hình Custom Webhook hoạt động hoàn toàn chính xác!\n"
          . "Mã đơn mẫu: " . $dummy_order['order_code'] . "\n"
          . "Khách hàng mẫu: " . $dummy_order['customer_name'] . "\n"

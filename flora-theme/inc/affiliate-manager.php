@@ -165,6 +165,9 @@ function flora_create_affiliate_tables() {
             if (!in_array('approved_by', $existing_aff_cols)) {
                 $wpdb->query("ALTER TABLE $aff_table ADD COLUMN approved_by bigint(20) unsigned DEFAULT 0 AFTER approved_at");
             }
+            if (!in_array('zalo_chat_id', $existing_aff_cols)) {
+                $wpdb->query("ALTER TABLE $aff_table ADD COLUMN zalo_chat_id varchar(100) DEFAULT '' AFTER bank_owner");
+            }
             $wpdb->query("ALTER TABLE $aff_table MODIFY COLUMN status varchar(30) NOT NULL DEFAULT 'pending'");
         }
     }
@@ -576,6 +579,11 @@ function flora_affiliate_mark_order_paid($order_id_or_code) {
 
     // 3. Gửi Email thông báo đẹp mắt cho KOL
     flora_affiliate_send_commission_email($order, $kol, $commission);
+
+    // 4. Bắn Zalo Bot thông báo hoa hồng đã duyệt cho đối tác (KHI ĐƠN ĐƯỢC DUYỆT THÀNH CÔNG)
+    if (!empty($kol['zalo_chat_id'])) {
+        flora_send_zalo_affiliate_commission_approved_notification($order, $kol, $commission);
+    }
 
     return true;
 }
@@ -1492,7 +1500,7 @@ function flora_send_zalo_withdrawal_notification($payout, $kol, $financial_stats
     $pending_fmt   = isset($financial_stats['pending_commission']) ? number_format($financial_stats['pending_commission'], 0, ',', '.') . ' VNĐ' : '0 VNĐ';
 
     $message = "[ YÊU CẦU RÚT TIỀN HOA HỒNG ĐỐI TÁC ]\n"
-             . "━━━━━━━━━━━━━━━━━━━━━━\n"
+             . "━━━━━━━\n"
              . "Mã đơn rút: #" . $payout_code . "\n"
              . "- Đối tác: " . $kol_name . " (" . $kol_phone . ") - REF: " . $ref_code . "\n"
              . "- Số tiền yêu cầu rút: " . $amount_fmt . "\n"
@@ -1500,7 +1508,7 @@ function flora_send_zalo_withdrawal_notification($payout, $kol, $financial_stats
              . "- Hoa hồng chờ đối soát: " . $pending_fmt . "\n"
              . "- Tài khoản thụ hưởng: " . $bank_name . " - STK: " . $bank_account . " (" . $bank_owner . ")\n"
              . "- Ghi chú đối tác: " . $notes . "\n"
-             . "━━━━━━━━━━━━━━━━━━━━━━\n"
+             . "━━━━━━━\n"
              . "LƯU Ý BỘ PHẬN KẾ TOÁN:\n"
              . "  └─ Thông báo kiểm tra đối soát (kế toán đối soát sao kê và chuyển khoản).\n"
              . "  └─ Thời gian gửi: " . current_time('d/m/Y H:i:s');
@@ -1554,14 +1562,65 @@ function flora_send_zalo_withdrawal_notification($payout, $kol, $financial_stats
 }
 
 /**
+ * BẮN NOTIFICATION VÀO ZALO CHO ĐỐI TÁC KHI ĐƠN HÀNG GIỚI THIỆU ĐƯỢC DUYỆT THÀNH CÔNG
+ * (Chỉ gửi khi đơn hàng chuyển sang trạng thái Paid / Approved)
+ */
+function flora_send_zalo_affiliate_commission_approved_notification($order, $kol, $commission) {
+    if (empty($kol['zalo_chat_id'])) return false;
+
+    $config = function_exists('flora_get_payment_config') ? flora_get_payment_config() : array();
+    $bot_token = trim($config['zalo_bot_token'] ?? get_option('flora_zalo_bot_token', ''));
+    if (empty($bot_token)) return false;
+
+    $kol_name     = $kol['name'] ?? 'Đối tác Flora';
+    $order_code   = $order['order_code'] ?? 'N/A';
+    $package_name = $order['package_name'] ?? 'Gói dịch vụ nha khoa';
+    $final_amt    = number_format((int)($order['final_amount'] ?? 0), 0, ',', '.') . ' VNĐ';
+    $comm_amt     = number_format((int)$commission, 0, ',', '.') . ' VNĐ';
+    $rate_text    = $kol['commission_rate'] . ($kol['commission_type'] === 'fixed' ? 'đ' : '%');
+
+    // Số dư ví khả dụng mới nhất
+    $stats = flora_affiliate_get_financial_stats($kol['id']);
+    $avail_fmt = number_format($stats['available_balance'], 0, ',', '.') . ' VNĐ';
+    $portal_url = home_url('/doi-tac/?token=' . ($kol['secret_token'] ?? ''));
+
+    $msg = "🎉 [ HOA HỒNG MỚI ĐÃ ĐƯỢC DUYỆT ] 🎉\n"
+         . "━━━━━━━\n"
+         . "Chào " . $kol_name . "! Đơn hàng từ liên kết của bạn vừa được Flora đối soát & duyệt thanh toán thành công:\n\n"
+         . "• Mã đơn hàng: #" . $order_code . "\n"
+         . "• Gói dịch vụ: " . $package_name . "\n"
+         . "• Doanh thu đơn: " . $final_amt . "\n"
+         . "💰 HOA HỒNG BẠN NHẬN: +" . $comm_amt . " (" . $rate_text . ")\n"
+         . "━━━━━━━\n"
+         . "💳 Số dư khả dụng hiện tại: " . $avail_fmt . "\n"
+         . "👉 Vào Cổng Đối Tác rút tiền: " . $portal_url . "\n"
+         . "⏰ Thời gian duyệt: " . current_time('d/m/Y H:i:s');
+
+    $zalo_api_url = "https://bot-api.zaloplatforms.com/bot" . $bot_token . "/sendMessage";
+    wp_remote_post($zalo_api_url, array(
+        'method'      => 'POST',
+        'timeout'     => 5,
+        'blocking'    => false,
+        'headers'     => array('Content-Type' => 'application/json; charset=utf-8'),
+        'body'        => wp_json_encode(array(
+            'chat_id' => $kol['zalo_chat_id'],
+            'text'    => $msg
+        ), JSON_UNESCAPED_UNICODE)
+    ));
+
+    return true;
+}
+
+/**
  * BẮN THÔNG BÁO REALTIME ZALO BOT KHI ADMIN DUYỆT HOẶC TỪ CHỐI ĐƠN RÚT TIỀN
+ * (Gửi cho nhóm Kế Toán Flora VÀ gửi thông báo kết quả cho chính Đối Tác nếu đã liên kết Zalo)
  */
 function flora_send_zalo_payout_processed_notification($payout, $kol, $action = 'completed', $reason = '') {
     $config = function_exists('flora_get_payment_config') ? flora_get_payment_config() : array();
     $bot_token     = trim($config['zalo_bot_token'] ?? get_option('flora_zalo_bot_token', ''));
     $group_chat_id = trim($config['zalo_group_chat_id'] ?? get_option('flora_zalo_group_chat_id', ''));
 
-    if (empty($bot_token) || empty($group_chat_id)) return false;
+    if (empty($bot_token)) return false;
 
     $kol_name    = $kol['name'] ?? 'Đối tác Flora';
     $kol_phone   = $kol['phone'] ?? 'Chưa rõ';
@@ -1571,7 +1630,7 @@ function flora_send_zalo_payout_processed_notification($payout, $kol, $action = 
 
     if ($action === 'completed') {
         $message = "[ ĐÃ CHUYỂN TIỀN HOA HỒNG THÀNH CÔNG ]\n"
-                 . "━━━━━━━━━━━━━━━━━━━━━━\n"
+                 . "━━━━━━━\n"
                  . "Mã đơn rút: #" . $payout_code . "\n"
                  . "- Đối tác: " . $kol_name . " (" . $kol_phone . ") - REF: " . $ref_code . "\n"
                  . "- Số tiền chuyển khoản: " . $amount_fmt . "\n"
@@ -1581,7 +1640,7 @@ function flora_send_zalo_payout_processed_notification($payout, $kol, $action = 
                  . "- Thời gian xử lý: " . current_time('d/m/Y H:i:s');
     } else {
         $message = "[ ĐÃ TỪ CHỐI ĐƠN RÚT TIỀN HOA HỒNG ]\n"
-                 . "━━━━━━━━━━━━━━━━━━━━━━\n"
+                 . "━━━━━━━\n"
                  . "Mã đơn rút: #" . $payout_code . "\n"
                  . "- Đối tác: " . $kol_name . " (" . $kol_phone . ") - REF: " . $ref_code . "\n"
                  . "- Số tiền: " . $amount_fmt . "\n"
@@ -1591,16 +1650,56 @@ function flora_send_zalo_payout_processed_notification($payout, $kol, $action = 
     }
 
     $zalo_api_url = "https://bot-api.zaloplatforms.com/bot" . $bot_token . "/sendMessage";
-    wp_remote_post($zalo_api_url, array(
-        'method'      => 'POST',
-        'timeout'     => 5,
-        'blocking'    => true,
-        'headers'     => array('Content-Type' => 'application/json; charset=utf-8'),
-        'body'        => wp_json_encode(array(
-            'chat_id' => $group_chat_id,
-            'text'    => $message
-        ), JSON_UNESCAPED_UNICODE)
-    ));
+
+    // 1. Gửi vào nhóm Kế toán Flora
+    if (!empty($group_chat_id)) {
+        wp_remote_post($zalo_api_url, array(
+            'method'      => 'POST',
+            'timeout'     => 5,
+            'blocking'    => true,
+            'headers'     => array('Content-Type' => 'application/json; charset=utf-8'),
+            'body'        => wp_json_encode(array(
+                'chat_id' => $group_chat_id,
+                'text'    => $message
+            ), JSON_UNESCAPED_UNICODE)
+        ));
+    }
+
+    // 2. Gửi thông báo kết quả làm phiếu rút tiền cho chính đối tác nếu đã liên kết Zalo
+    if (!empty($kol['zalo_chat_id']) && $kol['zalo_chat_id'] !== $group_chat_id) {
+        if ($action === 'completed') {
+            $partner_msg = "✅ [ ĐÃ CHUYỂN TIỀN HOA HỒNG THÀNH CÔNG ] ✅\n"
+                         . "━━━━━━━\n"
+                         . "Chào " . $kol_name . "! Phiếu rút tiền hoa hồng của bạn đã được Flora chuyển khoản thành công:\n\n"
+                         . "• Mã đơn rút: #" . $payout_code . "\n"
+                         . "💰 Số tiền nhận: " . $amount_fmt . "\n"
+                         . "🏦 Tài khoản thụ hưởng: " . ($payout['bank_name'] ?: $kol['bank_name']) . " - STK: " . ($payout['bank_account'] ?: $kol['bank_account']) . " (" . ($payout['bank_owner'] ?: $kol['bank_owner']) . ")\n"
+                         . "📌 Mã giao dịch ngân hàng: " . (!empty($payout['transaction_reference']) ? $payout['transaction_reference'] : 'Chuyển khoản thành công') . "\n"
+                         . "📝 Ghi chú: " . (!empty($payout['notes']) ? $payout['notes'] : 'Thanh toán hoa hồng đối tác') . "\n"
+                         . "━━━━━━━\n"
+                         . "⏰ Thời gian xử lý: " . current_time('d/m/Y H:i:s');
+        } else {
+            $partner_msg = "⚠️ [ THÔNG BÁO VỀ ĐƠN RÚT TIỀN HOA HỒNG ] ⚠️\n"
+                         . "━━━━━━━\n"
+                         . "Chào " . $kol_name . "! Đơn rút tiền #" . $payout_code . " của bạn cần điều chỉnh:\n\n"
+                         . "• Số tiền yêu cầu: " . $amount_fmt . "\n"
+                         . "❌ Lý do từ chối: " . ($reason ?: 'Thông tin tài khoản thụ hưởng chưa chính xác') . "\n\n"
+                         . "💡 Toàn bộ số tiền trên đã được tự động hoàn lại vào Ví Khả Dụng của bạn trên Cổng Đối Tác. Quý đối tác vui lòng kiểm tra lại STK ngân hàng và tạo lại lệnh rút mới.\n"
+                         . "━━━━━━━\n"
+                         . "⏰ Thời gian xử lý: " . current_time('d/m/Y H:i:s');
+        }
+
+        wp_remote_post($zalo_api_url, array(
+            'method'      => 'POST',
+            'timeout'     => 5,
+            'blocking'    => false,
+            'headers'     => array('Content-Type' => 'application/json; charset=utf-8'),
+            'body'        => wp_json_encode(array(
+                'chat_id' => $kol['zalo_chat_id'],
+                'text'    => $partner_msg
+            ), JSON_UNESCAPED_UNICODE)
+        ));
+    }
 
     return true;
 }
@@ -1747,6 +1846,148 @@ function flora_ajax_partner_request_withdrawal() {
         'available_fmt'     => number_format($new_stats['available_balance'], 0, ',', '.') . ' VNĐ',
         'requested_payout'  => $new_stats['requested_payout']
     ));
+}
+
+/**
+ * AJAX XỬ LÝ LIÊN KẾT / HỦY LIÊN KẾT ZALO BOT TỪ CỔNG ĐỐI TÁC
+ */
+add_action('wp_ajax_flora_ajax_partner_update_zalo', 'flora_ajax_partner_update_zalo');
+add_action('wp_ajax_nopriv_flora_ajax_partner_update_zalo', 'flora_ajax_partner_update_zalo');
+function flora_ajax_partner_update_zalo() {
+    $token   = isset($_POST['token']) ? sanitize_text_field($_POST['token']) : '';
+    $chat_id = isset($_POST['chat_id']) ? sanitize_text_field(trim($_POST['chat_id'])) : '';
+
+    if (empty($token)) {
+        wp_send_json_error(array('message' => 'Phiên đăng nhập hết hạn. Vui lòng đăng nhập lại.'));
+    }
+
+    $kol = flora_affiliate_get_by_token($token);
+    if (!$kol || $kol['status'] !== 'active') {
+        wp_send_json_error(array('message' => 'Tài khoản đối tác không tồn tại hoặc chưa kích hoạt.'));
+    }
+
+    global $wpdb;
+    $table = flora_get_affiliates_table_name();
+
+    // Cập nhật zalo_chat_id
+    $wpdb->update(
+        $table,
+        array('zalo_chat_id' => $chat_id),
+        array('id' => $kol['id']),
+        array('%s'),
+        array('%d')
+    );
+
+    // Nếu vừa liên kết và có chat_id, bắn tin nhắn chào mừng & xác nhận kết nối
+    if (!empty($chat_id)) {
+        $config = function_exists('flora_get_payment_config') ? flora_get_payment_config() : array();
+        $bot_token = trim($config['zalo_bot_token'] ?? get_option('flora_zalo_bot_token', ''));
+
+        if (!empty($bot_token)) {
+            $welcome_msg = "🎉 [ LIÊN KẾT ZALO BOT THÀNH CÔNG ] 🎉\n"
+                         . "━━━━━━━\n"
+                         . "Chào Đối tác " . ($kol['name'] ?? 'Flora') . "!\n"
+                         . "Hệ thống Nha Khoa Flora xác nhận tài khoản Zalo của bạn đã được liên kết thành công với Cổng Đối Tác:\n\n"
+                         . "• Mã REF: " . ($kol['ref_code'] ?? 'Chưa rõ') . "\n"
+                         . "• Số điện thoại: " . ($kol['phone'] ?? 'Chưa rõ') . "\n"
+                         . "• Chat ID: " . $chat_id . "\n\n"
+                         . "Từ bây giờ bạn sẽ tự động nhận thông báo tức thì khi:\n"
+                         . "1. Đơn hàng từ link giới thiệu ĐƯỢC DUYỆT THÀNH CÔNG (kèm số tiền hoa hồng).\n"
+                         . "2. Thông báo kết quả khi bạn gửi phiếu yêu cầu rút tiền.\n"
+                         . "━━━━━━━\n"
+                         . "💡 Tra cứu nhanh qua Zalo Bot bất kỳ lúc nào:\n"
+                         . "• Soạn SODU : Xem số dư hoa hồng khả dụng\n"
+                         . "• Soạn LINK : Lấy lại link giới thiệu & voucher\n"
+                         . "• Soạn HOTRO : Kết nối chuyên viên đối tác\n"
+                         . "⏰ Lúc: " . current_time('d/m/Y H:i:s');
+
+            $zalo_api_url = "https://bot-api.zaloplatforms.com/bot" . $bot_token . "/sendMessage";
+            wp_remote_post($zalo_api_url, array(
+                'method'      => 'POST',
+                'timeout'     => 6,
+                'blocking'    => false,
+                'headers'     => array('Content-Type' => 'application/json; charset=utf-8'),
+                'body'        => wp_json_encode(array(
+                    'chat_id' => $chat_id,
+                    'text'    => $welcome_msg
+                ), JSON_UNESCAPED_UNICODE)
+            ));
+        }
+    }
+
+    if (empty($chat_id)) {
+        wp_send_json_success(array('message' => 'Đã hủy liên kết Zalo Bot cho tài khoản đối tác.', 'zalo_chat_id' => ''));
+    } else {
+        wp_send_json_success(array('message' => 'Liên kết Zalo Bot thành công! Tin nhắn xác nhận đã được gửi vào Zalo của bạn.', 'zalo_chat_id' => $chat_id));
+    }
+}
+
+/**
+ * AJAX GỬI THÔNG BÁO TEST CHO ĐỐI TÁC QUA ZALO BOT
+ */
+add_action('wp_ajax_flora_ajax_partner_test_zalo', 'flora_ajax_partner_test_zalo');
+add_action('wp_ajax_nopriv_flora_ajax_partner_test_zalo', 'flora_ajax_partner_test_zalo');
+function flora_ajax_partner_test_zalo() {
+    $token = isset($_POST['token']) ? sanitize_text_field($_POST['token']) : '';
+    if (empty($token)) {
+        wp_send_json_error(array('message' => 'Phiên đăng nhập hết hạn.'));
+    }
+
+    $kol = flora_affiliate_get_by_token($token);
+    if (!$kol || $kol['status'] !== 'active') {
+        wp_send_json_error(array('message' => 'Tài khoản đối tác không tồn tại.'));
+    }
+
+    if (empty($kol['zalo_chat_id'])) {
+        wp_send_json_error(array('message' => 'Bạn chưa liên kết tài khoản Zalo. Vui lòng làm theo hướng dẫn liên kết trước.'));
+    }
+
+    $config = function_exists('flora_get_payment_config') ? flora_get_payment_config() : array();
+    $bot_token = trim($config['zalo_bot_token'] ?? get_option('flora_zalo_bot_token', ''));
+    if (empty($bot_token)) {
+        wp_send_json_error(array('message' => 'Hệ thống Zalo Bot chưa được cấu hình token. Vui lòng liên hệ Hotline Flora.'));
+    }
+
+    $stats = flora_affiliate_get_financial_stats($kol['id']);
+    $avail_fmt = number_format($stats['available_balance'], 0, ',', '.') . ' VNĐ';
+
+    $test_msg = "🔔 [ THỬ NGHIỆM KẾT NỐI ZALO BOT THÀNH CÔNG ] 🔔\n"
+              . "━━━━━━━\n"
+              . "Chào Đối tác " . $kol['name'] . "!\n"
+              . "Đây là tin nhắn thử nghiệm kiểm tra đường truyền kết nối giữa Cổng Đối Tác và Zalo của bạn:\n\n"
+              . "• Mã đối tác: #" . $kol['ref_code'] . "\n"
+              . "• Số dư khả dụng hiện tại: " . $avail_fmt . "\n"
+              . "• Trạng thái kết nối: Hoạt động hoàn hảo 🟢\n"
+              . "━━━━━━━\n"
+              . "✨ Khi có đơn hàng từ link của bạn ĐƯỢC DUYỆT hoặc khi có kết quả phiếu rút tiền, thông báo sẽ gửi về đây.\n"
+              . "⏰ Thời gian test: " . current_time('d/m/Y H:i:s');
+
+    $zalo_api_url = "https://bot-api.zaloplatforms.com/bot" . $bot_token . "/sendMessage";
+    $res = wp_remote_post($zalo_api_url, array(
+        'method'      => 'POST',
+        'timeout'     => 10,
+        'blocking'    => true,
+        'headers'     => array('Content-Type' => 'application/json; charset=utf-8'),
+        'body'        => wp_json_encode(array(
+            'chat_id' => $kol['zalo_chat_id'],
+            'text'    => $test_msg
+        ), JSON_UNESCAPED_UNICODE)
+    ));
+
+    if (is_wp_error($res)) {
+        wp_send_json_error(array('message' => 'Không thể gửi tin nhắn qua Zalo Bot: ' . $res->get_error_message()));
+    }
+
+    $code = wp_remote_retrieve_response_code($res);
+    $body = wp_remote_retrieve_body($res);
+    $data = json_decode($body, true);
+
+    if ($code >= 200 && $code < 300) {
+        wp_send_json_success(array('message' => 'Đã gửi thông báo test thành công vào Zalo của bạn! Vui lòng mở Zalo kiểm tra.'));
+    } else {
+        $desc = !empty($data['description']) ? $data['description'] : ('Lỗi HTTP ' . $code);
+        wp_send_json_error(array('message' => 'Gửi test thất bại từ Zalo Bot: ' . $desc . '. Hãy chắc chắn bạn đã bắt đầu trò chuyện với Zalo Bot trước đó.'));
+    }
 }
 
 /**

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-NHA KHOA FLORA - EXPORT LUXURY EDITORIAL PORTRAIT BOOKLET TO HIGH-RES PDF
+NHA KHOA FLORA - EXPORT PARTNER HANDBOOK (CẨM NANG ĐỐI TÁC 10 TRANG) TO HIGH-RES PDF
 Output: A4 Portrait PDF (210mm x 297mm = 595.28 pt x 841.89 pt)
 """
 
@@ -12,24 +12,23 @@ import pymupdf as fitz
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-async def generate_portrait_pdf():
+async def generate_partner_pdf():
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    html_path = os.path.join(base_dir, "index.html").replace("\\", "/")
-    output_pdf = os.path.join(base_dir, "NHA_KHOA_FLORA_CAM_NANG_AFFILIATE_VOUCHER_PORTRAIT.pdf")
-    temp_dir = os.path.join(base_dir, "scratch_pdf_pages_portrait")
+    html_path = os.path.join(base_dir, "partner-handbook.html").replace("\\", "/")
+    output_pdf = os.path.join(base_dir, "NHA_KHOA_FLORA_CAM_NANG_CHO_DOI_TAC_PORTRAIT.pdf")
+    temp_dir = os.path.join(base_dir, "scratch_pdf_pages_partner")
     os.makedirs(temp_dir, exist_ok=True)
 
     print("=================================================================")
-    print("🚀 NHA KHOA FLORA - XUẤT CẨM NANG AFFILIATE & VOUCHER PDF DỌC (A4)")
+    print("🚀 NHA KHOA FLORA - XUẤT CẨM NANG DÀNH CHO ĐỐI TÁC (10 TRANG A4 DỌC)")
     print(f"📄 Nguồn HTML: {html_path}")
     print(f"📑 File đích PDF: {output_pdf}")
     print("=================================================================")
 
     page_images = []
-    total_pages = 15
+    total_pages = 10
 
     async with async_playwright() as p:
-        # Launch Chromium with device scale factor 2.0 for ultra-crisp print quality
         browser = await p.chromium.launch(headless=True)
         context = await browser.new_context(
             viewport={"width": 1000, "height": 1414},
@@ -37,11 +36,11 @@ async def generate_portrait_pdf():
         )
         page = await context.new_page()
 
-        print("[*] Đang tải trang HTML vào Playwright Chromium...")
+        print("[*] Đang tải trang HTML Đối tác vào Playwright Chromium...")
         await page.goto(f"file:///{html_path}", wait_until="networkidle")
         await page.wait_for_timeout(2000)
 
-        # Hide top nav header and controls dock for clean booklet pages
+        # Hide top nav header and controls dock
         await page.evaluate("""
             const header = document.querySelector('.booklet-nav-header');
             if (header) header.style.display = 'none';
@@ -56,7 +55,6 @@ async def generate_portrait_pdf():
             page_id = f"page-{i}"
             print(f"[*] Đang chụp Trang {i:02d} / {total_pages:02d} (A4 Dọc)...")
 
-            # Isolate only this page with exact A4 portrait dimensions
             await page.evaluate(f"""
                 const targetId = '{page_id}';
                 const pages = document.querySelectorAll('.booklet-page');
@@ -81,7 +79,7 @@ async def generate_portrait_pdf():
             await page.wait_for_timeout(400)
 
             page_el = await page.query_selector(f"#{page_id}")
-            img_path = os.path.join(temp_dir, f"page_{i:02d}.png")
+            img_path = os.path.join(temp_dir, f"partner_page_{i:02d}.png")
             if page_el:
                 await page_el.screenshot(path=img_path, timeout=15000)
             else:
@@ -92,29 +90,28 @@ async def generate_portrait_pdf():
 
         await browser.close()
 
-    print("\n📦 Đang đóng gói 15 trang ảnh độ phân giải cao thành PDF Dọc chuẩn A4...")
-    # Standard A4 Portrait: 210mm x 297mm = 595.28 pt x 841.89 pt
+    print("\n📦 Đang đóng gói 10 trang ảnh Đối tác thành PDF Dọc chuẩn A4...")
     width_pts = 595.28
     height_pts = 841.89
     page_rect = fitz.Rect(0, 0, width_pts, height_pts)
 
     pdf_doc = fitz.open()
-
     for idx, img_path in enumerate(page_images):
         pdf_page = pdf_doc.new_page(width=width_pts, height=height_pts)
         pdf_page.insert_image(page_rect, filename=img_path)
         print(f"    [+] Trang PDF {idx + 1:02d}: Chèn ảnh thành công")
 
-    pdf_doc.save(output_pdf, deflate=True)
+    output_pdf_main = os.path.join(base_dir, "NHA_KHOA_FLORA_BO_DOI_TAC_10_TRANG.pdf")
+    output_pdf_alt = os.path.join(base_dir, "NHA_KHOA_FLORA_CAM_NANG_CHO_DOI_TAC_PORTRAIT.pdf")
+
+    for target in [output_pdf_main, output_pdf_alt]:
+        try:
+            pdf_doc.save(target, deflate=True)
+            file_size_mb = os.path.getsize(target) / (1024 * 1024)
+            print(f"✔ Đã lưu thành công: {target} ({file_size_mb:.2f} MB)")
+        except Exception as e:
+            print(f"⚠ Không thể lưu {target}: {e}")
     pdf_doc.close()
 
-    file_size_mb = os.path.getsize(output_pdf) / (1024 * 1024)
-    print("=================================================================")
-    print("🎉 XUẤT PDF DỌC THÀNH CÔNG RỰC RỠ!")
-    print(f"📁 Vị trí: {output_pdf}")
-    print(f"📊 Dung lượng: {file_size_mb:.2f} MB")
-    print(f"📄 Tổng số trang: {total_pages} trang A4 Dọc chuẩn in ấn & phát hành")
-    print("=================================================================")
-
 if __name__ == "__main__":
-    asyncio.run(generate_portrait_pdf())
+    asyncio.run(generate_partner_pdf())
