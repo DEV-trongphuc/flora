@@ -488,6 +488,17 @@ function flora_render_pricing_admin_page() {
                 <div class="flora-tab-pane" id="tab-ai-config">
                     <h2><i class="dashicons dashicons-superhero-alt" style="color: #0493f1;"></i> Cấu Hình Trí Tuệ Nhân Tạo & Tri Thức Bác Sĩ AI</h2>
                     
+                    <!-- RAG Hub Promotion Banner -->
+                    <div style="background: linear-gradient(135deg, #002270 0%, #0033a3 100%); color: #ffffff; padding: 18px 22px; border-radius: 12px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 4px 15px rgba(0, 34, 112, 0.15);">
+                        <div>
+                            <h3 style="margin: 0 0 6px 0; color: #ffffff; font-size: 16px;"><span class="dashicons dashicons-superhero-alt" style="vertical-align: middle; color: #70c4ff;"></span> Đã nâng cấp lên Trung Tâm Huấn Luyện AI (RAG Knowledge Hub)</h3>
+                            <p style="margin: 0; color: rgba(255,255,255,0.85); font-size: 13px;">Bạn có thể nạp file Word (.docx), PDF, bóc tách tài liệu, tạo thư mục và huấn luyện vector tự động tại chuyên mục riêng.</p>
+                        </div>
+                        <a href="<?php echo admin_url('admin.php?page=flora-ai-training'); ?>" class="button button-primary button-hero" style="background: #0493f1; border-color: #0493f1; color: #ffffff; text-decoration: none; font-weight: 700; white-space: nowrap; margin-left: 15px;">
+                            <span class="dashicons dashicons-external" style="vertical-align: middle;"></span> Mở Trung Tâm Huấn Luyện AI
+                        </a>
+                    </div>
+
                     <!-- Box 1: Thông tin liên hệ -->
                     <div class="flora-card-box" style="margin-bottom: 20px;">
                         <h3 style="margin-top: 0; color: #0033a3; font-size: 15px;"><i class="dashicons dashicons-id" style="vertical-align: text-top;"></i> 1. Thông Tin Đại Diện & Liên Hệ</h3>

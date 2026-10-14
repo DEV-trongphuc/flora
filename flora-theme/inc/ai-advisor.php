@@ -117,17 +117,69 @@ add_action('wp_ajax_flora_save_ai_key', 'flora_ajax_save_ai_key');
 /**
  * 5. Xây Dựng System Instruction (Tri Thức Bảng Giá & Chống Tuyệt Đối Bịa Đặt)
  */
-function flora_build_ai_system_instruction() {
-    $pricing = flora_get_pricing_data();
-    $config  = flora_get_ai_config();
+function flora_build_ai_system_instruction($user_query = '') {
+    $rag_settings = function_exists('flora_get_rag_settings') ? flora_get_rag_settings() : array();
+    $config       = flora_get_ai_config();
     
-    $doctor_name    = !empty($config['doctor_name']) ? $config['doctor_name'] : 'Bác Sĩ Tư Vấn Flora';
-    $clinic_address = !empty($config['clinic_address']) ? $config['clinic_address'] : '326 Nguyễn Thị Minh Khai, Phường Bàn Cờ, TP. Hồ Chí Minh';
-    $clinic_hotline = !empty($config['clinic_hotline']) ? $config['clinic_hotline'] : '028 7305 8999';
+    $doctor_name    = !empty($rag_settings['bot_name']) ? $rag_settings['bot_name'] : (!empty($config['doctor_name']) ? $config['doctor_name'] : 'Bác Sĩ Tư Vấn Flora');
+    $clinic_address = !empty($rag_settings['clinic_address']) ? $rag_settings['clinic_address'] : (!empty($config['clinic_address']) ? $config['clinic_address'] : '326 Nguyễn Thị Minh Khai, Phường Bàn Cờ, TP. Hồ Chí Minh');
+    $clinic_hotline = !empty($rag_settings['clinic_hotline']) ? $rag_settings['clinic_hotline'] : (!empty($config['clinic_hotline']) ? $config['clinic_hotline'] : '028 7305 8999');
     $clinic_perks   = trim($config['clinic_perks'] ?? '');
     $custom_inst    = trim($config['custom_instructions'] ?? '');
+    $persona_prompt = trim($rag_settings['persona_prompt'] ?? '');
     
-    // Biên dịch dữ liệu bảng giá thành văn bản tri thức
+    // 1. Thử nghiệm truy hồi tri thức ngữ nghĩa RAG từ CSDL
+    $rag_context_text = '';
+    if (!empty($user_query) && function_exists('flora_rag_retrieve_context')) {
+        $api_key = $rag_settings['api_key'] ?? flora_get_ai_api_key();
+        $chunks = flora_rag_retrieve_context($user_query, $api_key, $rag_settings['top_k'] ?? 6, $rag_settings['similarity_threshold'] ?? 0.40);
+        if (!empty($chunks)) {
+            $rag_context_text = "=== KHO TRI THỨC ĐƯỢC TRÍCH XUẤT TỪ CƠ SỞ DỮ LIỆU NHA KHOA FLORA ===\n";
+            foreach ($chunks as $idx => $c) {
+                $rag_context_text .= "\n[Nguồn " . ($idx + 1) . " - {$c['doc_name']} (Độ tương đồng: " . round($c['score'] * 100, 1) . "%)]:\n" . $c['content'] . "\n";
+            }
+        }
+    }
+
+    // Nếu RAG đã tìm thấy các phân mảnh tri thức phù hợp từ CSDL, sử dụng System Prompt RAG gọn nhẹ và chính xác
+    if (!empty($rag_context_text)) {
+        $base_persona = !empty($persona_prompt) ? $persona_prompt : "Bạn là \"{$doctor_name}\" của Nha Khoa Flora (Flora Dental Clinic) tại TP.HCM. Bạn đang nhắn tin tư vấn trực tiếp với bệnh nhân/khách hàng trên website.";
+        
+        $perks_text = !empty($clinic_perks) ? "- Chính sách áp dụng thực tế:\n" . $clinic_perks . "\n" : "";
+        $custom_text = !empty($custom_inst) ? "\nHƯỚNG DẪN BỔ SUNG TỪ PHÒNG KHÁM:\n" . $custom_inst . "\n" : "";
+
+        $system_prompt = <<<EOT
+{$base_persona}
+
+THÔNG TIN PHÒNG KHÁM:
+- Đại diện tư vấn: {$doctor_name}
+- Địa chỉ: {$clinic_address}
+- Giờ làm việc: 8h30 - 18h30 (T2 - CN hàng tuần)
+- Hotline / Zalo tư vấn: {$clinic_hotline} (Hỗ trợ 24/7)
+{$perks_text}
+{$rag_context_text}
+
+QUY TẮC CỐT LÕI (BẮT BUỘC TUÂN THỦ 100% - TUYỆT ĐỐI KHÔNG BỊA ĐẶT THÔNG TIN):
+1. TRUNG THỰC & CHÍNH XÁC THEO NGUỒN TRI THỨC:
+   - CHỈ cung cấp thông tin, báo giá và dịch vụ có trong dữ liệu phòng khám trích xuất ở trên.
+   - TUYỆT ĐỐI KHÔNG tự ý bịa đặt bất kỳ chương trình khuyến mãi, quà tặng, thiết bị máy móc (như máy quét 3D, chụp phim CT miễn phí, giữ suất chụp CT...) nếu KHÔNG có trong dữ liệu.
+   - Nếu khách hỏi về dịch vụ hoặc chi phí chưa có trong dữ liệu, giải thích rõ: Khách cần ghé phòng khám tại {$clinic_address} để bác sĩ kiểm tra cụ thể hoặc liên hệ Hotline {$clinic_hotline} để được báo giá chính xác. Tuyệt đối không tự đoán mức giá.
+
+2. VĂN PHONG TỰ NHIÊN, CHUYÊN NGHIỆP:
+   - Nhắn tin tự nhiên, thân thiện, ân cần, giải thích dễ hiểu, đi thẳng vào câu hỏi của khách hàng.
+   - TUYỆT ĐỐI KHÔNG xuất ra các tiêu đề máy móc (như "1. CHẨN ĐOÁN...", "2. BÁO GIÁ...", "3. ĐỐI ĐÁP...").
+
+3. MỜI KHÁM & XIN SỐ ĐIỆN THOẠI LỊCH SỰ, CHÂN THÀNH:
+   - Khi giải đáp thắc mắc xong, mời khách để lại Số Điện Thoại (hoặc Zalo) để Bác sĩ/Chuyên viên liên hệ tư vấn chi tiết hơn và sắp xếp lịch hẹn phù hợp cho khách.
+   - Ví dụ chuẩn mực: "Bạn có thể để lại Số Điện Thoại (hoặc Zalo) để Bác sĩ/Chuyên viên liên hệ hỗ trợ tư vấn chi tiết và sắp xếp lịch hẹn phù hợp cho mình nhé!"
+   - Khi khách ĐÃ ĐỂ LẠI SỐ ĐIỆN THOẠI: Xác nhận ấm áp: "Dạ Bác sĩ Flora đã ghi nhận số điện thoại của bạn rồi nhé! Đội ngũ phòng khám sẽ liên hệ lại sớm nhất để hỗ trợ tư vấn chi tiết cho bạn ạ."
+{$custom_text}
+EOT;
+        return $system_prompt;
+    }
+
+    // Fallback: Nếu CSDL chưa được train hoặc không khớp RAG, sử dụng bảng giá đầy đủ mặc định
+    $pricing = flora_get_pricing_data();
     $price_knowledge = "=== BẢNG GIÁ DỊCH VỤ NIÊM YẾT CHÍNH THỨC NHA KHOA FLORA ===\n\n";
 
     // 1. Implant
@@ -180,33 +232,15 @@ function flora_build_ai_system_instruction() {
     $price_knowledge .= "  + Giá ưu đãi: 999.000 VNĐ / gói / năm (Giá gốc niêm yết: 2.500.000 VNĐ) — Tiết kiệm vượt trội, chỉ từ ~250.000 VNĐ/người/năm.\n";
     $price_knowledge .= "  + Đối tượng & Quy mô: Dành cho gia đình hoặc nhóm từ 2 đến 4 thành viên (đăng ký tối đa 4 người dùng chung 1 gói trong 1 năm).\n";
     $price_knowledge .= "  + Thời hạn sử dụng: 1 năm (365 ngày) trọn vẹn kể từ ngày đăng ký kích hoạt.\n";
-    $price_knowledge .= "  + 4 Quyền lợi thiết thực nổi bật:\n";
-    $price_knowledge .= "    (1) Cạo vôi răng MIỄN PHÍ KHÔNG GIỚI HẠN số lần trong suốt 1 năm cho tất cả 4 thành viên trong gói.\n";
-    $price_knowledge .= "    (2) Thăm khám răng miệng định kỳ trực tiếp cùng Bác sĩ Chuyên Khoa I (BS CKI), phát hiện sớm sâu răng & bệnh lý nướu.\n";
-    $price_knowledge .= "    (3) Giảm 10% chi phí điều trị phát sinh khi cần trám răng và chữa tủy.\n";
-    $price_knowledge .= "    (4) Dùng chung linh hoạt cho gia đình, có thể bổ sung thông tin thành viên khi đến phòng khám.\n";
-    $price_knowledge .= "  + Hướng dẫn tư vấn: Chủ động giới thiệu Gói Care Plus khi khách hỏi về cạo vôi răng lẻ, lấy cao răng, kiểm tra răng định kỳ, hoặc hỏi dịch vụ cho cả nhà/vợ chồng/con cái. Nhấn mạnh rằng cạo vôi lẻ 200k-400k/lần thì gói 999k dùng cho cả 4 người không giới hạn cả năm là phương án tiết kiệm nhất.\n\n";
+    $price_knowledge .= "  + 4 Quyền lợi thiết thực nổi bật: Cạo vôi răng MIỄN PHÍ KHÔNG GIỚI HẠN trong 1 năm, khám BS CKI định kỳ, giảm 10% trám răng/chữa tủy, dùng chung linh hoạt gia đình.\n\n";
 
     $price_knowledge .= "- GÓI FLORA WHITE UP (LÀM SẠCH & TẨY TRẮNG RĂNG CHUYÊN SÂU PLASMA):\n";
     $price_knowledge .= "  + Giá ưu đãi: 1.999.000 VNĐ / gói trọn gói (Giá gốc niêm yết: 3.000.000 VNĐ).\n";
-    $price_knowledge .= "  + Đối tượng phù hợp: Khách hàng muốn nâng tông sắc độ răng trắng sáng tự nhiên, nụ cười rạng rỡ chuẩn bị cho sự kiện quan trọng (tiệc cưới, lễ tết, phỏng vấn, gặp đối tác) hoặc răng bị xỉn màu do trà, cà phê, thực phẩm màu.\n";
-    $price_knowledge .= "  + Công nghệ ánh sáng Plasma lạnh chuẩn y khoa: An toàn tuyệt đối cho men răng, không gây kích ứng tủy, KHÔNG gây ê buốt kéo dài, răng bật sáng từ 2 đến 4 tone màu rõ rệt ngay sau liệu trình.\n";
-    $price_knowledge .= "  + 4 Quyền lợi trọn gói đã bao gồm (Khách không phải phát sinh thêm phí phụ):\n";
-    $price_knowledge .= "    (1) Thăm khám và chẩn đoán men răng trực tiếp cùng Bác sĩ CKI để chọn nồng độ gel chuẩn y khoa.\n";
-    $price_knowledge .= "    (2) ĐÃ BAO GỒM cạo vôi răng & đánh bóng răng sạch sâu trước khi tẩy trắng (khách không tốn thêm tiền cạo vôi).\n";
-    $price_knowledge .= "    (3) Tẩy trắng chuyên sâu với hệ thống đèn Plasma lạnh kích hoạt hoạt chất làm trắng sâu an toàn.\n";
-    $price_knowledge .= "    (4) Thời hạn bảo lưu sử dụng cực dài: Hạn dùng linh hoạt đến hết ngày 31/12/2026.\n";
-    $price_knowledge .= "  + Hướng dẫn tư vấn: Chủ động tư vấn Gói White Up khi khách hỏi về tẩy trắng răng, lo lắng tẩy trắng có đau hay ê buốt không, hỏi chi phí làm trắng răng. Nhấn mạnh công nghệ Plasma lạnh êm dịu, không ê buốt và mức giá ưu đãi trọn gói 1.999.000đ (đã bao gồm cạo vôi đánh bóng).\n";
+    $price_knowledge .= "  + Công nghệ Plasma lạnh Thụy Sĩ an toàn, KHÔNG ê buốt, bật sáng 2-4 tone.\n";
+    $price_knowledge .= "  + 4 Quyền lợi trọn gói đã bao gồm: Thăm khám BS CKI, ĐÃ BAO GỒM cạo vôi đánh bóng sạch sâu, tẩy trắng Plasma lạnh, hạn dùng dài đến 31/12/2026.\n";
 
-    $perks_text = "";
-    if (!empty($clinic_perks)) {
-        $perks_text = "- Chính sách & Ưu đãi áp dụng thực tế:\n" . $clinic_perks . "\n";
-    }
-
-    $custom_text = "";
-    if (!empty($custom_inst)) {
-        $custom_text = "\nHƯỚNG DẪN BỔ SUNG TỪ PHÒNG KHÁM:\n" . $custom_inst . "\n";
-    }
+    $perks_text = !empty($clinic_perks) ? "- Chính sách & Ưu đãi áp dụng thực tế:\n" . $clinic_perks . "\n" : "";
+    $custom_text = !empty($custom_inst) ? "\nHƯỚNG DẪN BỔ SUNG TỪ PHÒNG KHÁM:\n" . $custom_inst . "\n" : "";
 
     $system_prompt = <<<EOT
 Bạn là "{$doctor_name}" của Nha Khoa Flora (Flora Dental Clinic) tại TP.HCM. Bạn đang nhắn tin tư vấn trực tiếp với bệnh nhân/khách hàng trên website.
@@ -223,24 +257,15 @@ BẢNG GIÁ DỊCH VỤ NIÊM YẾT CHÍNH THỨC:
 QUY TẮC CỐT LÕI (BẮT BUỘC TUÂN THỦ 100% - TUYỆT ĐỐI KHÔNG ĐƯỢC BỊA ĐẶT THÔNG TIN):
 1. TRUNG THỰC & CHÍNH XÁC TUYỆT ĐỐI THEO DỮ LIỆU:
    - CHỈ cung cấp thông tin, báo giá và dịch vụ CÓ TRONG BẢNG GIÁ VÀ THÔNG TIN PHÒNG KHÁM Ở TRÊN.
-   - TUYỆT ĐỐI KHÔNG tự ý bịa đặt bất kỳ chương trình khuyến mãi, ưu đãi, quà tặng, thiết bị máy móc (như máy quét 3D TRIOS, chụp phim CT 3D miễn phí, giữ suất chụp CT, gói trả góp...) nếu KHÔNG có trong dữ liệu phòng khám cung cấp.
-   - Nếu khách hỏi về dịch vụ hoặc chi phí chưa có trong bảng giá, hãy giải thích rõ: Khách hàng cần ghé phòng khám để bác sĩ kiểm tra cụ thể hoặc liên hệ Hotline {$clinic_hotline} để được báo giá chính xác. Tuyệt đối không tự đoán mức giá.
-
+   - TUYỆT ĐỐI KHÔNG tự ý bịa đặt bất kỳ chương trình khuyến mãi, ưu đãi, quà tặng, thiết bị máy móc nếu KHÔNG có trong dữ liệu phòng khám cung cấp.
 2. VĂN PHONG TỰ NHIÊN, CHUYÊN NGHIỆP:
    - Nhắn tin tự nhiên, thân thiện, ân cần, giải thích dễ hiểu, đi thẳng vào câu hỏi của khách hàng.
-   - TUYỆT ĐỐI KHÔNG xuất ra các tiêu đề máy móc (như "1. CHẨN ĐOÁN...", "2. BÁO GIÁ...", "3. ĐỐI ĐÁP...").
-   - Báo giá rõ ràng, minh bạch đúng mức giá trong Bảng Giá Niêm Yết.
-
 3. MỜI KHÁM & XIN SỐ ĐIỆN THOẠI LỊCH SỰ, CHÂN THÀNH:
-   - Khi giải đáp thắc mắc xong, mời khách để lại Số Điện Thoại (hoặc Zalo) để Bác sĩ/Chuyên viên liên hệ tư vấn chi tiết hơn và sắp xếp lịch hẹn phù hợp cho khách.
-   - Ví dụ chuẩn mực: "Bạn có thể để lại Số Điện Thoại (hoặc Zalo) để Bác sĩ/Chuyên viên liên hệ hỗ trợ tư vấn chi tiết và sắp xếp lịch hẹn phù hợp cho mình nhé!"
-   - TUYỆT ĐỐI KHÔNG dùng các câu bịa đặt như "giữ suất chụp CT 3D miễn phí" hay "quà tặng miễn phí".
+   - Khi giải đáp thắc mắc xong, mời khách để lại Số Điện Thoại (hoặc Zalo) để Bác sĩ/Chuyên viên liên hệ hỗ trợ tư vấn chi tiết và sắp xếp lịch hẹn phù hợp cho mình.
    - Khi khách ĐÃ ĐỂ LẠI SỐ ĐIỆN THOẠI: Xác nhận ấm áp: "Dạ Bác sĩ Flora đã ghi nhận số điện thoại của bạn rồi nhé! Đội ngũ phòng khám sẽ liên hệ lại sớm nhất để hỗ trợ tư vấn chi tiết cho bạn ạ."
-
 4. GỢI Ý THÔNG MINH VỀ 2 GÓI CHĂM SÓC RĂNG MIỆNG ĐIỆN TỬ:
-   - Khi khách hàng hỏi về cạo vôi răng, lấy cao răng, kiểm tra răng định kỳ hoặc chăm sóc răng cho gia đình: Hãy chủ động tư vấn **Gói CARE PLUS (999.000đ/năm)** — áp dụng tối đa cho 4 người trong 1 năm, cạo vôi MIỄN PHÍ KHÔNG GIỚI HẠN, khám cùng Bác sĩ CKI và giảm 10% trám răng/chữa tủy.
-   - Khi khách hàng hỏi về tẩy trắng răng, làm sáng nụ cười, răng xỉn màu do trà/cà phê hoặc hỏi làm đẹp răng đón Tết/sự kiện: Hãy giải thích ưu điểm êm ái của công nghệ **Ánh sáng Plasma lạnh** (an toàn men răng, không buốt) và giới thiệu **Gói FLORA WHITE UP (1.999.000đ trọn gói)** đã bao gồm cả cạo vôi đánh bóng, hạn dùng linh hoạt đến hết 31/12/2026.
-   - Hướng dẫn khách: Khách có thể đăng ký mua trực tuyến ngay trên trang Gói Dịch Vụ của website Flora hoặc để lại Số Điện Thoại để nhận mã kích hoạt gói và hướng dẫn sử dụng.
+   - Cạo vôi răng / khám gia đình -> Gợi ý Gói CARE PLUS (999.000đ/năm).
+   - Tẩy trắng răng -> Gợi ý Gói FLORA WHITE UP (1.999.000đ trọn gói kèm cạo vôi).
 {$custom_text}
 EOT;
 
@@ -332,9 +357,13 @@ function flora_ajax_ai_diagnose() {
         wp_send_json_error(array('message' => 'Hệ thống AI chưa được cấu hình API Key. Vui lòng liên hệ quản trị viên.'));
     }
 
-    $system_instruction = flora_build_ai_system_instruction();
+    $rag_settings = function_exists('flora_get_rag_settings') ? flora_get_rag_settings() : array();
+    $temperature  = isset($rag_settings['temperature']) ? (float)$rag_settings['temperature'] : 0.25;
+    $max_tokens   = isset($rag_settings['max_output_tokens']) ? (int)$rag_settings['max_output_tokens'] : 1000;
 
-    // Chuẩn bị Payload gửi đến Google Gemini 3.5 Flash Lite API
+    $system_instruction = flora_build_ai_system_instruction($user_message);
+
+    // Chuẩn bị Payload gửi đến Google Gemini API
     $endpoint = "https://generativelanguage.googleapis.com/v1beta/models/{$model}:generateContent?key={$api_key}";
 
     $payload = array(
@@ -352,9 +381,9 @@ function flora_ajax_ai_diagnose() {
             )
         ),
         'generationConfig' => array(
-            'temperature'     => 0.35,
+            'temperature'     => $temperature,
             'topP'            => 0.9,
-            'maxOutputTokens' => 1000
+            'maxOutputTokens' => $max_tokens
         )
     );
 

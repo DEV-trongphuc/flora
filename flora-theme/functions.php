@@ -8,7 +8,7 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
 
-define('FLORA_VERSION', '2.3.7');
+define('FLORA_VERSION', '2.4.0');
 
 /**
  * 1. Theme Setup
@@ -232,6 +232,8 @@ require_once get_template_directory() . '/inc/pricing-manager.php';
 /**
  * 7c. AI Doctor & Price Advisor (Google Gemini 3.5 Flash Lite)
  */
+require_once get_template_directory() . '/inc/rag-helpers.php';
+require_once get_template_directory() . '/inc/ai-training-manager.php';
 require_once get_template_directory() . '/inc/ai-advisor.php';
 
 /**
