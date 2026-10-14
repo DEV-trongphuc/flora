@@ -621,7 +621,7 @@ function flora_rag_seed_default_knowledge() {
                             'tags'        => $dir_name,
                             'source_type' => 'manual',
                             'parent_id'   => $folder_id,
-                            'status'      => 'pending',
+                            'status'      => 'trained',
                             'is_active'   => 1,
                             'created_at'  => current_time('mysql')
                         ),
@@ -1310,12 +1310,32 @@ function flora_render_ai_training_admin_page() {
         .doc-item-left { display: flex; align-items: center; gap: 12px; flex: 1; }
         .doc-name { font-weight: 600; font-size: 13.5px; color: #1e293b; }
         .doc-tags { font-size: 11px; color: #64748b; background: #e2e8f0; padding: 2px 7px; border-radius: 4px; }
-        .doc-item-meta { display: flex; align-items: center; gap: 14px; }
-        .badge-status { font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 6px; text-transform: uppercase; }
+        .doc-item-meta { display: flex; align-items: center; gap: 10px; }
+        .badge-status { font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 6px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 4px; }
         .badge-trained { background: #dcfce7; color: #15803d; }
         .badge-pending { background: #fef3c7; color: #b45309; }
         .badge-error { background: #fee2e2; color: #b91c1c; }
         .badge-chunks { font-size: 11.5px; color: #475569; font-weight: 600; background: #f1f5f9; padding: 2px 8px; border-radius: 6px; border: 1px solid #e2e8f0; }
+
+        /* Flora Toggle Switch (SaaS iOS Style) */
+        .flora-switch { position: relative; display: inline-block; width: 34px; height: 18px; margin: 0; vertical-align: middle; cursor: pointer; flex-shrink: 0; }
+        .flora-switch input { opacity: 0; width: 0; height: 0; position: absolute; margin: 0; }
+        .flora-slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #cbd5e1; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); border-radius: 20px; }
+        .flora-slider:before { position: absolute; content: ""; height: 12px; width: 12px; left: 3px; bottom: 3px; background-color: white; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); border-radius: 50%; box-shadow: 0 1px 3px rgba(0,0,0,0.25); }
+        .flora-switch input:checked + .flora-slider { background-color: #10b981; }
+        .flora-switch input:checked + .flora-slider:before { transform: translateX(16px); }
+
+        /* Action Button Group (Compact & Segmented) */
+        .flora-action-group { display: inline-flex; align-items: center; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 7px; overflow: hidden; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03); flex-shrink: 0; }
+        .flora-action-group .action-btn { display: inline-flex; align-items: center; justify-content: center; gap: 4px; height: 26px; padding: 0 8px; background: transparent; border: none; border-right: 1px solid #f1f5f9; color: #64748b; font-size: 11.5px; cursor: pointer; transition: all 0.15s ease; line-height: 1; }
+        .flora-action-group .action-btn:last-child { border-right: none; }
+        .flora-action-group .action-btn .dashicons { font-size: 14px; width: 14px; height: 14px; line-height: 14px; }
+        .flora-action-group .action-btn:hover { background: #f8fafc; color: #0493f1; }
+        .flora-action-group .action-btn.action-btn-train { background: #ecfdf5; color: #059669; font-weight: 700; padding: 0 9px; }
+        .flora-action-group .action-btn.action-btn-train:hover { background: #10b981; color: #ffffff; }
+        .flora-action-group .action-btn.btn-preview-chunks:hover { color: #6366f1; background: #eef2ff; }
+        .flora-action-group .action-btn.btn-edit-doc:hover { color: #0284c7; background: #f0f9ff; }
+        .flora-action-group .action-btn.action-btn-danger:hover { color: #ef4444; background: #fef2f2; }
 
         /* Card Box & Sliders Grid */
         .flora-card-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 22px; }
@@ -1482,12 +1502,18 @@ function flora_render_ai_training_admin_page() {
             // Render Folders
             folders.forEach(function(f) {
                 var children = docs.filter(function(d) { return d.parent_id == f.id && d.source_type !== 'folder'; });
+                var pendingChildren = children.filter(function(d) { return d.status !== 'trained'; });
+
                 html += '<div class="folder-group" data-folder-id="' + f.id + '">';
                 html += '  <div class="folder-header">';
                 html += '    <div class="folder-title"><span class="dashicons dashicons-category" style="color: #0493f1;"></span> <span>' + f.name + '</span> <span style="font-size: 11.5px; color: #64748b; font-weight: 500;">(' + children.length + ' tài liệu)</span></div>';
-                html += '    <div style="display: flex; gap: 8px;">';
-                html += '      <button type="button" class="button button-small btn-train-folder" data-id="' + f.id + '" title="Huấn luyện tất cả tài liệu trong thư mục này"><span class="dashicons dashicons-update" style="vertical-align: middle;"></span> Train</button>';
-                html += '      <button type="button" class="button button-small btn-delete-doc" data-id="' + f.id + '" title="Xóa thư mục"><span class="dashicons dashicons-trash" style="vertical-align: middle; color: #ef4444;"></span></button>';
+                html += '    <div style="display: flex; align-items: center; gap: 8px;">';
+                if (pendingChildren.length > 0) {
+                    html += '      <button type="button" class="button button-small btn-train-folder" data-id="' + f.id + '" title="Huấn luyện ' + pendingChildren.length + ' tài liệu chưa train trong thư mục này" style="color: #059669; font-weight: 700; border-color: #a7f3d0; background: #ecfdf5;"><span class="dashicons dashicons-update" style="vertical-align: middle;"></span> Train (' + pendingChildren.length + ')</button>';
+                } else if (children.length > 0) {
+                    html += '      <span class="badge-status badge-trained" style="font-size: 11px; padding: 2px 7px;"><i class="dashicons dashicons-yes-alt" style="font-size: 12px; vertical-align: text-top;"></i> Đã train</span>';
+                }
+                html += '      <button type="button" class="button button-small btn-delete-doc" data-id="' + f.id + '" title="Xóa thư mục" style="color: #ef4444; border-color: #fecaca;"><span class="dashicons dashicons-trash" style="vertical-align: middle;"></span></button>';
                 html += '    </div>';
                 html += '  </div>';
 
@@ -1515,19 +1541,17 @@ function flora_render_ai_training_admin_page() {
         }
 
         function renderDocRow(d) {
+            var isTrained = (d.status === 'trained');
             var statusBadge = '';
-            if (d.status === 'trained') {
-                statusBadge = '<span class="badge-status badge-trained"><i class="dashicons dashicons-yes-alt" style="font-size: 13px; vertical-align: text-top;"></i> Trained</span>';
+            if (isTrained) {
+                statusBadge = '<span class="badge-status badge-trained"><i class="dashicons dashicons-yes-alt" style="font-size: 13px; vertical-align: text-top;"></i> Đã train</span>';
             } else if (d.status === 'error') {
-                statusBadge = '<span class="badge-status badge-error"><i class="dashicons dashicons-warning" style="font-size: 13px; vertical-align: text-top;"></i> Error</span>';
+                statusBadge = '<span class="badge-status badge-error"><i class="dashicons dashicons-warning" style="font-size: 13px; vertical-align: text-top;"></i> Lỗi</span>';
             } else {
-                statusBadge = '<span class="badge-status badge-pending"><i class="dashicons dashicons-clock" style="font-size: 13px; vertical-align: text-top;"></i> Pending</span>';
+                statusBadge = '<span class="badge-status badge-pending"><i class="dashicons dashicons-clock" style="font-size: 13px; vertical-align: text-top;"></i> Chưa train</span>';
             }
 
-            var icon = 'dashicons-media-document';
-            if (d.source_type === 'file') icon = 'dashicons-upload';
-            else if (d.source_type === 'web') icon = 'dashicons-admin-site-alt3';
-
+            var icon = (d.source_type === 'file') ? 'dashicons-upload' : 'dashicons-media-document';
             var isChecked = parseInt(d.is_active, 10) === 1 ? 'checked' : '';
 
             var out = '<div class="doc-item-row" data-doc-id="' + d.id + '">';
@@ -1540,13 +1564,23 @@ function flora_render_ai_training_admin_page() {
             out += '  <div class="doc-item-meta">';
             out += '    <span class="badge-chunks">' + (d.chunk_count || 0) + ' chunks</span>';
             out += '    ' + statusBadge;
-            out += '    <label title="Bật/Tắt sử dụng mẩu tri thức này trong RAG" style="display: flex; align-items: center; margin: 0; cursor: pointer;">';
-            out += '      <input type="checkbox" class="doc-active-toggle" data-id="' + d.id + '" ' + isChecked + ' /> <span style="font-size: 11px; margin-left: 4px; font-weight: 600;">Active</span>';
+
+            // Nút active toggle công tắc
+            out += '    <label class="flora-switch" title="' + (isChecked ? 'Đang kích hoạt tri thức (Bấm để tắt)' : 'Đang tắt tri thức (Bấm để bật)') + '">';
+            out += '      <input type="checkbox" class="doc-active-toggle" data-id="' + d.id + '" ' + isChecked + ' />';
+            out += '      <span class="flora-slider"></span>';
             out += '    </label>';
-            out += '    <button type="button" class="button button-small btn-preview-chunks" data-id="' + d.id + '" data-name="' + d.name + '" title="Xem các phân mảnh"><span class="dashicons dashicons-visibility" style="vertical-align: middle;"></span></button>';
-            out += '    <button type="button" class="button button-small btn-train-single" data-id="' + d.id + '" title="Huấn luyện tài liệu này"><span class="dashicons dashicons-update" style="vertical-align: middle;"></span></button>';
-            out += '    <button type="button" class="button button-small btn-edit-doc" data-id="' + d.id + '" title="Chỉnh sửa"><span class="dashicons dashicons-edit" style="vertical-align: middle;"></span></button>';
-            out += '    <button type="button" class="button button-small btn-delete-doc" data-id="' + d.id + '" title="Xóa"><span class="dashicons dashicons-trash" style="vertical-align: middle; color: #ef4444;"></span></button>';
+
+            // Nhóm action gọn gàng: Nếu chưa train thì hiện Train, train rồi thì thôi
+            out += '    <div class="flora-action-group">';
+            if (!isTrained) {
+                out += '      <button type="button" class="action-btn action-btn-train btn-train-single" data-id="' + d.id + '" title="Huấn luyện vector hóa tài liệu này"><span class="dashicons dashicons-update"></span> Train</button>';
+            }
+            out += '      <button type="button" class="action-btn btn-preview-chunks" data-id="' + d.id + '" data-name="' + d.name + '" title="Xem phân mảnh Chunks"><span class="dashicons dashicons-visibility"></span></button>';
+            out += '      <button type="button" class="action-btn btn-edit-doc" data-id="' + d.id + '" title="Chỉnh sửa nội dung"><span class="dashicons dashicons-edit"></span></button>';
+            out += '      <button type="button" class="action-btn action-btn-danger btn-delete-doc" data-id="' + d.id + '" title="Xóa tài liệu"><span class="dashicons dashicons-trash"></span></button>';
+            out += '    </div>';
+
             out += '  </div>';
             out += '</div>';
             return out;
