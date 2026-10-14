@@ -43,13 +43,27 @@ function flora_ai_training_admin_menu() {
 add_action('admin_menu', 'flora_ai_training_admin_menu');
 
 /**
+ * Tắt toàn bộ thông báo rác / bản quyền từ các plugin khác trên trang Huấn Luyện AI
+ */
+function flora_ai_training_suppress_notices() {
+    $screen = get_current_screen();
+    if ($screen && (strpos($screen->id, 'flora-ai-training') !== false)) {
+        remove_all_actions('admin_notices');
+        remove_all_actions('all_admin_notices');
+        remove_all_actions('user_admin_notices');
+        remove_all_actions('network_admin_notices');
+    }
+}
+add_action('in_admin_header', 'flora_ai_training_suppress_notices', 1);
+
+/**
  * ─────────────────────────────────────────────────────────────────────────────
  * 2. CÁC AJAX ENDPOINTS CHO ADMIN QUẢN LÝ HUẤN LUYỆN
  * ─────────────────────────────────────────────────────────────────────────────
  */
 
 /**
- * 2.1. Lấy danh sách tài liệu và cây thư mục
+ * 2.1. Lấy danh sách tài liệu và cây thư mục (Tự động nạp mẫu hệ thống nếu trống)
  */
 function flora_ajax_rag_list_docs() {
     check_ajax_referer('flora_rag_nonce', 'nonce');
@@ -60,6 +74,12 @@ function flora_ajax_rag_list_docs() {
     global $wpdb;
     $table_docs = $wpdb->prefix . 'flora_ai_training_docs';
     $table_chunks = $wpdb->prefix . 'flora_ai_training_chunks';
+
+    // Tự động nạp kho tri thức mẫu nếu bảng tài liệu đang trống
+    $count = $wpdb->get_var("SELECT COUNT(*) FROM $table_docs");
+    if (empty($count) || intval($count) === 0) {
+        flora_rag_seed_default_knowledge();
+    }
 
     $docs = $wpdb->get_results("SELECT d.*, COUNT(c.id) as chunk_count 
         FROM $table_docs d 
@@ -514,39 +534,40 @@ function flora_ajax_rag_train_docs() {
 add_action('wp_ajax_flora_rag_train_docs', 'flora_ajax_rag_train_docs');
 
 /**
- * 2.9. Nạp Kho Tri Thức Mẫu (Seed Default Knowledge Base)
+ * 2.9. Nạp Kho Tri Thức Mẫu Từ Thư Mục Hệ Thống và Tự Động Phân Mảnh (Chunks)
  */
-function flora_ajax_rag_seed_knowledge() {
-    check_ajax_referer('flora_rag_nonce', 'nonce');
-    if (!current_user_can('manage_options')) {
-        wp_send_json_error(array('message' => 'Bạn không có quyền thực hiện.'));
-    }
-
+function flora_rag_seed_default_knowledge() {
     $kb_dir = get_template_directory() . '/knowledge_base';
     if (!is_dir($kb_dir)) {
         $kb_dir = dirname(dirname(dirname(__DIR__))) . '/knowledge_base';
     }
     if (!is_dir($kb_dir)) {
-        $kb_dir = get_template_directory() . '/../../knowledge_base';
+        $kb_dir = dirname(get_template_directory()) . '/../knowledge_base';
     }
 
     if (!is_dir($kb_dir)) {
-        wp_send_json_error(array('message' => 'Không tìm thấy thư mục knowledge_base trong dự án.'));
+        return array('success' => false, 'message' => 'Không tìm thấy thư mục knowledge_base trong theme.');
     }
 
     global $wpdb;
     $table_docs = $wpdb->prefix . 'flora_ai_training_docs';
+    $table_chunks = $wpdb->prefix . 'flora_ai_training_chunks';
 
     $folder_map = array(
-        '01_bang_gia_dich_vu'          => 'Bảng Giá & Chi Phí Điều Trị',
-        '02_goi_dich_vu_va_voucher'    => 'Gói Dịch Vụ Khám & Voucher Ưu Đãi',
-        '03_chinh_sach_va_bao_hanh'    => 'Chính Sách Bảo Hành & Trả Góp',
-        '04_chuyen_mon_va_bac_si'      => 'Đội Ngũ Bác Sĩ & Công Nghệ Thụy Sĩ',
-        '05_kich_ban_tu_van_va_cham_soc'=> 'Kịch Bản Tư Vấn & Quy Tắc Y Khoa'
+        '01_bang_gia_dich_vu'           => 'Bảng Giá & Chi Phí Điều Trị',
+        '02_goi_dich_vu_va_voucher'     => 'Gói Dịch Vụ Khám & Voucher Ưu Đãi',
+        '03_chinh_sach_va_bao_hanh'     => 'Chính Sách Bảo Hành & Trả Góp',
+        '04_chuyen_mon_va_bac_si'       => 'Đội Ngũ Bác Sĩ & Công Nghệ Thụy Sĩ',
+        '05_kich_ban_tu_van_va_cham_soc' => 'Kịch Bản Tư Vấn & Quy Tắc Y Khoa'
     );
 
     $imported_folders = 0;
     $imported_docs = 0;
+    $created_chunks = 0;
+
+    $settings = flora_get_rag_settings();
+    $chunk_size = !empty($settings['chunk_size']) ? intval($settings['chunk_size']) : 700;
+    $chunk_overlap = !empty($settings['chunk_overlap']) ? intval($settings['chunk_overlap']) : 150;
 
     foreach ($folder_map as $dir_name => $folder_label) {
         $sub_dir = $kb_dir . '/' . $dir_name;
@@ -590,8 +611,8 @@ function flora_ajax_rag_seed_knowledge() {
                 }
 
                 // Kiểm tra xem đã nạp chưa
-                $exists = $wpdb->get_var($wpdb->prepare("SELECT id FROM $table_docs WHERE name = %s AND parent_id = %d LIMIT 1", $title, $folder_id));
-                if (!$exists) {
+                $doc_id = $wpdb->get_var($wpdb->prepare("SELECT id FROM $table_docs WHERE name = %s AND parent_id = %d LIMIT 1", $title, $folder_id));
+                if (!$doc_id) {
                     $wpdb->insert(
                         $table_docs,
                         array(
@@ -606,15 +627,55 @@ function flora_ajax_rag_seed_knowledge() {
                         ),
                         array('%s', '%s', '%s', '%s', '%d', '%s', '%d', '%s')
                     );
+                    $doc_id = $wpdb->insert_id;
                     $imported_docs++;
+                } else {
+                    $doc_id = intval($doc_id);
+                }
+
+                // Tự động phân mảnh Chunks cho tài liệu nếu chưa có Chunks
+                $chunk_count = $wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM $table_chunks WHERE doc_id = %d", $doc_id));
+                if (empty($chunk_count) || intval($chunk_count) === 0) {
+                    $chunks = flora_chunk_text($content, $chunk_size, $chunk_overlap);
+                    foreach ($chunks as $c_idx => $c_text) {
+                        $wpdb->insert(
+                            $table_chunks,
+                            array(
+                                'doc_id'      => $doc_id,
+                                'chunk_index' => $c_idx,
+                                'content'     => $c_text,
+                                'created_at'  => current_time('mysql')
+                            ),
+                            array('%d', '%d', '%s', '%s')
+                        );
+                        $created_chunks++;
+                    }
                 }
             }
         }
     }
 
-    wp_send_json_success(array(
-        'message' => "Đã đồng bộ thành công $imported_folders thư mục và $imported_docs tài liệu tri thức mẫu từ hệ thống! Giờ bạn có thể bấm 'Huấn Luyện Tất Cả' để vector hóa."
-    ));
+    return array(
+        'success'          => true,
+        'imported_folders' => $imported_folders,
+        'imported_docs'    => $imported_docs,
+        'created_chunks'   => $created_chunks,
+        'message'          => "Đã nạp thành công $imported_folders thư mục, $imported_docs tài liệu tri thức và tạo $created_chunks phân mảnh (chunks) chuẩn bị huấn luyện!"
+    );
+}
+
+function flora_ajax_rag_seed_knowledge() {
+    check_ajax_referer('flora_rag_nonce', 'nonce');
+    if (!current_user_can('manage_options')) {
+        wp_send_json_error(array('message' => 'Bạn không có quyền thực hiện.'));
+    }
+
+    $res = flora_rag_seed_default_knowledge();
+    if ($res['success']) {
+        wp_send_json_success(array('message' => $res['message']));
+    } else {
+        wp_send_json_error(array('message' => $res['message']));
+    }
 }
 add_action('wp_ajax_flora_rag_seed_knowledge', 'flora_ajax_rag_seed_knowledge');
 
@@ -753,6 +814,14 @@ add_action('wp_ajax_flora_rag_test_query', 'flora_ajax_rag_test_query');
 function flora_render_ai_training_admin_page() {
     $nonce = wp_create_nonce('flora_rag_nonce');
     $settings = flora_get_rag_settings();
+
+    // Tự động nạp mẫu hệ thống nếu CSDL chưa có dữ liệu
+    global $wpdb;
+    $table_docs = $wpdb->prefix . 'flora_ai_training_docs';
+    $existing_count = $wpdb->get_var("SELECT COUNT(*) FROM $table_docs");
+    if (empty($existing_count) || intval($existing_count) === 0) {
+        flora_rag_seed_default_knowledge();
+    }
     ?>
     <div class="wrap flora-rag-admin-wrap">
         <!-- Header Banner -->
@@ -762,7 +831,7 @@ function flora_render_ai_training_admin_page() {
                 <p class="description">Quản lý kho tri thức nha khoa, bóc tách tài liệu Word (.docx), PDF, Text, cắt lát phân mảnh (chunking) và vector hóa embeddings cho Bác Sĩ AI.</p>
             </div>
             <div class="flora-header-actions">
-                <button type="button" class="button button-secondary" id="btn-seed-knowledge" title="Nạp sẵn bộ bảng giá, gói khám, bảo hành và hồ sơ bác sĩ từ thư mục hệ thống">
+                <button type="button" class="button button-secondary" id="btn-seed-knowledge" title="Nạp lại bộ bảng giá, gói khám, bảo hành và hồ sơ bác sĩ từ thư mục hệ thống">
                     <span class="dashicons dashicons-download" style="vertical-align: middle;"></span> Nạp Tri Thức Mẫu
                 </button>
                 <button type="button" class="button button-primary button-hero" id="btn-train-all-docs" style="margin-left: 10px;">
@@ -829,9 +898,6 @@ function flora_render_ai_training_admin_page() {
                             </button>
                             <button type="button" class="button" id="btn-open-upload-modal">
                                 <span class="dashicons dashicons-upload" style="vertical-align: middle;"></span> Tải File (.docx, .pdf, .txt)
-                            </button>
-                            <button type="button" class="button" id="btn-open-web-modal">
-                                <span class="dashicons dashicons-admin-site-alt3" style="vertical-align: middle;"></span> Nạp Link Web
                             </button>
                             <button type="button" class="button" id="btn-open-folder-modal">
                                 <span class="dashicons dashicons-category" style="vertical-align: middle;"></span> Tạo Thư Mục
@@ -1148,41 +1214,8 @@ function flora_render_ai_training_admin_page() {
                     <button type="button" class="button button-primary" id="btn-upload-file-submit">Tải Lên & Bóc Tách Text</button>
                 </div>
             </div>
-        </div>
 
-        <!-- Modal 3: Nạp Link Web -->
-        <div id="modal-web-crawl" class="flora-modal-backdrop" style="display: none;">
-            <div class="flora-modal-box">
-                <div class="flora-modal-header">
-                    <h3>Thu Thập Tri Thức Từ Link Web / URL</h3>
-                    <button type="button" class="flora-modal-close">&times;</button>
-                </div>
-                <div class="flora-modal-body">
-                    <form id="form-web-crawl">
-                        <div class="form-group">
-                            <label for="web-crawl-title">Tiêu Đề Trang <span style="color: #ef4444;">*</span></label>
-                            <input type="text" id="web-crawl-title" class="large-text" placeholder="Ví dụ: Giới thiệu công nghệ Implant Thụy Sĩ trên Website" required />
-                        </div>
-                        <div class="form-group">
-                            <label for="web-crawl-url">Đường Dẫn URL Website <span style="color: #ef4444;">*</span></label>
-                            <input type="url" id="web-crawl-url" class="large-text" placeholder="https://nhakhoaflora.com/implant/" required />
-                        </div>
-                        <div class="form-group">
-                            <label for="web-crawl-parent">Thư Mục Nhóm</label>
-                            <select id="web-crawl-parent" style="width: 100%;">
-                                <option value="0">-- Thư mục gốc --</option>
-                            </select>
-                        </div>
-                    </form>
-                </div>
-                <div class="flora-modal-footer">
-                    <button type="button" class="button button-secondary flora-modal-close">Hủy Bỏ</button>
-                    <button type="button" class="button button-primary" id="btn-web-crawl-submit">Crawl & Lưu Tri Thức</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modal 4: Tạo Thư Mục Nhóm -->
+        <!-- Modal 3: Tạo Thư Mục Nhóm -->
         <div id="modal-create-folder" class="flora-modal-backdrop" style="display: none;">
             <div class="flora-modal-box" style="max-width: 480px;">
                 <div class="flora-modal-header">
@@ -1223,8 +1256,22 @@ function flora_render_ai_training_admin_page() {
          ADMIN STYLES (LUXURY SAAS MATCHING FLORA CUSTOMIZER)
          ───────────────────────────────────────────── -->
     <style>
+        /* Ẩn triệt để toàn bộ thông báo của các plugin khác làm bẩn giao diện Huấn Luyện AI */
+        .toplevel_page_flora-ai-training #wpbody-content > .notice:not(#flora-rag-notice),
+        .toplevel_page_flora-ai-training #wpbody-content > .updated:not(#flora-rag-notice),
+        .toplevel_page_flora-ai-training #wpbody-content > .update-nag,
+        .toplevel_page_flora-ai-training #wpbody-content > .error:not(#flora-rag-notice),
+        .toplevel_page_flora-ai-training .is-dismissible:not(#flora-rag-notice),
+        .toplevel_page_flora-ai-training div[class*="ilj"],
+        .toplevel_page_flora-ai-training div[class*="notice"]:not(#flora-rag-notice),
+        div.ilj-notice,
+        .flora-rag-admin-wrap ~ div.notice,
+        .flora-rag-admin-wrap .notice:not(#flora-rag-notice) {
+            display: none !important;
+        }
+
         .flora-rag-admin-wrap { max-width: 1250px; margin-top: 20px; font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-        .flora-rag-header { display: flex; justify-content: space-between; align-items: center; background: #ffffff; padding: 22px 28px; border-radius: 14px; border: 1px solid #e2e8f0; box-shadow: 0 4px 15px rgba(0,0,0,0.03); margin-bottom: 22px; }
+        .flora-rag-header { display: flex; justify-content: space-between; align-items: center; background: #ffffff; padding: 22px 28px; border-radius: 14px; border: 1px solid #e2e8f0; box-shadow: 0 4px 15px rgba(0,0,0,0.03); margin-bottom: 22px; position: relative; }
         .flora-rag-header h1 { margin: 0 0 6px 0; font-size: 21px; font-weight: 800; color: #0033a3; letter-spacing: -0.3px; }
         .flora-rag-header p { margin: 0; color: #64748b; font-size: 13.5px; }
 
@@ -1329,6 +1376,9 @@ function flora_render_ai_training_admin_page() {
          ───────────────────────────────────────────── -->
     <script>
     jQuery(document).ready(function($) {
+        // Loại bỏ triệt để các thông báo rác / hết hạn bản quyền của các plugin khác
+        $('.notice:not(#flora-rag-notice), .update-nag, .updated:not(#flora-rag-notice), .ilj-notice').remove();
+
         var nonce = '<?php echo $nonce; ?>';
         var allDocs = [];
 
@@ -1409,7 +1459,7 @@ function flora_render_ai_training_admin_page() {
                     opts += '<option value="' + d.id + '">' + d.name + '</option>';
                 }
             });
-            $('#edit-doc-parent, #upload-file-parent, #web-crawl-parent').html(opts);
+            $('#edit-doc-parent, #upload-file-parent').html(opts);
         }
 
         // Render Tree Hierarchy
@@ -1518,11 +1568,6 @@ function flora_render_ai_training_admin_page() {
             $('#modal-file-upload').fadeIn(150);
         });
 
-        $('#btn-open-web-modal').on('click', function() {
-            $('#form-web-crawl')[0].reset();
-            $('#modal-web-crawl').fadeIn(150);
-        });
-
         $('#btn-open-folder-modal').on('click', function() {
             $('#folder-name-input').val('');
             $('#modal-create-folder').fadeIn(150);
@@ -1607,40 +1652,7 @@ function flora_render_ai_training_admin_page() {
             });
         });
 
-        // 7. Submit Web Crawl
-        $('#btn-web-crawl-submit').on('click', function() {
-            var title = $('#web-crawl-title').val().trim();
-            var url = $('#web-crawl-url').val().trim();
-            var parentId = $('#web-crawl-parent').val();
-
-            if (!title || !url) {
-                alert('Vui lòng nhập đầy đủ tiêu đề và link URL.');
-                return;
-            }
-
-            var $btn = $(this).prop('disabled', true).text('Đang crawl...');
-            $.post(ajaxurl, {
-                action: 'flora_rag_save_doc',
-                nonce: nonce,
-                doc_id: 0,
-                name: title,
-                content: url,
-                source_type: 'web',
-                parent_id: parentId,
-                tags: 'web_crawl'
-            }, function(res) {
-                $btn.prop('disabled', false).text('Crawl & Lưu Tri Thức');
-                if (res.success) {
-                    $('#modal-web-crawl').fadeOut(150);
-                    showNotice(res.data.message, 'success');
-                    loadDocsList();
-                } else {
-                    alert(res.data ? res.data.message : 'Lỗi crawl');
-                }
-            });
-        });
-
-        // 8. Create Folder
+        // 7. Create Folder
         $('#btn-create-folder-submit').on('click', function() {
             var name = $('#folder-name-input').val().trim();
             if (!name) {
